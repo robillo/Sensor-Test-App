@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.appbusters.robinkamboj.senseitall.view.MainActivity">
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AVLoadingIndicatorView.Large"
+        android:visibility="visible"
+        app:indicatorName="LineScaleIndicator"
+        app:indicatorColor="@color/colorAccent"/>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AVLoadingIndicatorView.Large"
+        android:visibility="invisible"
+        app:indicatorName="SquareSpinIndicator"
+        app:indicatorColor="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Please Wait"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="22sp"
+        android:layout_marginTop="30sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/textView1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5sp"
+        android:text="While We Analyze Your Device For Sensors"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/textView2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:text="NEXT STEP"
+        android:id="@+id/button"
+        android:onClick="onClick"
+        android:paddingLeft="30sp"
+        android:paddingRight="30sp"
+        android:visibility="gone"
+        android:textColor="@color/colorWhiteShade"
+        android:backgroundTint="@color/colorAccent"/>
+
+</LinearLayout>
