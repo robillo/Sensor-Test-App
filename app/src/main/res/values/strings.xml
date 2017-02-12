@@ -1,3 +1,39 @@
 <resources>
     <string name="app_name">Sense It All!</string>
+
+    <string-array name="sensors_list">
+        <item>Main Camera</item>
+        <item>Secondary Camera</item>
+        <item>GPS</item>
+        <item>WiFi</item>
+        <item>Bluetooth</item>
+        <item>GSM/UMTS</item>
+        <item>Accelerometers</item>
+        <item>Compass</item>
+        <item>Radio</item>
+        <item>Screen</item>
+        <item>Battery</item>
+        <item>CPU</item>
+        <item>Sound</item>
+        <item>Vibrator</item>
+        <item>Microphone</item>
+        <item>USB</item>
+        <item>Audio/Video outputs</item>
+        <item>Android OS</item>
+        <item>Light Sensor</item>
+        <item>Proximity Sensor</item>
+        <item>Temperature Sensor</item>
+        <item>Pressure Sensor</item>
+        <item>Relative Humidity</item>
+        <item>Flash</item>
+        <item>NFC</item>
+        <item>ANT+</item>
+        <item>Gyroscope</item>
+        <item>Gravity</item>
+        <item>Linear Acceleraton</item>
+        <item>Rotaation Vector</item>
+        <item>Infrared</item>
+        <item>Step Detector</item>
+        <item>Step Counter</item>
+    </string-array>
 </resources>
