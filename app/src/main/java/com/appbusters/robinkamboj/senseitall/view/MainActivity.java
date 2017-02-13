@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     AVLoadingIndicatorView avi,avi_2;
     TextView textView1, textView2;
     Button button;
-    boolean isPresent[];
+    boolean[] isPresent;
     PackageManager packageManager;
 
     @Override
@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 String[] sensors = getResources().getStringArray(R.array.sensors_list);
                 isPresent = isSensorPresent(sensors,mySensonList);
 
+                Log.e("ROBIN:" , Boolean.toString(isPresent[0]) + " " + Boolean.toString(isPresent[1]));
+
                 button.setVisibility(View.VISIBLE);
                 avi.hide();
                 avi_2.show();
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()){
             case R.id.button:{
                 Intent i = new Intent(this, ListActivity.class);
+                i.putExtra("sensors_present", isPresent);
                 startActivity(i);
                 break;
             }
@@ -256,10 +259,6 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)){
             isPresent[41] = true;
         }
-
-
-
-
 
         return isPresent;
     }

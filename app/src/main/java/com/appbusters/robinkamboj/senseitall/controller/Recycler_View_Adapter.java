@@ -19,6 +19,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
     Context context, _context;
     int _position;
     View_Holder _holder;
+    public Boolean isPresent[];
 
     public Recycler_View_Adapter(List<Data> list, Context context) {
         this.list = list;

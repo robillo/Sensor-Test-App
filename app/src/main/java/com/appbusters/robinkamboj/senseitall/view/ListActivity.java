@@ -1,9 +1,11 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,11 +21,16 @@ public class ListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<Data> data;
     String[] sensors_list;
+    boolean[] isPresent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        isPresent = (boolean[]) getIntent().getSerializableExtra("sensors_present");
+
+        Log.e("ROBIN:" , Boolean.toString(isPresent[0]) + " " + Boolean.toString(isPresent[1]));
 
         sensors_list = getResources().getStringArray(R.array.sensors_list);
         data = fillWithData();
@@ -40,7 +47,7 @@ public class ListActivity extends AppCompatActivity {
         List<Data> data = new ArrayList<>();
 
         for(int i = 1; i <= sensors_list.length; i++){
-            data.add(new Data(sensors_list[i-1], R.drawable.test));
+            data.add(new Data(sensors_list[i-1], R.drawable.test, isPresent[i-1]));
         }
 
         return data;
