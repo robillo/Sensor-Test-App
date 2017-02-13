@@ -112,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
     boolean[] isSensorPresent(String[] sensors, List<Sensor> sensorList){
 
+        //TODO : ADD COMMENTED SENSORCHECKS.
+
         packageManager = getPackageManager();
         boolean[] isPresent = new boolean[sensors.length];
 
@@ -254,6 +256,8 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)){
             isPresent[41] = true;
         }
+
+
 
 
 
