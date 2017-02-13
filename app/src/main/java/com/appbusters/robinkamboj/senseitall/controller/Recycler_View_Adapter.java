@@ -39,6 +39,9 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
         _holder = holder;
         holder.sensor_name.setText(list.get(_position).getSensor_name());
         holder.sensor_imageview.setImageResource(list.get(_position).getDrawable());
+        if(!list.get(_position).isPresent){
+            holder.sensor_imageview.setBackgroundColor(_context.getResources().getColor(R.color.colorAccent));
+        }
         holder.setClickListener(new ItemClickListener() {
             @Override
             public void onCLick(View v, int position, boolean isLongClick) {

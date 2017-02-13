@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.model;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
     public TextView sensor_name;
     public ImageView sensor_imageview;
+    public CardView cardView;
     ItemClickListener clickListener;
     Context context;
 
@@ -22,6 +24,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
         sensor_name = (TextView) itemView.findViewById(R.id.textView);
         sensor_imageview = (ImageView) itemView.findViewById(R.id.imageView);
+        cardView = (CardView) itemView.findViewById(R.id.cardView);
 
         context = itemView.getContext();
         itemView.setOnClickListener(this);
