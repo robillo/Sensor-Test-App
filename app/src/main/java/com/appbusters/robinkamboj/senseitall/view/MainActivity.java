@@ -1,9 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     AVLoadingIndicatorView avi,avi_2;
     TextView textView1, textView2;
     Button button;
+    boolean isPresent[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +36,20 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                String[] sensors = getResources().getStringArray(R.array.sensors_list);
+                isPresent = new boolean[33];
+
+                for(int i=0;i<sensors.length;i++){
+                    if(isSensorPresent(sensors[i])){
+                        isPresent[i] = true;
+                    }
+                }
                 button.setVisibility(View.VISIBLE);
                 avi.hide();
                 avi_2.show();
                 textView1.setText("Done With Analyzing!");
-                textView2.setText("Move To Tne Next Step?");
+                textView2.setText("Move To The Next Step?");
+
             }
         }, 5000);
     }
@@ -89,5 +99,10 @@ public class MainActivity extends AppCompatActivity {
     void stopAnim(){
         avi.hide();
         // or avi.smoothToHide();
+    }
+
+    boolean isSensorPresent(String sensor){
+        //TODO: I will be adding the code for this soon
+        return false;
     }
 }

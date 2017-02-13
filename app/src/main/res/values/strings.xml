@@ -31,7 +31,7 @@
         <item>Gyroscope</item>
         <item>Gravity</item>
         <item>Linear Acceleraton</item>
-        <item>Rotaation Vector</item>
+        <item>Rotation Vector</item>
         <item>Infrared</item>
         <item>Step Detector</item>
         <item>Step Counter</item>
