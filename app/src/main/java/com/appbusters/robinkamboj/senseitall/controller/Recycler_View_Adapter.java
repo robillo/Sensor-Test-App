@@ -19,7 +19,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
     Context context, _context;
     int _position;
     View_Holder _holder;
-    public Boolean isPresent[];
+    public Boolean[] isPresent;
 
     public Recycler_View_Adapter(List<Data> list, Context context) {
         this.list = list;
@@ -40,7 +40,8 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
         holder.sensor_name.setText(list.get(_position).getSensor_name());
         holder.sensor_imageview.setImageResource(list.get(_position).getDrawable());
         if(!list.get(_position).isPresent){
-            holder.sensor_imageview.setBackgroundColor(_context.getResources().getColor(R.color.colorAccent));
+            holder.sensor_imageview.setBackgroundColor(_context.getResources().getColor(R.color.colorBlackShade));
+            holder.cardView.setClickable(false);
         }
         holder.setClickListener(new ItemClickListener() {
             @Override
