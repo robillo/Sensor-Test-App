@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.model;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
+import com.appbusters.robinkamboj.senseitall.view.CameraActivity;
 
 public class View_Holder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
@@ -44,5 +46,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
     public boolean onLongClick(View view) {
         clickListener.onCLick(itemView, getAdapterPosition(), true);
         return false;
+    }
+
+    public void intent(){
+        Intent i = new Intent(context, CameraActivity.class);
+        context.startActivity(i);
     }
 }

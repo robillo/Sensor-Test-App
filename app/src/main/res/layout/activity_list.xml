@@ -7,14 +7,26 @@
     android:layout_height="match_parent"
     tools:context="com.appbusters.robinkamboj.senseitall.view.ListActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:elevation="@dimen/app_bar_elevation"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:elevation="@dimen/app_bar_elevation"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </android.support.v7.widget.Toolbar>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:padding="4sp"
+                android:textColor="@color/colorWhiteShade"
+                android:text="Sense It All!"
+                android:fontFamily="sans-serif-smallcaps"/>
+
+        </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
@@ -22,6 +34,5 @@
         android:id="@+id/recyclerView">
 
     </android.support.v7.widget.RecyclerView>
-
 
 </LinearLayout>

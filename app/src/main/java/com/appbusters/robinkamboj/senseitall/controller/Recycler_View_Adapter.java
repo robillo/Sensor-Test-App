@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
     }
 
     @Override
-    public void onBindViewHolder(View_Holder holder, int position) {
+    public void onBindViewHolder(final View_Holder holder, int position) {
         _position = position;
         _holder = holder;
         holder.sensor_name.setText(list.get(_position).getSensor_name());
@@ -47,10 +48,10 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
             @Override
             public void onCLick(View v, int position, boolean isLongClick) {
                 if(isLongClick){
-
+                    holder.intent();
                 }
                 else {
-
+                    holder.intent();
                 }
             }
         });
