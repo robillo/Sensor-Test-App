@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.FeatureInfo;
@@ -7,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.hardware.ConsumerIrManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     boolean[] isPresent;
     PackageManager packageManager;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        context = getApplicationContext();
         textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
         button = (Button) findViewById(R.id.button);
@@ -243,8 +247,19 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE_ECG)){
             isPresent[39] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)){
-            isPresent[40] = true;
+        // Check if we're running on Android 6.0 (M) or higher
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //Fingerprint API only available on from Android 6.0 (M)
+            FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+            if (!fingerprintManager.isHardwareDetected()) {
+                // Device doesn't support fingerprint authentication
+            } else if (!fingerprintManager.hasEnrolledFingerprints()) {
+                // User hasn't enrolled any fingerprints to authenticate with
+                isPresent[40]=true;
+            } else {
+                // Everything is ready for fingerprint authentication
+                isPresent[40]=true;
+            }
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)){
             isPresent[41] = true;
