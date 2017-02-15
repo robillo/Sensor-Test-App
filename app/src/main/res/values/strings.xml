@@ -36,8 +36,8 @@
         <item>Step Detector</item>
         <item>Step Counter</item>
         <item>Fake Touch</item>
-        <item>Storage Optimizer</item>
-        <item>Voice Recognizer</item>
+        <item>Motion Detector</item>
+        <item>Stationary Detector</item>
         <item>Multi Touch</item>
         <item>WiFi Direct</item>
         <item>Barometer</item>
@@ -45,6 +45,7 @@
         <item>ECG Sensor</item>
         <item>Fingerprint</item>
         <item>NFC</item>
+        <item>Magnetic Field Sensor</item>
 
     </string-array>
 </resources>

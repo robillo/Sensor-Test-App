@@ -1,17 +1,18 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
+import android.hardware.ConsumerIrManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -89,17 +90,22 @@ public class MainActivity extends AppCompatActivity {
 
     boolean[] isSensorPresent(String[] sensors, List<Sensor> sensorList){
 
-        //TODO : ADD COMMENTED SENSORCHECKS.
-
+        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         packageManager = getPackageManager();
         boolean[] isPresent = new boolean[sensors.length];
 
         HashMap<String,Boolean> map  = new HashMap<>();
+        List<ApplicationInfo> pm = getPackageManager().getInstalledApplications(PackageManager.GET_ACTIVITIES|PackageManager.GET_PROVIDERS);
 
-//        for(Sensor sensor1: sensorList){
-//            map.put(sensor1.getName(),false);
-//            Log.d(TAG, "HashMap: "+sensor1.getName());
-//        }
+        ConsumerIrManager infrared = (ConsumerIrManager) getSystemService(CONSUMER_IR_SERVICE);
+
+        for(ApplicationInfo ai:pm){
+            Log.d(TAG, "INSTALLED APP: "+ai.toString());
+        }
+        for(Sensor sensor1: sensorList){
+            map.put(sensor1.getName(),false);
+            Log.d(TAG, "HashMap: "+sensor1.getName());
+        }
         for(FeatureInfo featureInfo :packageManager.getSystemAvailableFeatures()){
             map.put(featureInfo.toString(),false);
             Log.d(TAG, "FEATURE INFO: "+featureInfo.toString());
@@ -124,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
             isPresent[4] = true;
         }
 
+
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TELEPHONY_GSM)){
             isPresent[5] = true;
         }
@@ -133,22 +140,24 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS)){
             isPresent[7] = true;
         }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_RADIO)){
-//            isPresent[8] = true;
-//        }
+        if(getPackageManager().getInstalledApplications(PackageManager.GET_ACTIVITIES).contains("fm")){
+            isPresent[8] = true;
+        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN)){
             isPresent[9] = true;
         }
             isPresent[10] = true;
 //        if(packageManager.hasSystemFeature(PackageManager.FEATURE_CPU)){
-//            isPresent[11] = true;
+            isPresent[11] = true;
 //        }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SOUND)){
-//            isPresent[12] = true;
-//        }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_VIBRATOR)){
-//            isPresent[13] = true;
-//        }
+        if(packageManager.hasSystemFeature(PackageManager.FEATURE_MIDI)){
+            isPresent[12] = true;
+        }
+        Vibrator v = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+
+        if(v.hasVibrator()){
+            isPresent[13] = true;
+        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)){
             isPresent[14] = true;
         }
@@ -170,9 +179,9 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_AMBIENT_TEMPERATURE)){
             isPresent[20] = true;
         }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_PRESSURE)){
-//            isPresent[21] = true;
-//        }
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)!=null){
+            isPresent[21] = true;
+        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_RELATIVE_HUMIDITY)){
             isPresent[22] = true;
         }
@@ -180,23 +189,30 @@ public class MainActivity extends AppCompatActivity {
             isPresent[23] = true;
         }
 //        if(packageManager.hasSystemFeature(PackageManager.FEATURE_ANT+)){
-//            isPresent[24] = true;
+            isPresent[24] = false;
 //        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE)){
             isPresent[25] = true;
         }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_GRAVITY)){
-//            isPresent[26] = true;
-//        }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_LINEARACC)){
-//            isPresent[27] = true;
-//        }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_ROTATION)){
-//            isPresent[28] = true;
-//        }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_INFRARED)){
-//            isPresent[29] = true;
-//        }
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)!=null){
+            isPresent[26] = true;
+        }
+//        Sensor acc = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//        Sensor pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
+//        Sensor grav = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+//        Log.d(TAG, "ACC: "+acc);
+//        Log.d(TAG, "PRESSURE"+pressure);
+//        Log.d(TAG, "GRAVITY: "+grav);
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)!=null){
+            isPresent[27] = true;
+        }
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)!=null){
+            isPresent[28] = true;
+        }
+
+        if(infrared.hasIrEmitter()){
+            isPresent[29] = true;
+        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR)){
             isPresent[30] = true;
         }
@@ -206,12 +222,12 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_FAKETOUCH)){
             isPresent[32] = true;
         }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_STORAGEOPT)){
-//            isPresent[33] = true;
-//        }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_VOICERECOG)){
-//            isPresent[34] = true;
-//        }
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_MOTION_DETECT)!=null){
+            isPresent[33] = true;
+        }
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_STATIONARY_DETECT)!=null){
+            isPresent[34] = true;
+        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN_MULTITOUCH)){
             isPresent[35] = true;
         }
@@ -233,6 +249,10 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)){
             isPresent[41] = true;
         }
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!=null){
+            isPresent[42] = true;
+        }
+
 
         return isPresent;
     }
