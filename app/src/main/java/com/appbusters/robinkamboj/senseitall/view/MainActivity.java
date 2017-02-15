@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS)){
             isPresent[7] = true;
         }
-        if(getPackageManager().getInstalledApplications(PackageManager.GET_ACTIVITIES).contains("fm")){
+        if(Build.getRadioVersion()!="unknown"|| Build.getRadioVersion()!=null){
             isPresent[8] = true;
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN)){
