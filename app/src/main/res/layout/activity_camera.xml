@@ -11,7 +11,16 @@
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sense It All!"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:gravity="center"/>
 
     </android.support.v7.widget.Toolbar>
 
