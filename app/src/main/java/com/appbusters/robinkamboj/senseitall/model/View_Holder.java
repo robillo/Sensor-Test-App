@@ -48,8 +48,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
         return false;
     }
 
-    public void intent(){
+    public void intent(String sensorName){
         Intent i = new Intent(context, CameraActivity.class);
+        i.putExtra("sensorName", sensorName);
         context.startActivity(i);
     }
 }

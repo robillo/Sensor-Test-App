@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.Data;
@@ -63,10 +64,20 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
             @Override
             public void onCLick(View v, int position, boolean isLongClick) {
                 if(isLongClick){
-                    holder.intent();
+                    if(list.get(position).isPresent){
+                        holder.intent(list.get(position).sensor_name);
+                        Log.e("ROBIN", list.get(position).sensor_name);
+                    }
+                    else {
+                        Toast.makeText(context, list.get(position).sensor_name + " is not present in your device", Toast.LENGTH_SHORT).show();                    }
                 }
                 else {
-                    holder.intent();
+                    if(list.get(position).isPresent){
+                        holder.intent(list.get(position).sensor_name);
+                        Log.e("ROBIN", list.get(position).sensor_name);
+                    }
+                    else {
+                        Toast.makeText(context, list.get(position).sensor_name + " is not present in your device", Toast.LENGTH_SHORT).show();                    }
                 }
             }
         });

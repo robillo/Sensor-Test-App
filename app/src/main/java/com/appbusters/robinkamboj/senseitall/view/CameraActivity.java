@@ -1,19 +1,29 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
 public class CameraActivity extends AppCompatActivity {
 
+    String sensor_name;
+    TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+
+        Intent i = getIntent();
+        sensor_name = i.getStringExtra("sensorName");
+        textView = (TextView) findViewById(R.id.textView);
+        textView.setText(sensor_name);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
