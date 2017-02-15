@@ -65,7 +65,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
             public void onCLick(View v, int position, boolean isLongClick) {
                 if(isLongClick){
                     if(list.get(position).isPresent){
-                        holder.intent(list.get(position).sensor_name);
+                        holder.intent(list.get(position).sensor_name, position);
                         Log.e("ROBIN", list.get(position).sensor_name);
                     }
                     else {
@@ -73,7 +73,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
                 }
                 else {
                     if(list.get(position).isPresent){
-                        holder.intent(list.get(position).sensor_name);
+                        holder.intent(list.get(position).sensor_name, position);
                         Log.e("ROBIN", list.get(position).sensor_name);
                     }
                     else {
