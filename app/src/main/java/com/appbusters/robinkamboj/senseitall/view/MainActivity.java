@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -13,7 +14,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -34,13 +37,21 @@ public class MainActivity extends AppCompatActivity {
     boolean[] isPresent;
     PackageManager packageManager;
     Context context;
+    private static final int ALL_MY_PERMISSIONS = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        context = getApplicationContext();
+        String[] permissions={Manifest.permission.WRITE_CONTACTS, Manifest.permission.READ_CONTACTS,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_SMS, Manifest.permission.CAMERA};
+
+        if(!hasPermissions(this, permissions)){
+            ActivityCompat.requestPermissions(this, permissions, ALL_MY_PERMISSIONS);
+        }
+
+    context = getApplicationContext();
         textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
         button = (Button) findViewById(R.id.button);
@@ -68,6 +79,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, 5000);
+    }
+
+    //Permissions Helper Method
+    public static boolean hasPermissions(Context context, String[] permissions){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M && context!=null && permissions!=null){
+            for(String permission : permissions){
+                if(ActivityCompat.checkSelfPermission(context,permission)!=PackageManager.PERMISSION_GRANTED){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void onClick(View v){
