@@ -25,7 +25,11 @@
             android:name=".view.ListActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.CameraActivity" />
-        <activity android:name=".view.GSMActivity"></activity>
+        <activity android:name=".view.GSMActivity" />
+        <activity
+            android:name=".view.BatteryActivity"
+            android:label="@string/title_activity_battery"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

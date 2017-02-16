@@ -48,4 +48,5 @@
         <item>Magnetic Field Sensor</item>
 
     </string-array>
+    <string name="title_activity_battery">BatteryActivity</string>
 </resources>
