@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_camera"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -80,9 +81,444 @@
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2">
+                android:columnCount="3">
 
+                <TextView
+                    android:text="Sim Operator Name:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
 
+                <TextView
+                    android:id="@+id/operator_name"
+                    android:textColor="#000"
+                    android:text="Airtel"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="0"/>
+
+                <TextView
+                    android:text="Sim Country:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/country"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Sim Operator:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/operator"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Sim S.N.:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/sn"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Sim State:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/state"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Subscriber id:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/subscriber_id"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Mail Alpha Tag:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/mail_alpha_tag"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Mail Number:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/mail_number"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="ICC Card:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/icc_card"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Network Roaming:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/network_roaming"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Network Operator Name:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/network_operator_name"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Network Country:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/network_country"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Network Operator:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/network_operator"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Phone Type:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/phone_type"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="GSM Cell ID:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_id"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="GSM Location Area Code:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/location_area_code"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Call State:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/call_state"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Line One Number:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/line_one_number"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Device ID:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/device_id"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Software Version:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/software_version"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Data Activity:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/data_activity"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Data State:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/data_state"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Network Type:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/network_type"
+                    android:textColor="#000"
+                    android:text="India"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
 
             </GridLayout>
 
