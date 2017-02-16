@@ -3,15 +3,15 @@
     android:oneshot="false" >
     <item
         android:drawable="@drawable/czero"
-        android:duration="900"/>
+        android:duration="800"/>
     <item
         android:drawable="@drawable/conefive"
-        android:duration="900"/>
+        android:duration="800"/>
     <item
         android:drawable="@drawable/ctwofive"
-        android:duration="900"/>
+        android:duration="800"/>
     <item
         android:drawable="@drawable/csevenfive"
-        android:duration="900"/>
+        android:duration="800"/>
 
 </animation-list>

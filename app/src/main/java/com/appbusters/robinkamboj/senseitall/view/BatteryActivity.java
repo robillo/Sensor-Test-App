@@ -8,14 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
 public class BatteryActivity extends AppCompatActivity{
 
-    String sensor_name;
-    TextView textView;
     ImageView imageView;
     AnimationDrawable ani;
 
@@ -28,9 +25,6 @@ public class BatteryActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
 
         Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
 
         imageView = (ImageView) findViewById(R.id.imagee);
         imageView.setBackgroundResource(R.drawable.gube);
