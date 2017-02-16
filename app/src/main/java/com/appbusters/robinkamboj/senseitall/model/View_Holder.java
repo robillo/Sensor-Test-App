@@ -65,9 +65,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 3:{
-                Intent i = new Intent(context, GSMActivity.class);
-                i.putExtra("sensorName", sensorName);
-                context.startActivity(i);
                 break;
             }
             case 4:{
@@ -79,7 +76,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 6:{
-
+                Intent i = new Intent(context, GSMActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 7:{
