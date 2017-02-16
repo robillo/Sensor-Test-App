@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.appbusters.robinkamboj.senseitall">
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +24,8 @@
         <activity
             android:name=".view.ListActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".view.CameraActivity"></activity>
+        <activity android:name=".view.CameraActivity" />
+        <activity android:name=".view.GSMActivity"></activity>
     </application>
 
 </manifest>
