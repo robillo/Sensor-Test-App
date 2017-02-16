@@ -78,7 +78,12 @@ public class GSMActivity extends AppCompatActivity {
     private void setResults(){
         results = new String[]{tm.getSimOperatorName(), tm.getSimCountryIso(),
                 tm.getSimOperator(), tm.getSimSerialNumber(), String.valueOf(tm.getSimState()), tm.getSubscriberId(),
-                tm.getVoiceMailAlphaTag(), tm.getVoiceMailNumber(), String.valueOf(tm.hasIccCard())};
+                tm.getVoiceMailAlphaTag(), tm.getVoiceMailNumber(), String.valueOf(tm.hasIccCard()),
+                String.valueOf(tm.isNetworkRoaming()), tm.getNetworkOperatorName(), tm.getNetworkCountryIso(),
+                tm.getNetworkOperator(), String.valueOf(tm.getPhoneType()), tm.getDeviceId(),
+                String.valueOf(tm.getCellLocation()), String.valueOf(tm.getCallState()),
+                tm.getLine1Number(), tm.getDeviceId(), tm.getDeviceSoftwareVersion(), String.valueOf(tm.getDataActivity()),
+                String.valueOf(tm.getDataState()), String.valueOf(tm.getDataNetworkType())};
     }
 
     private void setTextviews(){
@@ -108,6 +113,48 @@ public class GSMActivity extends AppCompatActivity {
         } else {}
         if(results[8]!=null){
             icc_card.setText(results[8]);
+        } else {}
+        if(results[9]!=null){
+            network_roaming.setText(results[9]);
+        } else {}
+        if(results[10]!=null){
+            network_operator_name.setText(results[10]);
+        } else {}
+        if(results[11]!=null){
+            network_country.setText(results[11]);
+        } else {}
+        if(results[12]!=null){
+            network_operator.setText(results[12]);
+        } else {}
+        if(results[13]!=null){
+            phone_type.setText(results[13]);
+        } else {}
+        if(results[14]!=null){
+            cell_id.setText(results[14]);
+        } else {}
+        if(results[15]!=null){
+            location_area_code.setText(results[15]);
+        } else {}
+        if(results[16]!=null){
+            call_state.setText(results[16]);
+        } else {}
+        if(results[17]!=null){
+            line_one_number.setText(results[17]);
+        } else {}
+        if(results[18]!=null){
+            device_id.setText(results[18]);
+        } else {}
+        if(results[19]!=null){
+            software_version.setText(results[19]);
+        } else {}
+        if(results[20]!=null){
+            data_activity.setText(results[20]);
+        } else {}
+        if(results[21]!=null){
+            data_state.setText(results[21]);
+        } else {}
+        if(results[22]!=null){
+            network_type.setText(results[22]);
         } else {}
     }
 
