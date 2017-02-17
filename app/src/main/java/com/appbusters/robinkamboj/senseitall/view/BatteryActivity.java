@@ -32,6 +32,8 @@ public class BatteryActivity extends AppCompatActivity{
 
     TextView level,plugged,present,maxcl,status,tech,temp,vol;
 
+    String sensor_name;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,13 @@ public class BatteryActivity extends AppCompatActivity{
         setContentView(R.layout.activity_battery);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        batteryperc = (TextView) findViewById(R.id.batteryperc);
+
         Intent i = getIntent();
+        sensor_name = i.getStringExtra("sensorName");
+//        textView = (TextView) findViewById(R.id.textView);
+//        textView.setText(sensor_name);
+
+        batteryperc = (TextView) findViewById(R.id.batteryperc);
         imageView = (ImageView) findViewById(R.id.imagee);
         imageView.setBackgroundResource(R.drawable.gube);
         level = (TextView) findViewById(R.id.level);
