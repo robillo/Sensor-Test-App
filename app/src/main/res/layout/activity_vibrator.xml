@@ -69,9 +69,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardElevation="@dimen/app_bar_elevation"
-        app:cardCornerRadius="5sp"
+        app:cardCornerRadius="15sp"
         android:layout_margin="10sp"
-        android:layout_below="@+id/ll">
+        android:clickable="true"
+        android:onClick="onClick"
+        android:layout_below="@+id/ll"
+        android:id="@+id/card">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,6 +87,15 @@
                 android:layout_weight="1"
                 android:background="@color/colorPrimaryDark">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Click"
+                    android:textColor="#FFF"
+                    android:textSize="35sp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"/>
+
             </FrameLayout>
 
             <FrameLayout
@@ -92,6 +104,15 @@
                 android:layout_weight="1"
                 android:background="@color/colorPrimary">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="To"
+                    android:textColor="#FFF"
+                    android:textSize="35sp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"/>
+
             </FrameLayout>
 
             <FrameLayout
@@ -99,7 +120,16 @@
                 android:layout_height="0sp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimaryLight">
-                
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Vibrate"
+                    android:textColor="#FFF"
+                    android:textSize="35sp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"/>
+
             </FrameLayout>
 
         </LinearLayout>
