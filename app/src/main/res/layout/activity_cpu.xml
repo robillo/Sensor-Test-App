@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_camera"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sense It All!"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:gravity="center"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar2"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="?actionBarSize">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll"
+        android:layout_below="@+id/toolbar">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0sp"
+            android:layout_height="150sp"
+            android:elevation="@dimen/app_bar_elevation"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:layout_margin="10sp"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/app_bar_elevation"
+            android:layout_weight="1"
+            android:padding="5sp"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/colorBlackShade"
+            android:layout_margin="10sp"
+            android:background="@color/colorPrimaryLight"
+            android:text="SAMPLE DATA"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="@dimen/app_bar_elevation"
+        app:cardCornerRadius="5sp"
+        android:layout_margin="10sp"
+        android:layout_below="@+id/ll">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3">
+
+                <TextView
+                    android:text="Processor Info"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:layout_gravity="center"
+                    android:padding="3sp"
+                    android:textColor="#000"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:text="Processor:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/processor"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
+
+                <TextView
+                    android:text="Number of Cores:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="2"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cores"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="2"/>
+
+                <TextView
+                    android:text="Maximum Frequency:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="3"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/max_frequency"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="3"/>
+
+                <TextView
+                    android:text="Minimum Frequency:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="4"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/min_frequency"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="4"/>
+
+                <TextView
+                    android:text="Current Frequency:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="5"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/current_frequency"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="5"/>
+
+                <TextView
+                    android:text="CPU Architecture:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="6"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cpu_architecture"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="6"/>
+
+                <TextView
+                    android:text="BogoMIPS:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="7"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/bogomips"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="7"/>
+
+                <TextView
+                    android:text="Features:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="8"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/features"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="8"/>
+
+                <TextView
+                    android:text="CPU Implementer:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="9"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cpu_implementer"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="9"/>
+
+                <TextView
+                    android:text="CPU Variant:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="10"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cpu_variant"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="10"/>
+
+                <TextView
+                    android:text="CPU Part:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="11"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cpu_part"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="11"/>
+
+                <TextView
+                    android:text="CPU Revision:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="12"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cpu_revision"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="12"/>
+
+                <TextView
+                    android:text="Hardware:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="13"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/hardware"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="13"/>
+
+                <TextView
+                    android:text="Revision:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="14"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/revision"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="14"/>
+
+                <TextView
+                    android:text="GSM Location Area Code:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="15"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/location_area_code"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="15"/>
+
+                <TextView
+                    android:text="Call State:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="16"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/call_state"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="16"/>
+
+                <TextView
+                    android:text="Line One Number:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="17"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/line_one_number"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="17"/>
+
+                <TextView
+                    android:text="Device ID:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="18"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/device_id"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="18"/>
+
+                <TextView
+                    android:text="Software Version:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="19"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/software_version"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="19"/>
+
+                <TextView
+                    android:text="Data Activity:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="20"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/data_activity"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="20"/>
+
+                <TextView
+                    android:text="Data State:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="21"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/data_state"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="21"/>
+
+                <TextView
+                    android:text="Network Type:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_column="0"
+                    android:layout_row="22"
+                    android:padding="3sp"
+                    android:layout_columnWeight="1"/>
+
+                <TextView
+                    android:id="@+id/network_type"
+                    android:textColor="#000"
+                    android:text="___"
+                    android:padding="3sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:layout_columnWeight="1"
+                    android:layout_column="1"
+                    android:layout_row="22"/>
+
+            </GridLayout>
+
+        </ScrollView>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
