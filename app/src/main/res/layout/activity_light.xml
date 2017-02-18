@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
     android:id="@+id/activity_camera"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -97,16 +98,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center"
                 android:gravity="center">
 
-                <cn.fanrunqi.waveprogress.WaveProgressView
+                <com.github.yongjhih.mismeter.MisMeter
                     android:id="@+id/meter"
-                    android:background="@drawable/shape"
-                    android:layout_width="200sp"
-                    android:layout_height="200sp" />
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    />
 
                 <GridLayout
                     android:layout_width="match_parent"

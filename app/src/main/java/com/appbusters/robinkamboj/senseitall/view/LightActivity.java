@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -14,17 +15,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
-
-import cn.fanrunqi.waveprogress.WaveProgressView;
+import com.github.yongjhih.mismeter.MisMeter;
 
 public class LightActivity extends AppCompatActivity {
 
     String sensor_name;
     TextView textView;
-    WaveProgressView meter;
+    MisMeter meter;
     TextView maximum, current;
-    float max;
-//    float temp;
+    float max, percentage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class LightActivity extends AppCompatActivity {
 
         maximum = (TextView) findViewById(R.id.maximum);
         current = (TextView) findViewById(R.id.current);
-        meter = (WaveProgressView) findViewById(R.id.meter);
+        meter = (MisMeter) findViewById(R.id.meter);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,9 +52,8 @@ public class LightActivity extends AppCompatActivity {
 
         max = lightSensor.getMaximumRange();
         maximum.setText(String.valueOf(max));
-        meter.setMaxProgress((int) max);
 
-        sensorManager.registerListener(lightSensorEventListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(lightSensorEventListener, lightSensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     SensorEventListener lightSensorEventListener = new SensorEventListener() {
@@ -65,7 +63,8 @@ public class LightActivity extends AppCompatActivity {
                 float currentReading = sensorEvent.values[0];
                 current.setText(String.valueOf(currentReading));
                 String set = String.valueOf(String.format("%.2f",(currentReading/max)*10000));
-                meter.setCurrent((int) currentReading, set);
+                percentage = (currentReading/max);
+                meter.setProgress(percentage);
             }
         }
 
