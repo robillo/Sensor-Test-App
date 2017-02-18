@@ -14,6 +14,7 @@ import com.appbusters.robinkamboj.senseitall.view.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.CameraActivity;
 import com.appbusters.robinkamboj.senseitall.view.GSMActivity;
+import com.appbusters.robinkamboj.senseitall.view.LightActivity;
 import com.appbusters.robinkamboj.senseitall.view.VibratorActivity;
 
 public class View_Holder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
@@ -124,6 +125,24 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             }
             case 15:{
 
+                break;
+            }
+            case 16:{
+
+                break;
+            }
+            case 17:{
+
+                break;
+            }
+            case 18:{
+
+                break;
+            }
+            case 19:{
+                Intent i = new Intent(context, LightActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
         }
