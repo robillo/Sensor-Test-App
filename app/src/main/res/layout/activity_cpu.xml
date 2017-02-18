@@ -378,7 +378,7 @@
                     android:layout_row="14"/>
 
                 <TextView
-                    android:text="GSM Location Area Code:"
+                    android:text="Serial:"
                     android:fontFamily="sans-serif-smallcaps"
                     android:layout_column="0"
                     android:layout_row="15"
@@ -386,7 +386,7 @@
                     android:layout_columnWeight="1"/>
 
                 <TextView
-                    android:id="@+id/location_area_code"
+                    android:id="@+id/serial"
                     android:textColor="#000"
                     android:text="___"
                     android:padding="3sp"
@@ -395,139 +395,6 @@
                     android:layout_columnWeight="1"
                     android:layout_column="1"
                     android:layout_row="15"/>
-
-                <TextView
-                    android:text="Call State:"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:layout_column="0"
-                    android:layout_row="16"
-                    android:padding="3sp"
-                    android:layout_columnWeight="1"/>
-
-                <TextView
-                    android:id="@+id/call_state"
-                    android:textColor="#000"
-                    android:text="___"
-                    android:padding="3sp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="center"
-                    android:layout_columnWeight="1"
-                    android:layout_column="1"
-                    android:layout_row="16"/>
-
-                <TextView
-                    android:text="Line One Number:"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:layout_column="0"
-                    android:layout_row="17"
-                    android:padding="3sp"
-                    android:layout_columnWeight="1"/>
-
-                <TextView
-                    android:id="@+id/line_one_number"
-                    android:textColor="#000"
-                    android:text="___"
-                    android:padding="3sp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="center"
-                    android:layout_columnWeight="1"
-                    android:layout_column="1"
-                    android:layout_row="17"/>
-
-                <TextView
-                    android:text="Device ID:"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:layout_column="0"
-                    android:layout_row="18"
-                    android:padding="3sp"
-                    android:layout_columnWeight="1"/>
-
-                <TextView
-                    android:id="@+id/device_id"
-                    android:textColor="#000"
-                    android:text="___"
-                    android:padding="3sp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="center"
-                    android:layout_columnWeight="1"
-                    android:layout_column="1"
-                    android:layout_row="18"/>
-
-                <TextView
-                    android:text="Software Version:"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:layout_column="0"
-                    android:layout_row="19"
-                    android:padding="3sp"
-                    android:layout_columnWeight="1"/>
-
-                <TextView
-                    android:id="@+id/software_version"
-                    android:textColor="#000"
-                    android:text="___"
-                    android:padding="3sp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="center"
-                    android:layout_columnWeight="1"
-                    android:layout_column="1"
-                    android:layout_row="19"/>
-
-                <TextView
-                    android:text="Data Activity:"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:layout_column="0"
-                    android:layout_row="20"
-                    android:padding="3sp"
-                    android:layout_columnWeight="1"/>
-
-                <TextView
-                    android:id="@+id/data_activity"
-                    android:textColor="#000"
-                    android:text="___"
-                    android:padding="3sp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="center"
-                    android:layout_columnWeight="1"
-                    android:layout_column="1"
-                    android:layout_row="20"/>
-
-                <TextView
-                    android:text="Data State:"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:layout_column="0"
-                    android:layout_row="21"
-                    android:padding="3sp"
-                    android:layout_columnWeight="1"/>
-
-                <TextView
-                    android:id="@+id/data_state"
-                    android:textColor="#000"
-                    android:text="___"
-                    android:padding="3sp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="center"
-                    android:layout_columnWeight="1"
-                    android:layout_column="1"
-                    android:layout_row="21"/>
-
-                <TextView
-                    android:text="Network Type:"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:layout_column="0"
-                    android:layout_row="22"
-                    android:padding="3sp"
-                    android:layout_columnWeight="1"/>
-
-                <TextView
-                    android:id="@+id/network_type"
-                    android:textColor="#000"
-                    android:text="___"
-                    android:padding="3sp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="center"
-                    android:layout_columnWeight="1"
-                    android:layout_column="1"
-                    android:layout_row="22"/>
 
             </GridLayout>
 
