@@ -34,7 +34,8 @@
             android:label="@string/title_activity_battery"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.VibratorActivity" />
-        <activity android:name=".view.CPUActivity"></activity>
+        <activity android:name=".view.CPUActivity" />
+        <activity android:name=".view.LightActivity"></activity>
     </application>
 
 </manifest>
