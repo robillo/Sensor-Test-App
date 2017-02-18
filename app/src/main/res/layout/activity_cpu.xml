@@ -39,30 +39,46 @@
         android:id="@+id/ll"
         android:layout_below="@+id/toolbar">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <android.support.v7.widget.CardView
             android:layout_width="0sp"
             android:layout_height="150sp"
-            android:elevation="@dimen/app_bar_elevation"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryLight"
-            android:layout_margin="10sp"/>
+            android:layout_margin="10sp"
+            app:cardCornerRadius="10sp"
+            app:cardElevation="@dimen/app_bar_elevation">
 
-        <TextView
-            android:id="@+id/textView"
+            <ImageView
+                android:id="@+id/imageView"
+                android:src="@drawable/cpu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
             android:layout_width="0sp"
             android:layout_height="match_parent"
-            android:elevation="@dimen/app_bar_elevation"
             android:layout_weight="1"
             android:padding="5sp"
-            android:textSize="15sp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textColor="@color/colorBlackShade"
             android:layout_margin="10sp"
-            android:background="@color/colorPrimaryLight"
-            android:text="SAMPLE DATA"/>
+            app:cardCornerRadius="10sp"
+            app:cardBackgroundColor="@color/colorPrimaryLight"
+            app:cardElevation="@dimen/app_bar_elevation">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="@dimen/app_bar_elevation"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textStyle="bold"
+                android:padding="6sp"
+                android:gravity="center"
+                android:textColor="@color/colorBlackShade"
+                android:text="SAMPLE DATA"/>
+
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 
@@ -70,8 +86,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardElevation="@dimen/app_bar_elevation"
-        app:cardCornerRadius="5sp"
+        app:cardCornerRadius="10sp"
         android:layout_margin="10sp"
+        android:padding="5sp"
         android:layout_below="@+id/ll">
 
         <ScrollView
