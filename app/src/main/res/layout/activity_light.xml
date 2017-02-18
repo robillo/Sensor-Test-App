@@ -102,10 +102,11 @@
                 android:layout_gravity="center"
                 android:gravity="center">
 
-                <com.github.yongjhih.mismeter.MisMeter
+                <cn.fanrunqi.waveprogress.WaveProgressView
+                    android:id="@+id/meter"
+                    android:background="@drawable/shape"
                     android:layout_width="200sp"
-                    android:layout_height="200sp"
-                    android:id="@+id/meter"/>
+                    android:layout_height="200sp" />
 
                 <GridLayout
                     android:layout_width="match_parent"
