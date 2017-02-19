@@ -13,6 +13,7 @@ import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
 import com.appbusters.robinkamboj.senseitall.view.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.CameraActivity;
+import com.appbusters.robinkamboj.senseitall.view.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.GSMActivity;
 import com.appbusters.robinkamboj.senseitall.view.LightActivity;
 import com.appbusters.robinkamboj.senseitall.view.ProximityActivity;
@@ -148,6 +149,24 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             }
             case 20:{
                 Intent i = new Intent(context, ProximityActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case 21:{
+
+                break;
+            }
+            case 22:{
+
+                break;
+            }
+            case 23:{
+
+                break;
+            }
+            case 24:{
+                Intent i = new Intent(context, FlashActivity.class);
                 i.putExtra("sensorName", sensorName);
                 context.startActivity(i);
                 break;

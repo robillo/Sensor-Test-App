@@ -99,7 +99,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_gravity="center"
                 android:gravity="center">
 
                 <com.github.yongjhih.mismeter.MisMeter
@@ -121,7 +120,7 @@
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:text="Maximum Reading:"
+                        android:text="Name:"
                         android:padding="5sp"/>
 
                     <TextView
@@ -131,7 +130,7 @@
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:id="@+id/maximum"
+                        android:id="@+id/name"
                         android:padding="5sp"/>
 
                     <TextView
@@ -141,7 +140,7 @@
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:text="Current Reading:"
+                        android:text="Vendor:"
                         android:padding="5sp"/>
 
                     <TextView
@@ -151,8 +150,129 @@
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:id="@+id/current"
+                        android:id="@+id/vendor"
                         android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Accuracy:"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="2"
+                        android:layout_column="1"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:id="@+id/accuracy"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="3"
+                        android:layout_column="0"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Minimum Delay:"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="3"
+                        android:layout_column="1"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:id="@+id/minimum_delay"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="4"
+                        android:layout_column="0"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Version:"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="4"
+                        android:layout_column="1"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:id="@+id/version"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="5"
+                        android:layout_column="0"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Power:"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="5"
+                        android:layout_column="1"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:id="@+id/power"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="6"
+                        android:layout_column="0"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Maximum Range:"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="6"
+                        android:layout_column="1"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:id="@+id/maximum_range"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="7"
+                        android:layout_column="0"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Resolution:"
+                        android:padding="5sp"/>
+
+                    <TextView
+                        android:layout_row="7"
+                        android:layout_column="1"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:id="@+id/resolution"
+                        android:padding="5sp"/>
+
 
                 </GridLayout>
 

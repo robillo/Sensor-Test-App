@@ -36,7 +36,8 @@
         <activity android:name=".view.VibratorActivity" />
         <activity android:name=".view.CPUActivity" />
         <activity android:name=".view.LightActivity" />
-        <activity android:name=".view.ProximityActivity"></activity>
+        <activity android:name=".view.ProximityActivity" />
+        <activity android:name=".view.FlashActivity"></activity>
     </application>
 
 </manifest>
