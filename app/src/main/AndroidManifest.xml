@@ -35,7 +35,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".view.VibratorActivity" />
         <activity android:name=".view.CPUActivity" />
-        <activity android:name=".view.LightActivity"></activity>
+        <activity android:name=".view.LightActivity" />
+        <activity android:name=".view.ProximityActivity"></activity>
     </application>
 
 </manifest>
