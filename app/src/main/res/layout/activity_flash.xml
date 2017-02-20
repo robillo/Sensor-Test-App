@@ -88,19 +88,21 @@
         app:cardElevation="@dimen/app_bar_elevation"
         app:cardCornerRadius="5sp"
         android:layout_margin="10sp"
-        android:layout_below="@+id/ll">
+        android:layout_below="@+id/ll"
+        android:id="@+id/card">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <GridLayout
-                android:layout_width="match_parent"
+            <ImageButton
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:columnCount="2">
-
-
-            </GridLayout>
+                android:layout_gravity="center"
+                android:src="@drawable/flashlight"
+                android:padding="15sp"
+                android:onClick="onClick"
+                android:id="@+id/flashlight"/>
 
         </ScrollView>
 
