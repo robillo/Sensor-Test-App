@@ -1,14 +1,17 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.Camera;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -21,6 +24,7 @@ public class FlashActivity extends AppCompatActivity {
     TextView textView;
     Camera.Parameters parameters;
     private Camera camera;
+    private ImageButton imageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,19 @@ public class FlashActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
 
+        imageButton = (ImageButton) findViewById(R.id.flashlight);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isFlashOn) {
+                    turnOnFlash();
+                }
+                else {
+                    turnOffFlash();
+                }
+            }
+        });
+
         card = (CardView) findViewById(R.id.card);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -42,36 +59,20 @@ public class FlashActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
-    public void onClick(View v){
-        switch (v.getId()){
-            case R.id.flashlight:{
-                if(!isFlashOn) {
-                    turnOnFlash();
-                }
-                else {
-                    turnOffFlash();
-                }
-                break;
-            }
-        }
-    }
-
     private void turnOnFlash(){
-        parameters = camera.getParameters();
+        card.setCardBackgroundColor(Color.YELLOW);
         parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
         camera.setParameters(parameters);
         camera.startPreview();
         isFlashOn = true;
-        card.setCardBackgroundColor(R.color.colorFlashlightShade);
     }
 
     private void turnOffFlash(){
-        parameters = camera.getParameters();
+        card.setCardBackgroundColor(Color.GREEN);
         parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
         camera.setParameters(parameters);
         camera.stopPreview();
         isFlashOn = false;
-        card.setCardBackgroundColor(R.color.colorWhiteShade);
     }
 
     @Override
@@ -97,5 +98,49 @@ public class FlashActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // on pause turn off the flash
+        turnOffFlash();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // on starting the app get the camera params
+        camera = Camera.open();
+        parameters = camera.getParameters();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // on stop release the camera
+        if (camera != null) {
+            camera.release();
+            camera = null;
+        }
     }
 }
