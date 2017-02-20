@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -39,7 +40,8 @@
         <activity android:name=".view.CPUActivity" />
         <activity android:name=".view.LightActivity" />
         <activity android:name=".view.ProximityActivity" />
-        <activity android:name=".view.FlashActivity"></activity>
+        <activity android:name=".view.FlashActivity" />
+        <activity android:name=".view.AndroidOSActivity"></activity>
     </application>
 
 </manifest>
