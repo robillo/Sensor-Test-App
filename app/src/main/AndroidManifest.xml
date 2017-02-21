@@ -42,6 +42,8 @@
         <activity android:name=".view.ProximityActivity" />
         <activity android:name=".view.FlashActivity" />
         <activity android:name=".view.AndroidOSActivity"></activity>
+        <activity android:name=".view.MagneticActivity"></activity>
+
         <receiver android:name=".view.MyReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED"></action>

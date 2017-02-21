@@ -17,6 +17,7 @@ import com.appbusters.robinkamboj.senseitall.view.CameraActivity;
 import com.appbusters.robinkamboj.senseitall.view.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.GSMActivity;
 import com.appbusters.robinkamboj.senseitall.view.LightActivity;
+import com.appbusters.robinkamboj.senseitall.view.MagneticActivity;
 import com.appbusters.robinkamboj.senseitall.view.ProximityActivity;
 import com.appbusters.robinkamboj.senseitall.view.VibratorActivity;
 
@@ -172,6 +173,88 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 Intent i = new Intent(context, FlashActivity.class);
                 i.putExtra("sensorName", sensorName);
                 context.startActivity(i);
+                break;
+            }
+            case 25:{
+
+                break;
+            }
+            case 26:{
+
+                break;
+            }
+            case 27:{
+
+                break;
+            }
+            case 28:{
+
+                break;
+            }
+            case 29:{
+
+                break;
+            }
+            case 30:{
+
+                break;
+            }
+            case 31:{
+
+                break;
+            }
+            case 32:{
+
+                break;
+            }
+            case 33:{
+
+                break;
+            }
+            case 34:{
+
+                break;
+            }
+            case 35:{
+
+                break;
+            }
+            case 36:{
+
+                break;
+            }
+            case 37:{
+
+                break;
+            }
+            case 38:{
+
+                break;
+            }
+            case 39:{
+
+                break;
+            }
+            case 40:{
+
+                break;
+            }
+            case 41:{
+
+                break;
+            }
+            case 42:{
+                Intent i = new Intent(context, MagneticActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+
+                break;
+            }
+            case 43:{
+                Intent i = new Intent(context, MagneticActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+
                 break;
             }
         }

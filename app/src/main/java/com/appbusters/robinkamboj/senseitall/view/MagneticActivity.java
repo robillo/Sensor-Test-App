@@ -5,10 +5,10 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.opengl.Matrix;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -20,8 +20,11 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
     public static TextView level,plugged,present,maxcl,status,tech,temp,vol;
 
     String sensor_name;
-    TextView textView;
-    int bt;
+    private static final int TEST_GRAV = Sensor.TYPE_ACCELEROMETER;
+    private static final int TEST_MAG = Sensor.TYPE_MAGNETIC_FIELD;
+    private final float alpha = (float) 0.8;
+    private float gravity[] = new float[3];
+    private float magnetic[] = new float[3];
     private SensorManager mSensorManager;
     /** Magnetometer spec. */
     private TextView vendor;
@@ -60,7 +63,6 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
 
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mGeomagnetic = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         vendor = (TextView) findViewById(R.id.vendorMag);
@@ -71,7 +73,6 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         magneticYTextView = (TextView) findViewById(R.id.magneticY);
         magneticZTextView = (TextView) findViewById(R.id.magneticZ);
 
-        mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_FASTEST);
         mSensorManager.registerListener(this, mGeomagnetic, SensorManager.SENSOR_DELAY_FASTEST);
 
 
@@ -81,55 +82,40 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
             return;
         }
         synchronized (this) {
-            switch(sensorEvent.sensor.getType()){
-                case Sensor.TYPE_ACCELEROMETER:
-                    accelerometerValues = sensorEvent.values.clone();
-                    break;
-                case Sensor.TYPE_MAGNETIC_FIELD:
                     if (!specDefined) {
                         vendor.setText("Vendor: " + sensorEvent.sensor.getVendor() + " " + sensorEvent.sensor.getName());
                         float resolutionValue = sensorEvent.sensor.getResolution() * nanoTtoGRate;
                         resolution.setText("Resolution: " + resolutionValue);
                         float maximumRangeValue = sensorEvent.sensor.getMaximumRange() * nanoTtoGRate;
                         maximumRange.setText("Maximum range: " + maximumRangeValue);
+                        magneticXTextView.setText("x: " + sensorEvent.values[0]);
+                        magneticYTextView.setText("y: " + sensorEvent.values[1]);
+                        magneticZTextView.setText("z: " + sensorEvent.values[2]);
                     }
-                    geomagneticValues = sensorEvent.values.clone();
-                    break;
+            geomagneticValues = sensorEvent.values.clone();
             }
-            if (accelerometerValues != null && geomagneticValues != null) {
-                float[] Rs = new float[16];
-                float[] I = new float[16];
+        Sensor sensor = sensorEvent.sensor;
 
-                if (SensorManager.getRotationMatrix(Rs, I, accelerometerValues, geomagneticValues)) {
+            magnetic[0] = sensorEvent.values[0];
+            magnetic[1] = sensorEvent.values[1];
+            magnetic[2] = sensorEvent.values[2];
 
-                    float[] RsInv = new float[16];
-                    Matrix.invertM(RsInv, 0, Rs, 0);
+            float[] R = new float[9];
+            float[] I = new float[9];
+            SensorManager.getRotationMatrix(R, I, gravity, magnetic);
+            float [] A_D = sensorEvent.values.clone();
+            float [] A_W = new float[3];
+            A_W[0] = R[0] * A_D[0] + R[1] * A_D[1] + R[2] * A_D[2];
+            A_W[1] = R[3] * A_D[0] + R[4] * A_D[1] + R[5] * A_D[2];
+            A_W[2] = R[6] * A_D[0] + R[7] * A_D[1] + R[8] * A_D[2];
 
-                    float resultVec[] = new float[4];
-                    float[] geomagneticValuesAdjusted = new float[4];
-                    geomagneticValuesAdjusted[0] = geomagneticValues[0];
-                    geomagneticValuesAdjusted[1] = geomagneticValues[1];
-                    geomagneticValuesAdjusted[2] = geomagneticValues[2];
-                    geomagneticValuesAdjusted[3] = 0;
-                    Matrix.multiplyMV(resultVec, 0, RsInv, 0, geomagneticValuesAdjusted, 0);
-
-                    for (int i = 0; i < resultVec.length; i++) {
-                        resultVec[i] = resultVec[i] * nanoTtoGRate * gToCountRate;
-                    }
-
-                    if (kalmanFiletring) {
+            Log.d("Field","\nX :"+A_W[0]+"\nY :"+A_W[1]+"\nZ :"+A_W[2]);
 
 
 
-                    } else {
-                        magneticXTextView.setText("x: " + resultVec[0]);
-                        magneticYTextView.setText("y: " + resultVec[1]);
-                        magneticZTextView.setText("z: " + resultVec[2]);
-                    }
-                }
-            }
+
         }
-    }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -159,6 +145,9 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
     }
 
 }
