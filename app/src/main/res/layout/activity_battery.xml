@@ -192,7 +192,7 @@
                     android:layout_columnWeight="1"/>
 
                 <TextView
-                    android:id="@+id/vol"
+                    android:id="@+id/voltage"
                     android:textColor="#000"
                     android:text="___"
                     android:padding="3sp"
