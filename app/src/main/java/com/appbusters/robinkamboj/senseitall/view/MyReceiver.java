@@ -49,6 +49,7 @@ public class MyReceiver extends BroadcastReceiver {
                 }else if(acCharge){
                     plugged.setText("AC");
                 }
+            value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
             tech.setText(intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY));
             int voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1);
@@ -62,18 +63,24 @@ public class MyReceiver extends BroadcastReceiver {
             present.setText("True");
         }
 
-        if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)||intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)){
+        if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)){
             //tv.setText("POWER CONNECTED ");
-            imageView.setBackgroundResource(R.drawable.gube);
+                imageView.setBackgroundResource(R.drawable.gube);
+            value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
             ani = (AnimationDrawable) imageView.getBackground();
-            ani.start();
+                ani.start();
+                status.setText("Charging");
+
             //ani.run();
-            batteryperc.setText(intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)+"%");
-            status.setText("Charging");
+            batteryperc.setText(value+"%");
+
 
         }else if(intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)){
+            value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+
             status.setText("Not Charging");
+            plugged.setText("___");
             if(value<=50){
                 imageView.setBackgroundResource(R.drawable.bless);
             }else if(value>=75&&value<95){
