@@ -64,6 +64,7 @@ public class BatteryActivity extends AppCompatActivity{
             imageView.setBackgroundResource(R.drawable.gube);
             ani = (AnimationDrawable) imageView.getBackground();
             ani.start();
+            
         }else if(bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)<=15){
             imageView.setBackgroundResource(R.drawable.bless);
         }else if(bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)<=75&&bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)<95){

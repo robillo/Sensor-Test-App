@@ -16,7 +16,6 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -291,8 +290,6 @@ public class MainActivity extends AppCompatActivity {
         if(sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!=null){
             isPresent[42] = true;
         }
-
-
         return isPresent;
     }
 }

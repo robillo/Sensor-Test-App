@@ -17,6 +17,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 
 public class MagneticActivity extends AppCompatActivity implements SensorEventListener{
 
+    private static final String TAG = "MAGNETIC ACTIVITY";
     public static TextView level,plugged,present,maxcl,status,tech,temp,vol;
 
     String sensor_name;
@@ -32,7 +33,7 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
     private TextView maximumRange;
 
     /** Magnetic field coordinates measurements. */
-    private TextView magneticXTextView;
+    private TextView magneticXTextView, textView;
     private TextView magneticYTextView;
     private TextView magneticZTextView;
 
@@ -44,18 +45,16 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
 
     /** Flags. */
     private boolean specDefined = false;
-    private boolean kalmanFiletring = false;
 
     /** Rates. */
     private float nanoTtoGRate = 0.00001f;
-    private final int gToCountRate = 1000000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_magnetic);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        textView= (TextView) findViewById(R.id.tvMG);
         Intent i = getIntent();
         sensor_name = i.getStringExtra("sensorName");
 //        textView = (TextView) findViewById(R.id.textView);
@@ -83,6 +82,7 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         }
         synchronized (this) {
                     if (!specDefined) {
+                        Log.d(TAG, "onSensorChanged: LOG");
                         vendor.setText("Vendor: " + sensorEvent.sensor.getVendor() + " " + sensorEvent.sensor.getName());
                         float resolutionValue = sensorEvent.sensor.getResolution() * nanoTtoGRate;
                         resolution.setText("Resolution: " + resolutionValue);
@@ -90,7 +90,8 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
                         maximumRange.setText("Maximum range: " + maximumRangeValue);
                         magneticXTextView.setText("x: " + sensorEvent.values[0]);
                         magneticYTextView.setText("y: " + sensorEvent.values[1]);
-                        magneticZTextView.setText("z: " + sensorEvent.values[2]);
+                        magneticZTextView.setText("z:  " + sensorEvent.values[2]);
+//                        sensorEvent.sensor.
                     }
             geomagneticValues = sensorEvent.values.clone();
             }
@@ -110,10 +111,6 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
             A_W[2] = R[6] * A_D[0] + R[7] * A_D[1] + R[8] * A_D[2];
 
             Log.d("Field","\nX :"+A_W[0]+"\nY :"+A_W[1]+"\nZ :"+A_W[2]);
-
-
-
-
         }
 
     @Override
