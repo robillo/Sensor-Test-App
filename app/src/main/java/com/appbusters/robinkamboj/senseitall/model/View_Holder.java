@@ -18,6 +18,7 @@ import com.appbusters.robinkamboj.senseitall.view.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.GSMActivity;
 import com.appbusters.robinkamboj.senseitall.view.LightActivity;
 import com.appbusters.robinkamboj.senseitall.view.MagneticActivity;
+import com.appbusters.robinkamboj.senseitall.view.MapsActivity;
 import com.appbusters.robinkamboj.senseitall.view.ProximityActivity;
 import com.appbusters.robinkamboj.senseitall.view.VibratorActivity;
 
@@ -28,6 +29,8 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
     public CardView cardView;
     ItemClickListener clickListener;
     Context context;
+    double Lat=28;
+    double Lon=77;
 
 
     public View_Holder(View itemView) {
@@ -73,6 +76,11 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 3:{
+
+                Intent i=  new Intent(context, MapsActivity.class);
+                i.putExtra("lat",  Lat);
+                i.putExtra("lon", Lon);
+                context.startActivity(i);
                 break;
             }
             case 4:{
@@ -251,9 +259,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 43:{
-                Intent i = new Intent(context, MagneticActivity.class);
-                i.putExtra("sensorName", sensorName);
-                context.startActivity(i);
+
 
                 break;
             }

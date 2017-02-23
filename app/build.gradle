@@ -31,5 +31,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:design:25.1.0'
     compile 'com.github.yongjhih:mismeter:1.0.0'
+    compile 'com.google.android.gms:play-services:10.2.0'
     testCompile 'junit:junit:4.12'
 }

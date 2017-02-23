@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     private static final int ALL_MY_PERMISSIONS = 123;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

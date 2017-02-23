@@ -49,4 +49,5 @@
 
     </string-array>
     <string name="title_activity_battery">BatteryActivity</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
