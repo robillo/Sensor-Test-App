@@ -313,15 +313,13 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 42:{
-                Intent i = new Intent(context, MagneticActivity.class);
-                i.putExtra("sensorName", sensorName);
-                context.startActivity(i);
 
                 break;
             }
             case 43:{
-
-
+                Intent i = new Intent(context, MagneticActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
         }
