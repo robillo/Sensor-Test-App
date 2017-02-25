@@ -15,6 +15,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +39,7 @@ import static android.content.Context.LOCATION_SERVICE;
 public class View_Holder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
     public TextView sensor_name;
-    public ImageView sensor_imageview;
+    public ImageView sensor_imageview, imageview_disabled;
     public CardView cardView;
     ItemClickListener clickListener;
     Context context;
@@ -52,6 +53,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
         sensor_name = (TextView) itemView.findViewById(R.id.textView);
         sensor_imageview = (ImageView) itemView.findViewById(R.id.imageView);
         cardView = (CardView) itemView.findViewById(R.id.cardView);
+        imageview_disabled = (ImageView) itemView.findViewById(R.id.imageview_disabled);
 
         context = itemView.getContext();
         itemView.setOnClickListener(this);

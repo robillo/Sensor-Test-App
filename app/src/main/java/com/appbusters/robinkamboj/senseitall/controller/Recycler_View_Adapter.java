@@ -46,18 +46,19 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
         holder.sensor_name.setText(list.get(_position).getSensor_name());
         holder.sensor_imageview.setImageResource(list.get(_position).getDrawable());
         if(!list.get(_position).isPresent){
-//            holder.sensor_imageview.setBackgroundColor(_context.getResources().getColor(R.color.colorBlackShade));
 //            holder.cardView.setClickable(false);
             Log.d(TAG, "onBindViewHolder: RED");
 
-            Picasso.with(context).load("http://www.fordesigner.com/imguploads/Image/cjbc/zcool/png20080526/1211771503.png")
-                    .fit()
+            Picasso.with(context).load("hoot")
+                    .placeholder(R.drawable.disabled_background)
+                    .resize(100,100)
+                    .onlyScaleDown()
                     .into(holder.sensor_imageview);
         }else{
             Log.d(TAG, "onBindViewHolder: GREEN");
-            Picasso.with(context).load("http://www.fordesigner.com/imguploads/Image/cjbc/zcool/png20080526/1211771499.png")
-                    .fit()
-                    .into(holder.sensor_imageview);
+//            Picasso.with(context).load("http://www.fordesigner.com/imguploads/Image/cjbc/zcool/png20080526/1211771499.png")
+//                    .fit()
+//                    .into(holder.sensor_imageview);
         }
 
         holder.setClickListener(new ItemClickListener() {

@@ -15,11 +15,23 @@
         android:orientation="vertical"
         android:background="@drawable/card_background">
 
-        <ImageView
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="120sp"
-            android:id="@+id/imageView"
-            android:padding="10sp"/>
+            android:id="@+id/frameLayout">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView"
+                android:padding="10sp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageview_disabled"/>
+
+        </FrameLayout>
 
         <TextView
             android:layout_width="match_parent"

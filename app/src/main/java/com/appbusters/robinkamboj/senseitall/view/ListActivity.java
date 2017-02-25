@@ -51,7 +51,7 @@ public class ListActivity extends AppCompatActivity {
         List<Data> data = new ArrayList<>();
 
         for(int i = 1; i <= sensors_list.length; i++){
-            data.add(new Data(sensors_list[i-1], R.drawable.test, isPresent[i-1]));
+            data.add(new Data(sensors_list[i-1], R.drawable.android, isPresent[i-1]));
         }
 
         return data;
