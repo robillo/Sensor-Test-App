@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardElevation="@dimen/app_bar_elevation"
-        app:cardCornerRadius="15sp"
+        app:cardCornerRadius="5sp"
         android:layout_margin="10sp"
         android:clickable="true"
         android:onClick="onClick"
@@ -96,19 +96,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/card_background">
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0sp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimaryDark">
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Click"
-                    android:textColor="#FFF"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="35sp"
                     android:gravity="center"
                     android:fontFamily="sans-serif-smallcaps"/>
@@ -118,14 +118,13 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0sp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary">
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="To"
-                    android:textColor="#FFF"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="35sp"
                     android:gravity="center"
                     android:fontFamily="sans-serif-smallcaps"/>
@@ -135,14 +134,13 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0sp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimaryLight">
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Vibrate"
-                    android:textColor="#FFF"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="35sp"
                     android:gravity="center"
                     android:fontFamily="sans-serif-smallcaps"/>
