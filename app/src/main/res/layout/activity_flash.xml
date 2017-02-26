@@ -87,7 +87,7 @@
         android:layout_height="match_parent"
         app:cardElevation="@dimen/app_bar_elevation"
         app:cardCornerRadius="25sp"
-        app:cardBackgroundColor="#00FF00"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
         android:layout_margin="10sp"
         android:layout_below="@+id/ll"
         android:id="@+id/card">

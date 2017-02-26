@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 textView2.setText("Move To The Next Step?");
 
             }
-        }, 5000);
+        }, 3000);
     }
 
     //Permissions Helper Method

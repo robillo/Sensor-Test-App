@@ -60,7 +60,7 @@ public class FlashActivity extends AppCompatActivity {
     }
 
     private void turnOnFlash(){
-        card.setCardBackgroundColor(Color.YELLOW);
+        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
         parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
         camera.setParameters(parameters);
         camera.startPreview();
@@ -68,7 +68,7 @@ public class FlashActivity extends AppCompatActivity {
     }
 
     private void turnOffFlash(){
-        card.setCardBackgroundColor(Color.GREEN);
+        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
         camera.setParameters(parameters);
         camera.stopPreview();
