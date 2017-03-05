@@ -90,19 +90,49 @@
         android:layout_margin="10sp"
         android:layout_below="@+id/ll">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <GridLayout
+            <SurfaceView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="2">
+                android:layout_height="300sp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/preview"/>
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            </GridLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
 
-        </ScrollView>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/show_preview"
+                        android:text="SHOW PREVIEW"
+                        android:padding="15sp"
+                        android:backgroundTint="#FF0000"
+                        android:textColor="#FFF"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stop_preview"
+                        android:text="STOP PREVIEW"
+                        android:padding="15sp"
+                        android:backgroundTint="#FF0000"
+                        android:textColor="#FFF"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
 
     </android.support.v7.widget.CardView>
 
