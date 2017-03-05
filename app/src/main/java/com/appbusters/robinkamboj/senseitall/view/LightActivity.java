@@ -7,6 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,11 +20,14 @@ import com.github.yongjhih.mismeter.MisMeter;
 
 public class LightActivity extends AppCompatActivity {
 
-    String sensor_name;
+    String sensor_name, results[];
     TextView textView;
+    private Sensor sensor;
+    private SensorManager sensorManager;
     MisMeter meter;
     TextView maximum, current;
     float max, percentage;
+    private TextView vendor, minimum_delay, version, power, resolution;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,15 @@ public class LightActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
 
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        vendor = (TextView) findViewById(R.id.vendor);
+        minimum_delay = (TextView) findViewById(R.id.minimum_delay);
+        version = (TextView) findViewById(R.id.version);
+        power = (TextView) findViewById(R.id.power);
+        resolution = (TextView) findViewById(R.id.resolution);
+
         maximum = (TextView) findViewById(R.id.maximum);
         current = (TextView) findViewById(R.id.current);
         meter = (MisMeter) findViewById(R.id.meter);
@@ -44,8 +57,15 @@ public class LightActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-//        temp = (float) 0.5;
-//        meter.setProgress(temp);
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                setResults();
+                setTextViews();
+            }
+        });
+
 
         SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
@@ -55,6 +75,21 @@ public class LightActivity extends AppCompatActivity {
 
         sensorManager.registerListener(lightSensorEventListener, lightSensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
+
+    private void setResults(){
+        results = new String[]{sensor.getVendor(),
+                String.valueOf(sensor.getMinDelay()), String.valueOf(sensor.getVersion()),
+                String.valueOf(sensor.getPower()), String.valueOf(sensor.getResolution())};
+    }
+
+    private void setTextViews(){
+        vendor.setText(results[0]);
+        minimum_delay.setText(results[1]);
+        version.setText(results[2]);
+        power.setText(results[3]);
+        resolution.setText(results[4]);
+    }
+
 
     SensorEventListener lightSensorEventListener = new SensorEventListener() {
         @Override

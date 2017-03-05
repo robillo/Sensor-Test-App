@@ -83,7 +83,7 @@ public class ProximityActivity extends AppCompatActivity {
         vendor.setText(results[1]);
         wake_up.setText(results[2]);
         minimum_delay.setText(results[3]);
-        wake_up.setText(results[4]);
+        version.setText(results[4]);
         power.setText(results[5]);
         maximum_range.setText(results[6]);
         resolution.setText(results[7]);
