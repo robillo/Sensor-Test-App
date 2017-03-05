@@ -264,10 +264,6 @@
 
 
 
-
-
-
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -459,6 +455,75 @@
                     android:text="OS Version:"
                     android:gravity="center_horizontal"
                     android:id="@+id/os_version"/>
+
+
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Open GL ES Information:"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Detected Version:"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/gles_detected_version"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Version:"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/gles_version"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Vendor:"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/gles_vendor"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Graphic Chip:"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/gles_graphic_chip"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Extensions:"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/extensions"/>
 
             </LinearLayout>
 

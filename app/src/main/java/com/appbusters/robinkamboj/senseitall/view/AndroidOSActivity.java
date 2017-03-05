@@ -15,6 +15,11 @@ public class AndroidOSActivity extends AppCompatActivity {
     String sensor_name;
     TextView textView;
 
+    TextView manufacturer, model, product, release, version,
+            board, bootloader, brand, instruction_set, instruction_set2, device, display, fingerprint, hardware, host, device_id, radio, tags, time, type, user, codename, incremental,
+            machine_type, host_name, os_release, os_name, processor_type, os_version,
+            gles_detected_version, gles_version, gles_vendor, gles_graphic_chip, gles_extensions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +29,40 @@ public class AndroidOSActivity extends AppCompatActivity {
         sensor_name = i.getStringExtra("sensorName");
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
+
+        manufacturer = (TextView) findViewById(R.id.manufacturer);
+        model = (TextView) findViewById(R.id.model);
+        release = (TextView) findViewById(R.id.release);
+        version = (TextView) findViewById(R.id.version);
+        board = (TextView) findViewById(R.id.board);
+        bootloader = (TextView) findViewById(R.id.bootloader);
+        brand = (TextView) findViewById(R.id.brand);
+        instruction_set = (TextView) findViewById(R.id.instruction_Set);
+        instruction_set2 = (TextView) findViewById(R.id.instruction_set_2);
+        device = (TextView) findViewById(R.id.device);
+        display = (TextView) findViewById(R.id.display);
+        fingerprint = (TextView) findViewById(R.id.fingerprint);
+        hardware = (TextView) findViewById(R.id.hardware);
+        host = (TextView) findViewById(R.id.host);
+        device_id = (TextView) findViewById(R.id.id);
+        radio = (TextView) findViewById(R.id.radio);
+        tags = (TextView) findViewById(R.id.tags);
+        time = (TextView) findViewById(R.id.time);
+        type = (TextView) findViewById(R.id.type);
+        user = (TextView) findViewById(R.id.user);
+        codename = (TextView) findViewById(R.id.codename);
+        incremental = (TextView) findViewById(R.id.incremental);
+        machine_type = (TextView) findViewById(R.id.machine_type);
+        host_name = (TextView) findViewById(R.id.host_name);
+        os_release = (TextView) findViewById(R.id.os_release);
+        os_name = (TextView) findViewById(R.id.os_name);
+        processor_type = (TextView) findViewById(R.id.processor_type);
+        os_version = (TextView) findViewById(R.id.os_version);
+        gles_detected_version = (TextView) findViewById(R.id.gles_detected_version);
+        gles_version = (TextView) findViewById(R.id.gles_version);
+        gles_vendor = (TextView) findViewById(R.id.gles_vendor);
+        gles_graphic_chip = (TextView) findViewById(R.id.gles_graphic_chip);
+        gles_extensions = (TextView) findViewById(R.id.extensions);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
