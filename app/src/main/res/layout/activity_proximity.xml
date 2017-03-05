@@ -160,7 +160,7 @@
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:text="Accuracy:"
+                        android:text="Wake Up Sensor:"
                         android:padding="5sp"/>
 
                     <TextView
@@ -170,7 +170,7 @@
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:id="@+id/accuracy"
+                        android:id="@+id/wake_up"
                         android:padding="5sp"/>
 
                     <TextView
@@ -272,7 +272,6 @@
                         android:fontFamily="sans-serif-smallcaps"
                         android:id="@+id/resolution"
                         android:padding="5sp"/>
-
 
                 </GridLayout>
 
