@@ -32,5 +32,6 @@ dependencies {
     compile 'com.android.support:design:25.1.0'
     compile 'com.github.yongjhih:mismeter:1.0.0'
     compile 'com.google.android.gms:play-services:10.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     testCompile 'junit:junit:4.12'
 }
