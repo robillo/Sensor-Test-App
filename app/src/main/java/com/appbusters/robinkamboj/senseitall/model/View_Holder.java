@@ -15,7 +15,6 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,11 +24,13 @@ import com.appbusters.robinkamboj.senseitall.view.AndroidOSActivity;
 import com.appbusters.robinkamboj.senseitall.view.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.CameraActivity;
+import com.appbusters.robinkamboj.senseitall.view.CompassActivity;
 import com.appbusters.robinkamboj.senseitall.view.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.GSMActivity;
 import com.appbusters.robinkamboj.senseitall.view.LightActivity;
 import com.appbusters.robinkamboj.senseitall.view.MagneticActivity;
 import com.appbusters.robinkamboj.senseitall.view.MapsActivity;
+import com.appbusters.robinkamboj.senseitall.view.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.ProximityActivity;
 import com.appbusters.robinkamboj.senseitall.view.VibratorActivity;
 
@@ -163,7 +164,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 8:{
-
+                Intent i = new Intent(context, CompassActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 9:{
@@ -313,7 +316,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 42:{
-
+                Intent i = new Intent(context, NFCActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 43:{
