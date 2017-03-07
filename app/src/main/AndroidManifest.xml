@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.NFC" />
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -74,7 +75,9 @@
 
         <activity
             android:name=".view.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".view.NFCActivity" />
+        <activity android:name=".view.CompassActivity"></activity>
     </application>
 
 </manifest>

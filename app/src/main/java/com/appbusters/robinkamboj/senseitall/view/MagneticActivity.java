@@ -18,7 +18,6 @@ import com.appbusters.robinkamboj.senseitall.R;
 public class MagneticActivity extends AppCompatActivity implements SensorEventListener{
 
     private static final String TAG = "MAGNETIC ACTIVITY";
-    public static TextView level,plugged,present,maxcl,status,tech,temp,vol;
 
     String sensor_name;
     private static final int TEST_GRAV = Sensor.TYPE_ACCELEROMETER;
@@ -36,6 +35,10 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
     private TextView magneticXTextView, textView;
     private TextView magneticYTextView;
     private TextView magneticZTextView;
+    private TextView calib;
+    private TextView maxcl;
+    private TextView present;
+
 
     /** Sensors. */
     private Sensor mAccelerometer;
@@ -67,10 +70,12 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         vendor = (TextView) findViewById(R.id.vendorMag);
         resolution = (TextView) findViewById(R.id.resolutionMag);
         maximumRange = (TextView) findViewById(R.id.maximumRange);
-
+        calib = (TextView) findViewById(R.id.calib);
         magneticXTextView = (TextView) findViewById(R.id.magneticX);
         magneticYTextView = (TextView) findViewById(R.id.magneticY);
         magneticZTextView = (TextView) findViewById(R.id.magneticZ);
+        maxcl = (TextView) findViewById(R.id.maxcl);
+        present = (TextView) findViewById(R.id.present);
 
         mSensorManager.registerListener(this, mGeomagnetic, SensorManager.SENSOR_DELAY_FASTEST);
 
@@ -83,15 +88,19 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         synchronized (this) {
                     if (!specDefined) {
                         Log.d(TAG, "onSensorChanged: LOG");
-                        vendor.setText("Vendor: " + sensorEvent.sensor.getVendor() + " " + sensorEvent.sensor.getName());
+                        vendor.setText(sensorEvent.sensor.getVendor() + " " + sensorEvent.sensor.getName());
                         float resolutionValue = sensorEvent.sensor.getResolution() * nanoTtoGRate;
-                        resolution.setText("Resolution: " + resolutionValue);
+                        resolution.setText(String.valueOf(resolutionValue)+"μT");
+                        calib.setText(sensorEvent.sensor.getName().substring(0,17));
                         float maximumRangeValue = sensorEvent.sensor.getMaximumRange() * nanoTtoGRate;
-                        maximumRange.setText("Maximum range: " + maximumRangeValue);
-                        magneticXTextView.setText("x: " + sensorEvent.values[0]);
-                        magneticYTextView.setText("y: " + sensorEvent.values[1]);
-                        magneticZTextView.setText("z:  " + sensorEvent.values[2]);
+                        maximumRange.setText(String.valueOf(maximumRangeValue*1000000)+"μT");
+                        magneticXTextView.setText(String.valueOf(sensorEvent.values[0])+"μT");
+                        magneticYTextView.setText(String.valueOf(sensorEvent.values[1])+"μT");
+                        magneticZTextView.setText(String.valueOf(sensorEvent.values[2])+"μT");
+                        maxcl.setText(String.valueOf(sensorEvent.sensor.getPower())+" Amp");
 //                        sensorEvent.sensor.
+                        present.setText("Yes");
+                        Log.d(TAG, "fifo........: "+  sensorEvent.sensor.getFifoReservedEventCount());
                     }
             geomagneticValues = sensorEvent.values.clone();
             }
