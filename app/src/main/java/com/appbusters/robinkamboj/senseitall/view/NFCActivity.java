@@ -22,5 +22,6 @@ public class NFCActivity extends AppCompatActivity {
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         boolean isen = nfcAdapter.isEnabled();
+        
     }
 }

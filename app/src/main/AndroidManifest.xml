@@ -76,7 +76,8 @@
         <activity
             android:name=".view.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".view.NFCActivity"></activity>
+        <activity android:name=".view.NFCActivity" />
+        <activity android:name=".view.CompassActivity"></activity>
     </application>
 
 </manifest>
