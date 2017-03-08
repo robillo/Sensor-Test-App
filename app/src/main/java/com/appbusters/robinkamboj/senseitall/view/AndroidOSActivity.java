@@ -1,6 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +15,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 
 public class AndroidOSActivity extends AppCompatActivity {
 
-    String sensor_name;
+    String sensor_name, results[];
     TextView textView;
 
     TextView manufacturer, model, product, release, version,
@@ -31,6 +34,7 @@ public class AndroidOSActivity extends AppCompatActivity {
         textView.setText(sensor_name);
 
         manufacturer = (TextView) findViewById(R.id.manufacturer);
+        product = (TextView) findViewById(R.id.product);
         model = (TextView) findViewById(R.id.model);
         release = (TextView) findViewById(R.id.release);
         version = (TextView) findViewById(R.id.version);
@@ -68,6 +72,20 @@ public class AndroidOSActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+    private void setResults(){
+        results = new String[]{
+                Build.MANUFACTURER, Build.MODEL, Build.PRODUCT ,Build.VERSION.RELEASE, Build.VERSION.BASE_OS,
+                Build.BOARD, Build.BOOTLOADER, Build.BRAND, Build.CPU_ABI, Build.CPU_ABI2, Build.DEVICE, Build.DISPLAY, Build.FINGERPRINT,
+                Build.HARDWARE, Build.HOST, Build.ID, Build.RADIO, Build.TAGS, String.valueOf(Build.TIME), Build.TYPE, Build.USER, Build.VERSION.CODENAME, Build.VERSION.INCREMENTAL
+
+
+
+
+
+
+        };
     }
 
     @Override
