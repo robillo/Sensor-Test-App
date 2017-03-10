@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MultiTouchCanvas extends View {
-    private static final int CIRCLE_RADIUS_DP = 20;
+    private static final int CIRCLE_RADIUS_DP = 25;
 
     public interface MultiTouchStatusListener {
         void onStatus(List<Point> pointerLocations, int numPoints);
@@ -93,7 +93,6 @@ public class MultiTouchCanvas extends View {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_POINTER_UP:
             case MotionEvent.ACTION_CANCEL: {
-                //move indices down, and put the last one up
                 if (pointerIndex < numTouches - 1) {
                     Point p = pointerLocations.get(pointerIndex);
                     pointerLocations.get(numTouches - 1).x = p.x;
