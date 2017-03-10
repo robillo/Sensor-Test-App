@@ -2,11 +2,9 @@ package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Intent;
 import android.hardware.Camera;
-import android.support.annotation.BoolRes;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,10 +18,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
 
 public class CameraActivity extends AppCompatActivity implements SurfaceHolder.Callback{
 
@@ -138,27 +133,44 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         Camera.Parameters parameters = camera.getParameters();
         Display display = ((WindowManager)getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
 
-        if(display.getRotation() == Surface.ROTATION_0)
-        {
-            parameters.setPreviewSize(height, width);
-            camera.setDisplayOrientation(90);
+//        if(display.getRotation() == Surface.ROTATION_0)
+//        {
+//            parameters.setPreviewSize(height, width);
+//            camera.setDisplayOrientation(90);
+//        }
+//
+//        if(display.getRotation() == Surface.ROTATION_90)
+//        {
+//            parameters.setPreviewSize(width, height);
+//        }
+//
+//        if(display.getRotation() == Surface.ROTATION_180)
+//        {
+//            parameters.setPreviewSize(height, width);
+//        }
+//
+//        if(display.getRotation() == Surface.ROTATION_270)
+//        {
+//            parameters.setPreviewSize(width, height);
+//            camera.setDisplayOrientation(180);
+//        }
+
+        int rotation = 0;
+
+        switch (getWindowManager().getDefaultDisplay().getRotation()){
+            case Surface.ROTATION_0:
+                rotation = 90;
+                break;
+            case Surface.ROTATION_90:
+                rotation = 0;
+                break;
+            case Surface.ROTATION_270:
+                rotation = 180;
+                break;
         }
 
-        if(display.getRotation() == Surface.ROTATION_90)
-        {
-            parameters.setPreviewSize(width, height);
-        }
-
-        if(display.getRotation() == Surface.ROTATION_180)
-        {
-            parameters.setPreviewSize(height, width);
-        }
-
-        if(display.getRotation() == Surface.ROTATION_270)
-        {
-            parameters.setPreviewSize(width, height);
-            camera.setDisplayOrientation(180);
-        }
+        camera.setDisplayOrientation(rotation);
+        camera.getParameters().setRotation(rotation);
 
         camera.setParameters(parameters);
         previewCamera();
