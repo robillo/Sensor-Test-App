@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="4sp"
-    app:cardCornerRadius="4sp"
+    app:cardCornerRadius="40sp"
     android:id="@+id/cardView"
     android:clickable="false">
 
@@ -34,13 +34,13 @@
         </FrameLayout>
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="LIGHT"
-            android:textColor="@color/colorBlackShade2"
             android:gravity="center"
             android:padding="4sp"
-            android:id="@+id/textView"/>
+            android:text="LIGHT"
+            android:textColor="@color/colorBlackShade2" />
 
     </LinearLayout>
 

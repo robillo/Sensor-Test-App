@@ -49,6 +49,8 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
 
         surfaceView = (SurfaceView)findViewById(R.id.preview);
         surfaceHolder = surfaceView.getHolder();
+
+
         surfaceHolder.addCallback(this);
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
@@ -155,24 +157,9 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
 //            camera.setDisplayOrientation(180);
 //        }
 
-        int rotation = 0;
 
-        switch (getWindowManager().getDefaultDisplay().getRotation()){
-            case Surface.ROTATION_0:
-                rotation = 90;
-                break;
-            case Surface.ROTATION_90:
-                rotation = 0;
-                break;
-            case Surface.ROTATION_270:
-                rotation = 180;
-                break;
-        }
 
-        camera.setDisplayOrientation(rotation);
-        camera.getParameters().setRotation(rotation);
-
-        camera.setParameters(parameters);
+//        camera.setParameters(parameters);
         previewCamera();
 
     }
@@ -183,6 +170,22 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
             camera = Camera.open();
             if(camera!=null){
                 try {
+                    int rotation = 0;
+
+                    switch (getWindowManager().getDefaultDisplay().getRotation()){
+                        case Surface.ROTATION_0:
+                            rotation = 90;
+                            break;
+                        case Surface.ROTATION_90:
+                            rotation = 0;
+                            break;
+                        case Surface.ROTATION_270:
+                            rotation = 180;
+                            break;
+                    }
+
+                    camera.setDisplayOrientation(rotation);
+                    camera.getParameters().setRotation(rotation);
                     camera.setPreviewDisplay(surfaceHolder);
                     camera.startPreview();
                     previewing = true;
