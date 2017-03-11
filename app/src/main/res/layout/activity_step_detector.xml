@@ -94,14 +94,246 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/one"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Steps Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/step"
+                    android:layout_toRightOf="@+id/one"/>
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Accuracy:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/one"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/two"/>
 
-            </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Accuracy Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/accuracy"
+                    android:layout_toRightOf="@+id/two"
+                    android:layout_below="@+id/one"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sampling Rate:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/two"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/three"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sampling Rate Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/sampling_rate"
+                    android:layout_toRightOf="@+id/three"
+                    android:layout_below="@+id/two"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minimum Delay:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/three"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/four"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Min Delay Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/minimum_delay"
+                    android:layout_toRightOf="@+id/four"
+                    android:layout_below="@+id/three"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/four"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/five"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/name"
+                    android:layout_toRightOf="@+id/five"
+                    android:layout_below="@+id/four"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vendor:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/five"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/six"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vendor Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/vendor"
+                    android:layout_toRightOf="@+id/six"
+                    android:layout_below="@+id/five"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Version:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/six"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/seven"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Version Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/version"
+                    android:layout_toRightOf="@+id/seven"
+                    android:layout_below="@+id/six"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Power:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/seven"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/eight"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Version Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/power"
+                    android:layout_toRightOf="@+id/eight"
+                    android:layout_below="@+id/seven"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maximum Delay:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/eight"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/nine"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Max Delay Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/maximum_delay"
+                    android:layout_toRightOf="@+id/nine"
+                    android:layout_below="@+id/eight"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resolution:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/nine"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/ten"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Max Delay Value"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/resolution"
+                    android:layout_toRightOf="@+id/ten"
+                    android:layout_below="@+id/nine"/>
+
+            </RelativeLayout>
 
         </ScrollView>
 
