@@ -324,7 +324,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Max Delay"
+                    android:text="Resolution"
                     android:fontFamily="sans-serif-smallcaps"
                     android:textSize="20sp"
                     android:textColor="@color/colorPrimaryDark"
