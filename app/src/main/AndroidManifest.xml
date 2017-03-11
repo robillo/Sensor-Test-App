@@ -96,7 +96,8 @@
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.StepDetectorActivity"></activity>
+        <activity android:name=".view.StepDetectorActivity" />
+        <activity android:name=".view.StepCounterActivity"></activity>
     </application>
 
 </manifest>
