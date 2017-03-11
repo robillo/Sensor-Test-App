@@ -333,6 +333,29 @@
                     android:layout_toRightOf="@+id/ten"
                     android:layout_below="@+id/nine"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maximum Range:"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:layout_below="@+id/ten"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:padding="5sp"
+                    android:id="@+id/eleven"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Max Range"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="5sp"
+                    android:id="@+id/maximum_range"
+                    android:layout_toRightOf="@+id/eleven"
+                    android:layout_below="@+id/ten"/>
+
             </RelativeLayout>
 
         </ScrollView>

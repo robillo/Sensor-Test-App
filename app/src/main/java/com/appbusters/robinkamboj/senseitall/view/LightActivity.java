@@ -97,7 +97,6 @@ public class LightActivity extends AppCompatActivity {
             if(sensorEvent.sensor.getType()==Sensor.TYPE_LIGHT){
                 float currentReading = sensorEvent.values[0];
                 current.setText(String.valueOf(currentReading));
-                String set = String.valueOf(String.format("%.2f",(currentReading/max)*10000));
                 percentage = (currentReading/max);
                 meter.setProgress(percentage);
             }
