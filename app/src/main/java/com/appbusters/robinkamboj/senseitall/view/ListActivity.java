@@ -1,9 +1,12 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.util.SortedList;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +17,7 @@ import com.appbusters.robinkamboj.senseitall.controller.Recycler_View_Adapter;
 import com.appbusters.robinkamboj.senseitall.model.Data;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
@@ -62,6 +66,24 @@ public class ListActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        //For SearchView
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Here is where we are going to implement the filter logic
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
         return true;
     }
 
@@ -82,4 +104,52 @@ public class ListActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    private final SortedList.Callback<Data> callback = new SortedList.Callback<Data>(){
+
+
+        @Override
+        public void onInserted(int position, int count) {
+
+        }
+
+        @Override
+        public void onRemoved(int position, int count) {
+
+        }
+
+        @Override
+        public void onMoved(int fromPosition, int toPosition) {
+
+        }
+
+        @Override
+        public int compare(Data a, Data b) {
+            return comparator.compare(a,b);
+        }
+
+        @Override
+        public void onChanged(int position, int count) {
+
+        }
+
+        @Override
+        public boolean areContentsTheSame(Data oldItem, Data newItem) {
+            return oldItem.equals(newItem);
+        }
+
+        @Override
+        public boolean areItemsTheSame(Data item1, Data item2) {
+            return item1.getSensor_name() == item2.getSensor_name();
+        }
+
+    };
+
+    private static final Comparator<Data> comparator = new Comparator<Data>() {
+        @Override
+        public int compare(Data a, Data b) {
+            return a.getSensor_name().compareTo(b.getSensor_name());
+        }
+    };
 }
