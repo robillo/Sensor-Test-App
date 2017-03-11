@@ -10,6 +10,7 @@ import android.os.CancellationSignal;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -59,24 +60,25 @@ public class FingerprintHandler extends
 
     @Override
     public void onAuthenticationFailed() {
-        Snackbar.make(view.activity_fingerprint, "Authentication Failed.", Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
+        Snackbar.make(view.activity_fingerprint, "Authentication Failed.", Snackbar.LENGTH_SHORT).setAction("Okay", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
-        });
+        }).show();
     }
 
     @Override
     public void onAuthenticationSucceeded(
             FingerprintManager.AuthenticationResult result) {
 
-        Snackbar.make(view.activity_fingerprint, "Authentication Succeeded.", Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
+        Snackbar.make(view.activity_fingerprint, "Authentication Succeeded.", Snackbar.LENGTH_SHORT).setAction("Okay", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
-        });
+        }).show();
+
     }
 
 }
