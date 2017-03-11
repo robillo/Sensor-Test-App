@@ -97,7 +97,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.StepDetectorActivity" />
-        <activity android:name=".view.StepCounterActivity"></activity>
+        <activity android:name=".view.StepCounterActivity" />
+        <activity android:name=".view.FingerprintActivity"></activity>
     </application>
 
 </manifest>

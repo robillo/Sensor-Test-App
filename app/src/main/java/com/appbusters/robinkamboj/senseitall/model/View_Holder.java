@@ -25,6 +25,7 @@ import com.appbusters.robinkamboj.senseitall.view.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.CameraActivity;
 import com.appbusters.robinkamboj.senseitall.view.CompassActivity;
+import com.appbusters.robinkamboj.senseitall.view.FingerprintActivity;
 import com.appbusters.robinkamboj.senseitall.view.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.GSMActivity;
 import com.appbusters.robinkamboj.senseitall.view.LightActivity;
@@ -33,6 +34,7 @@ import com.appbusters.robinkamboj.senseitall.view.MapsActivity;
 import com.appbusters.robinkamboj.senseitall.view.MultiTouchActivity;
 import com.appbusters.robinkamboj.senseitall.view.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.ProximityActivity;
+import com.appbusters.robinkamboj.senseitall.view.StepCounterActivity;
 import com.appbusters.robinkamboj.senseitall.view.StepDetectorActivity;
 import com.appbusters.robinkamboj.senseitall.view.VibratorActivity;
 
@@ -280,7 +282,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 32:{
-
+                Intent i = new Intent(context, StepCounterActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 33:{
@@ -318,7 +322,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 41:{
-
+                Intent i = new Intent(context, FingerprintActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 42:{
