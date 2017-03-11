@@ -95,8 +95,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                android:padding="20sp"
+                android:src="@drawable/fingerprint"
+                android:background="@color/colorPrimaryDark"/>
 
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Press Your Finger Against the Fingerprint Sensor To Authenticate"
+                android:padding="5sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"/>
 
         </LinearLayout>
 
