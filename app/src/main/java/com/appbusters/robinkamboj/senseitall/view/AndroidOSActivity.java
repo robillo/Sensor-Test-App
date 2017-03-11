@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -75,11 +76,18 @@ public class AndroidOSActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                setResults();
+                setTextviews();
+            }
+        });
     }
 
     private void setResults(){
-
-        String extensions = String.valueOf(GL10.GL_EXTENSIONS);
 
         results = new String[]{
                 Build.MANUFACTURER, Build.MODEL, Build.PRODUCT ,Build.VERSION.RELEASE, Build.VERSION.BASE_OS,
@@ -89,6 +97,44 @@ public class AndroidOSActivity extends AppCompatActivity {
                 String.valueOf(GL10.GL_VERSION), String.valueOf(GL10.GL_VERSION), String.valueOf(GL10.GL_VENDOR), String.valueOf(GL10.GL_VERSION), String.valueOf(GL10.GL_EXTENSIONS)
         };
     }
+
+    private void setTextviews(){
+        manufacturer.setText("Manufacturer:" + results[0]);
+        model.setText("Model:" + results[1]);
+        product.setText("Product:" + results[2]);
+        release.setText("Release:" + results[3]);
+        version.setText("Version:" + results[4]);
+        board.setText("Board:" + results[5]);
+        bootloader.setText("Bootloader:" + results[6]);
+        brand.setText("Brand:" + results[7]);
+        instruction_set.setText("Instruction Set 1:" + results[8]);
+        instruction_set2.setText("Instruction Set 2:" + results[9]);
+        device.setText("Device:" + results[10]);
+        display.setText("Display:" + results[11]);
+        fingerprint.setText("Fingerprint:" + results[12]);
+        hardware.setText("Hardware:" + results[13]);
+        host.setText("Host:" + results[14]);
+        device_id.setText("Device ID:" + results[15]);
+        radio.setText("Radio:" + results[16]);
+        tags.setText("Tags:" + results[17]);
+        time.setText("Time:" + results[18]);
+        type.setText("Type:" + results[19]);
+        user.setText("User:" + results[20]);
+        codename.setText("Codename:" + results[21]);
+        incremental.setText("Incremental:" + results[22]);
+        machine_type.setText("Machine Type:" + results[23]);
+        host_name.setText("Host Name:" + results[24]);
+        os_release.setText("OS Release:" + results[25]);
+        os_name.setText("OS Name:" + results[26]);
+        processor_type.setText("Processor Type:" + results[27]);
+        os_version.setText("OS Version:" + results[28]);
+        gles_detected_version.setText("Detected Version:" + results[29]);
+        gles_version.setText("Version:" + results[30]);
+        gles_vendor.setText("Vendor:" + results[31]);
+        gles_graphic_chip.setText("Graphic Chip:" + results[32]);
+        gles_extensions.setText("Extensions:" + results[33]);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
