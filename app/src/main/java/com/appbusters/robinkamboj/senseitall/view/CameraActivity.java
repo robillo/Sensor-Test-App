@@ -22,8 +22,6 @@ import java.io.IOException;
 
 public class CameraActivity extends AppCompatActivity implements SurfaceHolder.Callback{
 
-    TextView testView;
-
     Boolean previewing = false;
     Camera camera;
     Button show_preview, stop_preview;

@@ -33,6 +33,7 @@ import com.appbusters.robinkamboj.senseitall.view.MapsActivity;
 import com.appbusters.robinkamboj.senseitall.view.MultiTouchActivity;
 import com.appbusters.robinkamboj.senseitall.view.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.ProximityActivity;
+import com.appbusters.robinkamboj.senseitall.view.StepDetectorActivity;
 import com.appbusters.robinkamboj.senseitall.view.VibratorActivity;
 
 import static android.content.ContentValues.TAG;
@@ -269,7 +270,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 30:{
-
+                Intent i = new Intent(context, StepDetectorActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 31:{
