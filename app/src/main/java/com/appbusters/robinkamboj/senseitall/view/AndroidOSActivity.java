@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
+import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL10Ext;
+
 public class AndroidOSActivity extends AppCompatActivity {
 
     String sensor_name, results[];
@@ -75,16 +78,15 @@ public class AndroidOSActivity extends AppCompatActivity {
     }
 
     private void setResults(){
+
+        String extensions = String.valueOf(GL10.GL_EXTENSIONS);
+
         results = new String[]{
                 Build.MANUFACTURER, Build.MODEL, Build.PRODUCT ,Build.VERSION.RELEASE, Build.VERSION.BASE_OS,
                 Build.BOARD, Build.BOOTLOADER, Build.BRAND, Build.CPU_ABI, Build.CPU_ABI2, Build.DEVICE, Build.DISPLAY, Build.FINGERPRINT,
-                Build.HARDWARE, Build.HOST, Build.ID, Build.RADIO, Build.TAGS, String.valueOf(Build.TIME), Build.TYPE, Build.USER, Build.VERSION.CODENAME, Build.VERSION.INCREMENTAL
-
-
-
-
-
-
+                Build.HARDWARE, Build.HOST, Build.ID, Build.RADIO, Build.TAGS, String.valueOf(Build.TIME), Build.TYPE, Build.USER, Build.VERSION.CODENAME, Build.VERSION.INCREMENTAL,
+                Build.HARDWARE, Build.HOST, Build.VERSION.RELEASE, "ANDROID", System.getProperty("os.arch"), Build.VERSION.BASE_OS,
+                String.valueOf(GL10.GL_VERSION), String.valueOf(GL10.GL_VERSION), String.valueOf(GL10.GL_VENDOR), String.valueOf(GL10.GL_VERSION), String.valueOf(GL10.GL_EXTENSIONS)
         };
     }
 
