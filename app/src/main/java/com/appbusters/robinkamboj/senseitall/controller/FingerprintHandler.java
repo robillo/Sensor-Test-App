@@ -7,13 +7,20 @@ import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.appbusters.robinkamboj.senseitall.view.FingerprintActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends
         FingerprintManager.AuthenticationCallback {
 
+    private FingerprintActivity view;
     private CancellationSignal cancellationSignal;
     private Context appContext;
 
@@ -52,18 +59,24 @@ public class FingerprintHandler extends
 
     @Override
     public void onAuthenticationFailed() {
-        Toast.makeText(appContext,
-                "Authentication failed.",
-                Toast.LENGTH_LONG).show();
+        Snackbar.make(view.activity_fingerprint, "Authentication Failed.", Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
     public void onAuthenticationSucceeded(
             FingerprintManager.AuthenticationResult result) {
 
-        Toast.makeText(appContext,
-                "Authentication succeeded.",
-                Toast.LENGTH_LONG).show();
+        Snackbar.make(view.activity_fingerprint, "Authentication Succeeded.", Snackbar.LENGTH_INDEFINITE).setAction("Okay", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
 }
