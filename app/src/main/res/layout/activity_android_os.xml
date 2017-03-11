@@ -107,7 +107,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="General:"
-                    android:gravity="center_horizontal"/>
+                    android:gravity="left"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -117,7 +117,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Manufacturer:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/manufacturer"/>
 
                 <TextView
@@ -128,7 +128,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Model:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/model"/>
 
                 <TextView
@@ -139,7 +139,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Product:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/product"/>
 
                 <TextView
@@ -150,7 +150,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Release:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/release"/>
 
                 <TextView
@@ -161,7 +161,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Version:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/version"/>
 
                 <TextView
@@ -172,7 +172,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Device Info:"
-                    android:gravity="center_horizontal"/>
+                    android:gravity="left"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -182,7 +182,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Board:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/board"/>
 
                 <TextView
@@ -193,7 +193,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Boot-loader:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/bootloader"/>
 
                 <TextView
@@ -204,7 +204,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Brand:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/brand"/>
 
                 <TextView
@@ -215,7 +215,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Instruction set:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/instruction_Set"/>
 
                 <TextView
@@ -226,7 +226,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Instruction Set 2:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/instruction_set_2"/>
 
                 <TextView
@@ -237,7 +237,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Device:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/device"/>
 
                 <TextView
@@ -248,7 +248,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Display:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/display"/>
 
                 <TextView
@@ -259,7 +259,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Fingerprint:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/fingerprint"/>
 
 
@@ -272,7 +272,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Hardware:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/hardware"/>
 
                 <TextView
@@ -283,7 +283,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Host:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/host"/>
 
                 <TextView
@@ -294,7 +294,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Id:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/id"/>
 
                 <TextView
@@ -305,7 +305,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Radio:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/radio"/>
 
                 <TextView
@@ -316,7 +316,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Tags:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/tags"/>
 
                 <TextView
@@ -327,7 +327,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Time:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/time"/>
 
                 <TextView
@@ -338,7 +338,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Type:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/type"/>
 
                 <TextView
@@ -349,7 +349,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="User:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/user"/>
 
 
@@ -361,7 +361,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Codename:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/codename"/>
 
                 <TextView
@@ -372,7 +372,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Incremental:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/incremental"/>
 
 
@@ -388,7 +388,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Kernel Information:"
-                    android:gravity="center_horizontal"/>
+                    android:gravity="left"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -398,7 +398,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Hardware (Machine) Type:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/machine_type"/>
 
                 <TextView
@@ -409,7 +409,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Host Name:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/host_name"/>
 
                 <TextView
@@ -420,7 +420,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="OS Release:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/os_release"/>
 
                 <TextView
@@ -431,7 +431,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="0S Name:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/os_name"/>
 
                 <TextView
@@ -442,7 +442,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Processor Type:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/processor_type"/>
 
                 <TextView
@@ -453,7 +453,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="OS Version:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/os_version"/>
 
 
@@ -468,7 +468,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Open GL ES Information:"
-                    android:gravity="center_horizontal"/>
+                    android:gravity="left"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -478,7 +478,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Detected Version:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/gles_detected_version"/>
 
                 <TextView
@@ -489,7 +489,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Version:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/gles_version"/>
 
                 <TextView
@@ -500,7 +500,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Vendor:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/gles_vendor"/>
 
                 <TextView
@@ -511,7 +511,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Graphic Chip:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/gles_graphic_chip"/>
 
                 <TextView
@@ -522,7 +522,7 @@
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="Extensions:"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:id="@+id/extensions"/>
 
             </LinearLayout>
