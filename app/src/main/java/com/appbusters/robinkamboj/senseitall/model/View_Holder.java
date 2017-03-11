@@ -270,13 +270,13 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 30:{
-                Intent i = new Intent(context, StepDetectorActivity.class);
-                i.putExtra("sensorName", sensorName);
-                context.startActivity(i);
+
                 break;
             }
             case 31:{
-
+                Intent i = new Intent(context, StepDetectorActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 32:{
