@@ -1,5 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.model;
 
+import android.support.v7.widget.util.SortedListAdapterCallback;
+
 public class Data {
 
     public String sensor_name;
@@ -35,4 +37,5 @@ public class Data {
     public void setDrawable(int drawable) {
         this.drawable = drawable;
     }
+
 }
