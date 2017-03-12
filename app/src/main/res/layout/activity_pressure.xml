@@ -99,6 +99,93 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Name:"
+                    android:gravity="start"
+                    android:id="@+id/name"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Vendor:"
+                    android:gravity="start"
+                    android:id="@+id/vendor"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Version:"
+                    android:gravity="start"
+                    android:id="@+id/version"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Maximum Range:"
+                    android:gravity="start"
+                    android:id="@+id/maximum_range"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Power:"
+                    android:gravity="start"
+                    android:id="@+id/power"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Minimum Delay:"
+                    android:gravity="start"
+                    android:id="@+id/minimum_delay"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Maximum Delay:"
+                    android:gravity="start"
+                    android:id="@+id/maximum_delay"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Resolution:"
+                    android:gravity="start"
+                    android:id="@+id/resolution"/>
 
             </LinearLayout>
 
