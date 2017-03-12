@@ -89,7 +89,8 @@
         app:cardCornerRadius="10sp"
         android:layout_margin="10sp"
         android:padding="5sp"
-        android:layout_below="@+id/ll">
+        android:layout_below="@+id/ll"
+        app:cardBackgroundColor="@color/colorPrimaryLightLight">
 
         <ScrollView
             android:layout_width="match_parent"
