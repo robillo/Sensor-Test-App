@@ -3,6 +3,7 @@ package com.appbusters.robinkamboj.senseitall.view;
 import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Camera;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -61,21 +62,35 @@ public class FlashActivity extends AppCompatActivity {
     }
 
     private void turnOnFlash(){
-        imageView.setBackgroundColor(getResources().getColor(R.color.colorWhiteShade));
+
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                imageView.setBackgroundColor(getResources().getColor(R.color.colorWhiteShade));
 //        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-        camera.setParameters(parameters);
-        camera.startPreview();
-        isFlashOn = true;
+                parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                camera.setParameters(parameters);
+                camera.startPreview();
+                isFlashOn = true;
+            }
+        });
     }
 
     private void turnOffFlash(){
-        imageView.setBackgroundColor(getResources().getColor(R.color.colorBlackShade));
+
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                imageView.setBackgroundColor(getResources().getColor(R.color.colorBlackShade));
 //        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-        parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-        camera.setParameters(parameters);
-        camera.stopPreview();
-        isFlashOn = false;
+                parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                camera.setParameters(parameters);
+                camera.stopPreview();
+                isFlashOn = false;
+            }
+        });
     }
 
     @Override

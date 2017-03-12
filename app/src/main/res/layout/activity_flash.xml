@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardElevation="@dimen/app_bar_elevation"
-        app:cardCornerRadius="25sp"
+        app:cardCornerRadius="10sp"
         android:layout_margin="10sp"
         android:layout_below="@+id/ll"
         android:id="@+id/card">
@@ -100,7 +100,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="0sp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:layout_gravity="center"
                 android:src="@drawable/flashlight"
                 android:padding="15sp"
@@ -115,7 +115,7 @@
                 android:padding="10sp"
                 android:fontFamily="sans-serif-smallcaps"
                 android:text="Click The Button To Turn ON/OFF The Flash"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:gravity="center"/>
 
