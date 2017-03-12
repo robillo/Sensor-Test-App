@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.controller;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.Data;
 import com.appbusters.robinkamboj.senseitall.model.View_Holder;
+import com.appbusters.robinkamboj.senseitall.view.ListActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.Collections;
@@ -24,7 +26,6 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
     Context context, _context;
     int _position;
     View_Holder _holder;
-    public Boolean[] isPresent;
 
     public Recycler_View_Adapter(List<Data> list, Context context) {
         this.list = list;
@@ -70,7 +71,15 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
                         Log.e("ROBIN", list.get(position).sensor_name);
                     }
                     else {
-                        Toast.makeText(context, list.get(position).sensor_name + " is not present in your device", Toast.LENGTH_SHORT).show();                    }
+//                        Toast.makeText(context, list.get(position).sensor_name + " is not present in your device", Toast.LENGTH_SHORT).show();
+                        Snackbar.make(ListActivity.activity_list,list.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
+                                .setAction("Okay", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                            }
+                        }).show();
+                    }
                 }
                 else {
                     if(list.get(position).isPresent){
@@ -78,7 +87,14 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
                         Log.e("ROBIN", list.get(position).sensor_name);
                     }
                     else {
-                        Toast.makeText(context, list.get(position).sensor_name + " is not present in your device", Toast.LENGTH_SHORT).show();                    }
+                        Snackbar.make(ListActivity.activity_list,list.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
+                                .setAction("Okay", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                    }
+                                }).show();
+                    }
                 }
             }
         });

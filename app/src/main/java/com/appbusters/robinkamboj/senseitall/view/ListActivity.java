@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.Recycler_View_Adapter;
@@ -26,6 +27,7 @@ public class ListActivity extends AppCompatActivity {
     List<Data> data;
     String[] sensors_list;
     boolean[] isPresent;
+    public static LinearLayout activity_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +35,9 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
+
+        activity_list = (LinearLayout) findViewById(R.id.activity_list);
 
         isPresent = (boolean[]) getIntent().getSerializableExtra("sensors_present");
 
