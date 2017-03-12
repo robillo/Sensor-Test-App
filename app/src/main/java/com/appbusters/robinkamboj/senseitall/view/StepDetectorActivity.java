@@ -2,10 +2,13 @@ package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Intent;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -17,6 +20,7 @@ public class StepDetectorActivity extends AppCompatActivity {
     TextView step, accuracy, sampling_rate, minimum_delay, name, vendor, version, power, maximum_delay, resolution, maximum_range;
     private Sensor sensor;
     private SensorManager sensorManager;
+    private long timestamp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +55,24 @@ public class StepDetectorActivity extends AppCompatActivity {
                 setTextviews();
             }
         });
+
+        sensorManager.registerListener(stepDetectorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
     }
+
+    SensorEventListener stepDetectorEventListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            // Time is in nanoseconds, convert to millis
+            Log.e("STEP", "STEP");
+            timestamp = sensorEvent.timestamp / 1000000;
+            step.setText((int) timestamp);
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+
+        }
+    };
 
 
     private void setResults(){

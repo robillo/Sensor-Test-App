@@ -2,6 +2,8 @@ package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Intent;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -51,8 +53,22 @@ public class StepCounterActivity extends AppCompatActivity {
                 setTextviews();
             }
         });
+
+        sensorManager.registerListener(stepCounterEventListener, sensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
+    SensorEventListener stepCounterEventListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            float steps = sensorEvent.values[0];
+            step_counter.setText((int) steps + "");
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+
+        }
+    };
 
     private void setResults(){
         results = new String[]{String.valueOf(sensor.getMinDelay()), sensor.getName(), sensor.getVendor(), String.valueOf(sensor.getVersion()),

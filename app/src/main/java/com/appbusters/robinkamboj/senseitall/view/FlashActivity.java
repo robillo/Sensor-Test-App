@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -24,7 +25,7 @@ public class FlashActivity extends AppCompatActivity {
     TextView textView;
     Camera.Parameters parameters;
     private Camera camera;
-    private ImageButton imageButton;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,8 @@ public class FlashActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
 
-        imageButton = (ImageButton) findViewById(R.id.flashlight);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        imageView = (ImageView) findViewById(R.id.flashlight);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!isFlashOn) {
@@ -60,7 +61,8 @@ public class FlashActivity extends AppCompatActivity {
     }
 
     private void turnOnFlash(){
-        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        imageView.setBackgroundColor(getResources().getColor(R.color.colorWhiteShade));
+//        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
         parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
         camera.setParameters(parameters);
         camera.startPreview();
@@ -68,7 +70,8 @@ public class FlashActivity extends AppCompatActivity {
     }
 
     private void turnOffFlash(){
-        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        imageView.setBackgroundColor(getResources().getColor(R.color.colorBlackShade));
+//        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
         camera.setParameters(parameters);
         camera.stopPreview();
