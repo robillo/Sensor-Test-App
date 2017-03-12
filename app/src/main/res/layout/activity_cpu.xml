@@ -536,6 +536,70 @@
                     android:fontFamily="sans-serif-smallcaps"
                     android:padding="3sp"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Storage Media:"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="3sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Total Size:"
+                    android:id="@+id/storage_size"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="3sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Partition Size 1:"
+                    android:id="@+id/partition_size1"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="3sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Partition Size 2:"
+                    android:id="@+id/partition_size2"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="3sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Partition Size 3:"
+                    android:id="@+id/partition_size3"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="3sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Partition Size 4:"
+                    android:id="@+id/partition_size4"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="3sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Partition Size 5:"
+                    android:id="@+id/partition_size5"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="3sp"/>
+
             </LinearLayout>
 
         </ScrollView>

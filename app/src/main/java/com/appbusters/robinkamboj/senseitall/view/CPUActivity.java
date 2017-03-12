@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -10,7 +11,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 
 public class CPUActivity extends AppCompatActivity {
 
-    String sensor_name;
+    String sensor_name, results[];
     TextView textView;
     Context context;
     TextView processor, number_of_cores, max_frequency, min_frequency, current_frequency, cpu_architecture, bogomips,
@@ -47,10 +48,37 @@ public class CPUActivity extends AppCompatActivity {
         external_size = (TextView) findViewById(R.id.external_storage_size);
         external_free = (TextView) findViewById(R.id.external_storage_free);
         external_used = (TextView) findViewById(R.id.external_storage_used);
+        storage_size = (TextView) findViewById(R.id.storage_size);
+        partition_size1 = (TextView) findViewById(R.id.partition_size1);
+        partition_size2 = (TextView) findViewById(R.id.partition_size2);
+        partition_size3 = (TextView) findViewById(R.id.partition_size3);
+        partition_size4 = (TextView) findViewById(R.id.partition_size4);
+        partition_size5 = (TextView) findViewById(R.id.partition_size5);
 
         Intent i = getIntent();
         sensor_name = i.getStringExtra("sensorName");
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
+
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                setResults();
+                setTextviews();
+            }
+        });
+    }
+
+    private void setResults(){
+        results = new String[]{
+                
+
+
+        };
+    }
+
+    private void setTextviews(){
+
     }
 }

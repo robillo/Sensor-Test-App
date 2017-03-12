@@ -24,6 +24,7 @@ import com.appbusters.robinkamboj.senseitall.view.AndroidOSActivity;
 import com.appbusters.robinkamboj.senseitall.view.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.CameraActivity;
+import com.appbusters.robinkamboj.senseitall.view.CameraSecondaryActivity;
 import com.appbusters.robinkamboj.senseitall.view.CompassActivity;
 import com.appbusters.robinkamboj.senseitall.view.FingerprintActivity;
 import com.appbusters.robinkamboj.senseitall.view.FlashActivity;
@@ -90,7 +91,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 2:{
-                Intent i = new Intent(context, CameraActivity.class);
+                Intent i = new Intent(context, CameraSecondaryActivity.class);
                 i.putExtra("sensorName", sensorName);
                 context.startActivity(i);
                 break;
