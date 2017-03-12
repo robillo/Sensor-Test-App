@@ -60,9 +60,10 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
                     camera = Camera.open();
                     if(camera!=null){
                         try {
-                            parameters = camera.getParameters();
-                            parameters.set("camera_id", 2);
-                            camera.setParameters(parameters);
+                            if (Camera.getNumberOfCameras() >= 2) {
+                                //if you want to open front facing camera use this line
+                                camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+                            }
                             camera.setDisplayOrientation(90);
                             camera.setPreviewDisplay(surfaceHolder);
                             camera.startPreview();
@@ -134,9 +135,7 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
         }
 
         camera = Camera.open();
-        Camera.Parameters parameters = camera.getParameters();
-        parameters.set("camera_id", 2);
-        camera.setParameters(parameters);
+
         Display display = ((WindowManager)getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
 
 //        if(display.getRotation() == Surface.ROTATION_0)
@@ -188,6 +187,10 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
                             break;
                     }
 
+                    if (Camera.getNumberOfCameras() >= 2) {
+                        //if you want to open front facing camera use this line
+                        camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+                    }
                     camera.setDisplayOrientation(rotation);
                     camera.getParameters().setRotation(rotation);
                     camera.setPreviewDisplay(surfaceHolder);
