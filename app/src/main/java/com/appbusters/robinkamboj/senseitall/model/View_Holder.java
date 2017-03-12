@@ -26,6 +26,7 @@ import com.appbusters.robinkamboj.senseitall.view.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.CameraActivity;
 import com.appbusters.robinkamboj.senseitall.view.CameraSecondaryActivity;
 import com.appbusters.robinkamboj.senseitall.view.CompassActivity;
+import com.appbusters.robinkamboj.senseitall.view.ECGActivity;
 import com.appbusters.robinkamboj.senseitall.view.FingerprintActivity;
 import com.appbusters.robinkamboj.senseitall.view.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.GSMActivity;
@@ -325,7 +326,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 40:{
-
+                Intent i = new Intent(context, ECGActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 41:{
