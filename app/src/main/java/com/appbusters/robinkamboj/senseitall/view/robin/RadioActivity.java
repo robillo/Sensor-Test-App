@@ -11,7 +11,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 public class RadioActivity extends AppCompatActivity {
 
     String sensor_name;
-    TextView textView;
+    TextView textView, radio_version;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,8 @@ public class RadioActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
 
+        radio_version = (TextView) findViewById(R.id.radio_version);
 
+        radio_version.setText(Build.getRadioVersion());
     }
 }
