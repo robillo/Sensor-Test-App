@@ -100,6 +100,18 @@
             android:onClick="onClick"
             android:id="@+id/card">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8sp"
+                android:text="Vibrate Once"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:fontFamily="casual"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"/>
+
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -113,6 +125,18 @@
             android:clickable="true"
             android:onClick="onClick"
             android:id="@+id/car2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8sp"
+                android:text="Vibrate Pattern 1"
+                android:textStyle="bold"
+                android:fontFamily="casual"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"/>
 
         </android.support.v7.widget.CardView>
 
@@ -128,6 +152,18 @@
             android:onClick="onClick"
             android:id="@+id/card3">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8sp"
+                android:text="Vibrate Pattern 2"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"/>
+
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -141,6 +177,18 @@
             android:clickable="true"
             android:onClick="onClick"
             android:id="@+id/car4">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8sp"
+                android:text="Vibrate Loop 1"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"/>
 
         </android.support.v7.widget.CardView>
 
