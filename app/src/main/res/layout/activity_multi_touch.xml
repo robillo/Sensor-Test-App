@@ -22,7 +22,7 @@
             android:fontFamily="serif-monospace"
             android:textAlignment="center"
             android:textColor="@android:color/holo_green_light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
     </ScrollView>
