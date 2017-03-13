@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MultiTouchCanvas extends View {
-    private static final int CIRCLE_RADIUS_DP = 25;
+    private static final int CIRCLE_RADIUS_DP = 20;
 
     public interface MultiTouchStatusListener {
         void onStatus(List<Point> pointerLocations, int numPoints);
