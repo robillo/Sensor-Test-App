@@ -42,6 +42,7 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         sensor_name = i.getStringExtra("sensorName");
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
+
         show_preview = (Button) findViewById(R.id.show_preview);
         stop_preview = (Button) findViewById(R.id.stop_preview);
 
