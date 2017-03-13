@@ -106,7 +106,8 @@
         <activity android:name=".view.robin.ECGActivity" />
         <activity android:name=".view.robin.RadioActivity" />
         <activity android:name=".view.robin.MotionDetectorActivity" />
-        <activity android:name=".view.robin.StationaryDetectorActivity"></activity>
+        <activity android:name=".view.robin.StationaryDetectorActivity" />
+        <activity android:name=".view.robin.ANTActivity"></activity>
     </application>
 
 </manifest>
