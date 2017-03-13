@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view;
+package com.appbusters.robinkamboj.senseitall.view.rishabh;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,18 +9,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.appbusters.robinkamboj.senseitall.R;
-
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.ani;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.batteryperc;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.imageView;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.level;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.maxcl;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.plugged;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.present;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.status;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.tech;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.temp;
-import static com.appbusters.robinkamboj.senseitall.view.BatteryActivity.vol;
 
 /**
  * Created by rishabhshukla on 10/02/17.
@@ -45,53 +33,53 @@ public class MyReceiver extends BroadcastReceiver {
                 boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
                 boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
                 if(usbCharge){
-                    plugged.setText("USB");
+                    BatteryActivity.plugged.setText("USB");
                 }else if(acCharge){
-                    plugged.setText("AC");
+                    BatteryActivity.plugged.setText("AC");
                 }
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-            tech.setText(intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY));
+            BatteryActivity.tech.setText(intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY));
             int voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1);
-            vol.setText(String.valueOf(voltage));
+            BatteryActivity.vol.setText(String.valueOf(voltage));
             int tempe = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0);
             int dec = tempe % 10;
             tempe /= 10;
-            temp.setText(String.valueOf(tempe) + "." + String.valueOf(dec)+"°");
-            level.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)));
-            maxcl.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0)));
-            present.setText("True");
+            BatteryActivity.temp.setText(String.valueOf(tempe) + "." + String.valueOf(dec)+"°");
+            BatteryActivity.level.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)));
+            BatteryActivity.maxcl.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0)));
+            BatteryActivity.present.setText("True");
         }
 
         if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)){
             //tv.setText("POWER CONNECTED ");
-                imageView.setBackgroundResource(R.drawable.gube);
+                BatteryActivity.imageView.setBackgroundResource(R.drawable.gube);
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-            ani = (AnimationDrawable) imageView.getBackground();
-                ani.start();
-                status.setText("Charging");
+            BatteryActivity.ani = (AnimationDrawable) BatteryActivity.imageView.getBackground();
+                BatteryActivity.ani.start();
+                BatteryActivity.status.setText("Charging");
 
             //ani.run();
-            batteryperc.setText(value+"%");
+            BatteryActivity.batteryperc.setText(value+"%");
 
 
         }else if(intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)){
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-            status.setText("Not Charging");
-            plugged.setText("___");
+            BatteryActivity.status.setText("Not Charging");
+            BatteryActivity.plugged.setText("___");
             if(value<=50){
-                imageView.setBackgroundResource(R.drawable.bless);
+                BatteryActivity.imageView.setBackgroundResource(R.drawable.bless);
             }else if(value>=75&&value<95){
-                imageView.setBackgroundResource(R.drawable.nninty);
+                BatteryActivity.imageView.setBackgroundResource(R.drawable.nninty);
             }else if(value>=50&&value<75){
-                imageView.setBackgroundResource(R.drawable.nsevenfive);
+                BatteryActivity.imageView.setBackgroundResource(R.drawable.nsevenfive);
             }else if(value>=95){
-                imageView.setBackgroundResource(R.drawable.bfull);
+                BatteryActivity.imageView.setBackgroundResource(R.drawable.bfull);
             }
-            batteryperc.setText(value+"%");
-            batteryperc.setVisibility(View.VISIBLE);
+            BatteryActivity.batteryperc.setText(value+"%");
+            BatteryActivity.batteryperc.setVisibility(View.VISIBLE);
 
             intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
             Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0));

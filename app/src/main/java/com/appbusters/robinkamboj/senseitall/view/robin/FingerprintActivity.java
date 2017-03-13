@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view;
+package com.appbusters.robinkamboj.senseitall.view.robin;
 
 import android.Manifest;
 import android.annotation.TargetApi;

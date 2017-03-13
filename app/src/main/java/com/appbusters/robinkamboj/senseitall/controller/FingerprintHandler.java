@@ -7,15 +7,12 @@ import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.appbusters.robinkamboj.senseitall.view.FingerprintActivity;
+import com.appbusters.robinkamboj.senseitall.view.robin.FingerprintActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends

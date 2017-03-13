@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view;
+package com.appbusters.robinkamboj.senseitall.view.rishabh;
 
 import android.content.Intent;
 import android.content.IntentFilter;

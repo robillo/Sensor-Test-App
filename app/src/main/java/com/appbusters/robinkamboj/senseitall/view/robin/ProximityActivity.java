@@ -1,8 +1,7 @@
-package com.appbusters.robinkamboj.senseitall.view;
+package com.appbusters.robinkamboj.senseitall.view.robin;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -11,6 +10,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -18,44 +18,41 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.github.yongjhih.mismeter.MisMeter;
 
-public class LightActivity extends AppCompatActivity {
+public class ProximityActivity extends AppCompatActivity {
 
-    String sensor_name, results[];
-    TextView textView;
-    private Sensor sensor;
+    private MisMeter meter;
     private SensorManager sensorManager;
-    MisMeter meter;
-    TextView maximum, current;
-    float max, percentage;
-    private TextView vendor, minimum_delay, version, power, resolution;
+    private Sensor sensor;
+    private String sensor_name, results[];
+    private TextView textView;
+
+    private TextView name, vendor, wake_up, minimum_delay, version, power, maximum_range, resolution;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_light);
+        setContentView(R.layout.activity_proximity);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
+        meter = (MisMeter) findViewById(R.id.meter);
+        meter.setProgress(1);
+
+        name = (TextView) findViewById(R.id.name);
+        vendor = (TextView) findViewById(R.id.vendor);
+
+        minimum_delay = (TextView) findViewById(R.id.minimum_delay);
+        version = (TextView) findViewById(R.id.version);
+        power = (TextView) findViewById(R.id.power);
+        maximum_range = (TextView) findViewById(R.id.maximum_range);
+        resolution = (TextView) findViewById(R.id.resolution);
+        wake_up = (TextView) findViewById(R.id.wake_up);
 
         Intent i = getIntent();
         sensor_name = i.getStringExtra("sensorName");
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
-
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-
-        vendor = (TextView) findViewById(R.id.vendor);
-        minimum_delay = (TextView) findViewById(R.id.minimum_delay);
-        version = (TextView) findViewById(R.id.version);
-        power = (TextView) findViewById(R.id.power);
-        resolution = (TextView) findViewById(R.id.resolution);
-
-        maximum = (TextView) findViewById(R.id.maximum);
-        current = (TextView) findViewById(R.id.current);
-        meter = (MisMeter) findViewById(R.id.meter);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -66,39 +63,43 @@ public class LightActivity extends AppCompatActivity {
             }
         });
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        max = lightSensor.getMaximumRange();
-        maximum.setText(String.valueOf(max));
-
-        sensorManager.registerListener(lightSensorEventListener, lightSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        sensorManager.registerListener(proximitySensorEventListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     private void setResults(){
-        results = new String[]{sensor.getVendor(),
+        results = new String[]{sensor.getName(), sensor.getVendor(), (sensor.isWakeUpSensor())?"true":"false",
                 String.valueOf(sensor.getMinDelay()), String.valueOf(sensor.getVersion()),
-                String.valueOf(sensor.getPower()), String.valueOf(sensor.getResolution())};
+                String.valueOf(sensor.getPower()), String.valueOf(sensor.getMaximumRange()),
+                String.valueOf(sensor.getResolution())};
     }
 
     private void setTextViews(){
-        vendor.setText(results[0]);
-        minimum_delay.setText(results[1]);
-        version.setText(results[2]);
-        power.setText(results[3]);
-        resolution.setText(results[4]);
+        name.setText(results[0]);
+        vendor.setText(results[1]);
+        wake_up.setText(results[2]);
+        minimum_delay.setText(results[3]);
+        version.setText(results[4]);
+        power.setText(results[5]);
+        maximum_range.setText(results[6]);
+        resolution.setText(results[7]);
     }
 
-
-    SensorEventListener lightSensorEventListener = new SensorEventListener() {
+    SensorEventListener proximitySensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
-            if(sensorEvent.sensor.getType()==Sensor.TYPE_LIGHT){
+            if(sensorEvent.sensor.getType()==Sensor.TYPE_PROXIMITY){
                 float currentReading = sensorEvent.values[0];
-                current.setText(String.valueOf(currentReading));
-                percentage = (currentReading/max);
-                meter.setProgress(percentage);
+                if(currentReading==0){
+                    meter.setProgress(0);
+                }
+                else {
+                    meter.setProgress(1);
+                }
             }
         }
 
