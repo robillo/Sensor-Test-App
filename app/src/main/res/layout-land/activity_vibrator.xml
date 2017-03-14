@@ -10,10 +10,18 @@
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sense It All!"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:gravity="center"/>
 
     </android.support.v7.widget.Toolbar>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:id="@+id/toolbar2"
@@ -105,7 +113,7 @@
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:gravity="center"
-                    android:fontFamily="casual"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_gravity="center"/>
 
@@ -127,9 +135,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8sp"
-                    android:text="Vibrate Pattern 1"
+                    android:text="Vibrate Loop 1"
                     android:textStyle="bold"
-                    android:fontFamily="casual"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:textSize="18sp"
                     android:gravity="center"
                     android:textColor="@color/colorPrimaryDark"
@@ -153,8 +161,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8sp"
-                    android:text="Vibrate Pattern 2"
-                    android:fontFamily="casual"
+                    android:text="Vibrate Loop 2"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:gravity="center"
@@ -179,8 +187,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8sp"
-                    android:text="Vibrate Loop 1"
-                    android:fontFamily="casual"
+                    android:text="Vibrate Loop 3"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:gravity="center"
