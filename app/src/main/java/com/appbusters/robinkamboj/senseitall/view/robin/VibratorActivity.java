@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class VibratorActivity extends AppCompatActivity {
 
     private RelativeLayout activity_vibrate;
@@ -46,7 +49,26 @@ public class VibratorActivity extends AppCompatActivity {
                 break;
             }
             case R.id.card2:{
-
+                final Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(int i=0;i<25;i++){
+                            vib.vibrate(300);
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            vib.vibrate(300);
+                                        }
+                                    }, 300);
+                                }
+                            }, 300);
+                        }
+                    }
+                });
                 break;
             }
             case R.id.card3:{
@@ -55,8 +77,18 @@ public class VibratorActivity extends AppCompatActivity {
             }
             case R.id.card4:{
 
+                loop = true;
 
-
+                final Timer timer;
+                timer = new Timer();
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        if(loop){
+                            vib.vibrate(200);
+                        }
+                    }
+                }, 0, 200);
 
                 Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Exit", new View.OnClickListener() {
