@@ -27,7 +27,8 @@ import static android.content.ContentValues.TAG;
 public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> implements Filterable{
 
     List<Data> list = Collections.emptyList();
-    private ArrayList<Data> filteredList;
+    private SensorFilter filter;
+    private List<Data> filteredList;
     Context context, _context;
     int _position;
     View_Holder _holder;
@@ -36,6 +37,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
     public Recycler_View_Adapter(List<Data> list, Context context) {
         this.list = list;
         this.context = context;
+        this.filteredList=list;
     }
 
     @Override
@@ -47,6 +49,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
 
     @Override
     public void onBindViewHolder(final View_Holder holder, int position) {
+
 //        if(holder.sensor_imageview.i)
         _position = position;
         _holder = holder;
@@ -112,7 +115,11 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
 
     @Override
     public Filter getFilter() {
-        return null;
+        if ( filter== null) {
+            filter = new SensorFilter();
+        }
+
+        return filter;
     }
 
 
@@ -123,8 +130,15 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
         protected FilterResults performFiltering(CharSequence constraint) {
             FilterResults filterResults = new FilterResults();
             if (constraint!=null && constraint.length()>0) {
-                String[] tempList = context.getResources().getStringArray(R.array.sensors_list);
-                filterResults.count = tempList.length;
+                ArrayList<Data> tempList = new ArrayList<Data>();
+
+                // search content in friend list
+                for (Data data : list) {
+                    if (data.getSensor_name().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        tempList.add(data);
+                    }
+                }
+                filterResults.count = tempList.size();
                 filterResults.values = tempList;
             } else {
                 filterResults.count = list.size();

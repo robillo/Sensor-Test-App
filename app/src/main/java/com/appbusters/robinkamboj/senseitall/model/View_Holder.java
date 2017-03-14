@@ -48,6 +48,7 @@ import static android.content.Context.LOCATION_SERVICE;
 
 public class View_Holder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
+
     public TextView sensor_name;
     public ImageView sensor_imageview, imageview_disabled;
     public CardView cardView;

@@ -27,13 +27,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.controller.Recycler_View_Adapter;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MA";
     AVLoadingIndicatorView avi,avi_2;
@@ -42,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     boolean[] isPresent;
     PackageManager packageManager;
     Context context;
-    Recycler_View_Adapter adapter;
+    String[] sensors;
+
     private static final int ALL_MY_PERMISSIONS = 123;
 
 
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         String[] permissions={Manifest.permission.WRITE_CONTACTS, Manifest.permission.READ_CONTACTS,
                 Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.CAMERA, Manifest.permission.USE_FINGERPRINT};
+
 
         if(!hasPermissions(this, permissions)){
             ActivityCompat.requestPermissions(this, permissions, ALL_MY_PERMISSIONS);
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
                 List<Sensor> mySensonList = sensorManager.getSensorList(Sensor.TYPE_ALL);
 
-                String[] sensors = getResources().getStringArray(R.array.sensors_list);
+                sensors = getResources().getStringArray(R.array.sensors_list);
                 isPresent = isSensorPresent(sensors,mySensonList);
 
                 Log.e("ROBIN:" , Boolean.toString(isPresent[0]) + " " + Boolean.toString(isPresent[1]));
@@ -87,23 +88,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
             }
         }, 3000);
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-
-        SearchManager searchManager = (SearchManager)
-                getSystemService(Context.SEARCH_SERVICE);
-        MenuItem searchMenuItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchMenuItem.getActionView();
-
-        searchView.setSearchableInfo(searchManager.
-                getSearchableInfo(getComponentName()));
-        searchView.setSubmitButtonEnabled(true);
-        searchView.setOnQueryTextListener(MainActivity.this);
-
-        return true;
     }
 
     //Permissions Helper Method
@@ -318,14 +302,5 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return isPresent;
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-
-        return false;
-    }
 }
