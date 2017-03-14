@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -32,13 +33,17 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
     Context context, _context;
     int _position;
     View_Holder _holder;
+    HashMap<Data,Integer> positionMap;
 
 
-    public Recycler_View_Adapter(List<Data> list, Context context, ArrayList<String> liststr) {
+    public Recycler_View_Adapter(List<Data> list, Context context) {
         this.list = list;
         this.context = context;
         this.filteredList=list;
-
+        positionMap=new HashMap<>();
+        for(int i=0;i<this.list.size();i++){
+            positionMap.put(this.list.get(i),i);
+        }
         getFilter();
     }
 
@@ -77,6 +82,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
             @Override
             public void onCLick(View v, int position, boolean isLongClick) {
                 if(isLongClick){
+
                     if(filteredList.get(position).isPresent){
                         holder.intent(filteredList.get(position).sensor_name, position);
                     }
@@ -92,9 +98,12 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
                     }
                 }
                 else {
-                    if(filteredList.get(position).isPresent){
-                        holder.intent(filteredList.get(position).sensor_name, position);
-                        Log.e("ROBIN", filteredList.get(position).sensor_name);
+//                    int pos = positionMap.get(filteredList.get(position));
+                    int pos = position;
+                    Log.d(TAG, "onCLick: SENS"+positionMap);
+                    if(filteredList.get(pos).isPresent){
+                        holder.intent(filteredList.get(pos).sensor_name, pos);
+//                        Log.e("ROBIN", filteredList.get(pos).sensor_name);
                     }
                     else {
                         Snackbar.make(ListActivity.activity_list,filteredList.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
@@ -148,7 +157,6 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
             }
             Log.d(TAG, "performFiltering: "+filterResults.count);
             Log.d(TAG, "performFiltering: "+filterResults.values.toString());
-
             return filterResults;
         }
 

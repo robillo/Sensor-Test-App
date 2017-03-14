@@ -53,7 +53,7 @@ public class ListActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 3);
         recyclerView.setLayoutManager(gridLayoutManager);
-        adapter = new Recycler_View_Adapter(data, getApplicationContext(),fillWithDataSTR());
+        adapter = new Recycler_View_Adapter(data, getApplicationContext());
         recyclerView.setAdapter(adapter);
 
     }
