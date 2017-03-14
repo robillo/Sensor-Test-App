@@ -70,6 +70,23 @@ public class VibratorActivity extends AppCompatActivity {
             }
             case R.id.card3:{
 
+                timer = new Timer();
+
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        vib.vibrate(1000);
+                    }
+                }, 500, 1500);
+
+                Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Exit", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                timer.cancel();
+                            }
+                        }).show();
+
                 break;
             }
             case R.id.card4:{
