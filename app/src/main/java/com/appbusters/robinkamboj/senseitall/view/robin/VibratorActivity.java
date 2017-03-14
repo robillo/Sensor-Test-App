@@ -94,4 +94,22 @@ public class VibratorActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        timer.cancel();
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStop() {
+        timer.cancel();
+        super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        timer.cancel();
+        super.onBackPressed();
+    }
 }
