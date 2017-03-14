@@ -26,6 +26,7 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
+    private static final String TAG = "LIST";
     RecyclerView recyclerView;
     List<Data> data;
     String[] sensors_list;
@@ -52,7 +53,7 @@ public class ListActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 3);
         recyclerView.setLayoutManager(gridLayoutManager);
-        adapter = new Recycler_View_Adapter(data, getApplicationContext());
+        adapter = new Recycler_View_Adapter(data, getApplicationContext(),fillWithDataSTR());
         recyclerView.setAdapter(adapter);
 
     }
@@ -60,14 +61,24 @@ public class ListActivity extends AppCompatActivity {
 
     private List<Data> fillWithData(){
         List<Data> data = new ArrayList<>();
-
+        ArrayList<String> liststr = new ArrayList<>();
         for(int i = 1; i <= sensors_list.length; i++){
             data.add(new Data(sensors_list[i-1], R.drawable.android, isPresent[i-1]));
+            Log.d(TAG, "fillWithData: "+data.get(i-1).getSensor_name().toString());
+            liststr.add(data.get(i-1).getSensor_name().toString());
         }
-
         return data;
     }
-
+    private ArrayList<String> fillWithDataSTR(){
+        List<Data> data = new ArrayList<>();
+        ArrayList<String> liststr = new ArrayList<>();
+        for(int i = 1; i <= sensors_list.length; i++){
+            data.add(new Data(sensors_list[i-1], R.drawable.android, isPresent[i-1]));
+            Log.d(TAG, "fillWithData: "+data.get(i-1).getSensor_name().toString());
+            liststr.add(data.get(i-1).getSensor_name().toString());
+        }
+        return liststr;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,8 +106,10 @@ public class ListActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                Log.d(TAG, "onQueryTextChange: "+newText);
+                Log.d(TAG, "onQueryTextChange: "+adapter);
                 adapter.getFilter().filter(newText);
-                return false;
+                return true;
             }
         });
 

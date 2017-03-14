@@ -27,17 +27,19 @@ import static android.content.ContentValues.TAG;
 public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> implements Filterable{
 
     List<Data> list = Collections.emptyList();
-    private SensorFilter filter;
-    private List<Data> filteredList;
+    SensorFilter filter;
+    List<Data> filteredList;
     Context context, _context;
     int _position;
     View_Holder _holder;
 
 
-    public Recycler_View_Adapter(List<Data> list, Context context) {
+    public Recycler_View_Adapter(List<Data> list, Context context, ArrayList<String> liststr) {
         this.list = list;
         this.context = context;
         this.filteredList=list;
+
+        getFilter();
     }
 
     @Override
@@ -53,9 +55,9 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
 //        if(holder.sensor_imageview.i)
         _position = position;
         _holder = holder;
-        holder.sensor_name.setText(list.get(_position).getSensor_name());
-        holder.sensor_imageview.setImageResource(list.get(_position).getDrawable());
-        if(!list.get(_position).isPresent){
+        holder.sensor_name.setText(filteredList.get(_position).getSensor_name());
+        holder.sensor_imageview.setImageResource(filteredList.get(_position).getDrawable());
+        if(!filteredList.get(_position).isPresent){
 //            holder.cardView.setClickable(false);
             Log.d(TAG, "onBindViewHolder: RED");
 
@@ -75,12 +77,12 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
             @Override
             public void onCLick(View v, int position, boolean isLongClick) {
                 if(isLongClick){
-                    if(list.get(position).isPresent){
-                        holder.intent(list.get(position).sensor_name, position);
+                    if(filteredList.get(position).isPresent){
+                        holder.intent(filteredList.get(position).sensor_name, position);
                     }
                     else {
 //                        Toast.makeText(context, list.get(position).sensor_name + " is not present in your device", Toast.LENGTH_SHORT).show();
-                        Snackbar.make(ListActivity.activity_list,list.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
+                        Snackbar.make(ListActivity.activity_list,filteredList.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
                                 .setAction("Okay", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -90,12 +92,12 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
                     }
                 }
                 else {
-                    if(list.get(position).isPresent){
-                        holder.intent(list.get(position).sensor_name, position);
-                        Log.e("ROBIN", list.get(position).sensor_name);
+                    if(filteredList.get(position).isPresent){
+                        holder.intent(filteredList.get(position).sensor_name, position);
+                        Log.e("ROBIN", filteredList.get(position).sensor_name);
                     }
                     else {
-                        Snackbar.make(ListActivity.activity_list,list.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
+                        Snackbar.make(ListActivity.activity_list,filteredList.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
                                 .setAction("Okay", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -110,7 +112,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return filteredList.size();
     }
 
     @Override
@@ -118,7 +120,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
         if ( filter== null) {
             filter = new SensorFilter();
         }
-
+        Log.d(TAG, "getFilter: "+filter);
         return filter;
     }
 
@@ -130,7 +132,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
         protected FilterResults performFiltering(CharSequence constraint) {
             FilterResults filterResults = new FilterResults();
             if (constraint!=null && constraint.length()>0) {
-                ArrayList<Data> tempList = new ArrayList<Data>();
+                List<Data> tempList = new ArrayList<>();
 
                 // search content in friend list
                 for (Data data : list) {
@@ -144,20 +146,17 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
                 filterResults.count = list.size();
                 filterResults.values = list;
             }
+            Log.d(TAG, "performFiltering: "+filterResults.count);
+            Log.d(TAG, "performFiltering: "+filterResults.values.toString());
 
             return filterResults;
         }
 
-        /**
-         * Notify about filtered list to ui
-         * @param constraint text
-         * @param results filtered result
-         */
         @SuppressWarnings("unchecked")
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            filteredList = (ArrayList<Data>) results.values;
-            notifyDataSetChanged();
+            filteredList = (List<Data>) results.values;
+
         }
     }
 }
