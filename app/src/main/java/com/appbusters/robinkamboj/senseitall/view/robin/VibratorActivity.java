@@ -24,6 +24,7 @@ public class VibratorActivity extends AppCompatActivity {
     private TextView textView;
     private Context context;
     private Vibrator vib;
+    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,26 +49,23 @@ public class VibratorActivity extends AppCompatActivity {
                 break;
             }
             case R.id.card2:{
-                final Handler handler = new Handler();
-                handler.post(new Runnable() {
+
+                timer = new Timer();
+
+                timer.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
-                        for(int i=0;i<25;i++){
-                            vib.vibrate(300);
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    handler.postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            vib.vibrate(300);
-                                        }
-                                    }, 300);
-                                }
-                            }, 300);
-                        }
+                        vib.vibrate(100);
                     }
-                });
+                }, 100, 400);
+
+                Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Exit", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                timer.cancel();
+                            }
+                        }).show();
                 break;
             }
             case R.id.card3:{
@@ -76,14 +74,14 @@ public class VibratorActivity extends AppCompatActivity {
             }
             case R.id.card4:{
 
-                final Timer timer;
                 timer = new Timer();
+
                 timer.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
-                            vib.vibrate(200);
+                            vib.vibrate(500);
                         }
-                }, 0, 200);
+                }, 200, 800);
 
                 Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Exit", new View.OnClickListener() {
