@@ -27,12 +27,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.controller.Recycler_View_Adapter;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     private static final String TAG = "MA";
     AVLoadingIndicatorView avi,avi_2;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     boolean[] isPresent;
     PackageManager packageManager;
     Context context;
+    Recycler_View_Adapter adapter;
     private static final int ALL_MY_PERMISSIONS = 123;
 
 
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         searchView.setSearchableInfo(searchManager.
                 getSearchableInfo(getComponentName()));
         searchView.setSubmitButtonEnabled(true);
+        searchView.setOnQueryTextListener(MainActivity.this);
 
         return true;
     }
@@ -313,5 +316,16 @@ public class MainActivity extends AppCompatActivity {
             isPresent[42] = true;
         }
         return isPresent;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+
+        return false;
     }
 }

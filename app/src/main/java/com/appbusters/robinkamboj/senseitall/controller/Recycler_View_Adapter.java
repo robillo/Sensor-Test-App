@@ -7,25 +7,31 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.Data;
 import com.appbusters.robinkamboj.senseitall.model.View_Holder;
 import com.appbusters.robinkamboj.senseitall.view.ListActivity;
+import com.appbusters.robinkamboj.senseitall.view.MainActivity;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import static android.content.ContentValues.TAG;
 
-public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
+public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> implements Filterable{
 
     List<Data> list = Collections.emptyList();
+    private ArrayList<Data> filteredList;
     Context context, _context;
     int _position;
     View_Holder _holder;
+
 
     public Recycler_View_Adapter(List<Data> list, Context context) {
         this.list = list;
@@ -68,7 +74,6 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
                 if(isLongClick){
                     if(list.get(position).isPresent){
                         holder.intent(list.get(position).sensor_name, position);
-                        Log.e("ROBIN", list.get(position).sensor_name);
                     }
                     else {
 //                        Toast.makeText(context, list.get(position).sensor_name + " is not present in your device", Toast.LENGTH_SHORT).show();
@@ -103,5 +108,42 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return null;
+    }
+
+
+
+    private class SensorFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults filterResults = new FilterResults();
+            if (constraint!=null && constraint.length()>0) {
+                String[] tempList = context.getResources().getStringArray(R.array.sensors_list);
+                filterResults.count = tempList.length;
+                filterResults.values = tempList;
+            } else {
+                filterResults.count = list.size();
+                filterResults.values = list;
+            }
+
+            return filterResults;
+        }
+
+        /**
+         * Notify about filtered list to ui
+         * @param constraint text
+         * @param results filtered result
+         */
+        @SuppressWarnings("unchecked")
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            filteredList = (ArrayList<Data>) results.values;
+            notifyDataSetChanged();
+        }
     }
 }
