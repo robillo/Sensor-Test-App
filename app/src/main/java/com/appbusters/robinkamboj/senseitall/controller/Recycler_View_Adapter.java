@@ -156,7 +156,8 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             filteredList = (List<Data>) results.values;
-
+            Log.d(TAG, "publishResults: "+results.values.toString());
+            notifyDataSetChanged();
         }
     }
 }
