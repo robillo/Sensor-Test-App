@@ -91,7 +91,7 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
                         vendor.setText(sensorEvent.sensor.getVendor() + " " + sensorEvent.sensor.getName());
                         float resolutionValue = sensorEvent.sensor.getResolution() * nanoTtoGRate;
                         resolution.setText(String.valueOf(resolutionValue)+"μT");
-                        calib.setText(sensorEvent.sensor.getName().substring(0,17));
+                        calib.setText(sensorEvent.sensor.getName().toString());
                         float maximumRangeValue = sensorEvent.sensor.getMaximumRange() * nanoTtoGRate;
                         maximumRange.setText(String.valueOf(maximumRangeValue*1000000)+"μT");
                         magneticXTextView.setText(String.valueOf(sensorEvent.values[0])+"μT");
