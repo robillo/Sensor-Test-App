@@ -24,7 +24,6 @@ public class VibratorActivity extends AppCompatActivity {
     private TextView textView;
     private Context context;
     private Vibrator vib;
-    private boolean loop = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,24 +76,20 @@ public class VibratorActivity extends AppCompatActivity {
             }
             case R.id.card4:{
 
-                loop = true;
-
                 final Timer timer;
                 timer = new Timer();
                 timer.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
-                        if(loop){
                             vib.vibrate(200);
                         }
-                    }
                 }, 0, 200);
 
                 Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Exit", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                loop = false;
+                                timer.cancel();
                             }
                         }).show();
                 break;
