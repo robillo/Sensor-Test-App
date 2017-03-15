@@ -15,16 +15,17 @@ public class RotationActivity extends AppCompatActivity {
 
     private SensorManager mSensorManager;
     private Sensor mSensor;
-
+    TriggerEventListener mTriggerEventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rotation);
 
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
-        TriggerEventListener mTriggerEventListener = new TriggerEventListener() {
+        mTriggerEventListener = new TriggerEventListener() {
             @Override
             public void onTrigger(TriggerEvent event) {
                 // Do work
@@ -34,4 +35,15 @@ public class RotationActivity extends AppCompatActivity {
         mSensorManager.requestTriggerSensor(mTriggerEventListener, mSensor);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.requestTriggerSensor(mTriggerEventListener, mSensor);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mSensorManager.cancelTriggerSensor(mTriggerEventListener, mSensor);
+    }
 }
