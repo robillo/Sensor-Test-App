@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.BarometerActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity;
@@ -327,6 +328,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             }
             case 38:{
 
+                Intent i = new Intent(context, BarometerActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 39:{
