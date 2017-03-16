@@ -2,24 +2,31 @@ package com.appbusters.robinkamboj.senseitall.view.rishabh;
 
 import android.content.Context;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.hardware.TriggerEvent;
 import android.hardware.TriggerEventListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
+import static android.R.attr.data;
+
 public class RotationActivity extends AppCompatActivity {
 
 
+    private static final String TAG = "ROTN";
     private SensorManager mSensorManager;
     private String results[];
     private Sensor sensor;
     TriggerEventListener mTriggerEventListener;
     private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution;
+    private float[] gameRotationVectorValues = null;
 
 //    private Cube mCube;
 
@@ -48,10 +55,36 @@ public class RotationActivity extends AppCompatActivity {
         maximum_delay = (TextView) findViewById(R.id.maximum_delay);
         resolution = (TextView) findViewById(R.id.resolution);
 
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
+
+
+        SensorEventListener sensorEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                gameRotationVectorValues = event.values.clone();
+                Log.d(TAG, "x " + gameRotationVectorValues[0]);
+                Log.d(TAG, "y " + gameRotationVectorValues[1]);
+                Log.d(TAG, "z " + gameRotationVectorValues[2]);
+                Log.d(TAG, "cos " + gameRotationVectorValues[3]);
+//                data.put("y", gameRotationVectorValues[1]);
+//                data.put("z", gameRotationVectorValues[2]);
+//                data.put("cos", gameRotationVectorValues[3]);
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+
+        mSensorManager.registerListener(sensorEventListener,sensor,SensorManager.SENSOR_DELAY_GAME);
+
         Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
+
                 setResults();
                 setTextviews();
             }
@@ -93,4 +126,5 @@ public class RotationActivity extends AppCompatActivity {
         super.onPause();
         mSensorManager.cancelTriggerSensor(mTriggerEventListener, sensor);
     }
+
 }
