@@ -34,7 +34,6 @@ public class RotationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rotation);
 
-
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
@@ -51,14 +50,10 @@ public class RotationActivity extends AppCompatActivity {
         z = (TextView) findViewById(R.id.zVal);
         cos = (TextView) findViewById(R.id.cos);
 
-        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
-
-
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                gameRotationVectorValues = event.values.clone();
+                gameRotationVectorValues = event.values;
                 x.setText("X:    " + gameRotationVectorValues[0]);
                 y.setText("Y:    " + gameRotationVectorValues[1]);
                 z.setText("Z:    " + gameRotationVectorValues[2]);
@@ -80,13 +75,12 @@ public class RotationActivity extends AppCompatActivity {
             }
         };
 
-        mSensorManager.registerListener(sensorEventListener,sensor,SensorManager.SENSOR_DELAY_GAME);
+        mSensorManager.registerListener(sensorEventListener,sensor,SensorManager.SENSOR_DELAY_UI);
 
         Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
-
                 setResults();
                 setTextviews();
             }
