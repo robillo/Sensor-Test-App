@@ -24,8 +24,9 @@ public class RotationActivity extends AppCompatActivity {
     private SensorManager mSensorManager;
     private String results[];
     private Sensor sensor;
+    SensorEventListener sensorEventListener;
     TriggerEventListener mTriggerEventListener;
-    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution;
+    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution, x,y,z,cos;
     private float[] gameRotationVectorValues = null;
 
 //    private Cube mCube;
@@ -54,19 +55,29 @@ public class RotationActivity extends AppCompatActivity {
         minimum_delay = (TextView) findViewById(R.id.minimum_delay);
         maximum_delay = (TextView) findViewById(R.id.maximum_delay);
         resolution = (TextView) findViewById(R.id.resolution);
+        x = (TextView) findViewById(R.id.xVal);
+        y = (TextView) findViewById(R.id.yVal);
+        z = (TextView) findViewById(R.id.zVal);
+        cos = (TextView) findViewById(R.id.cos);
 
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
 
 
-        SensorEventListener sensorEventListener = new SensorEventListener() {
+        sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
                 gameRotationVectorValues = event.values.clone();
-                Log.d(TAG, "x " + gameRotationVectorValues[0]);
-                Log.d(TAG, "y " + gameRotationVectorValues[1]);
-                Log.d(TAG, "z " + gameRotationVectorValues[2]);
-                Log.d(TAG, "cos " + gameRotationVectorValues[3]);
+                x.setText("X:    " + gameRotationVectorValues[0]);
+                y.setText("Y:    " + gameRotationVectorValues[1]);
+                z.setText("Z:    " + gameRotationVectorValues[2]);
+                cos.setText("Cos:    " + gameRotationVectorValues[3]);
+
+
+//                Log.d(TAG, "X:    " + gameRotationVectorValues[0]);
+//                Log.d(TAG, "Y:    " + gameRotationVectorValues[1]);
+//                Log.d(TAG, "Z:    " + gameRotationVectorValues[2]);
+//                Log.d(TAG, "Cos:    " + gameRotationVectorValues[3]);
 //                data.put("y", gameRotationVectorValues[1]);
 //                data.put("z", gameRotationVectorValues[2]);
 //                data.put("cos", gameRotationVectorValues[3]);
@@ -123,8 +134,9 @@ public class RotationActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        super.onPause();
+        mSensorManager.unregisterListener(sensorEventListener);
         mSensorManager.cancelTriggerSensor(mTriggerEventListener, sensor);
+        super.onPause();
     }
 
 }
