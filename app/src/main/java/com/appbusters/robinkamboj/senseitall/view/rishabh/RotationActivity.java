@@ -16,6 +16,9 @@ public class RotationActivity extends AppCompatActivity {
     private SensorManager mSensorManager;
     private Sensor mSensor;
     TriggerEventListener mTriggerEventListener;
+//    private Cube mCube;
+
+    private final float[] mRotationMatrix = new float[16];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,6 @@ public class RotationActivity extends AppCompatActivity {
                 // Do work
             }
         };
-
         mSensorManager.requestTriggerSensor(mTriggerEventListener, mSensor);
     }
 
