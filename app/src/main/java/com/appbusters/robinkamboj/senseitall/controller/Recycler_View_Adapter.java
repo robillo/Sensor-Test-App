@@ -7,29 +7,44 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.Data;
 import com.appbusters.robinkamboj.senseitall.model.View_Holder;
 import com.appbusters.robinkamboj.senseitall.view.ListActivity;
+import com.appbusters.robinkamboj.senseitall.view.MainActivity;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import static android.content.ContentValues.TAG;
 
-public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
+public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> implements Filterable{
 
     List<Data> list = Collections.emptyList();
+    SensorFilter filter;
+    List<Data> filteredList;
     Context context, _context;
     int _position;
     View_Holder _holder;
+    HashMap<Data,Integer> positionMap;
+
 
     public Recycler_View_Adapter(List<Data> list, Context context) {
         this.list = list;
         this.context = context;
+        this.filteredList=list;
+        positionMap=new HashMap<>();
+        for(int i=0;i<this.list.size();i++){
+            positionMap.put(this.list.get(i),i);
+        }
+        getFilter();
     }
 
     @Override
@@ -41,12 +56,13 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
 
     @Override
     public void onBindViewHolder(final View_Holder holder, int position) {
+
 //        if(holder.sensor_imageview.i)
         _position = position;
         _holder = holder;
-        holder.sensor_name.setText(list.get(_position).getSensor_name());
-        holder.sensor_imageview.setImageResource(list.get(_position).getDrawable());
-        if(!list.get(_position).isPresent){
+        holder.sensor_name.setText(filteredList.get(_position).getSensor_name());
+        holder.sensor_imageview.setImageResource(filteredList.get(_position).getDrawable());
+        if(!filteredList.get(_position).isPresent){
 //            holder.cardView.setClickable(false);
             Log.d(TAG, "onBindViewHolder: RED");
 
@@ -66,13 +82,13 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
             @Override
             public void onCLick(View v, int position, boolean isLongClick) {
                 if(isLongClick){
-                    if(list.get(position).isPresent){
-                        holder.intent(list.get(position).sensor_name, position);
-                        Log.e("ROBIN", list.get(position).sensor_name);
+
+                    if(filteredList.get(position).isPresent){
+                        holder.intent(filteredList.get(position).sensor_name, position);
                     }
                     else {
 //                        Toast.makeText(context, list.get(position).sensor_name + " is not present in your device", Toast.LENGTH_SHORT).show();
-                        Snackbar.make(ListActivity.activity_list,list.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
+                        Snackbar.make(ListActivity.activity_list,filteredList.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
                                 .setAction("Okay", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -82,12 +98,15 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
                     }
                 }
                 else {
-                    if(list.get(position).isPresent){
-                        holder.intent(list.get(position).sensor_name, position);
-                        Log.e("ROBIN", list.get(position).sensor_name);
+//                    int pos = positionMap.get(filteredList.get(position));
+                    int pos = position;
+                    Log.d(TAG, "onCLick: SENS"+positionMap);
+                    if(filteredList.get(pos).isPresent){
+                        holder.intent(filteredList.get(pos).sensor_name, pos);
+//                        Log.e("ROBIN", filteredList.get(pos).sensor_name);
                     }
                     else {
-                        Snackbar.make(ListActivity.activity_list,list.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
+                        Snackbar.make(ListActivity.activity_list,filteredList.get(position).sensor_name + " is not present in your device", Snackbar.LENGTH_LONG )
                                 .setAction("Okay", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -102,6 +121,51 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder>{
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return filteredList.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        if ( filter== null) {
+            filter = new SensorFilter();
+        }
+        Log.d(TAG, "getFilter: "+filter);
+        return filter;
+    }
+
+
+
+    private class SensorFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults filterResults = new FilterResults();
+            if (constraint!=null && constraint.length()>0) {
+                List<Data> tempList = new ArrayList<>();
+
+                // search content in friend list
+                for (Data data : list) {
+                    if (data.getSensor_name().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        tempList.add(data);
+                    }
+                }
+                filterResults.count = tempList.size();
+                filterResults.values = tempList;
+            } else {
+                filterResults.count = list.size();
+                filterResults.values = list;
+            }
+            Log.d(TAG, "performFiltering: "+filterResults.count);
+            Log.d(TAG, "performFiltering: "+filterResults.values.toString());
+            return filterResults;
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            filteredList = (List<Data>) results.values;
+            Log.d(TAG, "publishResults: "+results.values.toString());
+            notifyDataSetChanged();
+        }
     }
 }

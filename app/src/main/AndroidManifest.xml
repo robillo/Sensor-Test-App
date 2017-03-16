@@ -90,6 +90,10 @@
         <activity android:name=".view.rishabh.NFCActivity" />
         <activity android:name=".view.rishabh.CompassActivity" />
         <activity android:name=".view.rishabh.MultiTouchActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"></meta-data>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -109,7 +113,8 @@
         <activity android:name=".view.robin.StationaryDetectorActivity" />
         <activity android:name=".view.robin.ANTActivity" />
         <activity android:name=".view.rishabh.RotationActivity" />
-        <activity android:name=".view.rishabh.HumidityActivity"></activity>
+        <activity android:name=".view.rishabh.HumidityActivity" />
+        <activity android:name=".view.rishabh.BarometerActivity"></activity>
     </application>
 
 </manifest>

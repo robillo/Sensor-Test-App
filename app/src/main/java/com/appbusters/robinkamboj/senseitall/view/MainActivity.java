@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view;
 
 import android.Manifest;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -16,7 +17,11 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,7 +32,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MA";
     AVLoadingIndicatorView avi,avi_2;
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     boolean[] isPresent;
     PackageManager packageManager;
     Context context;
+    String[] sensors;
+
     private static final int ALL_MY_PERMISSIONS = 123;
 
 
@@ -47,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         String[] permissions={Manifest.permission.WRITE_CONTACTS, Manifest.permission.READ_CONTACTS,
                 Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.CAMERA, Manifest.permission.USE_FINGERPRINT};
+
 
         if(!hasPermissions(this, permissions)){
             ActivityCompat.requestPermissions(this, permissions, ALL_MY_PERMISSIONS);
@@ -67,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
                 List<Sensor> mySensonList = sensorManager.getSensorList(Sensor.TYPE_ALL);
 
-                String[] sensors = getResources().getStringArray(R.array.sensors_list);
+                sensors = getResources().getStringArray(R.array.sensors_list);
                 isPresent = isSensorPresent(sensors,mySensonList);
 
                 Log.e("ROBIN:" , Boolean.toString(isPresent[0]) + " " + Boolean.toString(isPresent[1]));
@@ -293,4 +301,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return isPresent;
     }
+
+
 }
