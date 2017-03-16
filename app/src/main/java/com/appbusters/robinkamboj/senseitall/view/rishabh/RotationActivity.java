@@ -23,7 +23,6 @@ public class RotationActivity extends AppCompatActivity {
     private String results[];
     private Sensor sensor;
     SensorEventListener sensorEventListener;
-    TriggerEventListener mTriggerEventListener;
     private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution, x,y,z,cos;
     private float[] gameRotationVectorValues = null;
 
@@ -39,12 +38,6 @@ public class RotationActivity extends AppCompatActivity {
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
-        mTriggerEventListener = new TriggerEventListener() {
-            @Override
-            public void onTrigger(TriggerEvent event) {
-                // Do work
-            }
-        };
         name = (TextView) findViewById(R.id.name);
         vendor = (TextView) findViewById(R.id.vendor);
         version = (TextView) findViewById(R.id.version);
@@ -98,7 +91,6 @@ public class RotationActivity extends AppCompatActivity {
                 setTextviews();
             }
         });
-        mSensorManager.requestTriggerSensor(mTriggerEventListener, sensor);
     }
 
     private void setResults(){
@@ -127,13 +119,11 @@ public class RotationActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mSensorManager.requestTriggerSensor(mTriggerEventListener, sensor);
     }
 
     @Override
     protected void onPause() {
         mSensorManager.unregisterListener(sensorEventListener);
-        mSensorManager.cancelTriggerSensor(mTriggerEventListener, sensor);
         super.onPause();
     }
 
