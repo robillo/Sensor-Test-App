@@ -1,23 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".view.rishabh.CompassActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:custom="http://schemas.android.com/tools"
+android:id="@+id/activity_camera"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/main_image_dial"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/dial" />
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
 
-    <ImageView
-        android:id="@+id/main_image_hands"
-        android:layout_width="20dp"
-        android:layout_height="240dp"
-        android:layout_centerInParent="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/hands" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Sense It All!"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+</android.support.v7.widget.Toolbar>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:id="@+id/toolbar2"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    android:layout_marginTop="?actionBarSize">
+
+</FrameLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/ll"
+    android:layout_below="@+id/toolbar">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0sp"
+        android:layout_height="150sp"
+        android:layout_weight="1"
+        android:layout_margin="10sp"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="@dimen/app_bar_elevation">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:src="@drawable/compass"
+            android:padding="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0sp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="5sp"
+        android:layout_margin="10sp"
+        app:cardCornerRadius="10sp"
+        app:cardBackgroundColor="@color/colorPrimaryLight"
+        app:cardElevation="@dimen/app_bar_elevation">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/app_bar_elevation"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:padding="6sp"
+            android:gravity="center"
+            android:textColor="@color/colorBlackShade"
+            android:text="SAMPLE DATA"/>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="@dimen/app_bar_elevation"
+    app:cardCornerRadius="5sp"
+    android:layout_margin="10sp"
+    android:layout_below="@+id/ll"
+    app:cardBackgroundColor="@color/colorPrimaryDark">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".view.rishabh.CompassActivity">
+
+        <ImageView
+            android:id="@+id/main_image_dial"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/dial" />
+
+        <ImageView
+            android:id="@+id/main_image_hands"
+            android:layout_width="20dp"
+            android:layout_height="240dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/hands" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
 
 </RelativeLayout>
