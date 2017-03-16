@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
-import static android.R.attr.data;
-
 public class RotationActivity extends AppCompatActivity {
 
 
