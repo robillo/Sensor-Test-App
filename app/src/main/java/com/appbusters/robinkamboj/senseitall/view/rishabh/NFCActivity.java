@@ -8,16 +8,20 @@ import android.os.Bundle;
 import android.os.HardwarePropertiesManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
 public class NFCActivity extends AppCompatActivity {
     private static final String TAG = "NFC";
     NfcAdapter nfcAdapter;
+    TextView ndef,enable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfc);
+        ndef= (TextView) findViewById(R.id.ndef);
+        enable= (TextView) findViewById(R.id.enable);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 //        nfcAdapter = new NfcAdapter();
         String pm = PackageManager.FEATURE_NFC;
