@@ -58,6 +58,7 @@ public class RotationActivity extends AppCompatActivity {
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
 
+
         SensorEventListener sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
