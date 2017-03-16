@@ -27,6 +27,7 @@ public class VibratorActivity extends AppCompatActivity {
     private Context context;
     private Vibrator vib;
     private Timer timer;
+    private Boolean hasStarted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +99,7 @@ public class VibratorActivity extends AppCompatActivity {
                 timer.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
+                            hasStarted = true;
                             vib.vibrate(500);
                         }
                 }, 200, 800);
@@ -128,7 +130,7 @@ public class VibratorActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        timer.cancel();
+
         super.onBackPressed();
     }
 
