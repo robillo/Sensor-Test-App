@@ -12,7 +12,8 @@
 
     <uses-feature android:name="android.hardware.camera.front" />
     <uses-feature android:name="android.hardware.camera2.full" />
-
+    <uses-feature android:name="android.hardware.TriggerEvent"/>
+    <uses-feature android:name="android.hardware.TriggerEventListener"/>
     <uses-permission android:name="android.permission.NFC" />
 
     <uses-feature android:name="android.hardware.camera" />
