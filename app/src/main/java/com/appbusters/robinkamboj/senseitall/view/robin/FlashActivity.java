@@ -134,11 +134,17 @@ public class FlashActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
+
+        // on starting the app get the camera params
+        camera = Camera.open();
         super.onRestart();
     }
 
     @Override
     protected void onResume() {
+
+        // on starting the app get the camera params
+        camera = Camera.open();
         super.onResume();
     }
 
