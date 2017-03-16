@@ -24,7 +24,6 @@ public class NFCActivity extends AppCompatActivity {
         enable= (TextView) findViewById(R.id.enable);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 //        nfcAdapter = new NfcAdapter();
-        String pm = PackageManager.FEATURE_NFC;
 
        NfcManager nfcManager = (NfcManager) getSystemService(NFC_SERVICE);
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -35,5 +34,8 @@ public class NFCActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: "+nfcAdapter.isEnabled());
 //        Log.d(TAG, "onCreate: "+nfcAdapter.invokeBeam(this));
         Log.d(TAG, "onCreate: "+nfcAdapter.toString());
+
+        enable.setText(nfcAdapter.isEnabled()?"Yes":"No");
+        ndef.setText(nfcAdapter.isNdefPushEnabled()?"Yes":"No");
     }
 }
