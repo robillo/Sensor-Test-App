@@ -127,25 +127,26 @@ public class FlashActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
-        // on pause turn off the flash
-        turnOffFlash();
     }
 
     @Override
     protected void onRestart() {
+        super.onRestart();
 
         // on starting the app get the camera params
         camera = Camera.open();
-        super.onRestart();
+        parameters = camera.getParameters();
+        parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
     }
 
     @Override
     protected void onResume() {
+        super.onResume();
 
         // on starting the app get the camera params
         camera = Camera.open();
-        super.onResume();
+        parameters = camera.getParameters();
+        parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
     }
 
     @Override
@@ -155,6 +156,7 @@ public class FlashActivity extends AppCompatActivity {
         // on starting the app get the camera params
         camera = Camera.open();
         parameters = camera.getParameters();
+        parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
     }
 
     @Override
