@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CPUActivity;
@@ -280,6 +281,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 29:{
+                Intent i = new Intent(context, RotationActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
 
                 break;
             }
