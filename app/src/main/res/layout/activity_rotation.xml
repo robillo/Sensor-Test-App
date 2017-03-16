@@ -97,7 +97,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="X:"
+                    android:gravity="start"
+                    android:id="@+id/xVal"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Y:"
+                    android:gravity="start"
+                    android:id="@+id/yVal"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Z:"
+                    android:gravity="start"
+                    android:id="@+id/zVal"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Cos:"
+                    android:gravity="start"
+                    android:id="@+id/cos"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
