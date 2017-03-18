@@ -51,6 +51,7 @@ public class MapsActivity extends FragmentActivity implements
                 .findFragmentById(R.id.map);
 
             mapFragment.getMapAsync(this);
+        Toast.makeText(this, "Click on Marker to know Latitude and Longitude", Toast.LENGTH_SHORT).show();
     }
 
 
