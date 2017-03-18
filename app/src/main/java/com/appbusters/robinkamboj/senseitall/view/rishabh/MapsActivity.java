@@ -27,7 +27,6 @@ public class MapsActivity extends FragmentActivity implements
         OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private static final String TAG = "GPs";
-    private GoogleMap mMap;
     double Lat=0;
     double Lon=0;
     LatLng latLng;
@@ -132,6 +131,8 @@ public class MapsActivity extends FragmentActivity implements
         }
         latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        markerOptions.title(latLng.latitude+", "+latLng.longitude);
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         currLocationMarker = mGoogleMap.addMarker(markerOptions);
 
