@@ -69,7 +69,7 @@ public class MapsActivity extends FragmentActivity implements
         mGoogleMap = googleMap;
         mGoogleMap.setMyLocationEnabled(true);
 
-//        buildGoogleApiClient();
+        buildGoogleApiClient();
 
         mGoogleApiClient.connect();
 
@@ -82,6 +82,13 @@ public class MapsActivity extends FragmentActivity implements
 //        mMap.addCircle(new CircleOptions());
     }
 
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
@@ -120,6 +127,20 @@ public class MapsActivity extends FragmentActivity implements
 
     @Override
     public void onLocationChanged(Location location) {
+        if (currLocationMarker != null) {
+            currLocationMarker.remove();
+        }
+        latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+        currLocationMarker = mGoogleMap.addMarker(markerOptions);
+
+
+        //zoom to current position:
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,11));
+
+        //If you only need one location, unregister the listener
+        //LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
 
     }
     }
