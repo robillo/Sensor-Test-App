@@ -20,6 +20,19 @@ public class BluetoothActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bluetooth);
         String[] permissions={Manifest.permission.BLUETOOTH};
 
-    }
+        if(!hasPermissions(this, permissions)){
+            ActivityCompat.requestPermissions(this, permissions, BLUETOOTH_PERMISSION);
+        }
 
+    }
+    public static boolean hasPermissions(Context context, String[] permissions){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M && context!=null && permissions!=null){
+            for(String permission : permissions){
+                if(ActivityCompat.checkSelfPermission(context,permission)!= PackageManager.PERMISSION_GRANTED){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
