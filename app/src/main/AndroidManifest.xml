@@ -9,11 +9,11 @@
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <uses-feature android:name="android.hardware.camera.front" />
     <uses-feature android:name="android.hardware.camera2.full" />
-    <uses-feature android:name="android.hardware.TriggerEvent" />
-    <uses-feature android:name="android.hardware.TriggerEventListener" />
 
     <uses-permission android:name="android.permission.NFC" />
 

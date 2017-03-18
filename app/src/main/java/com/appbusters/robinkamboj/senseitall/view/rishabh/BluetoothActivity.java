@@ -13,10 +13,10 @@ import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.Set;
 
@@ -26,31 +26,42 @@ public class BluetoothActivity extends AppCompatActivity {
     private static final String TAG = "BT";
     SensorManager sensorManager;
     BluetoothAdapter bluetoothAdapter;
-    ProgressBar pbar;
+    TextView name,add,state,scan;
+    AVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bluetooth);
-
-
+        name= (TextView) findViewById(R.id.name);
+        scan= (TextView) findViewById(R.id.scan);
+        add= (TextView) findViewById(R.id.add);
+        state= (TextView) findViewById(R.id.state);
         String[] permissions={Manifest.permission.BLUETOOTH,Manifest.permission.BLUETOOTH_ADMIN};
 
 
         if(!hasPermissions(this, permissions)){
-            ActivityCompat.requestPermissions(this, permissions, BLUETOOTH_PERMISSION);
+            ActivityCompat.requestPermissions(BluetoothActivity.this, permissions, BLUETOOTH_PERMISSION);
         }
 //        sensorManager = (SensorManager) getSystemService(BLUETOOTH_SERVICE);
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (!bluetoothAdapter.isEnabled()) {
-            bluetoothAdapter.enable();
-        }
 
         final ProgressDialog progress = new ProgressDialog(BluetoothActivity.this);
+        progress.setMessage("Getting Bluetooth Info...");
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progress.setIndeterminate(true);
         progress.show();
 
+        if (!bluetoothAdapter.isEnabled()) {
+            bluetoothAdapter.enable();
+        }
+//        Timer t = new Timer();
+//        t.scheduleAtFixedRate(new TimerTask() {
+//                                  @Override
+//                                  public void run() {
+//                                      runTextViews();
+//                                  }
+//                              }, 0, 2000);
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -58,6 +69,9 @@ public class BluetoothActivity extends AppCompatActivity {
 //                pbar.setVisibility(View.VISIBLE);
 
 //                pbar.
+
+                runTextViews();
+
                 Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
 
                 if (pairedDevices.size() > 0) {
@@ -66,7 +80,7 @@ public class BluetoothActivity extends AppCompatActivity {
                         String deviceName = device.getName();
                         String deviceHardwareAddress = device.getAddress(); // MAC address
 
-                        Log.d(TAG, "run: "+device);
+                        Log.d(TAG, "run: "+deviceName);
                         Log.d(TAG, "run: "+deviceHardwareAddress);
                         Log.d(TAG, "run: "+device.getUuids());
 
@@ -94,5 +108,35 @@ public class BluetoothActivity extends AppCompatActivity {
             bluetoothAdapter.disable();
         }
         super.onStop();
+    }
+
+    public void runTextViews(){
+
+        name.setText("NAME:   "+bluetoothAdapter.getName());
+        add.setText("ADDRESS:   "+bluetoothAdapter.getAddress());
+        if(bluetoothAdapter.getState()==BluetoothAdapter.STATE_CONNECTED){
+            state.setText("STATE:   "+"CONNECTED");
+        }else if(bluetoothAdapter.getState()==BluetoothAdapter.STATE_CONNECTING){
+            state.setText("STATE:   "+"CONNECTING");
+        }else if(bluetoothAdapter.getState()==BluetoothAdapter.STATE_DISCONNECTING){
+            state.setText("STATE:   "+"DISCONNECTING");
+        }else if(bluetoothAdapter.getState()==BluetoothAdapter.STATE_ON){
+            state.setText("STATE:   "+"ON");
+        }else if(bluetoothAdapter.getState()==BluetoothAdapter.STATE_OFF){
+            state.setText("STATE:   "+"OFF");
+        }else if(bluetoothAdapter.getState()==BluetoothAdapter.STATE_TURNING_OFF){
+            state.setText("STATE:   "+"TURNING OFF");
+        }else if(bluetoothAdapter.getState()==BluetoothAdapter.STATE_TURNING_ON){
+            state.setText("STATE:   "+"TURNING ON");
+        }else{
+            state.setText("STATE:   "+"DISCONNECTED");
+        }
+        if(bluetoothAdapter.getScanMode()==BluetoothAdapter.SCAN_MODE_CONNECTABLE) {
+            scan.setText("SCAN MODE:   " + "CONNECTABLE");
+        }else if(bluetoothAdapter.getScanMode()==BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+            scan.setText("SCAN MODE:   " + "CONNECTABLE DISCOVERABLE");
+        }else {
+            scan.setText("SCAN MODE:   " + "NONE");
+        }
     }
 }
