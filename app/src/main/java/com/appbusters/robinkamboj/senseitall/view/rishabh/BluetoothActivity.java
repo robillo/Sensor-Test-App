@@ -12,23 +12,33 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.BTInfo;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class BluetoothActivity extends AppCompatActivity {
 
+    ArrayList<BTInfo> btInfolist;
     private static final int BLUETOOTH_PERMISSION = 120;
     private static final String TAG = "BT";
     SensorManager sensorManager;
     BluetoothAdapter bluetoothAdapter;
     TextView name,add,state,scan;
-    AVLoadingIndicatorView avi;
-
+    RecyclerView rv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +47,12 @@ public class BluetoothActivity extends AppCompatActivity {
         scan= (TextView) findViewById(R.id.scan);
         add= (TextView) findViewById(R.id.add);
         state= (TextView) findViewById(R.id.state);
+
+
+        rv = (RecyclerView) findViewById(R.id.rv);
+
+        btInfolist = new ArrayList<>();
+
         String[] permissions={Manifest.permission.BLUETOOTH,Manifest.permission.BLUETOOTH_ADMIN};
 
 
@@ -74,23 +90,73 @@ public class BluetoothActivity extends AppCompatActivity {
 
                 Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
 
+
                 if (pairedDevices.size() > 0) {
                     // There are paired devices. Get the name and address of each paired device.
                     for (BluetoothDevice device : pairedDevices) {
-                        String deviceName = device.getName();
-                        String deviceHardwareAddress = device.getAddress(); // MAC address
 
-                        Log.d(TAG, "run: "+deviceName);
-                        Log.d(TAG, "run: "+deviceHardwareAddress);
-                        Log.d(TAG, "run: "+device.getUuids());
+                        btInfolist.add(new BTInfo(device.getName(),device.getAddress()));
+//                        String deviceName = device.getName();
+//                        String deviceHardwareAddress = device.getAddress(); // MAC address
+//
+//                        Log.d(TAG, "run: "+deviceName);
+//                        Log.d(TAG, "run: "+deviceHardwareAddress);
 
-                        progress.hide();
                     }
                 }
+                progress.hide();
+
+                RVAdapter ad = new RVAdapter();
+
+                rv.setLayoutManager(new LinearLayoutManager(BluetoothActivity.this));
+
+                rv.setAdapter(ad);
+
             }
         }, 1500);
 
     }
+
+    class Holder extends RecyclerView.ViewHolder{
+
+        TextView lvName,lvAdd;
+
+        public Holder(View itemView) {
+            super(itemView);
+            this.lvName = (TextView) itemView.findViewById(R.id.lvName);
+            this.lvAdd = (TextView) itemView.findViewById(R.id.lvAdd);
+        }
+    }
+    class RVAdapter extends RecyclerView.Adapter<Holder>{
+
+        @Override
+        public int getItemViewType(int position) {
+            return 0;
+        }
+
+        @Override
+        public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater li = getLayoutInflater();
+            View itemView =  li.inflate(R.layout.list_view_bt, parent, false);
+
+            return new Holder(itemView);
+        }
+
+        @Override
+        public void onBindViewHolder(final Holder holder, int position) {
+
+            final BTInfo btn = btInfolist.get(position);
+            holder.lvName.setText(btn.getName());
+            holder.lvAdd.setText(btn.getAddress().toString());
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return btInfolist.size();
+        }
+    }
+
     public static boolean hasPermissions(Context context, String[] permissions){
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M && context!=null && permissions!=null){
             for(String permission : permissions){
