@@ -54,7 +54,6 @@ public class MapsActivity extends FragmentActivity implements
         Toast.makeText(this, "Click on Marker to know Latitude and Longitude", Toast.LENGTH_SHORT).show();
     }
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
