@@ -36,8 +36,8 @@ public class StepDetectorActivity extends AppCompatActivity {
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
 
         step = (TextView) findViewById(R.id.step);
-        accuracy = (TextView) findViewById(R.id.accuracy);
-        sampling_rate = (TextView) findViewById(R.id.sampling_rate);
+//        accuracy = (TextView) findViewById(R.id.accuracy);
+//        sampling_rate = (TextView) findViewById(R.id.sampling_rate);
         minimum_delay = (TextView) findViewById(R.id.minimum_delay);
         name = (TextView) findViewById(R.id.name);
         vendor = (TextView) findViewById(R.id.vendor);
