@@ -112,6 +112,12 @@ public class BatteryActivity extends AppCompatActivity{
         super.onPause();
     }
 
+    @Override
+    protected void onStop(){
+        this.unregisterReceiver(receiver);
+        super.onStop();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
