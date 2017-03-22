@@ -20,7 +20,7 @@ public class StepDetectorActivity extends AppCompatActivity {
     TextView step, accuracy, sampling_rate, minimum_delay, name, vendor, version, power, maximum_delay, resolution, maximum_range;
     private Sensor sensor;
     private SensorManager sensorManager;
-    private long timestamp;
+    private int stepDetector = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +63,8 @@ public class StepDetectorActivity extends AppCompatActivity {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
             // Time is in nanoseconds, convert to millis
-            Log.e("STEP", "STEP");
-            timestamp = sensorEvent.timestamp / 1000000;
-            step.setText((int) timestamp);
+            stepDetector++;
+            step.setText(String.valueOf(stepDetector));
         }
 
         @Override
@@ -73,7 +72,6 @@ public class StepDetectorActivity extends AppCompatActivity {
 
         }
     };
-
 
     private void setResults(){
         results = new String[]{String.valueOf(sensor.getMinDelay()), sensor.getName(), sensor.getVendor(), String.valueOf(sensor.getVersion()),
@@ -90,5 +88,4 @@ public class StepDetectorActivity extends AppCompatActivity {
         resolution.setText(results[6]);
         maximum_range.setText(results[7]);
     }
-
 }

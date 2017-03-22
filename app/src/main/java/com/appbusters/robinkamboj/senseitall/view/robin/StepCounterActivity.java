@@ -40,14 +40,20 @@ public class StepCounterActivity extends AppCompatActivity {
 
         activity_counter = (RelativeLayout) findViewById(R.id.activity_counter);
 
-        Snackbar.make(activity_counter, "Please walk between 5-15 steps for each result updation.", Snackbar.LENGTH_LONG)
-                .setAction("Okay", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+        Handler snack = new Handler();
+        snack.post(new Runnable() {
+            @Override
+            public void run() {
+                Snackbar.make(activity_counter, "Please walk between 5-15 steps.", Snackbar.LENGTH_LONG)
+                        .setAction("Okay", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
-                    }
-                })
-                .show();
+                            }
+                        })
+                        .show();
+            }
+        });
 
         step_counter = (TextView) findViewById(R.id.step_counter);
         accuracy = (TextView) findViewById(R.id.accuracy);
