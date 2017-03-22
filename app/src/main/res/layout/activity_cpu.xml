@@ -90,7 +90,7 @@
         android:layout_margin="10sp"
         android:padding="5sp"
         android:layout_below="@+id/ll"
-        app:cardBackgroundColor="@color/colorPrimaryLightLight">
+        app:cardBackgroundColor="@color/colorPrimary">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                         android:layout_row="0"
                         android:layout_gravity="center"
                         android:padding="3sp"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorWhiteShade"
                         android:textSize="18sp"/>
 
                     <TextView
@@ -128,7 +128,7 @@
 
                     <TextView
                         android:id="@+id/processor"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -147,7 +147,7 @@
 
                     <TextView
                         android:id="@+id/cores"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -166,7 +166,7 @@
 
                     <TextView
                         android:id="@+id/max_frequency"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -185,7 +185,7 @@
 
                     <TextView
                         android:id="@+id/min_frequency"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -204,7 +204,7 @@
 
                     <TextView
                         android:id="@+id/current_frequency"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -223,7 +223,7 @@
 
                     <TextView
                         android:id="@+id/cpu_architecture"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -242,7 +242,7 @@
 
                     <TextView
                         android:id="@+id/bogomips"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -261,7 +261,7 @@
 
                     <TextView
                         android:id="@+id/features"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -280,7 +280,7 @@
 
                     <TextView
                         android:id="@+id/cpu_implementer"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -299,7 +299,7 @@
 
                     <TextView
                         android:id="@+id/cpu_variant"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -318,7 +318,7 @@
 
                     <TextView
                         android:id="@+id/cpu_part"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -337,7 +337,7 @@
 
                     <TextView
                         android:id="@+id/cpu_revision"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -356,7 +356,7 @@
 
                     <TextView
                         android:id="@+id/hardware"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -375,7 +375,7 @@
 
                     <TextView
                         android:id="@+id/revision"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -394,7 +394,7 @@
 
                     <TextView
                         android:id="@+id/serial"
-                        android:textColor="#000"
+                        android:textColor="@color/colorWhiteShade"
                         android:text="___"
                         android:padding="3sp"
                         android:fontFamily="sans-serif-smallcaps"
@@ -412,7 +412,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-smallcaps"
                     android:padding="3sp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorWhiteShade"
                     android:textSize="18sp"/>
 
                 <com.github.yongjhih.mismeter.MisMeter
@@ -456,7 +456,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-smallcaps"
                     android:padding="3sp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorWhiteShade"
                     android:textSize="18sp"/>
 
                 <com.github.yongjhih.mismeter.MisMeter
@@ -500,7 +500,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-smallcaps"
                     android:padding="3sp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorWhiteShade"
                     android:textSize="18sp"/>
 
                 <com.github.yongjhih.mismeter.MisMeter
@@ -543,7 +543,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-smallcaps"
                     android:padding="3sp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorWhiteShade"
                     android:textSize="18sp"/>
 
                 <TextView
@@ -597,6 +597,15 @@
                     android:gravity="center"
                     android:text="Partition Size 5:"
                     android:id="@+id/partition_size5"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:padding="3sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="CPU Information:"
+                    android:id="@+id/cpu_all"
                     android:fontFamily="sans-serif-smallcaps"
                     android:padding="3sp"/>
 

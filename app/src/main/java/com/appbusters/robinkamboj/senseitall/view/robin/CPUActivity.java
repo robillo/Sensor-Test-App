@@ -9,11 +9,21 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 public class CPUActivity extends AppCompatActivity {
 
     String sensor_name, results[];
-    TextView textView;
-    Context context;
+    TextView textView, cpu_all;
+
+    ProcessBuilder processBuilder;
+    String Holder = "";
+    String[] DATA = {"/system/bin/cat", "/proc/cpuinfo"};
+    InputStream inputStream;
+    Process process ;
+    byte[] byteArry ;
+
     TextView processor, number_of_cores, max_frequency, min_frequency, current_frequency, cpu_architecture, bogomips,
              features, cpu_implementer, cpu_variant, cpu_part, cpu_revision, hardware, cpu_serial,
              memory_size, memory_free, memory_used,
@@ -24,6 +34,21 @@ public class CPUActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cpu);
+
+        cpu_all = (TextView) findViewById(R.id.cpu_all);
+        byteArry = new byte[1024];
+        try{
+            processBuilder = new ProcessBuilder(DATA);
+            process = processBuilder.start();
+            inputStream = process.getInputStream();
+            while(inputStream.read(byteArry) != -1){
+                Holder = Holder + new String(byteArry);
+            }
+            inputStream.close();
+        } catch(IOException ex){
+            ex.printStackTrace();
+        }
+        cpu_all.setText(Holder);
 
         processor = (TextView) findViewById(R.id.processor);
         number_of_cores = (TextView) findViewById(R.id.cores);
