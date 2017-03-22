@@ -14,8 +14,8 @@
 
     <uses-feature android:name="android.hardware.camera.front" />
     <uses-feature android:name="android.hardware.camera2.full" />
-    <uses-feature android:name="android.hardware.sensor.stepdetector"/>
-    <uses-feature android:name="android.hardware.sensor.stepcounter"/>
+    <uses-feature android:name="android.hardware.sensor.stepdetector" />
+    <uses-feature android:name="android.hardware.sensor.stepcounter" />
 
     <uses-permission android:name="android.permission.NFC" />
 
@@ -92,8 +92,9 @@
             android:name=".view.rishabh.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".view.rishabh.NFCActivity" />
-        <activity android:name=".view.rishabh.CompassActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.rishabh.CompassActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".view.rishabh.MultiTouchActivity">
             <meta-data
                 android:name="android.app.searchable"
@@ -120,7 +121,8 @@
         <activity android:name=".view.rishabh.RotationActivity" />
         <activity android:name=".view.rishabh.HumidityActivity" />
         <activity android:name=".view.rishabh.BarometerActivity" />
-        <activity android:name=".view.rishabh.BluetoothActivity"></activity>
+        <activity android:name=".view.rishabh.BluetoothActivity" />
+        <activity android:name=".view.robin.ScreenActivity"></activity>
     </application>
 
 </manifest>

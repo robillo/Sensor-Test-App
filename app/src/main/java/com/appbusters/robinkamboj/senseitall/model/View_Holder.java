@@ -41,6 +41,7 @@ import com.appbusters.robinkamboj.senseitall.view.rishabh.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.PressureActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.ProximityActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.RadioActivity;
+import com.appbusters.robinkamboj.senseitall.view.robin.ScreenActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.StepCounterActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.StepDetectorActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.TemperatureActivity;
@@ -191,7 +192,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 10:{
-
+                Intent i = new Intent(context, ScreenActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 11:{
