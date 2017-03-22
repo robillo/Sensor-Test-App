@@ -19,7 +19,7 @@ public class CPUActivity extends AppCompatActivity {
 
     ProcessBuilder processBuilder;
     String Holder = "";
-    String[] DATA = {"/system/bin/cat", "/proc/cpuinfo"};
+    String[] DATA = {"/system/bin/cat", "/proc/cpuinfo", "/proc/partitions"};
     InputStream inputStream;
     Process process ;
     byte[] byteArry ;
