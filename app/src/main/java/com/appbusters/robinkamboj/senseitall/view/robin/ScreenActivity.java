@@ -55,18 +55,18 @@ public class ScreenActivity extends AppCompatActivity {
 
     private void setResults(){
         results = new String[]{
-                String.valueOf(getPackageManager().hasSystemFeature("android.hardware.touchscreen")),
-                String.valueOf(getPackageManager().hasSystemFeature("android.hardware.faketouch")),
-                String.valueOf(getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch")),
-                String.valueOf(getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch.distinct")),
-                String.valueOf(getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch.distinct")),
-                String.valueOf(size.x),
-                String.valueOf(size.y),
-                String.valueOf(metrics.density),
-                String.valueOf(metrics.scaledDensity),
-                String.valueOf(metrics.densityDpi),
-                String.valueOf(metrics.xdpi),
-                String.valueOf(metrics.ydpi)
+                "Has Touch? :" + String.valueOf(getPackageManager().hasSystemFeature("android.hardware.touchscreen")),
+                "Has Touchscreen Emulation? :" + String.valueOf(getPackageManager().hasSystemFeature("android.hardware.faketouch")),
+                "Has Basic MultiTouch? :" + String.valueOf(getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch")),
+                "Has Extended MultiTouch? :" + String.valueOf(getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch.distinct")),
+                "Has Full Hand MultiTouch? :" + String.valueOf(getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch.distinct")),
+                "Screen Height: " + String.valueOf(size.x),
+                "Screen Width: " + String.valueOf(size.y),
+                "Screen Density: " + String.valueOf(metrics.density),
+                "Scaled Density: " + String.valueOf(metrics.scaledDensity),
+                "Density: " + String.valueOf(metrics.densityDpi),
+                "X dpi: " + String.valueOf(metrics.xdpi),
+                "Y dpi: " + String.valueOf(metrics.ydpi)
         };
     }
 
