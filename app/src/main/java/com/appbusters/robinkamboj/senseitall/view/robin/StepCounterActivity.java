@@ -6,8 +6,12 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -15,10 +19,11 @@ import com.appbusters.robinkamboj.senseitall.R;
 public class StepCounterActivity extends AppCompatActivity {
 
     String sensor_name, results[];
-    TextView textView;
-    TextView step_counter, accuracy, sampling_rate, minimum_delay, name, vendor, version, power, maximum_delay, resolution, maximum_range;
+    private TextView textView;
+    private TextView step_counter, accuracy, sampling_rate, minimum_delay, name, vendor, version, power, maximum_delay, resolution, maximum_range;
     private Sensor sensor;
     private SensorManager sensorManager;
+    private RelativeLayout activity_counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,17 @@ public class StepCounterActivity extends AppCompatActivity {
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+        activity_counter = (RelativeLayout) findViewById(R.id.activity_counter);
+
+        Snackbar.make(activity_counter, "Please walk between 5-15 steps for each result updation.", Snackbar.LENGTH_LONG)
+                .setAction("Okay", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                })
+                .show();
 
         step_counter = (TextView) findViewById(R.id.step_counter);
         accuracy = (TextView) findViewById(R.id.accuracy);
@@ -60,8 +76,15 @@ public class StepCounterActivity extends AppCompatActivity {
     SensorEventListener stepCounterEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
-            float steps = sensorEvent.values[0];
-            step_counter.setText((int) steps + "");
+            Log.e("STEP", "STEP");
+//            if (counterSteps < 1) {
+//                // initial value
+//                counterSteps = (int)sensorEvent.values[0];
+//            }
+//
+//            // Calculate steps taken based on first counter value received.
+//            stepCounter = (int)sensorEvent.values[0] - counterSteps;
+            step_counter.setText(String.valueOf(sensorEvent.values[0]));
         }
 
         @Override
