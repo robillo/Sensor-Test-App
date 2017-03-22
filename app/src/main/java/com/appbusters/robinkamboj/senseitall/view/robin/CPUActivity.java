@@ -50,20 +50,20 @@ public class CPUActivity extends AppCompatActivity {
         }
         cpu_all.setText(Holder);
 
-        processor = (TextView) findViewById(R.id.processor);
-        number_of_cores = (TextView) findViewById(R.id.cores);
-        max_frequency = (TextView) findViewById(R.id.max_frequency);
-        min_frequency = (TextView) findViewById(R.id.min_frequency);
-        current_frequency = (TextView) findViewById(R.id.current_frequency);
-        cpu_architecture = (TextView) findViewById(R.id.cpu_architecture);
-        bogomips = (TextView) findViewById(R.id.bogomips);
-        features = (TextView) findViewById(R.id.features);
-        cpu_implementer = (TextView) findViewById(R.id.cpu_implementer);
-        cpu_variant = (TextView) findViewById(R.id.cpu_variant);
-        cpu_part = (TextView) findViewById(R.id.cpu_part);
-        cpu_revision = (TextView) findViewById(R.id.cpu_revision);
-        hardware = (TextView) findViewById(R.id.hardware);
-        cpu_serial = (TextView) findViewById(R.id.serial);
+//        processor = (TextView) findViewById(R.id.processor);
+//        number_of_cores = (TextView) findViewById(R.id.cores);
+//        max_frequency = (TextView) findViewById(R.id.max_frequency);
+//        min_frequency = (TextView) findViewById(R.id.min_frequency);
+//        current_frequency = (TextView) findViewById(R.id.current_frequency);
+//        cpu_architecture = (TextView) findViewById(R.id.cpu_architecture);
+//        bogomips = (TextView) findViewById(R.id.bogomips);
+//        features = (TextView) findViewById(R.id.features);
+//        cpu_implementer = (TextView) findViewById(R.id.cpu_implementer);
+//        cpu_variant = (TextView) findViewById(R.id.cpu_variant);
+//        cpu_part = (TextView) findViewById(R.id.cpu_part);
+//        cpu_revision = (TextView) findViewById(R.id.cpu_revision);
+//        hardware = (TextView) findViewById(R.id.hardware);
+//        cpu_serial = (TextView) findViewById(R.id.serial);
         memory_size = (TextView) findViewById(R.id.memory_size);
         memory_free = (TextView) findViewById(R.id.memory_free);
         memory_used = (TextView) findViewById(R.id.memory_used);
