@@ -11,6 +11,18 @@ import android.view.View;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.ani;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.batteryperc;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.imageView;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.level;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.maxcl;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.plugged;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.present;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.status;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.tech;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.temp;
+import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.vol;
+
 /**
  * Created by rishabhshukla on 10/02/17.
  */
@@ -34,54 +46,90 @@ public class MyReceiver extends BroadcastReceiver {
                 boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
                 boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
                 if(usbCharge){
-                    BatteryActivity.plugged.setText("USB");
+                    if(plugged!=null) {
+                        BatteryActivity.plugged.setText("USB");
+                    }
                 }else if(acCharge){
-                    BatteryActivity.plugged.setText("AC");
+                    if(plugged!=null) {
+                        BatteryActivity.plugged.setText("AC");
+                    }
                 }
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-            BatteryActivity.tech.setText(intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY));
+            if(tech!=null) {
+                BatteryActivity.tech.setText(intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY));
+            }
             int voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1);
-            BatteryActivity.vol.setText(String.valueOf(voltage));
+            if(vol!=null) {
+                vol.setText(String.valueOf(voltage));
+            }
             int tempe = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0);
             int dec = tempe % 10;
             tempe /= 10;
-            BatteryActivity.temp.setText(String.valueOf(tempe) + "." + String.valueOf(dec)+"°");
-            BatteryActivity.level.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)));
-            BatteryActivity.maxcl.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0)));
-            BatteryActivity.present.setText("True");
+            if(temp!=null) {
+                temp.setText(String.valueOf(tempe) + "." + String.valueOf(dec) + "°");
+            }
+            if(level!=null) {
+                BatteryActivity.level.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)));
+            }
+            if(maxcl!=null) {
+                BatteryActivity.maxcl.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0)));
+            }
+            if(present!=null) {
+                BatteryActivity.present.setText("True");
+            }
         }
 
         if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)){
             //tv.setText("POWER CONNECTED ");
-           // BatteryActivity.imageView.setBackgroundResource(R.drawable.gube);
+            if(imageView!=null) {
+                BatteryActivity.imageView.setBackgroundResource(R.drawable.gube);
+            }
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-            BatteryActivity.ani = (AnimationDrawable) BatteryActivity.imageView.getBackground();
-            BatteryActivity.ani.start();
-            BatteryActivity.status.setText("Charging");
+            if(ani!=null) {
+                BatteryActivity.ani = (AnimationDrawable) BatteryActivity.imageView.getBackground();
+                BatteryActivity.ani.start();
+            }
+            if(status!=null) {
+                BatteryActivity.status.setText("Charging");
+            }
 
             //ani.run();
-            BatteryActivity.batteryperc.setText(value+"%");
-
+            if(batteryperc!=null) {
+                batteryperc.setText(value + "%");
+            }
 
         }else if(intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)){
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-            BatteryActivity.status.setText("Not Charging");
-            BatteryActivity.plugged.setText("___");
-            if(value<=50){
-                BatteryActivity.imageView.setBackgroundResource(R.drawable.bless);
-            }else if(value>=75&&value<95){
-                BatteryActivity.imageView.setBackgroundResource(R.drawable.nninty);
-            }else if(value>=50&&value<75){
-                BatteryActivity.imageView.setBackgroundResource(R.drawable.nsevenfive);
-            }else if(value>=95){
-                BatteryActivity.imageView.setBackgroundResource(R.drawable.bfull);
+            if(status!=null) {
+                BatteryActivity.status.setText("Not Charging");
             }
-            BatteryActivity.batteryperc.setText(value+"%");
-            BatteryActivity.batteryperc.setVisibility(View.VISIBLE);
-
+            if(plugged!=null) {
+                BatteryActivity.plugged.setText("___");
+            }
+            if(value<=50){
+                if(imageView!=null) {
+                    BatteryActivity.imageView.setBackgroundResource(R.drawable.bless);
+                }
+            }else if(value>=75&&value<95){
+                if(imageView!=null) {
+                    BatteryActivity.imageView.setBackgroundResource(R.drawable.nninty);
+                }
+            }else if(value>=50&&value<75){
+                if(imageView!=null) {
+                    BatteryActivity.imageView.setBackgroundResource(R.drawable.nsevenfive);
+                }
+            }else if(value>=95){
+                if(imageView!=null) {
+                    BatteryActivity.imageView.setBackgroundResource(R.drawable.bfull);
+                }
+            }
+            if(batteryperc!=null) {
+                batteryperc.setText(value + "%");
+                batteryperc.setVisibility(View.VISIBLE);
+            }
             intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
             Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0));
             Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.ACTION_CHARGING, 0));
