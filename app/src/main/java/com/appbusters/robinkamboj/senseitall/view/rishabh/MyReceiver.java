@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.BatteryManager;
+import android.support.annotation.UiThread;
 import android.util.Log;
 import android.view.View;
 
@@ -53,12 +54,12 @@ public class MyReceiver extends BroadcastReceiver {
 
         if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)){
             //tv.setText("POWER CONNECTED ");
-                BatteryActivity.imageView.setBackgroundResource(R.drawable.gube);
+           // BatteryActivity.imageView.setBackgroundResource(R.drawable.gube);
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
             BatteryActivity.ani = (AnimationDrawable) BatteryActivity.imageView.getBackground();
-                BatteryActivity.ani.start();
-                BatteryActivity.status.setText("Charging");
+            BatteryActivity.ani.start();
+            BatteryActivity.status.setText("Charging");
 
             //ani.run();
             BatteryActivity.batteryperc.setText(value+"%");
