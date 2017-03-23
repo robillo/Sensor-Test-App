@@ -26,6 +26,8 @@ public class WiFiActivity extends AppCompatActivity {
 
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 
+
+
         Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
