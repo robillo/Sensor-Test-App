@@ -54,6 +54,8 @@ public class WiFiActivity extends AppCompatActivity {
         networkid = (TextView) findViewById(R.id.networkid);
         rv = (RecyclerView) findViewById(R.id.rv);
 
+        scanList = new ArrayList<>();
+
         wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         wifiInfo = wifiManager.getConnectionInfo();
 
@@ -89,21 +91,21 @@ public class WiFiActivity extends AppCompatActivity {
                 if (scanResultList.size() > 0) {
                     for (ScanResult scanResult : scanResultList) {
                         scanList.add(new ScanResultInfo(
-                                scanResult.toString(),
+                                scanResult.SSID,
                                 scanResult.capabilities,
                                 scanResult.level,
                                 scanResult.frequency,
-                                scanResult.channelWidth,
+                                scanResult.timestamp,
                                 scanResult.BSSID));
                     }
                 }
                 progress.hide();
 
-//                BluetoothActivity.RVAdapter ad = new RVAdapter();
-//
-//                rv.setLayoutManager(new LinearLayoutManager(WiFiActivity.this));
-//
-//                rv.setAdapter(ad);
+                RVAdapter ad = new RVAdapter();
+
+                rv.setLayoutManager(new LinearLayoutManager(WiFiActivity.this));
+
+                rv.setAdapter(ad);
 
             }
         }, 1500);
@@ -114,12 +116,12 @@ public class WiFiActivity extends AppCompatActivity {
 
     class Holder extends RecyclerView.ViewHolder{
 
-        TextView name,width,level,capabilities,freq,mac;
+        TextView name,timestamp,level,capabilities,freq,mac;
 
         public Holder(View itemView) {
             super(itemView);
             this.name = (TextView) itemView.findViewById(R.id.namesc);
-            this.width = (TextView) itemView.findViewById(R.id.width);
+            this.timestamp = (TextView) itemView.findViewById(R.id.timestamp);
             this.level = (TextView) itemView.findViewById(R.id.level);
             this.capabilities = (TextView) itemView.findViewById(R.id.capabilities);
             this.freq = (TextView) itemView.findViewById(R.id.frequency);
@@ -146,10 +148,10 @@ public class WiFiActivity extends AppCompatActivity {
 
             final ScanResultInfo sri = scanList.get(position);
             holder.name.setText(sri.getName());
-            holder.level.setText("Level:    "+sri.getLevel());
+            holder.level.setText("Level:    "+sri.getLevel()+" dB");
             holder.capabilities.setText("Capabilities:    "+sri.getCapabilities());
-            holder.freq.setText("Frequency:    "+sri.getFrequency());
-            holder.width.setText("Channel Width:    "+sri.getWidth());
+            holder.freq.setText("Frequency:    "+sri.getFrequency()+" MHz");
+            holder.timestamp.setText("Timestamp:    "+sri.getTimestamp()+" microsecs");
             holder.mac.setText("MAC:    "+sri.getMac());
 
         }
@@ -165,9 +167,9 @@ public class WiFiActivity extends AppCompatActivity {
     private void setResults(){
         results = new String[]{
                 "SSID:    " + String.valueOf(wifiInfo.getSSID()),
-                "Frequency:    " + String.valueOf(wifiInfo.getFrequency()),
+                "Frequency:    " + String.valueOf(wifiInfo.getFrequency()+" MHz"),
                 "IP Address:    " + String.valueOf(wifiInfo.getIpAddress()),
-                "Link:    " + String.valueOf(wifiInfo.getLinkSpeed()),
+                "Link:    " + String.valueOf(wifiInfo.getLinkSpeed()+" Mbps"),
                 "Mac Address:    " + String.valueOf(wifiInfo.getMacAddress()),
                 "BSSID:    " + String.valueOf(wifiInfo.getBSSID()),
                 "Netword ID:    " + String.valueOf(wifiInfo.getNetworkId()),
@@ -178,7 +180,7 @@ public class WiFiActivity extends AppCompatActivity {
     }
 
     private void setTextviews(){
-        state.setText(results[0]);
+        ssid.setText(results[0]);
         frequency.setText(results[1]);
         ip.setText(results[2]);
         link.setText(results[3]);
@@ -186,6 +188,6 @@ public class WiFiActivity extends AppCompatActivity {
         bssid.setText(results[5]);
         networkid.setText(results[6]);
         hidden.setText(results[7]);
-        rssi.setText(results[7]);
+        rssi.setText(results[8]);
     }
 }

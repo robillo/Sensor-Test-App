@@ -9,7 +9,7 @@ public class ScanResultInfo {
     String capabilities;
     int level;
     int frequency;
-    int width;
+    long timestamp;
     String mac;
 
     public String getName() {
@@ -28,20 +28,20 @@ public class ScanResultInfo {
         return frequency;
     }
 
-    public int getWidth() {
-        return width;
+    public long getTimestamp() {
+        return timestamp;
     }
 
     public String getMac() {
         return mac;
     }
 
-    public ScanResultInfo(String name, String capabilities, int level, int frequency, int width, String mac) {
+    public ScanResultInfo(String name, String capabilities, int level, int frequency, long timestamp, String mac) {
         this.name = name;
         this.capabilities = capabilities;
         this.level = level;
         this.frequency = frequency;
-        this.width = width;
+        this.timestamp = timestamp;
         this.mac = mac;
     }
 }

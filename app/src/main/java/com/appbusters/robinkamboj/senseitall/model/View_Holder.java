@@ -23,6 +23,7 @@ import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BarometerActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BluetoothActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.WiFiActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CPUActivity;
@@ -161,6 +162,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             }
             case 4:{
 
+                Intent i = new Intent(context, WiFiActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 5:{

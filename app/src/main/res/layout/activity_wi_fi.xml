@@ -94,153 +94,152 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="198dp"
-            >
 
-            <LinearLayout
-
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/state"
+                <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="STATE:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/ssid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="SSID:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="STATE:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/frequency"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="FREQUENCY"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/ssid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="SSID:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/ip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="IP ADDRESS:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/frequency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="FREQUENCY"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/link"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="LINK SPEED:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/ip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="IP ADDRESS:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/mac"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="MAC ADDRESS:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="LINK SPEED:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/bssid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="BSSID:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/mac"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="MAC ADDRESS:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/networkid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="NETWORK ID:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/bssid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="BSSID:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/hidden"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="SSID HIDDEN:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/networkid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="NETWORK ID:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/rssi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:gravity="start"
-                    android:padding="5sp"
-                    android:text="RSSI:"
-                    android:textColor="@color/colorBlackShade"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/hidden"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="SSID HIDDEN:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/rssi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:gravity="start"
+                        android:padding="5sp"
+                        android:text="RSSI:"
+                        android:textColor="@color/colorBlackShade"
+                        android:textSize="18sp" />
 
-        </ScrollView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="NETWORKS"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="Configured Networks"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        <ScrollView
+                    <android.support.v7.widget.RecyclerView
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
+                        android:id="@+id/rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                    </android.support.v7.widget.RecyclerView>
 
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/rv">
+                </LinearLayout>
 
-            </android.support.v7.widget.RecyclerView>
+            </ScrollView>
 
-        </ScrollView>
+
 
         </LinearLayout>
 
