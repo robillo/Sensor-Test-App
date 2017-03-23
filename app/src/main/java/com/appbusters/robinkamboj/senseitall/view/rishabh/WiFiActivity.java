@@ -151,7 +151,7 @@ public class WiFiActivity extends AppCompatActivity {
             holder.level.setText("Level:    "+sri.getLevel()+" dB");
             holder.capabilities.setText("Capabilities:    "+sri.getCapabilities());
             holder.freq.setText("Frequency:    "+sri.getFrequency()+" MHz");
-            holder.timestamp.setText("Timestamp:    "+sri.getTimestamp()+" microsecs");
+            holder.timestamp.setText("Timestamp:    "+String.valueOf(sri.getTimestamp()/1000000)+" secs");
             holder.mac.setText("MAC:    "+sri.getMac());
 
         }
