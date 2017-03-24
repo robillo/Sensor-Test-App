@@ -1,9 +1,11 @@
 package com.appbusters.robinkamboj.senseitall.view.robin;
 
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.widget.TextView;
@@ -17,6 +19,8 @@ public class ScreenActivity extends AppCompatActivity {
     private String[] results;
     private Point size;
     private DisplayMetrics metrics;
+    private String sensor_name;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,11 @@ public class ScreenActivity extends AppCompatActivity {
         size = new Point();
         display.getSize(size);
 
+        Intent i = getIntent();
+        sensor_name = i.getStringExtra("sensorName");
+        textView = (TextView) findViewById(R.id.textView);
+        textView.setText(sensor_name);
+
         metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
@@ -51,6 +60,11 @@ public class ScreenActivity extends AppCompatActivity {
                 setTextviews();
             }
         });
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     private void setResults(){
