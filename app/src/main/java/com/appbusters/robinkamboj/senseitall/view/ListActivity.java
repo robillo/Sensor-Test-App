@@ -60,7 +60,7 @@ public class ListActivity extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
         }
         else if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 5);
             recyclerView.setLayoutManager(gridLayoutManager);
             adapter = new Recycler_View_Adapter(data, getApplicationContext());
             recyclerView.setAdapter(adapter);

@@ -46,7 +46,7 @@ public class GyroscopeActivity extends AppCompatActivity {
         cos = (TextView) findViewById(R.id.cos);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE_UNCALIBRATED);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
         sensorEventListener = new SensorEventListener() {
             @Override
@@ -106,13 +106,9 @@ public class GyroscopeActivity extends AppCompatActivity {
                     y.setText("Y Axis:    " + yVal);
                     z.setText("Z Axis:    " + zVal);
                     cos.setText("Angle:    " + RotAngle+" rad/s");
-
-
                 }
                 timestamp = event.timestamp;
-
             }
-
             @Override
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
@@ -120,8 +116,7 @@ public class GyroscopeActivity extends AppCompatActivity {
 
         };
 
-
-        sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
 
         Handler handler = new Handler();
         handler.post(new Runnable() {
