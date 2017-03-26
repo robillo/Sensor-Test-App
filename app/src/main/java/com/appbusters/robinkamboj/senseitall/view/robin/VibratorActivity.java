@@ -32,6 +32,7 @@ public class VibratorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_vibrator);
 
         Intent i = getIntent();
@@ -39,10 +40,42 @@ public class VibratorActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
 
+        if(hasStarted){
+            Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Exit", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            timer.cancel();
+                            hasStarted = false;
+                        }
+                    }).show();
+        }
+
         context = getApplicationContext();
 
         activity_vibrate = (RelativeLayout) findViewById(R.id.activity_vibrate);
         vib = (Vibrator) this.context.getSystemService(Context.VIBRATOR_SERVICE);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        hasStarted = savedInstanceState.getBoolean("HAS_STARTED");
+        if(hasStarted){
+            Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Exit", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            timer.cancel();
+                            hasStarted = false;
+                        }
+                    }).show();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("HAS_STARTED", hasStarted);
+        super.onSaveInstanceState(outState);
     }
 
     public void onClick(View v){
