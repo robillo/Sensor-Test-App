@@ -15,13 +15,20 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class AccelerometerTestActivity extends Activity implements SensorEventListener {
     private SensorManager sensorManager;
     private boolean color = false;
     private View view;
     private long lastUpdate;
 
-    private int[] pointerColors = new int[] { 0xFFFFFFFF, 0xFFFF4040, 0xFF40FF40, 0xFF4040FF, 0xFFFF40FF, 0xFFFFFF40, 0xFF40FFFF };
+    private int[] colorGen = new int[] { 0xFFFFFFFF, 0xFFFF4040, 0xFF40FF40, 0xFF4040FF, 0xFFFF40FF, 0xFFFFFF40, 0xFF40FFFF };
+
+
+    private int[] color1 = new int[] { Color.CYAN, Color.GREEN, Color.BLUE};
+    private int[] color2 = new int[] { Color.YELLOW, Color.LTGRAY, Color.MAGENTA };
+
 
 
     @Override
@@ -52,7 +59,7 @@ public class AccelerometerTestActivity extends Activity implements SensorEventLi
         float x = values[0];
         float y = values[1];
         float z = values[2];
-
+        Random r = new Random();
         float accelarationSquareRoot = (x * x + y * y + z * z)
                 / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
         long actualTime = event.timestamp;
@@ -65,12 +72,12 @@ public class AccelerometerTestActivity extends Activity implements SensorEventLi
 
 
 //            Toast.makeText(this, "Test Successful", Toast.LENGTH_SHORT).show();
-            if (color) {
-                view.setBackgroundColor(Color.CYAN);
-            } else {
-                view.setBackgroundColor(Color.YELLOW);
-            }
-            color = !color;
+//            if (color) {
+                view.setBackgroundColor(colorGen[Math.abs(r.nextInt())%7]);
+//            } else {
+//                view.setBackgroundColor(Color.YELLOW);
+//            }
+//            color = !color;
         }
     }
 
