@@ -127,7 +127,8 @@
         <activity android:name=".view.rishabh.WiFiActivity" />
         <activity android:name=".view.rishabh.BluetoothActivity" />
         <activity android:name=".view.robin.ScreenActivity" />
-        <activity android:name=".view.rishabh.GyroscopeActivity"></activity>
+        <activity android:name=".view.rishabh.GyroscopeActivity" />
+        <activity android:name=".view.rishabh.AccelerometerActivity"></activity>
     </application>
 
 </manifest>
