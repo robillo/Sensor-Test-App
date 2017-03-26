@@ -22,6 +22,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BarometerActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BluetoothActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.GyroscopeActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.WiFiActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
@@ -280,7 +281,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 26:{
-
+                Intent i = new Intent(context, GyroscopeActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 27:{
