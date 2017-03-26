@@ -17,6 +17,8 @@ public class GyroscopeActivity extends AppCompatActivity {
     private static final float NS2S = 1.0f / 1000000000.0f;
     private final float[] deltaRotationVector = new float[4];
     private float timestamp;
+    float currentRotVector[] =  { 1, 0, 0, 0 };
+    private float RotAngle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +31,13 @@ public class GyroscopeActivity extends AppCompatActivity {
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                // This time step's delta rotation to be multiplied by the current rotation
-                // after computing it from the gyro sample data.
+
                 if (timestamp != 0) {
                     final float dT = (event.timestamp - timestamp) * NS2S;
-                    // Axis of the rotation sample, not normalized yet.
                     float axisX = event.values[0];
                     float axisY = event.values[1];
                     float axisZ = event.values[2];
 
-                    // Calculate the angular speed of the sample
                     float omegaMagnitude = (float) Math.sqrt(axisX*axisX + axisY*axisY + axisZ*axisZ);
 
                     // Normalize the rotation vector if it's big enough to get the axis
@@ -59,13 +58,42 @@ public class GyroscopeActivity extends AppCompatActivity {
                     deltaRotationVector[1] = sinThetaOverTwo * axisY;
                     deltaRotationVector[2] = sinThetaOverTwo * axisZ;
                     deltaRotationVector[3] = cosThetaOverTwo;
+
+
+                    currentRotVector[0] = deltaRotationVector[0] * currentRotVector[0] -
+                            deltaRotationVector[1] * currentRotVector[1] -
+                            deltaRotationVector[2] * currentRotVector[2] -
+                            deltaRotationVector[3] * currentRotVector[3];
+
+                    currentRotVector[1] = deltaRotationVector[0] * currentRotVector[1] +
+                            deltaRotationVector[1] * currentRotVector[0] +
+                            deltaRotationVector[2] * currentRotVector[3] -
+                            deltaRotationVector[3] * currentRotVector[2];
+
+                    currentRotVector[2] = deltaRotationVector[0] * currentRotVector[2] -
+                            deltaRotationVector[1] * currentRotVector[3] +
+                            deltaRotationVector[2] * currentRotVector[0] +
+                            deltaRotationVector[3] * currentRotVector[1];
+
+                    currentRotVector[3] = deltaRotationVector[0] * currentRotVector[3] +
+                            deltaRotationVector[1] * currentRotVector[2] -
+                            deltaRotationVector[2] * currentRotVector[1] +
+                            deltaRotationVector[3] * currentRotVector[0];
+                    final float rad2deg = (float) (180.0f / Math.PI);
+                    RotAngle = currentRotVector[0] * rad2deg;
+                    axisX = currentRotVector[1];
+                    axisY = currentRotVector[2];
+                    axisZ = currentRotVector[3];
+
+//                    x.setText("X:    " + gameRotationVectorValues[0]);
+//                    y.setText("Y:    " + gameRotationVectorValues[1]);
+//                    z.setText("Z:    " + gameRotationVectorValues[2]);
+//                    cos.setText("Cos:    " + gameRotationVectorValues[3]);
+
+
                 }
                 timestamp = event.timestamp;
-                float[] deltaRotationMatrix = new float[9];
-                SensorManager.getRotationMatrixFromVector(deltaRotationMatrix, deltaRotationVector);
-                // User code should concatenate the delta rotation we computed with the current rotation
-                // in order to get the updated rotation.
-                // rotationCurrent = rotationCurrent * deltaRotationMatrix;
+
             }
 
             @Override
