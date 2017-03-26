@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.AccelerometerTestActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BarometerActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BluetoothActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.GyroscopeActivity;
@@ -181,7 +182,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 7:{
-
+                Intent i = new Intent(context, AccelerometerTestActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 8:{
