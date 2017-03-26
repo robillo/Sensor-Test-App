@@ -72,7 +72,6 @@ public class AccelerometerActivity extends AppCompatActivity {
 
         };
 
-        sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
 
         Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -109,10 +108,17 @@ public class AccelerometerActivity extends AppCompatActivity {
         resolution.setText(results[7]);
     }
 
+    @Override
+    protected void onResume() {
 
+        super.onResume();
+        sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
 
-    public void onStop() {
-        super.onStop();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
         sensorManager.unregisterListener(sensorEventListener);
     }
 }
