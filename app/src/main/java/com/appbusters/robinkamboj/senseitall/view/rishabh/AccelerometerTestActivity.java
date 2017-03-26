@@ -48,7 +48,30 @@ public class AccelerometerTestActivity extends Activity implements SensorEventLi
     }
 
     private void getAccelerometer(SensorEvent event) {
+        float[] values = event.values;
+        float x = values[0];
+        float y = values[1];
+        float z = values[2];
 
+        float accelarationSquareRoot = (x * x + y * y + z * z)
+                / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
+        long actualTime = event.timestamp;
+        if (accelarationSquareRoot >= 2) //
+        {
+            if (actualTime - lastUpdate < 200) {
+                return;
+            }
+            lastUpdate = actualTime;
+
+
+//            Toast.makeText(this, "Test Successful", Toast.LENGTH_SHORT).show();
+            if (color) {
+                view.setBackgroundColor(Color.CYAN);
+            } else {
+                view.setBackgroundColor(Color.YELLOW);
+            }
+            color = !color;
+        }
     }
 
     @Override
