@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import com.github.yongjhih.mismeter.MisMeter;
 
 public class ProximityActivity extends AppCompatActivity {
 
+    private static final String TAG = "PROX";
     private MisMeter meter;
     private SensorManager sensorManager;
     private Sensor sensor;
@@ -94,7 +96,9 @@ public class ProximityActivity extends AppCompatActivity {
         public void onSensorChanged(SensorEvent sensorEvent) {
             if(sensorEvent.sensor.getType()==Sensor.TYPE_PROXIMITY){
                 float currentReading = sensorEvent.values[0];
-                if(currentReading==0){
+                Log.d(TAG, "onSensorChanged: "+currentReading);
+
+                if(currentReading<=3){
                     meter.setProgress(0);
                 }
                 else {
