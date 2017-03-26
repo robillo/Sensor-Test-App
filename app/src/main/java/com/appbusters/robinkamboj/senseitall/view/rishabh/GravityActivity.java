@@ -45,15 +45,15 @@ public class GravityActivity extends AppCompatActivity {
         z = (TextView) findViewById(R.id.zVal);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
 
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
 
-                x.setText("X Axis:    " + event.values[0]);
-                y.setText("Y Axis:    " + event.values[1]);
-                z.setText("Z Axis:    " + event.values[2]);
+                x.setText("X Axis:    " + event.values[0]+ " m/s²");
+                y.setText("Y Axis:    " + event.values[1]+ " m/s²");
+                z.setText("Z Axis:    " + event.values[2]+ " m/s²");
 
             }
             @Override
