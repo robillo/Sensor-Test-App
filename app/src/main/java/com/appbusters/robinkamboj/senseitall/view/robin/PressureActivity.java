@@ -2,6 +2,8 @@ package com.appbusters.robinkamboj.senseitall.view.robin;
 
 import android.content.Intent;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +18,8 @@ public class PressureActivity extends AppCompatActivity {
     private TextView textView;
     private Sensor sensor;
     private SensorManager sensorManager;
-    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution;
+    private SensorEventListener sensorEventListener;
+    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution,pressure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +31,9 @@ public class PressureActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         textView.setText(sensor_name);
 
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
+
 
         name = (TextView) findViewById(R.id.name);
         vendor = (TextView) findViewById(R.id.vendor);
@@ -40,6 +43,26 @@ public class PressureActivity extends AppCompatActivity {
         minimum_delay = (TextView) findViewById(R.id.minimum_delay);
         maximum_delay = (TextView) findViewById(R.id.maximum_delay);
         resolution = (TextView) findViewById(R.id.resolution);
+        pressure = (TextView) findViewById(R.id.pressure);
+
+
+
+        sensorEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+
+                pressure.setText("Pressure:    " + event.values[0]+" hPa");
+
+
+            }
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+
+        };
+
+        sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
 
 
         Handler handler = new Handler();

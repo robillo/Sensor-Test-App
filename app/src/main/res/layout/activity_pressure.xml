@@ -106,6 +106,17 @@
                     android:textSize="18sp"
                     android:textColor="@color/colorBlackShade"
                     android:fontFamily="sans-serif-smallcaps"
+                    android:text="Pressure:"
+                    android:gravity="start"
+                    android:id="@+id/pressure"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:text="Name:"
                     android:gravity="start"
                     android:id="@+id/name"/>
