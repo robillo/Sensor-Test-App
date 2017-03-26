@@ -61,12 +61,14 @@ public class VibratorActivity extends AppCompatActivity {
                         vib.vibrate(100);
                     }
                 }, 100, 400);
+                hasStarted = true;
 
                 Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Exit", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 timer.cancel();
+                                hasStarted = false;
                             }
                         }).show();
                 break;
@@ -81,12 +83,14 @@ public class VibratorActivity extends AppCompatActivity {
                         vib.vibrate(1000);
                     }
                 }, 500, 1500);
+                hasStarted = true;
 
                 Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Exit", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 timer.cancel();
+                                hasStarted = false;
                             }
                         }).show();
 
@@ -103,12 +107,14 @@ public class VibratorActivity extends AppCompatActivity {
                             vib.vibrate(500);
                         }
                 }, 200, 800);
+                hasStarted = true;
 
                 Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Exit", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 timer.cancel();
+                                hasStarted = false;
                             }
                         }).show();
                 break;
