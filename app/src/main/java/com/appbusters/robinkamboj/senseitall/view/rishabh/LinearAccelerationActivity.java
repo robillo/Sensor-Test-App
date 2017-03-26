@@ -1,39 +1,35 @@
-package com.appbusters.robinkamboj.senseitall.view.robin;
+package com.appbusters.robinkamboj.senseitall.view.rishabh;
 
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
-public class PressureActivity extends AppCompatActivity {
+public class LinearAccelerationActivity extends AppCompatActivity {
 
-    private String sensor_name, results[];
-    private TextView textView;
-    private Sensor sensor;
-    private SensorManager sensorManager;
-    private SensorEventListener sensorEventListener;
-    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution,pressure;
+    SensorManager sensorManager;
+    Sensor sensor;
+    SensorEventListener sensorEventListener;
+    private String results[];
+    Button btnTest;
+
+    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution, x,y,z;
+    float alpha = (float) 0.8;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pressure);
-
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
-
+        setContentView(R.layout.activity_accelerometer);
 
         name = (TextView) findViewById(R.id.name);
         vendor = (TextView) findViewById(R.id.vendor);
@@ -43,16 +39,21 @@ public class PressureActivity extends AppCompatActivity {
         minimum_delay = (TextView) findViewById(R.id.minimum_delay);
         maximum_delay = (TextView) findViewById(R.id.maximum_delay);
         resolution = (TextView) findViewById(R.id.resolution);
-        pressure = (TextView) findViewById(R.id.pressure);
+        x = (TextView) findViewById(R.id.xVal);
+        y = (TextView) findViewById(R.id.yVal);
 
+        z = (TextView) findViewById(R.id.zVal);
 
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
 
-                pressure.setText("Pressure:    " + event.values[0]+" hPa");
-
+                x.setText("X Axis:    " + event.values[0]);
+                y.setText("Y Axis:    " + event.values[1]);
+                z.setText("Z Axis:    " + event.values[2]);
 
             }
             @Override
@@ -61,8 +62,6 @@ public class PressureActivity extends AppCompatActivity {
             }
 
         };
-
-        sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
 
 
         Handler handler = new Handler();
@@ -73,7 +72,9 @@ public class PressureActivity extends AppCompatActivity {
                 setTextviews();
             }
         });
+
     }
+
 
     private void setResults(){
         results = new String[]{
@@ -96,5 +97,21 @@ public class PressureActivity extends AppCompatActivity {
         minimum_delay.setText(results[5]);
         maximum_delay.setText(results[6]);
         resolution.setText(results[7]);
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+
+        sensorManager.registerListener(sensorEventListener,
+                sensor,
+                SensorManager.SENSOR_DELAY_GAME);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(sensorEventListener);
     }
 }

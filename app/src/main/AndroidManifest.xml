@@ -128,7 +128,11 @@
         <activity android:name=".view.rishabh.BluetoothActivity" />
         <activity android:name=".view.robin.ScreenActivity" />
         <activity android:name=".view.rishabh.GyroscopeActivity" />
-        <activity android:name=".view.rishabh.AccelerometerActivity"></activity>
+        <activity
+            android:name=".view.rishabh.AccelerometerTestActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.rishabh.AccelerometerActivity" />
+        <activity android:name=".view.rishabh.LinearAccelerationActivity"></activity>
     </application>
 
 </manifest>
