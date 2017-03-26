@@ -22,7 +22,6 @@ import java.util.Random;
 public class AccelerometerTestActivity extends Activity implements SensorEventListener {
     private SensorManager sensorManager;
 //    private boolean color = false;
-    private TextView textView;
     private RelativeLayout view;
     private long lastUpdate;
 

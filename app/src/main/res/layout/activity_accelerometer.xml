@@ -94,8 +94,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="5">
+            android:orientation="vertical">
 
         <ScrollView
             android:layout_weight="1"
@@ -235,11 +234,10 @@
 
 
             <Button
-                android:layout_weight="4"
+                android:layout_weight="5"
                 android:id="@+id/testSensor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dip"
                 android:background="#ea4c88"
                 android:text="TEST THE SENSOR"
                 android:textColor="@android:color/white" />
