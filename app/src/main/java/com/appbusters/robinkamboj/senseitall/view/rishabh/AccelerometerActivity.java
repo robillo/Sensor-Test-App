@@ -39,6 +39,7 @@ public class AccelerometerActivity extends AppCompatActivity {
         y = (TextView) findViewById(R.id.yVal);
         z = (TextView) findViewById(R.id.zVal);
 
+
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
