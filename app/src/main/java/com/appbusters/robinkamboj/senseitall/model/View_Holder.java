@@ -20,27 +20,27 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
-import com.appbusters.robinkamboj.senseitall.view.rishabh.AccelerometerTestActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.AccelerometerActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BarometerActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BluetoothActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.CompassActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.GyroscopeActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.MagneticActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.MapsActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.MultiTouchActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.WiFiActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
-import com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CameraActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CameraSecondaryActivity;
-import com.appbusters.robinkamboj.senseitall.view.rishabh.CompassActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.ECGActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.FingerprintActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.GSMActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.LightActivity;
-import com.appbusters.robinkamboj.senseitall.view.rishabh.MagneticActivity;
-import com.appbusters.robinkamboj.senseitall.view.rishabh.MapsActivity;
-import com.appbusters.robinkamboj.senseitall.view.rishabh.MultiTouchActivity;
-import com.appbusters.robinkamboj.senseitall.view.rishabh.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.PressureActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.ProximityActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.RadioActivity;
@@ -182,7 +182,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 7:{
-                Intent i = new Intent(context, AccelerometerTestActivity.class);
+                Intent i = new Intent(context, AccelerometerActivity.class);
                 i.putExtra("sensorName", sensorName);
                 context.startActivity(i);
                 break;

@@ -236,7 +236,7 @@
 
             <Button
                 android:layout_weight="4"
-                android:id="@+id/btnTest"
+                android:id="@+id/testSensor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dip"

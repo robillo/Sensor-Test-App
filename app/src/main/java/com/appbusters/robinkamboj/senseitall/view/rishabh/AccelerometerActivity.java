@@ -29,8 +29,9 @@ public class AccelerometerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gyroscope);
+        setContentView(R.layout.activity_accelerometer);
 
+        btnTest = (Button) findViewById(R.id.testSensor);
         name = (TextView) findViewById(R.id.name);
         vendor = (TextView) findViewById(R.id.vendor);
         version = (TextView) findViewById(R.id.version);
@@ -43,7 +44,6 @@ public class AccelerometerActivity extends AppCompatActivity {
         y = (TextView) findViewById(R.id.yVal);
         z = (TextView) findViewById(R.id.zVal);
 
-        btnTest = (Button) findViewById(R.id.btnTest);
 
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
