@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -58,6 +59,13 @@ public class ListActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+
+    }
 
     private List<Data> fillWithData(){
         List<Data> data = new ArrayList<>();

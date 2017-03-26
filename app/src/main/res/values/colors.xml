@@ -5,6 +5,7 @@
     <color name="colorPrimaryLightLight">#E1F5FE</color>
     <color name="colorPrimaryDark">#0083BF</color>
     <color name="colorAccent">#FF3D00</color>
+    <color name="colorAccentDark">#BF360C</color>
     <color name="colorPrimaryDifferent">#FF3D00</color>
     <color name="colorFlashlightShade">#FFECB3</color>
     <color name="colorWhiteShade">#FFFFFF</color>
