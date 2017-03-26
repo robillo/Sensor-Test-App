@@ -84,74 +84,74 @@ public class VibratorActivity extends AppCompatActivity {
                 vib.vibrate(500);
                 break;
             }
-            case R.id.card2:{
-
-                timer = new Timer();
-
-                timer.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        vib.vibrate(100);
-                    }
-                }, 100, 400);
-                hasStarted = true;
-
-                Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Exit", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                timer.cancel();
-                                hasStarted = false;
-                            }
-                        }).show();
-                break;
-            }
-            case R.id.card3:{
-
-                timer = new Timer();
-
-                timer.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        vib.vibrate(1000);
-                    }
-                }, 500, 1500);
-                hasStarted = true;
-
-                Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Exit", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                timer.cancel();
-                                hasStarted = false;
-                            }
-                        }).show();
-
-                break;
-            }
-            case R.id.card4:{
-
-                timer = new Timer();
-
-                timer.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                            hasStarted = true;
-                            vib.vibrate(500);
-                        }
-                }, 200, 800);
-                hasStarted = true;
-
-                Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Exit", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                timer.cancel();
-                                hasStarted = false;
-                            }
-                        }).show();
-                break;
-            }
+//            case R.id.card2:{
+//
+//                timer = new Timer();
+//
+//                timer.scheduleAtFixedRate(new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                        vib.vibrate(100);
+//                    }
+//                }, 100, 400);
+//                hasStarted = true;
+//
+//                Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
+//                        .setAction("Exit", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                timer.cancel();
+//                                hasStarted = false;
+//                            }
+//                        }).show();
+//                break;
+//            }
+//            case R.id.card3:{
+//
+//                timer = new Timer();
+//
+//                timer.scheduleAtFixedRate(new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                        vib.vibrate(1000);
+//                    }
+//                }, 500, 1500);
+//                hasStarted = true;
+//
+//                Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
+//                        .setAction("Exit", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                timer.cancel();
+//                                hasStarted = false;
+//                            }
+//                        }).show();
+//
+//                break;
+//            }
+//            case R.id.card4:{
+//
+//                timer = new Timer();
+//
+//                timer.scheduleAtFixedRate(new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                            hasStarted = true;
+//                            vib.vibrate(500);
+//                        }
+//                }, 200, 800);
+//                hasStarted = true;
+//
+//                Snackbar.make(activity_vibrate, "Click To Exit the Vibrate Loop.", Snackbar.LENGTH_INDEFINITE)
+//                        .setAction("Exit", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                timer.cancel();
+//                                hasStarted = false;
+//                            }
+//                        }).show();
+//                break;
+//            }
         }
     }
 //

@@ -20,7 +20,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 
 public class FlashActivity extends AppCompatActivity {
 
-    private boolean isFlashOn;
+    private boolean isFlashOn = false;
     CardView card;
     String sensor_name;
     TextView textView;
@@ -32,8 +32,6 @@ public class FlashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash);
-
-        isFlashOn = false;
 
         Intent i = getIntent();
         sensor_name = i.getStringExtra("sensorName");
@@ -59,6 +57,20 @@ public class FlashActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("IS_FLASH_ON", isFlashOn);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        isFlashOn = savedInstanceState.getBoolean("IS_FLASH_ON");
+        if(isFlashOn){
+            turnOnFlash();
+        }
     }
 
     private void turnOnFlash(){
