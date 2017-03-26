@@ -59,12 +59,21 @@ public class ListActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
+        int orientation = newConfig.orientation;
 
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
+            adapter = new Recycler_View_Adapter(data, getApplicationContext());
+            recyclerView.setAdapter(adapter);
+        } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 4));
+            adapter = new Recycler_View_Adapter(data, getApplicationContext());
+            recyclerView.setAdapter(adapter);
+        }
     }
 
     private List<Data> fillWithData(){
