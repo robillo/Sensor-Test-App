@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.rishabh;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -7,6 +8,8 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -17,6 +20,7 @@ public class AccelerometerActivity extends AppCompatActivity {
     Sensor sensor;
     SensorEventListener sensorEventListener;
     private String results[];
+    Button btnTest;
 
     private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution, x,y,z;
 
@@ -39,6 +43,15 @@ public class AccelerometerActivity extends AppCompatActivity {
         y = (TextView) findViewById(R.id.yVal);
         z = (TextView) findViewById(R.id.zVal);
 
+        btnTest = (Button) findViewById(R.id.btnTest);
+
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(AccelerometerActivity.this, AccelerometerTestActivity.class);
+                startActivity(i);
+            }
+        });
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
