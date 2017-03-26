@@ -68,13 +68,10 @@ public class GyroscopeActivity extends AppCompatActivity {
 //                        axisZ /= omegaMagnitude;
 //                    }
 
-                    // Integrate around this axis with the angular speed by the time step
-                    // in order to get a delta rotation from this sample over the time step
-                    // We will convert this axis-angle representation of the delta rotation
-                    // into a quaternion before turning it into the rotation matrix.
                     float thetaOverTwo = omegaMagnitude * dT / 2.0f;
                     float sinThetaOverTwo = (float) Math.sin(thetaOverTwo);
                     float cosThetaOverTwo = (float) Math.cos(thetaOverTwo);
+
                     deltaRotationVector[0] = sinThetaOverTwo * axisX;
                     deltaRotationVector[1] = sinThetaOverTwo * axisY;
                     deltaRotationVector[2] = sinThetaOverTwo * axisZ;
