@@ -5,7 +5,9 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
@@ -17,13 +19,32 @@ public class GyroscopeActivity extends AppCompatActivity {
     private static final float NS2S = 1.0f / 1000000000.0f;
     private final float[] deltaRotationVector = new float[4];
     private float timestamp;
+    private String results[];
+
     float currentRotVector[] =  { 1, 0, 0, 0 };
-    private float RotAngle;
+    private float RotAngle, xVal, yVal,zVal;
+    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution, x,y,z,cos;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gyroscope);
+
+
+        name = (TextView) findViewById(R.id.name);
+        vendor = (TextView) findViewById(R.id.vendor);
+        version = (TextView) findViewById(R.id.version);
+        maximum_range = (TextView) findViewById(R.id.maximum_range);
+        power = (TextView) findViewById(R.id.power);
+        minimum_delay = (TextView) findViewById(R.id.minimum_delay);
+        maximum_delay = (TextView) findViewById(R.id.maximum_delay);
+        resolution = (TextView) findViewById(R.id.resolution);
+        x = (TextView) findViewById(R.id.xVal);
+        y = (TextView) findViewById(R.id.yVal);
+        z = (TextView) findViewById(R.id.zVal);
+        cos = (TextView) findViewById(R.id.cos);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE_UNCALIBRATED);
@@ -81,14 +102,14 @@ public class GyroscopeActivity extends AppCompatActivity {
                             deltaRotationVector[3] * currentRotVector[0];
                     final float rad2deg = (float) (180.0f / Math.PI);
                     RotAngle = currentRotVector[0] * rad2deg;
-                    axisX = currentRotVector[1];
-                    axisY = currentRotVector[2];
-                    axisZ = currentRotVector[3];
+                     xVal = currentRotVector[1];
+                     yVal = currentRotVector[2];
+                     zVal = currentRotVector[3];
 
-//                    x.setText("X:    " + gameRotationVectorValues[0]);
-//                    y.setText("Y:    " + gameRotationVectorValues[1]);
-//                    z.setText("Z:    " + gameRotationVectorValues[2]);
-//                    cos.setText("Cos:    " + gameRotationVectorValues[3]);
+                    x.setText("X Axis:    " + xVal);
+                    y.setText("Y Axis:    " + yVal);
+                    z.setText("Z Axis:    " + zVal);
+                    cos.setText("Angle:    " + RotAngle+" rad/s");
 
 
                 }
@@ -101,8 +122,42 @@ public class GyroscopeActivity extends AppCompatActivity {
 
             }
         };
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                setResults();
+                setTextviews();
+            }
+        });
 
     }
+
+
+    private void setResults(){
+        results = new String[]{
+                "Name:    " + sensor.getName(), "Vendor:    " + sensor.getVendor(),
+                "Version:    " + String.valueOf(sensor.getVersion()),
+                "Maximum Range:    " + String.valueOf(sensor.getMaximumRange()),
+                "Power:    " + String.valueOf(sensor.getPower()),
+                "Minimum Delay:    " + String.valueOf(sensor.getMinDelay()),
+                "Maximum Delay:    " + String.valueOf(sensor.getMaxDelay()),
+                "Resolution:    " + String.valueOf(sensor.getResolution())
+        };
+    }
+
+    private void setTextviews(){
+        name.setText(results[0]);
+        vendor.setText(results[1]);
+        version.setText(results[2]);
+        maximum_range.setText(results[3]);
+        power.setText(results[4]);
+        minimum_delay.setText(results[5]);
+        maximum_delay.setText(results[6]);
+        resolution.setText(results[7]);
+    }
+
+
     public void onResume() {
         super.onResume();
         sensorManager.registerListener(sensorEventListener, sensor,
