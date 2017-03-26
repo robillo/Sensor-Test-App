@@ -27,6 +27,7 @@ import com.appbusters.robinkamboj.senseitall.view.rishabh.BluetoothActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.CompassActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.GyroscopeActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.HumidityActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.LinearAccelerationActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MagneticActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MapsActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MultiTouchActivity;
@@ -297,6 +298,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 break;
             }
             case 28:{
+                Intent i = new Intent(context, LinearAccelerationActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
 
                 break;
             }
