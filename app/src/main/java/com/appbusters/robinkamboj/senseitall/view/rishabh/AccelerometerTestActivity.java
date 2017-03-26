@@ -13,14 +13,17 @@ import android.hardware.SensorManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
 
 public class AccelerometerTestActivity extends Activity implements SensorEventListener {
     private SensorManager sensorManager;
-    private boolean color = false;
-    private View view;
+//    private boolean color = false;
+    private TextView textView;
+    private RelativeLayout view;
     private long lastUpdate;
 
     private int[] colorGen = new int[] { 0xFFFFFFFF, 0xFFFF4040, 0xFF40FF40, 0xFF4040FF, 0xFFFF40FF, 0xFFFFFF40, 0xFF40FFFF };
@@ -38,7 +41,7 @@ public class AccelerometerTestActivity extends Activity implements SensorEventLi
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accelerometer_test);
-        view = findViewById(R.id.textView);
+        view = (RelativeLayout) findViewById(R.id.view);
         view.setBackgroundColor(Color.GREEN);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
