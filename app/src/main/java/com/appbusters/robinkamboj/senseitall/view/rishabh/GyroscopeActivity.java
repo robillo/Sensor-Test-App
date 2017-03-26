@@ -32,7 +32,6 @@ public class GyroscopeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gyroscope);
 
-
         name = (TextView) findViewById(R.id.name);
         vendor = (TextView) findViewById(R.id.vendor);
         version = (TextView) findViewById(R.id.version);
@@ -118,7 +117,12 @@ public class GyroscopeActivity extends AppCompatActivity {
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
             }
+
         };
+
+
+        sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+
         Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
@@ -155,11 +159,6 @@ public class GyroscopeActivity extends AppCompatActivity {
     }
 
 
-    public void onResume() {
-        super.onResume();
-        sensorManager.registerListener(sensorEventListener, sensor,
-                SensorManager.SENSOR_DELAY_NORMAL);
-    }
 
     public void onStop() {
         super.onStop();
