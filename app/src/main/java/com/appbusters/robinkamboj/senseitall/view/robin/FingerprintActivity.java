@@ -56,6 +56,7 @@ public class FingerprintActivity extends AppCompatActivity {
     private KeyGenerator keyGenerator;
     private static final String KEY_NAME = "example_key";
     private Cipher cipher;
+    private boolean initial_orient, final_orient;
     private FingerprintManager.CryptoObject cryptoObject;
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -127,7 +128,7 @@ public class FingerprintActivity extends AppCompatActivity {
         if (cipherInit()) {
             cryptoObject =
                     new FingerprintManager.CryptoObject(cipher);
-            FingerprintHandler helper = new FingerprintHandler(this);
+            FingerprintHandler helper = new FingerprintHandler(this, initial_orient, final_orient);
             helper.startAuth(fingerprintManager, cryptoObject);
         }
 

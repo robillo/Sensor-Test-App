@@ -15,15 +15,17 @@ import android.widget.Toast;
 import com.appbusters.robinkamboj.senseitall.view.robin.FingerprintActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
-public class FingerprintHandler extends
-        FingerprintManager.AuthenticationCallback {
+public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
 
     private FingerprintActivity view;
     private CancellationSignal cancellationSignal;
     private Context appContext;
+    boolean initial_orient, final_orient;
 
-    public FingerprintHandler(Context context) {
+    public FingerprintHandler(Context context, boolean initial_orient, boolean final_orient) {
         appContext = context;
+        this.initial_orient = initial_orient;
+        this.final_orient = final_orient;
     }
 
     public void startAuth(FingerprintManager manager,
