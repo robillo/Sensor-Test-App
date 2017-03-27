@@ -56,7 +56,8 @@ public class FingerprintActivity extends AppCompatActivity {
     private KeyGenerator keyGenerator;
     private static final String KEY_NAME = "example_key";
     private Cipher cipher;
-    private boolean initial_orient, final_orient;
+    private int initial_orient, final_orient;
+    private boolean is_orient_same;
     private FingerprintManager.CryptoObject cryptoObject;
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -128,10 +129,24 @@ public class FingerprintActivity extends AppCompatActivity {
         if (cipherInit()) {
             cryptoObject =
                     new FingerprintManager.CryptoObject(cipher);
-            FingerprintHandler helper = new FingerprintHandler(this, initial_orient, final_orient);
+            FingerprintHandler helper = new FingerprintHandler(this, is_orient_same);
             helper.startAuth(fingerprintManager, cryptoObject);
         }
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("INITIAL_ORIENT", initial_orient);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        final_orient = savedInstanceState.getInt("INITIAL_ORIENT");
+        if(initial_orient == final_orient){
+
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.M)

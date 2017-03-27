@@ -20,12 +20,11 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     private FingerprintActivity view;
     private CancellationSignal cancellationSignal;
     private Context appContext;
-    boolean initial_orient, final_orient;
+    boolean is_orient_same;
 
-    public FingerprintHandler(Context context, boolean initial_orient, boolean final_orient) {
+    public FingerprintHandler(Context context, boolean is_orient_same) {
         appContext = context;
-        this.initial_orient = initial_orient;
-        this.final_orient = final_orient;
+        this.is_orient_same = is_orient_same;
     }
 
     public void startAuth(FingerprintManager manager,
