@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_camera"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -22,7 +22,6 @@
             android:gravity="center"/>
 
     </android.support.v7.widget.Toolbar>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:id="@+id/toolbar2"
@@ -34,96 +33,101 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:id="@+id/ll"
         android:layout_below="@+id/toolbar">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="0sp"
-            android:layout_height="150sp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:layout_margin="10sp"
-            app:cardCornerRadius="10sp"
-            app:cardElevation="@dimen/app_bar_elevation">
+            android:layout_below="@+id/toolbar">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:src="@drawable/cpu"
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="0sp"
+                app:cardElevation="@dimen/app_bar_elevation"
+                android:layout_weight="1"
+                app:cardCornerRadius="5sp"
+                android:layout_margin="10sp">
 
-        </android.support.v7.widget.CardView>
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:src="@drawable/fingerprint"
+                    android:padding="10sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                app:cardElevation="@dimen/app_bar_elevation"
+                android:layout_weight="1"
+                app:cardCornerRadius="5sp"
+                app:cardBackgroundColor="@color/colorPrimaryLight"
+                android:layout_margin="10sp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5sp"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlackShade"
+                    android:text="SAMPLE DATA"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
         <android.support.v7.widget.CardView
             android:layout_width="0sp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="5sp"
+            android:layout_weight="2"
             android:layout_margin="10sp"
-            app:cardCornerRadius="10sp"
-            app:cardBackgroundColor="@color/colorPrimaryLight"
+            app:cardCornerRadius="5sp"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
             app:cardElevation="@dimen/app_bar_elevation">
 
-            <TextView
-                android:id="@+id/textView"
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="@dimen/app_bar_elevation"
-                android:textSize="15sp"
-                android:fontFamily="sans-serif-smallcaps"
-                android:textStyle="bold"
-                android:padding="6sp"
-                android:gravity="center"
-                android:textColor="@color/colorBlackShade"
-                android:text="SAMPLE DATA"/>
+                android:layout_height="match_parent">
 
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardElevation="@dimen/app_bar_elevation"
-        app:cardCornerRadius="10sp"
-        android:layout_margin="10sp"
-        android:padding="5sp"
-        android:layout_below="@+id/ll"
-        app:cardBackgroundColor="@color/colorPrimaryDark">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5sp">
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:text="Processor Information:"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorWhiteShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:padding="3sp"/>
+                    android:orientation="vertical"
+                    android:padding="5sp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:text="CPU Info Goes Here"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorWhiteShade"
-                    android:id="@+id/cpu_all"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:padding="3sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:text="Processor Information:"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorWhiteShade"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="3sp"/>
 
-                <!--<TextView-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:text="CPU Info Goes Here"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorWhiteShade"
+                        android:id="@+id/cpu_all"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="3sp"/>
+
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="Memory"-->
@@ -133,13 +137,13 @@
                     <!--android:textColor="@color/colorWhiteShade"-->
                     <!--android:textSize="18sp"/>-->
 
-                <!--<com.github.yongjhih.mismeter.MisMeter-->
+                    <!--<com.github.yongjhih.mismeter.MisMeter-->
                     <!--android:layout_width="200sp"-->
                     <!--android:layout_height="200sp"-->
                     <!--android:id="@+id/memory"-->
                     <!--android:layout_gravity="center_horizontal"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -148,7 +152,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -157,7 +161,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -167,7 +171,7 @@
                     <!--android:padding="3sp"/>-->
 
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="Internal Storage"-->
@@ -177,13 +181,13 @@
                     <!--android:textColor="@color/colorWhiteShade"-->
                     <!--android:textSize="18sp"/>-->
 
-                <!--<com.github.yongjhih.mismeter.MisMeter-->
+                    <!--<com.github.yongjhih.mismeter.MisMeter-->
                     <!--android:layout_width="200sp"-->
                     <!--android:layout_height="200sp"-->
                     <!--android:id="@+id/internal_storage"-->
                     <!--android:layout_gravity="center_horizontal"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -192,7 +196,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -201,7 +205,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -211,7 +215,7 @@
                     <!--android:padding="3sp"/>-->
 
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="External Storage"-->
@@ -221,13 +225,13 @@
                     <!--android:textColor="@color/colorWhiteShade"-->
                     <!--android:textSize="18sp"/>-->
 
-                <!--<com.github.yongjhih.mismeter.MisMeter-->
+                    <!--<com.github.yongjhih.mismeter.MisMeter-->
                     <!--android:layout_width="200sp"-->
                     <!--android:layout_height="200sp"-->
                     <!--android:id="@+id/external_storage"-->
                     <!--android:layout_gravity="center_horizontal"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -236,7 +240,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -245,7 +249,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -254,7 +258,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:text="Storage Media:"-->
@@ -264,7 +268,7 @@
                     <!--android:textColor="@color/colorWhiteShade"-->
                     <!--android:textSize="18sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -273,7 +277,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -282,7 +286,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -291,7 +295,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -300,7 +304,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -309,7 +313,7 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-                <!--<TextView-->
+                    <!--<TextView-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
@@ -318,10 +322,12 @@
                     <!--android:fontFamily="sans-serif-smallcaps"-->
                     <!--android:padding="3sp"/>-->
 
-            </LinearLayout>
+                </LinearLayout>
 
-        </ScrollView>
+            </ScrollView>
 
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 
 </RelativeLayout>
