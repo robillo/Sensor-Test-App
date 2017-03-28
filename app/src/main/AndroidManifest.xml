@@ -133,7 +133,15 @@
             android:screenOrientation="portrait" />
         <activity android:name=".view.rishabh.AccelerometerActivity" />
         <activity android:name=".view.rishabh.LinearAccelerationActivity" />
-        <activity android:name=".view.rishabh.GravityActivity"></activity>
+        <activity android:name=".view.rishabh.GravityActivity" />
+        <activity android:name=".view.rishabh.USBActivity">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity>
     </application>
 
 </manifest>
