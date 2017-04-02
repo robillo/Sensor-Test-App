@@ -88,7 +88,8 @@
         app:cardElevation="@dimen/app_bar_elevation"
         app:cardCornerRadius="5sp"
         android:layout_margin="10sp"
-        android:layout_below="@+id/ll">
+        android:layout_below="@+id/ll"
+        android:id="@+id/cardView2">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -106,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:src="@android:drawable/ic_media_play"
                     android:layout_margin="10sp"
-                    android:background="#00000000"
+                    android:background="?attr/selectableItemBackground"
                     android:id="@+id/play"/>
 
                 <ImageButton
@@ -114,16 +115,19 @@
                     android:layout_height="wrap_content"
                     android:src="@android:drawable/ic_media_pause"
                     android:layout_margin="10sp"
-                    android:background="#00000000"
+                    android:background="?attr/selectableItemBackground"
                     android:id="@+id/pause"
                     android:layout_toEndOf="@+id/play"/>
 
             </LinearLayout>
 
             <SeekBar
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ll2"
+                android:progress="10"
+                android:max="20"
                 android:layout_margin="10sp"
                 android:id="@+id/volume"/>
 
@@ -131,7 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/volume"
-                android:background="@drawable/cast_album_art_placeholder"/>
+                android:id="@+id/bg"/>
 
         </RelativeLayout>
 

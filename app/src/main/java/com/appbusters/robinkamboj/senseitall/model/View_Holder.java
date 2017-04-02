@@ -223,6 +223,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             case 13:{
                 Intent i = new Intent(context, SoundActivity.class);
                 i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
                 break;
             }
             case 14:{
