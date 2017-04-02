@@ -133,7 +133,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".view.rishabh.AccelerometerActivity" />
         <activity android:name=".view.rishabh.LinearAccelerationActivity" />
-        <activity android:name=".view.rishabh.GravityActivity"></activity>
+        <activity android:name=".view.rishabh.GravityActivity" />
+        <activity android:name=".view.robin.SoundActivity"></activity>
     </application>
 
 </manifest>
