@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.bumptech.glide.Glide;
 
 public class SoundActivity extends AppCompatActivity {
 
@@ -23,5 +24,9 @@ public class SoundActivity extends AppCompatActivity {
         pause = (ImageButton) findViewById(R.id.pause);
         volume = (SeekBar) findViewById(R.id.volume);
         bg = (ImageView) findViewById(R.id.bg);
+
+        Glide.with(getApplicationContext()).load(R.drawable.sound_bg)
+                .centerCrop()
+                .into(bg);
     }
 }
