@@ -24,6 +24,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -35,7 +36,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MA";
-    AVLoadingIndicatorView avi,avi_2;
+    AVLoadingIndicatorView avi;
+//    AVLoadingIndicatorView avi_2;
+    ImageView imageView;
     TextView textView1, textView2;
     Button button;
     boolean[] isPresent;
@@ -60,12 +63,13 @@ public class MainActivity extends AppCompatActivity{
             ActivityCompat.requestPermissions(this, permissions, ALL_MY_PERMISSIONS);
         }
 
-    context = getApplicationContext();
+          context = getApplicationContext();
+        imageView = (ImageView) findViewById(R.id.icon);
         textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
         button = (Button) findViewById(R.id.button);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
-        avi_2 = (AVLoadingIndicatorView) findViewById(R.id.avi_2);
+//        avi_2 = (AVLoadingIndicatorView) findViewById(R.id.avi_2);
         avi.show();
 
         final Handler handler = new Handler();
@@ -82,7 +86,8 @@ public class MainActivity extends AppCompatActivity{
 
                 button.setVisibility(View.VISIBLE);
                 avi.hide();
-                avi_2.show();
+                imageView.setVisibility(View.VISIBLE);
+//                avi_2.show();
                 textView1.setText("Done With Analyzing!");
                 textView2.setText("Move To The Next Step?");
 

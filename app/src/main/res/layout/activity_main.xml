@@ -23,14 +23,21 @@
             app:indicatorName="LineScaleIndicator"
             app:indicatorColor="@color/colorAccent"/>
 
-        <com.wang.avi.AVLoadingIndicatorView
-            android:id="@+id/avi_2"
+        <ImageView
+            android:id="@+id/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/AVLoadingIndicatorView.Large"
             android:visibility="invisible"
-            app:indicatorName="SquareSpinIndicator"
-            app:indicatorColor="@color/colorPrimaryDark"/>
+            android:src="@mipmap/ic_launcher"/>
+
+        <!--<com.wang.avi.AVLoadingIndicatorView-->
+            <!--android:id="@+id/avi_2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--style="@style/AVLoadingIndicatorView.Large"-->
+            <!--android:visibility="invisible"-->
+            <!--app:indicatorName="SquareSpinIndicator"-->
+            <!--app:indicatorColor="@color/colorPrimaryDark"/>-->
 
         <TextView
             android:layout_width="match_parent"
