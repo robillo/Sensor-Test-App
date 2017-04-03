@@ -98,45 +98,119 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
     public void intent(String sensorName, int position){
         if(sensorName == "Main Camera"){
-
+            Intent i = new Intent(context, CameraActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Secondary Camera"){
-
+            Intent i = new Intent(context, CameraSecondaryActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "GPS"){
+            LocationManager locMan = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+            LocationListener locLis = new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    Log.d(TAG, "onLocationChanged: lat:" + location.getLatitude());
+                    Log.d(TAG, "onLocationChanged: long:" + location.getLongitude());
+                    Log.d(TAG, "onLocationChanged: alt:" + location.getAltitude());
+                    Log.d(TAG, "onLocationChanged: bearing:" + location.getBearing()); // angle from North in clockwise
+                    Log.d(TAG, "onLocationChanged: speed:" + location.getSpeed());
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                        Log.d(TAG, "onLocationChanged: " + location.getElapsedRealtimeNanos());
+                    }
+                    Lat=  location.getLatitude();
+                    Lon = location.getLongitude();
 
+                }
+
+                @Override
+                public void onStatusChanged(String provider, int status, Bundle extras) {
+
+                }
+
+                @Override
+                public void onProviderEnabled(String provider) {
+
+                }
+
+                @Override
+                public void onProviderDisabled(String provider) {
+
+                }
+            };
+            if (ActivityCompat.checkSelfPermission((Activity) context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission((Activity) context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                ActivityCompat.requestPermissions((Activity) context,new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.ACCESS_FINE_LOCATION},121);
+                return;
+            }else{
+                locMan.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, locLis);
+                locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10,locLis);
+            }
+            Intent i=  new Intent(context, MapsActivity.class);
+            i.putExtra("lat",  Lat);
+            i.putExtra("lon", Lon);
+            context.startActivity(i);
         }
         else if(sensorName == "WiFi"){
-
+            Intent i = new Intent(context, WiFiActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Bluetooth"){
-
+            Intent i = new Intent(context, BluetoothActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "GSM/UMTS"){
-
+            Intent i = new Intent(context, GSMActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Accelerometer"){
-
+            Intent i = new Intent(context, AccelerometerActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Compass"){
-
+            Intent i = new Intent(context, CompassActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Radio"){
-
+            Intent i = new Intent(context, RadioActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Screen"){
-
+            Intent i = new Intent(context, ScreenActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Battery"){
-
+            Intent i = new Intent(context, BatteryActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "CPU"){
-
+            Intent i = new Intent(context, CPUActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Sound"){
-
+            Intent i = new Intent(context, SoundActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
-        else if(sensorName == "Vibrator"){
+        else if(sensorName.equals("Vibrator")){
             Intent i = new Intent(context, VibratorActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
@@ -151,49 +225,74 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
         }
         else if(sensorName == "Android OS"){
-
+            Intent i = new Intent(context, AndroidOSActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Light Sensor"){
-
+            Intent i = new Intent(context, LightActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Proximity Sensor"){
 
+            Intent i = new Intent(context, ProximityActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Temperature Sensor"){
-
+            Intent i = new Intent(context, TemperatureActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Pressure Sensor"){
-
+            Intent i = new Intent(context, PressureActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Relative Humidity"){
-
+            Intent i = new Intent(context, HumidityActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Flash"){
-
+            Intent i = new Intent(context, FlashActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "ANT+"){
 
         }
         else if(sensorName == "Gyroscope"){
-
+            Intent i = new Intent(context, GyroscopeActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Gravity"){
 
         }
         else if(sensorName == "Linear Acceleration"){
-
+            Intent i = new Intent(context, LinearAccelerationActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Rotation Vector"){
-
+            Intent i = new Intent(context, RotationActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Infrared"){
 
         }
         else if(sensorName == "Step Detector"){
-
+            Intent i = new Intent(context, StepDetectorActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Step Counter"){
-
+            Intent i = new Intent(context, StepCounterActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Fake Touch"){
 
@@ -205,28 +304,41 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
         }
         else if(sensorName == "Multi Touch"){
-
+            Intent i = new Intent(context, MultiTouchActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "WiFi Direct"){
 
         }
         else if(sensorName == "Barometer"){
-
+            Intent i = new Intent(context, BarometerActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Heart Rate"){
 
         }
         else if(sensorName == "ECG Sensor"){
-
+            Intent i = new Intent(context, ECGActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Fingerprint"){
+            Intent i = new Intent(context, FingerprintActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
 
         }
         else if(sensorName == "NFC"){
-
+            Intent i = new Intent(context, NFCActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName == "Magnetic Field Sensor"){
-
+            Intent i = new Intent(context, MagneticActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
 //        position++;
 //        switch (position){
@@ -484,7 +596,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 //                break;
 //            }
 //            case 38:{
-//
 //                Intent i = new Intent(context, BarometerActivity.class);
 //                i.putExtra("sensorName", sensorName);
 //                context.startActivity(i);
