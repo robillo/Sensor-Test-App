@@ -97,17 +97,17 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
     }
 
     public void intent(String sensorName, int position){
-        if(sensorName == "Main Camera"){
+        if(sensorName.equals("Main Camera")){
             Intent i = new Intent(context, CameraActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Secondary Camera"){
+        else if(sensorName.equals("Secondary Camera")){
             Intent i = new Intent(context, CameraSecondaryActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "GPS"){
+        else if(sensorName.equals("GPS")){
             LocationManager locMan = (LocationManager) context.getSystemService(LOCATION_SERVICE);
             LocationListener locLis = new LocationListener() {
                 @Override
@@ -160,52 +160,52 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             i.putExtra("lon", Lon);
             context.startActivity(i);
         }
-        else if(sensorName == "WiFi"){
+        else if(sensorName.equals("WiFi")){
             Intent i = new Intent(context, WiFiActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Bluetooth"){
+        else if(sensorName.equals("Bluetooth")){
             Intent i = new Intent(context, BluetoothActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "GSM/UMTS"){
+        else if(sensorName.equals("GSM/UMTS")){
             Intent i = new Intent(context, GSMActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Accelerometer"){
+        else if(sensorName.equals("Accelerometer")){
             Intent i = new Intent(context, AccelerometerActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Compass"){
+        else if(sensorName.equals("Compass")){
             Intent i = new Intent(context, CompassActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Radio"){
+        else if(sensorName.equals("Radio")){
             Intent i = new Intent(context, RadioActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Screen"){
+        else if(sensorName.equals("Screen")){
             Intent i = new Intent(context, ScreenActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Battery"){
+        else if(sensorName.equals("Battery")){
             Intent i = new Intent(context, BatteryActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "CPU"){
+        else if(sensorName.equals("CPU")){
             Intent i = new Intent(context, CPUActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Sound"){
+        else if(sensorName.equals("Sound")){
             Intent i = new Intent(context, SoundActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
@@ -215,127 +215,127 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Microphone"){
+        else if(sensorName.equals("Microphone")){
 
         }
-        else if(sensorName == "USB"){
+        else if(sensorName.equals("USB")){
 
         }
-        else if(sensorName == "Audio/Video Outputs"){
+        else if(sensorName.equals("Audio/Video Outputs")){
 
         }
-        else if(sensorName == "Android OS"){
+        else if(sensorName.equals("Android OS")){
             Intent i = new Intent(context, AndroidOSActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Light Sensor"){
+        else if(sensorName.equals("Light Sensor")){
             Intent i = new Intent(context, LightActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Proximity Sensor"){
+        else if(sensorName.equals("Proximity Sensor")){
 
             Intent i = new Intent(context, ProximityActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Temperature Sensor"){
+        else if(sensorName.equals("Temperature Sensor")){
             Intent i = new Intent(context, TemperatureActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Pressure Sensor"){
+        else if(sensorName.equals("Pressure Sensor")){
             Intent i = new Intent(context, PressureActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Relative Humidity"){
+        else if(sensorName.equals("Relative Humidity")){
             Intent i = new Intent(context, HumidityActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Flash"){
+        else if(sensorName.equals("Flash")){
             Intent i = new Intent(context, FlashActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "ANT+"){
+        else if(sensorName.equals("ANT+")){
 
         }
-        else if(sensorName == "Gyroscope"){
+        else if(sensorName.equals("Gyroscope")){
             Intent i = new Intent(context, GyroscopeActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Gravity"){
+        else if(sensorName.equals("Gravity")){
 
         }
-        else if(sensorName == "Linear Acceleration"){
+        else if(sensorName.equals("Linear Acceleration")){
             Intent i = new Intent(context, LinearAccelerationActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Rotation Vector"){
+        else if(sensorName.equals("Rotation Vector")){
             Intent i = new Intent(context, RotationActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Infrared"){
+        else if(sensorName.equals("Infrared")){
 
         }
-        else if(sensorName == "Step Detector"){
+        else if(sensorName.equals("Step Detector")){
             Intent i = new Intent(context, StepDetectorActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Step Counter"){
+        else if(sensorName.equals("Step Counter")){
             Intent i = new Intent(context, StepCounterActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Fake Touch"){
+        else if(sensorName.equals("Fake Touch")){
 
         }
-        else if(sensorName == "Motion Detector"){
+        else if(sensorName.equals("Motion Detector")){
 
         }
-        else if(sensorName == "Stationary Detector"){
+        else if(sensorName.equals("Stationary Detector")){
 
         }
-        else if(sensorName == "Multi Touch"){
+        else if(sensorName.equals("Multi Touch")){
             Intent i = new Intent(context, MultiTouchActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "WiFi Direct"){
+        else if(sensorName.equals("WiFi Direct")){
 
         }
-        else if(sensorName == "Barometer"){
+        else if(sensorName.equals("Barometer")){
             Intent i = new Intent(context, BarometerActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Heart Rate"){
+        else if(sensorName.equals("Heart Rate")){
 
         }
-        else if(sensorName == "ECG Sensor"){
+        else if(sensorName.equals("ECG Sensor")){
             Intent i = new Intent(context, ECGActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Fingerprint"){
+        else if(sensorName.equals("Fingerprint")){
             Intent i = new Intent(context, FingerprintActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
 
         }
-        else if(sensorName == "NFC"){
+        else if(sensorName.equals("NFC")){
             Intent i = new Intent(context, NFCActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName == "Magnetic Field Sensor"){
+        else if(sensorName.equals("Magnetic Field Sensor")){
             Intent i = new Intent(context, MagneticActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
