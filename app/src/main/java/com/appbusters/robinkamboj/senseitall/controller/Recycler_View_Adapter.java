@@ -133,8 +133,6 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
         return filter;
     }
 
-
-
     private class SensorFilter extends Filter {
 
         @Override

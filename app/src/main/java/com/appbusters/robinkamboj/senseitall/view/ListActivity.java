@@ -3,6 +3,7 @@ package com.appbusters.robinkamboj.senseitall.view;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class ListActivity extends AppCompatActivity {
     boolean[] isPresent;
     Recycler_View_Adapter adapter;
     public static LinearLayout activity_list;
+    private int[] drawables;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,51 @@ public class ListActivity extends AppCompatActivity {
         isPresent = (boolean[]) getIntent().getSerializableExtra("sensors_present");
 
         Log.e("ROBIN:" , Boolean.toString(isPresent[0]) + " " + Boolean.toString(isPresent[1]));
+
+        drawables = new int[]{
+                R.drawable.camera,
+                R.drawable.camera,
+                R.drawable.rotation,
+                R.drawable.camera,
+                R.drawable.wifi,
+                R.drawable.bluetooth,
+                R.drawable.gsm,
+                R.drawable.accelerometer,
+                R.drawable.compass,
+                R.drawable.radio,
+                R.drawable.screen,
+                R.drawable.rotation,
+                R.drawable.cpu,
+                R.drawable.sound,
+                R.drawable.vibrator,
+                R.drawable.rotation,
+                R.drawable.rotation,
+                R.drawable.rotation,
+                R.drawable.android,
+                R.drawable.light,
+                R.drawable.proximity,
+                R.drawable.temperature,
+                R.drawable.rotation,
+                R.drawable.humidity,
+                R.drawable.flash,
+                R.drawable.ant,
+                R.drawable.gyroscope,
+                R.drawable.rotation,
+                R.drawable.rotation,
+                R.drawable.step_detector,
+                R.drawable.step_detector,
+                R.drawable.multitouch,
+                R.drawable.rotation,
+                R.drawable.rotation,
+                R.drawable.multitouch,
+                R.drawable.wifi,
+                R.drawable.rotation,
+                R.drawable.rotation,
+                R.drawable.rotation,
+                R.drawable.fingerprint,
+                R.drawable.nfc,
+                R.drawable.mag
+        };
 
         sensors_list = getResources().getStringArray(R.array.sensors_list);
         data = fillWithData();
@@ -88,21 +135,11 @@ public class ListActivity extends AppCompatActivity {
         List<Data> data = new ArrayList<>();
         ArrayList<String> liststr = new ArrayList<>();
         for(int i = 1; i <= sensors_list.length; i++){
-            data.add(new Data(sensors_list[i-1], R.drawable.android, isPresent[i-1]));
+            data.add(new Data(sensors_list[i-1], drawables[i-1], isPresent[i-1]));
             Log.d(TAG, "fillWithData: "+data.get(i-1).getSensor_name().toString());
             liststr.add(data.get(i-1).getSensor_name().toString());
         }
         return data;
-    }
-    private ArrayList<String> fillWithDataSTR(){
-        List<Data> data = new ArrayList<>();
-        ArrayList<String> liststr = new ArrayList<>();
-        for(int i = 1; i <= sensors_list.length; i++){
-            data.add(new Data(sensors_list[i-1], R.drawable.android, isPresent[i-1]));
-            Log.d(TAG, "fillWithData: "+data.get(i-1).getSensor_name().toString());
-            liststr.add(data.get(i-1).getSensor_name().toString());
-        }
-        return liststr;
     }
 
     @Override
