@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity{
 
         String[] permissions={Manifest.permission.WRITE_CONTACTS, Manifest.permission.READ_CONTACTS,
                 Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.CAMERA, Manifest.permission.USE_FINGERPRINT};
+                Manifest.permission.CAMERA, Manifest.permission.USE_FINGERPRINT, Manifest.permission.RECORD_AUDIO};
 
 
         if(!hasPermissions(this, permissions)){
