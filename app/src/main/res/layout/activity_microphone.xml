@@ -92,31 +92,89 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="match_parent"
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="25sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Radio Version:"
-                android:id="@+id/one"
+                android:text="Start Recording"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="3sp"
+                android:padding="10sp"
+                android:layout_alignParentStart="true"
                 android:fontFamily="sans-serif-smallcaps"
-                android:padding="3sp"/>
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:id="@+id/start_rec"/>
 
-            <TextView
-                android:layout_width="match_parent"
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="30sp"
-                android:textColor="@color/colorPrimaryDark"
-                android:text="Value"
-                android:layout_below="@+id/one"
-                android:id="@+id/radio_version"
-                android:fontFamily="casual"
-                android:padding="3sp"/>
+                android:text="Stop Recording"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="3sp"
+                android:padding="10sp"
+                android:id="@+id/stop_rec"
+                android:fontFamily="sans-serif-smallcaps"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_alignParentEnd="true"/>
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/start_rec"
+                android:layout_centerHorizontal="true"
+                style="@style/AVLoadingIndicatorView.Large"
+                android:visibility="visible"
+                app:indicatorName="BallClipRotatePulseIndicator"
+                app:indicatorColor="@color/colorAccent"
+                android:layout_margin="5sp"
+                android:id="@+id/indic_1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="3sp"
+                android:padding="10sp"
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif-smallcaps"
+                android:backgroundTint="@color/colorPrimary"
+                android:id="@+id/play"
+                android:layout_below="@+id/indic_1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pause"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="3sp"
+                android:padding="10sp"
+                android:id="@+id/pause"
+                android:fontFamily="sans-serif-smallcaps"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/indic_1"/>
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/play"
+                android:layout_centerHorizontal="true"
+                style="@style/AVLoadingIndicatorView.Large"
+                android:visibility="visible"
+                app:indicatorName="BallTrianglePathIndicator"
+                app:indicatorColor="@color/colorAccent"
+                android:layout_margin="5sp"
+                android:id="@+id/indic_2"/>
 
         </RelativeLayout>
 
