@@ -16,11 +16,12 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-feature android:name="android.hardware.usb.host" />
-
     <uses-feature android:name="android.hardware.camera.front" />
     <uses-feature android:name="android.hardware.camera2.full" />
     <uses-feature android:name="android.hardware.sensor.stepdetector" />
+
     <uses-permission android:name="android.permission.BATTERY_STATS" />
+
     <uses-feature android:name="android.hardware.sensor.stepcounter" />
 
     <uses-permission android:name="android.permission.NFC" />
@@ -143,8 +144,10 @@
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
-</activity>>
-        <activity android:name=".view.robin.MicrophoneActivity"></activity>
+        </activity>
+        >
+        <activity android:name=".view.robin.MicrophoneActivity" />
+        <activity android:name=".view.rishabh.StationaryDetectActivity"></activity>
     </application>
 
 </manifest>
