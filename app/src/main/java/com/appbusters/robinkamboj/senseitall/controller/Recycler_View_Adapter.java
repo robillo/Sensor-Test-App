@@ -15,6 +15,7 @@ import com.appbusters.robinkamboj.senseitall.model.Data;
 import com.appbusters.robinkamboj.senseitall.model.View_Holder;
 import com.appbusters.robinkamboj.senseitall.view.ListActivity;
 import com.appbusters.robinkamboj.senseitall.view.MainActivity;
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -61,7 +62,10 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
         _position = position;
         _holder = holder;
         holder.sensor_name.setText(filteredList.get(_position).getSensor_name());
-        holder.sensor_imageview.setImageResource(filteredList.get(_position).getDrawable());
+        Glide.with(_context)
+                .load(filteredList.get(_position).getDrawable())
+                .into(holder.sensor_imageview);
+//        holder.sensor_imageview.setImageResource(filteredList.get(_position).getDrawable());
         if(!filteredList.get(_position).isPresent){
 //            holder.cardView.setClickable(false);
             Log.d(TAG, "onBindViewHolder: RED");
