@@ -30,6 +30,7 @@ public class MicrophoneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_microphone);
 
+        random = new Random();
         startRec = (Button) findViewById(R.id.start_rec);
         stopRec = (Button) findViewById(R.id.stop_rec);
         play = (Button) findViewById(R.id.play);
@@ -64,11 +65,16 @@ public class MicrophoneActivity extends AppCompatActivity {
         stopRec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaRecorder.stop();
-                stopRec.setEnabled(false);
-                play.setEnabled(true);
-                startRec.setEnabled(true);
-                pause.setEnabled(false);
+                try {
+                    mediaRecorder.stop();
+                    stopRec.setEnabled(false);
+                    play.setEnabled(true);
+                    startRec.setEnabled(true);
+                    pause.setEnabled(false);
+                }
+                catch (IllegalStateException e){
+                    e.printStackTrace();
+                }
 
                 Toast.makeText(MicrophoneActivity.this, "Recording Completed",
                         Toast.LENGTH_LONG).show();

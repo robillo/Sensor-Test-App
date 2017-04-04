@@ -5,6 +5,7 @@ import android.hardware.Camera;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -188,8 +189,14 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
                     }
 
                     if (Camera.getNumberOfCameras() >= 2) {
-                        //if you want to open front facing camera use this line
-                        camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+                        try {
+                            releaseCameraAndPreview();
+                            //if you want to open front facing camera use this line
+                            camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+                        }
+                        catch (Exception e){
+                            e.printStackTrace();
+                        }
                     }
                     camera.setDisplayOrientation(rotation);
                     camera.getParameters().setRotation(rotation);
@@ -206,6 +213,13 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
 
+    }
+
+    private void releaseCameraAndPreview() {
+        if (camera != null) {
+            camera.release();
+            camera = null;
+        }
     }
 }
 
