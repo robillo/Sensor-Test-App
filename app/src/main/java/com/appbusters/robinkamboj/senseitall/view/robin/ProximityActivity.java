@@ -98,7 +98,7 @@ public class ProximityActivity extends AppCompatActivity {
                 float currentReading = sensorEvent.values[0];
                 Log.e(TAG, "onSensorChanged: "+currentReading);
 
-                if(currentReading == 0){
+                if(currentReading==0||currentReading==3){
                     meter.setProgress(0);
                 }
                 else {
