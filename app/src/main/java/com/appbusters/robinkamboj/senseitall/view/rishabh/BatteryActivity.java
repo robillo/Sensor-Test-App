@@ -25,7 +25,6 @@ public class BatteryActivity extends AppCompatActivity{
     BatteryManager bm;
     MyReceiver receiver;
 
-
     public static TextView level,plugged,present,maxcl,status,tech,temp,vol;
 
     String sensor_name;
@@ -56,6 +55,7 @@ public class BatteryActivity extends AppCompatActivity{
         batteryperc = (TextView) findViewById(R.id.batteryperc);
 
         bt = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+        Log.e("% is", BatteryManager.EXTRA_LEVEL);
 
         if(bm.isCharging()){
             imageView.setBackgroundResource(R.drawable.gube);
@@ -63,24 +63,33 @@ public class BatteryActivity extends AppCompatActivity{
             ani.start();
             
         }else if(bt<=15){
-            Log.e("PERCENTAGE LEVEL CHECK", "TRUE");
+            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
             imageView.setBackgroundResource(R.drawable.bless);
+            batteryperc.setText(bt+"%");
         }else if(bt<=75 && bt<95){
-            Log.e("PERCENTAGE LEVEL CHECK", "TRUE");
+            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
             imageView.setBackgroundResource(R.drawable.nninty);
+            batteryperc.setText(bt+"%");
         }else if(bt>=50&&bt<75){
-            Log.e("PERCENTAGE LEVEL CHECK", "TRUE");
+            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
             imageView.setBackgroundResource(R.drawable.nsevenfive);
+            batteryperc.setText(bt+"%");
         }else if(bt>=95){
-            Log.e("PERCENTAGE LEVEL CHECK", "TRUE");
+            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
+            batteryperc.setText(bt+"%");
             imageView.setBackgroundResource(R.drawable.bfull);
         }
 
-        batteryperc.setText(bt+"%");
         batteryperc.setVisibility(View.VISIBLE);
 
        // batLev= intent.getIntExtra(BatteryManager.EXTRA_LEVEL,bt);
         receiver = new MyReceiver();
+
+        IntentFilter intentFilter  = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
+        intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        this.registerReceiver(receiver,intentFilter);
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -93,12 +102,6 @@ public class BatteryActivity extends AppCompatActivity{
             }
         });
 
-
-        IntentFilter intentFilter  = new IntentFilter();
-        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
-        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
-        intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-        this.registerReceiver(receiver,intentFilter);
     }
 //    private void setResults(){
 //        results = new String[]{"%",BatteryManager.EXTRA_TEMPERATURE,

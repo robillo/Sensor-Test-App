@@ -23,11 +23,6 @@ import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity
 import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.temp;
 import static com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity.vol;
 
-/**
- * Created by rishabhshukla on 10/02/17.
- */
-
-
 public class MyReceiver extends BroadcastReceiver {
     private static final String TAG = "MyReceiver";
     BatteryManager bm;
@@ -36,6 +31,14 @@ public class MyReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        int rawlevel = intent.getIntExtra("level", -1);
+        int scale = intent.getIntExtra("scale", -1);
+        int levell = -1;
+        if (rawlevel >= 0 && scale > 0) {
+            levell = (rawlevel * 100) / scale;
+        }
+        Log.e("TEMP","Battery Level in % is:: " + level + "%");
 
         Log.d(TAG, "onReceive: received broadcast");
         bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
