@@ -28,6 +28,7 @@ import com.appbusters.robinkamboj.senseitall.view.rishabh.BluetoothActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.CompassActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.GravityActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.GyroscopeActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.HeartBeatActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.HumidityActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.LinearAccelerationActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MagneticActivity;
@@ -334,6 +335,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("Heart Rate")){
+
+            Intent i = new Intent(context, HeartBeatActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
 
         }
         else if(sensorName.equals("ECG Sensor")){
