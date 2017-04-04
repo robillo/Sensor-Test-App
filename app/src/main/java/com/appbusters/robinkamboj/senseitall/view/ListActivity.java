@@ -54,7 +54,7 @@ public class ListActivity extends AppCompatActivity {
         drawables = new int[]{
                 R.drawable.camera,
                 R.drawable.camera,
-                R.drawable.rotation,
+                R.drawable.gps,
                 R.drawable.wifi,
                 R.drawable.bluetooth,
                 R.drawable.gsm,
@@ -66,7 +66,7 @@ public class ListActivity extends AppCompatActivity {
                 R.drawable.cpu,
                 R.drawable.sound,
                 R.drawable.vibrator,
-                R.drawable.rotation,
+                R.drawable.mic,
                 R.drawable.rotation,
                 R.drawable.rotation,
                 R.drawable.android,

@@ -92,7 +92,6 @@
             android:layout_weight="2"
             android:layout_margin="10sp"
             app:cardCornerRadius="5sp"
-            app:cardBackgroundColor="@color/colorPrimaryDark"
             app:cardElevation="@dimen/app_bar_elevation">
 
             <ScrollView
