@@ -5,5 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.appbusters.robinkamboj.senseitall.view.rishabh.USBActivity">
-
+<TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/textView12"
+    tools:layout_editor_absoluteY="0dp"
+    tools:layout_editor_absoluteX="8dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDeviceList"
+        tools:layout_editor_absoluteY="612dp"
+        tools:layout_editor_absoluteX="161dp" />
 </android.support.constraint.ConstraintLayout>
