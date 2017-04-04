@@ -35,6 +35,7 @@ import com.appbusters.robinkamboj.senseitall.view.rishabh.MapsActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MultiTouchActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.StationaryDetectActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.USBActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.WiFiActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
@@ -312,7 +313,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
         }
         else if(sensorName.equals("Stationary Detector")){
-
+            Intent i = new Intent(context, StationaryDetectActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName.equals("Multi Touch")){
             Intent i = new Intent(context, MultiTouchActivity.class);
