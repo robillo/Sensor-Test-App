@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,12 +19,9 @@ import com.appbusters.robinkamboj.senseitall.R;
 
 public class BatteryActivity extends AppCompatActivity{
 
-    private static final String TAG = "Batteryinfo";
-    String[] results;
     public static ImageView imageView;
     public static AnimationDrawable ani;
     public static TextView batteryperc;
-    int batLev;
     BatteryManager bm;
     MyReceiver receiver;
 
@@ -31,7 +29,6 @@ public class BatteryActivity extends AppCompatActivity{
     public static TextView level,plugged,present,maxcl,status,tech,temp,vol;
 
     String sensor_name;
-    TextView textView;
     int bt;
 
     @Override
@@ -43,8 +40,6 @@ public class BatteryActivity extends AppCompatActivity{
 
         Intent i = getIntent();
         sensor_name = i.getStringExtra("sensorName");
-//        textView = (TextView) findViewById(R.id.textView);
-//        textView.setText(sensor_name);
 
         imageView = (ImageView) findViewById(R.id.imagee);
         level = (TextView) findViewById(R.id.level);
@@ -60,24 +55,29 @@ public class BatteryActivity extends AppCompatActivity{
 
         batteryperc = (TextView) findViewById(R.id.batteryperc);
 
+        bt = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+
         if(bm.isCharging()){
             imageView.setBackgroundResource(R.drawable.gube);
             ani = (AnimationDrawable) imageView.getBackground();
             ani.start();
             
-        }else if(bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)<=15){
+        }else if(bt<=15){
+            Log.e("PERCENTAGE LEVEL CHECK", "TRUE");
             imageView.setBackgroundResource(R.drawable.bless);
-        }else if(bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)<=75&&bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)<95){
+        }else if(bt<=75 && bt<95){
+            Log.e("PERCENTAGE LEVEL CHECK", "TRUE");
             imageView.setBackgroundResource(R.drawable.nninty);
-        }else if(bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)>=50&&bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)<75){
+        }else if(bt>=50&&bt<75){
+            Log.e("PERCENTAGE LEVEL CHECK", "TRUE");
             imageView.setBackgroundResource(R.drawable.nsevenfive);
-        }else if(bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)>=95){
+        }else if(bt>=95){
+            Log.e("PERCENTAGE LEVEL CHECK", "TRUE");
             imageView.setBackgroundResource(R.drawable.bfull);
         }
-        batteryperc.setText(bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)+"%");
-        batteryperc.setVisibility(View.VISIBLE);
 
-         bt = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+        batteryperc.setText(bt+"%");
+        batteryperc.setVisibility(View.VISIBLE);
 
        // batLev= intent.getIntExtra(BatteryManager.EXTRA_LEVEL,bt);
         receiver = new MyReceiver();
