@@ -7,12 +7,11 @@ import android.hardware.SensorManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
-public class StationaryDetectActivity extends AppCompatActivity {
+public class MotionDetectActivity extends AppCompatActivity {
 
     SensorManager sensorManager;
     Sensor sensor;
@@ -25,7 +24,7 @@ public class StationaryDetectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stationary_detect);
+        setContentView(R.layout.activity_motion_detect);
 
         name = (TextView) findViewById(R.id.name);
         vendor = (TextView) findViewById(R.id.vendor);
