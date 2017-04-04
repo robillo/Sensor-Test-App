@@ -33,6 +33,7 @@ import com.appbusters.robinkamboj.senseitall.view.rishabh.MapsActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MultiTouchActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.USBActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.WiFiActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CPUActivity;
@@ -222,7 +223,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("USB")){
-
+            Intent i = new Intent(context, USBActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName.equals("Audio/Video Outputs")){
 

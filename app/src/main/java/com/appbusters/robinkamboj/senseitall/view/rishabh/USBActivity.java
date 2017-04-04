@@ -5,6 +5,7 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
@@ -12,6 +13,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class USBActivity extends AppCompatActivity {
+
+    private static final String TAG = "USBDEVICE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,7 @@ public class USBActivity extends AppCompatActivity {
         Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
         while(deviceIterator.hasNext()){
             UsbDevice dev = deviceIterator.next();
-
+            Log.d(TAG, "onCreate: "+dev.getDeviceName()+" "+dev.getManufacturerName());
         }
 
     }
