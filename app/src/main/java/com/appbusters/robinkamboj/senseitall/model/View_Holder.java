@@ -43,6 +43,7 @@ import com.appbusters.robinkamboj.senseitall.view.robin.FingerprintActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.GSMActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.LightActivity;
+import com.appbusters.robinkamboj.senseitall.view.robin.MicrophoneActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.PressureActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.ProximityActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.RadioActivity;
@@ -216,7 +217,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("Microphone")){
-
+            Intent i = new Intent(context, MicrophoneActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName.equals("USB")){
 

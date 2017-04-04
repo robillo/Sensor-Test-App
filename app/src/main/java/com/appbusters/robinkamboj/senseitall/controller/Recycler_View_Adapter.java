@@ -70,11 +70,11 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
 //            holder.cardView.setClickable(false);
             Log.d(TAG, "onBindViewHolder: RED");
 
-            Picasso.with(context).load("hoot")
-                    .placeholder(R.drawable.disabled_background)
-                    .resize(100,100)
-                    .onlyScaleDown()
-                    .into(holder.sensor_imageview);
+//            Picasso.with(context).load("hoot")
+//                    .placeholder(R.drawable.disabled_background)
+//                    .resize(100,100)
+//                    .onlyScaleDown()
+//                    .into(holder.sensor_imageview);
         }else{
             Log.d(TAG, "onBindViewHolder: GREEN");
 //            Picasso.with(context).load("http://www.fordesigner.com/imguploads/Image/cjbc/zcool/png20080526/1211771499.png")
