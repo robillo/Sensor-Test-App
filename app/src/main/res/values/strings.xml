@@ -2,6 +2,7 @@
     <string name="app_name">Sense It All!</string>
 
     <string-array name="sensors_list">
+
         <item>Main Camera</item>
         <item>Secondary Camera</item>
         <item>GPS</item>
@@ -26,7 +27,7 @@
         <item>Pressure Sensor</item>
         <item>Relative Humidity</item>
         <item>Flash</item>
-        <!--<item>ANT+</item>-->
+        <item>ANT+</item>
         <item>Gyroscope</item>
         <item>Gravity</item>
         <item>Linear Acceleration</item>
@@ -34,14 +35,14 @@
         <item>Infrared</item>
         <item>Step Detector</item>
         <item>Step Counter</item>
-        <!--<item>Fake Touch</item>-->
+        <item>Fake Touch</item>
         <item>Motion Detector</item>
         <item>Stationary Detector</item>
         <item>Multi Touch</item>
         <item>WiFi Direct</item>
-        <!--<item>Barometer</item>-->
+        <item>Barometer</item>
         <item>Heart Rate</item>
-        <!--<item>ECG Sensor</item>-->
+        <item>ECG Sensor</item>
         <item>Fingerprint</item>
         <item>NFC</item>
         <item>Magnetic Field Sensor</item>
