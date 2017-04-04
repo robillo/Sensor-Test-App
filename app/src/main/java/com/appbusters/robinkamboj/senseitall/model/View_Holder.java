@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ import com.appbusters.robinkamboj.senseitall.view.rishabh.BarometerActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BluetoothActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.CompassActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.GravityActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.GyroscopeActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.HumidityActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.LinearAccelerationActivity;
@@ -33,6 +35,7 @@ import com.appbusters.robinkamboj.senseitall.view.rishabh.MapsActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MultiTouchActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.StationaryDetectActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.USBActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.WiFiActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
@@ -275,6 +278,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("Gravity")){
+            Intent i = new Intent(context, GravityActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
 
         }
         else if(sensorName.equals("Linear Acceleration")){
@@ -307,7 +313,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
         }
         else if(sensorName.equals("Stationary Detector")){
-
+            Intent i = new Intent(context, StationaryDetectActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName.equals("Multi Touch")){
             Intent i = new Intent(context, MultiTouchActivity.class);

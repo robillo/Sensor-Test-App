@@ -27,7 +27,6 @@ public class USBActivity extends AppCompatActivity {
 
 
     private static final String TAG = "USBDEVICE";
-    private static final String ACTION_USB_PERMISSION = "com.android.example.USB_PERMISSION";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,42 +43,95 @@ public class USBActivity extends AppCompatActivity {
 //            UsbDevice dev = deviceIterator.next();
 //            Log.d(TAG, "onCreate: "+dev.getDeviceName()+" "+dev.getManufacturerName());
 //        }
-        BroadcastReceiver mUsbAttachReceiver = new BroadcastReceiver() {
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
 
-                if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action)) {
-                }
-            }
-        };
-        BroadcastReceiver mUsbDetachReceiver = new BroadcastReceiver() {
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
+        mInfo = (TextView)findViewById(R.id.textView12);
 
-                if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
-                    UsbDevice device = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
-                    if (device != null) {
-                        // call your method that cleans up and closes communication with the device
-                        UsbDataBinder binder = mHashMap.get(device);
-                        if (binder != null) {
-                            binder.onDestroy();
-                            mHashMap.remove(device);
-                        }
-                    }
-                }
-            }
-        };
+        mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
 
+        usbConnection();
+
+    }
+    private void usbConnection() {
         IntentFilter filter = new IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         registerReceiver(mUsbAttachReceiver , filter);
         filter = new IntentFilter(UsbManager.ACTION_USB_DEVICE_DETACHED);
         registerReceiver(mUsbDetachReceiver , filter);
 
+        mPermissionIntent = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
+        filter = new IntentFilter(ACTION_USB_PERMISSION);
+        registerReceiver(mUsbReceiver, filter);
+
+        showDevices();
+    }
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(mUsbDetachReceiver);
+        unregisterReceiver(mUsbAttachReceiver);
+        unregisterReceiver(mUsbReceiver);
+
+        super.onPause();
+    }
+    BroadcastReceiver mUsbDetachReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
+                UsbDevice device = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+                if (device != null) {
+                    // call your method that cleans up and closes communication with the device
+                    UsbDataBinder binder = mHashMap.get(device);
+                    if (binder != null) {
+                        binder.onDestroy();
+                        mHashMap.remove(device);
+                    }
+                }
+            }
+        }
+    };
+
+    BroadcastReceiver mUsbAttachReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action)) {
+                showDevices();
+            }
+        }
+    };
+    private static final String ACTION_USB_PERMISSION = "com.android.example.USB_PERMISSION";
+    private final BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
+
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (ACTION_USB_PERMISSION.equals(action)) {
+                synchronized (this) {
+                    UsbDevice device = (UsbDevice) intent
+                            .getParcelableExtra(UsbManager.EXTRA_DEVICE);
+
+                    if (intent.getBooleanExtra(
+                            UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
+                        if (device != null) {
+                            // call method to set up device communication
+                            UsbDataBinder binder = new UsbDataBinder(mUsbManager, device);
+                            mHashMap.put(device, binder);
+                        }
+                    } else {
+                         Log.d(TAG, "permission denied for device " + device);
+                    }
+                }
+            }
+        }
+    };
+
+    private void showDevices() {
         HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
         Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
         while(deviceIterator.hasNext()){
             UsbDevice device = deviceIterator.next();
-            Log.d(TAG,"name: " + device.getDeviceName() + ", " +
+            mUsbManager.requestPermission(device, mPermissionIntent);
+            //your code
+            Log.d(TAG, "name: " + device.getDeviceName() + ", " +
                     "ID: " + device.getDeviceId());
             mInfo.append(device.getDeviceName() + "\n");
             mInfo.append(device.getDeviceId() + "\n");
@@ -87,12 +139,13 @@ public class USBActivity extends AppCompatActivity {
             mInfo.append(device.getProductId() + "\n");
             mInfo.append(device.getVendorId() + "\n");
         }
-
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+
     }
 }
 
