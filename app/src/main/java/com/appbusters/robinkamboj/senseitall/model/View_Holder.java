@@ -32,6 +32,7 @@ import com.appbusters.robinkamboj.senseitall.view.rishabh.HumidityActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.LinearAccelerationActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MagneticActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MapsActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.MotionDetectActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.MultiTouchActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.NFCActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.RotationActivity;
@@ -310,7 +311,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
         }
         else if(sensorName.equals("Motion Detector")){
-
+            Intent i = new Intent(context, MotionDetectActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName.equals("Stationary Detector")){
             Intent i = new Intent(context, StationaryDetectActivity.class);
