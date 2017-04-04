@@ -280,9 +280,9 @@ public class MainActivity extends AppCompatActivity{
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE)){
             isPresent[35] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE_ECG)){
-            isPresent[36] = true;
-        }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE_ECG)){
+//            isPresent[35] = true;
+//        }
         // Check if we're running on Android 6.0 (M) or higher
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //Fingerprint API only available on from Android 6.0 (M)
@@ -291,18 +291,18 @@ public class MainActivity extends AppCompatActivity{
                 // Device doesn't support fingerprint authentication
             } else if (!fingerprintManager.hasEnrolledFingerprints()) {
                 // User hasn't enrolled any fingerprints to authenticate with
-                isPresent[37]=true;
+                isPresent[36]=true;
             } else {
                 // Everything is ready for fingerprint authentication
-                isPresent[37]=true;
+                isPresent[36]=true;
             }
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)){
+            isPresent[37] = true;
+        }
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!=null){
             isPresent[38] = true;
         }
-//        if(sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!=null){
-//            isPresent[39] = true;
-//        }
         return isPresent;
     }
 
