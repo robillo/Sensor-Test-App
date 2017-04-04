@@ -37,7 +37,7 @@ public class MotionDetectActivity extends AppCompatActivity {
         x = (TextView) findViewById(R.id.xVal);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STATIONARY_DETECT);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MOTION_DETECT);
 
         sensorEventListener = new SensorEventListener() {
             @Override
@@ -47,7 +47,7 @@ public class MotionDetectActivity extends AppCompatActivity {
                     bool = true;
                 }
 
-                x.setText("isStationary?:    " + bool);
+                x.setText("in Motion?:    " + bool);
 
             }
             @Override
