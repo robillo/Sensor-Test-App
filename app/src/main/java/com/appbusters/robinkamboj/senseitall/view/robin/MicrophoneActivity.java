@@ -31,6 +31,8 @@ public class MicrophoneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_microphone);
 
         random = new Random();
+        indic_1 = (AVLoadingIndicatorView) findViewById(R.id.indic_1);
+        indic_2 = (AVLoadingIndicatorView) findViewById(R.id.indic_2);
         startRec = (Button) findViewById(R.id.start_rec);
         stopRec = (Button) findViewById(R.id.stop_rec);
         play = (Button) findViewById(R.id.play);
@@ -46,6 +48,7 @@ public class MicrophoneActivity extends AppCompatActivity {
                 AudioSavePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + CreateRandomAudioFileName(5) + "AudioRecording.3gp";
                 MediaRecorderReady();
 
+                indic_1.setVisibility(View.VISIBLE);
                 try {
                     mediaRecorder.prepare();
                     mediaRecorder.start();
@@ -66,6 +69,8 @@ public class MicrophoneActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+                    indic_1.setVisibility(View.INVISIBLE);
+//                    indic_2.setVisibility(View.VISIBLE);
                     mediaRecorder.stop();
                     stopRec.setEnabled(false);
                     play.setEnabled(true);
@@ -79,6 +84,30 @@ public class MicrophoneActivity extends AppCompatActivity {
                 Toast.makeText(MicrophoneActivity.this, "Recording Completed",
                         Toast.LENGTH_LONG).show();
             }
+        });
+
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) throws IllegalArgumentException,
+                        SecurityException, IllegalStateException {
+
+                indic_2.setVisibility(View.VISIBLE);
+                    stopRec.setEnabled(false);
+                    startRec.setEnabled(false);
+                    pause.setEnabled(true);
+
+                    mediaPlayer = new MediaPlayer();
+                    try {
+                        mediaPlayer.setDataSource(AudioSavePath);
+                        mediaPlayer.prepare();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    mediaPlayer.start();
+                    Toast.makeText(MicrophoneActivity.this, "Recording Playing",
+                            Toast.LENGTH_LONG).show();
+                }
         });
 
     }
