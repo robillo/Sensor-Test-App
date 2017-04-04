@@ -145,7 +145,8 @@
         >
         <activity android:name=".view.robin.MicrophoneActivity" />
         <activity android:name=".view.rishabh.StationaryDetectActivity" />
-        <activity android:name=".view.rishabh.MotionDetectActivity"></activity>
+        <activity android:name=".view.rishabh.MotionDetectActivity" />
+        <activity android:name=".view.rishabh.HeartBeatActivity"></activity>
     </application>
 
 </manifest>
