@@ -1,5 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.robin;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ public class SoundActivity extends AppCompatActivity {
     private SeekBar volume;
     private ImageView bg;
     private MediaPlayer mediaPlayer;
+    private AudioManager audioManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,25 @@ public class SoundActivity extends AppCompatActivity {
         pause = (ImageButton) findViewById(R.id.pause);
         volume = (SeekBar) findViewById(R.id.volume);
         bg = (ImageView) findViewById(R.id.bg);
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        volume.setMax(audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
+
+        volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, i, 0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         Glide.with(getApplicationContext()).load(R.drawable.sound_bg)
                 .centerCrop()
