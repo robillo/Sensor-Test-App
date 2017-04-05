@@ -5,6 +5,7 @@ import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
@@ -13,7 +14,7 @@ public class AudioVideoActivity extends AppCompatActivity {
     private static final String TAG = "AV";
     AudioManager am;
     ReceiverAudio receiver;
-
+    public static TextView state, mic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,10 @@ public class AudioVideoActivity extends AppCompatActivity {
 //        for(AudioDeviceInfo i:am.getDevices(AudioManager.GET_DEVICES_ALL)){
 //            Log.d(TAG, "onCreate: "+i.getProductName() +" "+i.getId()+" "+i.isSink());
 //        }
+
+        state = (TextView) findViewById(R.id.state);
+        mic = (TextView) findViewById(R.id.mic);
+
 
         IntentFilter receiverFilter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
         receiver = new ReceiverAudio();

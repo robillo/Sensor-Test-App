@@ -176,7 +176,6 @@
                     android:fontFamily="casual"
                     android:gravity="center"
                     android:padding="3sp"
-                    android:text="No"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="30sp" />
 
