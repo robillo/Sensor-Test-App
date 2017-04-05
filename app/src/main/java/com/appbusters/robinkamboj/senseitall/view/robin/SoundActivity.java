@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.robin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.bumptech.glide.Glide;
@@ -20,11 +22,18 @@ public class SoundActivity extends AppCompatActivity {
     private ImageView bg;
     private MediaPlayer mediaPlayer;
     private AudioManager audioManager;
+    private String sensor_name;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound);
+
+        Intent i = getIntent();
+        sensor_name = i.getStringExtra("sensorName");
+        textView = (TextView) findViewById(R.id.textView);
+        textView.setText(sensor_name);
 
         play = (ImageButton) findViewById(R.id.play);
         pause = (ImageButton) findViewById(R.id.pause);
