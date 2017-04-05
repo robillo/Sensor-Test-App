@@ -7,10 +7,6 @@ import android.util.Log;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * Created by rishabhshukla on 05/04/17.
- */
-
 public class ReceiverAudio extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
