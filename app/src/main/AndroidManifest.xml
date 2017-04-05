@@ -145,7 +145,8 @@
         <activity android:name=".view.rishabh.StationaryDetectActivity" />
         <activity android:name=".view.rishabh.MotionDetectActivity" />
         <activity android:name=".view.rishabh.HeartBeatActivity" />
-        <activity android:name=".view.rishabh.AudioVideoActivity"></activity>
+        <activity android:name=".view.rishabh.AudioVideoActivity" />
+        <activity android:name=".view.AboutActivity"></activity>
     </application>
 
 </manifest>

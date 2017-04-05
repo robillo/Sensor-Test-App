@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -189,7 +190,9 @@ public class ListActivity extends AppCompatActivity {
         //nonspection SimplifiableIfStatement
 
         switch (id){
-            case R.id.action_settings:{
+            case R.id.about:{
+                Intent i = new Intent(this, AboutActivity.class);
+                startActivity(i);
                 break;
             }
         }
