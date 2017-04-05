@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +22,8 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.AccelerometerActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.AudioVideoActivity;
+import com.appbusters.robinkamboj.senseitall.view.rishabh.BarometerActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BatteryActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.BluetoothActivity;
 import com.appbusters.robinkamboj.senseitall.view.rishabh.CompassActivity;
@@ -42,6 +45,7 @@ import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CameraActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CameraSecondaryActivity;
+import com.appbusters.robinkamboj.senseitall.view.robin.ECGActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.FingerprintActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.GSMActivity;
@@ -163,7 +167,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             Intent i=  new Intent(context, MapsActivity.class);
             i.putExtra("lat",  Lat);
             i.putExtra("lon", Lon);
-            i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
         else if(sensorName.equals("WiFi")){
@@ -340,12 +343,22 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
         else if(sensorName.equals("WiFi Direct")){
 
         }
+        else if(sensorName.equals("Barometer")){
+            Intent i = new Intent(context, BarometerActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
+        }
         else if(sensorName.equals("Heart Rate")){
 
             Intent i = new Intent(context, HeartBeatActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
 
+        }
+        else if(sensorName.equals("ECG Sensor")){
+            Intent i = new Intent(context, ECGActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName.equals("Fingerprint")){
             if(ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED){

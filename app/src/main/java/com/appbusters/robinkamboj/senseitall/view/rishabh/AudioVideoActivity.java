@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.rishabh;
 
+import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.media.AudioRecordingConfiguration;
 import android.os.Bundle;
@@ -19,9 +20,12 @@ public class AudioVideoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_audio_video);
 
         am = (AudioManager)getSystemService(AUDIO_SERVICE);
-        for(AudioRecordingConfiguration i:am.getActiveRecordingConfigurations()){
-            Log.d(TAG, "onCreate: "+i.getAudioDevice().toString()+" "+i.getAudioDevice().getProductName());
-            Log.d(TAG, "onCreate: "+i.toString()+" "+i.getFormat().toString());
+        Log.d(TAG, "onCreate: "+am.generateAudioSessionId());
+        Log.d(TAG, "onCreate: "+am.generateAudioSessionId());
+        Log.d(TAG, "onCreate: "+am.generateAudioSessionId());
+        Log.d(TAG, "onCreate: "+am.generateAudioSessionId());
+        for(AudioDeviceInfo i:am.getDevices(AudioManager.GET_DEVICES_ALL)){
+            Log.d(TAG, "onCreate: "+i.getProductName() +" "+i.getId()+" "+i.isSink());
         }
     }
 }
