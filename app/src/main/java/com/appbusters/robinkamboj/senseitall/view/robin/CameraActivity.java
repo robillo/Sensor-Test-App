@@ -140,6 +140,7 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
 
     public void previewCamera()
     {
+        releaseCameraAndPreview();
         if(!previewing){
             camera = Camera.open();
             if(camera!=null){
@@ -158,7 +159,6 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
                             break;
                     }
 
-                    releaseCameraAndPreview();
                     camera.setDisplayOrientation(rotation);
                     camera.getParameters().setRotation(rotation);
                     camera.setPreviewDisplay(surfaceHolder);
