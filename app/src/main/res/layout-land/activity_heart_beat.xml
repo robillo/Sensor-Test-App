@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_camera"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sense It All!"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:gravity="center"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar2"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="?actionBarSize">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="1"
+            android:layout_margin="10sp"
+            app:cardCornerRadius="10sp"
+            app:cardElevation="@dimen/app_bar_elevation">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:padding="10sp"
+                android:src="@drawable/heart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="1"
+            android:padding="5sp"
+            android:layout_margin="10sp"
+            app:cardCornerRadius="10sp"
+            app:cardBackgroundColor="@color/colorPrimaryLight"
+            app:cardElevation="@dimen/app_bar_elevation">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="@dimen/app_bar_elevation"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textStyle="bold"
+                android:padding="6sp"
+                android:gravity="center"
+                android:textColor="@color/colorBlackShade"
+                android:text="Heart Beat Sensor"/>
+
+        </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0sp"
+        android:layout_height="match_parent"
+        app:cardElevation="@dimen/app_bar_elevation"
+        app:cardCornerRadius="5sp"
+        android:layout_weight="2"
+        android:layout_margin="10sp"
+        android:layout_below="@+id/ll">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="X:"
+                    android:gravity="start"
+                    android:id="@+id/xVal"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Name:"
+                    android:gravity="start"
+                    android:id="@+id/name"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Vendor:"
+                    android:gravity="start"
+                    android:id="@+id/vendor"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Version:"
+                    android:gravity="start"
+                    android:id="@+id/version"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Maximum Range:"
+                    android:gravity="start"
+                    android:id="@+id/maximum_range"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Power:"
+                    android:gravity="start"
+                    android:id="@+id/power"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Minimum Delay:"
+                    android:gravity="start"
+                    android:id="@+id/minimum_delay"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Maximum Delay:"
+                    android:gravity="start"
+                    android:id="@+id/maximum_delay"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlackShade"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Resolution:"
+                    android:gravity="start"
+                    android:id="@+id/resolution"/>
+
+                <TextView
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="start"
+                    android:padding="5sp"
+                    android:text="DESCRIPTION: A sensor of this type returns an event everytime a hear beat peak is detected. Peak here ideally corresponds to the positive peak in the QRS complex of an ECG signal. A confidence value of 0.0 indicates complete uncertainty - that a peak is as likely to be at the indicated timestamp as anywhere else. A confidence value of 1.0 indicates complete certainly - that a peak is completely unlikely to be anywhere else on the QRS complex."
+                    android:textColor="@color/colorBlackShade"
+                    android:textSize="16sp" />
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+
+</RelativeLayout>
