@@ -42,8 +42,54 @@
         <item>Fingerprint</item>
         <item>NFC</item>
         <item>Magnetic Field Sensor</item>
-
     </string-array>
+
     <string name="title_activity_battery">BatteryActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="about">Ever had doubts in you mind if your device consists of top-notch sensors like temperature sensor, pressure sensor, barometer, or even heart rate sensor? Sense-It-All! allows you to test the presence of over 38 sensors in your device, each of which, if present, is combined with a test to let you know of its limits.\n\n
+This is a sensor test/device test application, aimed for both fun and professional purposes, targeting audience all over the world.\n\n
+
+Sense-It-All! tests for the following sensors\'s presence in your device:\n
+1. Main Camera\n
+2. Secondary Camera\n
+3. GPS\n
+4. WiFi\n
+5. Bluetooth\n
+6. GSM/UMTS\n
+7. Accelerometer\n
+8. Compass\n
+9. Radio\n
+10.Screen\n
+11. Battery\n
+12. CPU\n
+13. Sound\n
+14. Vibrator\n
+15. Microphone\n
+16. USB\n
+17. Audio/Video Outputs\n
+18. Android OS\n
+19. Light Sensor\n
+20. Proximity Sensor\n
+21. Temperature Sensor\n
+22. Pressure Sensor\n
+23. Relative Humidity\n
+24. Flash\n
+25. Gyroscope\n
+26. Gravity\n
+27. Linear Acceleration\n
+28. Rotation Vector\n
+29. Infrared\n
+30. Step Detector\n
+31. Step Counter\n
+32.Motion Detector\n
+33. Stationary Detector\n
+34. MultiTouch\n
+35. WiFi Direct\n
+36. Heart Rate\n
+37. Fingerprint\n
+38. NFC\n
+39. Magnetic Field Sensor\n\n
+
+The tests for the above sensors provided in the app will could be used for fun, as well as for professional purposes, thus am extremely large range of people are welcome to use this app for sensor testing, or rather broadly, device testing.</string>
+
 </resources>
