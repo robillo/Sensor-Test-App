@@ -102,8 +102,7 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".view.rishabh.NFCActivity" />
         <activity
-            android:name=".view.rishabh.CompassActivity"
-            android:screenOrientation="portrait" />
+            android:name=".view.rishabh.CompassActivity" />
         <activity android:name=".view.rishabh.MultiTouchActivity">
             <meta-data
                 android:name="android.app.searchable"

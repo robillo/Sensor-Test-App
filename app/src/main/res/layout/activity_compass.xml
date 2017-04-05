@@ -77,7 +77,7 @@ android:layout_height="match_parent">
             android:padding="6sp"
             android:gravity="center"
             android:textColor="@color/colorWhiteShade"
-            android:text="SAMPLE DATA"/>
+            android:text="COMPASS"/>
 
     </android.support.v7.widget.CardView>
 
