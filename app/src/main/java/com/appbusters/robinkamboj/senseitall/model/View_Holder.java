@@ -245,8 +245,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName.equals("Audio/Video Outputs")){
-
+        else if(sensorName.equals("Audio/Video outputs")){
+            Intent i = new Intent(context, AudioVideoActivity.class);
+            i.putExtra("sensorName", sensorName);
+            context.startActivity(i);
         }
         else if(sensorName.equals("Android OS")){
             Intent i = new Intent(context, AndroidOSActivity.class);

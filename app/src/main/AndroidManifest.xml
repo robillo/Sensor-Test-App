@@ -141,16 +141,13 @@
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
         </activity>
-        >
+
         <activity android:name=".view.robin.MicrophoneActivity" />
         <activity android:name=".view.rishabh.StationaryDetectActivity" />
         <activity android:name=".view.rishabh.MotionDetectActivity" />
         <activity android:name=".view.rishabh.HeartBeatActivity" />
         <activity android:name=".view.rishabh.AudioVideoActivity">
-            <intent-filter>
 
-                <action android:name="android.intent.action.HEADSET_PLUG"/>
-            </intent-filter>
         </activity>
         <activity android:name=".view.rishabh.AudioVideoActivity" />
         <activity android:name=".view.AboutActivity"></activity>
