@@ -165,6 +165,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             Intent i=  new Intent(context, MapsActivity.class);
             i.putExtra("lat",  Lat);
             i.putExtra("lon", Lon);
+            i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
         else if(sensorName.equals("WiFi")){
