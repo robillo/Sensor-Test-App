@@ -46,21 +46,26 @@ public class MainActivity extends AppCompatActivity{
     Context context;
     String[] sensors;
 
-    private static final int ALL_MY_PERMISSIONS = 123;
+//    private static final int ALL_MY_PERMISSIONS = 123;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        String[] permissions={Manifest.permission.WRITE_CONTACTS, Manifest.permission.READ_CONTACTS,
-                Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.CAMERA, Manifest.permission.USE_FINGERPRINT, Manifest.permission.RECORD_AUDIO};
-
-        if(!hasPermissions(this, permissions)){
-            ActivityCompat.requestPermissions(this, permissions, ALL_MY_PERMISSIONS);
-        }
+//
+//        String[] permissions={
+//                Manifest.permission.WRITE_CONTACTS,
+//                Manifest.permission.READ_CONTACTS,
+//                Manifest.permission.READ_PHONE_STATE,
+////                Manifest.permission.ACCESS_COARSE_LOCATION,
+////                Manifest.permission.CAMERA, Manifest.permission.USE_FINGERPRINT,
+////                Manifest.permission.RECORD_AUDIO
+//        };
+//
+//        if(!hasPermissions(this, permissions)){
+//            ActivityCompat.requestPermissions(this, permissions, ALL_MY_PERMISSIONS);
+//        }
 
           context = getApplicationContext();
         imageView = (ImageView) findViewById(R.id.icon);
@@ -94,17 +99,17 @@ public class MainActivity extends AppCompatActivity{
         }, 3000);
     }
 
-    //Permissions Helper Method
-    public static boolean hasPermissions(Context context, String[] permissions){
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M && context!=null && permissions!=null){
-            for(String permission : permissions){
-                if(ActivityCompat.checkSelfPermission(context,permission)!=PackageManager.PERMISSION_GRANTED){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
+//    //Permissions Helper Method
+//    public static boolean hasPermissions(Context context, String[] permissions){
+//        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M && context!=null && permissions!=null){
+//            for(String permission : permissions){
+//                if(ActivityCompat.checkSelfPermission(context,permission)!=PackageManager.PERMISSION_GRANTED){
+//                    return false;
+//                }
+//            }
+//        }
+//        return true;
+//    }
 
     public void onClick(View v){
         switch (v.getId()){
@@ -117,16 +122,16 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-
-    void startAnim(){
-        avi.show();
-        // or avi.smoothToShow();
-    }
-
-    void stopAnim(){
-        avi.hide();
-        // or avi.smoothToHide();
-    }
+//
+//    void startAnim(){
+//        avi.show();
+//        // or avi.smoothToShow();
+//    }
+//
+//    void stopAnim(){
+//        avi.hide();
+//        // or avi.smoothToHide();
+//    }
 
     boolean[] isSensorPresent(String[] sensors, List<Sensor> sensorList){
 

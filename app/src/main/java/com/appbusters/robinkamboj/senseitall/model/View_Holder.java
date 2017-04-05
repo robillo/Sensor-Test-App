@@ -105,11 +105,19 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
     public void intent(String sensorName, int position){
         if(sensorName.equals("Main Camera")){
+            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
+                return;
+            }
             Intent i = new Intent(context, CameraActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
         else if(sensorName.equals("Secondary Camera")){
+            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
+                return;
+            }
             Intent i = new Intent(context, CameraSecondaryActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
@@ -147,14 +155,7 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
                 }
             };
-            if (ActivityCompat.checkSelfPermission((Activity) context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission((Activity) context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions((Activity) context,new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,
                         Manifest.permission.ACCESS_FINE_LOCATION},121);
                 return;
@@ -168,6 +169,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("WiFi")){
+            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 4);
+                return;
+            }
             Intent i = new Intent(context, WiFiActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
@@ -178,6 +183,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("GSM/UMTS")){
+            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.READ_PHONE_STATE}, 5);
+                return;
+            }
             Intent i = new Intent(context, GSMActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
@@ -223,6 +232,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("Microphone")){
+            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.RECORD_AUDIO}, 3);
+                return;
+            }
             Intent i = new Intent(context, MicrophoneActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
@@ -347,6 +360,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("Fingerprint")){
+            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.USE_FINGERPRINT}, 2);
+                return;
+            }
             Intent i = new Intent(context, FingerprintActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);

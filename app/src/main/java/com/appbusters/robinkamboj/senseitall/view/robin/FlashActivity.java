@@ -81,10 +81,12 @@ public class FlashActivity extends AppCompatActivity {
             public void run() {
                 imageView.setBackgroundColor(getResources().getColor(R.color.colorWhiteShade));
 //        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                Log.e("params", "before");
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                 camera.setParameters(parameters);
                 camera.startPreview();
                 isFlashOn = true;
+                Log.e("params", "after");
             }
         });
     }
