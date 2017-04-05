@@ -63,7 +63,6 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
                         try {
                             if (Camera.getNumberOfCameras() >= 2) {
                                 //if you want to open front facing camera use this line
-                                releaseCameraAndPreview();
                                 camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
                             }
                             camera.setDisplayOrientation(90);
