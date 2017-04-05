@@ -148,6 +148,7 @@
         <activity android:name=".view.rishabh.HeartBeatActivity" />
         <activity android:name=".view.rishabh.AudioVideoActivity">
             <intent-filter>
+
                 <action android:name="android.intent.action.HEADSET_PLUG"/>
             </intent-filter>
         </activity>
