@@ -231,20 +231,20 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName.equals("Microphone")){
-            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.RECORD_AUDIO}, 3);
-                return;
-            }
-            Intent i = new Intent(context, MicrophoneActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("USB")){
-            Intent i = new Intent(context, USBActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
+//        else if(sensorName.equals("Microphone")){
+//            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
+//                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.RECORD_AUDIO}, 3);
+//                return;
+//            }
+//            Intent i = new Intent(context, MicrophoneActivity.class);
+//            i.putExtra("sensorName", sensorName);
+//            context.startActivity(i);
+//        }
+//        else if(sensorName.equals("USB")){
+//            Intent i = new Intent(context, USBActivity.class);
+//            i.putExtra("sensorName", sensorName);
+//            context.startActivity(i);
+//        }
         else if(sensorName.equals("Audio/Video outputs")){
             Intent i = new Intent(context, AudioVideoActivity.class);
             i.putExtra("sensorName", sensorName);
@@ -261,7 +261,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("Proximity Sensor")){
-
             Intent i = new Intent(context, ProximityActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
@@ -286,9 +285,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName.equals("ANT+")){
-
-        }
+//        else if(sensorName.equals("ANT+")){
+//
+//        }
         else if(sensorName.equals("Gyroscope")){
             Intent i = new Intent(context, GyroscopeActivity.class);
             i.putExtra("sensorName", sensorName);
@@ -310,9 +309,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName.equals("Infrared")){
-
-        }
+//        else if(sensorName.equals("Infrared")){
+//
+//        }
         else if(sensorName.equals("Step Detector")){
             Intent i = new Intent(context, StepDetectorActivity.class);
             i.putExtra("sensorName", sensorName);
@@ -323,9 +322,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName.equals("Fake Touch")){
-
-        }
+//        else if(sensorName.equals("Fake Touch")){
+//
+//        }
         else if(sensorName.equals("Motion Detector")){
             Intent i = new Intent(context, MotionDetectActivity.class);
             i.putExtra("sensorName", sensorName);
@@ -341,9 +340,9 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
         }
-        else if(sensorName.equals("WiFi Direct")){
-
-        }
+//        else if(sensorName.equals("WiFi Direct")){
+//
+//        }
 //        else if(sensorName.equals("Barometer")){
 //            Intent i = new Intent(context, BarometerActivity.class);
 //            i.putExtra("sensorName", sensorName);
