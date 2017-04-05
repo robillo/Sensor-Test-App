@@ -114,5 +114,4 @@ public class StepCounterActivity extends AppCompatActivity {
         resolution.setText(results[6]);
         maximum_range.setText(results[7]);
     }
-
 }
