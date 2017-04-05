@@ -121,10 +121,8 @@
         <activity android:name=".view.robin.RadioActivity" />
         <activity android:name=".view.robin.MotionDetectorActivity" />
         <activity android:name=".view.robin.StationaryDetectorActivity" />
-        <activity android:name=".view.robin.ANTActivity" />
         <activity android:name=".view.rishabh.RotationActivity" />
         <activity android:name=".view.rishabh.HumidityActivity" />
-        <activity android:name=".view.rishabh.BarometerActivity" />
         <activity android:name=".view.rishabh.BluetoothActivity" />
         <activity android:name=".view.rishabh.WiFiActivity" />
         <activity android:name=".view.rishabh.BluetoothActivity" />

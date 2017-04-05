@@ -75,7 +75,7 @@
                 android:textStyle="bold"
                 android:padding="6sp"
                 android:gravity="center"
-                android:textColor="@color/colorWhiteShade"
+                android:textColor="@color/colorBlackShade"
                 android:text="SAMPLE DATA"/>
 
         </android.support.v7.widget.CardView>
