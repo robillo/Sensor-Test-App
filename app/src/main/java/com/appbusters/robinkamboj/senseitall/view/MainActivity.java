@@ -173,8 +173,6 @@ public class MainActivity extends AppCompatActivity{
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)){
             isPresent[4] = true;
         }
-
-
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TELEPHONY_GSM)){
             isPresent[5] = true;
         }
@@ -202,44 +200,44 @@ public class MainActivity extends AppCompatActivity{
         if(v.hasVibrator()){
             isPresent[13] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)){
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)){
+//            isPresent[14] = true;
+//        }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_USB_ACCESSORY)){
+//            isPresent[15] = true;
+//        }
+        if(packageManager.hasSystemFeature(PackageManager.FEATURE_AUDIO_OUTPUT)){
             isPresent[14] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_USB_ACCESSORY)){
+        if(Build.VERSION.SDK_INT> Build.VERSION_CODES.DONUT){
             isPresent[15] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_AUDIO_OUTPUT)){
+        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_LIGHT)){
             isPresent[16] = true;
         }
-        if(Build.VERSION.SDK_INT> Build.VERSION_CODES.DONUT){
+        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_PROXIMITY)){
             isPresent[17] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_LIGHT)){
+        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_AMBIENT_TEMPERATURE)){
             isPresent[18] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_PROXIMITY)){
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)!=null){
             isPresent[19] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_AMBIENT_TEMPERATURE)){
+        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_RELATIVE_HUMIDITY)){
             isPresent[20] = true;
         }
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)!=null){
-            isPresent[21] = true;
-        }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_RELATIVE_HUMIDITY)){
-            isPresent[22] = true;
-        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
-            isPresent[23] = true;
+            isPresent[21] = true;
         }
 ////        if(packageManager.hasSystemFeature(PackageManager.FEATURE_ANT+)){
 //            isPresent[24] = false;
 ////        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE)){
-            isPresent[24] = true;
+            isPresent[22] = true;
         }
         if(sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)!=null){
-            isPresent[25] = true;
+            isPresent[23] = true;
         }
 //        Sensor acc = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 //        Sensor pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
@@ -248,41 +246,41 @@ public class MainActivity extends AppCompatActivity{
 //        Log.d(TAG, "PRESSURE"+pressure);
 //        Log.d(TAG, "GRAVITY: "+grav);
         if(sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)!=null){
-            isPresent[26] = true;
+            isPresent[24] = true;
         }
         if(sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)!=null){
-            isPresent[27] = true;
+            isPresent[25] = true;
         }
 
         if(infrared.hasIrEmitter()){
-            isPresent[28] = true;
+            isPresent[26] = true;
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR)){
-            isPresent[29] = true;
+            isPresent[27] = true;
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_COUNTER)){
-            isPresent[30] = true;
+            isPresent[28] = true;
         }
 //        if(packageManager.hasSystemFeature(PackageManager.FEATURE_FAKETOUCH)){
 //            isPresent[31] = true;
 //        }
         if(sensorManager.getDefaultSensor(Sensor.TYPE_MOTION_DETECT)!=null){
-            isPresent[31] = true;
+            isPresent[29] = true;
         }
         if(sensorManager.getDefaultSensor(Sensor.TYPE_STATIONARY_DETECT)!=null){
-            isPresent[32] = true;
+            isPresent[30] = true;
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN_MULTITOUCH)){
-            isPresent[33] = true;
+            isPresent[31] = true;
         }
-        if(packageManager.hasSystemFeature(PackageManager.FEATURE_WIFI_DIRECT)){
-            isPresent[34] = true;
-        }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_WIFI_DIRECT)){
+//            isPresent[34] = true;
+//        }
 //        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_BAROMETER)){
 //            isPresent[35] = true;
 //        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE)){
-            isPresent[35] = true;
+            isPresent[32] = true;
         }
 //        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE_ECG)){
 //            isPresent[35] = true;
@@ -295,17 +293,17 @@ public class MainActivity extends AppCompatActivity{
                 // Device doesn't support fingerprint authentication
             } else if (!fingerprintManager.hasEnrolledFingerprints()) {
                 // User hasn't enrolled any fingerprints to authenticate with
-                isPresent[36]=true;
+                isPresent[33]=true;
             } else {
                 // Everything is ready for fingerprint authentication
-                isPresent[36]=true;
+                isPresent[33]=true;
             }
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)){
-            isPresent[37] = true;
+            isPresent[34] = true;
         }
         if(sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!=null){
-            isPresent[38] = true;
+            isPresent[35] = true;
         }
         return isPresent;
     }

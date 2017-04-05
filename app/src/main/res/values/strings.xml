@@ -17,8 +17,8 @@
         <item>CPU</item>
         <item>Sound</item>
         <item>Vibrator</item>
-        <item>Microphone</item>
-        <item>USB</item>
+        <!--<item>Microphone</item>-->
+        <!--<item>USB</item>-->
         <item>Audio/Video outputs</item>
         <item>Android OS</item>
         <item>Light Sensor</item>
@@ -37,7 +37,7 @@
         <item>Motion Detector</item>
         <item>Stationary Detector</item>
         <item>Multi Touch</item>
-        <item>WiFi Direct</item>
+        <!--<item>WiFi Direct</item>-->
         <item>Heart Rate</item>
         <item>Fingerprint</item>
         <item>NFC</item>
