@@ -71,7 +71,7 @@
                 android:layout_margin="10sp">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/sensor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="5sp"
