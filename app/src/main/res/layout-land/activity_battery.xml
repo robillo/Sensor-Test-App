@@ -5,13 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -20,15 +18,11 @@
             android:textColor="#FFF"
             android:textSize="20sp"
             android:gravity="center"/>
-
     </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
-
-
-
     <RelativeLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -36,9 +30,7 @@
         android:layout_weight="1"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
-
         <ImageView
-
             android:foregroundGravity="center"
             android:layout_gravity="center"
             android:layout_height="200dp"
@@ -46,7 +38,6 @@
             android:layout_width="180dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,13 +51,7 @@
             android:textColor="@android:color/holo_green_light"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
-
-
-
     </RelativeLayout>
-
-
-
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -75,20 +60,13 @@
         android:layout_weight="1"
         android:layout_margin="10sp"
         android:layout_below="@+id/ll">
-
-
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-
-
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="3">
-
                 <TextView
                     android:text="Plugged: "
                     android:fontFamily="sans-serif-smallcaps"
@@ -96,7 +74,6 @@
                     android:layout_row="0"
                     android:padding="3sp"
                     android:layout_columnWeight="1"/>
-
                 <TextView
                     android:id="@+id/plugged"
                     android:textColor="#000"
@@ -107,7 +84,6 @@
                     android:layout_columnWeight="1"
                     android:layout_column="1"
                     android:layout_row="0"/>
-
                 <TextView
                     android:text="charge level: "
                     android:fontFamily="sans-serif-smallcaps"
@@ -115,7 +91,6 @@
                     android:layout_row="1"
                     android:padding="3sp"
                     android:layout_columnWeight="1"/>
-
                 <TextView
                     android:id="@+id/level"
                     android:textColor="#000"
@@ -126,7 +101,6 @@
                     android:layout_columnWeight="1"
                     android:layout_column="1"
                     android:layout_row="1"/>
-
                 <TextView
                     android:text="Temperature: "
                     android:fontFamily="sans-serif-smallcaps"
@@ -134,7 +108,6 @@
                     android:layout_row="2"
                     android:padding="3sp"
                     android:layout_columnWeight="1"/>
-
                 <TextView
                     android:id="@+id/temp"
                     android:textColor="#000"
@@ -145,7 +118,6 @@
                     android:layout_columnWeight="1"
                     android:layout_column="1"
                     android:layout_row="2"/>
-
                 <TextView
                     android:text="Status: "
                     android:fontFamily="sans-serif-smallcaps"
@@ -153,7 +125,6 @@
                     android:layout_row="3"
                     android:padding="3sp"
                     android:layout_columnWeight="1"/>
-
                 <TextView
                     android:id="@+id/status"
                     android:textColor="#000"
@@ -164,7 +135,6 @@
                     android:layout_columnWeight="1"
                     android:layout_column="1"
                     android:layout_row="3"/>
-
                 <TextView
                     android:text="Technology: "
                     android:fontFamily="sans-serif-smallcaps"
@@ -172,7 +142,6 @@
                     android:layout_row="4"
                     android:padding="3sp"
                     android:layout_columnWeight="1"/>
-
                 <TextView
                     android:id="@+id/tech"
                     android:textColor="#000"
@@ -183,7 +152,6 @@
                     android:layout_columnWeight="1"
                     android:layout_column="1"
                     android:layout_row="4"/>
-
                 <TextView
                     android:text="Voltage: "
                     android:fontFamily="sans-serif-smallcaps"
