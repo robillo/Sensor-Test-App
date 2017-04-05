@@ -158,6 +158,7 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
                             break;
                     }
 
+                    releaseCameraAndPreview();
                     camera.setDisplayOrientation(rotation);
                     camera.getParameters().setRotation(rotation);
                     camera.setPreviewDisplay(surfaceHolder);
@@ -167,6 +168,13 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    private void releaseCameraAndPreview() {
+        if (camera != null) {
+            camera.release();
+            camera = null;
         }
     }
 

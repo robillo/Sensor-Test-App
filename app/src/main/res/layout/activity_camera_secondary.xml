@@ -108,7 +108,8 @@
                 android:layout_margin="10sp"
                 android:textColor="@color/colorWhiteShade"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:padding="10sp"/>
+                android:padding="10sp"
+                android:visibility="gone"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -119,7 +120,8 @@
                 android:textColor="@color/colorWhiteShade"
                 android:layout_margin="10sp"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:padding="10sp"/>
+                android:padding="10sp"
+                android:visibility="gone"/>
 
         </FrameLayout>
 

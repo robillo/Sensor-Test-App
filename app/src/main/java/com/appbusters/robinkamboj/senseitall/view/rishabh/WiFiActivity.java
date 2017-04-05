@@ -56,7 +56,7 @@ public class WiFiActivity extends AppCompatActivity {
 
         scanList = new ArrayList<>();
 
-        wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         wifiInfo = wifiManager.getConnectionInfo();
 
 
