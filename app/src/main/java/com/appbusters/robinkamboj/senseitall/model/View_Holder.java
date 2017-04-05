@@ -42,7 +42,6 @@ import com.appbusters.robinkamboj.senseitall.view.robin.AndroidOSActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CPUActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CameraActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.CameraSecondaryActivity;
-import com.appbusters.robinkamboj.senseitall.view.robin.ECGActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.FingerprintActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.FlashActivity;
 import com.appbusters.robinkamboj.senseitall.view.robin.GSMActivity;
@@ -341,22 +340,12 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
         else if(sensorName.equals("WiFi Direct")){
 
         }
-        else if(sensorName.equals("Barometer")){
-            Intent i = new Intent(context, BarometerActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
         else if(sensorName.equals("Heart Rate")){
 
             Intent i = new Intent(context, HeartBeatActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
 
-        }
-        else if(sensorName.equals("ECG Sensor")){
-            Intent i = new Intent(context, ECGActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
         }
         else if(sensorName.equals("Fingerprint")){
             if(ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED){

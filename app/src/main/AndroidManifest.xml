@@ -118,7 +118,6 @@
         <activity android:name=".view.robin.CameraSecondaryActivity" />
         <activity android:name=".view.robin.TemperatureActivity" />
         <activity android:name=".view.robin.PressureActivity" />
-        <activity android:name=".view.robin.ECGActivity" />
         <activity android:name=".view.robin.RadioActivity" />
         <activity android:name=".view.robin.MotionDetectorActivity" />
         <activity android:name=".view.robin.StationaryDetectorActivity" />
