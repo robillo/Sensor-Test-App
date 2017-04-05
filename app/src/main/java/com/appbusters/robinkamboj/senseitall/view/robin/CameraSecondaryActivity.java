@@ -103,12 +103,14 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int format, int width, int height) {
 
-        if(camera!=null && previewing){
-            camera.stopPreview();
-            camera.release();
-            camera = null;
-            previewing = false;
-        }
+//        if(camera!=null && previewing){
+//            camera.stopPreview();
+//            camera.release();
+//            camera = null;
+//            previewing = false;
+//        }
+
+        releaseCameraAndPreview();
 
         camera = Camera.open();
 
@@ -165,7 +167,6 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
 
                     if (Camera.getNumberOfCameras() >= 2) {
                         try {
-                            releaseCameraAndPreview();
                             //if you want to open front facing camera use this line
                             camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
                         }
