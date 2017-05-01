@@ -10,6 +10,7 @@ import android.hardware.SensorManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.github.yongjhih.mismeter.MisMeter;
 
+import java.util.Locale;
+
 public class LightActivity extends AppCompatActivity {
 
     String sensor_name, results[];
@@ -26,9 +29,11 @@ public class LightActivity extends AppCompatActivity {
     private Sensor sensor;
     private SensorManager sensorManager;
     private ProgressBar progressBar;
+    private CardView card;
+    private int color;
     TextView maximum, current;
     float max, percentage;
-    private TextView vendor, minimum_delay, version, power, resolution;
+    private TextView vendor, minimum_delay, version, power, resolution, perc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +43,14 @@ public class LightActivity extends AppCompatActivity {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
+        card = (CardView) findViewById(R.id.card);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         vendor = (TextView) findViewById(R.id.vendor);
         minimum_delay = (TextView) findViewById(R.id.minimum_delay);
         version = (TextView) findViewById(R.id.version);
         power = (TextView) findViewById(R.id.power);
         resolution = (TextView) findViewById(R.id.resolution);
+        perc = (TextView) findViewById(R.id.percentage);
 
         maximum = (TextView) findViewById(R.id.maximum);
         current = (TextView) findViewById(R.id.current);
@@ -89,10 +96,52 @@ public class LightActivity extends AppCompatActivity {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
             if(sensorEvent.sensor.getType()==Sensor.TYPE_LIGHT){
-                float currentReading = sensorEvent.values[0];
-                current.setText(String.valueOf(currentReading));
-                percentage = (currentReading/max);
+
+                float curr = sensorEvent.values[0];
+                current.setText(String.valueOf(curr));
+                percentage = (curr/max)*100;
                 progressBar.setProgress((int) percentage);
+                String temp = String.format(Locale.getDefault(), "%.3g", percentage);
+                perc.setText(temp);
+
+                if(percentage<=10){
+                    color = getResources().getColor(R.color.colorIntensity1);
+                }
+                else if(percentage<=20){
+                    color = getResources().getColor(R.color.colorIntensity2);
+                }
+                else if(percentage<=30){
+                    color = getResources().getColor(R.color.colorIntensity3);
+                }
+                else if(percentage<=40){
+                    color = getResources().getColor(R.color.colorIntensity4);
+                }
+                else if(percentage<=50){
+                    color = getResources().getColor(R.color.colorIntensity5);
+                }
+                else if(percentage<=60){
+                    color = getResources().getColor(R.color.colorIntensity6);
+                }
+                else if(percentage<=70){
+                    color = getResources().getColor(R.color.colorIntensity7);
+                }
+                else if(percentage<=80){
+                    color = getResources().getColor(R.color.colorIntensity8);
+                }
+                else if(percentage<=90){
+                    color = getResources().getColor(R.color.colorIntensity9);
+                }
+                else if(percentage<=100){
+                    color = getResources().getColor(R.color.colorIntensity10);
+                }
+
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        card.setCardBackgroundColor(color);
+                    }
+                });
             }
         }
 

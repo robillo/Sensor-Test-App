@@ -47,6 +47,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:cardBackgroundColor="@color/colorIntensity1"
                 app:cardCornerRadius="5sp"
+                android:id="@+id/card"
                 android:layout_marginTop="20sp"
                 android:layout_marginStart="15sp"
                 android:layout_marginEnd="15sp">
