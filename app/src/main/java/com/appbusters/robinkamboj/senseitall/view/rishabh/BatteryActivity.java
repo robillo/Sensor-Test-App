@@ -83,13 +83,6 @@ public class BatteryActivity extends AppCompatActivity{
         batteryperc.setVisibility(View.VISIBLE);
 
        // batLev= intent.getIntExtra(BatteryManager.EXTRA_LEVEL,bt);
-        receiver = new MyReceiver();
-
-        IntentFilter intentFilter  = new IntentFilter();
-        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
-        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
-        intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-        this.registerReceiver(receiver,intentFilter);
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -111,7 +104,6 @@ public class BatteryActivity extends AppCompatActivity{
 //    }
     @Override
     protected void onPause() {
-        this.unregisterReceiver(receiver);
         super.onPause();
     }
 }
