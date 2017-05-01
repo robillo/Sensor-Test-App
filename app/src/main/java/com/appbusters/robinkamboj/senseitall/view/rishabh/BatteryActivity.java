@@ -57,28 +57,28 @@ public class BatteryActivity extends AppCompatActivity{
         bt = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
         Log.e("% is", BatteryManager.EXTRA_LEVEL);
 
-        if(bm.isCharging()){
-            imageView.setBackgroundResource(R.drawable.gube);
-            ani = (AnimationDrawable) imageView.getBackground();
-            ani.start();
-            
-        }else if(bt<=15){
-            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
-            imageView.setBackgroundResource(R.drawable.bless);
-            batteryperc.setText(bt+"%");
-        }else if(bt<=75 && bt<95){
-            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
-            imageView.setBackgroundResource(R.drawable.nninty);
-            batteryperc.setText(bt+"%");
-        }else if(bt>=50&&bt<75){
-            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
-            imageView.setBackgroundResource(R.drawable.nsevenfive);
-            batteryperc.setText(bt+"%");
-        }else if(bt>=95){
-            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
-            batteryperc.setText(bt+"%");
-            imageView.setBackgroundResource(R.drawable.bfull);
-        }
+//        if(bm.isCharging()){
+//            imageView.setBackgroundResource(R.drawable.gube);
+//            ani = (AnimationDrawable) imageView.getBackground();
+//            ani.start();
+//
+//        }else if(bt<=15){
+//            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
+//            imageView.setBackgroundResource(R.drawable.bless);
+//            batteryperc.setText(bt+"%");
+//        }else if(bt<=75 && bt<95){
+//            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
+//            imageView.setBackgroundResource(R.drawable.nninty);
+//            batteryperc.setText(bt+"%");
+//        }else if(bt>=50&&bt<75){
+//            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
+//            imageView.setBackgroundResource(R.drawable.nsevenfive);
+//            batteryperc.setText(bt+"%");
+//        }else if(bt>=95){
+//            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
+//            batteryperc.setText(bt+"%");
+//            imageView.setBackgroundResource(R.drawable.bfull);
+//        }
 
         batteryperc.setVisibility(View.VISIBLE);
 
