@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -24,7 +25,7 @@ public class LightActivity extends AppCompatActivity {
     TextView textView;
     private Sensor sensor;
     private SensorManager sensorManager;
-    MisMeter meter;
+    private ProgressBar progressBar;
     TextView maximum, current;
     float max, percentage;
     private TextView vendor, minimum_delay, version, power, resolution;
@@ -34,14 +35,10 @@ public class LightActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
 
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         vendor = (TextView) findViewById(R.id.vendor);
         minimum_delay = (TextView) findViewById(R.id.minimum_delay);
         version = (TextView) findViewById(R.id.version);
@@ -50,12 +47,11 @@ public class LightActivity extends AppCompatActivity {
 
         maximum = (TextView) findViewById(R.id.maximum);
         current = (TextView) findViewById(R.id.current);
-        meter = (MisMeter) findViewById(R.id.meter);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -66,8 +62,6 @@ public class LightActivity extends AppCompatActivity {
             }
         });
 
-
-        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
         max = lightSensor.getMaximumRange();
@@ -98,7 +92,7 @@ public class LightActivity extends AppCompatActivity {
                 float currentReading = sensorEvent.values[0];
                 current.setText(String.valueOf(currentReading));
                 percentage = (currentReading/max);
-                meter.setProgress(percentage);
+                progressBar.setProgress((int) percentage);
             }
         }
 

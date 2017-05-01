@@ -21,7 +21,7 @@ public class GSMActivity extends AppCompatActivity {
     TextView textView;
     TextView sim_operator_name, sim_country, sim_operator, sim_sn, sim_state, subscriber_id, mail_alpha_tag, mail_number,
     icc_card, network_roaming, network_operator_name, network_country, network_operator, phone_type, cell_id,
-    location_area_code,m call_state, line_one_number, device_id, software_version, data_activity, data_state, network_type;
+    location_area_code, call_state, line_one_number, device_id, software_version, data_activity, data_state, network_type;
     String[] results;
 
     @Override

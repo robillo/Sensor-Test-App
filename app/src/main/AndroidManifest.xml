@@ -63,7 +63,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".view.robin.VibratorActivity" />
         <activity android:name=".view.robin.CPUActivity" />
-        <activity android:name=".view.robin.LightActivity" />
+        <activity android:name=".view.robin.LightActivity" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".view.robin.ProximityActivity" />
         <activity android:name=".view.robin.FlashActivity" />
         <activity android:name=".view.robin.AndroidOSActivity" />
@@ -144,7 +144,7 @@
         <activity android:name=".view.rishabh.HeartBeatActivity" />
         <activity android:name=".view.rishabh.AudioVideoActivity">
         </activity>
-        <activity android:name=".view.AboutActivity"></activity>
+        <activity android:name=".view.AboutActivity"/>
     </application>
 
 </manifest>
