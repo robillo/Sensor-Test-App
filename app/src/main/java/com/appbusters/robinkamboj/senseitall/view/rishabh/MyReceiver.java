@@ -86,7 +86,7 @@ public class MyReceiver extends BroadcastReceiver {
         if(intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)){
             //tv.setText("POWER CONNECTED ");
             if(imageView!=null) {
-                BatteryActivity.imageView.setBackgroundResource(R.drawable.gube);
+//                BatteryActivity.imageView.setBackgroundResource(R.drawable.gube);
             }
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
