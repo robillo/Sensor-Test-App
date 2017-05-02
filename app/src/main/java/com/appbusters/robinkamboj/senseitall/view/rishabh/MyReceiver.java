@@ -74,6 +74,7 @@ public class MyReceiver extends BroadcastReceiver {
             }
             if(level!=null) {
                 BatteryActivity.level.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)));
+                BatteryActivity.setProgressBar(intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0));
             }
             if(maxcl!=null) {
                 BatteryActivity.maxcl.setText(String.valueOf(intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0)));
@@ -90,18 +91,16 @@ public class MyReceiver extends BroadcastReceiver {
             }
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-            if(ani!=null) {
-                BatteryActivity.ani = (AnimationDrawable) BatteryActivity.imageView.getBackground();
-                BatteryActivity.ani.start();
-            }
+//            if(ani!=null) {
+//                BatteryActivity.ani = (AnimationDrawable) BatteryActivity.imageView.getBackground();
+//                BatteryActivity.ani.start();
+//            }
             if(status!=null) {
                 BatteryActivity.status.setText("Charging");
             }
 
             //ani.run();
-            if(batteryperc!=null) {
-                batteryperc.setText(value + "%");
-            }
+
 
         }else if(intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)){
             value = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
@@ -129,10 +128,10 @@ public class MyReceiver extends BroadcastReceiver {
                     BatteryActivity.imageView.setBackgroundResource(R.drawable.bfull);
                 }
             }
-            if(batteryperc!=null) {
-                batteryperc.setText(value + "%");
-                batteryperc.setVisibility(View.VISIBLE);
-            }
+//            if(batteryperc!=null) {
+//                batteryperc.setText(value + "%");
+//                batteryperc.setVisibility(View.VISIBLE);
+//            }
             intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
             Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0));
             Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.ACTION_CHARGING, 0));

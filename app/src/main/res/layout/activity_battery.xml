@@ -23,40 +23,20 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <RelativeLayout
-        android:layout_height="wrap_content"
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
         android:layout_width="match_parent"
-        android:paddingTop="15dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-
-        <ImageView
-
-            android:foregroundGravity="center"
-            android:layout_gravity="center"
-            android:layout_height="200dp"
-            android:id="@+id/imagee"
-            android:layout_width="180dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/batteryperc"
-            android:layout_marginTop="34dp"
-            android:textSize="30sp"
-            android:textStyle="normal|bold"
-            android:fontFamily="sans-serif-smallcaps"
-            android:visibility="invisible"
-            android:text=""
-            android:textColor="@android:color/holo_green_light"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-
-
-    </RelativeLayout>
+        android:layout_height="?attr/actionBarSize"
+        app:rcProgress="50"
+        app:rcSecondaryProgress="55"
+        app:rcMax="100"
+        app:rcRadius="5sp"
+        android:layout_margin="10sp"
+        app:rcBackgroundPadding="5sp"
+        app:rcReverse="false"
+        app:rcProgressColor="@color/colorPrimary"
+        app:rcSecondaryProgressColor="@color/colorPrimaryDark"
+        app:rcBackgroundColor="@color/colorAccent"
+        android:id="@+id/progressBar"/>
 
     <LinearLayout
         android:layout_width="match_parent"

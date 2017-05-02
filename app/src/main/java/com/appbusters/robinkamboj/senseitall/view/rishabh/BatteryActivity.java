@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbusters.robinkamboj.senseitall.R;
 
 public class BatteryActivity extends AppCompatActivity{
@@ -24,6 +25,7 @@ public class BatteryActivity extends AppCompatActivity{
     public static TextView batteryperc;
     BatteryManager bm;
     MyReceiver receiver;
+    private static RoundCornerProgressBar progressBar;
 
     public static TextView level,plugged,present,maxcl,status,tech,temp,vol;
 
@@ -39,8 +41,9 @@ public class BatteryActivity extends AppCompatActivity{
 
         Intent i = getIntent();
         sensor_name = i.getStringExtra("sensorName");
+        progressBar = (RoundCornerProgressBar) findViewById(R.id.progressBar);
 
-        imageView = (ImageView) findViewById(R.id.imagee);
+
         level = (TextView) findViewById(R.id.level);
         plugged = (TextView) findViewById(R.id.plugged);
         present = (TextView) findViewById(R.id.present);
@@ -52,7 +55,6 @@ public class BatteryActivity extends AppCompatActivity{
 
         bm = (BatteryManager) getSystemService(BATTERY_SERVICE);
 
-        batteryperc = (TextView) findViewById(R.id.batteryperc);
 
         bt = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
         Log.e("% is", BatteryManager.EXTRA_LEVEL);
@@ -80,7 +82,15 @@ public class BatteryActivity extends AppCompatActivity{
 //            imageView.setBackgroundResource(R.drawable.bfull);
 //        }
 
-        batteryperc.setVisibility(View.VISIBLE);
+
+
+        receiver = new MyReceiver();
+
+                IntentFilter intentFilter  = new IntentFilter();
+                intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+                intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
+                intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+                this.registerReceiver(receiver,intentFilter);
 
        // batLev= intent.getIntExtra(BatteryManager.EXTRA_LEVEL,bt);
 
@@ -104,6 +114,12 @@ public class BatteryActivity extends AppCompatActivity{
 //    }
     @Override
     protected void onPause() {
+        this.unregisterReceiver(receiver);
         super.onPause();
+    }
+
+    public static void setProgressBar(int percentage){
+        progressBar.setProgress(percentage);
+        progressBar.setSecondaryProgress(percentage+3);
     }
 }
