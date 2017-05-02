@@ -88,7 +88,7 @@
                     app:rcReverse="false"
                     app:rcProgressColor="@color/colorPrimary"
                     app:rcSecondaryProgressColor="@color/colorPrimaryDark"
-                    app:rcBackgroundColor="@color/colorIntensity7"
+                    app:rcBackgroundColor="@color/colorAccent"
                     android:id="@+id/progressBar"/>
 
                 <TextView
