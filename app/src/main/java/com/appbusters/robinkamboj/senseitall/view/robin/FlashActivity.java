@@ -142,6 +142,10 @@ public class FlashActivity extends AppCompatActivity {
         super.onStart();
 
         // on starting the app get the camera params
+        if (camera != null) {
+            camera.release();
+            camera = null;
+        }
         camera = Camera.open();
         parameters = camera.getParameters();
         parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);

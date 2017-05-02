@@ -66,15 +66,30 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                <!--<ProgressBar-->
+                    <!--android:id="@+id/progressBar"-->
+                    <!--style="@style/Widget.AppCompat.ProgressBar.Horizontal"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="20sp"-->
+                    <!--android:layout_marginEnd="10sp"-->
+                    <!--android:layout_marginStart="10sp"-->
+                    <!--android:layout_marginTop="10sp"-->
+                    <!--android:progress="20" />-->
+
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                     android:layout_width="match_parent"
-                    android:layout_height="20sp"
-                    android:layout_marginEnd="10sp"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginTop="10sp"
-                    android:progress="20" />
+                    android:layout_height="?attr/actionBarSize"
+                    app:rcProgress="50"
+                    app:rcSecondaryProgress="55"
+                    app:rcMax="100"
+                    app:rcRadius="5sp"
+                    android:layout_margin="10sp"
+                    app:rcBackgroundPadding="5sp"
+                    app:rcReverse="false"
+                    app:rcProgressColor="@color/colorPrimary"
+                    app:rcSecondaryProgressColor="@color/colorPrimaryDark"
+                    app:rcBackgroundColor="@color/colorIntensity9"
+                    android:id="@+id/progressBar"/>
 
                 <TextView
                     android:id="@+id/one"
