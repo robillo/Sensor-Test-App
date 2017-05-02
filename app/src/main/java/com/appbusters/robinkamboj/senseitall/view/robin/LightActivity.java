@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.github.yongjhih.mismeter.MisMeter;
 
@@ -28,7 +29,7 @@ public class LightActivity extends AppCompatActivity {
     TextView textView;
     private Sensor sensor;
     private SensorManager sensorManager;
-    private ProgressBar progressBar;
+    private RoundCornerProgressBar progressBar;
     private CardView card;
     private int color;
     TextView maximum, current;
@@ -44,7 +45,7 @@ public class LightActivity extends AppCompatActivity {
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
         card = (CardView) findViewById(R.id.card);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = (RoundCornerProgressBar) findViewById(R.id.progressBar);
         vendor = (TextView) findViewById(R.id.vendor);
         minimum_delay = (TextView) findViewById(R.id.minimum_delay);
         version = (TextView) findViewById(R.id.version);
@@ -100,7 +101,8 @@ public class LightActivity extends AppCompatActivity {
                 float curr = sensorEvent.values[0];
                 current.setText(String.valueOf(curr));
                 percentage = (curr/max)*100;
-                progressBar.setProgress((int) percentage);
+                progressBar.setProgress(percentage);
+                progressBar.setSecondaryProgress(percentage+3);
                 String temp = String.format(Locale.getDefault(), "%.3g", percentage);
                 perc.setText(temp);
 

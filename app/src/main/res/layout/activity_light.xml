@@ -88,8 +88,19 @@
                     app:rcReverse="false"
                     app:rcProgressColor="@color/colorPrimary"
                     app:rcSecondaryProgressColor="@color/colorPrimaryDark"
-                    app:rcBackgroundColor="@color/colorIntensity9"
+                    app:rcBackgroundColor="@color/colorIntensity7"
                     android:id="@+id/progressBar"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:padding="5sp"
+                    android:layout_marginTop="15sp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="(Tip: Take The Light Sensor Near A Light Source For Best Results.)"
+                    android:textColor="@color/colorIntensity5"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/one"
