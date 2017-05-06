@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.appbusters.robinkamboj.senseitall.R;
 
-public class BatteryActivity extends AppCompatActivity{
+public class BatteryActivity extends AppCompatActivity {
 
     public static ImageView imageView;
     public static AnimationDrawable ani;
@@ -27,7 +27,7 @@ public class BatteryActivity extends AppCompatActivity{
     MyReceiver receiver;
     private static RoundCornerProgressBar progressBar;
 
-    public static TextView level,plugged,present,maxcl,status,tech,temp,vol;
+    public static TextView level, plugged, present, maxcl, status, tech, temp, vol;
 
     String sensor_name;
     int bt;
@@ -83,16 +83,16 @@ public class BatteryActivity extends AppCompatActivity{
 //        }
 
 
-
         receiver = new MyReceiver();
 
-                IntentFilter intentFilter  = new IntentFilter();
-                intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
-                intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
-                intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-                this.registerReceiver(receiver,intentFilter);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
+        intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
 
-       // batLev= intent.getIntExtra(BatteryManager.EXTRA_LEVEL,bt);
+        this.registerReceiver(receiver, intentFilter);
+
+        // batLev= intent.getIntExtra(BatteryManager.EXTRA_LEVEL,bt);
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -106,7 +106,8 @@ public class BatteryActivity extends AppCompatActivity{
         });
 
     }
-//    private void setResults(){
+
+    //    private void setResults(){
 //        results = new String[]{"%",BatteryManager.EXTRA_TEMPERATURE,
 //        BatteryManager.EXTRA_SCALE,BatteryManager.EXTRA_VOLTAGE,BatteryManager.ACTION_CHARGING,BatteryManager.ACTION_DISCHARGING,
 //        BatteryManager.EXTRA_HEALTH,BatteryManager.EXTRA_STATUS,BatteryManager.EXTRA_TECHNOLOGY,BatteryManager.EXTRA_LEVEL};
@@ -114,12 +115,14 @@ public class BatteryActivity extends AppCompatActivity{
 //    }
     @Override
     protected void onPause() {
-        this.unregisterReceiver(receiver);
+        if (receiver!= null) {
+            this.unregisterReceiver(receiver);
+        }
         super.onPause();
     }
 
-    public static void setProgressBar(int percentage){
+    public static void setProgressBar(int percentage) {
         progressBar.setProgress(percentage);
-        progressBar.setSecondaryProgress(percentage+3);
+        progressBar.setSecondaryProgress(percentage + 3);
     }
 }
