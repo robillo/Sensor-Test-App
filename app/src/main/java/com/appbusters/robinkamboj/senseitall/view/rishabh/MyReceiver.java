@@ -98,7 +98,7 @@ public class MyReceiver extends BroadcastReceiver {
             if(status!=null) {
                 BatteryActivity.status.setText("Charging");
             }
-
+            Log.d(TAG, "onReceive: ");
             //ani.run();
 
 
