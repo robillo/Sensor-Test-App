@@ -27,8 +27,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements
         OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    String sensor_name;
-    TextView textView;
     private static final String TAG = "GPs";
     double Lat=0;
     double Lon=0;
@@ -45,10 +43,6 @@ public class MapsActivity extends FragmentActivity implements
 
 
         Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
         Lat  = i.getDoubleExtra("lat",Lat);
         Lon  = i.getDoubleExtra("lon",Lon);
 
