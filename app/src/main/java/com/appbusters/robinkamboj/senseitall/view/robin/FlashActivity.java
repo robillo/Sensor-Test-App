@@ -143,6 +143,7 @@ public class FlashActivity extends AppCompatActivity {
 
         // on starting the app get the camera params
         if (camera != null) {
+            camera.stopPreview();
             camera.release();
             camera = null;
         }

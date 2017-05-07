@@ -281,6 +281,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
             context.startActivity(i);
         }
         else if(sensorName.equals("Flash")){
+            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
+                return;
+            }
             Intent i = new Intent(context, FlashActivity.class);
             i.putExtra("sensorName", sensorName);
             context.startActivity(i);
