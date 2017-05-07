@@ -29,10 +29,6 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
     SurfaceView surfaceView;
     SurfaceHolder surfaceHolder;
     Camera.Parameters parameters;
-
-    String sensor_name;
-    TextView textView;
-
     private final String tag = "VideoServer";
 
     @Override
@@ -41,9 +37,6 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
         setContentView(R.layout.activity_camera_secondary);
 
         Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
         show_preview = (Button) findViewById(R.id.show_preview);
         stop_preview = (Button) findViewById(R.id.stop_preview);
 
