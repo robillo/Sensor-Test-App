@@ -55,7 +55,7 @@
         <activity
             android:name=".view.ListActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".view.robin.CameraActivity" />
+        <activity android:name=".view.robin.CameraActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.robin.GSMActivity" />
         <activity
             android:name=".view.rishabh.BatteryActivity"
@@ -63,11 +63,11 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".view.robin.VibratorActivity" />
         <activity android:name=".view.robin.CPUActivity" />
-        <activity android:name=".view.robin.LightActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.robin.LightActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".view.robin.ProximityActivity" />
-        <activity android:name=".view.robin.FlashActivity" />
+        <activity android:name=".view.robin.FlashActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.robin.AndroidOSActivity" />
-        <activity android:name=".view.rishabh.MagneticActivity" />
+        <activity android:name=".view.rishabh.MagneticActivity" android:screenOrientation="portrait"/>
 
         <receiver android:name=".view.rishabh.MyReceiver">
             <intent-filter>
@@ -102,7 +102,7 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".view.rishabh.NFCActivity" />
         <activity
-            android:name=".view.rishabh.CompassActivity" />
+            android:name=".view.rishabh.CompassActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.rishabh.MultiTouchActivity">
             <meta-data
                 android:name="android.app.searchable"
@@ -115,7 +115,7 @@
         <activity android:name=".view.robin.StepDetectorActivity" />
         <activity android:name=".view.robin.StepCounterActivity" />
         <activity android:name=".view.robin.FingerprintActivity" />
-        <activity android:name=".view.robin.CameraSecondaryActivity" />
+        <activity android:name=".view.robin.CameraSecondaryActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.robin.TemperatureActivity" />
         <activity android:name=".view.robin.PressureActivity" />
         <activity android:name=".view.robin.RadioActivity" />

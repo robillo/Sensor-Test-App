@@ -33,11 +33,6 @@ public class FlashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash);
 
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
         imageView = (ImageView) findViewById(R.id.flashlight);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,8 +45,6 @@ public class FlashActivity extends AppCompatActivity {
                 }
             }
         });
-
-        card = (CardView) findViewById(R.id.card);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -80,7 +73,6 @@ public class FlashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 imageView.setBackgroundColor(getResources().getColor(R.color.colorWhiteShade));
-//        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 Log.e("params", "before");
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                 camera.setParameters(parameters);
@@ -98,7 +90,6 @@ public class FlashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 imageView.setBackgroundColor(getResources().getColor(R.color.colorBlackShade));
-//        card.setCardBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                 camera.setParameters(parameters);
                 camera.stopPreview();

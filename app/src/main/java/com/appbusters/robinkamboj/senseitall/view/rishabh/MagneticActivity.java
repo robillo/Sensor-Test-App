@@ -57,10 +57,6 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         setContentView(R.layout.activity_magnetic);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
 
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
