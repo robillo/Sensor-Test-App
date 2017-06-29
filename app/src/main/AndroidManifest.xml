@@ -56,7 +56,7 @@
             android:name=".view.ListActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.robin.CameraActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".view.robin.GSMActivity" />
+        <activity android:name=".view.robin.GSMActivity" android:screenOrientation="portrait"/>
         <activity
             android:name=".view.rishabh.BatteryActivity"
             android:label="@string/title_activity_battery"
@@ -121,7 +121,7 @@
         <activity android:name=".view.robin.RadioActivity" />
         <activity android:name=".view.rishabh.RotationActivity" />
         <activity android:name=".view.rishabh.HumidityActivity" />
-        <activity android:name=".view.rishabh.BluetoothActivity" />
+        <activity android:name=".view.rishabh.BluetoothActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.rishabh.WiFiActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.robin.ScreenActivity" />
         <activity android:name=".view.robin.SoundActivity" />
