@@ -122,7 +122,7 @@
         <activity android:name=".view.rishabh.RotationActivity" />
         <activity android:name=".view.rishabh.HumidityActivity" />
         <activity android:name=".view.rishabh.BluetoothActivity" />
-        <activity android:name=".view.rishabh.WiFiActivity" />
+        <activity android:name=".view.rishabh.WiFiActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.robin.ScreenActivity" />
         <activity android:name=".view.robin.SoundActivity" />
         <activity android:name=".view.rishabh.GyroscopeActivity" />
