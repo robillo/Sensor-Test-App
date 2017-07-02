@@ -12,6 +12,7 @@ import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.MenuItemCompat;
@@ -47,7 +48,7 @@ import javax.crypto.SecretKey;
 
 public class FingerprintActivity extends AppCompatActivity {
 
-    public static RelativeLayout activity_fingerprint;
+    public static CoordinatorLayout activity_fingerprint;
     private String sensor_name;
     private TextView textView;
     private FingerprintManager fingerprintManager;
@@ -70,17 +71,7 @@ public class FingerprintActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        Log.e("INSTANTIATE: ", "INSTANTIATE 111111");
-
-        activity_fingerprint = (RelativeLayout) findViewById(R.id.activity_fingerprint);
-
-        Log.e("INSTANTIATE: ", "INSTANTIATE 222222");
-
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
+        activity_fingerprint = (CoordinatorLayout) findViewById(R.id.activity_fingerprint);
 
         keyguardManager =
                 (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
@@ -89,7 +80,6 @@ public class FingerprintActivity extends AppCompatActivity {
 
 
         if (!keyguardManager.isKeyguardSecure()) {
-
             Toast.makeText(this,
                     "Lock screen security not enabled in Settings",
                     Toast.LENGTH_LONG).show();

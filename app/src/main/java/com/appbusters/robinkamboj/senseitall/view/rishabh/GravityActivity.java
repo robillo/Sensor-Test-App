@@ -45,11 +45,6 @@ public class GravityActivity extends AppCompatActivity {
         y = (TextView) findViewById(R.id.yVal);
         z = (TextView) findViewById(R.id.zVal);
 
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
 

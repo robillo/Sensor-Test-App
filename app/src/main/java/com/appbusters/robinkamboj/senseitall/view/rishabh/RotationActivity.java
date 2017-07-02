@@ -58,15 +58,6 @@ public class RotationActivity extends AppCompatActivity {
                 y.setText("Y:    " + gameRotationVectorValues[1]);
                 z.setText("Z:    " + gameRotationVectorValues[2]);
                 cos.setText("Cos:    " + gameRotationVectorValues[3]);
-
-
-//                Log.d(TAG, "X:    " + gameRotationVectorValues[0]);
-//                Log.d(TAG, "Y:    " + gameRotationVectorValues[1]);
-//                Log.d(TAG, "Z:    " + gameRotationVectorValues[2]);
-//                Log.d(TAG, "Cos:    " + gameRotationVectorValues[3]);
-//                data.put("y", gameRotationVectorValues[1]);
-//                data.put("z", gameRotationVectorValues[2]);
-//                data.put("cos", gameRotationVectorValues[3]);
             }
 
             @Override

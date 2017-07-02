@@ -23,17 +23,9 @@ public class MultiTouchActivity extends Activity implements MultiTouchCanvas.Mul
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_multi_touch);
 
         tvInfo = (TextView) findViewById(R.id.tvInfo);
-
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.sensor);
-        textView.setText(sensor_name);
 
         ((MultiTouchCanvas) findViewById(R.id.multiTouchView)).setStatusListener(this);
 
