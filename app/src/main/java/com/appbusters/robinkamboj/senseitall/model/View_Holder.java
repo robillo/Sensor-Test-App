@@ -18,6 +18,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.ItemClickListener;
@@ -66,12 +67,13 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
 
     public TextView sensor_name;
-    public ImageView sensor_imageview, imageview_disabled;
-    public CardView cardView;
-    ItemClickListener clickListener;
-    Context context;
-    double Lat=28;
-    double Lon=77;
+    public ImageView sensor_imageview;
+    private ImageView imageview_disabled;
+    private CardView cardView;
+    private ItemClickListener clickListener;
+    private Context context;
+    private double Lat=28;
+    private double Lon=77;
 
 
     public View_Holder(View itemView) {
@@ -103,134 +105,149 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
     }
 
     public void intent(String sensorName, int position){
-        if(sensorName.equals("Main Camera")){
-            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
-                return;
+        switch (sensorName) {
+            case "Main Camera": {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
+                    return;
+                }
+                Intent i = new Intent(context, CameraActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
             }
-            Intent i = new Intent(context, CameraActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Secondary Camera")){
-            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
-                return;
+            case "Secondary Camera": {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
+                    return;
+                }
+                Intent i = new Intent(context, CameraSecondaryActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
             }
-            Intent i = new Intent(context, CameraSecondaryActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("GPS")){
-            LocationManager locMan = (LocationManager) context.getSystemService(LOCATION_SERVICE);
-            LocationListener locLis = new LocationListener() {
-                @Override
-                public void onLocationChanged(Location location) {
-                    Log.d(TAG, "onLocationChanged: lat:" + location.getLatitude());
-                    Log.d(TAG, "onLocationChanged: long:" + location.getLongitude());
-                    Log.d(TAG, "onLocationChanged: alt:" + location.getAltitude());
-                    Log.d(TAG, "onLocationChanged: bearing:" + location.getBearing()); // angle from North in clockwise
-                    Log.d(TAG, "onLocationChanged: speed:" + location.getSpeed());
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                        Log.d(TAG, "onLocationChanged: " + location.getElapsedRealtimeNanos());
+            case "GPS": {
+                LocationManager locMan = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+                LocationListener locLis = new LocationListener() {
+                    @Override
+                    public void onLocationChanged(Location location) {
+                        Log.d(TAG, "onLocationChanged: lat:" + location.getLatitude());
+                        Log.d(TAG, "onLocationChanged: long:" + location.getLongitude());
+                        Log.d(TAG, "onLocationChanged: alt:" + location.getAltitude());
+                        Log.d(TAG, "onLocationChanged: bearing:" + location.getBearing()); // angle from North in clockwise
+                        Log.d(TAG, "onLocationChanged: speed:" + location.getSpeed());
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                            Log.d(TAG, "onLocationChanged: " + location.getElapsedRealtimeNanos());
+                        }
+                        Lat = location.getLatitude();
+                        Lon = location.getLongitude();
+
                     }
-                    Lat=  location.getLatitude();
-                    Lon = location.getLongitude();
 
+                    @Override
+                    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+                    }
+
+                    @Override
+                    public void onProviderEnabled(String provider) {
+
+                    }
+
+                    @Override
+                    public void onProviderDisabled(String provider) {
+
+                    }
+                };
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.ACCESS_FINE_LOCATION}, 121);
+                    return;
+                } else {
+                    locMan.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, locLis);
+                    locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, locLis);
                 }
-
-                @Override
-                public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                }
-
-                @Override
-                public void onProviderEnabled(String provider) {
-
-                }
-
-                @Override
-                public void onProviderDisabled(String provider) {
-
-                }
-            };
-            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions((Activity) context,new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_FINE_LOCATION},121);
-                return;
-            }else{
-                locMan.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, locLis);
-                locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10,locLis);
+                Intent i = new Intent(context, MapsActivity.class);
+                i.putExtra("lat", Lat);
+                i.putExtra("lon", Lon);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
             }
-            Intent i=  new Intent(context, MapsActivity.class);
-            i.putExtra("lat",  Lat);
-            i.putExtra("lon", Lon);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("WiFi")){
-            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 4);
-                return;
+            case "WiFi": {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 4);
+                    return;
+                }
+                Intent i = new Intent(context, WiFiActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
             }
-            Intent i = new Intent(context, WiFiActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Bluetooth")){
-            Intent i = new Intent(context, BluetoothActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("GSM/UMTS")){
-            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.READ_PHONE_STATE}, 5);
-                return;
+            case "Bluetooth": {
+                Intent i = new Intent(context, BluetoothActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
             }
-            Intent i = new Intent(context, GSMActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Accelerometer")){
-            Intent i = new Intent(context, AccelerometerActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Compass")){
-            Intent i = new Intent(context, CompassActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Radio")){
-            Intent i = new Intent(context, RadioActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Screen")){
-            Intent i = new Intent(context, ScreenActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Battery")){
-            Intent i = new Intent(context, BatteryActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("CPU")){
-            Intent i = new Intent(context, CPUActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Sound")){
-            Intent i = new Intent(context, SoundActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Vibrator")){
-            Intent i = new Intent(context, VibratorActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
+            case "GSM/UMTS": {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_COARSE_LOCATION}, 5);
+                    return;
+                }
+                Intent i = new Intent(context, GSMActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Accelerometer": {
+                Intent i = new Intent(context, AccelerometerActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Compass": {
+                Intent i = new Intent(context, CompassActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Radio": {
+                Intent i = new Intent(context, RadioActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Screen": {
+                Intent i = new Intent(context, ScreenActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Battery": {
+                Intent i = new Intent(context, BatteryActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "CPU": {
+                Intent i = new Intent(context, CPUActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Sound": {
+                Intent i = new Intent(context, SoundActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Vibrator": {
+                Intent i = new Intent(context, VibratorActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
 //        else if(sensorName.equals("Microphone")){
 //            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
 //                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.RECORD_AUDIO}, 3);
@@ -245,105 +262,122 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 //            i.putExtra("sensorName", sensorName);
 //            context.startActivity(i);
 //        }
-        else if(sensorName.equals("Audio/Video outputs")){
-            Intent i = new Intent(context, AudioVideoActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Android OS")){
-            Intent i = new Intent(context, AndroidOSActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Light Sensor")){
-            Intent i = new Intent(context, LightActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Proximity Sensor")){
-            Intent i = new Intent(context, ProximityActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Temperature Sensor")){
-            Intent i = new Intent(context, TemperatureActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Pressure Sensor")){
-            Intent i = new Intent(context, PressureActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Relative Humidity")){
-            Intent i = new Intent(context, HumidityActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Flash")){
-            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
-                return;
+            case "Audio/Video outputs": {
+                Intent i = new Intent(context, AudioVideoActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
             }
-            Intent i = new Intent(context, FlashActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
+            case "Android OS": {
+                Intent i = new Intent(context, AndroidOSActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Light Sensor": {
+                Intent i = new Intent(context, LightActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Proximity Sensor": {
+                Intent i = new Intent(context, ProximityActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Temperature Sensor": {
+                Intent i = new Intent(context, TemperatureActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Pressure Sensor": {
+                Intent i = new Intent(context, PressureActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Relative Humidity": {
+                Intent i = new Intent(context, HumidityActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Flash": {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
+                    return;
+                }
+                Intent i = new Intent(context, FlashActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
 //        else if(sensorName.equals("ANT+")){
 //
 //        }
-        else if(sensorName.equals("Gyroscope")){
-            Intent i = new Intent(context, GyroscopeActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Gravity")){
-            Intent i = new Intent(context, GravityActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
+            case "Gyroscope": {
+                Intent i = new Intent(context, GyroscopeActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Gravity": {
+                Intent i = new Intent(context, GravityActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
 
-        }
-        else if(sensorName.equals("Linear Acceleration")){
-            Intent i = new Intent(context, LinearAccelerationActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Rotation Vector")){
-            Intent i = new Intent(context, RotationActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
+                break;
+            }
+            case "Linear Acceleration": {
+                Intent i = new Intent(context, LinearAccelerationActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Rotation Vector": {
+                Intent i = new Intent(context, RotationActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
 //        else if(sensorName.equals("Infrared")){
 //
 //        }
-        else if(sensorName.equals("Step Detector")){
-            Intent i = new Intent(context, StepDetectorActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Step Counter")){
-            Intent i = new Intent(context, StepCounterActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
+            case "Step Detector": {
+                Intent i = new Intent(context, StepDetectorActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Step Counter": {
+                Intent i = new Intent(context, StepCounterActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
 //        else if(sensorName.equals("Fake Touch")){
 //
 //        }
-        else if(sensorName.equals("Motion Detector")){
-            Intent i = new Intent(context, MotionDetectActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Stationary Detector")){
-            Intent i = new Intent(context, StationaryDetectActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Multi Touch")){
-            Intent i = new Intent(context, MultiTouchActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
+            case "Motion Detector": {
+                Intent i = new Intent(context, MotionDetectActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Stationary Detector": {
+                Intent i = new Intent(context, StationaryDetectActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Multi Touch": {
+                Intent i = new Intent(context, MultiTouchActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
 //        else if(sensorName.equals("WiFi Direct")){
 //
 //        }
@@ -352,327 +386,47 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 //            i.putExtra("sensorName", sensorName);
 //            context.startActivity(i);
 //        }
-        else if(sensorName.equals("Heart Rate")){
+            case "Heart Rate": {
 
-            Intent i = new Intent(context, HeartBeatActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
+                Intent i = new Intent(context, HeartBeatActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
 
-        }
+                break;
+            }
 //        else if(sensorName.equals("ECG Sensor")){
 //            Intent i = new Intent(context, ECGActivity.class);
 //            i.putExtra("sensorName", sensorName);
 //            context.startActivity(i);
 //        }
-        else if(sensorName.equals("Fingerprint")){
-            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.USE_FINGERPRINT}, 2);
-                return;
-            }
-            Intent i = new Intent(context, FingerprintActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
+            case "Fingerprint": {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.USE_FINGERPRINT}, 2);
+                    }
+                    else {
+                        Toast.makeText(context, "FINGERPRINT SENSOR NOT PRESENT", Toast.LENGTH_SHORT).show();
+                    }
+                    return;
+                }
+                Intent i = new Intent(context, FingerprintActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
 
+                break;
+            }
+            case "NFC": {
+                Intent i = new Intent(context, NFCActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
+            case "Magnetic Field Sensor": {
+                Intent i = new Intent(context, MagneticActivity.class);
+                i.putExtra("sensorName", sensorName);
+                context.startActivity(i);
+                break;
+            }
         }
-        else if(sensorName.equals("NFC")){
-            Intent i = new Intent(context, NFCActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-        else if(sensorName.equals("Magnetic Field Sensor")){
-            Intent i = new Intent(context, MagneticActivity.class);
-            i.putExtra("sensorName", sensorName);
-            context.startActivity(i);
-        }
-//        position++;
-//        switch (position){
-//            case 1:{
-//                Intent i = new Intent(context, CameraActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 2:{
-//                Intent i = new Intent(context, CameraSecondaryActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 3:{
-//                LocationManager locMan = (LocationManager) context.getSystemService(LOCATION_SERVICE);
-//                LocationListener locLis = new LocationListener() {
-//                    @Override
-//                    public void onLocationChanged(Location location) {
-//                        Log.d(TAG, "onLocationChanged: lat:" + location.getLatitude());
-//                        Log.d(TAG, "onLocationChanged: long:" + location.getLongitude());
-//                        Log.d(TAG, "onLocationChanged: alt:" + location.getAltitude());
-//                        Log.d(TAG, "onLocationChanged: bearing:" + location.getBearing()); // angle from North in clockwise
-//                        Log.d(TAG, "onLocationChanged: speed:" + location.getSpeed());
-//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-//                            Log.d(TAG, "onLocationChanged: " + location.getElapsedRealtimeNanos());
-//                        }
-//                        Lat=  location.getLatitude();
-//                        Lon = location.getLongitude();
-//
-//                    }
-//
-//                    @Override
-//                    public void onStatusChanged(String provider, int status, Bundle extras) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onProviderEnabled(String provider) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onProviderDisabled(String provider) {
-//
-//                    }
-//                };
-//                if (ActivityCompat.checkSelfPermission((Activity) context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission((Activity) context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//                    // TODO: Consider calling
-//                    //    ActivityCompat#requestPermissions
-//                    // here to request the missing permissions, and then overriding
-//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                    //                                          int[] grantResults)
-//                    // to handle the case where the user grants the permission. See the documentation
-//                    // for ActivityCompat#requestPermissions for more details.
-//                    ActivityCompat.requestPermissions((Activity) context,new String[] {Manifest.permission.ACCESS_COARSE_LOCATION,
-//                            Manifest.permission.ACCESS_FINE_LOCATION},121);
-//                    return;
-//                }else{
-//                    locMan.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, locLis);
-//                    locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10,locLis);
-//                }
-//                Intent i=  new Intent(context, MapsActivity.class);
-//                i.putExtra("lat",  Lat);
-//                i.putExtra("lon", Lon);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 4:{
-//
-//                Intent i = new Intent(context, WiFiActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 5:{
-//                Intent i = new Intent(context, BluetoothActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 6:{
-//                Intent i = new Intent(context, GSMActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 7:{
-//                Intent i = new Intent(context, AccelerometerActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 8:{
-//                Intent i = new Intent(context, CompassActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 9:{
-//                Intent i = new Intent(context, RadioActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 10:{
-//                Intent i = new Intent(context, ScreenActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 11:{
-//                Intent i = new Intent(context, BatteryActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 12:{
-//                Intent i = new Intent(context, CPUActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 13:{
-//                Intent i = new Intent(context, SoundActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 14:{
-//                Intent i = new Intent(context, VibratorActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 15:{
-//
-//                break;
-//            }
-//            case 16:{
-//
-//                break;
-//            }
-//            case 17:{
-//
-//                break;
-//            }
-//            case 18:{
-//                Intent i = new Intent(context, AndroidOSActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 19:{
-//                Intent i = new Intent(context, LightActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 20:{
-//                Intent i = new Intent(context, ProximityActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 21:{
-//                Intent i = new Intent(context, TemperatureActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 22:{
-//                Intent i = new Intent(context, PressureActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 23:{
-//                Intent i = new Intent(context, HumidityActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 24:{
-//                Intent i = new Intent(context, FlashActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 25:{
-//
-//                break;
-//            }
-//            case 26:{
-//                Intent i = new Intent(context, GyroscopeActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 27:{
-//
-//                break;
-//            }
-//            case 28:{
-//                Intent i = new Intent(context, LinearAccelerationActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//
-//                break;
-//            }
-//            case 29:{
-//                Intent i = new Intent(context, RotationActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//
-//                break;
-//            }
-//            case 30:{
-//
-//                break;
-//            }
-//            case 31:{
-//                Intent i = new Intent(context, StepDetectorActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 32:{
-//                Intent i = new Intent(context, StepCounterActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 33:{
-//
-//                break;
-//            }
-//            case 34:{
-//
-//                break;
-//            }
-//            case 35:{
-//
-//                break;
-//            }
-//            case 36:{
-//                Intent i = new Intent(context, MultiTouchActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 37:{
-//
-//                break;
-//            }
-//            case 38:{
-//                Intent i = new Intent(context, BarometerActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 39:{
-//
-//                break;
-//            }
-//            case 40:{
-//                Intent i = new Intent(context, ECGActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 41:{
-//                Intent i = new Intent(context, FingerprintActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 42:{
-//                Intent i = new Intent(context, NFCActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//            case 43:{
-//                Intent i = new Intent(context, MagneticActivity.class);
-//                i.putExtra("sensorName", sensorName);
-//                context.startActivity(i);
-//                break;
-//            }
-//        }
     }
 }
