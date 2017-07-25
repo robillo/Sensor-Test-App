@@ -60,9 +60,12 @@ public class AccelerometerActivity extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent event) {
 
-                    x.setText("X Axis:    " + event.values[0]);
-                    y.setText("Y Axis:    " + event.values[1]);
-                    z.setText("Z Axis:    " + event.values[2]);
+                String a = "X Axis:    " + event.values[0];
+                String b = "Y Axis:    " + event.values[1];
+                String c = "Z Axis:    " + event.values[2];
+                    x.setText(a);
+                    y.setText(b);
+                    z.setText(c);
 
             }
             @Override
@@ -86,26 +89,30 @@ public class AccelerometerActivity extends AppCompatActivity {
 
 
     private void setResults(){
-        results = new String[]{
-                "Name:    " + sensor.getName(), "Vendor:    " + sensor.getVendor(),
-                "Version:    " + String.valueOf(sensor.getVersion()),
-                "Maximum Range:    " + String.valueOf(sensor.getMaximumRange()),
-                "Power:    " + String.valueOf(sensor.getPower()),
-                "Minimum Delay:    " + String.valueOf(sensor.getMinDelay()),
-                "Maximum Delay:    " + String.valueOf(sensor.getMaxDelay()),
-                "Resolution:    " + String.valueOf(sensor.getResolution())
-        };
+        if(sensor!=null){
+            results = new String[]{
+                    "Name:    " + sensor.getName(), "Vendor:    " + sensor.getVendor(),
+                    "Version:    " + String.valueOf(sensor.getVersion()),
+                    "Maximum Range:    " + String.valueOf(sensor.getMaximumRange()),
+                    "Power:    " + String.valueOf(sensor.getPower()),
+                    "Minimum Delay:    " + String.valueOf(sensor.getMinDelay()),
+                    "Maximum Delay:    " + String.valueOf(sensor.getMaxDelay()),
+                    "Resolution:    " + String.valueOf(sensor.getResolution())
+            };
+        }
     }
 
     private void setTextviews(){
-        name.setText(results[0]);
-        vendor.setText(results[1]);
-        version.setText(results[2]);
-        maximum_range.setText(results[3]);
-        power.setText(results[4]);
-        minimum_delay.setText(results[5]);
-        maximum_delay.setText(results[6]);
-        resolution.setText(results[7]);
+        if(sensor!=null){
+            name.setText(results[0]);
+            vendor.setText(results[1]);
+            version.setText(results[2]);
+            maximum_range.setText(results[3]);
+            power.setText(results[4]);
+            minimum_delay.setText(results[5]);
+            maximum_delay.setText(results[6]);
+            resolution.setText(results[7]);
+        }
     }
 
     @Override

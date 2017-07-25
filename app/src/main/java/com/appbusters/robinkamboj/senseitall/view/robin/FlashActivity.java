@@ -18,10 +18,10 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
+@SuppressWarnings("deprecation")
 public class FlashActivity extends AppCompatActivity {
 
     private boolean isFlashOn = false;
-    CardView card;
     String sensor_name;
     TextView textView;
     Camera.Parameters parameters;
@@ -49,6 +49,7 @@ public class FlashActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 

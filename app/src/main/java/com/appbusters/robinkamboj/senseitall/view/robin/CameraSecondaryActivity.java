@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.robin;
 
 import android.content.Intent;
 import android.hardware.Camera;
+import android.hardware.Camera.CameraInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +22,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 
 import java.io.IOException;
 
+@SuppressWarnings("deprecation")
 public class CameraSecondaryActivity extends AppCompatActivity implements SurfaceHolder.Callback{
 
     Boolean previewing = false;
@@ -28,15 +30,12 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
     Button show_preview, stop_preview;
     SurfaceView surfaceView;
     SurfaceHolder surfaceHolder;
-    Camera.Parameters parameters;
-    private final String tag = "VideoServer";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_secondary);
 
-        Intent i = getIntent();
         show_preview = (Button) findViewById(R.id.show_preview);
         stop_preview = (Button) findViewById(R.id.stop_preview);
 
@@ -56,7 +55,7 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
                         try {
                             if (Camera.getNumberOfCameras() >= 2) {
                                 //if you want to open front facing camera use this line
-                                camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+                                camera = Camera.open(CameraInfo.CAMERA_FACING_FRONT);
                             }
                             camera.setDisplayOrientation(90);
                             camera.setPreviewDisplay(surfaceHolder);
@@ -85,6 +84,7 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
@@ -95,45 +95,8 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
 
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int format, int width, int height) {
-
-//        if(camera!=null && previewing){
-//            camera.stopPreview();
-//            camera.release();
-//            camera = null;
-//            previewing = false;
-//        }
-
         releaseCameraAndPreview();
-
         camera = Camera.open();
-
-        Display display = ((WindowManager)getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
-
-//        if(display.getRotation() == Surface.ROTATION_0)
-//        {
-//            parameters.setPreviewSize(height, width);
-//            camera.setDisplayOrientation(90);
-//        }
-//
-//        if(display.getRotation() == Surface.ROTATION_90)
-//        {
-//            parameters.setPreviewSize(width, height);
-//        }
-//
-//        if(display.getRotation() == Surface.ROTATION_180)
-//        {
-//            parameters.setPreviewSize(height, width);
-//        }
-//
-//        if(display.getRotation() == Surface.ROTATION_270)
-//        {
-//            parameters.setPreviewSize(width, height);
-//            camera.setDisplayOrientation(180);
-//        }
-
-
-
-//        camera.setParameters(parameters);
         previewCamera();
 
     }
@@ -146,7 +109,7 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
                 try {
                     int rotation = 0;
 
-                    switch (getWindowManager().getDefaultDisplay().getRotation()){
+                    switch (getWindowManager().getDefaultDisplay().getRotation()) {
                         case Surface.ROTATION_0:
                             rotation = 90;
                             break;
@@ -156,12 +119,14 @@ public class CameraSecondaryActivity extends AppCompatActivity implements Surfac
                         case Surface.ROTATION_270:
                             rotation = 180;
                             break;
+                        case Surface.ROTATION_180:
+                            break;
                     }
 
                     if (Camera.getNumberOfCameras() >= 2) {
                         try {
                             //if you want to open front facing camera use this line
-                            camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+                            camera = Camera.open(CameraInfo.CAMERA_FACING_FRONT);
                         }
                         catch (Exception e){
                             e.printStackTrace();

@@ -4,6 +4,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ public class HeartBeatActivity extends AppCompatActivity {
     SensorEventListener sensorEventListener;
     private String results[];
 
-    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution, x,y,z;
+    private TextView name, vendor, version, maximum_range, power, minimum_delay, maximum_delay, resolution, x;
 
 
     @Override
@@ -37,13 +38,16 @@ public class HeartBeatActivity extends AppCompatActivity {
         x = (TextView) findViewById(R.id.xVal);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MOTION_DETECT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MOTION_DETECT);
+        }
 
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
 
-                x.setText("Confidence Level (0-1):    " + event.values[0]);
+                String temp = "Confidence Level (0-1):    " + event.values[0];
+                x.setText(temp);
 
             }
             @Override
@@ -67,26 +71,30 @@ public class HeartBeatActivity extends AppCompatActivity {
 
 
     private void setResults(){
-        results = new String[]{
-                "Name:    " + sensor.getName(), "Vendor:    " + sensor.getVendor(),
-                "Version:    " + String.valueOf(sensor.getVersion()),
-                "Maximum Range:    " + String.valueOf(sensor.getMaximumRange()),
-                "Power:    " + String.valueOf(sensor.getPower()),
-                "Minimum Delay:    " + String.valueOf(sensor.getMinDelay()),
-                "Maximum Delay:    " + String.valueOf(sensor.getMaxDelay()),
-                "Resolution:    " + String.valueOf(sensor.getResolution())
-        };
+        if (sensor != null) {
+            results = new String[]{
+                    "Name:    " + sensor.getName(), "Vendor:    " + sensor.getVendor(),
+                    "Version:    " + String.valueOf(sensor.getVersion()),
+                    "Maximum Range:    " + String.valueOf(sensor.getMaximumRange()),
+                    "Power:    " + String.valueOf(sensor.getPower()),
+                    "Minimum Delay:    " + String.valueOf(sensor.getMinDelay()),
+                    "Maximum Delay:    " + String.valueOf(sensor.getMaxDelay()),
+                    "Resolution:    " + String.valueOf(sensor.getResolution())
+            };
+        }
     }
 
     private void setTextviews(){
-        name.setText(results[0]);
-        vendor.setText(results[1]);
-        version.setText(results[2]);
-        maximum_range.setText(results[3]);
-        power.setText(results[4]);
-        minimum_delay.setText(results[5]);
-        maximum_delay.setText(results[6]);
-        resolution.setText(results[7]);
+        if(sensor!=null){
+            name.setText(results[0]);
+            vendor.setText(results[1]);
+            version.setText(results[2]);
+            maximum_range.setText(results[3]);
+            power.setText(results[4]);
+            minimum_delay.setText(results[5]);
+            maximum_delay.setText(results[6]);
+            resolution.setText(results[7]);
+        }
     }
 
     @Override
