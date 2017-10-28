@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.appbusters.robinkamboj.senseitall"
         minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 3
-        versionName "2.5"
+        targetSdkVersion 26
+        versionCode 4
+        versionName "2.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // Enabling multidex support.
         multiDexEnabled true

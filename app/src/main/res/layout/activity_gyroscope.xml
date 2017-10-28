@@ -87,7 +87,8 @@
                         android:textSize="15sp"
                         android:textColor="@color/colorWhiteShade"
                         android:background="@color/colorPrimaryDark"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:visibility="gone"/>
 
                     <ScrollView
                         android:layout_width="match_parent"
