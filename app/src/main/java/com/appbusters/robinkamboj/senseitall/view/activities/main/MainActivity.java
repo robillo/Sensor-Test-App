@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.activities.main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -30,17 +31,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MA";
-    AVLoadingIndicatorView avi;
-//    AVLoadingIndicatorView avi_2;
-    ImageView imageView;
-    TextView textView1, textView2;
     Button button;
     boolean[] isPresent;
     PackageManager packageManager;
     Context context;
     String[] sensors;
-
-//    private static final int ALL_MY_PERMISSIONS = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,47 +43,19 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         context = getApplicationContext();
-        imageView = findViewById(R.id.icon);
-        textView1 = findViewById(R.id.textView1);
-        textView2 = findViewById(R.id.textView2);
         button = findViewById(R.id.button);
-        avi = findViewById(R.id.avi);
-        avi.show();
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-                List<Sensor> mySensonList = sensorManager != null ? sensorManager.getSensorList(Sensor.TYPE_ALL) : null;
-
+                List<Sensor> mySensorsList = sensorManager != null ? sensorManager.getSensorList(Sensor.TYPE_ALL) : null;
                 sensors = getResources().getStringArray(R.array.sensors_list);
-                isPresent = isSensorPresent(sensors, mySensonList);
-
-                Log.e("ROBIN:" , Boolean.toString(isPresent[0]) + " " + Boolean.toString(isPresent[1]));
-
-                button.setVisibility(View.VISIBLE);
-                avi.hide();
-                imageView.setVisibility(View.VISIBLE);
-//                avi_2.show();
-                textView1.setText("Done With Analyzing!");
-                textView2.setText("Move To The Next Step?");
-
+                isPresent = isSensorPresent(sensors, mySensorsList);
             }
         }, 3000);
     }
-
-//    //Permissions Helper Method
-//    public static boolean hasPermissions(Context context, String[] permissions){
-//        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M && context!=null && permissions!=null){
-//            for(String permission : permissions){
-//                if(ActivityCompat.checkSelfPermission(context,permission)!=PackageManager.PERMISSION_GRANTED){
-//                    return false;
-//                }
-//            }
-//        }
-//        return true;
-//    }
 
     public void onClick(View v){
         switch (v.getId()){
@@ -107,23 +74,15 @@ public class MainActivity extends AppCompatActivity{
         packageManager = getPackageManager();
         boolean[] isPresent = new boolean[sensors.length];
 
-        HashMap<String,Boolean> map  = new HashMap<>();
-        List<ApplicationInfo> pm = getPackageManager().getInstalledApplications(PackageManager.GET_ACTIVITIES|PackageManager.GET_PROVIDERS);
-
         ConsumerIrManager infrared = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
             infrared = (ConsumerIrManager) getSystemService(CONSUMER_IR_SERVICE);
         }
 
-        for(ApplicationInfo ai:pm){
-            Log.d(TAG, "INSTALLED APP: "+ai.toString());
-        }
         for(Sensor sensor1: sensorList){
-            map.put(sensor1.getName(),false);
             Log.d(TAG, "HashMap: "+sensor1.getName());
         }
         for(FeatureInfo featureInfo :packageManager.getSystemAvailableFeatures()){
-            map.put(featureInfo.toString(),false);
             Log.d(TAG, "FEATURE INFO: "+featureInfo.toString());
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)){
@@ -209,12 +168,6 @@ public class MainActivity extends AppCompatActivity{
         if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY) : null) !=null){
             isPresent[23] = true;
         }
-//        Sensor acc = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-//        Sensor pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
-//        Sensor grav = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
-//        Log.d(TAG, "ACC: "+acc);
-//        Log.d(TAG, "PRESSURE"+pressure);
-//        Log.d(TAG, "GRAVITY: "+grav);
         if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION) : null) !=null){
             isPresent[24] = true;
         }
