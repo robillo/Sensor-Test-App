@@ -13,16 +13,13 @@ import android.widget.Filterable;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.Data;
 import com.appbusters.robinkamboj.senseitall.model.View_Holder;
-import com.appbusters.robinkamboj.senseitall.view.ListActivity;
-import com.appbusters.robinkamboj.senseitall.view.MainActivity;
+import com.appbusters.robinkamboj.senseitall.view.activities.list.ListActivity;
 import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import static android.content.ContentValues.TAG;
 

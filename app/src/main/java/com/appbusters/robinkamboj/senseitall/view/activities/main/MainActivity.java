@@ -1,7 +1,5 @@
-package com.appbusters.robinkamboj.senseitall.view;
+package com.appbusters.robinkamboj.senseitall.view.activities.main;
 
-import android.Manifest;
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -15,19 +13,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.view.activities.list.ListActivity;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.HashMap;
@@ -52,27 +46,13 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//
-//        String[] permissions={
-//                Manifest.permission.WRITE_CONTACTS,
-//                Manifest.permission.READ_CONTACTS,
-//                Manifest.permission.READ_PHONE_STATE,
-////                Manifest.permission.ACCESS_COARSE_LOCATION,
-////                Manifest.permission.CAMERA, Manifest.permission.USE_FINGERPRINT,
-////                Manifest.permission.RECORD_AUDIO
-//        };
-//
-//        if(!hasPermissions(this, permissions)){
-//            ActivityCompat.requestPermissions(this, permissions, ALL_MY_PERMISSIONS);
-//        }
 
-          context = getApplicationContext();
-        imageView = (ImageView) findViewById(R.id.icon);
-        textView1 = (TextView) findViewById(R.id.textView1);
-        textView2 = (TextView) findViewById(R.id.textView2);
-        button = (Button) findViewById(R.id.button);
-        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
-//        avi_2 = (AVLoadingIndicatorView) findViewById(R.id.avi_2);
+        context = getApplicationContext();
+        imageView = findViewById(R.id.icon);
+        textView1 = findViewById(R.id.textView1);
+        textView2 = findViewById(R.id.textView2);
+        button = findViewById(R.id.button);
+        avi = findViewById(R.id.avi);
         avi.show();
 
         final Handler handler = new Handler();
@@ -80,7 +60,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void run() {
                 SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-                List<Sensor> mySensonList = sensorManager.getSensorList(Sensor.TYPE_ALL);
+                List<Sensor> mySensonList = sensorManager != null ? sensorManager.getSensorList(Sensor.TYPE_ALL) : null;
 
                 sensors = getResources().getStringArray(R.array.sensors_list);
                 isPresent = isSensorPresent(sensors, mySensonList);
@@ -121,17 +101,6 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-//
-//    void startAnim(){
-//        avi.show();
-//        // or avi.smoothToShow();
-//    }
-//
-//    void stopAnim(){
-//        avi.hide();
-//        // or avi.smoothToHide();
-//    }
-
     boolean[] isSensorPresent(String[] sensors, List<Sensor> sensorList){
 
         SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -141,7 +110,10 @@ public class MainActivity extends AppCompatActivity{
         HashMap<String,Boolean> map  = new HashMap<>();
         List<ApplicationInfo> pm = getPackageManager().getInstalledApplications(PackageManager.GET_ACTIVITIES|PackageManager.GET_PROVIDERS);
 
-        ConsumerIrManager infrared = (ConsumerIrManager) getSystemService(CONSUMER_IR_SERVICE);
+        ConsumerIrManager infrared = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            infrared = (ConsumerIrManager) getSystemService(CONSUMER_IR_SERVICE);
+        }
 
         for(ApplicationInfo ai:pm){
             Log.d(TAG, "INSTALLED APP: "+ai.toString());
@@ -182,7 +154,7 @@ public class MainActivity extends AppCompatActivity{
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS)){
             isPresent[7] = true;
         }
-        if(Build.getRadioVersion()!="unknown"|| Build.getRadioVersion()!=null){
+        if(Build.getRadioVersion().equals("unknown")|| Build.getRadioVersion()!=null){
             isPresent[8] = true;
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN)){
@@ -197,7 +169,7 @@ public class MainActivity extends AppCompatActivity{
         }
         Vibrator v = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 
-        if(v.hasVibrator()){
+        if(v != null && v.hasVibrator()){
             isPresent[13] = true;
         }
 //        if(packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)){
@@ -209,9 +181,7 @@ public class MainActivity extends AppCompatActivity{
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_AUDIO_OUTPUT)){
             isPresent[14] = true;
         }
-        if(Build.VERSION.SDK_INT> Build.VERSION_CODES.DONUT){
-            isPresent[15] = true;
-        }
+        isPresent[15] = true;
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_LIGHT)){
             isPresent[16] = true;
         }
@@ -221,7 +191,7 @@ public class MainActivity extends AppCompatActivity{
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_AMBIENT_TEMPERATURE)){
             isPresent[18] = true;
         }
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)!=null){
+        if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE) : null) !=null){
             isPresent[19] = true;
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_RELATIVE_HUMIDITY)){
@@ -236,7 +206,7 @@ public class MainActivity extends AppCompatActivity{
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE)){
             isPresent[22] = true;
         }
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)!=null){
+        if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY) : null) !=null){
             isPresent[23] = true;
         }
 //        Sensor acc = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -245,14 +215,14 @@ public class MainActivity extends AppCompatActivity{
 //        Log.d(TAG, "ACC: "+acc);
 //        Log.d(TAG, "PRESSURE"+pressure);
 //        Log.d(TAG, "GRAVITY: "+grav);
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)!=null){
+        if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION) : null) !=null){
             isPresent[24] = true;
         }
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)!=null){
+        if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR) : null) !=null){
             isPresent[25] = true;
         }
 
-        if(infrared.hasIrEmitter()){
+        if(infrared != null && infrared.hasIrEmitter()){
             isPresent[26] = true;
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR)){
@@ -264,11 +234,15 @@ public class MainActivity extends AppCompatActivity{
 //        if(packageManager.hasSystemFeature(PackageManager.FEATURE_FAKETOUCH)){
 //            isPresent[31] = true;
 //        }
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_MOTION_DETECT)!=null){
-            isPresent[29] = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_MOTION_DETECT) : null) !=null){
+                isPresent[29] = true;
+            }
         }
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_STATIONARY_DETECT)!=null){
-            isPresent[30] = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_STATIONARY_DETECT) : null) !=null){
+                isPresent[30] = true;
+            }
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN_MULTITOUCH)){
             isPresent[31] = true;
@@ -289,7 +263,7 @@ public class MainActivity extends AppCompatActivity{
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //Fingerprint API only available on from Android 6.0 (M)
             FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-            if (!fingerprintManager.isHardwareDetected()) {
+            if (!(fingerprintManager != null && fingerprintManager.isHardwareDetected())) {
                 // Device doesn't support fingerprint authentication
             } else if (!fingerprintManager.hasEnrolledFingerprints()) {
                 // User hasn't enrolled any fingerprints to authenticate with
@@ -302,7 +276,7 @@ public class MainActivity extends AppCompatActivity{
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_NFC)){
             isPresent[34] = true;
         }
-        if(sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)!=null){
+        if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) : null) !=null){
             isPresent[35] = true;
         }
         return isPresent;

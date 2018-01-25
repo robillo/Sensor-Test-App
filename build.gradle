@@ -9,7 +9,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -26,4 +26,45 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+// Define versions in a single place
+ext {
+    // Sdk and tools
+    minSdkVersion = 21
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.2'
+    constraintLayoutVersion = '1.0.2'
+
+    // App dependencies
+    supportLibraryVersion = '27.0.2'
+    gsonVersion = '2.8.0'
+    calligraphyVersion = '2.3.0'
+    glideVersion = '3.7.0'
+
+    circularRevealVersion = '2.0.1@aar'
+    htextviewVersion = '0.1.1'
+    spruceVersion = '1.0.1'
+    navTabBarVersion = '1.2.5'
+    shimmerLayoutVersion = '1.0.2'
+
+    rx2FastAndroidNetworking = '1.0.0'
+
+    dagger2Version = '2.8'
+    rxjava2Version = '2.0.6'
+    rxandroidVersion = '2.0.1'
+    butterKnifeVersion = '8.8.1'
+    greenDaoVersion = '3.2.0'
+    placeholderviewVersion = '0.6.1'
+    debugDBVersion = '1.0.0'
+    timberVersion = '4.5.1'
+    retrofitVersion = '2.3.0'
+    archLifecycleVersion = '1.1.0'
+    roomLifecycleVersion = '1.0.0'
+
+    //Test dependencies
+    junitVersion = '4.12'
+    espressoVersion = '2.2.2'
+    mockitoVersion = '2.7.1'
 }

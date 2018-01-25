@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view;
+package com.appbusters.robinkamboj.senseitall.view.activities.about;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
