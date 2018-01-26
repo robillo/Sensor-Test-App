@@ -48,49 +48,49 @@ public class ListActivity extends AppCompatActivity {
         isPresent = (boolean[]) getIntent().getSerializableExtra("sensors_present");
 
         drawables = new int[]{
-                R.drawable.camera,
-                R.drawable.camera,
-                R.drawable.gps,
-                R.drawable.wifi,
-                R.drawable.bluetooth,
-                R.drawable.gsm,
-                R.drawable.accelerometer,
-                R.drawable.compass,
-                R.drawable.radio,
-                R.drawable.screen,
-                R.drawable.battery_,
-                R.drawable.cpu,
-                R.drawable.sound,
-                R.drawable.vibrator,
-//                R.drawable.mic,
-//                R.drawable.usb,
-                R.drawable.aud_vid,
-                R.drawable.android,
-                R.drawable.light,
-                R.drawable.proximity,
-                R.drawable.temperature,
-                R.drawable.light,
-                R.drawable.humidity,
-                R.drawable.flash,
-//                R.drawable.ant,
-                R.drawable.gyroscope,
-                R.drawable.apple,
-                R.drawable.accelerometer,
-                R.drawable.rotation,
-                R.drawable.proximity,
-                R.drawable.step_detector,
-                R.drawable.step_detector,
-//                R.drawable.multitouch,
-                R.drawable.motion_detector,
-                R.drawable.motion_detector,
-                R.drawable.multitouch,
-//                R.drawable.wifi,
-//                R.drawable.rotation,
-                R.drawable.heart,
-//                R.drawable.rotation,
-                R.drawable.fingerprint,
-                R.drawable.nfc,
-                R.drawable.mag
+                R.drawable.camera,      //0
+                R.drawable.camera,      //1
+                R.drawable.gps,      //2
+                R.drawable.wifi,      //3
+                R.drawable.bluetooth,      //4
+                R.drawable.gsm,      //5
+                R.drawable.accelerometer,      //6
+                R.drawable.compass,      //7
+                R.drawable.radio,      //8
+                R.drawable.screen,      //9
+                R.drawable.battery_,      //10
+                R.drawable.cpu,      //11
+                R.drawable.sound,      //12
+                R.drawable.vibrator,      //13
+                R.drawable.aud_vid,      //14
+                R.drawable.android,      //15
+                R.drawable.light,      //16
+                R.drawable.proximity,      //17
+                R.drawable.temperature,      //18
+                R.drawable.light,      //19
+                R.drawable.humidity,      //20
+                R.drawable.flash,      //21
+                R.drawable.gyroscope,      //22
+                R.drawable.apple,      //23
+                R.drawable.accelerometer,      //24
+                R.drawable.rotation,      //25
+                R.drawable.proximity,      //26
+                R.drawable.step_detector,      //27
+                R.drawable.step_detector,      //28
+                R.drawable.motion_detector,      //29
+                R.drawable.motion_detector,      //30
+                R.drawable.multitouch,      //31
+                R.drawable.heart,      //32
+                R.drawable.fingerprint,      //33
+                R.drawable.nfc,      //34
+                R.drawable.mag      //35
+//                R.drawable.mic,      //36
+//                R.drawable.usb,      //37
+//                R.drawable.ant,      //38
+//                R.drawable.faketouch,      //39
+//                R.drawable.wifi_direct,      //40
+//                R.drawable.barometer,      //41
+//                R.drawable.heart_rate_Ecg,      //42
         };
 
         sensors_list = getResources().getStringArray(R.array.sensors_list);

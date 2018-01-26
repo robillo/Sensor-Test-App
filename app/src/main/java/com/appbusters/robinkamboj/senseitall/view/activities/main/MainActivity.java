@@ -101,10 +101,11 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN)){
             isPresent[9] = true;
         }
+
             isPresent[10] = true;
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_CPU)){
+
             isPresent[11] = true;
-//        }
+
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_MIDI)){
             isPresent[12] = true;
         }
@@ -113,12 +114,6 @@ public class MainActivity extends AppCompatActivity {
         if(v != null && v.hasVibrator()){
             isPresent[13] = true;
         }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)){
-//            isPresent[14] = true;
-//        }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_USB_ACCESSORY)){
-//            isPresent[15] = true;
-//        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_AUDIO_OUTPUT)){
             isPresent[14] = true;
         }
@@ -141,9 +136,6 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
             isPresent[21] = true;
         }
-////        if(packageManager.hasSystemFeature(PackageManager.FEATURE_ANT+)){
-//            isPresent[24] = false;
-////        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE)){
             isPresent[22] = true;
         }
@@ -156,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
         if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR) : null) !=null){
             isPresent[25] = true;
         }
-
         if(infrared != null && infrared.hasIrEmitter()){
             isPresent[26] = true;
         }
@@ -166,9 +157,6 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_COUNTER)){
             isPresent[28] = true;
         }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_FAKETOUCH)){
-//            isPresent[31] = true;
-//        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_MOTION_DETECT) : null) !=null){
                 isPresent[29] = true;
@@ -182,18 +170,9 @@ public class MainActivity extends AppCompatActivity {
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN_MULTITOUCH)){
             isPresent[31] = true;
         }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_WIFI_DIRECT)){
-//            isPresent[34] = true;
-//        }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_BAROMETER)){
-//            isPresent[35] = true;
-//        }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE)){
             isPresent[32] = true;
         }
-//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE_ECG)){
-//            isPresent[35] = true;
-//        }
         // Check if we're running on Android 6.0 (M) or higher
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //Fingerprint API only available on from Android 6.0 (M)
@@ -214,6 +193,27 @@ public class MainActivity extends AppCompatActivity {
         if((sensorManager != null ? sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) : null) !=null){
             isPresent[35] = true;
         }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)){
+//            isPresent[14] = true;
+//        }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_USB_ACCESSORY)){
+//            isPresent[15] = true;
+//        }
+////        if(packageManager.hasSystemFeature(PackageManager.FEATURE_ANT+)){
+//            isPresent[24] = false;
+////        }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_FAKETOUCH)){
+//            isPresent[31] = true;
+//        }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_WIFI_DIRECT)){
+//            isPresent[34] = true;
+//        }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_BAROMETER)){
+//            isPresent[35] = true;
+//        }
+//        if(packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HEART_RATE_ECG)){
+//            isPresent[35] = true;
+//        }
         return isPresent;
     }
 }
