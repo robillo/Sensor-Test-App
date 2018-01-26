@@ -113,11 +113,8 @@ public class ListActivity extends AppCompatActivity {
 
     private List<Data> fillWithData(){
         List<Data> data = new ArrayList<>();
-        ArrayList<String> listStr = new ArrayList<>();
         for(int i = 1; i <= sensors_list.length; i++){
             data.add(new Data(sensors_list[i-1], drawables[i-1], isPresent[i-1]));
-            Log.d(TAG, "fillWithData: "+ data.get(i - 1).getSensor_name());
-            listStr.add(data.get(i - 1).getSensor_name());
         }
         return data;
     }
@@ -147,8 +144,6 @@ public class ListActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                Log.d(TAG, "onQueryTextChange: "+newText);
-                Log.d(TAG, "onQueryTextChange: "+adapter);
                 adapter.getFilter().filter(newText);
                 return true;
             }
@@ -172,7 +167,7 @@ public class ListActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //nonspection SimplifiableIfStatement
+        //noispection SimplifiableIfStatement
 
         switch (id){
             case R.id.about:{

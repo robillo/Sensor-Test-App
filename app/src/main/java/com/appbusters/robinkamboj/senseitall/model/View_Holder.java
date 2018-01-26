@@ -76,10 +76,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
     public View_Holder(View itemView) {
         super(itemView);
 
-        sensor_name = (TextView) itemView.findViewById(R.id.textView);
-        sensor_imageview = (ImageView) itemView.findViewById(R.id.imageView);
-        cardView = (CardView) itemView.findViewById(R.id.cardView);
-        imageview_disabled = (ImageView) itemView.findViewById(R.id.imageview_disabled);
+        sensor_name = itemView.findViewById(R.id.textView);
+        sensor_imageview = itemView.findViewById(R.id.imageView);
+        cardView = itemView.findViewById(R.id.cardView);
+        imageview_disabled = itemView.findViewById(R.id.imageview_disabled);
 
         context = itemView.getContext();
         itemView.setOnClickListener(this);
@@ -161,8 +161,10 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                             Manifest.permission.ACCESS_FINE_LOCATION}, 121);
                     return;
                 } else {
-                    locMan.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, locLis);
-                    locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, locLis);
+                    if (locMan != null) {
+                        locMan.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 10, locLis);
+                        locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, locLis);
+                    }
                 }
                 Intent i = new Intent(context, MapsActivity.class);
                 i.putExtra("lat", Lat);
@@ -245,20 +247,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 context.startActivity(i);
                 break;
             }
-//        else if(sensorName.equals("Microphone")){
-//            if(ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
-//                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.RECORD_AUDIO}, 3);
-//                return;
-//            }
-//            Intent i = new Intent(context, MicrophoneActivity.class);
-//            i.putExtra("sensorName", sensorName);
-//            context.startActivity(i);
-//        }
-//        else if(sensorName.equals("USB")){
-//            Intent i = new Intent(context, USBActivity.class);
-//            i.putExtra("sensorName", sensorName);
-//            context.startActivity(i);
-//        }
             case "Audio/Video outputs": {
                 Intent i = new Intent(context, AudioVideoActivity.class);
                 i.putExtra("sensorName", sensorName);
@@ -311,9 +299,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 context.startActivity(i);
                 break;
             }
-//        else if(sensorName.equals("ANT+")){
-//
-//        }
             case "Gyroscope": {
                 Intent i = new Intent(context, GyroscopeActivity.class);
                 i.putExtra("sensorName", sensorName);
@@ -339,9 +324,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 context.startActivity(i);
                 break;
             }
-//        else if(sensorName.equals("Infrared")){
-//
-//        }
             case "Step Detector": {
                 Intent i = new Intent(context, StepDetectorActivity.class);
                 i.putExtra("sensorName", sensorName);
@@ -354,9 +336,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 context.startActivity(i);
                 break;
             }
-//        else if(sensorName.equals("Fake Touch")){
-//
-//        }
             case "Motion Detector": {
                 Intent i = new Intent(context, MotionDetectActivity.class);
                 i.putExtra("sensorName", sensorName);
@@ -375,14 +354,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                 context.startActivity(i);
                 break;
             }
-//        else if(sensorName.equals("WiFi Direct")){
-//
-//        }
-//        else if(sensorName.equals("Barometer")){
-//            Intent i = new Intent(context, BarometerActivity.class);
-//            i.putExtra("sensorName", sensorName);
-//            context.startActivity(i);
-//        }
             case "Heart Rate": {
 
                 Intent i = new Intent(context, HeartBeatActivity.class);
@@ -391,11 +362,6 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
 
                 break;
             }
-//        else if(sensorName.equals("ECG Sensor")){
-//            Intent i = new Intent(context, ECGActivity.class);
-//            i.putExtra("sensorName", sensorName);
-//            context.startActivity(i);
-//        }
             case "Fingerprint": {
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
