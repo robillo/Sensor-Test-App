@@ -32,7 +32,7 @@ public class ListActivity extends AppCompatActivity {
     String[] sensors_list;
     boolean[] isPresent;
     Recycler_View_Adapter adapter;
-    public static LinearLayout activity_list;
+    public LinearLayout activity_list;
     private int[] drawables;
 
     @Override
@@ -40,14 +40,12 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        activity_list = (LinearLayout) findViewById(R.id.activity_list);
+        activity_list = findViewById(R.id.activity_list);
 
         isPresent = (boolean[]) getIntent().getSerializableExtra("sensors_present");
-
-        Log.e("ROBIN:" , Boolean.toString(isPresent[0]) + " " + Boolean.toString(isPresent[1]));
 
         drawables = new int[]{
                 R.drawable.camera,
@@ -97,7 +95,7 @@ public class ListActivity extends AppCompatActivity {
 
         sensors_list = getResources().getStringArray(R.array.sensors_list);
         data = fillWithData();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
 
         if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 3);
@@ -112,31 +110,14 @@ public class ListActivity extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
         }
     }
-//
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//
-//        int orientation = newConfig.orientation;
-//
-//        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-//            recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
-//            adapter = new Recycler_View_Adapter(data, getApplicationContext());
-//            recyclerView.setAdapter(adapter);
-//        } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//            recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 4));
-//            adapter = new Recycler_View_Adapter(data, getApplicationContext());
-//            recyclerView.setAdapter(adapter);
-//        }
-//    }
 
     private List<Data> fillWithData(){
         List<Data> data = new ArrayList<>();
-        ArrayList<String> liststr = new ArrayList<>();
+        ArrayList<String> listStr = new ArrayList<>();
         for(int i = 1; i <= sensors_list.length; i++){
             data.add(new Data(sensors_list[i-1], drawables[i-1], isPresent[i-1]));
-            Log.d(TAG, "fillWithData: "+data.get(i-1).getSensor_name().toString());
-            liststr.add(data.get(i-1).getSensor_name().toString());
+            Log.d(TAG, "fillWithData: "+ data.get(i - 1).getSensor_name());
+            listStr.add(data.get(i - 1).getSensor_name());
         }
         return data;
     }
@@ -148,13 +129,12 @@ public class ListActivity extends AppCompatActivity {
 
         //For SearchView
         final MenuItem searchItem = menu.findItem(R.id.action_search);
-        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
 
         SearchManager searchManager = (SearchManager)
                 getSystemService(Context.SEARCH_SERVICE);
 
-        searchView.setSearchableInfo(searchManager.
-                getSearchableInfo(getComponentName()));
+        searchView.setSearchableInfo(searchManager != null ? searchManager.getSearchableInfo(getComponentName()) : null);
         searchView.setSubmitButtonEnabled(true);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

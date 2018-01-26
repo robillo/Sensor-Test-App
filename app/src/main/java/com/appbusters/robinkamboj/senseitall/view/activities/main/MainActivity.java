@@ -28,10 +28,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity{
-
-    private static final String TAG = "MA";
-    Button button;
+public class MainActivity extends AppCompatActivity {
     boolean[] isPresent;
     PackageManager packageManager;
     Context context;
@@ -43,10 +40,9 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         context = getApplicationContext();
-        button = findViewById(R.id.button);
 
         final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler.post(new Runnable() {
             @Override
             public void run() {
                 SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -54,22 +50,10 @@ public class MainActivity extends AppCompatActivity{
                 sensors = getResources().getStringArray(R.array.sensors_list);
                 isPresent = isSensorPresent(sensors, mySensorsList);
             }
-        }, 3000);
-    }
-
-    public void onClick(View v){
-        switch (v.getId()){
-            case R.id.button:{
-                Intent i = new Intent(this, ListActivity.class);
-                i.putExtra("sensors_present", isPresent);
-                startActivity(i);
-                break;
-            }
-        }
+        });
     }
 
     boolean[] isSensorPresent(String[] sensors, List<Sensor> sensorList){
-
         SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         packageManager = getPackageManager();
         boolean[] isPresent = new boolean[sensors.length];
@@ -78,12 +62,11 @@ public class MainActivity extends AppCompatActivity{
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
             infrared = (ConsumerIrManager) getSystemService(CONSUMER_IR_SERVICE);
         }
-
         for(Sensor sensor1: sensorList){
-            Log.d(TAG, "HashMap: "+sensor1.getName());
+            Log.d("sensors", "HashMap: "+sensor1.getName());
         }
         for(FeatureInfo featureInfo :packageManager.getSystemAvailableFeatures()){
-            Log.d(TAG, "FEATURE INFO: "+featureInfo.toString());
+            Log.d("features", "FEATURE INFO: "+featureInfo.toString());
         }
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)){
             isPresent[0] = true;
@@ -100,7 +83,6 @@ public class MainActivity extends AppCompatActivity{
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_WIFI)){
             isPresent[3] = true;
         }
-
         if(packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)){
             isPresent[4] = true;
         }
@@ -234,6 +216,4 @@ public class MainActivity extends AppCompatActivity{
         }
         return isPresent;
     }
-
-
 }

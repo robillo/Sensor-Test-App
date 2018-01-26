@@ -43,18 +43,18 @@
         </activity>
         <activity android:name=".view.activities.main.MainActivity" android:theme="@style/AppTheme"/>
         <activity android:name=".view.activities.list.ListActivity" android:theme="@style/AppTheme" />
-        <activity android:name=".view.robin.CameraActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.robin.GSMActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.rishabh.BatteryActivity" android:label="@string/title_activity_battery" android:theme="@style/AppTheme" />
-        <activity android:name=".view.robin.VibratorActivity" />
-        <activity android:name=".view.robin.CPUActivity" />
-        <activity android:name=".view.robin.LightActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.robin.ProximityActivity" />
-        <activity android:name=".view.robin.FlashActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.robin.AndroidOSActivity" />
-        <activity android:name=".view.rishabh.MagneticActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.camera.CameraActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.gsm.GSMActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.battery.BatteryActivity" android:label="@string/title_activity_battery" android:theme="@style/AppTheme" />
+        <activity android:name=".view.activities.sensors.vibrator.VibratorActivity" />
+        <activity android:name=".view.activities.sensors.cpu.CPUActivity" />
+        <activity android:name=".view.activities.sensors.light.LightActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.activities.sensors.proximity.ProximityActivity" />
+        <activity android:name=".view.activities.sensors.flash.FlashActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.os.AndroidOSActivity" />
+        <activity android:name=".view.activities.sensors.magnetic.MagneticActivity" android:screenOrientation="portrait" />
 
-        <receiver android:name=".view.rishabh.MyReceiver">
+        <receiver android:name=".view.activities.sensors.battery.MyReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
@@ -75,43 +75,43 @@
 
         <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key" />
-        <activity android:name=".view.rishabh.MapsActivity" android:label="@string/title_activity_maps" />
-        <activity android:name=".view.rishabh.NFCActivity" />
-        <activity android:name=".view.rishabh.CompassActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.rishabh.MultiTouchActivity" android:screenOrientation="portrait">
+        <activity android:name=".view.activities.sensors.maps.MapsActivity" android:label="@string/title_activity_maps" />
+        <activity android:name=".view.activities.sensors.nfc.NFCActivity" />
+        <activity android:name=".view.activities.sensors.compass.CompassActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.multi_touch.MultiTouchActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
             <intent-filter>
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.robin.StepDetectorActivity" />
-        <activity android:name=".view.robin.StepCounterActivity" />
-        <activity android:name=".view.robin.FingerprintActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.robin.CameraSecondaryActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.robin.TemperatureActivity" />
-        <activity android:name=".view.robin.PressureActivity" />
-        <activity android:name=".view.robin.RadioActivity" />
-        <activity android:name=".view.rishabh.RotationActivity" />
-        <activity android:name=".view.rishabh.HumidityActivity" />
-        <activity android:name=".view.rishabh.BluetoothActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.rishabh.WiFiActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.robin.ScreenActivity" />
-        <activity android:name=".view.robin.SoundActivity" />
-        <activity android:name=".view.rishabh.GyroscopeActivity" />
-        <activity android:name=".view.rishabh.AccelerometerTestActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.rishabh.AccelerometerActivity" />
-        <activity android:name=".view.rishabh.LinearAccelerationActivity" />
-        <activity android:name=".view.rishabh.GravityActivity" />
-        <activity android:name=".view.rishabh.USBActivity">
+        <activity android:name=".view.activities.sensors.step_detector.StepDetectorActivity" />
+        <activity android:name=".view.activities.sensors.step_counter.StepCounterActivity" />
+        <activity android:name=".view.activities.sensors.fingerprint.FingerprintActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.camera_secondary.CameraSecondaryActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.temperature.TemperatureActivity" />
+        <activity android:name=".view.activities.sensors.pressure.PressureActivity" />
+        <activity android:name=".view.activities.sensors.radio.RadioActivity" />
+        <activity android:name=".view.activities.sensors.rotation.RotationActivity" />
+        <activity android:name=".view.activities.sensors.humidity.HumidityActivity" />
+        <activity android:name=".view.activities.sensors.bluetooth.BluetoothActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.wifi.WiFiActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.screen.ScreenActivity" />
+        <activity android:name=".view.activities.sensors.sound.SoundActivity" />
+        <activity android:name=".view.activities.sensors.gyro.GyroscopeActivity" />
+        <activity android:name=".view.activities.sensors.accelerometer.AccelerometerTestActivity" android:screenOrientation="portrait" />
+        <activity android:name=".view.activities.sensors.accelerometer.AccelerometerActivity" />
+        <activity android:name=".view.activities.sensors.linear_acceleration.LinearAccelerationActivity" />
+        <activity android:name=".view.activities.sensors.gravity.GravityActivity" />
+        <activity android:name=".view.activities.sensors.usb.USBActivity">
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.robin.MicrophoneActivity" />
-        <activity android:name=".view.rishabh.StationaryDetectActivity" />
-        <activity android:name=".view.rishabh.MotionDetectActivity" />
-        <activity android:name=".view.rishabh.HeartBeatActivity" />
-        <activity android:name=".view.rishabh.AudioVideoActivity"/>
+        <activity android:name=".view.activities.sensors.mic.MicrophoneActivity" />
+        <activity android:name=".view.activities.sensors.stationary_detect.StationaryDetectActivity" />
+        <activity android:name=".view.activities.sensors.motion_detect.MotionDetectActivity" />
+        <activity android:name=".view.activities.sensors.heart_beat.HeartBeatActivity" />
+        <activity android:name=".view.activities.sensors.audio_video.AudioVideoActivity"/>
         <activity android:name=".view.activities.about.AboutActivity" />
     </application>
 
