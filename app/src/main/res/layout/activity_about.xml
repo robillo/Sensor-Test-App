@@ -12,17 +12,54 @@
         android:layout_margin="10sp"
         app:cardElevation="2sp"
         app:cardCornerRadius="3sp">
+
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical" android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="5sp">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5sp"
+                android:background="@color/colorPrimaryDark"
+                tools:ignore="SmallSp"
+                android:contentDescription="@string/null_str" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="About The App:"
+                android:text="@string/like_the_app"
                 android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/rate_us_five_stars"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorWhiteShade"
+                android:background="@color/colorPrimary"
+                android:id="@+id/rate"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5sp"
+                android:background="@color/colorPrimaryDark"
+                tools:ignore="SmallSp"
+                android:contentDescription="@string/null_str"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/about_the_app"
+                android:textAlignment="center"
+                android:layout_marginTop="25sp"
                 android:gravity="center_vertical"
                 android:textColor="#000"/>
 
@@ -33,35 +70,6 @@
                 android:textSize="13sp"
                 android:padding="4sp"
                 android:fontFamily="casual"/>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_margin="15dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Developers :"
-                    android:textAlignment="center"
-                    android:gravity="center_vertical"
-                    android:textColor="#000" />
-            </FrameLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250sp"
-                android:background="#FFF"
-                android:id="@+id/imageView1"/>
-
-            <TextView
-                android:paddingBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Robin Kamboj(L)        RishabhShukla(R)" />
-
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

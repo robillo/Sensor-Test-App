@@ -32,7 +32,7 @@ public class ListActivity extends AppCompatActivity {
     String[] sensors_list;
     boolean[] isPresent;
     Recycler_View_Adapter adapter;
-    public LinearLayout activity_list;
+    public static LinearLayout activity_list;
     private int[] drawables;
 
     @Override
@@ -155,6 +155,14 @@ public class ListActivity extends AppCompatActivity {
         });
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override

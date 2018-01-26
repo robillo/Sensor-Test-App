@@ -34,15 +34,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".SensorApplication">
-        <activity android:name=".view.activities.splash.SplashActivity" android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".view.activities.splash.SplashActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activities.list.ListActivity" android:theme="@style/AppTheme" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.main.MainActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".view.activities.list.ListActivity" android:theme="@style/AppTheme" />
         <activity android:name=".view.activities.sensors.camera.CameraActivity" android:screenOrientation="portrait" />
         <activity android:name=".view.activities.sensors.gsm.GSMActivity" android:screenOrientation="portrait" />
         <activity android:name=".view.activities.sensors.battery.BatteryActivity" android:label="@string/title_activity_battery" android:theme="@style/AppTheme" />

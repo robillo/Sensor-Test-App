@@ -105,5 +105,11 @@ Sense-It-All! tests for the following sensors\'s presence in your device:\n
 The tests for the above sensors provided in the app will could be used for fun, as well as for professional purposes, thus an extremely large range of people are welcome to use this app for sensor testing, or rather broadly, device testing.</string>
     <string name="sense_it_all">Sense It All!</string>
     <string name="device_test">Device Test</string>
+    <string name="dev_names">Robin Kamboj || RishabhShukla</string>
+    <string name="developers">Developers :</string>
+    <string name="like_the_app">Like the app?</string>
+    <string name="rate_us_five_stars">Rate Us Five Stars</string>
+    <string name="about_the_app">About The App:</string>
+    <string name="null_str">null</string>
 
 </resources>
