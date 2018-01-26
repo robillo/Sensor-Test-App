@@ -5,13 +5,13 @@ import android.support.v7.widget.util.SortedListAdapterCallback;
 public class Data {
 
     public String sensor_name;
-    public int drawable;
     public Boolean isPresent;
+    private String drawableUrl;
 
-    public Data(String sensor_name, int drawable, Boolean isPresent) {
+    public Data(String sensor_name, Boolean isPresent, String drawableUrl) {
         this.sensor_name = sensor_name;
-        this.drawable = drawable;
         this.isPresent = isPresent;
+        this.drawableUrl = drawableUrl;
     }
 
     public Boolean getPresent() {
@@ -30,12 +30,12 @@ public class Data {
         this.sensor_name = sensor_name;
     }
 
-    public int getDrawable() {
-        return drawable;
+
+    public String getDrawableUrl() {
+        return drawableUrl;
     }
 
-    public void setDrawable(int drawable) {
-        this.drawable = drawable;
+    public void setDrawableUrl(String drawableUrl) {
+        this.drawableUrl = drawableUrl;
     }
-
 }

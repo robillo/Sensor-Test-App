@@ -85,7 +85,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="200sp"
                         android:padding="20sp"
-                        android:src="@drawable/fingerprint"
                         android:background="@color/colorPrimaryDark"/>
 
                     <TextView

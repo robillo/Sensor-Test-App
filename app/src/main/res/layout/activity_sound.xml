@@ -49,7 +49,6 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:padding="10sp"
-                android:src="@drawable/sound"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 

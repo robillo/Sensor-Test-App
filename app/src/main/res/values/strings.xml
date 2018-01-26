@@ -29,8 +29,6 @@
         <item>CPU</item>
         <item>Sound</item>
         <item>Vibrator</item>
-        <!--<item>Microphone</item>-->
-        <!--<item>USB</item>-->
         <item>Audio/Video outputs</item>
         <item>Android OS</item>
         <item>Light Sensor</item>
@@ -49,11 +47,55 @@
         <item>Motion Detector</item>
         <item>Stationary Detector</item>
         <item>Multi Touch</item>
-        <!--<item>WiFi Direct</item>-->
         <item>Heart Rate</item>
         <item>Fingerprint</item>
         <item>NFC</item>
         <item>Magnetic Field Sensor</item>
+        <!--<item>Microphone</item>-->
+        <!--<item>USB</item>-->
+        <!--<item>WiFi Direct</item>-->
+    </string-array>
+
+    <string-array name="sensor_drawable_urls">
+        <item>https://3.bp.blogspot.com/-f1n8B6GZBtQ/WmswLhO8RDI/AAAAAAAAAd8/ghY3Dx4zrK8jvSx28nWkr3MY4Hm0j-J1ACLcBGAs/s320/camera.png</item>
+        <item>https://3.bp.blogspot.com/-f1n8B6GZBtQ/WmswLhO8RDI/AAAAAAAAAd8/ghY3Dx4zrK8jvSx28nWkr3MY4Hm0j-J1ACLcBGAs/s320/camera.png</item>
+        <item>https://3.bp.blogspot.com/-GvL6wPg6fZU/WmswNyqZogI/AAAAAAAAAeU/hJsCk18PofMtI2UhQxSkANJkq1BUYbWPwCLcBGAs/s320/gps.png</item>
+        <item>https://1.bp.blogspot.com/-q5msqm7FBXM/WmswVM2vXII/AAAAAAAAAfo/NXvgxiawDWYi8WzOCMd6-l5vWxIDzNxcACLcBGAs/s1600/wifi.png</item>
+        <item>https://1.bp.blogspot.com/-U7D23FFAEiY/WmswKxdo8MI/AAAAAAAAAd4/K-HmZl7-JpsuWX5wTukUsaLGtE7gTmxPwCLcBGAs/s1600/bluetooth.png</item>
+        <item>https://2.bp.blogspot.com/-sRqebbMdy0A/WmswOH-F49I/AAAAAAAAAeY/YdC7GmQ1kMc3dsAIsHcxaCsgrXguGTz6QCLcBGAs/s1600/gsm.png</item>
+        <item>https://2.bp.blogspot.com/-QCokTKsm6CQ/WmswJMtBKeI/AAAAAAAAAdo/eMOlzKc7MKY8Zfp2eIFZyXwEGVLyQuuHACLcBGAs/s1600/accelerometer.png</item>
+        <item>https://4.bp.blogspot.com/-pIyTdnzov4c/WmswMDhTOnI/AAAAAAAAAeA/OiN_0qJZtcIhfvaif8Mk0qklne-RKrK5wCLcBGAs/s320/compass.png</item>
+        <item>https://4.bp.blogspot.com/-q9nq_mM8oTw/WmswSHUrRWI/AAAAAAAAAfE/SEthVilo8IM9yhrUpMZAkmpagJJY_QhPgCLcBGAs/s320/radio.png</item>
+        <item>https://4.bp.blogspot.com/-K2-meG-eDkA/WmswS8r7vII/AAAAAAAAAfM/PPJLnGkuHOAij4RC8BMknnkMrIjtI5-SQCLcBGAs/s1600/screen.png</item>
+        <item>https://4.bp.blogspot.com/-g0NHFvVdsOk/WmswKj-l73I/AAAAAAAAAd0/DTQOYIlfxyUhncK-bI9jRGEKSGPrwZLlACLcBGAs/s320/battery_.png</item>
+        <item>https://3.bp.blogspot.com/-7p2qxxjA_EU/WmswMcBFYRI/AAAAAAAAAeE/mEjSlVCGXYcbWlrReI4_mNwPmSALwZpTQCLcBGAs/s320/cpu.png</item>
+        <item>https://1.bp.blogspot.com/-uk7Aa8sAu_8/WmswTdz5lEI/AAAAAAAAAfQ/TY1o0QtBz2MpbobRc0cGwhE_4aCffAAOQCLcBGAs/s320/sound.png</item>
+        <item>https://2.bp.blogspot.com/-u8Hoiypx_qE/WmswUxYMCgI/AAAAAAAAAfk/ynwfoxc7H2QVVs6pDvMdCZvKKjxq1FeMwCLcBGAs/s320/vibrator.png</item>
+        <item>https://4.bp.blogspot.com/-KKsA922vqNU/WmswKdthRyI/AAAAAAAAAdw/cEQhyXuSZJ0ejDzEeEut-9o1-yh1hy5WgCLcBGAs/s320/aud_vid.png</item>
+        <item>https://4.bp.blogspot.com/-1awt1Qp9PSk/WmswJKVZgPI/AAAAAAAAAdg/oNCbkOOfKZ0D8QygcngiO4PkIYCLw2dIQCLcBGAs/s1600/android.png</item>
+        <item>https://4.bp.blogspot.com/-BQEihpC8aT0/WmswPUrxEXI/AAAAAAAAAeo/5zCsfy_LsWIeeXOD3R0vgSQWvxiVLJlygCLcBGAs/s1600/light.png</item>
+        <item>https://2.bp.blogspot.com/-VV5Yfj5FK8k/WmswR2TAIiI/AAAAAAAAAfA/B-iu5VzkqKAbcsNICc3i5co5JbrrsD0mQCLcBGAs/s1600/proximity.png</item>
+        <item>https://2.bp.blogspot.com/-7YZr-IH2Lpc/WmswTnHeaDI/AAAAAAAAAfY/JSKodvsHDps9zCm5pwEr-8MB0ovfO02PgCLcBGAs/s1600/temperature.png</item>
+        <item>https://4.bp.blogspot.com/-BQEihpC8aT0/WmswPUrxEXI/AAAAAAAAAeo/5zCsfy_LsWIeeXOD3R0vgSQWvxiVLJlygCLcBGAs/s1600/light.png</item>
+        <item>https://4.bp.blogspot.com/-apxdJvRhqEA/WmswPIYMoOI/AAAAAAAAAek/EPtTlPbfy6E97nYWMlNgaCkv1oiP1MecQCLcBGAs/s1600/humidity.png</item>
+        <item>https://4.bp.blogspot.com/-nzEdyutH7xo/WmswNDBDAtI/AAAAAAAAAeM/07-j22HY4dM3wK9gl8-Ge6PKyglEWIS6wCLcBGAs/s1600/flash.jpg</item>
+        <item>https://1.bp.blogspot.com/-4GIr1gg5_3Q/WmswOQ9_u5I/AAAAAAAAAec/AjnBh4PYIuQKe_ot34jOs2KtWOs_ngECQCLcBGAs/s1600/gyroscope.png</item>
+        <item>https://2.bp.blogspot.com/-BOHfkafwM1A/WmswKLaghzI/AAAAAAAAAds/mqhGm9IzS9gBc5wKi2lZ7vcqgfFwx1hpwCLcBGAs/s320/apple.png</item>
+        <item>https://2.bp.blogspot.com/-QCokTKsm6CQ/WmswJMtBKeI/AAAAAAAAAdo/eMOlzKc7MKY8Zfp2eIFZyXwEGVLyQuuHACLcBGAs/s1600/accelerometer.png</item>
+        <item>https://1.bp.blogspot.com/-EQTe6Z793lk/WmswSciwxPI/AAAAAAAAAfI/wK_5VL2NaBYqG4J1cpTbk0jTurg1Age3QCLcBGAs/s1600/rotation.png</item>
+        <item>https://2.bp.blogspot.com/-VV5Yfj5FK8k/WmswR2TAIiI/AAAAAAAAAfA/B-iu5VzkqKAbcsNICc3i5co5JbrrsD0mQCLcBGAs/s1600/proximity.png</item>
+        <item>https://1.bp.blogspot.com/-Y1tk7P6cm5c/WmswTpOiD0I/AAAAAAAAAfU/jn1YtpovA2QV1O56AFL50ObBheGQVHY5wCLcBGAs/s1600/step_detector.png</item>
+        <item>https://1.bp.blogspot.com/-Y1tk7P6cm5c/WmswTpOiD0I/AAAAAAAAAfU/jn1YtpovA2QV1O56AFL50ObBheGQVHY5wCLcBGAs/s1600/step_detector.png</item>
+        <item>https://4.bp.blogspot.com/-EqgI0dHOooQ/WmswQhcgD7I/AAAAAAAAAe0/yoydpt3I6aguLR_mA-QjLIavKbv8byYKwCLcBGAs/s1600/motion_detector.png</item>
+        <item>https://4.bp.blogspot.com/-EqgI0dHOooQ/WmswQhcgD7I/AAAAAAAAAe0/yoydpt3I6aguLR_mA-QjLIavKbv8byYKwCLcBGAs/s1600/motion_detector.png</item>
+        <item>https://1.bp.blogspot.com/-SrgFt82ZCLc/WmswRZ3_MPI/AAAAAAAAAe8/mRQUEyxViLUVF75Uc8tP8G0wTZpe7h-XQCLcBGAs/s320/multitouch.png</item>
+        <item>https://4.bp.blogspot.com/-UkwwF8Rys28/WmswO98JHPI/AAAAAAAAAeg/5fgs-lxbV2cYFrVqZKgmQhjptpUa1gomQCLcBGAs/s1600/heart.png</item>
+        <item>https://3.bp.blogspot.com/-czbrT2VNsRw/WmswM47T0tI/AAAAAAAAAeI/FY1Msg2UKVk15B0GhmAY1hXHcBBqrRQEwCLcBGAs/s320/fingerprint.png</item>
+        <item>https://1.bp.blogspot.com/-tA7kFIlkbp8/WmswRCOsSxI/AAAAAAAAAe4/Tb2ZqjLQBVc-5T0srTlCN72JcF5xtzahwCLcBGAs/s320/nfc.png</item>
+        <item>https://1.bp.blogspot.com/-dOzKlgca6OI/WmswPxQR4kI/AAAAAAAAAes/5fxUGP7UqnsFvEDXfeK8MVe3gHD_BgOUgCLcBGAs/s1600/mag.jpg</item>
+        <!--<item>Microphone</item>-->
+        <!--<item>USB</item>-->
+        <!--<item>WiFi Direct</item>-->
     </string-array>
 
     <string name="title_activity_battery">BatteryActivity</string>

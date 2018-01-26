@@ -48,7 +48,6 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:src="@drawable/aud_vid"
                 android:padding="10sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>

@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.view.activities.main.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.activities.sensors.camera.CameraActivity;
 import com.appbusters.robinkamboj.senseitall.view.activities.sensors.cpu.CPUActivity;
 import com.bumptech.glide.Glide;

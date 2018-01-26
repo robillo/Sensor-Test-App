@@ -86,7 +86,6 @@
                         android:layout_height="0sp"
                         android:layout_weight="2"
                         android:layout_gravity="center"
-                        android:src="@drawable/flashlight"
                         android:padding="15sp"
                         android:onClick="onClick"
                         android:id="@+id/flashlight"

@@ -50,7 +50,7 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<View_Holder> imp
         holder.sensor_name.setText(filteredList.get(position).getSensor_name());
 
         Glide.with(_context)
-                .load(filteredList.get(position).getDrawable())
+                .load(filteredList.get(position).getDrawableUrl())
                 .into(holder.sensor_imageview);
 
         if(!filteredList.get(position).isPresent){
