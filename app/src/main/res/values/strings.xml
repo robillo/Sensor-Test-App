@@ -165,5 +165,6 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="proximity_sensor_test">Proximity Sensor Test</string>
     <string name="step_counter_test">Step Counter Test</string>
     <string name="step_detector_test">Step Detector Test</string>
+    <string name="fingerprint_test">Fingerprint Test</string>
 
 </resources>

@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:id="@+id/card"
-                android:text="Fingerprint Test"
+                android:text="@string/fingerprint_test"
                 android:textColor="@color/colorWhiteShade"
                 android:background="@color/colorPrimaryDark"
                 android:textStyle="bold"
@@ -82,18 +82,22 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/image"
                         android:layout_width="match_parent"
-                        android:layout_height="200sp"
+                        android:layout_height="0sp"
+                        android:layout_weight="1"
                         android:padding="20sp"
                         android:background="@color/colorPrimaryDark"/>
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="0sp"
+                        android:layout_weight="1"
                         android:text="Press Your Finger Against the Fingerprint Sensor To Authenticate"
-                        android:padding="5sp"
+                        android:paddingLeft="15sp"
+                        android:paddingRight="15sp"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
                         android:fontFamily="sans-serif-smallcaps"
                         android:gravity="center"/>
 

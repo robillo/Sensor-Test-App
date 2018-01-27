@@ -24,12 +24,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.FingerprintHandler;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -67,10 +70,15 @@ public class FingerprintActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fingerprint);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        Glide.with(this)
+                .load("https://3.bp.blogspot.com/-czbrT2VNsRw/WmswM47T0tI/AAAAAAAAAeI/FY1Msg2UKVk15B0GhmAY1hXHcBBqrRQEwCLcBGAs/s320/fingerprint.png")
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into((ImageView) findViewById(R.id.image));
+
         activity_fingerprint = (CoordinatorLayout) findViewById(R.id.activity_fingerprint);
 
         keyguardManager =

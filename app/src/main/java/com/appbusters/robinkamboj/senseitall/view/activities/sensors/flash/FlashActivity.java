@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 @SuppressWarnings("deprecation")
 public class FlashActivity extends AppCompatActivity {
@@ -33,7 +35,13 @@ public class FlashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash);
 
-        imageView = (ImageView) findViewById(R.id.flashlight);
+        imageView = findViewById(R.id.flashlight);
+
+        Glide.with(this)
+                .load("https://1.bp.blogspot.com/-F9e-YdJpg7s/WmswNRP2zVI/AAAAAAAAAeQ/43Q9JuBU4Fg6HrASfUNkWRi0AZWmqN9PQCLcBGAs/s1600/flashlight.png")
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imageView);
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +54,7 @@ public class FlashActivity extends AppCompatActivity {
             }
         });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //noinspection ConstantConditions
