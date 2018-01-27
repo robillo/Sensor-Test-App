@@ -19,8 +19,7 @@ import javax.microedition.khronos.opengles.GL10Ext;
 
 public class AndroidOSActivity extends AppCompatActivity {
 
-    String sensor_name, results[];
-    TextView textView;
+    String results[];
 
     TextView manufacturer, model, product, release, version,
             board, bootloader, brand, instruction_set, instruction_set2, device, display, fingerprint, hardware, host, device_id, radio, tags, time, type, user, codename, incremental,
@@ -31,11 +30,6 @@ public class AndroidOSActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_os);
-
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
 
         manufacturer = (TextView) findViewById(R.id.manufacturer);
         product = (TextView) findViewById(R.id.product);
