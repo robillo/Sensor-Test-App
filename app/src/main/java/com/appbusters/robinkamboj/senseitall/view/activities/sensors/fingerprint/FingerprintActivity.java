@@ -76,7 +76,6 @@ public class FingerprintActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load("https://3.bp.blogspot.com/-czbrT2VNsRw/WmswM47T0tI/AAAAAAAAAeI/FY1Msg2UKVk15B0GhmAY1hXHcBBqrRQEwCLcBGAs/s320/fingerprint.png")
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into((ImageView) findViewById(R.id.image));
 
         activity_fingerprint = (CoordinatorLayout) findViewById(R.id.activity_fingerprint);

@@ -55,7 +55,6 @@ public class SoundActivity extends AppCompatActivity {
         });
 
         Glide.with(getApplicationContext()).load(R.drawable.sound_bg)
-                .centerCrop()
                 .into(bg);
 
         mediaPlayer = MediaPlayer.create(this, R.raw.song1);

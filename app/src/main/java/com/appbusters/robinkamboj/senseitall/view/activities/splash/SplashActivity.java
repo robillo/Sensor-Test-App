@@ -54,8 +54,8 @@ public class SplashActivity extends AppCompatActivity implements android.support
         getSupportLoaderManager().initLoader(1, null, this).forceLoad();
 
         startCountDown(2000);
-        Glide.with(this).load(R.drawable.upper).centerCrop().into(mUpper);
-        Glide.with(this).load(R.drawable.lower).centerCrop().into(mLower);
+        Glide.with(this).load(R.drawable.upper).into(mUpper);
+        Glide.with(this).load(R.drawable.lower).into(mLower);
         topDown = AnimationUtils.loadAnimation(this, R.anim.top_down);
         bottomUp = AnimationUtils.loadAnimation(this, R.anim.bottom_up);
         mViewOne.startAnimation(topDown);

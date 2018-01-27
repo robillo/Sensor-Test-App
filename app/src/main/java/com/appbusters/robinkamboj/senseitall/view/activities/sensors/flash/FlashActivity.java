@@ -39,7 +39,6 @@ public class FlashActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load("https://1.bp.blogspot.com/-F9e-YdJpg7s/WmswNRP2zVI/AAAAAAAAAeQ/43Q9JuBU4Fg6HrASfUNkWRi0AZWmqN9PQCLcBGAs/s1600/flashlight.png")
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
 
         imageView.setOnClickListener(new View.OnClickListener() {
