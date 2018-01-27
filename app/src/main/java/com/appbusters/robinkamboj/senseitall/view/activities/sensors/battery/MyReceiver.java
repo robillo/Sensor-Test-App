@@ -107,23 +107,23 @@ public class MyReceiver extends BroadcastReceiver {
             if(plugged!=null) {
                 BatteryActivity.plugged.setText("___");
             }
-            if(value<=50){
-                if(imageView!=null) {
-                    BatteryActivity.imageView.setBackgroundResource(R.drawable.bless);
-                }
-            }else if(value>=75&&value<95){
-                if(imageView!=null) {
-                    BatteryActivity.imageView.setBackgroundResource(R.drawable.nninty);
-                }
-            }else if(value>=50&&value<75){
-                if(imageView!=null) {
-                    BatteryActivity.imageView.setBackgroundResource(R.drawable.nsevenfive);
-                }
-            }else if(value>=95){
-                if(imageView!=null) {
-                    BatteryActivity.imageView.setBackgroundResource(R.drawable.bfull);
-                }
-            }
+//            if(value<=50){
+//                if(imageView!=null) {
+//                    BatteryActivity.imageView.setBackgroundResource(R.drawable.bless);
+//                }
+//            }else if(value>=75&&value<95){
+//                if(imageView!=null) {
+//                    BatteryActivity.imageView.setBackgroundResource(R.drawable.nninty);
+//                }
+//            }else if(value>=50&&value<75){
+//                if(imageView!=null) {
+//                    BatteryActivity.imageView.setBackgroundResource(R.drawable.nsevenfive);
+//                }
+//            }else if(value>=95){
+//                if(imageView!=null) {
+//                    BatteryActivity.imageView.setBackgroundResource(R.drawable.bfull);
+//                }
+//            }
 //            if(batteryperc!=null) {
 //                batteryperc.setText(value + "%");
 //                batteryperc.setVisibility(View.VISIBLE);

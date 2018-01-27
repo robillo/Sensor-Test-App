@@ -55,67 +55,6 @@ public class BatteryActivity extends AppCompatActivity {
 
         bt = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
         Log.e("% is", BatteryManager.EXTRA_LEVEL);
-
-//        if(bm.isCharging()){
-//            imageView.setBackgroundResource(R.drawable.gube);
-//            ani = (AnimationDrawable) imageView.getBackground();
-//            ani.start();
-//
-//        }else if(bt<=15){
-//            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
-//            imageView.setBackgroundResource(R.drawable.bless);
-//            batteryperc.setText(bt+"%");
-//        }else if(bt<=75 && bt<95){
-//            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
-//            imageView.setBackgroundResource(R.drawable.nninty);
-//            batteryperc.setText(bt+"%");
-//        }else if(bt>=50&&bt<75){
-//            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
-//            imageView.setBackgroundResource(R.drawable.nsevenfive);
-//            batteryperc.setText(bt+"%");
-//        }else if(bt>=95){
-//            Log.e("PERCENTAGE LEVEL CHECK", "TRUE" + bt);
-//            batteryperc.setText(bt+"%");
-//            imageView.setBackgroundResource(R.drawable.bfull);
-//        }
-
-
-        receiver = new MyReceiver();
-
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
-        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
-        intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-
-        this.registerReceiver(receiver, intentFilter);
-
-        // batLev= intent.getIntExtra(BatteryManager.EXTRA_LEVEL,bt);
-
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-//                setResults();
-//                for(String s:results){
-//                    Log.d(TAG, "run: "+s);
-//                }
-            }
-        });
-
-    }
-
-    //    private void setResults(){
-//        results = new String[]{"%",BatteryManager.EXTRA_TEMPERATURE,
-//        BatteryManager.EXTRA_SCALE,BatteryManager.EXTRA_VOLTAGE,BatteryManager.ACTION_CHARGING,BatteryManager.ACTION_DISCHARGING,
-//        BatteryManager.EXTRA_HEALTH,BatteryManager.EXTRA_STATUS,BatteryManager.EXTRA_TECHNOLOGY,BatteryManager.EXTRA_LEVEL};
-//
-//    }
-    @Override
-    protected void onPause() {
-        if (receiver!= null) {
-            this.unregisterReceiver(receiver);
-        }
-        super.onPause();
     }
 
     public static void setProgressBar(int percentage) {
