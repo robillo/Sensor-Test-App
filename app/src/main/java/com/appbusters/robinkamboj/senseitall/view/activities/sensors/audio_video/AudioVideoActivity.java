@@ -20,17 +20,8 @@ public class AudioVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_video);
 
-//        am = (AudioManager)getSystemService(AUDIO_SERVICE);
-//        Log.d(TAG, "onCreate: "+am.generateAudioSessionId());
-//        Log.d(TAG, "onCreate: "+am.generateAudioSessionId());
-//        Log.d(TAG, "onCreate: "+am.generateAudioSessionId());
-//        Log.d(TAG, "onCreate: "+am.generateAudioSessionId());
-//        for(AudioDeviceInfo i:am.getDevices(AudioManager.GET_DEVICES_ALL)){
-//            Log.d(TAG, "onCreate: "+i.getProductName() +" "+i.getId()+" "+i.isSink());
-//        }
-
-        state = (TextView) findViewById(R.id.state);
-        mic = (TextView) findViewById(R.id.mic);
+        state = findViewById(R.id.state);
+        mic = findViewById(R.id.mic);
 
 
         IntentFilter receiverFilter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);

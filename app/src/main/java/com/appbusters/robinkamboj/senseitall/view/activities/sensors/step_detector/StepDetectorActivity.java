@@ -15,8 +15,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 
 public class StepDetectorActivity extends AppCompatActivity {
 
-    String sensor_name, results[];
-    TextView textView;
+    String results[];
     TextView step, accuracy, sampling_rate, minimum_delay, name, vendor, version, power, maximum_delay, resolution, maximum_range;
     private Sensor sensor;
     private SensorManager sensorManager;
@@ -26,11 +25,6 @@ public class StepDetectorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_detector);
-
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);

@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:id="@+id/card"
-                android:text="Magnetic Field Sensor"
+                android:text="@string/magnetic_field_sensor"
                 android:textColor="@color/colorWhiteShade"
                 android:background="@color/colorPrimaryDark"
                 android:textStyle="bold"
@@ -72,8 +72,7 @@
                 android:layout_height="match_parent"
                 app:cardElevation="@dimen/app_bar_elevation"
                 app:cardCornerRadius="5sp"
-                android:layout_margin="10sp"
-                android:layout_below="@+id/ll">
+                android:layout_margin="10sp">
 
                 <ScrollView
                     android:layout_width="match_parent"

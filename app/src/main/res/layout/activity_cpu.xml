@@ -1,326 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/tools"
     android:id="@+id/activity_camera"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Sense It All!"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:gravity="center"/>
-
-    </android.support.v7.widget.Toolbar>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:id="@+id/toolbar2"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="?actionBarSize">
-
-    </FrameLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/ll"
-        android:layout_below="@+id/toolbar">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0sp"
-            android:layout_height="150sp"
-            android:layout_weight="1"
-            android:layout_margin="10sp"
-            app:cardCornerRadius="10sp"
-            app:cardElevation="@dimen/app_bar_elevation">
-
-            <ImageView
-                android:id="@+id/imageView"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="@string/sense_it_all"
+                android:textColor="#FFF"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:textStyle="normal|bold" />
 
-        </android.support.v7.widget.CardView>
+        </android.support.v7.widget.Toolbar>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0sp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="5sp"
-            android:layout_margin="10sp"
-            app:cardCornerRadius="10sp"
-            app:cardBackgroundColor="@color/colorPrimaryDark"
-            app:cardElevation="@dimen/app_bar_elevation">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"/>
 
             <TextView
-                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/card"
+                android:text="@string/cpu_details"
+                android:textColor="@color/colorWhiteShade"
+                android:background="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:fontFamily="cursive"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp">
+
+            </TextView>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_margin="5sp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:elevation="@dimen/app_bar_elevation"
-                android:textSize="20sp"
-                android:textColor="@color/colorWhiteShade"
-                android:fontFamily="sans-serif-smallcaps"
-                android:textStyle="bold"
-                android:padding="6sp"
-                android:gravity="center"
-                android:text="SAMPLE DATA"/>
+                app:cardElevation="@dimen/app_bar_elevation"
+                app:cardCornerRadius="10sp"
+                android:layout_margin="10sp"
+                android:padding="5sp"
+                android:layout_below="@+id/ll"
+                app:cardBackgroundColor="@color/colorPrimaryDark">
 
-        </android.support.v7.widget.CardView>
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="Processor Information:"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorWhiteShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:padding="3sp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="CPU Info Goes Here"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorWhiteShade"
+                            android:id="@+id/cpu_all"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:padding="3sp"/>
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardElevation="@dimen/app_bar_elevation"
-        app:cardCornerRadius="10sp"
-        android:layout_margin="10sp"
-        android:padding="5sp"
-        android:layout_below="@+id/ll"
-        app:cardBackgroundColor="@color/colorPrimaryDark">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5sp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:text="Processor Information:"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorWhiteShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:padding="3sp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:text="CPU Info Goes Here"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorWhiteShade"
-                    android:id="@+id/cpu_all"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:padding="3sp"/>
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Memory"-->
-                    <!--android:layout_gravity="center_horizontal"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"-->
-                    <!--android:textColor="@color/colorWhiteShade"-->
-                    <!--android:textSize="18sp"/>-->
-
-                <!--<com.github.yongjhih.mismeter.MisMeter-->
-                    <!--android:layout_width="200sp"-->
-                    <!--android:layout_height="200sp"-->
-                    <!--android:id="@+id/memory"-->
-                    <!--android:layout_gravity="center_horizontal"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Size:"-->
-                    <!--android:id="@+id/memory_size"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Used:"-->
-                    <!--android:id="@+id/memory_used"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Free:"-->
-                    <!--android:id="@+id/memory_free"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Internal Storage"-->
-                    <!--android:layout_gravity="center_horizontal"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"-->
-                    <!--android:textColor="@color/colorWhiteShade"-->
-                    <!--android:textSize="18sp"/>-->
-
-                <!--<com.github.yongjhih.mismeter.MisMeter-->
-                    <!--android:layout_width="200sp"-->
-                    <!--android:layout_height="200sp"-->
-                    <!--android:id="@+id/internal_storage"-->
-                    <!--android:layout_gravity="center_horizontal"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Size:"-->
-                    <!--android:id="@+id/internal_storage_size"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Used:"-->
-                    <!--android:id="@+id/internal_storage_used"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Free:"-->
-                    <!--android:id="@+id/internal_storage_free"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="External Storage"-->
-                    <!--android:layout_gravity="center_horizontal"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"-->
-                    <!--android:textColor="@color/colorWhiteShade"-->
-                    <!--android:textSize="18sp"/>-->
-
-                <!--<com.github.yongjhih.mismeter.MisMeter-->
-                    <!--android:layout_width="200sp"-->
-                    <!--android:layout_height="200sp"-->
-                    <!--android:id="@+id/external_storage"-->
-                    <!--android:layout_gravity="center_horizontal"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Size:"-->
-                    <!--android:id="@+id/external_storage_size"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Used:"-->
-                    <!--android:id="@+id/external_storage_used"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Free:"-->
-                    <!--android:id="@+id/external_storage_free"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Storage Media:"-->
-                    <!--android:layout_gravity="center_horizontal"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"-->
-                    <!--android:textColor="@color/colorWhiteShade"-->
-                    <!--android:textSize="18sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Total Size:"-->
-                    <!--android:id="@+id/storage_size"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Partition Size 1:"-->
-                    <!--android:id="@+id/partition_size1"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Partition Size 2:"-->
-                    <!--android:id="@+id/partition_size2"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Partition Size 3:"-->
-                    <!--android:id="@+id/partition_size3"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Partition Size 4:"-->
-                    <!--android:id="@+id/partition_size4"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="Partition Size 5:"-->
-                    <!--android:id="@+id/partition_size5"-->
-                    <!--android:fontFamily="sans-serif-smallcaps"-->
-                    <!--android:padding="3sp"/>-->
-
-            </LinearLayout>
-
-        </ScrollView>
-
-    </android.support.v7.widget.CardView>
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

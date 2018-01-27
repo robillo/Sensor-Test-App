@@ -18,13 +18,7 @@ public class RadioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_radio);
 
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
-        radio_version = (TextView) findViewById(R.id.radio_version);
-
+        radio_version = findViewById(R.id.radio_version);
         radio_version.setText(Build.getRadioVersion());
     }
 }

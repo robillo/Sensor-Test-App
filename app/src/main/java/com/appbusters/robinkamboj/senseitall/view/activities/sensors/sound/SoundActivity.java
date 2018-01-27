@@ -30,11 +30,6 @@ public class SoundActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound);
 
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
         play = (ImageButton) findViewById(R.id.play);
         pause = (ImageButton) findViewById(R.id.pause);
         volume = (SeekBar) findViewById(R.id.volume);

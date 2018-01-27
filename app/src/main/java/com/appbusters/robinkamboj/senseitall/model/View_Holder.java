@@ -178,25 +178,21 @@ public class View_Holder extends RecyclerView.ViewHolder implements View.OnClick
                     ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 4);
                     return;
                 }
-                Intent i = new Intent(context, WiFiActivity.class);
-                i.putExtra("sensorName", sensorName);
-                context.startActivity(i);
+                else {
+                    context.startActivity(new Intent(context, WiFiActivity.class));
+                }
                 break;
             }
             case "Bluetooth": {
-                Intent i = new Intent(context, BluetoothActivity.class);
-                i.putExtra("sensorName", sensorName);
-                context.startActivity(i);
+                context.startActivity(new Intent(context, BluetoothActivity.class));
                 break;
             }
             case "GSM/UMTS": {
-                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_COARSE_LOCATION}, 5);
                     return;
                 }
-                Intent i = new Intent(context, GSMActivity.class);
-                i.putExtra("sensorName", sensorName);
-                context.startActivity(i);
+                context.startActivity(new Intent(context, GSMActivity.class));
                 break;
             }
             case "Accelerometer": {

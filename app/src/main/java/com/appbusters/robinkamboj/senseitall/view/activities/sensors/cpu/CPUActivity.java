@@ -34,7 +34,7 @@ public class CPUActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cpu);
 
-        cpu_all = (TextView) findViewById(R.id.cpu_all);
+        cpu_all = findViewById(R.id.cpu_all);
         byteArry = new byte[1024];
         try{
             processBuilder = new ProcessBuilder(DATA);
@@ -48,47 +48,5 @@ public class CPUActivity extends AppCompatActivity {
             ex.printStackTrace();
         }
         cpu_all.setText(Holder);
-
-//        memory_size = (TextView) findViewById(R.id.memory_size);
-//        memory_free = (TextView) findViewById(R.id.memory_free);
-//        memory_used = (TextView) findViewById(R.id.memory_used);
-//        internal_size = (TextView) findViewById(R.id.internal_storage_size);
-//        internal_free = (TextView) findViewById(R.id.internal_storage_free);
-//        internal_used = (TextView) findViewById(R.id.internal_storage_used);
-//        external_size = (TextView) findViewById(R.id.external_storage_size);
-//        external_free = (TextView) findViewById(R.id.external_storage_free);
-//        external_used = (TextView) findViewById(R.id.external_storage_used);
-//        storage_size = (TextView) findViewById(R.id.storage_size);
-//        partition_size1 = (TextView) findViewById(R.id.partition_size1);
-//        partition_size2 = (TextView) findViewById(R.id.partition_size2);
-//        partition_size3 = (TextView) findViewById(R.id.partition_size3);
-//        partition_size4 = (TextView) findViewById(R.id.partition_size4);
-//        partition_size5 = (TextView) findViewById(R.id.partition_size5);
-
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
-        Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                setResults();
-                setTextviews();
-            }
-        });
-    }
-
-    private void setResults(){
-        results = new String[]{
-                
-
-
-        };
-    }
-
-    private void setTextviews(){
-
     }
 }

@@ -25,8 +25,7 @@ public class ProximityActivity extends AppCompatActivity {
     private MisMeter meter;
     private SensorManager sensorManager;
     private Sensor sensor;
-    private String sensor_name, results[];
-    private TextView textView;
+    private String results[];
 
     private TextView name, vendor, wake_up, minimum_delay, version, power, maximum_range, resolution;
 
@@ -50,11 +49,6 @@ public class ProximityActivity extends AppCompatActivity {
         maximum_range = (TextView) findViewById(R.id.maximum_range);
         resolution = (TextView) findViewById(R.id.resolution);
         wake_up = (TextView) findViewById(R.id.wake_up);
-
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {

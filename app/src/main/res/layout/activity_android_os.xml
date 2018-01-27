@@ -1,533 +1,523 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
     android:id="@+id/activity_camera"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Sense It All!"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:gravity="center"/>
-
-    </android.support.v7.widget.Toolbar>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:id="@+id/toolbar2"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="?actionBarSize">
-
-    </FrameLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/ll"
-        android:layout_below="@+id/toolbar">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0sp"
-            android:layout_height="150sp"
-            android:layout_weight="1"
-            android:layout_margin="10sp"
-            app:cardCornerRadius="10sp"
-            app:cardElevation="@dimen/app_bar_elevation">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:padding="10sp"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="@string/sense_it_all"
+                android:textColor="#FFF"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:textStyle="normal|bold" />
 
-        </android.support.v7.widget.CardView>
+        </android.support.v7.widget.Toolbar>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0sp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="5sp"
-            android:layout_margin="10sp"
-            app:cardCornerRadius="10sp"
-            app:cardBackgroundColor="@color/colorPrimaryDark"
-            app:cardElevation="@dimen/app_bar_elevation">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"/>
 
             <TextView
-                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/card"
+                android:text="@string/android_os"
+                android:textColor="@color/colorWhiteShade"
+                android:background="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:fontFamily="cursive"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp">
+
+            </TextView>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_margin="5sp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:elevation="@dimen/app_bar_elevation"
-                android:textSize="20sp"
-                android:textColor="@color/colorWhiteShade"
-                android:fontFamily="sans-serif-smallcaps"
-                android:textStyle="bold"
-                android:padding="6sp"
-                android:gravity="center"
-                android:text="SAMPLE DATA"/>
+                app:cardElevation="@dimen/app_bar_elevation"
+                app:cardCornerRadius="5sp"
+                android:layout_margin="10sp"
+                android:layout_below="@+id/ll">
 
-        </android.support.v7.widget.CardView>
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="General:"
+                            android:gravity="left"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Manufacturer:"
+                            android:gravity="left"
+                            android:id="@+id/manufacturer"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Model:"
+                            android:gravity="left"
+                            android:id="@+id/model"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Product:"
+                            android:gravity="left"
+                            android:id="@+id/product"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Release:"
+                            android:gravity="left"
+                            android:id="@+id/release"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Version:"
+                            android:gravity="left"
+                            android:id="@+id/version"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Device Info:"
+                            android:gravity="left"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Board:"
+                            android:gravity="left"
+                            android:id="@+id/board"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Boot-loader:"
+                            android:gravity="left"
+                            android:id="@+id/bootloader"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Brand:"
+                            android:gravity="left"
+                            android:id="@+id/brand"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Instruction set:"
+                            android:gravity="left"
+                            android:id="@+id/instruction_Set"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Instruction Set 2:"
+                            android:gravity="left"
+                            android:id="@+id/instruction_set_2"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Device:"
+                            android:gravity="left"
+                            android:id="@+id/device"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Display:"
+                            android:gravity="left"
+                            android:id="@+id/display"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Fingerprint:"
+                            android:gravity="left"
+                            android:id="@+id/fingerprint"/>
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Hardware:"
+                            android:gravity="left"
+                            android:id="@+id/hardware"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Host:"
+                            android:gravity="left"
+                            android:id="@+id/host"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Id:"
+                            android:gravity="left"
+                            android:id="@+id/id"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Radio:"
+                            android:gravity="left"
+                            android:id="@+id/radio"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Tags:"
+                            android:gravity="left"
+                            android:id="@+id/tags"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Time:"
+                            android:gravity="left"
+                            android:id="@+id/time"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Type:"
+                            android:gravity="left"
+                            android:id="@+id/type"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="User:"
+                            android:gravity="left"
+                            android:id="@+id/user"/>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Codename:"
+                            android:gravity="left"
+                            android:id="@+id/codename"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Incremental:"
+                            android:gravity="left"
+                            android:id="@+id/incremental"/>
+
+
+
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Kernel Information:"
+                            android:gravity="left"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Hardware (Machine) Type:"
+                            android:gravity="left"
+                            android:id="@+id/machine_type"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Host Name:"
+                            android:gravity="left"
+                            android:id="@+id/host_name"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="OS Release:"
+                            android:gravity="left"
+                            android:id="@+id/os_release"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="0S Name:"
+                            android:gravity="left"
+                            android:id="@+id/os_name"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Processor Type:"
+                            android:gravity="left"
+                            android:id="@+id/processor_type"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="OS Version:"
+                            android:gravity="left"
+                            android:id="@+id/os_version"/>
+
+
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Open GL ES Information:"
+                            android:gravity="left"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Detected Version:"
+                            android:gravity="left"
+                            android:id="@+id/gles_detected_version"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Version:"
+                            android:gravity="left"
+                            android:id="@+id/gles_version"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Vendor:"
+                            android:gravity="left"
+                            android:id="@+id/gles_vendor"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Graphic Chip:"
+                            android:gravity="left"
+                            android:id="@+id/gles_graphic_chip"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5sp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlackShade"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Extensions:"
+                            android:gravity="left"
+                            android:id="@+id/extensions"/>
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardElevation="@dimen/app_bar_elevation"
-        app:cardCornerRadius="5sp"
-        android:layout_margin="10sp"
-        android:layout_below="@+id/ll">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="General:"
-                    android:gravity="left"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Manufacturer:"
-                    android:gravity="left"
-                    android:id="@+id/manufacturer"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Model:"
-                    android:gravity="left"
-                    android:id="@+id/model"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Product:"
-                    android:gravity="left"
-                    android:id="@+id/product"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Release:"
-                    android:gravity="left"
-                    android:id="@+id/release"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Version:"
-                    android:gravity="left"
-                    android:id="@+id/version"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Device Info:"
-                    android:gravity="left"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Board:"
-                    android:gravity="left"
-                    android:id="@+id/board"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Boot-loader:"
-                    android:gravity="left"
-                    android:id="@+id/bootloader"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Brand:"
-                    android:gravity="left"
-                    android:id="@+id/brand"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Instruction set:"
-                    android:gravity="left"
-                    android:id="@+id/instruction_Set"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Instruction Set 2:"
-                    android:gravity="left"
-                    android:id="@+id/instruction_set_2"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Device:"
-                    android:gravity="left"
-                    android:id="@+id/device"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Display:"
-                    android:gravity="left"
-                    android:id="@+id/display"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Fingerprint:"
-                    android:gravity="left"
-                    android:id="@+id/fingerprint"/>
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Hardware:"
-                    android:gravity="left"
-                    android:id="@+id/hardware"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Host:"
-                    android:gravity="left"
-                    android:id="@+id/host"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Id:"
-                    android:gravity="left"
-                    android:id="@+id/id"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Radio:"
-                    android:gravity="left"
-                    android:id="@+id/radio"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Tags:"
-                    android:gravity="left"
-                    android:id="@+id/tags"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Time:"
-                    android:gravity="left"
-                    android:id="@+id/time"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Type:"
-                    android:gravity="left"
-                    android:id="@+id/type"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="User:"
-                    android:gravity="left"
-                    android:id="@+id/user"/>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Codename:"
-                    android:gravity="left"
-                    android:id="@+id/codename"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Incremental:"
-                    android:gravity="left"
-                    android:id="@+id/incremental"/>
-
-
-
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Kernel Information:"
-                    android:gravity="left"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Hardware (Machine) Type:"
-                    android:gravity="left"
-                    android:id="@+id/machine_type"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Host Name:"
-                    android:gravity="left"
-                    android:id="@+id/host_name"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="OS Release:"
-                    android:gravity="left"
-                    android:id="@+id/os_release"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="0S Name:"
-                    android:gravity="left"
-                    android:id="@+id/os_name"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Processor Type:"
-                    android:gravity="left"
-                    android:id="@+id/processor_type"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="OS Version:"
-                    android:gravity="left"
-                    android:id="@+id/os_version"/>
-
-
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Open GL ES Information:"
-                    android:gravity="left"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Detected Version:"
-                    android:gravity="left"
-                    android:id="@+id/gles_detected_version"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Version:"
-                    android:gravity="left"
-                    android:id="@+id/gles_version"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Vendor:"
-                    android:gravity="left"
-                    android:id="@+id/gles_vendor"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Graphic Chip:"
-                    android:gravity="left"
-                    android:id="@+id/gles_graphic_chip"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorBlackShade"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Extensions:"
-                    android:gravity="left"
-                    android:id="@+id/extensions"/>
-
-            </LinearLayout>
-
-        </ScrollView>
-
-    </android.support.v7.widget.CardView>
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

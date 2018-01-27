@@ -44,11 +44,6 @@ public class ScreenActivity extends AppCompatActivity {
         size = new Point();
         display.getSize(size);
 
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
         metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 

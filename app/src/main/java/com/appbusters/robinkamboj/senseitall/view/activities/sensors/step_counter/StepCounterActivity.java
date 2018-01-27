@@ -13,13 +13,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 
 public class StepCounterActivity extends AppCompatActivity {
 
-    String sensor_name, results[];
-    private TextView textView;
+    String results[];
     private TextView step_counter, accuracy, sampling_rate, minimum_delay, name, vendor, version, power, maximum_delay, resolution, maximum_range;
     private Sensor sensor;
     private SensorManager sensorManager;
@@ -30,28 +30,14 @@ public class StepCounterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_counter);
 
-        Intent i = getIntent();
-        sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(sensor_name);
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-
-        activity_counter = (RelativeLayout) findViewById(R.id.activity_counter);
 
         Handler snack = new Handler();
         snack.post(new Runnable() {
             @Override
             public void run() {
-                Snackbar.make(activity_counter, "Please walk between 5-15 steps.", Snackbar.LENGTH_LONG)
-                        .setAction("Okay", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-
-                            }
-                        })
-                        .show();
+                Toast.makeText(StepCounterActivity.this, "Please walk between 5-15 steps.", Toast.LENGTH_SHORT).show();
             }
         });
 

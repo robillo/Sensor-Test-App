@@ -1,8 +1,12 @@
 package com.appbusters.robinkamboj.senseitall.view.activities.sensors.gsm;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,8 +24,8 @@ public class GSMActivity extends AppCompatActivity {
     String sensor_name;
     TextView textView;
     TextView sim_operator_name, sim_country, sim_operator, sim_sn, sim_state, subscriber_id, mail_alpha_tag, mail_number,
-    icc_card, network_roaming, network_operator_name, network_country, network_operator, phone_type, cell_id,
-    location_area_code, call_state, line_one_number, device_id, software_version, data_activity, data_state, network_type;
+            icc_card, network_roaming, network_operator_name, network_country, network_operator, phone_type, cell_id,
+            location_area_code, call_state, line_one_number, device_id, software_version, data_activity, data_state, network_type;
     String[] results;
 
     @Override
@@ -70,7 +74,7 @@ public class GSMActivity extends AppCompatActivity {
         });
     }
 
-    private void setResults(){
+    private void setResults() {
         results = new String[]{tm.getSimOperatorName(), tm.getSimCountryIso(),
                 tm.getSimOperator(), tm.getSimSerialNumber(), String.valueOf(tm.getSimState()), tm.getSubscriberId(),
                 tm.getVoiceMailAlphaTag(), tm.getVoiceMailNumber(), String.valueOf(tm.hasIccCard()),
