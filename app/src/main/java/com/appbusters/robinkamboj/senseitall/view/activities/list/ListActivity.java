@@ -134,23 +134,25 @@ public class ListActivity extends AppCompatActivity {
         SearchManager searchManager = (SearchManager)
                 getSystemService(Context.SEARCH_SERVICE);
 
-        searchView.setSearchableInfo(searchManager != null ? searchManager.getSearchableInfo(getComponentName()) : null);
-        searchView.setSubmitButtonEnabled(true);
+        if(searchView!=null) {
+            searchView.setSearchableInfo(searchManager != null ? searchManager.getSearchableInfo(getComponentName()) : null);
+            searchView.setSubmitButtonEnabled(true);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // Here is where we are going to implement the filter logic
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    // Here is where we are going to implement the filter logic
 
-                return false;
-            }
+                    return false;
+                }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return true;
-            }
-        });
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    adapter.getFilter().filter(newText);
+                    return true;
+                }
+            });
+        }
 
         return true;
     }
