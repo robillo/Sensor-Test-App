@@ -37,6 +37,8 @@ public class SoundActivity extends AppCompatActivity {
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         volume.setMax(audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
 
+        volume.setProgress(audioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
+
         volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -54,8 +56,8 @@ public class SoundActivity extends AppCompatActivity {
             }
         });
 
-        Glide.with(getApplicationContext()).load(R.drawable.sound_bg)
-                .into(bg);
+//        Glide.with(getApplicationContext()).load(R.drawable.sound_bg)
+//                .into(bg);
 
         mediaPlayer = MediaPlayer.create(this, R.raw.song1);
 

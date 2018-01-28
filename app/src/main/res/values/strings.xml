@@ -167,4 +167,5 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="step_detector_test">Step Detector Test</string>
     <string name="fingerprint_test">Fingerprint Test</string>
 
+    <string name="maps_api_key">AIzaSyBe9ceu04l0lgA8cVB9LkyBIEZUCM_D9CQ</string>
 </resources>

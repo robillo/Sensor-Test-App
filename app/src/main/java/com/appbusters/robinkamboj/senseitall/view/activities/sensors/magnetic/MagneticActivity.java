@@ -1,6 +1,8 @@
 package com.appbusters.robinkamboj.senseitall.view.activities.sensors.magnetic;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -8,18 +10,38 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.BubbleChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.BubbleEntry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.MPPointF;
+
+import java.util.ArrayList;
 
 public class MagneticActivity extends AppCompatActivity implements SensorEventListener{
 
     private static final String TAG = "MAGNETIC ACTIVITY";
 
-    String sensor_name;
+    //MPAndroidChart
+    private PieChart mChart;
+
     private static final int TEST_GRAV = Sensor.TYPE_ACCELEROMETER;
     private static final int TEST_MAG = Sensor.TYPE_MAGNETIC_FIELD;
     private final float alpha = (float) 0.8;
@@ -62,6 +84,46 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
 
         mGeomagnetic = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
+        //MPAndroidChart
+//        tvX = (TextView) findViewById(R.id.tvXMax);
+//        tvY = (TextView) findViewById(R.id.tvYMax);
+//        mSeekBarX = (SeekBar) findViewById(R.id.seekBar1);
+//        mSeekBarX.setOnSeekBarChangeListener(this);
+//        mSeekBarY = (SeekBar) findViewById(R.id.seekBar2);
+//        mSeekBarY.setOnSeekBarChangeListener(this);
+
+        mChart = findViewById(R.id.chart1);
+        mChart.setUsePercentValues(true);
+        mChart.getDescription().setEnabled(false);
+        mChart.setExtraOffsets(5, 10, 5, 5);
+        mChart.setDragDecelerationFrictionCoef(0.95f);
+//        mChart.setCenterTextTypeface(mTfLight);
+        mChart.setCenterText(generateCenterSpannableText());
+        mChart.setDrawHoleEnabled(true);
+        mChart.setHoleColor(Color.WHITE);
+        mChart.setTransparentCircleColor(Color.WHITE);
+        mChart.setTransparentCircleAlpha(110);
+        mChart.setHoleRadius(58f);
+        mChart.setTransparentCircleRadius(61f);
+        mChart.setDrawCenterText(true);
+        mChart.setRotationAngle(0);
+        // enable rotation of the chart by touch
+        mChart.setRotationEnabled(true);
+        mChart.setHighlightPerTapEnabled(true);
+        mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
+        // mChart.spin(2000, 0, 360);
+        Legend l = mChart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setDrawInside(false);
+        l.setXEntrySpace(7f);
+        l.setYEntrySpace(0f);
+        l.setYOffset(0f);
+        // entry label styling
+        mChart.setEntryLabelColor(Color.WHITE);
+        mChart.setEntryLabelTextSize(12f);
+
         vendor = (TextView) findViewById(R.id.vendorMag);
         resolution = (TextView) findViewById(R.id.resolutionMag);
         maximumRange = (TextView) findViewById(R.id.maximumRange);
@@ -76,6 +138,19 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
 
 
     }
+
+    private SpannableString generateCenterSpannableText() {
+
+        SpannableString s = new SpannableString("Sense It All\nDevice Test");
+        s.setSpan(new RelativeSizeSpan(1.0f), 0, 12, 0);
+        s.setSpan(new StyleSpan(Typeface.NORMAL), 10, 12, 0);
+
+        s.setSpan(new ForegroundColorSpan(Color.GRAY), 12, s.length(), 0);
+        s.setSpan(new RelativeSizeSpan(.8f), 12, s.length(), 0);
+
+        return s;
+    }
+
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE) {
             return;
@@ -115,6 +190,9 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
             A_W[2] = R[6] * A_D[0] + R[7] * A_D[1] + R[8] * A_D[2];
 
             Log.d("Field","\nX :"+A_W[0]+"\nY :"+A_W[1]+"\nZ :"+A_W[2]);
+
+            float[] values = new float[] {magnetic[0], magnetic[1], magnetic[2]};
+            setData(3, 100, values);
         }
 
     @Override
@@ -126,4 +204,45 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
     public void onAccuracyChanged(Sensor sensor, int i) {
     }
 
+    private void setData(int count, float range, float[] values) {
+
+        float mult = range;
+
+        ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
+
+        String[] mParties = new String[] {"Field X", "Field Y", "Field Z"};
+        // NOTE: The order of the entries when being added to the entries array determines their position around the center of
+        // the chart.
+        for (int i = 0; i < count ; i++) {
+            float percent = values[i]*100/(values[0] + values[1] + values[2]);
+            entries.add(new PieEntry(percent, mParties[i]));
+        }
+
+        PieDataSet dataSet = new PieDataSet(entries, "Magnetic Field");
+
+        dataSet.setSliceSpace(3f);
+//        dataSet.setIconsOffset(new MPPointF(0, 40));
+        dataSet.setSelectionShift(5f);
+
+        // add a lot of colors
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        colors.add(getColor(R.color.colorPrimary));
+        colors.add(getColor(R.color.colorPrimaryDark));
+        colors.add(getColor(R.color.colorPrimaryLight));
+
+        dataSet.setColors(colors);
+        //dataSet.setSelectionShift(0f);
+
+        PieData data = new PieData(dataSet);
+//        data.setValueFormatter(new PercentFormatter());
+        data.setValueTextSize(11f);
+        data.setValueTextColor(Color.WHITE);
+        mChart.setData(data);
+
+        // undo all highlights
+        mChart.highlightValues(null);
+
+        mChart.invalidate();
+    }
 }

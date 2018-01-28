@@ -7,8 +7,8 @@ android {
         applicationId "com.appbusters.robinkamboj.senseitall"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 9
-        versionName "3.9"
+        versionCode 11
+        versionName "5.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // Enabling multi dex support.
         multiDexEnabled true
@@ -46,7 +46,11 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:4.2.0'
     compile 'com.willowtreeapps.spruce:spruce-android:1.0.1'
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
-    compile 'com.google.android.gms:play-services:11.8.0'
+    compile 'com.google.android.gms:play-services-location:11.8.0'
+    compile 'com.google.android.gms:play-services-maps:11.8.0'
     compile 'com.android.support:multidex:1.0.2'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
     testCompile 'junit:junit:4.12'
 }
