@@ -7,4 +7,6 @@ public interface MainInterface {
     void changeStatusBarColor();
 
     void setHeaderText();
+
+    void turnOnHighlight(int index);
 }

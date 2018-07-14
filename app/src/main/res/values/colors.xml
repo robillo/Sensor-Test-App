@@ -14,6 +14,12 @@
     <color name="colorBlackShade3">#CCCBCA</color>
     <color name="colorTest">#E65100</color>
     <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="green_shade_one">#1E4000</color>
+    <color name="green_shade_two">#3C7F00</color>
+    <color name="green_shade_three">#5ABF00</color>
+    <color name="green_shade_four">#77FF00</color>
 
     <color name="colorTextOne">#6E7B8C</color>
     <color name="colorTextTwo">#8B95A3</color>

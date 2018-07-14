@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -30,6 +31,18 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
 
     @BindView(R.id.header)
     TextView headerText;
+
+    @BindView(R.id.highlight_tests)
+    ImageView highlight_tests;
+
+    @BindView(R.id.highlight_sensors)
+    ImageView highlight_sensors;
+
+    @BindView(R.id.highlight_features)
+    ImageView highlight_features;
+
+    @BindView(R.id.highlight_rate)
+    ImageView highlight_rate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,20 +107,56 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         switch (helper.getHeaderText()) {
             case SHOWING_DEVICE_TESTS: {
                 headerText.setText(R.string.showing_tests_list);
+                turnOnHighlight(0);
                 break;
             }
             case SHOWING_SENSORS_LIST: {
                 headerText.setText(R.string.showing_sensors_list);
-
+                turnOnHighlight(1);
                 break;
             }
             case SHOWING_FEATURES_LIST: {
                 headerText.setText(R.string.showing_features_list);
-
+                turnOnHighlight(2);
                 break;
             }
             case RATE_YOUR_EXPERIENCE: {
                 headerText.setText(R.string.rate_your_experience);
+                turnOnHighlight(3);
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void turnOnHighlight(int index) {
+        switch (index) {
+            case 0: {
+                highlight_tests.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
+                highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
+                break;
+            }
+            case 1: {
+                highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_sensors.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
+                highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
+                break;
+            }
+            case 2: {
+                highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_features.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
+                highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
+                break;
+            }
+            case 3: {
+                highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
+                highlight_rate.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
                 break;
             }
         }
