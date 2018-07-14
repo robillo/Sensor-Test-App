@@ -12,7 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Toast;
 
-import com.appbusters.robinkamboj.senseitall.view.activities.sensors.fingerprint.FingerprintActivity;
+import com.appbusters.robinkamboj.senseitall.view.sensors.fingerprint.FingerprintActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {

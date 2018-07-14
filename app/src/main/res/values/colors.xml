@@ -13,6 +13,7 @@
     <color name="colorBlackShade2">#7F7F7F</color>
     <color name="colorBlackShade3">#CCCBCA</color>
     <color name="colorTest">#E65100</color>
+    <color name="white">#FFFFFF</color>
 
     <color name="colorIntensity1">#212121</color>
     <color name="colorIntensity2">#424242</color>

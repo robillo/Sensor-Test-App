@@ -13,7 +13,7 @@ import android.widget.Filterable;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.Data;
 import com.appbusters.robinkamboj.senseitall.model.View_Holder;
-import com.appbusters.robinkamboj.senseitall.view.activities.list.ListActivity;
+import com.appbusters.robinkamboj.senseitall.view.list.ListActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;

@@ -168,4 +168,8 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="fingerprint_test">Fingerprint Test</string>
 
     <string name="maps_api_key">AIzaSyBe9ceu04l0lgA8cVB9LkyBIEZUCM_D9CQ</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

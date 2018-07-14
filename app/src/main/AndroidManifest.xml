@@ -2,58 +2,133 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.appbusters.robinkamboj.senseitall">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:required="false" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:required="false" />
-    <uses-permission android:name="android.permission.VIBRATE" android:required="false" />
-    <uses-permission android:name="android.permission.INTERNET" android:required="false" />
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" android:required="false" />
-    <uses-permission android:name="android.permission.BATTERY_STATS" android:required="false" />
-    <uses-permission android:name="android.permission.CAMERA" android:required="false" />
-    <uses-permission android:name="android.permission.BLUETOOTH" android:required="false" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:required="false" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" android:required="false" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" android:required="false" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" android:required="false" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" android:required="false" />
-    <uses-permission android:name="android.permission.BODY_SENSORS" android:required="false" />
-    <uses-permission android:name="android.permission.BATTERY_STATS" android:required="false" />
-    <uses-permission android:name="android.permission.NFC" android:required="false" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false" />
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.VIBRATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.USE_FINGERPRINT"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.BATTERY_STATS"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.MODIFY_AUDIO_SETTINGS"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.BODY_SENSORS"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.BATTERY_STATS"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.NFC"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:required="false" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.sensor.stepcounter" android:required="false" />
-    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
-    <uses-feature android:name="android.hardware.camera2.full" android:required="false" />
-    <uses-feature android:name="android.hardware.sensor.stepdetector" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera2.full"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.stepdetector"
+        android:required="false" />
 
     <application
+        android:name=".SensorApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".SensorApplication">
-        <activity android:name=".view.activities.splash.SplashActivity" android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".view.splash.splash_activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.list.ListActivity" android:theme="@style/AppTheme" android:screenOrientation="portrait"/>
-        <activity android:name=".view.activities.sensors.camera.CameraActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.gsm.GSMActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.battery.BatteryActivity" android:label="@string/title_activity_battery" android:theme="@style/AppTheme" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.vibrator.VibratorActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".view.activities.sensors.cpu.CPUActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.light.LightActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.activities.sensors.proximity.ProximityActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.flash.FlashActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.os.AndroidOSActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.magnetic.MagneticActivity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.list.ListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.sensors.camera.CameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.gsm.GSMActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.battery.BatteryActivity"
+            android:label="@string/title_activity_battery"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.sensors.vibrator.VibratorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.cpu.CPUActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.light.LightActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.sensors.proximity.ProximityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.flash.FlashActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.os.AndroidOSActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.magnetic.MagneticActivity"
+            android:screenOrientation="portrait" />
 
-        <receiver android:name=".view.activities.sensors.battery.MyReceiver">
+        <receiver android:name=".view.sensors.battery.MyReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
@@ -70,48 +145,118 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
-        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false" />
+        <uses-library
+            android:name="com.sec.android.app.multiwindow"
+            android:required="false" />
 
-        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key" />
-        <activity android:name=".view.activities.sensors.maps.MapsActivity" android:label="@string/title_activity_maps"  android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.nfc.NFCActivity"  android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.compass.CompassActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.multi_touch.MultiTouchActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+        <meta-data
+            android:name="com.sec.android.support.multiwindow"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".view.sensors.maps.MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.nfc.NFCActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.compass.CompassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.multi_touch.MultiTouchActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
             <intent-filter>
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.sensors.step_detector.StepDetectorActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.step_counter.StepCounterActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.fingerprint.FingerprintActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.camera_secondary.CameraSecondaryActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.temperature.TemperatureActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.pressure.PressureActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.radio.RadioActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.rotation.RotationActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.humidity.HumidityActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.bluetooth.BluetoothActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.wifi.WiFiActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.screen.ScreenActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.sound.SoundActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.gyro.GyroscopeActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.accelerometer.AccelerometerTestActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.accelerometer.AccelerometerActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.linear_acceleration.LinearAccelerationActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.gravity.GravityActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.usb.USBActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".view.sensors.step_detector.StepDetectorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.step_counter.StepCounterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.fingerprint.FingerprintActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.camera_secondary.CameraSecondaryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.temperature.TemperatureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.pressure.PressureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.radio.RadioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.rotation.RotationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.humidity.HumidityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.bluetooth.BluetoothActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.wifi.WiFiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.screen.ScreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.sound.SoundActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.gyro.GyroscopeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.accelerometer.AccelerometerTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.accelerometer.AccelerometerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.linear_acceleration.LinearAccelerationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.gravity.GravityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.usb.USBActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.sensors.mic.MicrophoneActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.stationary_detect.StationaryDetectActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.motion_detect.MotionDetectActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.heart_beat.HeartBeatActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.sensors.audio_video.AudioVideoActivity" android:screenOrientation="portrait" />
-        <activity android:name=".view.activities.about.AboutActivity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.mic.MicrophoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.stationary_detect.StationaryDetectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.motion_detect.MotionDetectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.heart_beat.HeartBeatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.sensors.audio_video.AudioVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.about.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.main.MainActivity"></activity>
     </application>
 
 </manifest>
