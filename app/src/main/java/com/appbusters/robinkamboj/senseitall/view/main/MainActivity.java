@@ -5,10 +5,14 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -29,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
 
     private AppPreferencesHelper helper;
 
-    @BindView(R.id.header)
-    TextView headerText;
+    @BindView(R.id.header_text)
+    TextSwitcher headerText;
 
     @BindView(R.id.highlight_tests)
     ImageView highlight_tests;
@@ -57,6 +61,15 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         ButterKnife.bind(this);
 
         helper = new AppPreferencesHelper(this);
+
+        Animation in = AnimationUtils.loadAnimation(this, R.anim.top_down_enter_header);
+        Animation out = AnimationUtils.loadAnimation(this, R.anim.top_down_exit_header);
+        in.setDuration(200);
+        out.setDuration(200);
+
+        headerText.setInAnimation(in);
+        headerText.setOutAnimation(out);
+
         setHeaderText();
         changeStatusBarColor();
     }
@@ -104,24 +117,23 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
 
     @Override
     public void setHeaderText() {
-        switch (helper.getHeaderText()) {
+        String string = helper.getHeaderText();
+
+        headerText.setText(string);
+        switch (string) {
             case SHOWING_DEVICE_TESTS: {
-                headerText.setText(R.string.showing_tests_list);
                 turnOnHighlight(0);
                 break;
             }
             case SHOWING_SENSORS_LIST: {
-                headerText.setText(R.string.showing_sensors_list);
                 turnOnHighlight(1);
                 break;
             }
             case SHOWING_FEATURES_LIST: {
-                headerText.setText(R.string.showing_features_list);
                 turnOnHighlight(2);
                 break;
             }
             case RATE_YOUR_EXPERIENCE: {
-                headerText.setText(R.string.rate_your_experience);
                 turnOnHighlight(3);
                 break;
             }
