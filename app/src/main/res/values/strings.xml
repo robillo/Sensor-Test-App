@@ -172,4 +172,9 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="sense_it_all">Sense It All!</string>
+
+    <string name="showing_tests_list">SHOWING DEVICE TESTS</string>
+    <string name="showing_sensors_list">SHOWING SENSORS LIST</string>
+    <string name="showing_features_list">SHOWING FEATURES LIST</string>
+    <string name="rate_your_experience">RATE YOUR EXPERIENCE</string>
 </resources>

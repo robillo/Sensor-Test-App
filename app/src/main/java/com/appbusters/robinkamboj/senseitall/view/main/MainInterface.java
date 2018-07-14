@@ -5,4 +5,6 @@ public interface MainInterface {
     void setup();
 
     void changeStatusBarColor();
+
+    void setHeaderText();
 }

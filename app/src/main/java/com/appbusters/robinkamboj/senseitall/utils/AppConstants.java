@@ -21,6 +21,16 @@ public class AppConstants {
     public static final String PRESENT_SENSORS = "PRESENT SENSORS";
     public static final String PRESENT_FEATURES = "PRESENT FEATURES";
 
+    //HEADERS
+    public static final String SHOWING_DEVICE_TESTS = "SHOWING DEVICE TESTS";
+    public static final String SHOWING_SENSORS_LIST = "SHOWING SENSORS LIST";
+    public static final String SHOWING_FEATURES_LIST = "SHOWING FEATURES LIST";
+    public static final String RATE_YOUR_EXPERIENCE = "RATE YOUR EXPERIENCE";
+
+    //PREFERENCES
+    public static final String PREF_FILE_NAME = "SIA";
+    public static final String KEY_HEADER_TEXT = "HEADER TEXT";
+
     //sensors
     public static final String SENSOR_LIGHT = "Light Sensor";
     public static final String SENSOR_PROXIMITY = "Proximity Sensor";

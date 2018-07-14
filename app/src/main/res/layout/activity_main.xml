@@ -45,8 +45,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textSize="28sp"
-                    android:textColor="@color/colorPrimary"
+                    android:textSize="32sp"
+                    android:textColor="@color/colorPrimaryDark"
                     android:text="@string/sense_it_all"/>
 
                 <ImageButton
@@ -67,7 +67,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:layout_gravity="bottom"
             android:orientation="vertical">
@@ -78,9 +78,33 @@
                 android:background="@color/colorTextThree"
                 tools:ignore="ContentDescription,SmallSp" />
 
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/colorPrimaryDark">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/showing_sensors_list"
+                    android:paddingTop="5sp"
+                    android:paddingBottom="5sp"
+                    android:textSize="20sp"
+                    android:id="@+id/header"/>
+
+            </android.support.v7.widget.CardView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@color/colorPrimaryDark"
+                tools:ignore="ContentDescription,SmallSp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -89,19 +113,16 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="1sp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorTextFive"
-                    tools:ignore="ContentDescription,SmallSp" />
-
-                <LinearLayout
-                    android:layout_width="0sp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/baseline_device_unknown_black_48"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:scaleType="centerInside"
+                        android:padding="10sp"
+                        tools:ignore="ContentDescription"
+                        android:id="@+id/button_tests_list"/>
 
                 </LinearLayout>
 
@@ -117,6 +138,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/baseline_mobile_friendly_black_48"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:scaleType="centerInside"
+                        android:padding="10sp"
+                        tools:ignore="ContentDescription"
+                        android:id="@+id/button_sensors_list"/>
+
                 </LinearLayout>
 
                 <ImageView
@@ -130,6 +162,42 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/baseline_battery_charging_full_black_48"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:scaleType="centerInside"
+                        android:padding="10sp"
+                        tools:ignore="ContentDescription"
+                        android:id="@+id/button_features_list"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="1sp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorTextFive"
+                    tools:ignore="ContentDescription,SmallSp" />
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/baseline_verified_user_black_48"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:scaleType="centerInside"
+                        android:padding="10sp"
+                        tools:ignore="ContentDescription"
+                        android:id="@+id/button_rate_experience"/>
 
                 </LinearLayout>
 
