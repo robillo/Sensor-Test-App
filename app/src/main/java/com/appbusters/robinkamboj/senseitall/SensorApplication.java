@@ -19,7 +19,7 @@ public class SensorApplication extends Application {
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("fonts/spr.otf")
+                                .setDefaultFontPath("fonts/spb.otf")
                                 .setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());

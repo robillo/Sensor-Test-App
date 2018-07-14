@@ -27,7 +27,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SplashActivity extends AppCompatActivity implements android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]>, SplashMvpView {
+public class SplashActivity extends AppCompatActivity
+        implements android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]>, SplashMvpView {
 
     Animation topDown, bottomUp;
 
@@ -109,9 +110,7 @@ public class SplashActivity extends AppCompatActivity implements android.support
         HashMap<String, String> fMap = AppConstants.packageManagerPaths;
 
         Vibrator vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-        ConsumerIrManager infrared = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT)
-            infrared = (ConsumerIrManager) this.getSystemService(CONSUMER_IR_SERVICE);
+        ConsumerIrManager infrared = (ConsumerIrManager) this.getSystemService(CONSUMER_IR_SERVICE);
 
         Log.e("tag", "create loader");
 
