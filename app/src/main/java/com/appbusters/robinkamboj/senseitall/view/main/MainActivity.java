@@ -20,22 +20,45 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.Recycler_View_Adapter;
+import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.main.adapter.GenericDataAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_DIAGNOSTICS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_FEATURES;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_SENSORS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_YOUR_EXPERIENCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_DEVICE_TESTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_FEATURES_LIST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_SENSORS_LIST;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_RATE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.diagnosticsPointer;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlMap;
 
 public class MainActivity extends AppCompatActivity implements MainInterface {
 
     private AppPreferencesHelper helper;
+    private List<GenericData> list;
+
+    private List<String> sensorNames;
+    private List<String> featureNames;
+    private List<String> diagnosticsNames;
+
+    private boolean[] sensorsPresent;
+    private boolean[] featuresPresent;
+    private boolean[] diagnosticsPresent;
 
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
@@ -77,9 +100,20 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         headerText.setInAnimation(in);
         headerText.setOutAnimation(out);
 
+        inflateData();
         changeStatusBarColor();
-        setHeaderText();
-        initializeAdapter();
+        setHeaderTextAndRv();
+    }
+
+    @Override
+    public void inflateData() {
+        sensorsPresent = getIntent().getBooleanArrayExtra(PRESENT_SENSORS);
+        featuresPresent = getIntent().getBooleanArrayExtra(PRESENT_FEATURES);
+        diagnosticsPresent = getIntent().getBooleanArrayExtra(PRESENT_DIAGNOSTICS);
+
+        sensorNames = AppConstants.sensorNames;
+        featureNames = AppConstants.featureNames;
+        diagnosticsNames = AppConstants.diagnosticsNames;
     }
 
     @Override
@@ -103,80 +137,86 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     public void setShowTests() {
         if(helper.getHeaderText().equals(SHOWING_DEVICE_TESTS)) return;
         helper.setHeaderText(SHOWING_DEVICE_TESTS);
-        setHeaderText();
+        setHeaderTextAndRv();
     }
 
     @OnClick(R.id.button_sensors_list)
     public void setShowSensors() {
         if(helper.getHeaderText().equals(SHOWING_SENSORS_LIST)) return;
         helper.setHeaderText(SHOWING_SENSORS_LIST);
-        setHeaderText();
+        setHeaderTextAndRv();
     }
 
     @OnClick(R.id.button_features_list)
     public void setShowFeatures() {
         if(helper.getHeaderText().equals(SHOWING_FEATURES_LIST)) return;
         helper.setHeaderText(SHOWING_FEATURES_LIST);
-        setHeaderText();
+        setHeaderTextAndRv();
     }
 
     @OnClick(R.id.button_rate_experience)
     public void setRateExperience() {
         if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE)) return;
         helper.setHeaderText(RATE_YOUR_EXPERIENCE);
-        setHeaderText();
+        setHeaderTextAndRv();
     }
 
     @Override
-    public void setHeaderText() {
+    public void setHeaderTextAndRv() {
         String string = helper.getHeaderText();
 
         headerText.setText(string);
         switch (string) {
             case SHOWING_DEVICE_TESTS: {
-                turnOnHighlight(0);
+                turnOnHighlight(TYPE_DIAGNOSTICS);
+                fillGenericDataForSelected(TYPE_DIAGNOSTICS);
                 break;
             }
             case SHOWING_SENSORS_LIST: {
-                turnOnHighlight(1);
+                turnOnHighlight(TYPE_SENSORS);
+                fillGenericDataForSelected(TYPE_SENSORS);
                 break;
             }
             case SHOWING_FEATURES_LIST: {
-                turnOnHighlight(2);
+                turnOnHighlight(TYPE_FEATURES);
+                fillGenericDataForSelected(TYPE_FEATURES);
                 break;
             }
             case RATE_YOUR_EXPERIENCE: {
-                turnOnHighlight(3);
+                turnOnHighlight(TYPE_RATE);
+                fillGenericDataForSelected(TYPE_RATE);
                 break;
             }
         }
+
+        initializeAdapter();
     }
 
     @Override
-    public void turnOnHighlight(int index) {
-        switch (index) {
-            case 0: {
+    public void turnOnHighlight(int type) {
+        switch (type) {
+            case TYPE_DIAGNOSTICS: {
                 highlight_tests.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
                 highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
                 highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
                 highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
                 break;
             }
-            case 1: {
+            case TYPE_SENSORS: {
                 highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
                 highlight_sensors.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
                 highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
                 highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
                 break;
             }
-            case 2: {
+            case TYPE_FEATURES: {
                 highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
                 highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
                 highlight_features.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
                 highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
                 break;
             }
-            case 3: {
+            case TYPE_RATE: {
                 highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
                 highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
                 highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
@@ -204,8 +244,60 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         }
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), span);
         recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(new GenericDataAdapter(list, this));
+    }
 
-//        adapter = new Recycler_View_Adapter(data, getApplicationContext());
-//        recyclerView.setAdapter(adapter);
+    @Override
+    public void fillGenericDataForSelected(int type) {
+        list = new ArrayList<>();
+
+        //first row null and invisible for title bar space
+        list.add(null);
+        list.add(null);
+        list.add(null);
+
+        List<String> dataNames = new ArrayList<>();
+        boolean[] dataPresent = new boolean[dataNames.size()];
+        switch (type) {
+            case TYPE_DIAGNOSTICS: {
+                dataNames = diagnosticsNames;
+                dataPresent = diagnosticsPresent;
+                break;
+            }
+            case TYPE_SENSORS: {
+                dataNames = sensorNames;
+                dataPresent = sensorsPresent;
+                break;
+            }
+            case TYPE_FEATURES: {
+                dataNames = featureNames;
+                dataPresent = featuresPresent;
+                break;
+            }
+            case TYPE_RATE: {
+
+                break;
+            }
+        }
+
+        for(int i=0; i<dataNames.size(); i++)
+            if(type == TYPE_DIAGNOSTICS)
+                list.add(new GenericData(
+                        dataNames.get(i),
+                        imageUrlMap.get(diagnosticsPointer.get(dataNames.get(i))),
+                        dataPresent[i],
+                        type));
+            else
+                list.add(new GenericData(
+                        dataNames.get(i),
+                        imageUrlMap.get(dataNames.get(i)),
+                        dataPresent[i],
+                        type));
+
+        if(dataNames.size()%3 != 0) {
+            list.add(null);
+            list.add(null);
+            list.add(null);
+        }
     }
 }

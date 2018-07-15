@@ -3,10 +3,12 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_margin="4sp"
     android:id="@+id/cardView"
-    android:clickable="false">
+    android:clickable="false"
+    tools:layout_width="100sp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,32 +16,23 @@
         android:orientation="vertical"
         android:background="@drawable/card_background">
 
-        <FrameLayout
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="120sp"
-            android:id="@+id/frameLayout">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView"
-                android:padding="10sp"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/imageview_disabled"/>
-
-        </FrameLayout>
+            android:id="@+id/data_drawable"
+            android:padding="20sp"
+            tools:ignore="ContentDescription"
+            android:tint="@color/colorPrimaryDark"
+            tools:src="@drawable/baseline_bluetooth_black_48"/>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/data_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:padding="4sp"
-            android:text="LIGHT"
-            android:textColor="@color/colorBlackShade2" />
+            tools:text="LIGHT"
+            android:textColor="@color/colorPrimaryDark" />
 
     </LinearLayout>
 

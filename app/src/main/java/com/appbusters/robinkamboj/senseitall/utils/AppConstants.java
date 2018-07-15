@@ -13,6 +13,12 @@ import java.util.List;
 @SuppressWarnings("WeakerAccess")
 public class AppConstants {
 
+    //data types
+    public static final int TYPE_DIAGNOSTICS = 0;
+    public static final int TYPE_SENSORS = 1;
+    public static final int TYPE_FEATURES = 2;
+    public static final int TYPE_RATE = 3;
+
     //random constants
     public static final String UNKNOWN = "unknown";
 

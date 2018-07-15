@@ -28,7 +28,7 @@
                 android:fontFamily="cursive"
                 android:textSize="20sp"
                 android:layout_weight="1"
-                android:id="@+id/textView"
+                android:id="@+id/data_name"
                 android:textStyle="normal|bold" />
 
         </android.support.v7.widget.Toolbar>

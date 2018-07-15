@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.model.ScanResultInfo;
+import com.appbusters.robinkamboj.senseitall.model.others.ScanResultInfo;
 
 import java.util.ArrayList;
 import java.util.List;

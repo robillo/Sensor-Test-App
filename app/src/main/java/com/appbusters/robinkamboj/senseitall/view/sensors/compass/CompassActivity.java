@@ -6,7 +6,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.model.Compass;
+import com.appbusters.robinkamboj.senseitall.model.others.Compass;
 
 public class CompassActivity extends AppCompatActivity {
 

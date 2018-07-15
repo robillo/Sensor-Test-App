@@ -25,7 +25,7 @@ public class TemperatureActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         sensor_name = i.getStringExtra("sensorName");
-        textView = (TextView) findViewById(R.id.textView);
+        textView = (TextView) findViewById(R.id.data_name);
         textView.setText(sensor_name);
 
         name = (TextView) findViewById(R.id.name);

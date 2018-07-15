@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.model.BTInfo;
+import com.appbusters.robinkamboj.senseitall.model.others.BTInfo;
 
 import java.util.ArrayList;
 import java.util.Set;

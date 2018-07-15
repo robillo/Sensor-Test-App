@@ -4,13 +4,17 @@ public interface MainInterface {
 
     void setup();
 
+    void inflateData();
+
     void changeStatusBarColor();
 
-    void setHeaderText();
+    void setHeaderTextAndRv();
 
-    void turnOnHighlight(int index);
+    void turnOnHighlight(int type);
 
     //adapter related stuff
 
     void initializeAdapter();
+
+    void fillGenericDataForSelected(int type);
 }
