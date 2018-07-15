@@ -80,6 +80,7 @@ public class SplashActivity extends AppCompatActivity
             );
             intent.putExtra(AppConstants.PRESENT_SENSORS, isPresent[0]);
             intent.putExtra(AppConstants.PRESENT_FEATURES, isPresent[1]);
+            intent.putExtra(AppConstants.PRESENT_DIAGNOSTICS, isPresent[2]);
             startActivity(intent);
         }
     }
@@ -109,6 +110,8 @@ public class SplashActivity extends AppCompatActivity
         List<String> features = AppConstants.featureNames;
         HashMap<String, String> fMap = AppConstants.packageManagerPaths;
 
+        List<String> diagnostics = AppConstants.diagnosticsNames;
+
         Vibrator vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
         ConsumerIrManager infrared = (ConsumerIrManager) this.getSystemService(CONSUMER_IR_SERVICE);
 
@@ -123,13 +126,13 @@ public class SplashActivity extends AppCompatActivity
                 features,
                 fMap,
                 vibrator,
-                infrared
+                infrared,
+                diagnostics
         );
     }
 
     @Override
     public void onLoadFinished(@NonNull android.support.v4.content.Loader<boolean[][]> loader, boolean[][] isPresent) {
-        Log.e("tag", "finished loader " + isPresent.length + isPresent[0].length + isPresent[1].length);
         this.isPresent = isPresent;
     }
 

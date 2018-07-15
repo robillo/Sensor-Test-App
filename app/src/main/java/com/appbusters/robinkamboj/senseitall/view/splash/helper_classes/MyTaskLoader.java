@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boolean[][]> {
 
-    private boolean[] sensorsPresent, featuresPresent;
+    private boolean[] sensorsPresent, featuresPresent, diagnosticsPresent;
     private SensorManager sensorManager;
     private List<String> sensors;
     private HashMap<String, Integer> sMap;
@@ -24,9 +24,16 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
     private Vibrator vibrator;
     private ConsumerIrManager infrared;
 
-    public MyTaskLoader(Context context, SensorManager sManager, List<String> sensors, HashMap<String, Integer> sMap,
-                        PackageManager fManager, List<String> features, HashMap<String, String> fMap,
-                        Vibrator vibrator, ConsumerIrManager infrared) {
+    public MyTaskLoader(Context context,
+                        SensorManager sManager,
+                        List<String> sensors,
+                        HashMap<String, Integer> sMap,
+                        PackageManager fManager,
+                        List<String> features,
+                        HashMap<String, String> fMap,
+                        Vibrator vibrator,
+                        ConsumerIrManager infrared,
+                        List<String> diagnostics) {
         super(context);
 
         this.sensorManager = sManager;
@@ -39,16 +46,23 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
         this.infrared = infrared;
         sensorsPresent = new boolean[sensors.size()];
         featuresPresent = new boolean[features.size()];
+        diagnosticsPresent = new boolean[diagnostics.size()];
     }
 
     @Override
     public boolean[][] loadInBackground() {
 
+        int diagPos = 0;
+
         int pos = 0;
         for(String s : sensors) {
             if (sMap.get(s) != null && sensorManager != null && sensorManager.getDefaultSensor(sMap.get(s)) != null) {
                 sensorsPresent[pos] = true;
+                if(AppConstants.diagnosticsPointer.get(s) != null) {
+                    diagnosticsPresent[diagPos] = true;
+                }
             }
+            if(AppConstants.diagnosticsPointer.get(s) != null) diagPos++;
             pos++;
         }
 
@@ -57,6 +71,9 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
             if(fMap.get(f) != null) {
                 if(fManager.hasSystemFeature(f)) {
                     featuresPresent[pos] = true;
+                    if(AppConstants.diagnosticsPointer.get(f) != null) {
+                        diagnosticsPresent[diagPos] = true;
+                    }
                 }
             }
             else {
@@ -70,31 +87,37 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
                     case AppConstants.RADIO:
                         if (Build.getRadioVersion() != null || Build.getRadioVersion().equals(AppConstants.UNKNOWN)) {
                             featuresPresent[pos] = true;
+                            if(AppConstants.diagnosticsPointer.get(f) != null) {
+                                diagnosticsPresent[diagPos] = true;
+                            }
                         }
                         break;
                     case AppConstants.VIBRATOR:
                         if (vibrator != null && vibrator.hasVibrator()) {
                             featuresPresent[pos] = true;
+                            if(AppConstants.diagnosticsPointer.get(f) != null) {
+                                diagnosticsPresent[diagPos] = true;
+                            }
                         }
                         break;
                     case AppConstants.INFRARED:
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            if (infrared != null && infrared.hasIrEmitter()) {
-                                featuresPresent[pos] = true;
+                        if (infrared != null && infrared.hasIrEmitter()) {
+                            featuresPresent[pos] = true;
+                            if(AppConstants.diagnosticsPointer.get(f) != null) {
+                                diagnosticsPresent[diagPos] = true;
                             }
                         }
                         break;
                 }
             }
+            if(AppConstants.diagnosticsPointer.get(f) != null) diagPos++;
             pos++;
         }
 
-        boolean[][] isPresent = new boolean[2][];
-        isPresent[0] = new boolean[sensors.size()];
-        isPresent[1] = new boolean[features.size()];
-
-        System.arraycopy(sensorsPresent, 0, isPresent[0], 0, sensorsPresent.length);
-        System.arraycopy(featuresPresent, 0, isPresent[1], 0, featuresPresent.length);
+        boolean[][] isPresent = new boolean[3][];
+        isPresent[0] = sensorsPresent;
+        isPresent[1] = featuresPresent;
+        isPresent[2] = diagnosticsPresent;
 
         return isPresent;
     }

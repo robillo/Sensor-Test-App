@@ -9,4 +9,8 @@ public interface MainInterface {
     void setHeaderText();
 
     void turnOnHighlight(int index);
+
+    //adapter related stuff
+
+    void initializeAdapter();
 }

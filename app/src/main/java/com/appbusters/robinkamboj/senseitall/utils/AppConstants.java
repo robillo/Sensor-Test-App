@@ -20,6 +20,7 @@ public class AppConstants {
     //intent extra
     public static final String PRESENT_SENSORS = "PRESENT SENSORS";
     public static final String PRESENT_FEATURES = "PRESENT FEATURES";
+    public static final String PRESENT_DIAGNOSTICS = "PRESENT DIAGNOSTICS";
 
     //HEADERS
     public static final String SHOWING_DEVICE_TESTS = "SHOWING DEVICE TESTS";
@@ -49,6 +50,24 @@ public class AppConstants {
     public static final String SENSOR_MAGNETIC_FIELD = "Magnetic Field";
     public static final String SENSOR_HEART_RATE = "Heart Rate Sensor";
 
+    //diagnostics
+    public static final String PROXIMITY_TEST = "Proximity Sensor Test";
+    public static final String BATTERY_TEST = "Battery Test";
+    public static final String HEADPHONE_JACK_TEST = "Headphone Jack Test";
+    public static final String ACCELEROMETER_TEST = "Accelerometer Test";
+    public static final String GPS_TEST = "GPS Test";
+    public static final String BLUETOOTH_TEST = "Bluetooth Test";
+    public static final String SPEAKER_VOLUME_TEST = "Speaker Volume Test";
+    public static final String VIBRATOR_TEST = "Vibrator Test";
+    public static final String FLASH_LIGHT_TEST = "Flashlight Test";
+    public static final String WIFI_TEST = "WIFI Test";
+    public static final String FINGERPRINT_TEST = "Fingerprint Sensor Test";
+    public static final String MULTI_TOUCH_TEST = "Multi-Touch Test";
+    public static final String FRONT_CAMERA_TEST = "Front Camera Test";
+    public static final String BACK_CAMERA_TEST = "Back Camera Test";
+    public static final String SCREEN_TEST = "Screen Test";
+    public static final String LIGHT_TEST = "Light Sensor Test";
+
     //features
     public static final String BACK_CAMERA = "Back Camera";
     public static final String FRONT_CAMERA = "Front Camera";
@@ -77,17 +96,54 @@ public class AppConstants {
     public static final String HEART_RATE_ECG = "Heart Rate ECG";
     public static final String FAKE_TOUCH = "Fake-Touch";
     public static final String WEB_VIEW = "Web-View";
-    public static final String HDMI = "HDMI";
     public static final String MIDI = "MIDI";
     public static final String VR_MODE = "VR Mode";
 
+    public static HashMap<String, String> imageUrlMap = new HashMap<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
-    public static HashMap<String, String> imageUrlMap = new HashMap<>();
+    public static List<String> diagnosticsNames = new ArrayList<>();
     public static HashMap<String, String> packageManagerPaths = new HashMap<>();
     public static HashMap<String, Integer> sensorManagerInts = new HashMap<>();
+    public static HashMap<String, String> diagnosticsPointer = new HashMap<>();
 
     static {
+        //sensors
+        diagnosticsNames.add(ACCELEROMETER_TEST);
+        diagnosticsNames.add(LIGHT_TEST);
+        diagnosticsNames.add(PROXIMITY_TEST);
+        //features
+        diagnosticsNames.add(BACK_CAMERA_TEST);
+        diagnosticsNames.add(FRONT_CAMERA_TEST);
+        diagnosticsNames.add(GPS_TEST);
+        diagnosticsNames.add(WIFI_TEST);
+        diagnosticsNames.add(BLUETOOTH_TEST);
+        diagnosticsNames.add(SCREEN_TEST);
+        diagnosticsNames.add(BATTERY_TEST);
+        diagnosticsNames.add(SPEAKER_VOLUME_TEST);
+        diagnosticsNames.add(VIBRATOR_TEST);
+        diagnosticsNames.add(HEADPHONE_JACK_TEST);
+        diagnosticsNames.add(FLASH_LIGHT_TEST);
+        diagnosticsNames.add(MULTI_TOUCH_TEST);
+        diagnosticsNames.add(FINGERPRINT_TEST);
+
+        diagnosticsPointer.put(ACCELEROMETER_TEST, SENSOR_ACCELEROMETER);
+        diagnosticsPointer.put(LIGHT_TEST, SENSOR_LIGHT);
+        diagnosticsPointer.put(PROXIMITY_TEST, SENSOR_PROXIMITY);
+        diagnosticsPointer.put(BACK_CAMERA_TEST, BACK_CAMERA);
+        diagnosticsPointer.put(FRONT_CAMERA_TEST, FRONT_CAMERA);
+        diagnosticsPointer.put(GPS_TEST, GPS_LOCATION);
+        diagnosticsPointer.put(WIFI_TEST, WIFI);
+        diagnosticsPointer.put(BLUETOOTH_TEST, BLUETOOTH);
+        diagnosticsPointer.put(SCREEN_TEST, SCREEN);
+        diagnosticsPointer.put(BATTERY_TEST, BATTERY);
+        diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
+        diagnosticsPointer.put(VIBRATOR_TEST, VIBRATOR);
+        diagnosticsPointer.put(HEADPHONE_JACK_TEST, AV_OUTPUTS);
+        diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
+        diagnosticsPointer.put(MULTI_TOUCH_TEST, MULTI_TOUCH);
+        diagnosticsPointer.put(FINGERPRINT_TEST, FINGERPRINT);
+
         sensorNames.add(SENSOR_ACCELEROMETER);
         sensorNames.add(SENSOR_LIGHT);
         sensorNames.add(SENSOR_PROXIMITY);

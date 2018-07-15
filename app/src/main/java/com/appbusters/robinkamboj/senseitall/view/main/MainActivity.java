@@ -1,10 +1,13 @@
 package com.appbusters.robinkamboj.senseitall.view.main;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -16,6 +19,7 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.controller.Recycler_View_Adapter;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 
@@ -32,6 +36,9 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_S
 public class MainActivity extends AppCompatActivity implements MainInterface {
 
     private AppPreferencesHelper helper;
+
+    @BindView(R.id.recycler)
+    RecyclerView recyclerView;
 
     @BindView(R.id.header_text)
     TextSwitcher headerText;
@@ -70,8 +77,9 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         headerText.setInAnimation(in);
         headerText.setOutAnimation(out);
 
-        setHeaderText();
         changeStatusBarColor();
+        setHeaderText();
+        initializeAdapter();
     }
 
     @Override
@@ -93,24 +101,28 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
 
     @OnClick(R.id.button_tests_list)
     public void setShowTests() {
+        if(helper.getHeaderText().equals(SHOWING_DEVICE_TESTS)) return;
         helper.setHeaderText(SHOWING_DEVICE_TESTS);
         setHeaderText();
     }
 
     @OnClick(R.id.button_sensors_list)
     public void setShowSensors() {
+        if(helper.getHeaderText().equals(SHOWING_SENSORS_LIST)) return;
         helper.setHeaderText(SHOWING_SENSORS_LIST);
         setHeaderText();
     }
 
     @OnClick(R.id.button_features_list)
     public void setShowFeatures() {
+        if(helper.getHeaderText().equals(SHOWING_FEATURES_LIST)) return;
         helper.setHeaderText(SHOWING_FEATURES_LIST);
         setHeaderText();
     }
 
     @OnClick(R.id.button_rate_experience)
     public void setRateExperience() {
+        if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE)) return;
         helper.setHeaderText(RATE_YOUR_EXPERIENCE);
         setHeaderText();
     }
@@ -172,5 +184,28 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
                 break;
             }
         }
+    }
+
+    @Override
+    public void initializeAdapter() {
+        int span;
+        switch (getResources().getConfiguration().orientation) {
+            case Configuration.ORIENTATION_PORTRAIT: {
+                span = 3;
+                break;
+            }
+            case Configuration.ORIENTATION_LANDSCAPE: {
+                span = 5;
+                break;
+            }
+            default: {
+                span = 3;
+            }
+        }
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), span);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+//        adapter = new Recycler_View_Adapter(data, getApplicationContext());
+//        recyclerView.setAdapter(adapter);
     }
 }
