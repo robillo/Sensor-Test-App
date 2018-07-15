@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.main.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,16 +39,10 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull GenericViewHolder holder, int position) {
-        if(list.get(position) == null) {
-            holder.itemView.setVisibility(View.GONE);
-        }
-        else {
-            holder.itemView.setVisibility(View.VISIBLE);
-            holder.dataName.setText(list.get(position).getName());
-            Glide.with(context)
-                    .load(list.get(position).getDrawableId())
-                    .into(holder.dataDrawable);
-        }
+        holder.dataName.setText(list.get(position).getName());
+        Glide.with(context)
+                .load(list.get(position).getDrawableId())
+                .into(holder.dataDrawable);
     }
 
     @Override
@@ -56,6 +51,9 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
     }
 
     class GenericViewHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.data_card)
+        CardView dataCard;
 
         @BindView(R.id.data_drawable)
         ImageView dataDrawable;

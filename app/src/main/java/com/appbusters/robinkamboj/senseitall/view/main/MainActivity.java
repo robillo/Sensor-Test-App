@@ -252,9 +252,9 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         list = new ArrayList<>();
 
         //first row null and invisible for title bar space
-        list.add(null);
-        list.add(null);
-        list.add(null);
+//        list.add(null);
+//        list.add(null);
+//        list.add(null);
 
         List<String> dataNames = new ArrayList<>();
         boolean[] dataPresent = new boolean[dataNames.size()];
@@ -294,10 +294,10 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
                         dataPresent[i],
                         type));
 
-        if(dataNames.size()%3 != 0) {
-            list.add(null);
-            list.add(null);
-            list.add(null);
-        }
+//        if(dataNames.size()%3 != 0) {
+//            list.add(null);
+//            list.add(null);
+//            list.add(null);
+//        }
     }
 }

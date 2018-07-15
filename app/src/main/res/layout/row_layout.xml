@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_margin="4sp"
-    android:id="@+id/cardView"
+    android:id="@+id/data_card"
     android:clickable="false"
     tools:layout_width="100sp">
 
