@@ -4,6 +4,8 @@ import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.os.Build;
 
+import com.appbusters.robinkamboj.senseitall.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -99,7 +101,7 @@ public class AppConstants {
     public static final String MIDI = "MIDI";
     public static final String VR_MODE = "VR Mode";
 
-    public static HashMap<String, String> imageUrlMap = new HashMap<>();
+    public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
     public static List<String> diagnosticsNames = new ArrayList<>();
@@ -108,6 +110,7 @@ public class AppConstants {
     public static HashMap<String, String> diagnosticsPointer = new HashMap<>();
 
     static {
+
         //sensors
         diagnosticsNames.add(ACCELEROMETER_TEST);
         diagnosticsNames.add(LIGHT_TEST);
@@ -160,6 +163,52 @@ public class AppConstants {
         sensorNames.add(SENSOR_STEP_COUNTER);
         sensorNames.add(SENSOR_MOTION_DETECTOR);
         sensorNames.add(SENSOR_STATIONARY_DETECTOR);
+
+        imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
+        imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);
+        imageUrlMap.put(SENSOR_TEMPERATURE, R.drawable.baseline_brightness_5_black_48);
+        imageUrlMap.put(SENSOR_PRESSURE, R.drawable.baseline_terrain_black_48);
+        imageUrlMap.put(SENSOR_ACCELEROMETER, R.drawable.baseline_trending_up_black_48);
+        imageUrlMap.put(SENSOR_RELATIVE_HUMIDITY, R.drawable.baseline_scatter_plot_black_48);
+        imageUrlMap.put(SENSOR_GYROSCOPE, R.drawable.baseline_360_black_48);
+        imageUrlMap.put(SENSOR_GRAVITY, R.drawable.baseline_system_update_black_48);
+        imageUrlMap.put(SENSOR_LINEAR_ACCELERATION, R.drawable.baseline_trending_flat_black_48);
+        imageUrlMap.put(SENSOR_ROTATION_VECTOR, R.drawable.baseline_360_black_48);
+        imageUrlMap.put(SENSOR_STEP_DETECTOR, R.drawable.baseline_directions_walk_black_48);
+        imageUrlMap.put(SENSOR_STEP_COUNTER, R.drawable.baseline_directions_run_black_48);
+        imageUrlMap.put(SENSOR_MOTION_DETECTOR, R.drawable.baseline_directions_bike_black_48);
+        imageUrlMap.put(SENSOR_STATIONARY_DETECTOR, R.drawable.baseline_airline_seat_recline_normal_black_48);
+        imageUrlMap.put(SENSOR_MAGNETIC_FIELD, R.drawable.baseline_public_black_48);
+        imageUrlMap.put(SENSOR_HEART_RATE, R.drawable.baseline_favorite_black_48);
+        imageUrlMap.put(BACK_CAMERA, R.drawable.baseline_camera_rear_black_48);
+        imageUrlMap.put(FRONT_CAMERA, R.drawable.baseline_camera_front_black_48);
+        imageUrlMap.put(GPS_LOCATION, R.drawable.baseline_gps_fixed_black_48);
+        imageUrlMap.put(WIFI, R.drawable.baseline_network_wifi_black_48);
+        imageUrlMap.put(BLUETOOTH, R.drawable.baseline_bluetooth_black_48);
+        imageUrlMap.put(GSM_UMTS, R.drawable.baseline_sim_card_black_48);
+        imageUrlMap.put(COMPASS, R.drawable.baseline_compass_calibration_black_48);
+        imageUrlMap.put(RADIO, R.drawable.baseline_radio_black_48);
+        imageUrlMap.put(SCREEN, R.drawable.baseline_smartphone_black_48);
+        imageUrlMap.put(BATTERY, R.drawable.baseline_battery_alert_black_48);
+        imageUrlMap.put(CPU, R.drawable.baseline_memory_black_48);
+        imageUrlMap.put(SOUND, R.drawable.baseline_volume_off_black_48);
+        imageUrlMap.put(VIBRATOR, R.drawable.baseline_vibration_black_48);
+        imageUrlMap.put(AV_OUTPUTS, R.drawable.baseline_headset_mic_black_48);
+        imageUrlMap.put(ANDROID_OS, R.drawable.baseline_adb_black_48);
+        imageUrlMap.put(FLASH, R.drawable.baseline_flash_on_black_48);
+        imageUrlMap.put(INFRARED, R.drawable.baseline_wb_sunny_black_48);
+        imageUrlMap.put(MULTI_TOUCH, R.drawable.baseline_settings_cell_black_48);
+        imageUrlMap.put(FINGERPRINT, R.drawable.baseline_fingerprint_black_48);
+        imageUrlMap.put(NFC, R.drawable.baseline_nfc_black_48);
+        imageUrlMap.put(MICROPHONE, R.drawable.baseline_mic_none_black_48);
+        imageUrlMap.put(USB_ACCESSORY, R.drawable.baseline_usb_black_48);
+        imageUrlMap.put(BAROMETER, R.drawable.baseline_pool_black_48);
+        imageUrlMap.put(WIFI_DIRECT, R.drawable.baseline_cast_black_48);
+        imageUrlMap.put(HEART_RATE_ECG, R.drawable.baseline_favorite_border_black_48);
+        imageUrlMap.put(FAKE_TOUCH, R.drawable.baseline_touch_app_black_48);
+        imageUrlMap.put(WEB_VIEW, R.drawable.baseline_web_black_48);
+        imageUrlMap.put(MIDI, R.drawable.baseline_speaker_black_48);
+        imageUrlMap.put(VR_MODE, R.drawable.baseline_videogame_asset_black_48);
 
         featureNames.add(BACK_CAMERA);
         featureNames.add(FRONT_CAMERA);
