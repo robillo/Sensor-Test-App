@@ -21,6 +21,11 @@
     <color name="green_shade_three">#5ABF00</color>
     <color name="green_shade_four">#77FF00</color>
 
+    <color name="red_shade_one">#400007</color>
+    <color name="red_shade_two">#7F000D</color>
+    <color name="red_shade_three">#FF4C5C</color>
+    <color name="red_shade_four">#FF7B86</color>
+
     <color name="colorTextOne">#6E7B8C</color>
     <color name="colorTextTwo">#8B95A3</color>
     <color name="colorTextThree">#D3D3D3</color>

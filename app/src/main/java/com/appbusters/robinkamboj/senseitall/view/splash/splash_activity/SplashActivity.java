@@ -27,6 +27,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_DIAGNOSTICS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_FEATURES;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_SENSORS;
+
 public class SplashActivity extends AppCompatActivity
         implements android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]>, SplashMvpView {
 
@@ -78,9 +82,23 @@ public class SplashActivity extends AppCompatActivity
                     SplashActivity.this,
                     MainActivity.class
             );
-            intent.putExtra(AppConstants.PRESENT_SENSORS, isPresent[0]);
-            intent.putExtra(AppConstants.PRESENT_FEATURES, isPresent[1]);
-            intent.putExtra(AppConstants.PRESENT_DIAGNOSTICS, isPresent[2]);
+
+            List<String> sensors = AppConstants.sensorNames;
+            List<String> features = AppConstants.featureNames;
+            List<String> diagnostics = AppConstants.diagnosticsNames;
+
+            for(int i=0; i<sensors.size(); i++)
+                Log.e("tag", sensors.get(i) + " " + isPresent[0][i]);
+
+            for(int i=0; i<features.size(); i++)
+                Log.e("tag", features.get(i) + " " + isPresent[1][i]);
+
+            for(int i=0; i<diagnostics.size(); i++)
+                Log.e("tag", diagnostics.get(i) + " " + isPresent[2][i]);
+
+            intent.putExtra(PRESENT_SENSORS, isPresent[0]);
+            intent.putExtra(PRESENT_FEATURES, isPresent[1]);
+            intent.putExtra(PRESENT_DIAGNOSTICS, isPresent[2]);
             startActivity(intent);
         }
     }
