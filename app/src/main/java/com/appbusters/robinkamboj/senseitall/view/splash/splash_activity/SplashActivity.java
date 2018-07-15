@@ -87,14 +87,14 @@ public class SplashActivity extends AppCompatActivity
             List<String> features = AppConstants.featureNames;
             List<String> diagnostics = AppConstants.diagnosticsNames;
 
-            for(int i=0; i<sensors.size(); i++)
-                Log.e("tag", sensors.get(i) + " " + isPresent[0][i]);
-
-            for(int i=0; i<features.size(); i++)
-                Log.e("tag", features.get(i) + " " + isPresent[1][i]);
-
-            for(int i=0; i<diagnostics.size(); i++)
-                Log.e("tag", diagnostics.get(i) + " " + isPresent[2][i]);
+//            for(int i=0; i<sensors.size(); i++)
+//                Log.e("tag", sensors.get(i) + " " + isPresent[0][i]);
+//
+//            for(int i=0; i<features.size(); i++)
+//                Log.e("tag", features.get(i) + " " + isPresent[1][i]);
+//
+//            for(int i=0; i<diagnostics.size(); i++)
+//                Log.e("tag", diagnostics.get(i) + " " + isPresent[2][i]);
 
             intent.putExtra(PRESENT_SENSORS, isPresent[0]);
             intent.putExtra(PRESENT_FEATURES, isPresent[1]);
@@ -132,8 +132,6 @@ public class SplashActivity extends AppCompatActivity
 
         Vibrator vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
         ConsumerIrManager infrared = (ConsumerIrManager) this.getSystemService(CONSUMER_IR_SERVICE);
-
-        Log.e("tag", "create loader");
 
         return new MyTaskLoader(
                 SplashActivity.this,

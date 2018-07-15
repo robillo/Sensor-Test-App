@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.utils;
 
+import android.Manifest;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.os.Build;
@@ -114,8 +115,20 @@ public class AppConstants {
     public static HashMap<String, String> packageManagerPaths = new HashMap<>();
     public static HashMap<String, Integer> sensorManagerInts = new HashMap<>();
     public static HashMap<String, String> diagnosticsPointer = new HashMap<>();
+    public static List<String> dangerousPermissions = new ArrayList<>();
 
     static {
+
+        dangerousPermissions.add(Manifest.permission.CAMERA);
+        dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        dangerousPermissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        dangerousPermissions.add(Manifest.permission.BODY_SENSORS);
+//        dangerousPermissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+//        dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//        dangerousPermissions.add(Manifest.permission.RECEIVE_WAP_PUSH);
+        dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
 
         //sensors
         diagnosticsNames.add(ACCELEROMETER_TEST);

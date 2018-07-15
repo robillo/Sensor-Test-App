@@ -1,11 +1,14 @@
 package com.appbusters.robinkamboj.senseitall.view.main;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,6 +24,7 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.Recycler_View_Adapter;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.main.adapter.GenericDataAdapter;
@@ -33,6 +37,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_FEATURES;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_SENSORS;
@@ -59,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
     private boolean[] diagnosticsPresent;
+
+    @BindView(R.id.card_permissions)
+    CardView permissionsCard;
 
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
@@ -100,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         headerText.setInAnimation(in);
         headerText.setOutAnimation(out);
 
+        checkIfAllPermissionsGiven();
         inflateData();
         changeStatusBarColor();
         setHeaderTextAndRv();
@@ -227,6 +236,25 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     }
 
     @Override
+    public void checkIfAllPermissionsGiven() {
+        List<String> permissionNames = AppConstants.dangerousPermissions;
+        List<PermissionsItem> permissionsItems = new ArrayList<>();
+        int rejectedCount = 0;
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        for(String p : permissionNames) {
+            boolean b = checkSelfPermission(p) == PERMISSION_GRANTED;
+            permissionsItems.add(new PermissionsItem(p, b));
+            if(!b) rejectedCount++;
+        }
+
+        if(rejectedCount == 0)
+            permissionsCard.setVisibility(View.GONE);
+        else
+            permissionsCard.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void initializeAdapter() {
         int span;
         switch (getResources().getConfiguration().orientation) {
@@ -299,5 +327,10 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
 //            list.add(null);
 //            list.add(null);
 //        }
+    }
+
+    @OnClick(R.id.card_permissions)
+    public void askPermissions() {
+
     }
 }

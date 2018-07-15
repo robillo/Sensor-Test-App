@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.appbusters.robinkamboj.senseitall">
 
     <uses-permission
@@ -19,7 +20,8 @@
         android:required="false" />
     <uses-permission
         android:name="android.permission.BATTERY_STATS"
-        android:required="false" />
+        android:required="false"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission
         android:name="android.permission.CAMERA"
         android:required="false" />
@@ -46,7 +48,8 @@
         android:required="false" />
     <uses-permission
         android:name="android.permission.BATTERY_STATS"
-        android:required="false" />
+        android:required="false"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission
         android:name="android.permission.NFC"
         android:required="false" />
@@ -256,7 +259,7 @@
         <activity
             android:name=".view.about.AboutActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.main.MainActivity"></activity>
+        <activity android:name=".view.main.MainActivity"/>
     </application>
 
 </manifest>

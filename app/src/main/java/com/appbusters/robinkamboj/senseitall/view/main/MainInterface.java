@@ -12,6 +12,8 @@ public interface MainInterface {
 
     void turnOnHighlight(int type);
 
+    void checkIfAllPermissionsGiven();
+
     //adapter related stuff
 
     void initializeAdapter();

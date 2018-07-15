@@ -177,4 +177,5 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="showing_sensors_list">SHOWING SENSORS LIST</string>
     <string name="showing_features_list">SHOWING FEATURES LIST</string>
     <string name="rate_your_experience">RATE YOUR EXPERIENCE</string>
+    <string name="please_give_permissions">Some permissions not given. Please allow these permissions to access all sensors.</string>
 </resources>
