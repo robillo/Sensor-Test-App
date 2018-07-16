@@ -4,8 +4,17 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.hardware.ConsumerIrManager;
+import android.hardware.SensorManager;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
+import android.os.Vibrator;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.Loader;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -28,9 +37,13 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.main.adapter.GenericDataAdapter;
+import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
+import com.appbusters.robinkamboj.senseitall.view.splash.splash_activity.SplashActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,7 +65,9 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENS
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.diagnosticsPointer;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlMap;
 
-public class MainActivity extends AppCompatActivity implements MainInterface {
+public class MainActivity extends AppCompatActivity
+        implements MainInterface,
+        android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]>{
 
     private AppPreferencesHelper helper;
     private List<GenericData> list;
@@ -108,18 +123,17 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         headerText.setInAnimation(in);
         headerText.setOutAnimation(out);
 
-        checkIfAllPermissionsGiven();
         inflateData();
+        checkForPresentSensors();
+        checkIfAllPermissionsGiven();
         changeStatusBarColor();
-        setHeaderTextAndRv();
     }
 
     @Override
     public void inflateData() {
-        sensorsPresent = getIntent().getBooleanArrayExtra(PRESENT_SENSORS);
-        featuresPresent = getIntent().getBooleanArrayExtra(PRESENT_FEATURES);
-        diagnosticsPresent = getIntent().getBooleanArrayExtra(PRESENT_DIAGNOSTICS);
-
+//        sensorsPresent = getIntent().getBooleanArrayExtra(PRESENT_SENSORS);
+//        featuresPresent = getIntent().getBooleanArrayExtra(PRESENT_FEATURES);
+//        diagnosticsPresent = getIntent().getBooleanArrayExtra(PRESENT_DIAGNOSTICS);
         sensorNames = AppConstants.sensorNames;
         featureNames = AppConstants.featureNames;
         diagnosticsNames = AppConstants.diagnosticsNames;
@@ -255,6 +269,11 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     }
 
     @Override
+    public void checkForPresentSensors() {
+        getSupportLoaderManager().initLoader(AppConstants.LOADER_ID, null, this).forceLoad();
+    }
+
+    @Override
     public void initializeAdapter() {
         int span;
         switch (getResources().getConfiguration().orientation) {
@@ -331,6 +350,62 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
 
     @OnClick(R.id.card_permissions)
     public void askPermissions() {
+
+    }
+
+    @NonNull
+    @Override
+    public Loader<boolean[][]> onCreateLoader(int id, @Nullable Bundle args) {
+        SensorManager sManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        List<String> sensors = AppConstants.sensorNames;
+        HashMap<String, Integer> sMap = AppConstants.sensorManagerInts;
+
+        PackageManager fManager = this.getPackageManager();
+        List<String> features = AppConstants.featureNames;
+        HashMap<String, String> fMap = AppConstants.packageManagerPaths;
+
+        List<String> diagnostics = AppConstants.diagnosticsNames;
+
+        Vibrator vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
+        ConsumerIrManager infrared = (ConsumerIrManager) this.getSystemService(CONSUMER_IR_SERVICE);
+
+        boolean b;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            b = ActivityCompat
+                            .checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) ==
+                            PackageManager.PERMISSION_GRANTED &&
+                            Objects.requireNonNull(getSystemService(FingerprintManager.class))
+                                    .isHardwareDetected();
+        } else {
+            b = FingerprintManagerCompat.from(this).isHardwareDetected();
+        }
+
+        return new MyTaskLoader(
+                MainActivity.this,
+                sManager,
+                sensors,
+                sMap,
+                fManager,
+                features,
+                fMap,
+                vibrator,
+                infrared,
+                b,
+                diagnostics
+        );
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<boolean[][]> loader, boolean[][] isPresent) {
+        this.sensorsPresent = isPresent[0];
+        this.featuresPresent = isPresent[1];
+        this.diagnosticsPresent = isPresent[2];
+
+        setHeaderTextAndRv();
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<boolean[][]> loader) {
 
     }
 }

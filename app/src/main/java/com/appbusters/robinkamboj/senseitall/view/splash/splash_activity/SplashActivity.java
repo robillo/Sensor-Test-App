@@ -30,9 +30,11 @@ import butterknife.ButterKnife;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_FEATURES;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_SENSORS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.diagnosticsNames;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.featureNames;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.sensorNames;
 
-public class SplashActivity extends AppCompatActivity
-        implements android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]>, SplashMvpView {
+public class SplashActivity extends AppCompatActivity implements SplashMvpView {
 
     Animation topDown, bottomUp;
 
@@ -59,7 +61,6 @@ public class SplashActivity extends AppCompatActivity
     @Override
     public void setup() {
         ButterKnife.bind(this);
-        getSupportLoaderManager().initLoader(AppConstants.LOADER_ID, null, this).forceLoad();
 
         startCountDown(2000);
         animateStuff();
@@ -77,30 +78,7 @@ public class SplashActivity extends AppCompatActivity
 
     @Override
     public void startListActivity() {
-        if(isPresent!=null){
-            Intent intent = new Intent(
-                    SplashActivity.this,
-                    MainActivity.class
-            );
-
-            List<String> sensors = AppConstants.sensorNames;
-            List<String> features = AppConstants.featureNames;
-            List<String> diagnostics = AppConstants.diagnosticsNames;
-
-//            for(int i=0; i<sensors.size(); i++)
-//                Log.e("tag", sensors.get(i) + " " + isPresent[0][i]);
-//
-//            for(int i=0; i<features.size(); i++)
-//                Log.e("tag", features.get(i) + " " + isPresent[1][i]);
-//
-//            for(int i=0; i<diagnostics.size(); i++)
-//                Log.e("tag", diagnostics.get(i) + " " + isPresent[2][i]);
-
-            intent.putExtra(PRESENT_SENSORS, isPresent[0]);
-            intent.putExtra(PRESENT_FEATURES, isPresent[1]);
-            intent.putExtra(PRESENT_DIAGNOSTICS, isPresent[2]);
-            startActivity(intent);
-        }
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
@@ -112,48 +90,5 @@ public class SplashActivity extends AppCompatActivity
                 SplashActivity.this.startListActivity();
             }
         }, millis);
-    }
-
-    private boolean[][] isPresent = null;
-
-    @NonNull
-    @Override
-    public android.support.v4.content.Loader<boolean[][]> onCreateLoader(int id, Bundle args) {
-
-        SensorManager sManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        List<String> sensors = AppConstants.sensorNames;
-        HashMap<String, Integer> sMap = AppConstants.sensorManagerInts;
-
-        PackageManager fManager = this.getPackageManager();
-        List<String> features = AppConstants.featureNames;
-        HashMap<String, String> fMap = AppConstants.packageManagerPaths;
-
-        List<String> diagnostics = AppConstants.diagnosticsNames;
-
-        Vibrator vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-        ConsumerIrManager infrared = (ConsumerIrManager) this.getSystemService(CONSUMER_IR_SERVICE);
-
-        return new MyTaskLoader(
-                SplashActivity.this,
-                sManager,
-                sensors,
-                sMap,
-                fManager,
-                features,
-                fMap,
-                vibrator,
-                infrared,
-                diagnostics
-        );
-    }
-
-    @Override
-    public void onLoadFinished(@NonNull android.support.v4.content.Loader<boolean[][]> loader, boolean[][] isPresent) {
-        this.isPresent = isPresent;
-    }
-
-    @Override
-    public void onLoaderReset(@NonNull android.support.v4.content.Loader<boolean[][]> loader) {
-
     }
 }

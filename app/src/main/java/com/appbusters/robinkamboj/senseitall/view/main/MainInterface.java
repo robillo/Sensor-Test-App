@@ -14,6 +14,8 @@ public interface MainInterface {
 
     void checkIfAllPermissionsGiven();
 
+    void checkForPresentSensors();
+
     //adapter related stuff
 
     void initializeAdapter();

@@ -75,6 +75,9 @@
     <uses-feature
         android:name="android.hardware.sensor.stepdetector"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.fingerprint"
+        android:required="false"/>
 
     <application
         android:name=".SensorApplication"

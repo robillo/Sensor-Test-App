@@ -115,6 +115,7 @@ public class AppConstants {
     public static HashMap<String, String> packageManagerPaths = new HashMap<>();
     public static HashMap<String, Integer> sensorManagerInts = new HashMap<>();
     public static HashMap<String, String> diagnosticsPointer = new HashMap<>();
+    public static HashMap<String, String> reverseDiagnosticsPointer = new HashMap<>();
     public static List<String> dangerousPermissions = new ArrayList<>();
 
     static {
@@ -129,6 +130,58 @@ public class AppConstants {
         dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
+
+        diagnosticsPointer.put(ACCELEROMETER_TEST, SENSOR_ACCELEROMETER);
+        diagnosticsPointer.put(LIGHT_TEST, SENSOR_LIGHT);
+        diagnosticsPointer.put(PROXIMITY_TEST, SENSOR_PROXIMITY);
+        diagnosticsPointer.put(BACK_CAMERA_TEST, BACK_CAMERA);
+        diagnosticsPointer.put(FRONT_CAMERA_TEST, FRONT_CAMERA);
+        diagnosticsPointer.put(GPS_TEST, GPS_LOCATION);
+        diagnosticsPointer.put(WIFI_TEST, WIFI);
+        diagnosticsPointer.put(BLUETOOTH_TEST, BLUETOOTH);
+        diagnosticsPointer.put(SCREEN_TEST, SCREEN);
+        diagnosticsPointer.put(BATTERY_TEST, BATTERY);
+        diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
+        diagnosticsPointer.put(VIBRATOR_TEST, VIBRATOR);
+        diagnosticsPointer.put(HEADPHONE_JACK_TEST, AV_OUTPUTS);
+        diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
+        diagnosticsPointer.put(MULTI_TOUCH_TEST, MULTI_TOUCH);
+        diagnosticsPointer.put(FINGERPRINT_TEST, FINGERPRINT);
+
+        reverseDiagnosticsPointer.put(SENSOR_ACCELEROMETER, ACCELEROMETER_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_LIGHT, LIGHT_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_PROXIMITY, PROXIMITY_TEST);
+        reverseDiagnosticsPointer.put(BACK_CAMERA, BACK_CAMERA_TEST);
+        reverseDiagnosticsPointer.put(FRONT_CAMERA, FRONT_CAMERA_TEST);
+        reverseDiagnosticsPointer.put(GPS_LOCATION, GPS_TEST);
+        reverseDiagnosticsPointer.put(WIFI, WIFI_TEST);
+        reverseDiagnosticsPointer.put(BLUETOOTH, BLUETOOTH_TEST);
+        reverseDiagnosticsPointer.put(SCREEN, SCREEN_TEST);
+        reverseDiagnosticsPointer.put(BATTERY, BATTERY_TEST);
+        reverseDiagnosticsPointer.put(SOUND, SPEAKER_VOLUME_TEST);
+        reverseDiagnosticsPointer.put(VIBRATOR, VIBRATOR_TEST);
+        reverseDiagnosticsPointer.put(AV_OUTPUTS, HEADPHONE_JACK_TEST);
+        reverseDiagnosticsPointer.put(FLASH, FLASH_LIGHT_TEST);
+        reverseDiagnosticsPointer.put(MULTI_TOUCH, MULTI_TOUCH_TEST);
+        reverseDiagnosticsPointer.put(FINGERPRINT, FINGERPRINT_TEST);
+
+        sensorNames.add(SENSOR_ACCELEROMETER);
+        sensorNames.add(SENSOR_LIGHT);
+        sensorNames.add(SENSOR_PROXIMITY);
+        sensorNames.add(SENSOR_TEMPERATURE);
+        sensorNames.add(SENSOR_PRESSURE);
+        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
+        sensorNames.add(SENSOR_GYROSCOPE);
+        sensorNames.add(SENSOR_GRAVITY);
+        sensorNames.add(SENSOR_LINEAR_ACCELERATION);
+        sensorNames.add(SENSOR_ROTATION_VECTOR);
+        sensorNames.add(SENSOR_MAGNETIC_FIELD);
+        sensorNames.add(SENSOR_HEART_RATE);
+        sensorNames.add(SENSOR_STEP_DETECTOR);
+        sensorNames.add(SENSOR_STEP_COUNTER);
+        sensorNames.add(SENSOR_MOTION_DETECTOR);
+        sensorNames.add(SENSOR_STATIONARY_DETECTOR);
+
 
         //sensors
         diagnosticsNames.add(ACCELEROMETER_TEST);
@@ -149,39 +202,36 @@ public class AppConstants {
         diagnosticsNames.add(MULTI_TOUCH_TEST);
         diagnosticsNames.add(FINGERPRINT_TEST);
 
-        diagnosticsPointer.put(ACCELEROMETER_TEST, SENSOR_ACCELEROMETER);
-        diagnosticsPointer.put(LIGHT_TEST, SENSOR_LIGHT);
-        diagnosticsPointer.put(PROXIMITY_TEST, SENSOR_PROXIMITY);
-        diagnosticsPointer.put(BACK_CAMERA_TEST, BACK_CAMERA);
-        diagnosticsPointer.put(FRONT_CAMERA_TEST, FRONT_CAMERA);
-        diagnosticsPointer.put(GPS_TEST, GPS_LOCATION);
-        diagnosticsPointer.put(WIFI_TEST, WIFI);
-        diagnosticsPointer.put(BLUETOOTH_TEST, BLUETOOTH);
-        diagnosticsPointer.put(SCREEN_TEST, SCREEN);
-        diagnosticsPointer.put(BATTERY_TEST, BATTERY);
-        diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
-        diagnosticsPointer.put(VIBRATOR_TEST, VIBRATOR);
-        diagnosticsPointer.put(HEADPHONE_JACK_TEST, AV_OUTPUTS);
-        diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
-        diagnosticsPointer.put(MULTI_TOUCH_TEST, MULTI_TOUCH);
-        diagnosticsPointer.put(FINGERPRINT_TEST, FINGERPRINT);
 
-        sensorNames.add(SENSOR_ACCELEROMETER);
-        sensorNames.add(SENSOR_LIGHT);
-        sensorNames.add(SENSOR_PROXIMITY);
-        sensorNames.add(SENSOR_TEMPERATURE);
-        sensorNames.add(SENSOR_PRESSURE);
-        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
-        sensorNames.add(SENSOR_GYROSCOPE);
-        sensorNames.add(SENSOR_GRAVITY);
-        sensorNames.add(SENSOR_LINEAR_ACCELERATION);
-        sensorNames.add(SENSOR_ROTATION_VECTOR);
-        sensorNames.add(SENSOR_MAGNETIC_FIELD);
-        sensorNames.add(SENSOR_HEART_RATE);
-        sensorNames.add(SENSOR_STEP_DETECTOR);
-        sensorNames.add(SENSOR_STEP_COUNTER);
-        sensorNames.add(SENSOR_MOTION_DETECTOR);
-        sensorNames.add(SENSOR_STATIONARY_DETECTOR);
+        featureNames.add(BACK_CAMERA);
+        featureNames.add(FRONT_CAMERA);
+        featureNames.add(GPS_LOCATION);
+        featureNames.add(WIFI);
+        featureNames.add(BLUETOOTH);
+        featureNames.add(GSM_UMTS);
+        featureNames.add(COMPASS);
+        featureNames.add(RADIO);
+        featureNames.add(SCREEN);
+        featureNames.add(BATTERY);
+        featureNames.add(CPU);
+        featureNames.add(SOUND);
+        featureNames.add(VIBRATOR);
+        featureNames.add(AV_OUTPUTS);
+        featureNames.add(ANDROID_OS);
+        featureNames.add(FLASH);
+        featureNames.add(INFRARED);
+        featureNames.add(MULTI_TOUCH);
+        featureNames.add(FINGERPRINT);
+        featureNames.add(NFC);
+        featureNames.add(MICROPHONE);
+        featureNames.add(USB_ACCESSORY);
+        featureNames.add(BAROMETER);
+        featureNames.add(WIFI_DIRECT);
+        featureNames.add(HEART_RATE_ECG);
+        featureNames.add(FAKE_TOUCH);
+        featureNames.add(WEB_VIEW);
+        featureNames.add(MIDI);
+        featureNames.add(VR_MODE);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
         imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);
@@ -228,36 +278,6 @@ public class AppConstants {
         imageUrlMap.put(WEB_VIEW, R.drawable.baseline_web_black_48);
         imageUrlMap.put(MIDI, R.drawable.baseline_speaker_black_48);
         imageUrlMap.put(VR_MODE, R.drawable.baseline_videogame_asset_black_48);
-
-        featureNames.add(BACK_CAMERA);
-        featureNames.add(FRONT_CAMERA);
-        featureNames.add(GPS_LOCATION);
-        featureNames.add(WIFI);
-        featureNames.add(BLUETOOTH);
-        featureNames.add(GSM_UMTS);
-        featureNames.add(COMPASS);
-        featureNames.add(RADIO);
-        featureNames.add(SCREEN);
-        featureNames.add(BATTERY);
-        featureNames.add(CPU);
-        featureNames.add(SOUND);
-        featureNames.add(VIBRATOR);
-        featureNames.add(AV_OUTPUTS);
-        featureNames.add(ANDROID_OS);
-        featureNames.add(FLASH);
-        featureNames.add(INFRARED);
-        featureNames.add(MULTI_TOUCH);
-        featureNames.add(FINGERPRINT);
-        featureNames.add(NFC);
-        featureNames.add(MICROPHONE);
-        featureNames.add(USB_ACCESSORY);
-        featureNames.add(BAROMETER);
-        featureNames.add(WIFI_DIRECT);
-        featureNames.add(HEART_RATE_ECG);
-        featureNames.add(FAKE_TOUCH);
-        featureNames.add(WEB_VIEW);
-        featureNames.add(MIDI);
-        featureNames.add(VR_MODE);
 
         packageManagerPaths.put(BACK_CAMERA, PackageManager.FEATURE_CAMERA);
         packageManagerPaths.put(FRONT_CAMERA, PackageManager.FEATURE_CAMERA_FRONT);

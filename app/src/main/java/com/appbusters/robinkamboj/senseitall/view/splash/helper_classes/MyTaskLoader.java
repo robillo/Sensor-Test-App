@@ -1,11 +1,16 @@
 package com.appbusters.robinkamboj.senseitall.view.splash.helper_classes;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.ConsumerIrManager;
 import android.hardware.SensorManager;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Vibrator;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
+import android.util.Log;
 
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 
@@ -23,6 +28,7 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
     private HashMap<String, String> fMap;
     private Vibrator vibrator;
     private ConsumerIrManager infrared;
+    private boolean fingerprintBool;
 
     public MyTaskLoader(Context context,
                         SensorManager sManager,
@@ -33,6 +39,7 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
                         HashMap<String, String> fMap,
                         Vibrator vibrator,
                         ConsumerIrManager infrared,
+                        boolean fingerprintBool,
                         List<String> diagnostics) {
         super(context);
 
@@ -47,6 +54,7 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
         sensorsPresent = new boolean[sensors.size()];
         featuresPresent = new boolean[features.size()];
         diagnosticsPresent = new boolean[diagnostics.size()];
+        this.fingerprintBool = fingerprintBool;
     }
 
     @Override
@@ -58,59 +66,61 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
         for(String s : sensors) {
             if (sMap.get(s) != null && sensorManager != null && sensorManager.getDefaultSensor(sMap.get(s)) != null) {
                 sensorsPresent[pos] = true;
-                if(AppConstants.diagnosticsPointer.get(s) != null) {
-                    diagnosticsPresent[diagPos] = true;
-                }
+                setDiagnostics(s, diagPos, diagnosticsPresent);
             }
-            if(AppConstants.diagnosticsPointer.get(s) != null) diagPos++;
+            if(AppConstants.reverseDiagnosticsPointer.get(s) != null) diagPos += 1;
             pos++;
         }
 
         pos = 0;
         for(String f : features) {
             if(fMap.get(f) != null) {
-                if(fManager.hasSystemFeature(f)) {
-                    featuresPresent[pos] = true;
-                    if(AppConstants.diagnosticsPointer.get(f) != null) {
-                        diagnosticsPresent[diagPos] = true;
+                Log.e("tag", "feature " + f + " " + fManager.hasSystemFeature(fMap.get(f)));
+                if(f.equals(AppConstants.FINGERPRINT)) {
+                    if(fingerprintBool) {
+                        featuresPresent[pos] = true;
+                        setDiagnostics(f, diagPos, diagnosticsPresent);
                     }
+                }
+                else if(fManager.hasSystemFeature(fMap.get(f))) {
+                    featuresPresent[pos] = true;
+                    setDiagnostics(f, diagPos, diagnosticsPresent);
                 }
             }
             else {
                 switch (f) {
+                    case AppConstants.BACK_CAMERA: {
+
+                        break;
+                    }
                     case AppConstants.ANDROID_OS:
                     case AppConstants.BATTERY:
                     case AppConstants.CPU:
                     case AppConstants.SOUND:
                         featuresPresent[pos] = true;
+                        setDiagnostics(f, diagPos, diagnosticsPresent);
                         break;
                     case AppConstants.RADIO:
                         if (Build.getRadioVersion() != null || Build.getRadioVersion().equals(AppConstants.UNKNOWN)) {
                             featuresPresent[pos] = true;
-                            if(AppConstants.diagnosticsPointer.get(f) != null) {
-                                diagnosticsPresent[diagPos] = true;
-                            }
+                            setDiagnostics(f, diagPos, diagnosticsPresent);
                         }
                         break;
                     case AppConstants.VIBRATOR:
                         if (vibrator != null && vibrator.hasVibrator()) {
                             featuresPresent[pos] = true;
-                            if(AppConstants.diagnosticsPointer.get(f) != null) {
-                                diagnosticsPresent[diagPos] = true;
-                            }
+                            setDiagnostics(f, diagPos, diagnosticsPresent);
                         }
                         break;
                     case AppConstants.INFRARED:
                         if (infrared != null && infrared.hasIrEmitter()) {
                             featuresPresent[pos] = true;
-                            if(AppConstants.diagnosticsPointer.get(f) != null) {
-                                diagnosticsPresent[diagPos] = true;
-                            }
+                            setDiagnostics(f, diagPos, diagnosticsPresent);
                         }
                         break;
                 }
             }
-            if(AppConstants.diagnosticsPointer.get(f) != null) diagPos++;
+            if(AppConstants.reverseDiagnosticsPointer.get(f) != null) diagPos += 1;
             pos++;
         }
 
@@ -120,5 +130,10 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
         isPresent[2] = diagnosticsPresent;
 
         return isPresent;
+    }
+
+    private void setDiagnostics(String data, int position, boolean[] diagnosticsPresent) {
+        if(AppConstants.reverseDiagnosticsPointer.get(data) != null)
+            diagnosticsPresent[position] = true;
     }
 }
