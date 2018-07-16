@@ -4,23 +4,8 @@ public interface MainInterface {
 
     void setup();
 
-    void inflateData();
-
     void changeStatusBarColor();
 
-    void setHeaderTextAndRv();
+    void setListFragment();
 
-    void turnOnHighlight(int type);
-
-    void checkIfAllPermissionsGiven();
-
-    void checkForPresentSensors();
-
-    void togglePermissionCardVisibility();
-
-    //adapter related stuff
-
-    void initializeAdapter();
-
-    void fillGenericDataForSelected(int type);
 }

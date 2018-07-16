@@ -178,4 +178,9 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="showing_features_list">SHOWING FEATURES LIST</string>
     <string name="rate_your_experience">RATE YOUR EXPERIENCE</string>
     <string name="please_give_permissions">Some permissions not given. Please allow these permissions to access all sensors.</string>
+
+    <string name="tag_list_fragment">LIST FRAGMENT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
