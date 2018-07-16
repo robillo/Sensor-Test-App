@@ -1,6 +1,8 @@
 package com.appbusters.robinkamboj.senseitall.view.main;
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -26,6 +28,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.GridLayoutAnimationController;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
@@ -39,6 +43,9 @@ import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.main.adapter.GenericDataAdapter;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 import com.appbusters.robinkamboj.senseitall.view.splash.splash_activity.SplashActivity;
+import com.willowtreeapps.spruce.Spruce;
+import com.willowtreeapps.spruce.animation.DefaultAnimations;
+import com.willowtreeapps.spruce.sort.DefaultSort;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -289,9 +296,17 @@ public class MainActivity extends AppCompatActivity
                 span = 3;
             }
         }
+
+        LayoutAnimationController animationController = new LayoutAnimationController(
+                AnimationUtils.loadAnimation(this, R.anim.slide_in_left_recycler),
+                0.05f
+        );
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), span);
         recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setLayoutAnimation(animationController);
         recyclerView.setAdapter(new GenericDataAdapter(list, this));
+
     }
 
     @Override
