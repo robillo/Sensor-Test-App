@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity
 
     private AppPreferencesHelper helper;
     private List<GenericData> list;
+    private List<PermissionsItem> permissionsItems;
+    private int rejectedCount;
 
     private List<String> sensorNames;
     private List<String> featureNames;
@@ -131,19 +133,22 @@ public class MainActivity extends AppCompatActivity
         headerText.setOutAnimation(out);
 
         inflateData();
-        checkForPresentSensors();
         checkIfAllPermissionsGiven();
+        checkForPresentSensors();
         changeStatusBarColor();
     }
 
     @Override
     public void inflateData() {
-//        sensorsPresent = getIntent().getBooleanArrayExtra(PRESENT_SENSORS);
-//        featuresPresent = getIntent().getBooleanArrayExtra(PRESENT_FEATURES);
-//        diagnosticsPresent = getIntent().getBooleanArrayExtra(PRESENT_DIAGNOSTICS);
         sensorNames = AppConstants.sensorNames;
         featureNames = AppConstants.featureNames;
         diagnosticsNames = AppConstants.diagnosticsNames;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkIfAllPermissionsGiven();
     }
 
     @Override
@@ -193,8 +198,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void setHeaderTextAndRv() {
-        String string = helper.getHeaderText();
+        togglePermissionCardVisibility();
 
+        String string = helper.getHeaderText();
         headerText.setText(string);
         switch (string) {
             case SHOWING_DEVICE_TESTS: {
@@ -259,8 +265,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void checkIfAllPermissionsGiven() {
         List<String> permissionNames = AppConstants.dangerousPermissions;
-        List<PermissionsItem> permissionsItems = new ArrayList<>();
-        int rejectedCount = 0;
+        permissionsItems = new ArrayList<>();
+        rejectedCount = 0;
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         for(String p : permissionNames) {
@@ -278,6 +284,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void checkForPresentSensors() {
         getSupportLoaderManager().initLoader(AppConstants.LOADER_ID, null, this).forceLoad();
+    }
+
+    @Override
+    public void togglePermissionCardVisibility() {
+        if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE))
+            permissionsCard.setVisibility(View.GONE);
+        else {
+            if(rejectedCount > 0) permissionsCard.setVisibility(View.VISIBLE);
+            else permissionsCard.setVisibility(View.GONE);
+        }
     }
 
     @Override

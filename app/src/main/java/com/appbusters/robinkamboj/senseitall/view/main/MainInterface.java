@@ -16,6 +16,8 @@ public interface MainInterface {
 
     void checkForPresentSensors();
 
+    void togglePermissionCardVisibility();
+
     //adapter related stuff
 
     void initializeAdapter();
