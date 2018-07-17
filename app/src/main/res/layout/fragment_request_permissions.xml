@@ -6,4 +6,64 @@
     android:background="@color/white"
     tools:context=".view.main.request_permissons_fragment.RequestFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorTextSix">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            android:textSize="32sp"
+            android:textColor="@color/green_shade_three"
+            android:text="@string/allow_permissions"
+            android:background="@color/white"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFour"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="1"
+            android:id="@+id/recycler">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFour"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:id="@+id/go_back"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/red_shade_three"
+                android:text="@string/go_back"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5sp"
+                android:background="@color/red_shade_three"
+                tools:ignore="ContentDescription,SmallSp"
+                android:layout_gravity="bottom"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
 </android.support.design.widget.CoordinatorLayout>

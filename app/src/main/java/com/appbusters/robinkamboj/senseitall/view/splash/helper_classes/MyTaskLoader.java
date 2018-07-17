@@ -1,16 +1,11 @@
 package com.appbusters.robinkamboj.senseitall.view.splash.helper_classes;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.ConsumerIrManager;
 import android.hardware.SensorManager;
-import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Vibrator;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.util.Log;
 
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 
@@ -75,7 +70,6 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
         pos = 0;
         for(String f : features) {
             if(fMap.get(f) != null) {
-                Log.e("tag", "feature " + f + " " + fManager.hasSystemFeature(fMap.get(f)));
                 if(f.equals(AppConstants.FINGERPRINT)) {
                     if(fingerprintBool) {
                         featuresPresent[pos] = true;

@@ -36,6 +36,7 @@
     <color name="colorTextThree">#D3D3D3</color>
     <color name="colorTextFour">#E8E8E8</color>
     <color name="colorTextFive">#F5F5F5</color>
+    <color name="colorTextSix">#ccf2f2f2</color>
 
     <color name="colorIntensity1">#212121</color>
     <color name="colorIntensity2">#424242</color>
@@ -46,7 +47,7 @@
     <color name="colorIntensity7">#E0E0E0</color>
     <color name="colorIntensity8">#EEEEEE</color>
     <color name="colorIntensity9">#F5F5F5</color>
-    <color name="colorIntensity10">#FAFAFA</color>
+    <color name="colorIntensity10">#c8ffffff</color>
 
     <array name="intensityColors">
         <item>#212121</item>

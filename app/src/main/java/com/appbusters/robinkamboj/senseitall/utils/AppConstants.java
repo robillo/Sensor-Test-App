@@ -14,6 +14,8 @@ import java.util.List;
 @SuppressWarnings("WeakerAccess")
 public class AppConstants {
 
+    public static final int REQUEST_CODE = 100;
+
     //generic data arguments
     public static final String DATA_NAME = "DATA NAME";
     public static final String DRAWABLE_ID = "DRAWABLE ID";
@@ -134,6 +136,7 @@ public class AppConstants {
 //        dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 //        dangerousPermissions.add(Manifest.permission.RECEIVE_WAP_PUSH);
         dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
+        dangerousPermissions.add(Manifest.permission.RECORD_AUDIO);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
 

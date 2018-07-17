@@ -14,4 +14,6 @@ public interface MainActivityInterface {
 
     List<PermissionsItem> getPermissionItemsList();
 
+    void refreshPermissionsRecycler();
+
 }

@@ -7,6 +7,9 @@
         android:name="android.permission.ACCESS_COARSE_LOCATION"
         android:required="false" />
     <uses-permission
+        android:name="android.permission.RECORD_AUDIO"
+        android:required="false" />
+    <uses-permission
         android:name="android.permission.READ_PHONE_STATE"
         android:required="false" />
     <uses-permission
