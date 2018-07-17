@@ -29,6 +29,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -83,6 +84,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
     private boolean[] diagnosticsPresent;
+
+    @BindView(R.id.toolbar)
+    LinearLayout toolbar;
 
     @BindView(R.id.card_permissions)
     CardView permissionsCard;
@@ -226,6 +230,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @Override
     public void turnOnHighlight(int type) {
+        toggleToolbarVisibility(type);
         switch (type) {
             case TYPE_DIAGNOSTICS: {
                 highlight_tests.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
@@ -297,6 +302,74 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @Override
     public List<PermissionsItem> getPermissionItemsList() {
         return permissionsItems;
+    }
+
+    @Override
+    public void toggleToolbarVisibility(int type) {
+
+        Animation fadeIn = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_top_activity);
+        fadeIn.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                toolbar.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        Animation fadeOut = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_out_top_activity);
+        fadeOut.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                toolbar.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        switch (type) {
+            case TYPE_DIAGNOSTICS: {
+                recyclerView.setVisibility(View.VISIBLE);
+                if(toolbar.getVisibility() == View.GONE) {
+                    toolbar.startAnimation(fadeIn);
+                }
+                break;
+            }
+            case TYPE_FEATURES: {
+                recyclerView.setVisibility(View.VISIBLE);
+                if(toolbar.getVisibility() == View.GONE) {
+                    toolbar.startAnimation(fadeIn);
+                }
+                break;
+            }
+            case TYPE_SENSORS: {
+                recyclerView.setVisibility(View.VISIBLE);
+                if(toolbar.getVisibility() == View.GONE) {
+                    toolbar.startAnimation(fadeIn);
+                }
+                break;
+            }
+            case TYPE_RATE: {
+                recyclerView.setVisibility(View.GONE);
+                toolbar.startAnimation(fadeOut);
+                break;
+            }
+        }
     }
 
     @Override

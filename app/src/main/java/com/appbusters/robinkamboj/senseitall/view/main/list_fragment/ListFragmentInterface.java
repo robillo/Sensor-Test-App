@@ -26,6 +26,8 @@ public interface ListFragmentInterface {
 
     List<PermissionsItem> getPermissionItemsList();
 
+    void toggleToolbarVisibility(int type);
+
     //adapter related stuff
 
     void initializeAdapter();
