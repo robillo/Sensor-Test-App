@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5sp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorMajorDark"
             tools:ignore="SmallSp"
             android:contentDescription="@string/null_str" />
 
@@ -39,13 +39,13 @@
             android:textAlignment="center"
             android:gravity="center_vertical"
             android:textColor="@color/colorWhiteShade"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorMajor"
             android:id="@+id/rate"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5sp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorMajorDark"
             tools:ignore="SmallSp"
             android:contentDescription="@string/null_str"/>
 

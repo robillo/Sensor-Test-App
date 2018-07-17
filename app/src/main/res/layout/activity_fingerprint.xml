@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorMajor"
                 android:gravity="center"
                 android:text="Sense It All!"
                 android:textColor="#FFF"
@@ -40,7 +40,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorMajor"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                 android:id="@+id/card"
                 android:text="@string/fingerprint_test"
                 android:textColor="@color/colorWhiteShade"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorMajorDark"
                 android:textStyle="bold"
                 android:fontFamily="cursive"
                 android:gravity="center"
@@ -87,7 +87,7 @@
                         android:layout_height="0sp"
                         android:layout_weight="1"
                         android:padding="20sp"
-                        android:background="@color/colorPrimaryDark"/>
+                        android:background="@color/colorMajorDark"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -96,7 +96,7 @@
                         android:text="Press Your Finger Against the Fingerprint Sensor To Authenticate"
                         android:paddingLeft="15sp"
                         android:paddingRight="15sp"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorMajorDark"
                         android:textSize="20sp"
                         android:fontFamily="sans-serif-smallcaps"
                         android:gravity="center"/>

@@ -7,7 +7,7 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorMajor"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:id="@+id/toolbar2"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorMajor"
         android:layout_marginTop="?actionBarSize">
 
     </FrameLayout>
@@ -61,7 +61,7 @@
             android:padding="5sp"
             android:layout_margin="10sp"
             app:cardCornerRadius="10sp"
-            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardBackgroundColor="@color/colorMajorDark"
             app:cardElevation="@dimen/app_bar_elevation">
 
             <TextView

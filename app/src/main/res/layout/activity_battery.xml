@@ -8,7 +8,7 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorMajor"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
@@ -33,8 +33,8 @@
         android:layout_margin="10sp"
         app:rcBackgroundPadding="5sp"
         app:rcReverse="false"
-        app:rcProgressColor="@color/colorPrimary"
-        app:rcSecondaryProgressColor="@color/colorPrimaryDark"
+        app:rcProgressColor="@color/colorMajor"
+        app:rcSecondaryProgressColor="@color/colorMajorDark"
         app:rcBackgroundColor="@color/colorAccent"
         android:id="@+id/progressBar"/>
 

@@ -10,4 +10,6 @@ public interface SplashMvpView {
 
     void startCountDown(int millis);
 
+    void changeStatusBarColor();
+
 }

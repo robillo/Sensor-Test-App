@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorMajor"
                 android:gravity="center"
                 android:text="@string/sense_it_all"
                 android:textColor="#FFF"
@@ -39,7 +39,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorMajor"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 android:id="@+id/card"
                 android:text="@string/radio"
                 android:textColor="@color/colorWhiteShade"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorMajorDark"
                 android:textStyle="bold"
                 android:fontFamily="cursive"
                 android:gravity="center"
@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textSize="25sp"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorMajor"
                         android:text="Radio Version:"
                         android:id="@+id/one"
                         android:fontFamily="sans-serif-smallcaps"
@@ -95,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textSize="30sp"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorMajorDark"
                         android:text="Value"
                         android:layout_below="@+id/one"
                         android:id="@+id/radio_version"

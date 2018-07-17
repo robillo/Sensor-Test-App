@@ -7,7 +7,7 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorMajor"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:id="@+id/toolbar2"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorMajor"
         android:layout_marginTop="?actionBarSize">
 
     </FrameLayout>
@@ -104,7 +104,7 @@
                 android:padding="10sp"
                 android:layout_alignParentStart="true"
                 android:fontFamily="sans-serif-smallcaps"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorMajorDark"
                 android:id="@+id/start_rec"/>
 
             <Button
@@ -118,7 +118,7 @@
                 android:padding="10sp"
                 android:id="@+id/stop_rec"
                 android:fontFamily="sans-serif-smallcaps"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorMajorDark"
                 android:layout_alignParentEnd="true"/>
 
             <com.wang.avi.AVLoadingIndicatorView
@@ -144,7 +144,7 @@
                 android:padding="10sp"
                 android:layout_alignParentStart="true"
                 android:fontFamily="sans-serif-smallcaps"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="@color/colorMajor"
                 android:id="@+id/play"
                 android:layout_below="@+id/indic_1"/>
 
@@ -159,7 +159,7 @@
                 android:padding="10sp"
                 android:id="@+id/pause"
                 android:fontFamily="sans-serif-smallcaps"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="@color/colorMajor"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/indic_1"/>
 

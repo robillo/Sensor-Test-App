@@ -1,6 +1,5 @@
 package com.appbusters.robinkamboj.senseitall.view.sensors.magnetic;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.hardware.Sensor;
@@ -15,23 +14,15 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.BubbleChart;
-import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.BubbleEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.MPPointF;
 
 import java.util.ArrayList;
 
@@ -227,8 +218,8 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         // add a lot of colors
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
-        colors.add(getColor(R.color.colorPrimary));
-        colors.add(getColor(R.color.colorPrimaryDark));
+        colors.add(getColor(R.color.colorMajor));
+        colors.add(getColor(R.color.colorMajorDark));
         colors.add(getColor(R.color.colorPrimaryLight));
 
         dataSet.setColors(colors);

@@ -22,7 +22,7 @@
             android:id="@+id/data_drawable"
             android:padding="20sp"
             tools:ignore="ContentDescription"
-            android:tint="@color/colorPrimaryDark"
+            android:tint="@color/colorMajorDark"
             tools:src="@drawable/baseline_bluetooth_black_48"/>
 
         <TextView
@@ -32,7 +32,7 @@
             android:gravity="center"
             android:padding="4sp"
             tools:text="LIGHT"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorMajorDark" />
 
     </LinearLayout>
 

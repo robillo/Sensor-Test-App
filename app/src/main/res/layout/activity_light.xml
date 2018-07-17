@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorMajor"
                 android:gravity="center"
                 android:text="Light Intensity"
                 android:textColor="#FFF"
@@ -40,7 +40,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorMajor"/>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -86,8 +86,8 @@
                     android:layout_margin="10sp"
                     app:rcBackgroundPadding="5sp"
                     app:rcReverse="false"
-                    app:rcProgressColor="@color/colorPrimary"
-                    app:rcSecondaryProgressColor="@color/colorPrimaryDark"
+                    app:rcProgressColor="@color/colorMajor"
+                    app:rcSecondaryProgressColor="@color/colorMajorDark"
                     app:rcBackgroundColor="@color/colorAccent"
                     android:id="@+id/progressBar"/>
 

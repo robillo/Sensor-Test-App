@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorMajor"
                 android:gravity="center"
                 android:text="Sense It All!"
                 android:textColor="#FFF"
@@ -39,7 +39,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorMajor"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 android:id="@+id/card"
                 android:text="@string/magnetic_field_sensor"
                 android:textColor="@color/colorWhiteShade"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorMajorDark"
                 android:textStyle="bold"
                 android:fontFamily="cursive"
                 android:gravity="center"
@@ -103,7 +103,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Magnetic Field (X):"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -113,7 +113,7 @@
                                 android:layout_row="0"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -123,7 +123,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Magnetic Field (Y):"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -133,7 +133,7 @@
                                 android:layout_row="1"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -144,7 +144,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Magnetic Field (Z):"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -154,7 +154,7 @@
                                 android:layout_row="2"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -165,7 +165,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Vendor:"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -175,7 +175,7 @@
                                 android:layout_row="3"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -185,7 +185,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Resolution:"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -195,7 +195,7 @@
                                 android:layout_row="4"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -205,7 +205,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Maximum Range:"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -215,7 +215,7 @@
                                 android:layout_row="5"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -225,7 +225,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Power:"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -235,7 +235,7 @@
                                 android:layout_row="6"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -245,7 +245,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Present:"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -255,7 +255,7 @@
                                 android:layout_row="7"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -265,7 +265,7 @@
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
                                 android:text="Calibrator:"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -275,7 +275,7 @@
                                 android:layout_row="8"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:padding="5sp"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="@color/colorMajorDark"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
                         </GridLayout>

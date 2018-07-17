@@ -14,6 +14,12 @@ import java.util.List;
 @SuppressWarnings("WeakerAccess")
 public class AppConstants {
 
+    //generic data arguments
+    public static final String DATA_NAME = "DATA NAME";
+    public static final String DRAWABLE_ID = "DRAWABLE ID";
+    public static final String IS_PRESENT = "IS PRESENT";
+    public static final String TYPE = "TYPE";
+
     //data types
     public static final int TYPE_DIAGNOSTICS = 0;
     public static final int TYPE_SENSORS = 1;

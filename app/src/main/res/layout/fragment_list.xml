@@ -101,7 +101,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textSize="32sp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorMajorDark"
                     android:text="@string/sense_it_all"/>
 
                 <ImageButton
@@ -136,7 +136,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimaryDark">
+                app:cardBackgroundColor="@color/colorMajorDark">
 
                 <TextSwitcher
                     android:layout_width="match_parent"
@@ -168,7 +168,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1sp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorMajorDark"
                 tools:ignore="ContentDescription,SmallSp" />
 
             <LinearLayout
@@ -185,7 +185,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tint="@color/colorPrimaryDark"
+                        android:tint="@color/colorMajorDark"
                         android:src="@drawable/baseline_device_unknown_black_48"
                         android:background="@color/white"
                         android:scaleType="centerInside"
@@ -217,7 +217,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tint="@color/colorPrimaryDark"
+                        android:tint="@color/colorMajorDark"
                         android:src="@drawable/baseline_mobile_friendly_black_48"
                         android:background="@color/white"
                         android:scaleType="centerInside"
@@ -249,7 +249,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tint="@color/colorPrimaryDark"
+                        android:tint="@color/colorMajorDark"
                         android:src="@drawable/baseline_battery_charging_full_black_48"
                         android:background="@color/white"
                         android:scaleType="centerInside"
@@ -281,7 +281,7 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tint="@color/colorPrimaryDark"
+                        android:tint="@color/colorMajorDark"
                         android:src="@drawable/baseline_verified_user_black_48"
                         android:background="@color/white"
                         android:scaleType="centerInside"

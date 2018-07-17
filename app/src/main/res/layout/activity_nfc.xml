@@ -7,7 +7,7 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorMajor"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:id="@+id/toolbar2"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorMajor"
         android:layout_marginTop="?actionBarSize">
 
     </FrameLayout>
@@ -106,7 +106,7 @@
                 android:gravity="center"
                 android:padding="3sp"
                 android:text="NFC Enabled:"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorMajor"
                 android:textSize="25sp" />
 
             <TextView
@@ -118,7 +118,7 @@
                 android:gravity="center"
                 android:padding="3sp"
                 android:text="Value"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorMajorDark"
                 android:textSize="30sp" />
 
 
@@ -139,7 +139,7 @@
                 android:gravity="center"
                 android:padding="3sp"
                 android:text="ndef push enabled:"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorMajor"
                 android:textSize="25sp" />
 
             <TextView
@@ -150,7 +150,7 @@
                 android:gravity="center"
                 android:padding="3sp"
                 android:text="Value"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorMajorDark"
                 android:textSize="30sp"
                 android:layout_below="@+id/two"
                 android:layout_alignParentLeft="true"

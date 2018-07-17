@@ -2,7 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.main.list_fragment;
 
 import android.view.View;
 
-public interface ListMvpView {
+public interface ListFragmentInterface {
 
     void setup(View v);
 

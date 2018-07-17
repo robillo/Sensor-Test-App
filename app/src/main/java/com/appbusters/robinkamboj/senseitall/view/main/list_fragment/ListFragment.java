@@ -37,7 +37,7 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.main.adapter.GenericDataAdapter;
+import com.appbusters.robinkamboj.senseitall.view.main.list_fragment.adapter.GenericDataAdapter;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 
 import java.util.ArrayList;
@@ -67,7 +67,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlM
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListFragment extends Fragment implements ListMvpView,
+public class ListFragment extends Fragment implements ListFragmentInterface,
         android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]> {
 
     private AppPreferencesHelper helper;
@@ -162,7 +162,6 @@ public class ListFragment extends Fragment implements ListMvpView,
         view.setSystemUiVisibility(flags);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.white));
     }
 
     @OnClick(R.id.button_tests_list)

@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorMajor"
                 android:gravity="center"
                 android:text="Sense It All!"
                 android:textColor="#FFF"
@@ -40,14 +40,14 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorMajor"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:text="Multi Touch Test"
                 android:textColor="@color/colorWhiteShade"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorMajorDark"
                 android:textStyle="bold"
                 android:fontFamily="cursive"
                 android:gravity="center"

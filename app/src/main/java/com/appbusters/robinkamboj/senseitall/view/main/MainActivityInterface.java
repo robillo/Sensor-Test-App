@@ -1,6 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.main;
 
-public interface MainInterface {
+public interface MainActivityInterface {
 
     void setup();
 

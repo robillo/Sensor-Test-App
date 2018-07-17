@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorMajor"
                 android:gravity="center"
                 android:text="@string/sense_it_all"
                 android:textColor="#FFF"
@@ -39,7 +39,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorMajor"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 android:id="@+id/card"
                 android:text="@string/audio_video_test"
                 android:textColor="@color/colorWhiteShade"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorMajorDark"
                 android:textStyle="bold"
                 android:fontFamily="cursive"
                 android:gravity="center"
@@ -108,7 +108,7 @@
                             android:gravity="center"
                             android:padding="3sp"
                             android:text="State:"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/colorMajor"
                             android:textSize="25sp" />
 
                         <TextView
@@ -120,7 +120,7 @@
                             android:gravity="center"
                             android:padding="3sp"
                             android:text="Unplugged"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorMajorDark"
                             android:textSize="30sp" />
 
 
@@ -141,7 +141,7 @@
                             android:gravity="center"
                             android:padding="3sp"
                             android:text="Has a microphone?"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/colorMajor"
                             android:textSize="25sp" />
 
                         <TextView
@@ -154,7 +154,7 @@
                             android:fontFamily="casual"
                             android:gravity="center"
                             android:padding="3sp"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorMajorDark"
                             android:textSize="30sp" />
 
                     </RelativeLayout>

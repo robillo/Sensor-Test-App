@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorMajor"
                 android:gravity="center"
                 android:text="@string/sense_it_all"
                 android:textColor="#FFF"
@@ -39,7 +39,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorMajor"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 android:id="@+id/card"
                 android:text="@string/android_os"
                 android:textColor="@color/colorWhiteShade"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorMajorDark"
                 android:textStyle="bold"
                 android:fontFamily="cursive"
                 android:gravity="center"
@@ -89,7 +89,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5sp"
                             android:textSize="20sp"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorMajorDark"
                             android:fontFamily="sans-serif-smallcaps"
                             android:text="General:"
                             android:gravity="left"/>
@@ -154,7 +154,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5sp"
                             android:textSize="20sp"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorMajorDark"
                             android:fontFamily="sans-serif-smallcaps"
                             android:text="Device Info:"
                             android:gravity="left"/>
@@ -370,7 +370,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5sp"
                             android:textSize="20sp"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorMajorDark"
                             android:fontFamily="sans-serif-smallcaps"
                             android:text="Kernel Information:"
                             android:gravity="left"/>
@@ -450,7 +450,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5sp"
                             android:textSize="20sp"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorMajorDark"
                             android:fontFamily="sans-serif-smallcaps"
                             android:text="Open GL ES Information:"
                             android:gravity="left"/>
