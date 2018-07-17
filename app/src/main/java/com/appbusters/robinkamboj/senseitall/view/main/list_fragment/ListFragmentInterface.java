@@ -2,6 +2,10 @@ package com.appbusters.robinkamboj.senseitall.view.main.list_fragment;
 
 import android.view.View;
 
+import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
+
+import java.util.List;
+
 public interface ListFragmentInterface {
 
     void setup(View v);
@@ -19,6 +23,8 @@ public interface ListFragmentInterface {
     void checkForPresentSensors();
 
     void togglePermissionCardVisibility();
+
+    List<PermissionsItem> getPermissionItemsList();
 
     //adapter related stuff
 

@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.view.main.list_fragment.ListFragment;
+import com.appbusters.robinkamboj.senseitall.view.main.request_permissons_fragment.RequestFragment;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,19 +38,30 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void changeStatusBarColor() {
-
+    public void setListFragment() {
+        String TAG = getString(R.string.tag_list_fragment);
+        if(getSupportFragmentManager().findFragmentByTag(TAG) != null) return;
+        ListFragment fragment = new ListFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment, TAG).commit();
     }
 
     @Override
-    public void setListFragment() {
-        String TAG = getString(R.string.tag_list_fragment);
-
-        if(getSupportFragmentManager().findFragmentByTag(TAG) != null)
-            return;
-
-        ListFragment fragment = new ListFragment();
+    public void setRequestFragment() {
+        String TAG = getString(R.string.tag_request_fragment);
+        if(getSupportFragmentManager().findFragmentByTag(TAG) != null) return;
+        RequestFragment fragment = new RequestFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment, TAG).commit();
+    }
+
+    @Override
+    public List<PermissionsItem> getPermissionItemsList() {
+        ListFragment fragment =
+                (ListFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_list_fragment));
+
+        if(fragment != null)
+            return fragment.getPermissionItemsList();
+        else
+            return null;
     }
 
     @Override

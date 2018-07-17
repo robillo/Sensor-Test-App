@@ -15,7 +15,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.widget.CardView;
@@ -37,6 +36,7 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.main.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.main.list_fragment.adapter.GenericDataAdapter;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 
@@ -295,6 +295,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     }
 
     @Override
+    public List<PermissionsItem> getPermissionItemsList() {
+        return permissionsItems;
+    }
+
+    @Override
     public void initializeAdapter() {
         int span;
         switch (getResources().getConfiguration().orientation) {
@@ -379,7 +384,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @OnClick(R.id.card_permissions)
     public void askPermissions() {
-
+        //noinspection ConstantConditions
+        ((MainActivity) getActivity()).setRequestFragment();
     }
 
     @NonNull
