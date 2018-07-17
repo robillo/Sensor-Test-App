@@ -1,6 +1,8 @@
 package com.appbusters.robinkamboj.senseitall.view.main;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -50,7 +52,23 @@ public class MainActivity extends AppCompatActivity
         String TAG = getString(R.string.tag_request_fragment);
         if(getSupportFragmentManager().findFragmentByTag(TAG) != null) return;
         RequestFragment fragment = new RequestFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment, TAG).commit();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.slide_in_top_activity, R.anim.slide_out_top_activity);
+        transaction.add(R.id.container, fragment, TAG);
+        transaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_request_fragment));
+        if(fragment != null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.slide_in_left_activity, R.anim.slide_out_top_activity);
+            transaction.remove(fragment);
+            transaction.commit();
+        }
+        else
+            super.onBackPressed();
     }
 
     @Override
