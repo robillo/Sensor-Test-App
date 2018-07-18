@@ -4,9 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.splash.SplashActivity"
-    android:background="@drawable/gradient">
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextFive"
+        tools:ignore="ContentDescription,SmallSp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +25,8 @@
             android:layout_gravity="bottom"
             android:scaleType="centerInside"
             android:contentDescription="@string/sense_it_all"
-            android:id="@+id/upper"/>
+            android:id="@+id/upper"
+            android:tint="@color/colorMajorDark"/>
 
     </LinearLayout>
 
@@ -37,7 +42,8 @@
             android:layout_gravity="center_horizontal"
             android:scaleType="centerInside"
             android:contentDescription="@string/device_test"
-            android:id="@+id/lower"/>
+            android:id="@+id/lower"
+            android:tint="@color/colorMajorDark"/>
 
     </LinearLayout>
 
