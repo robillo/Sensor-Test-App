@@ -5,4 +5,8 @@ public interface DetailActivityInterface {
     void setup();
 
     void changeStatusBarColor();
+
+    void initializeIntentData();
+
+    void setFragmentForSensor(String sensor);
 }

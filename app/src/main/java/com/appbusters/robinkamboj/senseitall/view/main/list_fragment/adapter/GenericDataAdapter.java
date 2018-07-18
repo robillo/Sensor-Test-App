@@ -99,9 +99,13 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
         else
             args.putString(AppConstants.DATA_NAME, data.getName());
 
+        args.putString(AppConstants.RECYCLER_NAME, data.getName());
+
         args.putInt(AppConstants.DRAWABLE_ID, data.getDrawableId());
         args.putBoolean(AppConstants.IS_PRESENT, data.isPresent());
         args.putInt(AppConstants.TYPE, data.getType());
+
+        intent.putExtras(args);
 
         return intent;
     }

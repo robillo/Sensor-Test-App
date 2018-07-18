@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -71,8 +72,12 @@ public class MainActivity extends AppCompatActivity
             transaction.remove(fragment);
             transaction.commit();
         }
-        else
-            super.onBackPressed();
+        else {
+            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+            homeIntent.addCategory(Intent.CATEGORY_HOME);
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(homeIntent);
+        }
     }
 
     @Override

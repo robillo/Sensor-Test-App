@@ -17,6 +17,7 @@ public class AppConstants {
     public static final int REQUEST_CODE = 100;
 
     //generic data arguments
+    public static final String RECYCLER_NAME = "RECYCLER NAME";
     public static final String DATA_NAME = "DATA NAME";
     public static final String DRAWABLE_ID = "DRAWABLE ID";
     public static final String IS_PRESENT = "IS PRESENT";
@@ -27,6 +28,11 @@ public class AppConstants {
     public static final int TYPE_SENSORS = 1;
     public static final int TYPE_FEATURES = 2;
     public static final int TYPE_RATE = 3;
+
+    //data type names
+    public static final String DIAGNOSTIC = "Diagnostic";
+    public static final String SENSOR = "Sensor";
+    public static final String FEATURE = "Feature";
 
     //random constants
     public static final String UNKNOWN = "unknown";
@@ -51,7 +57,7 @@ public class AppConstants {
 
     //sensors
     public static final String SENSOR_LIGHT = "Light Sensor";
-    public static final String SENSOR_PROXIMITY = "Proximity Sensor";
+    public static final String SENSOR_PROXIMITY = "Proximity Sensor";        //marked
     public static final String SENSOR_TEMPERATURE = "Ambient Temperature Sensor";
     public static final String SENSOR_PRESSURE = "Pressure Sensor";
     public static final String SENSOR_ACCELEROMETER = "Accelerometer";

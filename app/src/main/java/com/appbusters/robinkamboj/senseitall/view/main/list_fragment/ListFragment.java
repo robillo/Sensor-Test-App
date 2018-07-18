@@ -243,11 +243,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         String string = helper.getHeaderText();
 
         if(string.equals(RATE_YOUR_EXPERIENCE)) {
-            headerText.startAnimation(fadeOutHeader);
+            if(headerText.getVisibility() == View.VISIBLE) headerText.startAnimation(fadeOutHeader);
         }
         else {
             headerText.setText(string);
-            headerText.startAnimation(fadeInHeader);
+            if(headerText.getVisibility() == View.GONE) headerText.startAnimation(fadeInHeader);
         }
 
         switch (string) {

@@ -7,6 +7,10 @@ public class GenericData {
     private boolean isPresent;
     private int type;
 
+    public GenericData() {
+
+    }
+
     public GenericData(String name, int drawableId, boolean isPresent, int type) {
         this.name = name;
         this.drawableId = drawableId;
