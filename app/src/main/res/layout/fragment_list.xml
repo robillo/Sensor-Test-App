@@ -134,37 +134,31 @@
                 android:background="@color/colorTextThree"
                 tools:ignore="ContentDescription,SmallSp" />
 
-            <android.support.v7.widget.CardView
+            <TextSwitcher
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorMajorDark">
+                android:id="@+id/header_text"
+                android:background="@color/colorMajorDark">
 
-                <TextSwitcher
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/header_text">
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:paddingTop="5sp"
+                    android:paddingBottom="5sp"
+                    android:textSize="20sp"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:paddingTop="5sp"
-                        android:paddingBottom="5sp"
-                        android:textSize="20sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:paddingTop="5sp"
+                    android:paddingBottom="5sp"
+                    android:textSize="20sp"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:paddingTop="5sp"
-                        android:paddingBottom="5sp"
-                        android:textSize="20sp"/>
-
-                </TextSwitcher>
-
-            </android.support.v7.widget.CardView>
+            </TextSwitcher>
 
             <ImageView
                 android:layout_width="match_parent"

@@ -76,6 +76,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @SuppressWarnings("FieldCanBeLocal")
     private List<PermissionsItem> permissionsItems;
     private int rejectedCount;
+    private Animation fadeInHeader, fadeOutHeader;
 
     private List<String> sensorNames;
     private List<String> featureNames;
@@ -134,6 +135,45 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         Animation out = AnimationUtils.loadAnimation(getActivity(), R.anim.top_down_exit_header);
         in.setDuration(200);
         out.setDuration(200);
+
+        fadeInHeader = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
+        fadeOutHeader = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out);
+        fadeInHeader.setDuration(150);
+        fadeOutHeader.setDuration(150);
+
+        fadeInHeader.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                headerText.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        fadeOutHeader.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                headerText.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
 
         headerText.setInAnimation(in);
         headerText.setOutAnimation(out);
@@ -201,7 +241,15 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         togglePermissionCardVisibility();
 
         String string = helper.getHeaderText();
-        headerText.setText(string);
+
+        if(string.equals(RATE_YOUR_EXPERIENCE)) {
+            headerText.startAnimation(fadeOutHeader);
+        }
+        else {
+            headerText.setText(string);
+            headerText.startAnimation(fadeInHeader);
+        }
+
         switch (string) {
             case SHOWING_DEVICE_TESTS: {
                 turnOnHighlight(TYPE_DIAGNOSTICS);
