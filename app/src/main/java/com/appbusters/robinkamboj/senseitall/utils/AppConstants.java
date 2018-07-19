@@ -133,18 +133,9 @@ public class AppConstants {
     public static List<String> dangerousPermissions = new ArrayList<>();
     public static HashMap<String, String> sensorMapDirections = new HashMap<>();
     public static HashMap<String, String> sensorMapHints = new HashMap<>();
+    public static HashMap<String, String> sensorMapAbout = new HashMap<>();
 
     static {
-
-        sensorMapDirections.put(
-                SENSOR_PROXIMITY,
-                "Place Your Hand Above Proximity Sensor To Increment Counter."
-        );
-
-        sensorMapHints.put(
-                SENSOR_PROXIMITY,
-                "Proximity sensor is usually located at the top of a mobile screen."
-        );
 
         dangerousPermissions.add(Manifest.permission.CAMERA);
         dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
@@ -360,5 +351,40 @@ public class AppConstants {
             sensorManagerInts.put(SENSOR_MOTION_DETECTOR, Sensor.TYPE_MOTION_DETECT);
             sensorManagerInts.put(SENSOR_STATIONARY_DETECTOR, Sensor.TYPE_STATIONARY_DETECT);
         }
+
+
+
+        sensorMapDirections.put(
+                SENSOR_PROXIMITY,
+                "Place Your Hand Above Proximity Sensor To Increment Counter."
+        );
+        sensorMapDirections.put(
+                SENSOR_ACCELEROMETER,
+                "Shake Your Mobile Phone To Switch Screen colors."
+        );
+
+
+
+
+
+        sensorMapHints.put(
+                SENSOR_PROXIMITY,
+                "Proximity sensor is usually located at the top of a mobile screen."
+        );
+        sensorMapHints.put(
+                SENSOR_ACCELEROMETER,
+                "Enjoy the color switch."
+        );
+
+
+
+        sensorMapAbout.put(
+                SENSOR_PROXIMITY,
+                "Proximity sensing technology is becoming popular across a wide range of industries, especially in consumer electronics, because OEMs introduce new products to market every year. The largest application within consumer electronics is the mobile phone. Given the competition in this particular market, it is important for OEMs to adopt the latest technology and offer unique features to differentiate their products."
+        );
+        sensorMapAbout.put(
+                SENSOR_ACCELEROMETER,
+                "Accelerometers in mobile phones are used to detect the orientation of the phone. The gyroscope, or gyro for short, adds an additional dimension to the information supplied by the accelerometer by tracking rotation or twist." + "An accelerometer measures linear acceleration of movement, while a gyro on the other hand measures the angular rotational velocity. Both sensors measure rate of change; they just measure the rate of change for different things." + "In practice, that means that an accelerometer will measure the directional movement of a device but will not be able to resolve its lateral orientation or tilt during that movement accurately unless a gyro is there to fill in that info."
+        );
     }
 }

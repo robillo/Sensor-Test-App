@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 import com.github.anastr.speedviewlib.PointerSpeedometer;
 
 import butterknife.BindView;
@@ -24,7 +26,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProximityFragment extends Fragment implements ProximityFragmentInterface {
+public class ProximityTestFragment extends Fragment implements ProximityTestInterface {
 
     private SensorManager manager;
     private int counter = 0;
@@ -36,7 +38,7 @@ public class ProximityFragment extends Fragment implements ProximityFragmentInte
     @BindView(R.id.counter)
     TextView counterText;
 
-    public ProximityFragment() {
+    public ProximityTestFragment() {
         // Required empty public constructor
     }
 
@@ -45,7 +47,7 @@ public class ProximityFragment extends Fragment implements ProximityFragmentInte
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_proximity, container, false);
+        View v = inflater.inflate(R.layout.fragment_proximity_test, container, false);
         setup(v);
         return v;
     }

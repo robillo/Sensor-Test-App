@@ -16,7 +16,7 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="@color/white"
             android:textSize="22sp"
-            android:text="PROXIMITY SENSOR TEST"
+            tools:text="PROXIMITY SENSOR TEST"
             android:textColor="@color/colorMajorDark"
             android:gravity="center"
             android:id="@+id/test_name"/>

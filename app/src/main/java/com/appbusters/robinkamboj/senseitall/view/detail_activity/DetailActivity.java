@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor.ProximityFragment;
 import com.bumptech.glide.Glide;
 
@@ -28,6 +29,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESEN
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PROXIMITY_TEST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
@@ -111,6 +113,9 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             case SENSOR_PROXIMITY: {
                 transaction.add(R.id.container, new ProximityFragment()).commit();
                 break;
+            }
+            case SENSOR_ACCELEROMETER: {
+                transaction.add(R.id.container, new AccelerometerFragment()).commit();
             }
         }
     }

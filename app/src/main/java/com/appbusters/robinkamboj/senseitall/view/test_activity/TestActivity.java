@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.directions_fragment.DirectionsFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_fragment.ProximityFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_fragment.ProximityTestFragment;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
@@ -27,6 +29,9 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
     public GenericData intentData = new GenericData();
     public String recyclerName;
+
+    @BindView(R.id.test_name)
+    TextView testName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,8 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
             intentData.setType(intentBundle.getInt(TYPE));
             recyclerName = intentBundle.getString(RECYCLER_NAME);
         }
+        if(recyclerName != null)
+            testName.setText(recyclerName.toUpperCase());
     }
 
     @Override
@@ -89,7 +96,7 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
         switch (intentData.getName()) {
             case SENSOR_PROXIMITY: {
-                transaction.add(R.id.container, new ProximityFragment(), getString(R.string.tag_test_fragment)).commit();
+                transaction.add(R.id.container, new ProximityTestFragment(), getString(R.string.tag_test_fragment)).commit();
                 break;
             }
         }

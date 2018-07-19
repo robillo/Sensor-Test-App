@@ -2,9 +2,10 @@ package com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_fragm
 
 import android.view.View;
 
-public interface ProximityFragmentInterface {
+public interface ProximityTestInterface {
 
     void setup(View v);
 
     void loadSensor();
+
 }

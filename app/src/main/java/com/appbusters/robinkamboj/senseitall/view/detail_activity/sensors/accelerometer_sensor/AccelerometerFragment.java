@@ -1,4 +1,5 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor;
+
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -12,14 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.recycler.SensorDetail;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.abstract_stuff.SensorFragment;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProximityFragment extends SensorFragment implements ProximityInterface {
+public class AccelerometerFragment extends SensorFragment implements AccelerometerInterface {
 
-    public ProximityFragment() {
+    public AccelerometerFragment() {
         // Required empty public constructor
     }
 
@@ -27,7 +31,7 @@ public class ProximityFragment extends SensorFragment implements ProximityInterf
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_proximity, container, false);
+        View v = inflater.inflate(R.layout.fragment_accelerometer, container, false);
         setup(v);
         return v;
     }
@@ -40,7 +44,7 @@ public class ProximityFragment extends SensorFragment implements ProximityInterf
             sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
 
         if(sensorManager != null)
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
     @Override

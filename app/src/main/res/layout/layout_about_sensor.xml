@@ -30,7 +30,7 @@
         android:text="@string/about_proximity"
         android:padding="10sp"
         android:ellipsize="end"
-        android:id="@+id/learn_more"/>
+        android:id="@+id/about"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -50,6 +50,7 @@
         android:paddingBottom="10sp"
         fontPath="fonts/tsc.ttf"
         android:layout_margin="10sp"
+        android:id="@+id/learn_more"
         android:gravity="center_horizontal"
         android:background="@drawable/oval_button"
         android:layout_gravity="center_horizontal"
