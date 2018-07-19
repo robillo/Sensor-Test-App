@@ -5,4 +5,6 @@ import android.view.View;
 public interface TestFragmentInterface {
 
     void setup(View v);
+
+    void loadSensor();
 }

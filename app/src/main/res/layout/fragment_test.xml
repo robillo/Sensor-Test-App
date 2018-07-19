@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.test_activity.test_fragment.TestFragment"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.github.anastr.speedviewlib.PointerSpeedometer
+            android:id="@+id/pointer_speedometer"
+            android:layout_width="300sp"
+            android:layout_height="300sp"
+            android:layout_gravity="center_horizontal"
+            app:sv_unitTextSize="0sp"
+            app:sv_withTremble="false"/>
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Test Fragment" />
+        android:layout_height="?android:attr/actionBarSize"
+        android:textSize="25sp"
+        android:text="@string/default_count"
+        android:textColor="@color/colorMajor"
+        android:gravity="center"
+        android:id="@+id/counter"/>
 
-</FrameLayout>
+</LinearLayout>

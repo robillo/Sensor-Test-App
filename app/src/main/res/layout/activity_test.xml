@@ -6,11 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".view.test_activity.TestActivity">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/container">
+        android:orientation="vertical">
 
-    </FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/white"
+            android:textSize="22sp"
+            android:text="PROXIMITY SENSOR TEST"
+            android:textColor="@color/colorMajorDark"
+            android:gravity="center"
+            android:id="@+id/test_name"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/container">
+
+        </FrameLayout>
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

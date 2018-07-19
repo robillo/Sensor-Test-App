@@ -35,6 +35,7 @@ public class ProximityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_proximity);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        assert sensorManager != null;
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 
         meter = (MisMeter) findViewById(R.id.meter);
