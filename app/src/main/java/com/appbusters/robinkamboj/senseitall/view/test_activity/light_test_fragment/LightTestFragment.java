@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -92,34 +93,44 @@ public class LightTestFragment extends Fragment implements LightTestInterface {
                 percentText.setText(temp);
 
                 if(percentage <= 10){
-                    color = getResources().getColor(R.color.colorIntensity1);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity1);
                 }
                 else if(percentage <= 20){
-                    color = getResources().getColor(R.color.colorIntensity2);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity2);
                 }
                 else if(percentage <= 30){
-                    color = getResources().getColor(R.color.colorIntensity3);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity3);
                 }
                 else if(percentage <= 40){
-                    color = getResources().getColor(R.color.colorIntensity4);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity4);
                 }
                 else if(percentage <= 50){
-                    color = getResources().getColor(R.color.colorIntensity5);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity5);
                 }
                 else if(percentage <= 60){
-                    color = getResources().getColor(R.color.colorIntensity6);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity6);
                 }
                 else if(percentage <= 70){
-                    color = getResources().getColor(R.color.colorIntensity7);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity7);
                 }
                 else if(percentage <= 80){
-                    color = getResources().getColor(R.color.colorIntensity8);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity8);
                 }
                 else if(percentage <= 90){
-                    color = getResources().getColor(R.color.colorIntensity9);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity9);
                 }
                 else if(percentage <= 100){
-                    color = getResources().getColor(R.color.colorIntensity10);
+                    if(getActivity() != null)
+                        color = ContextCompat.getColor(getActivity(), R.color.colorIntensity10);
                 }
 
                 cardBar.setCardBackgroundColor(color);
