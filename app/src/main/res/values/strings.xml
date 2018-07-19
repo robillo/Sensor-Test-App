@@ -189,4 +189,15 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="allow_all">Allow All</string>
     <string name="ask_permissions_manually"><![CDATA[Please go to Settings -> Apps -> Sense It All - Device Test -> Permissions. \nAnd enable permissions manually]]></string>
     <string name="key_statistics">KEY STATISTICS:</string>
+    <string name="go_to_test">GO TO TEST</string>
+    <string name="about_sensor">ABOUT:</string>
+    <string name="learn_more">LEARN MORE</string>
+    
+    <string name="about_proximity">
+        Proximity sensing technology is becoming popular across a wide range of industries,
+        especially in consumer electronics, because OEMs introduce new products to market every year.
+        The largest application within consumer electronics is the mobile phone.
+        Given the competition in this particular market,
+        it is important for OEMs to adopt the latest technology and offer unique features to differentiate their products.
+    </string>
 </resources>

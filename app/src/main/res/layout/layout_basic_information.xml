@@ -7,6 +7,12 @@
     android:orientation="vertical"
     android:background="@color/white">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextThree"
+        tools:ignore="ContentDescription,SmallSp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

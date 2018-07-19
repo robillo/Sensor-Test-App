@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorMajorDark"
+        android:textSize="20sp"
+        android:text="@string/about_sensor"
+        android:gravity="start"
+        android:padding="15sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextThree"
+        tools:ignore="ContentDescription,SmallSp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="5"
+        android:textSize="17sp"
+        android:textColor="@color/colorIntensity5"
+        android:text="@string/about_proximity"
+        android:padding="10sp"
+        android:ellipsize="end"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextThree"
+        tools:ignore="ContentDescription,SmallSp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/red_shade_three"
+        app:cardCornerRadius="20sp"
+        android:layout_margin="10sp"
+        tools:ignore="RtlHardcoded,RtlSymmetry"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/learn_more"
+            android:textColor="@color/white"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            fontPath="fonts/tsc.ttf"
+            tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
