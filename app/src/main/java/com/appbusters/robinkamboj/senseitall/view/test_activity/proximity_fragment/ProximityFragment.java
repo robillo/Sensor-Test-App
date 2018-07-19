@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.test_activity.test_fragment;
+package com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_fragment;
 
 
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TestFragment extends Fragment implements TestFragmentInterface {
+public class ProximityFragment extends Fragment implements ProximityFragmentInterface {
 
     private SensorManager manager;
     private int counter = 0;
@@ -37,7 +36,7 @@ public class TestFragment extends Fragment implements TestFragmentInterface {
     @BindView(R.id.counter)
     TextView counterText;
 
-    public TestFragment() {
+    public ProximityFragment() {
         // Required empty public constructor
     }
 
@@ -46,7 +45,7 @@ public class TestFragment extends Fragment implements TestFragmentInterface {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_test, container, false);
+        View v = inflater.inflate(R.layout.fragment_proximity, container, false);
         setup(v);
         return v;
     }

@@ -45,8 +45,9 @@
         android:layout_height="wrap_content"
         android:textSize="23sp"
         android:textColor="@color/colorMajorDark"
-        android:text="@string/proximity_direction"
-        android:padding="10sp"/>
+        tools:text="@string/proximity_direction"
+        android:padding="10sp"
+        android:id="@+id/test_direction"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -58,18 +59,20 @@
         <ImageView
             android:layout_width="5sp"
             android:layout_height="match_parent"
-            android:background="@color/red_shade_three"/>
+            android:background="@color/red_shade_three"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="@color/red_shade_three"
-            android:text="@string/proximity_hint"
+            tools:text="@string/proximity_hint"
             android:paddingLeft="10sp"
             android:paddingRight="10sp"
             android:paddingTop="5sp"
-            android:paddingBottom="5sp"/>
+            android:paddingBottom="5sp"
+            android:id="@+id/test_hint"/>
 
     </FrameLayout>
 

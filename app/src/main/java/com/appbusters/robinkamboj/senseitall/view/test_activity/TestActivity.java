@@ -3,7 +3,6 @@ package com.appbusters.robinkamboj.senseitall.view.test_activity;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +10,23 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.directions_fragment.DirectionsFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.test_fragment.TestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_fragment.ProximityFragment;
 
 import butterknife.ButterKnife;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
+
 public class TestActivity extends AppCompatActivity implements TestInterface {
+
+    public GenericData intentData = new GenericData();
+    public String recyclerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +37,22 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     }
 
     @Override
+    public void initializeIntentData() {
+        Bundle intentBundle = getIntent().getExtras();
+        if(intentBundle != null) {
+            intentData.setName(intentBundle.getString(DATA_NAME));
+            intentData.setDrawableId(intentBundle.getInt(DRAWABLE_ID));
+            intentData.setPresent(intentBundle.getBoolean(IS_PRESENT));
+            intentData.setType(intentBundle.getInt(TYPE));
+            recyclerName = intentBundle.getString(RECYCLER_NAME);
+        }
+    }
+
+    @Override
     public void setup() {
         ButterKnife.bind(this);
 
+        initializeIntentData();
         setStatusBarColor();
         setDirectionsFragment();
     }
@@ -63,14 +86,13 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.slide_in_right_activity, R.anim.slide_out_right_activity);
-        transaction.add(R.id.container, new TestFragment(), getString(R.string.tag_test_fragment));
-        transaction.commit();
-    }
 
-    @Override
-    public void setFragments() {
-//        setTestFragment();
-//        setDirectionsFragment();
+        switch (intentData.getName()) {
+            case SENSOR_PROXIMITY: {
+                transaction.add(R.id.container, new ProximityFragment(), getString(R.string.tag_test_fragment)).commit();
+                break;
+            }
+        }
     }
 
     @Override

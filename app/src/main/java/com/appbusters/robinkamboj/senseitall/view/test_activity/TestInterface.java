@@ -10,6 +10,6 @@ public interface TestInterface {
 
     void setTestFragment();
 
-    void setFragments();
+    void initializeIntentData();
 
 }

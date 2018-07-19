@@ -36,8 +36,8 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENS
 
 public class DetailActivity extends AppCompatActivity implements DetailActivityInterface {
 
-    private GenericData intentData = new GenericData();
-    private String recyclerName;
+    public GenericData intentData = new GenericData();
+    public String recyclerName;
 
     @BindView(R.id.data_name)
     TextView dataName;

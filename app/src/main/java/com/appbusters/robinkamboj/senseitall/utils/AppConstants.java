@@ -57,7 +57,7 @@ public class AppConstants {
 
     //sensors
     public static final String SENSOR_LIGHT = "Light Sensor";
-    public static final String SENSOR_PROXIMITY = "Proximity Sensor";        //marked
+    public static final String SENSOR_PROXIMITY = "Proximity Sensor";
     public static final String SENSOR_TEMPERATURE = "Ambient Temperature Sensor";
     public static final String SENSOR_PRESSURE = "Pressure Sensor";
     public static final String SENSOR_ACCELEROMETER = "Accelerometer";
@@ -131,8 +131,20 @@ public class AppConstants {
     public static HashMap<String, String> diagnosticsPointer = new HashMap<>();
     public static HashMap<String, String> reverseDiagnosticsPointer = new HashMap<>();
     public static List<String> dangerousPermissions = new ArrayList<>();
+    public static HashMap<String, String> sensorMapDirections = new HashMap<>();
+    public static HashMap<String, String> sensorMapHints = new HashMap<>();
 
     static {
+
+        sensorMapDirections.put(
+                SENSOR_PROXIMITY,
+                "Place Your Hand Above Proximity Sensor To Increment Counter."
+        );
+
+        sensorMapHints.put(
+                SENSOR_PROXIMITY,
+                "Proximity sensor is usually located at the top of a mobile screen."
+        );
 
         dangerousPermissions.add(Manifest.permission.CAMERA);
         dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
