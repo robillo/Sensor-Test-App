@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.test_activity.TestActivity"
-    android:background="@color/colorMajor">
+    tools:context=".view.test_activity.TestActivity">
 
     <FrameLayout
         android:layout_width="match_parent"

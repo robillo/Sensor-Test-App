@@ -31,7 +31,7 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
         ButterKnife.bind(this);
 
         setStatusBarColor();
-        setFragments();
+        setDirectionsFragment();
     }
 
     @Override
@@ -54,15 +54,23 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
     @Override
     public void setTestFragment() {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_directions_fragment));
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.slide_in_left_activity, R.anim.slide_out_left_activity);
+        transaction.remove(fragment);
+        transaction.commit();
+
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.slide_in_right_activity, R.anim.slide_out_right_activity);
         transaction.add(R.id.container, new TestFragment(), getString(R.string.tag_test_fragment));
         transaction.commit();
     }
 
     @Override
     public void setFragments() {
-        setTestFragment();
-        setDirectionsFragment();
+//        setTestFragment();
+//        setDirectionsFragment();
     }
 
     @Override
