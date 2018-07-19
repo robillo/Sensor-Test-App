@@ -51,6 +51,8 @@
     <color name="colorIntensity9">#F5F5F5</color>
     <color name="colorIntensity10">#c8ffffff</color>
 
+    <color name="colorAlmostWhite">#fbfbfb</color>
+
     <array name="intensityColors">
         <item>#212121</item>
         <item>#424242</item>
