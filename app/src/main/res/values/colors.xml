@@ -52,6 +52,7 @@
     <color name="colorIntensity10">#c8ffffff</color>
 
     <color name="colorAlmostWhite">#fbfbfb</color>
+    <color name="white_tx">#bbfbfbfb</color>
 
     <array name="intensityColors">
         <item>#212121</item>

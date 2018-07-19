@@ -362,18 +362,24 @@ public class AppConstants {
                 SENSOR_ACCELEROMETER,
                 "Shake Your Mobile Phone To Switch Screen colors."
         );
-
-
+        sensorMapDirections.put(
+                SENSOR_LIGHT,
+                "Point Your Light Sensor Towards Light To Observe Bar Color Change."
+        );
 
 
 
         sensorMapHints.put(
                 SENSOR_PROXIMITY,
-                "Proximity sensor is usually located at the top of a mobile screen."
+                "A proximity sensor is usually located at the top of a mobile screen."
         );
         sensorMapHints.put(
                 SENSOR_ACCELEROMETER,
                 "Enjoy the color switch."
+        );
+        sensorMapHints.put(
+                SENSOR_LIGHT,
+                "A light sensor is usually located at the top of a mobile screen."
         );
 
 
@@ -385,6 +391,10 @@ public class AppConstants {
         sensorMapAbout.put(
                 SENSOR_ACCELEROMETER,
                 "Accelerometers in mobile phones are used to detect the orientation of the phone. The gyroscope, or gyro for short, adds an additional dimension to the information supplied by the accelerometer by tracking rotation or twist." + "An accelerometer measures linear acceleration of movement, while a gyro on the other hand measures the angular rotational velocity. Both sensors measure rate of change; they just measure the rate of change for different things." + "In practice, that means that an accelerometer will measure the directional movement of a device but will not be able to resolve its lateral orientation or tilt during that movement accurately unless a gyro is there to fill in that info."
+        );
+        sensorMapAbout.put(
+                SENSOR_LIGHT,
+                "Ambient light sensors are used as backlighting controls in any number of LCD display applications from consumer electronics to automotive, and by automatically adjusting display brightness, they can conserve battery life, which is a key benefit in mobile device applications. In addition, these sensors work well in all kinds of light sources from natural sunlight to fluorescent and incandescent lamps." + "One common theme running throughout most of these recent product launches is that these ambient light sensors match or virtually match the requirements of the human eye. This is a big deal when it comes to reducing eye strain. These include sensors from AMI Semiconductor, Avago, Capella, Osram, and Vishay"
         );
     }
 }

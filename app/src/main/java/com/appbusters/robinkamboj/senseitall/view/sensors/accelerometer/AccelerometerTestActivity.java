@@ -27,11 +27,6 @@ public class AccelerometerTestActivity extends Activity implements SensorEventLi
 
     private int[] colorGen = new int[] { 0xFFFFFFFF, 0xFFFF4040, 0xFF40FF40, 0xFF4040FF, 0xFFFF40FF, 0xFFFFFF40, 0xFF40FFFF };
 
-
-    private int[] color1 = new int[] { Color.CYAN, Color.GREEN, Color.BLUE};
-    private int[] color2 = new int[] { Color.YELLOW, Color.LTGRAY, Color.MAGENTA };
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);

@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_fragment;
+package com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment;
 
 import android.view.View;
 

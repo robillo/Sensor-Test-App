@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_fragment;
+package com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment;
 
 
 import android.content.Context;
@@ -16,8 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 import com.github.anastr.speedviewlib.PointerSpeedometer;
 
 import butterknife.BindView;
