@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proxi
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
@@ -14,17 +15,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.SensorDetail;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.common_adapters.BasicInformationAdapter;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +40,9 @@ public class ProximityFragment extends Fragment implements ProximityInterface {
 
     @BindView(R.id.info_recycler)
     RecyclerView infoRecycler;
+
+    @BindView(R.id.go_back)
+    TextView goBack;
 
     public ProximityFragment() {
         // Required empty public constructor
@@ -104,5 +111,25 @@ public class ProximityFragment extends Fragment implements ProximityInterface {
     @Override
     public void addToDetailsList(List<SensorDetail> sensorDetails, String key, String value) {
         sensorDetails.add(new SensorDetail(key, value));
+    }
+
+    @OnClick(R.id.go_back)
+    public void setGoBack() {
+        if(getActivity() != null) getActivity().onBackPressed();
+    }
+
+    @OnClick(R.id.go_to_test)
+    public void setGoToTest() {
+        if(getActivity() != null) {
+            getActivity().startActivity(new Intent(getActivity(), TestActivity.class));
+            getActivity().overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
+        }
+    }
+
+    @OnClick(R.id.learn_more)
+    public void setLearnMore() {
+        if(getActivity() != null) {
+            //start learn more activity
+        }
     }
 }

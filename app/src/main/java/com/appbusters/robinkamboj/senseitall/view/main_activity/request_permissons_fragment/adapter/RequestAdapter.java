@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.main.request_permissons_fragment.adapter;
+package com.appbusters.robinkamboj.senseitall.view.main_activity.request_permissons_fragment.adapter;
 
 import android.app.Activity;
 import android.content.Context;

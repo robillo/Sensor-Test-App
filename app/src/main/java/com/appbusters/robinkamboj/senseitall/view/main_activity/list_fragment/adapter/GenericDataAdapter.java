@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.main.list_fragment.adapter;
+package com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.adapter;
 
 import android.app.Activity;
 import android.content.Context;

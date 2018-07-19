@@ -181,6 +181,8 @@ The tests for the above sensors provided in the app will could be used for fun, 
 
     <string name="tag_list_fragment">LIST FRAGMENT</string>
     <string name="tag_request_fragment">REQUEST FRAGMENT</string>
+    <string name="tag_directions_fragment">DIRECTIONS FRAGMENT</string>
+    <string name="tag_test_fragment">TEST FRAGMENT</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -192,7 +194,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="go_to_test">GO TO TEST</string>
     <string name="about_sensor">ABOUT:</string>
     <string name="learn_more">LEARN MORE</string>
-    
+
     <string name="about_proximity">
         Proximity sensing technology is becoming popular across a wide range of industries,
         especially in consumer electronics, because OEMs introduce new products to market every year.

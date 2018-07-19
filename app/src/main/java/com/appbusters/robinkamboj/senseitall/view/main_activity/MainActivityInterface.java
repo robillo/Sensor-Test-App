@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.main;
+package com.appbusters.robinkamboj.senseitall.view.main_activity;
 
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 

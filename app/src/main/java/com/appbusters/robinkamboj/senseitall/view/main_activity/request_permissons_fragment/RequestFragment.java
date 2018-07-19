@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.main.request_permissons_fragment;
+package com.appbusters.robinkamboj.senseitall.view.main_activity.request_permissons_fragment;
 
 
 import android.os.Build;
@@ -18,8 +18,8 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.main.MainActivity;
-import com.appbusters.robinkamboj.senseitall.view.main.request_permissons_fragment.adapter.RequestAdapter;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.request_permissons_fragment.adapter.RequestAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -19,7 +19,7 @@
         android:textSize="20sp"
         android:text="@string/key_statistics"
         android:gravity="start"
-        android:padding="15sp"/>
+        android:padding="10sp"/>
 
     <ImageView
         android:layout_width="match_parent"

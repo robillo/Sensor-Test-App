@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.main.list_fragment;
+package com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment;
 
 
 import android.Manifest;
@@ -37,8 +37,8 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.main.MainActivity;
-import com.appbusters.robinkamboj.senseitall.view.main.list_fragment.adapter.GenericDataAdapter;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.adapter.GenericDataAdapter;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 
 import java.util.ArrayList;

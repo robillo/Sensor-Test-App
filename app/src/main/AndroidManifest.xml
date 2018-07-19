@@ -265,8 +265,9 @@
         <activity
             android:name=".view.about.AboutActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.main.MainActivity" />
-        <activity android:name=".view.detail_activity.DetailActivity"></activity>
+        <activity android:name=".view.main_activity.MainActivity" />
+        <activity android:name=".view.detail_activity.DetailActivity" />
+        <activity android:name=".view.test_activity.TestActivity"></activity>
     </application>
 
 </manifest>

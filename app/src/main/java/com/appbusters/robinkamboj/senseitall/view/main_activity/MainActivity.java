@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.main;
+package com.appbusters.robinkamboj.senseitall.view.main_activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,8 @@ import android.widget.Toast;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.main.list_fragment.ListFragment;
-import com.appbusters.robinkamboj.senseitall.view.main.request_permissons_fragment.RequestFragment;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.ListFragment;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.request_permissons_fragment.RequestFragment;
 
 import java.util.List;
 

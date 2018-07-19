@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/colorAlmostWhite">
 
@@ -14,7 +13,7 @@
         android:textSize="20sp"
         android:text="@string/about_sensor"
         android:gravity="start"
-        android:padding="15sp"/>
+        android:padding="10sp"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -30,7 +29,8 @@
         android:textColor="@color/colorIntensity5"
         android:text="@string/about_proximity"
         android:padding="10sp"
-        android:ellipsize="end"/>
+        android:ellipsize="end"
+        android:id="@+id/learn_more"/>
 
     <ImageView
         android:layout_width="match_parent"

@@ -21,7 +21,7 @@ import android.widget.LinearLayout;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.main.MainActivity;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 import com.bumptech.glide.Glide;
 
