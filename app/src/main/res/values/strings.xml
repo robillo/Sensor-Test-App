@@ -202,4 +202,8 @@ The tests for the above sensors provided in the app will could be used for fun, 
         Given the competition in this particular market,
         it is important for OEMs to adopt the latest technology and offer unique features to differentiate their products.
     </string>
+    <string name="directions">DIRECTIONS</string>
+    <string name="proximity_direction">Place Your Hand Above Proximity Sensor To Increment Counter.</string>
+    <string name="proximity_hint">Proximity sensor is usually located at the top of a mobile screen</string>
+    <string name="start_test">START TEST</string>
 </resources>

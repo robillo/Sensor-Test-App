@@ -49,7 +49,6 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     public void setDirectionsFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.container, new DirectionsFragment(), getString(R.string.tag_directions_fragment));
-        transaction.addToBackStack(getString(R.string.tag_directions_fragment));
         transaction.commit();
     }
 
@@ -68,17 +67,7 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
     @Override
     public void onBackPressed() {
-
-        String TAG = getString(R.string.tag_directions_fragment);
-
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG);
-
-        if(fragment != null) {
-            super.onBackPressed();
-        }
-        else {
-            super.onBackPressed();
-            overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
-        }
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
     }
 }

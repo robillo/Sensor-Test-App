@@ -38,21 +38,21 @@
         android:background="@color/colorTextThree"
         tools:ignore="ContentDescription,SmallSp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="@string/learn_more"
-            android:textColor="@color/red_shade_three"
-            android:paddingLeft="20sp"
-            android:paddingRight="20sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            fontPath="fonts/tsc.ttf"
-            android:layout_margin="10sp"
-            android:gravity="center_horizontal"
-            android:background="@drawable/oval_button"
-            android:layout_gravity="center_horizontal"
-            tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/learn_more"
+        android:textColor="@color/red_shade_three"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        fontPath="fonts/tsc.ttf"
+        android:layout_margin="10sp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/oval_button"
+        android:layout_gravity="center_horizontal"
+        tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
 
 </LinearLayout>
