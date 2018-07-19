@@ -93,7 +93,6 @@ public class ProximityFragment extends Fragment implements ProximityInterface {
         addToDetailsList(sensorDetails, "Reporting Mode", String.valueOf(sensor.getReportingMode()));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             addToDetailsList(sensorDetails, "Is Dynamic Sensor", String.valueOf(sensor.isDynamicSensor()));
-
     }
 
     @Override
