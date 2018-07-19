@@ -12,4 +12,6 @@
         android:background="@color/colorMajorDark"
         tools:ignore="ContentDescription,SmallSp" />
 
+    <include layout="@layout/layout_basic_information" />
+
 </LinearLayout>

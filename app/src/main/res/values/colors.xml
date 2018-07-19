@@ -7,8 +7,10 @@
 
     <color name="colorMajor">#00BCD4</color>
     <color name="colorMajorDark">#0083BF</color>
+    <color name="colorMajorDarkTx">#3f0083bf</color>
 
     <color name="colorPrimaryLight">#B2EBF2</color>
+    <color name="colorPrimaryLightTx">#9edaebed</color>
     <color name="colorPrimaryLightLight">#E1F5FE</color>
     <color name="colorAccentDark">#BF360C</color>
     <color name="colorPrimaryDifferent">#FF3D00</color>

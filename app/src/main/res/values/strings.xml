@@ -188,4 +188,5 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="go_back">GO BACK</string>
     <string name="allow_all">Allow All</string>
     <string name="ask_permissions_manually"><![CDATA[Please go to Settings -> Apps -> Sense It All - Device Test -> Permissions. \nAnd enable permissions manually]]></string>
+    <string name="key_statistics">KEY STATISTICS:</string>
 </resources>

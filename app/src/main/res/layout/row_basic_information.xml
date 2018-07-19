@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="10sp"
+            android:layout_height="match_parent"
+            android:background="@color/colorMajorDark"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/colorTextOne"
+            android:textSize="18sp"
+            tools:text="MINIMUM DELAY"
+            tools:ignore="RtlHardcoded,RtlSymmetry"
+            android:id="@+id/key"
+            android:padding="10sp"/>
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/colorTextOne"
+            android:textSize="16sp"
+            tools:text="56 Seconds"
+            tools:ignore="RtlHardcoded,RtlSymmetry"
+            android:id="@+id/value"
+            android:padding="10sp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextThree"
+        tools:ignore="ContentDescription,SmallSp" />
+
+</LinearLayout>
