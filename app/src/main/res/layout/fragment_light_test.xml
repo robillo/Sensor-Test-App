@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".view.test_activity.light_test_fragment.LightTestFragment">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:cardBackgroundColor="@color/colorIntensity1"
+        app:cardCornerRadius="5sp"
+        android:id="@+id/card_bar"
+        android:layout_margin="10sp">
+
+    </android.support.v7.widget.CardView>
+
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:rcProgress="50"
+        app:rcMax="100"
+        app:rcRadius="5sp"
+        app:rcReverse="false"
+        app:rcSecondaryProgress="55"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        app:rcBackgroundPadding="5sp"
+        app:rcProgressColor="@color/colorMajor"
+        app:rcSecondaryProgressColor="@color/colorMajorDark"
+        app:rcBackgroundColor="@color/colorAccent"
+        android:id="@+id/round_progress"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="@string/current_reading"
+                android:textColor="@color/colorIntensity4"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/current_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                tools:text="Value"
+                android:textColor="@color/colorIntensity1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="@string/maximum_reading"
+                android:textColor="@color/colorIntensity4"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/max_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                tools:text="Maximum"
+                android:textColor="@color/colorIntensity1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="@string/percentage"
+                android:textColor="@color/colorIntensity4"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/percent_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                tools:text="Percentage"
+                android:textColor="@color/colorIntensity1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="4sp"
+                android:text="@string/intensity_color_reference"
+                android:textAlignment="center"
+                android:textColor="@color/colorIntensity1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0-10 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity1"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="11-20 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity2"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="21-30 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity3"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="31-40 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity4"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="41-50 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity5"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="51-60 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity6"
+                android:textColor="@color/colorWhiteShade"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="61-70 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity7"
+                android:textColor="@color/colorIntensity1"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="71-80 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity8"
+                android:textColor="@color/colorIntensity1"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="81-90 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity9"
+                android:textColor="@color/colorIntensity1"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="91-100 %"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:background="@color/colorIntensity10"
+                android:textColor="@color/colorIntensity1"
+                android:layout_margin="4sp"
+                android:padding="8sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

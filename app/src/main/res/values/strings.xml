@@ -205,4 +205,8 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="count">COUNT =</string>
     <string name="default_count">COUNT = 0</string>
     <string name="shake_to_change_screen_color">SHAKE TO CHANGE SCREEN COLOR</string>
+    <string name="current_reading">Current Reading:</string>
+    <string name="maximum_reading">Maximum Reading:</string>
+    <string name="percentage">Percentage:</string>
+    <string name="intensity_color_reference">Intensity Color Reference:</string>
 </resources>
