@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:gravity="center"
         android:layout_gravity="bottom"
         android:text="@string/you_should_see_camera_preview_here"

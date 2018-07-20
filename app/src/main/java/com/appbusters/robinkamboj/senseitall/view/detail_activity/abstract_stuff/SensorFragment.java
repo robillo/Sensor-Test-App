@@ -46,14 +46,14 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
     public void setup(View v) {
         ButterKnife.bind(this, v);
 
-//        initializeSensor();
-//        if(sensor == null) {
-//            Toast.makeText(getActivity(), "Failed to load sensor.", Toast.LENGTH_SHORT).show();
-//            if(getActivity() != null) getActivity().onBackPressed();
-//        }
-//        else {
-//            showSensorDetails();
-//        }
+        initializeSensor();
+        if(sensor == null) {
+            Toast.makeText(getActivity(), "Failed to load sensor.", Toast.LENGTH_SHORT).show();
+            if(getActivity() != null) getActivity().onBackPressed();
+        }
+        else {
+            showSensorDetails();
+        }
 
         hideGoToTestIfNoTest();
         if (getActivity() != null)

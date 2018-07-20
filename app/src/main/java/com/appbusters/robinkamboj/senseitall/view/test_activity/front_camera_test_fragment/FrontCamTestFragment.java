@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.test_activity.back_camera_test_fragment;
+package com.appbusters.robinkamboj.senseitall.view.test_activity.front_camera_test_fragment;
 
 
 import android.content.Context;
@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BackCamTestFragment extends Fragment implements BackCamTestInterface {
+public class FrontCamTestFragment extends Fragment implements FrontCamTestInterface {
 
     private CameraManager cameraManager;
     private int cameraFacing;
@@ -53,7 +53,7 @@ public class BackCamTestFragment extends Fragment implements BackCamTestInterfac
     @BindView(R.id.texture_view)
     TextureView textureView;
 
-    public BackCamTestFragment() {
+    public FrontCamTestFragment() {
         // Required empty public constructor
     }
 
@@ -81,7 +81,7 @@ public class BackCamTestFragment extends Fragment implements BackCamTestInterfac
             height = size.y;
         }
 
-        cameraFacing = CameraCharacteristics.LENS_FACING_BACK;
+        cameraFacing = CameraCharacteristics.LENS_FACING_FRONT;
         if(getActivity() != null)
             cameraManager = (CameraManager) getActivity().getSystemService(Context.CAMERA_SERVICE);
     }
@@ -154,20 +154,20 @@ public class BackCamTestFragment extends Fragment implements BackCamTestInterfac
     CameraDevice.StateCallback callback = new CameraDevice.StateCallback() {
         @Override
         public void onOpened(@NonNull CameraDevice camera) {
-            BackCamTestFragment.this.cameraDevice = camera;
+            FrontCamTestFragment.this.cameraDevice = camera;
             createPreviewSession();
         }
 
         @Override
         public void onDisconnected(@NonNull CameraDevice camera) {
             cameraDevice.close();
-            BackCamTestFragment.this.cameraDevice = null;
+            FrontCamTestFragment.this.cameraDevice = null;
         }
 
         @Override
         public void onError(@NonNull CameraDevice camera, int error) {
             cameraDevice.close();
-            BackCamTestFragment.this.cameraDevice = null;
+            FrontCamTestFragment.this.cameraDevice = null;
         }
     };
 
@@ -233,8 +233,8 @@ public class BackCamTestFragment extends Fragment implements BackCamTestInterfac
 
                                 try {
                                     captureRequest = captureRequestBuilder.build();
-                                    BackCamTestFragment.this.cameraCaptureSession = cameraCaptureSession;
-                                    BackCamTestFragment.this.cameraCaptureSession.setRepeatingRequest(captureRequest,
+                                    FrontCamTestFragment.this.cameraCaptureSession = cameraCaptureSession;
+                                    FrontCamTestFragment.this.cameraCaptureSession.setRepeatingRequest(captureRequest,
                                             null, backgroundHandler);
                                 } catch (CameraAccessException e) {
                                     e.printStackTrace();
