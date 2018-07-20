@@ -17,6 +17,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.accelerometer_te
 import com.appbusters.robinkamboj.senseitall.view.test_activity.back_camera_test_fragment.BackCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.directions_fragment.DirectionsFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.front_camera_test_fragment.FrontCamTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.gps_test_fragment.GpsTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.light_test_fragment.LightTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment.ProximityTestFragment;
 
@@ -27,6 +28,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAME
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
@@ -140,6 +142,14 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new FrontCamTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case GPS_LOCATION: {
+                transaction.add(
+                        R.id.container,
+                        new GpsTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;
