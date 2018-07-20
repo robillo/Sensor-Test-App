@@ -1,14 +1,12 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.abstract_stuff;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff;
 
 import android.content.Intent;
-import android.hardware.Sensor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -22,12 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public abstract class SensorFragment extends Fragment implements SensorInterface {
+public abstract class FeatureFragment extends Fragment implements SensorInterface  {
 
-    public Sensor sensor;
     public List<SensorDetail> sensorDetails = new ArrayList<>();
 
     @BindView(R.id.info_recycler)
@@ -41,24 +37,6 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
     @BindView(R.id.about)
     public TextView about;
-
-    @Override
-    public void setup(View v) {
-        ButterKnife.bind(this, v);
-
-        initializeSensor();
-        if(sensor == null) {
-            Toast.makeText(getActivity(), "Failed to load sensor.", Toast.LENGTH_SHORT).show();
-            if(getActivity() != null) getActivity().onBackPressed();
-        }
-        else {
-            showSensorDetails();
-        }
-
-        hideGoToTestIfNoTest();
-        if (getActivity() != null)
-            about.setText(AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName()));
-    }
 
     @Override
     public void showSensorDetails() {

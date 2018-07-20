@@ -366,7 +366,58 @@ public class AppConstants {
                 SENSOR_LIGHT,
                 "Point Your Light Sensor Towards Light To Observe Bar Color Change."
         );
-
+        sensorMapDirections.put(
+                BACK_CAMERA,
+                "You Should See Back Camera Preview In The Test"
+        );
+        sensorMapDirections.put(
+                FRONT_CAMERA,
+                "You Should See Front Camera Preview In The Test"
+        );
+        sensorMapDirections.put(
+                GPS_LOCATION,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                WIFI,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                BLUETOOTH,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                SCREEN,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                BATTERY,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                SOUND,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                VIBRATOR,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                AV_OUTPUTS,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                FLASH,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                MULTI_TOUCH,
+                "You Should See Your Location In The Test"
+        );
+        sensorMapDirections.put(
+                FINGERPRINT,
+                "You Should See Your Location In The Test"
+        );
 
 
         sensorMapHints.put(
@@ -381,7 +432,58 @@ public class AppConstants {
                 SENSOR_LIGHT,
                 "A light sensor is usually located at the top of a mobile screen."
         );
-
+        sensorMapHints.put(
+                BACK_CAMERA,
+                ""
+        );
+        sensorMapHints.put(
+                FRONT_CAMERA,
+                ""
+        );
+        sensorMapHints.put(
+                GPS_LOCATION,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                WIFI,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                BLUETOOTH,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                SCREEN,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                BATTERY,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                SOUND,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                VIBRATOR,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                AV_OUTPUTS,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                FLASH,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                MULTI_TOUCH,
+                "Tap the marker for location coordinates."
+        );
+        sensorMapHints.put(
+                FINGERPRINT,
+                "Tap the marker for location coordinates."
+        );
 
 
         sensorMapAbout.put(
@@ -395,6 +497,58 @@ public class AppConstants {
         sensorMapAbout.put(
                 SENSOR_LIGHT,
                 "Ambient light sensors are used as backlighting controls in any number of LCD display applications from consumer electronics to automotive, and by automatically adjusting display brightness, they can conserve battery life, which is a key benefit in mobile device applications. In addition, these sensors work well in all kinds of light sources from natural sunlight to fluorescent and incandescent lamps." + "One common theme running throughout most of these recent product launches is that these ambient light sensors match or virtually match the requirements of the human eye. This is a big deal when it comes to reducing eye strain. These include sensors from AMI Semiconductor, Avago, Capella, Osram, and Vishay"
+        );
+        sensorMapAbout.put(
+                BACK_CAMERA,
+                ""
+        );
+        sensorMapAbout.put(
+                FRONT_CAMERA,
+                ""
+        );
+        sensorMapAbout.put(
+                GPS_LOCATION,
+                ""
+        );
+        sensorMapAbout.put(
+                WIFI,
+                ""
+        );
+        sensorMapAbout.put(
+                BLUETOOTH,
+                ""
+        );
+        sensorMapAbout.put(
+                SCREEN,
+                ""
+        );
+        sensorMapAbout.put(
+                BATTERY,
+                ""
+        );
+        sensorMapAbout.put(
+                SOUND,
+                ""
+        );
+        sensorMapAbout.put(
+                VIBRATOR,
+                ""
+        );
+        sensorMapAbout.put(
+                AV_OUTPUTS,
+                ""
+        );
+        sensorMapAbout.put(
+                FLASH,
+                ""
+        );
+        sensorMapAbout.put(
+                MULTI_TOUCH,
+                ""
+        );
+        sensorMapAbout.put(
+                FINGERPRINT,
+                ""
         );
     }
 }

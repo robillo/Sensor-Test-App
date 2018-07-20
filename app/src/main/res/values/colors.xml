@@ -16,6 +16,7 @@
     <color name="colorPrimaryDifferent">#FF3D00</color>
     <color name="colorFlashlightShade">#FFECB3</color>
     <color name="colorWhiteShade">#FFFFFF</color>
+    <color name="colorBlackShadeTx">#56000000</color>
     <color name="colorBlackShade">#474747</color>
     <color name="colorBlackShade2">#7F7F7F</color>
     <color name="colorBlackShade3">#CCCBCA</color>

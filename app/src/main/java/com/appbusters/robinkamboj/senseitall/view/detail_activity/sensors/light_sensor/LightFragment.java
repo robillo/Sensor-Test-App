@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.abstract_stuff.SensorFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.SensorFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor.ProximityInterface;
 
 /**
