@@ -210,4 +210,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="percentage">Percentage:</string>
     <string name="intensity_color_reference">Intensity Color Reference:</string>
     <string name="you_should_see_camera_preview_here">YOU SHOULD SEE CAMERA PREVIEW HERE</string>
+    <string name="flash_light_image">flash light image</string>
+    <string name="flash_is_turned_off">FLASH IS TURNED OFF</string>
+    <string name="flash_is_turned_on">FLASH IS TURNED ON</string>
 </resources>

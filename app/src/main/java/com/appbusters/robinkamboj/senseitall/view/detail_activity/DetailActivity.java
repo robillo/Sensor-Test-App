@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash.FlashFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.front_camera.FrontCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gps_location.GpsFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
@@ -30,6 +31,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FEATURE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
@@ -140,6 +142,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case GPS_LOCATION: {
                 transaction.add(R.id.container, new GpsFragment()).commit();
+                break;
+            }
+            case FLASH: {
+                transaction.add(R.id.container, new FlashFragment()).commit();
                 break;
             }
         }
