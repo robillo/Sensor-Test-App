@@ -16,6 +16,7 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash.FlashFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.front_camera.FrontCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gps_location.GpsFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.multi_touch.MultiTouchFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.light_sensor.LightFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor.ProximityFragment;
@@ -35,6 +36,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PROXIMITY_TEST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
@@ -146,6 +148,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case FLASH: {
                 transaction.add(R.id.container, new FlashFragment()).commit();
+                break;
+            }
+            case MULTI_TOUCH: {
+                transaction.add(R.id.container, new MultiTouchFragment()).commit();
                 break;
             }
         }

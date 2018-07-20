@@ -20,6 +20,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.flashlight_test_
 import com.appbusters.robinkamboj.senseitall.view.test_activity.front_camera_test_fragment.FrontCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.gps_test_fragment.GpsTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.light_test_fragment.LightTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.multi_touch_fragment.MultiTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment.ProximityTestFragment;
 
 import butterknife.BindView;
@@ -32,6 +33,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
@@ -160,6 +162,14 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new FlashlightTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case MULTI_TOUCH: {
+                transaction.add(
+                        R.id.container,
+                        new MultiTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;

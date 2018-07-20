@@ -1,9 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.controller;
 
-/**
- * Created by rishabhshukla on 10/03/17.
- */
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -26,13 +23,47 @@ public class MultiTouchCanvas extends View {
     }
 
     @Nullable private MultiTouchStatusListener statusListener;
-    @NonNull private Paint paint;
+    @SuppressWarnings("NullableProblems")
+    @NonNull
+    private Paint paint;
     private int totalTouches;
     private int circleRadius;
 
     private List<Point> pointerLocations = new ArrayList<>();
-    private int[] pointerColors = new int[] { 0xFFFFFFFF, 0xFFFF4040, 0xFF40FF40, 0xFF4040FF, 0xFFFF40FF, 0xFFFFFF40, 0xFF40FFFF };
-    private int[] pointerColorsDark = new int[] { 0xFFA0A0A0, 0xFFA00000, 0xFF00A000, 0xFF0000A0, 0xFFA000A0, 0xFFA0A000, 0xFF00A0A0 };
+    private int[] pointerColors = new int[] {
+//            0xFFFFFFFF,
+//            0xFFFF4040,
+//            0xFF40FF40,
+//            0xFF4040FF,
+//            0xFFFF40FF,
+//            0xFFFFFF40,
+//            0xFF40FFFF
+            Color.GRAY,
+            Color.GRAY,
+            Color.GRAY,
+            Color.GRAY,
+            Color.GRAY,
+            Color.GRAY,
+            Color.GRAY,
+            Color.GRAY
+    };
+    private int[] pointerColorsDark = new int[] {
+//            0xFFA0A0A0,
+//            0xFFA00000,
+//            0xFF00A000,
+//            0xFF0000A0,
+//            0xFFA000A0,
+//            0xFFA0A000,
+//            0xFF00A0A0
+            Color.BLACK,
+            Color.BLACK,
+            Color.BLACK,
+            Color.BLACK,
+            Color.BLACK,
+            Color.BLACK,
+            Color.BLACK,
+            Color.BLACK
+    };
 
     public MultiTouchCanvas(Context context) {
         super(context);
@@ -56,12 +87,12 @@ public class MultiTouchCanvas extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(Color.BLACK);
+        canvas.drawColor(Color.WHITE);
         for (int i = 0; i < totalTouches; i++) {
             Point p = pointerLocations.get(i);
             paint.setColor(pointerColorsDark[i % pointerColorsDark.length]);
-            canvas.drawLine(0, p.y, canvas.getWidth(), p.y, paint);
-            canvas.drawLine(p.x, 0, p.x, canvas.getHeight(), paint);
+//            canvas.drawLine(0, p.y, canvas.getWidth(), p.y, paint);
+//            canvas.drawLine(p.x, 0, p.x, canvas.getHeight(), paint);
             canvas.drawCircle(p.x, p.y, circleRadius * 5 / 4, paint);
             paint.setColor(pointerColors[i % pointerColors.length]);
             canvas.drawCircle(p.x, p.y, circleRadius, paint);
@@ -71,6 +102,7 @@ public class MultiTouchCanvas extends View {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int pointerIndex = event.getActionIndex();
