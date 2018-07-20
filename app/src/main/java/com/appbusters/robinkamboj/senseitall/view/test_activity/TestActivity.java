@@ -16,6 +16,7 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_
 import com.appbusters.robinkamboj.senseitall.view.test_activity.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.back_camera_test_fragment.BackCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.directions_fragment.DirectionsFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.fingerprint_test_fragment.FingerprintTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.flashlight_test_fragment.FlashlightTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.front_camera_test_fragment.FrontCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.gps_test_fragment.GpsTestFragment;
@@ -29,6 +30,7 @@ import butterknife.ButterKnife;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
@@ -170,6 +172,14 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new MultiTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case FINGERPRINT: {
+                transaction.add(
+                        R.id.container,
+                        new FingerprintTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;

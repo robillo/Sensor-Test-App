@@ -213,4 +213,10 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="flash_light_image">flash light image</string>
     <string name="flash_is_turned_off">FLASH IS TURNED OFF</string>
     <string name="flash_is_turned_on">FLASH IS TURNED ON</string>
+    <string name="fingerprint_status">fingerprint status</string>
+    <string name="fingerprint_success">FINGERPRINT AUTHENTICATION SUCCESSFUL</string>
+    <string name="fingerprint_failure">FINGERPRINT AUTHENTICATION FAILED</string>
+    <string name="reset">RESET</string>
+    <string name="no_fingerprints">No fingerprints registered on device.</string>
+    <string name="security_not_enabled">Lock screen security not enabled in settings.</string>
 </resources>

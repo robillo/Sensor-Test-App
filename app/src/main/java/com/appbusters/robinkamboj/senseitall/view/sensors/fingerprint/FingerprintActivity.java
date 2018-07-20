@@ -3,36 +3,23 @@ package com.appbusters.robinkamboj.senseitall.view.sensors.fingerprint;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.controller.FingerprintHandler;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.fingerprint_test_fragment.FingerprintTestFragment;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -51,18 +38,9 @@ import javax.crypto.SecretKey;
 
 public class FingerprintActivity extends AppCompatActivity {
 
-    public static CoordinatorLayout activity_fingerprint;
-    private String sensor_name;
-    private TextView textView;
-    private FingerprintManager fingerprintManager;
-    private KeyguardManager keyguardManager;
     private KeyStore keyStore;
-    private KeyGenerator keyGenerator;
     private static final String KEY_NAME = "example_key";
     private Cipher cipher;
-    private int initial_orient, final_orient;
-    private boolean is_orient_same;
-    private FingerprintManager.CryptoObject cryptoObject;
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -72,20 +50,17 @@ public class FingerprintActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         Glide.with(this)
                 .load("https://3.bp.blogspot.com/-czbrT2VNsRw/WmswM47T0tI/AAAAAAAAAeI/FY1Msg2UKVk15B0GhmAY1hXHcBBqrRQEwCLcBGAs/s320/fingerprint.png")
                 .into((ImageView) findViewById(R.id.image));
 
-        activity_fingerprint = (CoordinatorLayout) findViewById(R.id.activity_fingerprint);
-
-        keyguardManager =
-                (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
-        fingerprintManager =
-                (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
+        KeyguardManager keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+        FingerprintManager fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
 
 
+        assert keyguardManager != null;
         if (!keyguardManager.isKeyguardSecure()) {
             Toast.makeText(this,
                     "Lock screen security not enabled in Settings",
@@ -103,6 +78,7 @@ public class FingerprintActivity extends AppCompatActivity {
             return;
         }
 
+        assert fingerprintManager != null;
         if (!fingerprintManager.hasEnrolledFingerprints()) {
 
             // This happens when no fingerprints are registered.
@@ -124,26 +100,11 @@ public class FingerprintActivity extends AppCompatActivity {
         generateKey();
 
         if (cipherInit()) {
-            cryptoObject =
-                    new FingerprintManager.CryptoObject(cipher);
-            FingerprintHandler helper = new FingerprintHandler(this, is_orient_same);
-            helper.startAuth(fingerprintManager, cryptoObject);
+            FingerprintManager.CryptoObject cryptoObject = new FingerprintManager.CryptoObject(cipher);
+//            FingerprintHandler helper = new FingerprintHandler(.this);
+//            helper.startAuth(fingerprintManager, cryptoObject);
         }
 
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt("INITIAL_ORIENT", initial_orient);
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        final_orient = savedInstanceState.getInt("INITIAL_ORIENT");
-        if(initial_orient == final_orient){
-
-        }
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -154,6 +115,7 @@ public class FingerprintActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        KeyGenerator keyGenerator;
         try {
             keyGenerator = KeyGenerator.getInstance(
                     KeyProperties.KEY_ALGORITHM_AES,

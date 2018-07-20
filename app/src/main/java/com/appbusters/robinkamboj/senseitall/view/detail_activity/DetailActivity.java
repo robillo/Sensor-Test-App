@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.fingerprint.FingerprintFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash.FlashFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.front_camera.FrontCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gps_location.GpsFragment;
@@ -32,6 +33,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FEATURE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
@@ -152,6 +154,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case MULTI_TOUCH: {
                 transaction.add(R.id.container, new MultiTouchFragment()).commit();
+                break;
+            }
+            case FINGERPRINT: {
+                transaction.add(R.id.container, new FingerprintFragment()).commit();
                 break;
             }
         }
