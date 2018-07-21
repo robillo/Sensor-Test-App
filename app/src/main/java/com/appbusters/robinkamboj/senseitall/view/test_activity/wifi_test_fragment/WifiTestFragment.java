@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.others.WifiScanInfo;
@@ -110,6 +111,11 @@ public class WifiTestFragment extends Fragment implements WifiTestInterface {
     @Override
     public void setAdapter() {
         if(getActivity() == null) return;
+
+        if(wifiScanInfoItems.size() == 0) {
+            Toast.makeText(getActivity(), "No WiFi bonded devices found", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         WifiScanAdapter adapter = new WifiScanAdapter(getActivity(), wifiScanInfoItems);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

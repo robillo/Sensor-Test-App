@@ -6,4 +6,8 @@ public interface BluetoothTestInterface {
 
     void setup(View v);
 
+    void initialize();
+
+    void setAdapter();
+
 }

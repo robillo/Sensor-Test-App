@@ -29,11 +29,10 @@ public class BluetoothActivity extends AppCompatActivity {
 
     ArrayList<BTInfo> btInfolist;
     private static final int BLUETOOTH_PERMISSION = 120;
-    private static final String TAG = "BT";
-    SensorManager sensorManager;
     BluetoothAdapter bluetoothAdapter;
     TextView name,add,state,scan;
     RecyclerView rv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
