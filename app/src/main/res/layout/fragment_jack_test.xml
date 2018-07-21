@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".view.test_activity.headphone_jack_test_fragment.JackTestFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            tools:src="@drawable/headphone_jack"
+            android:tint="@color/red_shade_four"
+            android:layout_gravity="center"
+            android:id="@+id/jack_image"
+            android:contentDescription="@string/flash_light_image" />
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:textColor="@color/colorMajorDark"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        tools:text="JACK INPUT DETECTED"
+        android:id="@+id/jack_text_status"/>
+
+</LinearLayout>

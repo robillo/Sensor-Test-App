@@ -222,4 +222,6 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="compass_hands">compass hands</string>
     <string name="compass_dial">compass dial</string>
     <string name="click_to_vibrate">CLICK TO VIBRATE</string>
+    <string name="jack_is_detected">JACK OUTPUT DETECTED</string>
+    <string name="jack_is_not_detected">JACK OUTPUT NOT DETECTED</string>
 </resources>

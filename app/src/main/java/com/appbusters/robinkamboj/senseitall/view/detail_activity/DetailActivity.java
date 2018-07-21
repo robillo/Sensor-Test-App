@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.CompassFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.av_test.JackFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.fingerprint.FingerprintFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash.FlashFragment;
@@ -31,6 +32,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
@@ -41,6 +43,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRI
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEADPHONE_JACK_TEST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PROXIMITY_TEST;
@@ -176,6 +179,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case VIBRATOR: {
                 transaction.add(R.id.container, new VibratorFragment()).commit();
+                break;
+            }
+            case AV_OUTPUTS: {
+                transaction.add(R.id.container, new JackFragment()).commit();
                 break;
             }
         }

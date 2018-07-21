@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.back_camera_test_fragment.BackCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.compass_test_fragment.CompassTestFragment;
@@ -21,6 +20,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.fingerprint_test
 import com.appbusters.robinkamboj.senseitall.view.test_activity.flashlight_test_fragment.FlashlightTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.front_camera_test_fragment.FrontCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.gps_test_fragment.GpsTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.headphone_jack_test_fragment.JackTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.light_test_fragment.LightTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.multi_touch_fragment.MultiTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment.ProximityTestFragment;
@@ -30,6 +30,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.vibrator_test_fr
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
@@ -214,6 +215,14 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new VibratorTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case AV_OUTPUTS: {
+                transaction.add(
+                        R.id.container,
+                        new JackTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;
