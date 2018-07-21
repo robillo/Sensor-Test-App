@@ -15,6 +15,10 @@ public class BatteryReceiver extends BroadcastReceiver {
         this.fragment = fragment;
     }
 
+    public BatteryReceiver() {
+
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if(intent.getAction() != null) {
