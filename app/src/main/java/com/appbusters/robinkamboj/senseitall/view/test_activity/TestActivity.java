@@ -27,6 +27,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.light_test_fragm
 import com.appbusters.robinkamboj.senseitall.view.test_activity.multi_touch_fragment.MultiTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment.ProximityTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.screen_test_fragment.ScreenTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.speaker_volume_test_fragment.SoundTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.vibrator_test_fragment.VibratorTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.wifi_test_fragment.WifiTestFragment;
 
@@ -51,6 +52,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
@@ -253,6 +255,14 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new BluetoothTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SOUND: {
+                transaction.add(
+                        R.id.container,
+                        new SoundTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;

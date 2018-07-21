@@ -231,4 +231,6 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="wifi_state_enabled">WIFI STATE ENABLED</string>
     <string name="wifi_state_enabling">WIFI STATE ENABLING</string>
     <string name="wifi_state_unknown">WIFI STATE UNKNOWN</string>
+    <string name="play">PLAY</string>
+    <string name="pause">PAUSE</string>
 </resources>

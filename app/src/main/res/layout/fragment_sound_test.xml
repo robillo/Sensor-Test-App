@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".view.test_activity.speaker_volume_test_fragment.SoundTestFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1">
+
+        <com.sdsmdg.harjot.crollerTest.Croller
+            android:id="@+id/croller"
+            android:layout_width="300sp"
+            android:layout_height="300sp"
+            android:layout_gravity="center"
+            app:back_circle_color="#EDEDED"
+            app:indicator_color="@color/colorMajorDark"
+            app:indicator_width="15"
+            app:is_continuous="false"
+            app:label_color="@color/colorMajorDark"
+            app:label="CHANGE VOLUME"
+            app:main_circle_color="#FFFFFF"
+            app:max="100"
+            app:progress="50"
+            app:progress_primary_color="@color/colorMajorDark"
+            app:progress_secondary_color="#EEEEEE"
+            app:start_offset="45" />
+
+    </FrameLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/red_shade_three"
+        android:id="@+id/play_pause"
+        android:text="@string/play"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:gravity="center"/>
 
-</FrameLayout>
+</LinearLayout>

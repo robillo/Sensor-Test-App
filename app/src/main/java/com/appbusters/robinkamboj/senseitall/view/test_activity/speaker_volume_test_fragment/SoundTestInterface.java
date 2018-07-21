@@ -6,4 +6,11 @@ public interface SoundTestInterface {
 
     void setup(View v);
 
+    void initialize();
+
+    void playOrPause();
+
+    void play();
+
+    void pause();
 }

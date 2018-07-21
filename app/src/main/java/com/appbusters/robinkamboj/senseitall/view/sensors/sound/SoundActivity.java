@@ -34,6 +34,7 @@ public class SoundActivity extends AppCompatActivity {
         pause = (ImageButton) findViewById(R.id.pause);
         volume = (SeekBar) findViewById(R.id.volume);
         bg = (ImageView) findViewById(R.id.bg);
+
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         volume.setMax(audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
 
