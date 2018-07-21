@@ -20,6 +20,7 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.front
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gps_location.GpsFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.multi_touch.MultiTouchFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.screen_test.ScreenFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.vibrator.VibratorFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.light_sensor.LightFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor.ProximityFragment;
@@ -53,6 +54,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 
 public class DetailActivity extends AppCompatActivity implements DetailActivityInterface {
 
@@ -170,6 +172,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case COMPASS: {
                 transaction.add(R.id.container, new CompassFragment()).commit();
+                break;
+            }
+            case VIBRATOR: {
+                transaction.add(R.id.container, new VibratorFragment()).commit();
                 break;
             }
         }

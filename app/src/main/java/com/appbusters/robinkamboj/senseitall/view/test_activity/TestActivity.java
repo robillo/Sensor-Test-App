@@ -25,6 +25,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.light_test_fragm
 import com.appbusters.robinkamboj.senseitall.view.test_activity.multi_touch_fragment.MultiTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment.ProximityTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.screen_test_fragment.ScreenTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.vibrator_test_fragment.VibratorTestFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +46,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_AC
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 
 public class TestActivity extends AppCompatActivity implements TestInterface {
 
@@ -200,6 +202,14 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new CompassTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case VIBRATOR: {
+                transaction.add(
+                        R.id.container,
+                        new VibratorTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;

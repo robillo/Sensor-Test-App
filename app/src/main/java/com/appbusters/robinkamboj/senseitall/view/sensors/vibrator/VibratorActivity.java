@@ -2,7 +2,9 @@ package com.appbusters.robinkamboj.senseitall.view.sensors.vibrator;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +41,12 @@ public class VibratorActivity extends AppCompatActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.card: {
-                vib.vibrate(500);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    vib.vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE));
+                }
+                else {
+                    vib.vibrate(500);
+                }
                 break;
             }
         }
