@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLightLight"
+    tools:context=".view.test_activity.compass_test_fragment.CompassTestFragment">
+
+    <ImageView
+        android:id="@+id/compass_dial"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/dial"
+        android:layout_gravity="center"
+        android:contentDescription="@string/compass_dial" />
+
+    <ImageView
+        android:id="@+id/compass_hands"
+        android:layout_width="20dp"
+        android:layout_height="240dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/hands"
+        android:layout_gravity="center"
+        android:contentDescription="@string/compass_hands" />
+
+</FrameLayout>

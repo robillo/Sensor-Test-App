@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.CompassFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.fingerprint.FingerprintFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash.FlashFragment;
@@ -30,6 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
@@ -164,6 +166,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case SCREEN: {
                 transaction.add(R.id.container, new ScreenFragment()).commit();
+                break;
+            }
+            case COMPASS: {
+                transaction.add(R.id.container, new CompassFragment()).commit();
                 break;
             }
         }

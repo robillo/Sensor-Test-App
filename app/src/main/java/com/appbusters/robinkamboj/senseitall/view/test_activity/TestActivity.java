@@ -15,6 +15,7 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.back_camera_test_fragment.BackCamTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.compass_test_fragment.CompassTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.directions_fragment.DirectionsFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.fingerprint_test_fragment.FingerprintTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.flashlight_test_fragment.FlashlightTestFragment;
@@ -29,6 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
@@ -190,6 +192,14 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new ScreenTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case COMPASS: {
+                transaction.add(
+                        R.id.container,
+                        new CompassTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;

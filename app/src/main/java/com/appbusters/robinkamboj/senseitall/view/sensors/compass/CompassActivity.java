@@ -21,6 +21,7 @@ public class CompassActivity extends AppCompatActivity {
 
         getIntent();
         compass = new Compass(this);
+
         compass.arrowView = (ImageView) findViewById(R.id.main_image_hands);
     }
 

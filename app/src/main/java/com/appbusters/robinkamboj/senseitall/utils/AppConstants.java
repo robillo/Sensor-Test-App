@@ -90,6 +90,7 @@ public class AppConstants {
     public static final String BACK_CAMERA_TEST = "Back Camera Test";
     public static final String SCREEN_TEST = "Screen Test";
     public static final String LIGHT_TEST = "Light Sensor Test";
+    public static final String COMPASS_TEST = "Compass Test";
 
     //features
     public static final String BACK_CAMERA = "Back Camera";
@@ -165,6 +166,7 @@ public class AppConstants {
         diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
         diagnosticsPointer.put(MULTI_TOUCH_TEST, MULTI_TOUCH);
         diagnosticsPointer.put(FINGERPRINT_TEST, FINGERPRINT);
+        diagnosticsPointer.put(COMPASS_TEST, COMPASS);
 
         reverseDiagnosticsPointer.put(SENSOR_ACCELEROMETER, ACCELEROMETER_TEST);
         reverseDiagnosticsPointer.put(SENSOR_LIGHT, LIGHT_TEST);
@@ -182,6 +184,7 @@ public class AppConstants {
         reverseDiagnosticsPointer.put(FLASH, FLASH_LIGHT_TEST);
         reverseDiagnosticsPointer.put(MULTI_TOUCH, MULTI_TOUCH_TEST);
         reverseDiagnosticsPointer.put(FINGERPRINT, FINGERPRINT_TEST);
+        reverseDiagnosticsPointer.put(COMPASS, COMPASS_TEST);
 
         sensorNames.add(SENSOR_ACCELEROMETER);
         sensorNames.add(SENSOR_LIGHT);
@@ -219,6 +222,7 @@ public class AppConstants {
         diagnosticsNames.add(FLASH_LIGHT_TEST);
         diagnosticsNames.add(MULTI_TOUCH_TEST);
         diagnosticsNames.add(FINGERPRINT_TEST);
+        diagnosticsNames.add(COMPASS_TEST);
 
 
         featureNames.add(BACK_CAMERA);
