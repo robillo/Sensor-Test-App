@@ -144,5 +144,8 @@ public class FlashlightTestFragment extends Fragment implements FlashlightTestIn
     @Override
     public void onStop() {
         super.onStop();
+        if(getActivity() == null) return;
+        isFlashOn = false;
+        inflateImageAndText();
     }
 }

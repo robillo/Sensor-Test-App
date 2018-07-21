@@ -277,9 +277,12 @@
         <activity
             android:name=".view.about.AboutActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.main_activity.MainActivity" />
-        <activity android:name=".view.detail_activity.DetailActivity" />
-        <activity android:name=".view.test_activity.TestActivity"></activity>
+        <activity android:name=".view.main_activity.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.detail_activity.DetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.test_activity.TestActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

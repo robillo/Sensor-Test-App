@@ -100,6 +100,10 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
     @Override
     public void setDirectionsFragment() {
+
+        if(getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_test_fragment)) != null)
+            return;
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.container, new DirectionsFragment(), getString(R.string.tag_directions_fragment));
         transaction.commit();
