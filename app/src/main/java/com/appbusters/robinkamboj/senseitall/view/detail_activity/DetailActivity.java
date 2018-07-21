@@ -16,13 +16,16 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.Compa
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.av_test.JackFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.battery.BatteryFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.bluetooth.BluetoothFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.fingerprint.FingerprintFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash.FlashFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.front_camera.FrontCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gps_location.GpsFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.multi_touch.MultiTouchFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.screen_test.ScreenFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.sound.SoundFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.vibrator.VibratorFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi.WifiFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.light_sensor.LightFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor.ProximityFragment;
@@ -36,6 +39,7 @@ import butterknife.ButterKnife;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
@@ -55,11 +59,13 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
 public class DetailActivity extends AppCompatActivity implements DetailActivityInterface {
 
@@ -189,6 +195,18 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case BATTERY: {
                 transaction.add(R.id.container, new BatteryFragment()).commit();
+                break;
+            }
+            case BLUETOOTH: {
+                transaction.add(R.id.container, new BluetoothFragment()).commit();
+                break;
+            }
+            case WIFI: {
+                transaction.add(R.id.container, new WifiFragment()).commit();
+                break;
+            }
+            case SOUND: {
+                transaction.add(R.id.container, new SoundFragment()).commit();
                 break;
             }
         }

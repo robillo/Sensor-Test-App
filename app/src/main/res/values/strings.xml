@@ -226,4 +226,9 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="jack_is_not_detected">JACK OUTPUT NOT DETECTED</string>
     <string name="not_charging">NOT CHARGING</string>
     <string name="charging">CHARGING</string>
+    <string name="wifi_state_disabled">WIFI STATE DISABLED</string>
+    <string name="wifi_state_disabling">WIFI STATE DISABLING</string>
+    <string name="wifi_state_enabled">WIFI STATE ENABLED</string>
+    <string name="wifi_state_enabling">WIFI STATE ENABLING</string>
+    <string name="wifi_state_unknown">WIFI STATE UNKNOWN</string>
 </resources>

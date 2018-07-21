@@ -25,7 +25,7 @@ public class WiFiActivity extends AppCompatActivity {
     WifiManager wifiManager;
     ArrayList<ScanResultInfo> scanList;
     private String results[];
-    TextView state, ssid, rssi, bssid, hidden, frequency, ip, link, mac,networkid;
+    TextView state, ssid, rssi, bssid, hidden, frequency, ip, link, mac, networkid;
     WifiInfo wifiInfo;
     RecyclerView rv;
 
