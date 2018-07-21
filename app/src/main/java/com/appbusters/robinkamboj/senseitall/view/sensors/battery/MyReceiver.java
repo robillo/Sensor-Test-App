@@ -129,33 +129,33 @@ public class MyReceiver extends BroadcastReceiver {
 //                batteryperc.setVisibility(View.VISIBLE);
 //            }
             intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.ACTION_CHARGING, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.ACTION_DISCHARGING, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_HEALTH, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PRESENT, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_STATUS, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_TECHNOLOGY, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_ICON_SMALL, 0));
-            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0));
-
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_PLUGGED));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.ACTION_CHARGING));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_LEVEL));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.ACTION_DISCHARGING));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_HEALTH));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_PRESENT));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_STATUS));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_SCALE));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_TEMPERATURE));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_PLUGGED));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_ICON_SMALL));
-            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_VOLTAGE));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.ACTION_CHARGING, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.ACTION_DISCHARGING, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_HEALTH, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PRESENT, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_STATUS, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_TECHNOLOGY, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_ICON_SMALL, 0));
+//            Log.d(TAG, "onReceive: " + intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0));
+//
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_PLUGGED));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.ACTION_CHARGING));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_LEVEL));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.ACTION_DISCHARGING));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_HEALTH));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_PRESENT));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_STATUS));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_SCALE));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_TEMPERATURE));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_PLUGGED));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_ICON_SMALL));
+//            Log.d(TAG, "onReceive: " + intent.getStringExtra(BatteryManager.EXTRA_VOLTAGE));
 
 //
 

@@ -15,6 +15,7 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.CompassFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.av_test.JackFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.battery.BatteryFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.fingerprint.FingerprintFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash.FlashFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.front_camera.FrontCameraFragment;
@@ -34,6 +35,7 @@ import butterknife.ButterKnife;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
@@ -183,6 +185,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case AV_OUTPUTS: {
                 transaction.add(R.id.container, new JackFragment()).commit();
+                break;
+            }
+            case BATTERY: {
+                transaction.add(R.id.container, new BatteryFragment()).commit();
                 break;
             }
         }
