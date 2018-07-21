@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.test_activity.multi_touch_fragment.MultiTestFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.test_activity.screen_test_fragment.ScreenTestFragment">
 
-    <com.appbusters.robinkamboj.senseitall.controller.MultiTouchCanvas
-        android:id="@+id/multiTouchView"
+    <com.agsw.FabricView.FabricView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/fabric_view"/>
 
     <ImageView
         android:layout_width="match_parent"

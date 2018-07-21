@@ -23,6 +23,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.gps_test_fragmen
 import com.appbusters.robinkamboj.senseitall.view.test_activity.light_test_fragment.LightTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.multi_touch_fragment.MultiTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment.ProximityTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.screen_test_fragment.ScreenTestFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +38,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCAT
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
@@ -180,6 +182,14 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new FingerprintTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SCREEN: {
+                transaction.add(
+                        R.id.container,
+                        new ScreenTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;

@@ -18,6 +18,7 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.front_camera.FrontCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gps_location.GpsFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.multi_touch.MultiTouchFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.screen_test.ScreenFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.light_sensor.LightFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor.ProximityFragment;
@@ -41,6 +42,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESEN
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PROXIMITY_TEST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
@@ -158,6 +160,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case FINGERPRINT: {
                 transaction.add(R.id.container, new FingerprintFragment()).commit();
+                break;
+            }
+            case SCREEN: {
+                transaction.add(R.id.container, new ScreenFragment()).commit();
                 break;
             }
         }
