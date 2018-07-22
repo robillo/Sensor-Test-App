@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -38,7 +39,17 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
     @BindView(R.id.next)
     TextView next;
 
+    @BindView(R.id.text_image)
+    ImageView textImage;
+
+    @BindView(R.id.header_text)
+    TextView headerText;
+
+    @BindView(R.id.description_text)
+    TextView descriptionText;
+
     private int currentStep = 0;
+    @SuppressWarnings("FieldCanBeLocal")
     private int maxStep = 3;
 
     @Override

@@ -293,7 +293,8 @@
         <activity
             android:name=".view.test_activity.TestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.learn_more_activity.LearnMoreActivity"></activity>
+        <activity android:name=".view.learn_more_activity.LearnMoreActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
