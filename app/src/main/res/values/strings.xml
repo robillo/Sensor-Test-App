@@ -236,4 +236,40 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="more_about">MORE ABOUT</string>
     <string name="previous">PREVIOUS</string>
     <string name="next">NEXT</string>
+
+
+    <string name="dummy_description">Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have over-saturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project. \n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</string>
+
+    <string name="dummy_header">SAR AND YOUR BODY</string>
+
+    <string-array name="dummy_headers">
+        <item>SAR AND YOUR BODY</item>
+        <item>TAR AND YOUR BODY</item>
+        <item>MAR AND YOUR BODY</item>
+        <item>BAR AND YOUR BODY</item>
+    </string-array>
+
+    <string-array name="dummy_images">
+        <item>https://2.bp.blogspot.com/-X-ALtw77J3w/Wr27WQzJQ6I/AAAAAAAAAlQ/odUNcrDiR68gWCP_HkcsztuMFGOjeqajwCK4BGAYYCw/s320/droughtprevention.jpg</item>
+        <item>https://2.bp.blogspot.com/-1dOeHIVw3Nk/Wr3DzsKcPjI/AAAAAAAAAmE/F-Hjsnm8R5kaLbQqwogL6bxsLErGTq4MQCK4BGAYYCw/s320/ff.jpg</item>
+        <item>https://1.bp.blogspot.com/-Rmka9xMnVFs/Wq2Khs_AjVI/AAAAAAAAAjA/lyUaQmMWowwO_5G7gAE0KWw823gx-YM2ACLcBGAs/s320/2aTs5NV.jpg</item>
+        <item>https://4.bp.blogspot.com/-U-LyUbj17Kc/Wq2MABPF7WI/AAAAAAAAAjU/R5HQbSwps6syXfrFKiH37rM8gwCpia-cACLcBGAs/s320/wp1950289-soil-wallpapers.jpg</item>
+    </string-array>
+
+    <string-array name="dummy_descriptions">
+        <item>Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have over-saturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project. \n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</item>
+        <item>Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have over-saturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</item>
+        <item>Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have over-saturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</item>
+        <item>Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have over-saturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</item>
+    </string-array>
 </resources>

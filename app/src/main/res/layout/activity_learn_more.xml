@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-                android:text="SAR AND YOUR BODY"
+                tools:text="@string/dummy_header"
                 android:textSize="18sp"
                 android:textColor="@color/colorTextOne"
                 android:gravity="center"
@@ -52,10 +52,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
-Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
-Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
-"
+                tools:text="@string/dummy_description"
                 android:textSize="15sp"
                 android:textColor="@color/colorTextTwo"
                 android:id="@+id/description_text"
@@ -99,14 +96,14 @@ Sar is a thing that pops your head away for some reason that you honestly dont w
         app:sv_doneStepMarkColor="@color/white"
         app:sv_stepNumberTextSize="12sp"
         app:sv_animationType="Line"
-        app:sv_stepsNumber="4"
+        tools:sv_stepsNumber="4"
         android:background="@color/white"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="@color/colorTextFour"
-        tools:ignore="ContentDescription,SmallSp" />
+        tools:ignore="ContentDescription,SmallSp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -10,4 +10,8 @@ public interface LearnMoreInterface {
 
     void manageVisibility();
 
+    void getStrings();
+
+    void setTexts();
+
 }

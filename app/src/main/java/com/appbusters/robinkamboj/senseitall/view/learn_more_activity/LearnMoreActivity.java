@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.shuhart.stepview.StepView;
 
 import butterknife.BindView;
@@ -26,6 +28,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreInterface {
 
     public GenericData intentData = new GenericData();
+    private String[] headers, descriptions, images;
 
     @BindView(R.id.more_about_sensor)
     TextView more_about_sensor;
@@ -67,6 +70,8 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         setStatusBarColor();
 
         initialize();
+
+        setTexts();
     }
 
     @Override
@@ -115,6 +120,20 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
     }
 
     @Override
+    public void getStrings() {
+        headers = getResources().getStringArray(R.array.dummy_headers);
+        descriptions = getResources().getStringArray(R.array.dummy_descriptions);
+        images = getResources().getStringArray(R.array.dummy_images);
+    }
+
+    @Override
+    public void setTexts() {
+        headerText.setText(headers[currentStep]);
+        descriptionText.setText(descriptions[currentStep]);
+        Glide.with(this).applyDefaultRequestOptions(RequestOptions.centerCropTransform()).load(images[currentStep]).into(textImage);
+    }
+
+    @Override
     public void initialize() {
         Bundle intent = getIntent().getExtras();
         if(intent != null) {
@@ -129,6 +148,11 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         }
 
         manageVisibility();
+
+        getStrings();
+
+        if(headers != null) stepView.setStepsNumber(headers.length);
+        else stepView.setStepsNumber(1);
     }
 
     @OnClick(R.id.previous)
@@ -136,6 +160,7 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         currentStep = currentStep - 1;
         stepView.go(currentStep, true);
         manageVisibility();
+        setTexts();
     }
 
     @OnClick(R.id.next)
@@ -143,5 +168,6 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         currentStep = currentStep + 1;
         stepView.go(currentStep, true);
         manageVisibility();
+        setTexts();
     }
 }
