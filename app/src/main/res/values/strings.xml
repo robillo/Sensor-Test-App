@@ -237,7 +237,6 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="previous">PREVIOUS</string>
     <string name="next">NEXT</string>
 
-
     <string name="dummy_description">Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have over-saturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project. \n\n
         Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
         Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</string>
@@ -272,4 +271,56 @@ The tests for the above sensors provided in the app will could be used for fun, 
         Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
         Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</item>
     </string-array>
+
+
+    <string-array name="proximity_headers">
+        <item>Introduction</item>
+        <item>Purpose</item>
+        <item>Face Detection And SAR Regulation</item>
+        <item>Wake-on approach feature</item>
+        <item>Capacitive Proximity Sensor Implementation</item>
+    </string-array>
+
+    <string-array name="proximity_descriptions">
+        <item>Proximity sensing technology is becoming popular across a wide range of industries, especially in consumer electronics, because OEMs introduce new products to market every year. The largest application within consumer electronics is the mobile phone.\n\n
+
+            Given the competition in this particular market, it is important for OEMs to adopt the latest technology and offer unique features to differentiate their products.\n\n
+
+Today, mobile phones use IR-based proximity sensors to detect the presence of a human ear. This sensing is done for two purposes: Reduce display power consumption by turning off the LCD backlight and to disable the touch screen to avoid inadvertent touches by the cheek.\n\n
+
+            IR sensors have a number of disadvantages, including high power consumption, high cost, blind zones, and accumulation of dirt, as well as unreliable performance over temperature, hair, and skin color variations. Recent advances in capacitive proximity sensing technology address these designs disadvantages and could potentially replace every IR sensor in the mobile phone market.\n\n
+        </item>
+        <item>Mobile phones use IR-based proximity sensors to detect the presence of a human ear. This sensing is done for two purposes: Reduce display power consumption by turning off the LCD backlight and to disable the touch screen to avoid inadvertent touches by the cheek. IR sensors have a number of disadvantages, including high power consumption, high cost, blind zones, and accumulation of dirt, as well as unreliable performance over temperature, hair, and skin color variations.\n\n
+
+        Capacitive proximity sensing has enabled several features in mobile phones. While these features may not be evident to end users, they provide many important capabilities, including optimized power consumption, integrated functionality, and cost reduction. It is essential that product designers understand the different features that can be implemented through capacitive proximity sensing.\n\n
+        </item>
+        <item>Face detection has existed in mobile phones (both smartphones and feature phones) for over a decade. Face detection prevents false touches when the phone is close to the ear and reduces power consumption by dimming/shutting off the display. Mobile phones are battery-operated, which is the most useful and frequently implemented feature. \n\n
+        This feature is commonly implemented in tablets, but it can also be applicable to mobiles in certain cases. Specific absorption rate (SAR) is a measure of the rate at which energy is absorbed by the human body when exposed to a radio frequency (RF) electromagnetic field.\n\n
+
+            The FCC (Federal Communications Commission) requires devices to limit the absorption of RF energy by reducing the RF transmit power of the tablet when in close proximity to the human body.\n\n</item>
+        <item>This feature makes the user interface (i.e., buttons/touchscreen) visible on a proximity detect event.\n\n
+            This enables the device to operate in a low power, standby state when not in use and then wake-up into an active state when a user’s hand approaches. This helps reduce system wake-up time, improve device responsiveness and overall design aesthetics, and optimize average power consumption.\n\n
+</item>
+        <item>Capacitive proximity sensors are based on the same principle as self capacitance-based capacitive touch sensing.\n\n
+
+Here, the sensor is a conductive pad or a loop laid on a non-conductive substrate. This conductive pad has a self capacitance Cp. When another conductive material (i.e., a human face in this application) comes close to the conductive pad, the capacitance of the sensor increases (by an amount = Cf). A microcontroller continuously measures the capacitance of the sensor(s) and looks for a sudden jump in capacitance to determine the presence of a conductive object near the sensor.\n\n
+
+Proximity sensors are designed to maximize the ratio Cf/Cp for a given sensor to be able to reliably detect proximity.
+A capacitive proximity sensor-based implementation for face detection involves the following aspects:\n\n
+
+Sensor placement.\n
+Sensor design.\n
+Sensor material and stack-up.\n
+Firmware techniques for enhanced proximity.\n
+Firmware techniques for use case handling.\n\n</item>
+    </string-array>
+
+    <string-array name="proximity_images">
+        <item>https://3.bp.blogspot.com/-G0i4M7FHOYc/W1R3Oe7fgGI/AAAAAAAACPg/m4wVt95LbLoxWzWRDuIValzciFqVCTuAgCK4BGAYYCw/s1600/proximity%2Bpurpose.jpg</item>
+        <item>https://3.bp.blogspot.com/-2HTEb6L9iPA/W1R2sECYNpI/AAAAAAAACPU/5xHCmoYdgvkvigyoFpUPqbO6ujuoNv_EgCK4BGAYYCw/s1600/proximity%2Bintro.jpg</item>
+        <item>https://1.bp.blogspot.com/-SzijyCX6DtU/W1R4E24f7HI/AAAAAAAACPs/ZHXzrpUStKk2W0JbvugRNQ3ajq7V4zDAACK4BGAYYCw/s1600/sar.png</item>
+        <item>https://1.bp.blogspot.com/-EXorIbLAJpI/W1R487ev8YI/AAAAAAAACP4/hCmBuTlaDikZwVYhndEmK0idH6DJOgysACK4BGAYYCw/s1600/wake%2Bup.jpg</item>
+        <item>https://4.bp.blogspot.com/-tDBug2ayUOc/W1R6A1u-LrI/AAAAAAAACQE/lyiPkXjsJQUcoOwi0YT1XBTmXH1vRVcAQCK4BGAYYCw/s1600/capacitive.jpg</item>
+    </string-array>
+
 </resources>

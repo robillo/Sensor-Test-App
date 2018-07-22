@@ -19,11 +19,27 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
 public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreInterface {
 
@@ -52,7 +68,6 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
     TextView descriptionText;
 
     private int currentStep = 0;
-    @SuppressWarnings("FieldCanBeLocal")
     private int maxStep = 3;
 
     @Override
@@ -121,16 +136,124 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
     @Override
     public void getStrings() {
-        headers = getResources().getStringArray(R.array.dummy_headers);
-        descriptions = getResources().getStringArray(R.array.dummy_descriptions);
-        images = getResources().getStringArray(R.array.dummy_images);
+
+        switch (intentData.getName()) {
+            case SENSOR_PROXIMITY: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case SENSOR_ACCELEROMETER: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case SENSOR_LIGHT: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case BACK_CAMERA: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case FRONT_CAMERA: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case GPS_LOCATION: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case FLASH: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case MULTI_TOUCH: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case FINGERPRINT: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case SCREEN: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case COMPASS: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case VIBRATOR: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case AV_OUTPUTS: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case BATTERY: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case BLUETOOTH: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case WIFI: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+            case SOUND: {
+                headers = getResources().getStringArray(R.array.proximity_headers);
+                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
+                images = getResources().getStringArray(R.array.proximity_images);
+                break;
+            }
+        }
+
+        if(headers != null) maxStep = headers.length - 1;
+        else maxStep = 1;
     }
 
     @Override
     public void setTexts() {
-        headerText.setText(headers[currentStep]);
+        headerText.setText(headers[currentStep].toUpperCase());
         descriptionText.setText(descriptions[currentStep]);
-        Glide.with(this).applyDefaultRequestOptions(RequestOptions.centerCropTransform()).load(images[currentStep]).into(textImage);
+        Glide.with(this)
+                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
+                .load(images[currentStep])
+                .into(textImage);
     }
 
     @Override
@@ -147,9 +270,9 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
             more_about_sensor.setText(temp);
         }
 
-        manageVisibility();
-
         getStrings();
+
+        manageVisibility();
 
         if(headers != null) stepView.setStepsNumber(headers.length);
         else stepView.setStepsNumber(1);
