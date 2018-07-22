@@ -59,14 +59,14 @@
     <uses-permission
         android:name="android.permission.ACCESS_FINE_LOCATION"
         android:required="false" />
-    <!--<uses-permission android:name="android.permission.CAMERA" />-->
-    <!--<uses-permission android:name="android.permission.FLASHLIGHT" />-->
+    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+    <!-- <uses-permission android:name="android.permission.FLASHLIGHT" /> -->
 
 
-    <!--<uses-feature android:name="android.hardware.camera.flash"-->
-        <!--android:required="false"/>-->
-    <!--<uses-feature android:name="android.hardware.camera2.autofocus"-->
-        <!--android:required="false" />-->
+    <!-- <uses-feature android:name="android.hardware.camera.flash" -->
+    <!-- android:required="false"/> -->
+    <!-- <uses-feature android:name="android.hardware.camera2.autofocus" -->
+    <!-- android:required="false" /> -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -153,11 +153,10 @@
                 <action android:name="android.intent.action.BATTERY_OKAY" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".view.test_activity.battery_test_fragment.BatteryReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </receiver>
 
@@ -177,9 +176,9 @@
             android:name="com.sec.android.support.multiwindow"
             android:value="true" />
 
-        <!--<meta-data-->
-            <!--android:name="com.google.android.maps.v2.API_KEY"-->
-            <!--android:value="@string/google_maps_key" />-->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.maps.v2.API_KEY" -->
+        <!-- android:value="@string/google_maps_key" /> -->
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -285,12 +284,16 @@
         <activity
             android:name=".view.about.AboutActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.main_activity.MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.detail_activity.DetailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.test_activity.TestActivity"
+        <activity
+            android:name=".view.main_activity.MainActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.detail_activity.DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.test_activity.TestActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.learn_more_activity.LearnMoreActivity"></activity>
     </application>
 
 </manifest>

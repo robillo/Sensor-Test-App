@@ -14,6 +14,7 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.SensorDetail;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.common_adapters.BasicInformationAdapter;
+import com.appbusters.robinkamboj.senseitall.view.learn_more_activity.LearnMoreActivity;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 
 import java.util.ArrayList;
@@ -21,6 +22,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 
 public abstract class FeatureFragment extends Fragment implements SensorInterface  {
 
@@ -91,7 +97,17 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
     @OnClick(R.id.learn_more)
     public void setLearnMore() {
         if(getActivity() != null) {
-            //start learn more activity
+            GenericData intentData = ((DetailActivity) getActivity()).intentData;
+            Intent intent = new Intent(getActivity(), LearnMoreActivity.class);
+
+            Bundle args = new Bundle();
+            args.putString(DATA_NAME, intentData.getName());
+            args.putInt(DRAWABLE_ID, intentData.getDrawableId());
+            args.putBoolean(IS_PRESENT, intentData.isPresent());
+            args.putInt(TYPE, intentData.getType());
+            intent.putExtras(args);
+
+            getActivity().startActivity(intent);
         }
     }
 }

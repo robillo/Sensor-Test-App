@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.learn_more_activity.LearnMoreActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextFour"
+        tools:ignore="ContentDescription,SmallSp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/white"
+        tools:text="MORE ABOUT ACCELEROMETER SENSOR"
+        android:textSize="18sp"
+        android:textColor="@color/colorMajorDark"
+        android:gravity="center"
+        android:id="@+id/more_about_sensor"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3sp"
+        android:background="@color/colorMajorDark"
+        tools:ignore="ContentDescription,SmallSp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3sp"
+        android:background="@color/colorTextFour"
+        tools:ignore="ContentDescription,SmallSp" />
+
+    <com.shuhart.stepview.StepView
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:id="@+id/step_view"
+        android:padding="16dp"
+        app:sv_selectedCircleColor="@color/colorMajorDark"
+        app:sv_selectedTextColor="@color/colorMajorDark"
+        app:sv_stepLineWidth="1dp"
+        app:sv_stepPadding="4dp"
+        app:sv_nextTextColor="@color/colorMajorDark"
+        app:sv_nextStepLineColor="@color/colorMajorDark"
+        app:sv_doneCircleColor="@color/colorMajorDark"
+        app:sv_doneStepLineColor="@color/colorMajorDark"
+        app:sv_doneCircleRadius="12dp"
+        app:sv_selectedCircleRadius="12dp"
+        app:sv_selectedStepNumberColor="@color/white"
+        app:sv_stepViewStyle="@style/StepView"
+        app:sv_doneStepMarkColor="@color/white"
+        app:sv_stepNumberTextSize="12sp"
+        app:sv_animationType="Line"
+        app:sv_stepsNumber="4"
+        android:background="@color/white"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextFour"
+        tools:ignore="ContentDescription,SmallSp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/previous"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:text="@string/previous"
+            android:textColor="@color/colorMajorDark"
+            android:background="@drawable/btn_bg"
+            fontPath="fonts/tsc.ttf"
+            android:gravity="center"
+            tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
+
+        <ImageView
+            android:layout_width="1sp"
+            android:layout_height="match_parent"
+            android:background="@color/colorTextFour"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <TextView
+            android:id="@+id/next"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:text="@string/next"
+            android:textColor="@color/colorMajorDark"
+            android:background="@drawable/btn_bg"
+            fontPath="fonts/tsc.ttf"
+            android:gravity="center"
+            android:layout_gravity="center"
+            tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -233,4 +233,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="wifi_state_unknown">WIFI STATE UNKNOWN</string>
     <string name="play">PLAY</string>
     <string name="pause">PAUSE</string>
+    <string name="more_about">MORE ABOUT</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="next">NEXT</string>
 </resources>
