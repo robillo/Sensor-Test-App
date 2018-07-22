@@ -28,9 +28,11 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -76,7 +78,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @SuppressWarnings("FieldCanBeLocal")
     private List<PermissionsItem> permissionsItems;
     private int rejectedCount;
-    private Animation fadeInHeader, fadeOutHeader;
 
     private List<String> sensorNames;
     private List<String> featureNames;
@@ -85,6 +86,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
     private boolean[] diagnosticsPresent;
+
+    @BindView(R.id.rate_experience_screen)
+    LinearLayout rateExperienceScreen;
+
+    @BindView(R.id.list_screen)
+    FrameLayout listScreen;
 
     @BindView(R.id.toolbar)
     LinearLayout toolbar;
@@ -136,48 +143,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         in.setDuration(200);
         out.setDuration(200);
 
-        fadeInHeader = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
-        fadeOutHeader = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out);
-        fadeInHeader.setDuration(150);
-        fadeOutHeader.setDuration(150);
-
-        fadeInHeader.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                headerText.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        fadeOutHeader.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                headerText.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        headerText.setInAnimation(in);
-        headerText.setOutAnimation(out);
-
         inflateData();
         checkIfAllPermissionsGiven();
         checkForPresentSensors();
@@ -213,6 +178,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         if(helper.getHeaderText().equals(SHOWING_DEVICE_TESTS)) return;
         helper.setHeaderText(SHOWING_DEVICE_TESTS);
         setHeaderTextAndRv();
+
+        if(listScreen.getVisibility() == View.GONE) {
+            listScreen.setVisibility(View.VISIBLE);
+            rateExperienceScreen.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(R.id.button_sensors_list)
@@ -220,6 +190,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         if(helper.getHeaderText().equals(SHOWING_SENSORS_LIST)) return;
         helper.setHeaderText(SHOWING_SENSORS_LIST);
         setHeaderTextAndRv();
+
+        if(listScreen.getVisibility() == View.GONE) {
+            listScreen.setVisibility(View.VISIBLE);
+            rateExperienceScreen.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(R.id.button_features_list)
@@ -227,6 +202,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         if(helper.getHeaderText().equals(SHOWING_FEATURES_LIST)) return;
         helper.setHeaderText(SHOWING_FEATURES_LIST);
         setHeaderTextAndRv();
+
+        if(listScreen.getVisibility() == View.GONE) {
+            listScreen.setVisibility(View.VISIBLE);
+            rateExperienceScreen.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(R.id.button_rate_experience)
@@ -234,6 +214,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE)) return;
         helper.setHeaderText(RATE_YOUR_EXPERIENCE);
         setHeaderTextAndRv();
+
+        if(rateExperienceScreen.getVisibility() == View.GONE) {
+            listScreen.setVisibility(View.GONE);
+            rateExperienceScreen.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -243,11 +228,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         String string = helper.getHeaderText();
 
         if(string.equals(RATE_YOUR_EXPERIENCE)) {
-            if(headerText.getVisibility() == View.VISIBLE) headerText.startAnimation(fadeOutHeader);
+            if(headerText.getVisibility() == View.VISIBLE) headerText.setVisibility(View.GONE);
         }
         else {
             headerText.setText(string);
-            if(headerText.getVisibility() == View.GONE) headerText.startAnimation(fadeInHeader);
+            if(headerText.getVisibility() == View.GONE) headerText.setVisibility(View.VISIBLE);
         }
 
         switch (string) {
@@ -268,7 +253,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             }
             case RATE_YOUR_EXPERIENCE: {
                 turnOnHighlight(TYPE_RATE);
-                fillGenericDataForSelected(TYPE_RATE);
+                if(rateExperienceScreen.getVisibility() == View.GONE) {
+                    listScreen.setVisibility(View.GONE);
+                    rateExperienceScreen.setVisibility(View.VISIBLE);
+                }
                 break;
             }
         }
@@ -507,6 +495,21 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void askPermissions() {
         //noinspection ConstantConditions
         ((MainActivity) getActivity()).setRequestFragment();
+    }
+
+    @OnClick(R.id.image_five_stars)
+    public void giveImageFiveStars() {
+        giveFiveStars();
+    }
+
+    @OnClick(R.id.give_five_stars)
+    public void giveFiveStars() {
+        Toast.makeText(getActivity(), "Give five stars by clicking here", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.give_feedback)
+    public void giveFeedback() {
+        Toast.makeText(getActivity(), "Give feedback by clicking here", Toast.LENGTH_SHORT).show();
     }
 
     @NonNull

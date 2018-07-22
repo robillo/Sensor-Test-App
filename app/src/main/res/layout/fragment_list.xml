@@ -10,116 +10,131 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- the fame layout below is just for bottom margin: 30 + actionBarSize -->
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="35sp">
+            android:id="@+id/layout_switcher">
 
-            <android.support.v7.widget.CardView
+            <include layout="@layout/layout_rate"
+                tools:visibility="gone"/>
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/red_shade_three"
-                android:layout_marginTop="75sp"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                app:cardCornerRadius="10sp"
-                android:id="@+id/card_permissions">
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="35sp"
+                    android:id="@+id/list_screen">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/red_shade_three"
+                        android:layout_marginTop="75sp"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginRight="10sp"
+                        app:cardCornerRadius="10sp"
+                        android:id="@+id/card_permissions">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:paddingLeft="15sp"
+                                android:paddingTop="5sp"
+                                android:paddingBottom="5sp"
+                                android:text="@string/please_give_permissions"
+                                android:layout_gravity="center_vertical"
+                                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                            <ImageButton
+                                android:layout_width="40sp"
+                                android:layout_height="40sp"
+                                android:src="@drawable/baseline_disc_full_black_48"
+                                android:tint="@color/white"
+                                tools:ignore="ContentDescription"
+                                android:background="@color/transparent"
+                                android:padding="5sp"
+                                android:scaleType="centerInside"
+                                android:layout_gravity="center_vertical"/>
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="?attr/actionBarSize"
+                        android:layout_marginBottom="?attr/actionBarSize"
+                        android:id="@+id/recycler">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                </FrameLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:id="@+id/toolbar">
 
-                    <TextView
-                        android:layout_width="0sp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        android:paddingLeft="15sp"
-                        android:paddingTop="5sp"
-                        android:paddingBottom="5sp"
-                        android:text="@string/please_give_permissions"
-                        android:layout_gravity="center_vertical"
-                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1sp"
+                        android:background="@color/colorTextFour"
+                        tools:ignore="ContentDescription,SmallSp" />
 
-                    <ImageButton
-                        android:layout_width="40sp"
-                        android:layout_height="40sp"
-                        android:src="@drawable/baseline_disc_full_black_48"
-                        android:tint="@color/white"
-                        tools:ignore="ContentDescription"
-                        android:background="@color/transparent"
-                        android:padding="5sp"
-                        android:scaleType="centerInside"
-                        android:layout_gravity="center_vertical"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="?android:attr/actionBarSize"
+                        android:orientation="horizontal"
+                        android:background="@color/white">
+
+                        <ImageButton
+                            android:layout_width="?android:attr/actionBarSize"
+                            android:layout_height="?android:attr/actionBarSize"
+                            android:background="?android:attr/selectableItemBackground"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textSize="32sp"
+                            android:textColor="@color/colorMajorDark"
+                            android:text="@string/sense_it_all"/>
+
+                        <ImageButton
+                            android:layout_width="?android:attr/actionBarSize"
+                            android:layout_height="?android:attr/actionBarSize"
+                            android:background="?android:attr/selectableItemBackground"
+                            tools:ignore="ContentDescription"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1sp"
+                        android:background="@color/colorTextThree"
+                        tools:ignore="ContentDescription,SmallSp" />
 
                 </LinearLayout>
 
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="?attr/actionBarSize"
-                android:layout_marginBottom="?attr/actionBarSize"
-                android:id="@+id/recycler">
-
-            </android.support.v7.widget.RecyclerView>
+            </FrameLayout>
 
         </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/toolbar">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1sp"
-                android:background="@color/colorTextFour"
-                tools:ignore="ContentDescription,SmallSp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
-                android:orientation="horizontal"
-                android:background="@color/white">
-
-                <ImageButton
-                    android:layout_width="?android:attr/actionBarSize"
-                    android:layout_height="?android:attr/actionBarSize"
-                    android:background="?android:attr/selectableItemBackground"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:layout_width="0sp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textSize="32sp"
-                    android:textColor="@color/colorMajorDark"
-                    android:text="@string/sense_it_all"/>
-
-                <ImageButton
-                    android:layout_width="?android:attr/actionBarSize"
-                    android:layout_height="?android:attr/actionBarSize"
-                    android:background="?android:attr/selectableItemBackground"
-                    tools:ignore="ContentDescription"/>
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1sp"
-                android:background="@color/colorTextThree"
-                tools:ignore="ContentDescription,SmallSp" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

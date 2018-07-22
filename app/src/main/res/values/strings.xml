@@ -242,6 +242,12 @@ The tests for the above sensors provided in the app will could be used for fun, 
         Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</string>
 
     <string name="dummy_header">SAR AND YOUR BODY</string>
+    <string name="feedback_currently_under_evaluation">FEEDBACK CURRENTLY UNDER EVALUATION:</string>
+    <string name="your_experience">YOUR EXPERIENCE</string>
+    <string name="did_you_love_the_app_experience">Did You Love The App Experience?</string>
+    <string name="did_you_find_something_missing">Did You Find Something Missing?</string>
+    <string name="give_us_feedback">GIVE US FEEDBACK</string>
+    <string name="rate_us_five_stars_text">RATE US FIVE STARS</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

@@ -7,6 +7,8 @@
 
     <color name="colorMajor">#00BCD4</color>
     <color name="colorMajorDark">#0083BF</color>
+    <color name="colorMajorDarkLighter">#0194d7</color>
+    <color name="colorMajorDarkLighterLighter">#01a2ec</color>
     <color name="colorMajorDarkTx">#3f0083bf</color>
 
     <color name="colorPrimaryLight">#B2EBF2</color>
