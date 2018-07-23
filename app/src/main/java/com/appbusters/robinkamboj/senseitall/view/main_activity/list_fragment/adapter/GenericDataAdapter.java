@@ -1,10 +1,13 @@
 package com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.adapter;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +28,14 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
 public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.GenericViewHolder>
         implements GenericAdapterInterface {
@@ -63,22 +74,27 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(list.get(pos).isPresent())
-                    switch (list.get(pos).getName()) {
-                        default:
-                            context.startActivity(returnDetailActivityIntent(context, list.get(pos)));
-                            ((Activity) context)
-                                    .overridePendingTransition(
-                                            R.anim.slide_in_right_activity,
-                                            R.anim.slide_out_left_activity
-                                    );
+                if(list.get(pos).isPresent()) {
+
+                    if(isPermissionGranted(context, list.get(pos).getName())) {
+                        context.startActivity(returnDetailActivityIntent(context, list.get(pos)));
+                        ((Activity) context)
+                                .overridePendingTransition(
+                                        R.anim.slide_in_right_activity,
+                                        R.anim.slide_out_left_activity
+                                );
                     }
-                else
+                    else {
+                        Toast.makeText(context, R.string.give_permissions_first, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
                     Toast.makeText(
-                                    context,
-                                    "Sorry, " + list.get(pos).getName() + " is not present in your device.",
-                                    Toast.LENGTH_SHORT)
+                            context,
+                            context.getString(R.string.sorry) + list.get(pos).getName() + context.getString(R.string.not_present),
+                            Toast.LENGTH_SHORT)
                             .show();
+                }
             }
         });
     }
@@ -86,6 +102,48 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
     @Override
     public int getItemCount() {
         return list == null ? 0 : list.size();
+    }
+
+    @Override
+    public boolean isPermissionGranted(Context context, String sensorName) {
+        boolean isGiven = true;
+        switch (sensorName) {
+            case BACK_CAMERA:
+            case FRONT_CAMERA: {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                    isGiven = false;
+                break;
+            }
+            case FINGERPRINT: {
+                if(ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED)
+                    isGiven = false;
+                break;
+            }
+            case FLASH: {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                    isGiven = false;
+                break;
+            }
+            case GSM_UMTS: {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
+                    isGiven = false;
+                break;
+            }
+            case WIFI: {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+                    isGiven = false;
+                break;
+            }
+            case GPS_LOCATION: {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED
+                        && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED)
+                    isGiven = false;
+                break;
+            }
+        }
+        return isGiven;
     }
 
     @Override

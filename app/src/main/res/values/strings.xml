@@ -248,6 +248,9 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="did_you_find_something_missing">Did You Find Something Missing?</string>
     <string name="give_us_feedback">GIVE US FEEDBACK</string>
     <string name="rate_us_five_stars_text">RATE US FIVE STARS</string>
+    <string name="give_permissions_first">Please give the app permissions first</string>
+    <string name="sorry">Sorry,</string>
+    <string name="not_present">is not present in your device.</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

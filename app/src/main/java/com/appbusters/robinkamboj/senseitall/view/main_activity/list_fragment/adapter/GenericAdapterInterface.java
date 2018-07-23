@@ -8,4 +8,7 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 public interface GenericAdapterInterface {
 
     Intent returnDetailActivityIntent(Context context, GenericData data);
+
+    boolean isPermissionGranted(Context context, String sensorName);
+
 }
