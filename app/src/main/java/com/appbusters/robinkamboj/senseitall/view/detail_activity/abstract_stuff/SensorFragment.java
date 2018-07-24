@@ -62,8 +62,8 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
         }
 
         hideGoToTestIfNoTest();
-        if (getActivity() != null)
-            about.setText(AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName()));
+
+        setupAbout();
     }
 
     @Override
@@ -88,6 +88,16 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
     @Override
     public void addToDetailsList(List<SensorDetail> sensorDetails, String key, String value) {
         sensorDetails.add(new SensorDetail(key, value));
+    }
+
+    @Override
+    public void setupAbout() {
+        if (getActivity() != null) {
+            String[] temp = getActivity().getResources().getStringArray(
+                    AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName())
+            );
+            about.setText(temp[0]);
+        }
     }
 
     @OnClick(R.id.go_back)

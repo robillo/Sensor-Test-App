@@ -20,5 +20,7 @@ public interface SensorInterface {
 
     void hideGoToTestIfNoTest();
 
+    void setupAbout();
+
     void addToDetailsList(List<SensorDetail> sensorDetails, String key, String value);
 }

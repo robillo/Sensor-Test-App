@@ -48,8 +48,8 @@ public class JackFragment extends FeatureFragment implements JackInterface {
 //        }
 
         hideGoToTestIfNoTest();
-        if (getActivity() != null)
-            about.setText(AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName()));
+
+        setupAbout();
     }
 
     @Override

@@ -4,6 +4,7 @@ package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.blue
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +47,8 @@ public class BluetoothFragment extends FeatureFragment implements BluetoothInter
 //        }
 
         hideGoToTestIfNoTest();
-        if (getActivity() != null)
-            about.setText(AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName()));
+
+        setupAbout();
     }
 
     @Override

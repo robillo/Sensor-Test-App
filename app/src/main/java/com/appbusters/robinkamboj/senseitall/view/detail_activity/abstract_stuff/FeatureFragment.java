@@ -68,6 +68,16 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
         sensorDetails.add(new SensorDetail(key, value));
     }
 
+    @Override
+    public void setupAbout() {
+        if (getActivity() != null) {
+            String[] temp = getActivity().getResources().getStringArray(
+                    AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName())
+            );
+            about.setText(temp[0]);
+        }
+    }
+
     @OnClick(R.id.go_back)
     public void setGoBack() {
         if(getActivity() != null) getActivity().onBackPressed();

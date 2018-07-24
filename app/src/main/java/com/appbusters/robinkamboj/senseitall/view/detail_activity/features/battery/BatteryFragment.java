@@ -48,8 +48,8 @@ public class BatteryFragment extends FeatureFragment implements BatteryInterface
 //        }
 
         hideGoToTestIfNoTest();
-        if (getActivity() != null)
-            about.setText(AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName()));
+
+        setupAbout();
     }
 
     @Override

@@ -48,8 +48,8 @@ public class BackCameraFragment extends FeatureFragment implements BackCamTestIn
 //        }
 
         hideGoToTestIfNoTest();
-        if (getActivity() != null)
-            about.setText(AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName()));
+
+        setupAbout();
     }
 
     @Override

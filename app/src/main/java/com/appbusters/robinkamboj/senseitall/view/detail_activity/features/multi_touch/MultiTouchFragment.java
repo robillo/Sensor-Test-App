@@ -48,8 +48,8 @@ public class MultiTouchFragment extends FeatureFragment implements MultiTouchInt
 //        }
 
         hideGoToTestIfNoTest();
-        if (getActivity() != null)
-            about.setText(AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName()));
+
+        setupAbout();
     }
 
     @Override

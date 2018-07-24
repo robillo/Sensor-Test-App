@@ -123,7 +123,7 @@ public class AppConstants {
     public static List<String> dangerousPermissions = new ArrayList<>();
     public static HashMap<String, String> sensorMapDirections = new HashMap<>();
     public static HashMap<String, String> sensorMapHints = new HashMap<>();
-    public static HashMap<String, String> sensorMapAbout = new HashMap<>();
+    public static HashMap<String, Integer> sensorMapAbout = new HashMap<>();
 
     static {
 
@@ -472,67 +472,71 @@ public class AppConstants {
 
         sensorMapAbout.put(
                 SENSOR_PROXIMITY,
-                "Proximity sensing technology is becoming popular across a wide range of industries, especially in consumer electronics, because OEMs introduce new products to market every year. The largest application within consumer electronics is the mobile phone. Given the competition in this particular market, it is important for OEMs to adopt the latest technology and offer unique features to differentiate their products."
+                R.array.proximity_descriptions
         );
         sensorMapAbout.put(
                 SENSOR_ACCELEROMETER,
-                "Accelerometers in mobile phones are used to detect the orientation of the phone. The gyroscope, or gyro for short, adds an additional dimension to the information supplied by the accelerometer by tracking rotation or twist." + "An accelerometer measures linear acceleration of movement, while a gyro on the other hand measures the angular rotational velocity. Both sensors measure rate of change; they just measure the rate of change for different things." + "In practice, that means that an accelerometer will measure the directional movement of a device but will not be able to resolve its lateral orientation or tilt during that movement accurately unless a gyro is there to fill in that info."
+                R.array.accelerometer_descriptions
         );
         sensorMapAbout.put(
                 SENSOR_LIGHT,
-                "Ambient light sensors are used as backlighting controls in any number of LCD display applications from consumer electronics to automotive, and by automatically adjusting display brightness, they can conserve battery life, which is a key benefit in mobile device applications. In addition, these sensors work well in all kinds of light sources from natural sunlight to fluorescent and incandescent lamps." + "One common theme running throughout most of these recent product launches is that these ambient light sensors match or virtually match the requirements of the human eye. This is a big deal when it comes to reducing eye strain. These include sensors from AMI Semiconductor, Avago, Capella, Osram, and Vishay"
+                R.array.light_descriptions
         );
         sensorMapAbout.put(
                 BACK_CAMERA,
-                ""
+                R.array.camera_descriptions
         );
         sensorMapAbout.put(
                 FRONT_CAMERA,
-                ""
+                R.array.camera_descriptions
         );
         sensorMapAbout.put(
                 GPS_LOCATION,
-                ""
+                R.array.gps_descriptions
         );
         sensorMapAbout.put(
                 WIFI,
-                ""
+                R.array.wifi_descriptions
         );
         sensorMapAbout.put(
                 BLUETOOTH,
-                ""
+                R.array.bluetooth_descriptions
         );
         sensorMapAbout.put(
                 SCREEN,
-                ""
+                R.array.screen_descriptions
         );
         sensorMapAbout.put(
                 BATTERY,
-                ""
+                R.array.battery_descriptions
         );
         sensorMapAbout.put(
                 SOUND,
-                ""
+                R.array.sound_descriptions
         );
         sensorMapAbout.put(
                 VIBRATOR,
-                ""
+                R.array.vibrator_descriptions
         );
         sensorMapAbout.put(
                 AV_OUTPUTS,
-                ""
+                R.array.av_descriptions
         );
         sensorMapAbout.put(
                 FLASH,
-                ""
+                R.array.flash_descriptions
         );
         sensorMapAbout.put(
                 MULTI_TOUCH,
-                ""
+                R.array.multi_touch_descriptions
         );
         sensorMapAbout.put(
                 FINGERPRINT,
-                ""
+                R.array.fingerprint_descriptions
+        );
+        sensorMapAbout.put(
+                COMPASS,
+                R.array.compass_descriptions
         );
     }
 }
