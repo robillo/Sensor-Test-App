@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.learn_more_activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -21,27 +22,53 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BAROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NFC;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GYROSCOPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_HEART_RATE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LINEAR_ACCELERATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_MAGNETIC_FIELD;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_MOTION_DETECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PRESSURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_RELATIVE_HUMIDITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ROTATION_VECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STATIONARY_DETECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_COUNTER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_DETECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_TEMPERATURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.USB_ACCESSORY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VR_MODE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WEB_VIEW;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI_DIRECT;
 
 public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreInterface {
 
@@ -136,6 +163,7 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         }
     }
 
+    @SuppressLint("InlinedApi")
     @Override
     public void getStrings() {
 
@@ -240,6 +268,168 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
                 headers = getResources().getStringArray(R.array.sound_headers);
                 descriptions = getResources().getStringArray(R.array.sound_descriptions);
                 images = getResources().getStringArray(R.array.sound_images);
+                break;
+            }
+            case SENSOR_TEMPERATURE: {
+                headers = getResources().getStringArray(R.array.ambient_temperature_headers);
+                descriptions = getResources().getStringArray(R.array.ambient_temperature_descriptions);
+                images = getResources().getStringArray(R.array.ambient_temperature_images);
+                break;
+            }
+            case SENSOR_PRESSURE: {
+                headers = getResources().getStringArray(R.array.pressure_headers);
+                descriptions = getResources().getStringArray(R.array.pressure_descriptions);
+                images = getResources().getStringArray(R.array.pressure_images);
+                break;
+            }
+            case SENSOR_RELATIVE_HUMIDITY: {
+                headers = getResources().getStringArray(R.array.relative_humidity_headers);
+                descriptions = getResources().getStringArray(R.array.relative_humidity_descriptions);
+                images = getResources().getStringArray(R.array.relative_humidity_images);
+                break;
+            }
+            case SENSOR_GYROSCOPE: {
+                headers = getResources().getStringArray(R.array.gyroscope_headers);
+                descriptions = getResources().getStringArray(R.array.gyroscope_descriptions);
+                images = getResources().getStringArray(R.array.gyroscope_images);
+                break;
+            }
+            case SENSOR_GRAVITY: {
+                headers = getResources().getStringArray(R.array.gravity_headers);
+                descriptions = getResources().getStringArray(R.array.gravity_descriptions);
+                images = getResources().getStringArray(R.array.gravity_images);
+                break;
+            }
+            case SENSOR_LINEAR_ACCELERATION: {
+                headers = getResources().getStringArray(R.array.linear_acceleration_headers);
+                descriptions = getResources().getStringArray(R.array.linear_acceleration_descriptions);
+                images = getResources().getStringArray(R.array.linear_acceleration_images);
+                break;
+            }
+            case SENSOR_ROTATION_VECTOR: {
+                headers = getResources().getStringArray(R.array.rotation_vector_headers);
+                descriptions = getResources().getStringArray(R.array.rotation_vector_descriptions);
+                images = getResources().getStringArray(R.array.rotation_vector_images);
+                break;
+            }
+            case SENSOR_MAGNETIC_FIELD: {
+                headers = getResources().getStringArray(R.array.magnetic_field_headers);
+                descriptions = getResources().getStringArray(R.array.magnetic_field_descriptions);
+                images = getResources().getStringArray(R.array.magnetic_field_images);
+                break;
+            }
+            case HEART_RATE_ECG: {
+                headers = getResources().getStringArray(R.array.heart_rate_ecg_headers);
+                descriptions = getResources().getStringArray(R.array.heart_rate_ecg_descriptions);
+                images = getResources().getStringArray(R.array.heart_rate_ecg_images);
+                break;
+            }
+            case SENSOR_STEP_DETECTOR: {
+                headers = getResources().getStringArray(R.array.step_detector_headers);
+                descriptions = getResources().getStringArray(R.array.step_detector_descriptions);
+                images = getResources().getStringArray(R.array.step_detector_images);
+                break;
+            }
+            case SENSOR_STEP_COUNTER: {
+                headers = getResources().getStringArray(R.array.step_counter_headers);
+                descriptions = getResources().getStringArray(R.array.step_counter_descriptions);
+                images = getResources().getStringArray(R.array.step_counter_images);
+                break;
+            }
+            case SENSOR_MOTION_DETECTOR: {
+                headers = getResources().getStringArray(R.array.motion_detector_headers);
+                descriptions = getResources().getStringArray(R.array.motion_detector_descriptions);
+                images = getResources().getStringArray(R.array.motion_detector_images);
+                break;
+            }
+            case SENSOR_STATIONARY_DETECTOR: {
+                headers = getResources().getStringArray(R.array.stationary_detector_headers);
+                descriptions = getResources().getStringArray(R.array.stationary_detector_descriptions);
+                images = getResources().getStringArray(R.array.stationary_detector_images);
+                break;
+            }
+            case GSM_UMTS: {
+                headers = getResources().getStringArray(R.array.gsm_umts_headers);
+                descriptions = getResources().getStringArray(R.array.gsm_umts_descriptions);
+                images = getResources().getStringArray(R.array.gsm_umts_images);
+                break;
+            }
+            case RADIO: {
+                headers = getResources().getStringArray(R.array.radio_headers);
+                descriptions = getResources().getStringArray(R.array.radio_descriptions);
+                images = getResources().getStringArray(R.array.radio_images);
+                break;
+            }
+            case CPU: {
+                headers = getResources().getStringArray(R.array.cpu_headers);
+                descriptions = getResources().getStringArray(R.array.cpu_descriptions);
+                images = getResources().getStringArray(R.array.cpu_images);
+                break;
+            }
+            case ANDROID_OS: {
+                headers = getResources().getStringArray(R.array.android_os_headers);
+                descriptions = getResources().getStringArray(R.array.android_os_descriptions);
+                images = getResources().getStringArray(R.array.android_os_images);
+                break;
+            }
+            case INFRARED: {
+                headers = getResources().getStringArray(R.array.infrared_headers);
+                descriptions = getResources().getStringArray(R.array.infrared_descriptions);
+                images = getResources().getStringArray(R.array.infrared_images);
+                break;
+            }
+            case NFC: {
+                headers = getResources().getStringArray(R.array.nfc_headers);
+                descriptions = getResources().getStringArray(R.array.nfc_descriptions);
+                images = getResources().getStringArray(R.array.nfc_images);
+                break;
+            }
+            case MICROPHONE: {
+                headers = getResources().getStringArray(R.array.microphone_headers);
+                descriptions = getResources().getStringArray(R.array.microphone_descriptions);
+                images = getResources().getStringArray(R.array.microphone_images);
+                break;
+            }
+            case USB_ACCESSORY: {
+                headers = getResources().getStringArray(R.array.usb_accessory_headers);
+                descriptions = getResources().getStringArray(R.array.usb_accessory_descriptions);
+                images = getResources().getStringArray(R.array.usb_accessory_images);
+                break;
+            }
+            case BAROMETER: {
+                headers = getResources().getStringArray(R.array.barometer_headers);
+                descriptions = getResources().getStringArray(R.array.barometer_descriptions);
+                images = getResources().getStringArray(R.array.barometer_images);
+                break;
+            }
+            case WIFI_DIRECT: {
+                headers = getResources().getStringArray(R.array.wifi_direct_headers);
+                descriptions = getResources().getStringArray(R.array.wifi_direct_descriptions);
+                images = getResources().getStringArray(R.array.wifi_direct_images);
+                break;
+            }
+            case SENSOR_HEART_RATE: {
+                headers = getResources().getStringArray(R.array.heart_rate_ecg_headers);
+                descriptions = getResources().getStringArray(R.array.heart_rate_ecg_descriptions);
+                images = getResources().getStringArray(R.array.heart_rate_ecg_images);
+                break;
+            }
+            case WEB_VIEW: {
+                headers = getResources().getStringArray(R.array.web_view_headers);
+                descriptions = getResources().getStringArray(R.array.web_view_descriptions);
+                images = getResources().getStringArray(R.array.web_view_images);
+                break;
+            }
+            case VR_MODE: {
+                headers = getResources().getStringArray(R.array.vr_headers);
+                descriptions = getResources().getStringArray(R.array.vr_descriptions);
+                images = getResources().getStringArray(R.array.vr_images);
+                break;
+            }
+            case MIDI_SERVICE: {
+                headers = getResources().getStringArray(R.array.midi_headers);
+                descriptions = getResources().getStringArray(R.array.midi_descriptions);
+                images = getResources().getStringArray(R.array.midi_images);
                 break;
             }
         }

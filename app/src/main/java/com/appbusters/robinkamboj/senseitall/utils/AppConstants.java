@@ -469,7 +469,6 @@ public class AppConstants {
                 "If You Are Not Getting Expected Results, Try Re-calibrating The Device In Settings."
         );
 
-
         sensorMapAbout.put(
                 SENSOR_PROXIMITY,
                 R.array.proximity_descriptions
@@ -537,6 +536,114 @@ public class AppConstants {
         sensorMapAbout.put(
                 COMPASS,
                 R.array.compass_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_TEMPERATURE,
+                R.array.ambient_temperature_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_PRESSURE,
+                R.array.pressure_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_RELATIVE_HUMIDITY,
+                R.array.relative_humidity_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_GYROSCOPE,
+                R.array.gyroscope_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_GRAVITY,
+                R.array.gravity_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_LINEAR_ACCELERATION,
+                R.array.linear_acceleration_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_ROTATION_VECTOR,
+                R.array.rotation_vector_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_MAGNETIC_FIELD,
+                R.array.magnetic_field_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_HEART_RATE,
+                R.array.heart_rate_ecg_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_STEP_DETECTOR,
+                R.array.step_detector_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_STEP_COUNTER,
+                R.array.step_counter_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_MOTION_DETECTOR,
+                R.array.motion_detector_descriptions
+        );
+        sensorMapAbout.put(
+                SENSOR_STATIONARY_DETECTOR,
+                R.array.stationary_detector_descriptions
+        );
+        sensorMapAbout.put(
+                GSM_UMTS,
+                R.array.gsm_umts_descriptions
+        );
+        sensorMapAbout.put(
+                RADIO,
+                R.array.radio_descriptions
+        );
+        sensorMapAbout.put(
+                CPU,
+                R.array.cpu_descriptions
+        );
+        sensorMapAbout.put(
+                ANDROID_OS,
+                R.array.android_os_descriptions
+        );
+        sensorMapAbout.put(
+                INFRARED,
+                R.array.infrared_descriptions
+        );
+        sensorMapAbout.put(
+                NFC,
+                R.array.nfc_descriptions
+        );
+        sensorMapAbout.put(
+                MICROPHONE,
+                R.array.microphone_descriptions
+        );
+        sensorMapAbout.put(
+                USB_ACCESSORY,
+                R.array.usb_accessory_descriptions
+        );
+        sensorMapAbout.put(
+                BAROMETER,
+                R.array.barometer_descriptions
+        );
+        sensorMapAbout.put(
+                WIFI_DIRECT,
+                R.array.wifi_direct_descriptions
+        );
+        sensorMapAbout.put(
+                HEART_RATE_ECG,
+                R.array.heart_rate_ecg_descriptions
+        );
+        sensorMapAbout.put(
+                WEB_VIEW,
+                R.array.web_view_descriptions
+        );
+        sensorMapAbout.put(
+                MIDI,
+                R.array.midi_descriptions
+        );
+        sensorMapAbout.put(
+                VR_MODE,
+                R.array.vr_descriptions
         );
     }
 }
