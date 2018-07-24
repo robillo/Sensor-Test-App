@@ -14,19 +14,34 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.CompassFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.android_os.OsFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.av_test.JackFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.barometer.BarometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.battery.BatteryFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.bluetooth.BluetoothFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.cpu.CpuFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.fake_touch.FakeTouchFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.fingerprint.FingerprintFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.flash.FlashFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.front_camera.FrontCameraFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gps_location.GpsFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gsm.GsmFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.heart_rate_ecg.HeartRateEcgFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.infrared.InfraredFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.mic.MicFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.midi.MidiFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.multi_touch.MultiTouchFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.nfc.NfcFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.radio.RadioFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.screen_test.ScreenFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.sound.SoundFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.usb_acc.UsbFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.vibrator.VibratorFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.vr.VrFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.web_view.WebFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi.WifiFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi_direct.WifiDirectFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.gravity_sensor.GravityFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.gyroscope_sensor.GyroscopeFragment;
@@ -49,21 +64,32 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BAROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FEATURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MIDI;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NFC;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
@@ -88,8 +114,12 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.USB_ACCESSORY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VR_MODE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WEB_VIEW;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI_DIRECT;
 
 public class DetailActivity extends AppCompatActivity implements DetailActivityInterface {
 
@@ -283,6 +313,66 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case SENSOR_STATIONARY_DETECTOR: {
                 transaction.add(R.id.container, new StationaryDetectFragment()).commit();
+                break;
+            }
+            case GSM_UMTS: {
+                transaction.add(R.id.container, new GsmFragment()).commit();
+                break;
+            }
+            case RADIO: {
+                transaction.add(R.id.container, new RadioFragment()).commit();
+                break;
+            }
+            case CPU: {
+                transaction.add(R.id.container, new CpuFragment()).commit();
+                break;
+            }
+            case ANDROID_OS: {
+                transaction.add(R.id.container, new OsFragment()).commit();
+                break;
+            }
+            case INFRARED: {
+                transaction.add(R.id.container, new InfraredFragment()).commit();
+                break;
+            }
+            case NFC: {
+                transaction.add(R.id.container, new NfcFragment()).commit();
+                break;
+            }
+            case MICROPHONE: {
+                transaction.add(R.id.container, new MicFragment()).commit();
+                break;
+            }
+            case USB_ACCESSORY: {
+                transaction.add(R.id.container, new UsbFragment()).commit();
+                break;
+            }
+            case BAROMETER: {
+                transaction.add(R.id.container, new BarometerFragment()).commit();
+                break;
+            }
+            case WIFI_DIRECT: {
+                transaction.add(R.id.container, new WifiDirectFragment()).commit();
+                break;
+            }
+            case HEART_RATE_ECG: {
+                transaction.add(R.id.container, new HeartRateEcgFragment()).commit();
+                break;
+            }
+            case FAKE_TOUCH: {
+                transaction.add(R.id.container, new FakeTouchFragment()).commit();
+                break;
+            }
+            case WEB_VIEW: {
+                transaction.add(R.id.container, new WebFragment()).commit();
+                break;
+            }
+            case MIDI: {
+                transaction.add(R.id.container, new MidiFragment()).commit();
+                break;
+            }
+            case VR_MODE: {
+                transaction.add(R.id.container, new VrFragment()).commit();
                 break;
             }
         }
