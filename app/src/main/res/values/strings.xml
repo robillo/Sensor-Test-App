@@ -788,8 +788,6 @@ Astrocompass - uses positions of various astronomical bodies to find true north.
         <item>Introduction</item>
         <item>Vibrating Alert</item>
         <item>Breakdown Possibility</item>
-        <item></item>
-        <item></item>
     </string-array>
 
     <string-array name="vibrator_descriptions">
@@ -1067,19 +1065,36 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="gyroscope_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Without A Gyroscope…</item>
+        <item>Design</item>
+        <item>Working Principle</item>
     </string-array>
 
     <string-array name="gyroscope_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Accelerometers in mobile phones are used to detect the orientation of the phone. The gyroscope, or gyro for short, adds an additional dimension to the information supplied by the accelerometer by tracking rotation or twist.\n\n
+
+An accelerometer measures linear acceleration of movement, while a gyro on the other hand measures the angular rotational velocity. Both sensors measure rate of change; they just measure the rate of change for different things.\n\n
+
+In practice, that means that an accelerometer will measure the directional movement of a device but will not be able to resolve its lateral orientation or tilt during that movement accurately unless a gyro is there to fill in that info.\n\n
+
+With an accelerometer you can either get a really \"noisy\" info output that is responsive, or you can get a \"clean\" output that\'s sluggish. But when you combine the 3-axis accelerometer with a 3-axis gyro, you get an output that is both clean and responsive in the same time.\"\n\n</item>
+        <item>Without gyroscope there are some loses of features in your phone:\n\n
+ 1. You cannot play a game that involves circular motion for instance counter strike.\n
+ 2. With out gyroscope Orientation of the phone Horizontal and vertical orientation of the device may not be sensitive.\n
+ 3. Your smartphone is unable to measure the tilt angle.\n
+ 4. Accelerometer alone will not provide orientation of the smartphone precisely without the help of gyroscope.\n
+ 5. Images in your phone cannot be viewed in tilt because of no gyroscope.\n
+ 6. You cannot use applications that works based on gyroscope.\n\n</item>
+        <item>The gyroscope is a massive rotor that is fixed in light supporting rings called gimbals. The gimbals consist of frictionless bearings that isolate the central rotor from outside torques. The axle of the spinning wheel defines the spin axis.\n\n
+
+The rotor possesses three degrees of rotational freedom and spins about an axis. It acquires extraordinary stability of balance at high speeds as it maintains the high speed rotation axis of its central rotor.</item>\n\n
+        <item>When the gyroscope is applied with external torques or rotations about the given axis, the orientation can be measured by a precession phenomenon. When an object rotating about an axis is applied with external torque along a direction perpendicular to the rotational axis, the precession occurs.\n\n
+
+This rotation about the spin axis is detected and information on this rotation is delivered to a motor or other device that applies torque in an opposite direction thereby canceling the precession and maintaining its orientation.\n\n
+
+The precession can also be prevented using two gyroscopes that are arranged perpendicular to each other. The rotation rate can be measured by the pulsation of counteracting torque at constant time intervals.\n\n
+</item>
     </string-array>
 
     <string-array name="gyroscope_images">
@@ -1092,19 +1107,41 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="gravity_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Single And Multi-Axis Models</item>
+        <item>Physical Principles</item>
+        <item>Orientation Sensing</item>
+        <item>Image Stabilization</item>
     </string-array>
 
     <string-array name="gravity_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Gravity sensor is an accelerometer. An accelerometer is a device that measures proper acceleration (\"g-force\"). Proper acceleration is not the same as coordinate acceleration (rate of change of velocity).\n\n
+
+            For example, an accelerometer at rest on the surface of the Earth will measure an acceleration g= 9.81 m/s2 straight upwards. By contrast, accelerometers in free fall orbiting and accelerating due to the gravity of Earth will measure zero.\n\n
+
+Accelerometers have multiple applications in industry and science. Highly sensitive accelerometers are components of inertial navigation systems for aircraft and missiles. Accelerometers are used to detect and monitor vibration in rotating machinery.\n\n
+
+            Accelerometers are used in tablet computers and digital cameras so that images on screens are always displayed upright. Accelerometers are used in drones for flight stabilisation. Pairs of accelerometers extended over a region of space can be used to detect differences (gradients) in the proper accelerations of frames of references associated with those points.\n\n
+
+            These devices are called gravity gradiometers, as they measure gradients in the gravitational field. Such pairs of accelerometers in theory may also be able to detect gravitational waves.\n\n</item>
+        <item>Single- and multi-axis models of accelerometer are available to detect magnitude and direction of the proper acceleration (or g-force), as a vector quantity, and can be used to sense orientation (because direction of weight changes), coordinate acceleration (so long as it produces g-force or a change in g-force), vibration, shock, and falling in a resistive medium (a case where the proper acceleration changes, since it starts at zero, then increases).\n\n
+
+            Micromachined accelerometers are increasingly present in portable electronic devices and video game controllers, to detect the position of the device or provide for game input.\n\n</item>
+        <item>An accelerometer measures proper acceleration, which is the acceleration it experiences relative to freefall and is the acceleration felt by people and objects.\n\n
+
+            Put another way, at any point in space-time the equivalence principle guarantees the existence of a local inertial frame, and an accelerometer measures the acceleration relative to that frame. Such accelerations are popularly measured in terms of g-force.\n\n
+
+An accelerometer at rest relative to the Earth\'s surface will indicate approximately 1 g upwards, because any point on the Earth\'s surface is accelerating upwards relative to the local inertial frame (the frame of a freely falling object near the surface).\n\n
+
+            To obtain the acceleration due to motion with respect to the Earth, this \"gravity offset\" must be subtracted and corrections made for effects caused by the Earth\'s rotation relative to the inertial frame.\n\n</item>
+        <item>A number of 21st century devices use accelerometers to align the screen depending on the direction the device is held, for example switching between portrait and landscape modes. Such devices include many tablet PCs and some smartphones and digital cameras.\n\n
+
+            The Amida Simputer, a handheld Linux device launched in 2004, was the first commercial handheld to have a built-in accelerometer. It had incorporated many gesture based interactions using this accelerometer, including page-turning, zoom-in and zoom-out of images, change of portrait to landscape mode and many simple gesture-based games.\n\n
+
+As of January 2009, almost all new mobile phones and digital cameras contain at least a tilt sensor and sometimes an accelerometer for the purpose of auto image rotation, motion-sensitive mini-games, and to correct shake when taking photographs.\n\n</item>
+        <item>Camcorders use accelerometers for image stabilization. Still cameras use accelerometers for anti-blur capturing. The camera holds off capturing the image when the camera is moving.\n\n
+
+            When the camera is still (if only for a millisecond, as could be the case for vibration), the image is captured. An example of the application of this technology is the Glogger VS2, a phone application which runs on Symbian based phones with accelerometers such as the Nokia N96. Some digital cameras contain accelerometers to determine the orientation of the photo being taken and also for rotating the current picture when viewing.\n\n</item>
     </string-array>
 
     <string-array name="gravity_images">
@@ -1116,19 +1153,34 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
     </string-array>
 
     <string-array name="linear_acceleration_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Measurements</item>
+        <item>Applications</item>
+        <item>Limitations</item>
     </string-array>
 
     <string-array name="linear_acceleration_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>The accelerometer is a built-in component for measuring the acceleration of any mobile device. Motions like swinging, tilting, rotating, shaking is detected using accelerometer. The value of XYZ is used to calculate and detect the motions. Besides mobile, the accelerometer is used to measure vibration on cars, machines, buildings, process control systems and safety installations.\n\n
+
+Biologically it is used by researchers to quantify the rate at which an animal is dissipating energy in the wild by determining the limb-stroke frequency and overall dynamic body acceleration. In some medical applications, the accelerometer is deployed in pedometer for counting each step of a person involved in physical trainings like running, jogging, etc. Accelerometer used in navigator measures the motion of the person and shows the pointer in the map (as in Google map application).\b\b</item>
+        <item>The accelerometer in the mobile device provides the XYZ coordinate values, which is used to measure the position and the acceleration of the device. The XYZ coordinate represents direction and position of the device at which acceleration occurred.\n\n
+
+            The rotation direction and position are measured using gyroscope sensors that are found in the Android devices. The mobile device rest in the Earth includes the acceleration due to gravity (g = 9.81m/s2) and the acceleration value.\n\n
+
+            The accelerometer values provided by the device normally includes the gravity as well. Accelerometer along with the linear acceleration and gyroscope will provide results close to accuracy. Linear acceleration does not include the gravity. The accelerometer value is passed into the low/high pass filters for refining the result, based on the application that has been used.\n\n</item>
+        <item>List of field applications that use accelerometer:\n\n
+
+Engineering – Car, machines, buildings\n
+Biology – Animal dynamic body acceleration\n
+Industry – Turbines, pumps, fans, compressors\n
+Building and structures – Moving loads on bridges, earthquakes and aftershocks\n
+Medical application – pedometer, CRP D-Padz\n
+Transport – Intelligent compaction rollers, trains to detect tilts\n
+Volcanology – Motion of magma in active volcanoes\n
+Consumer electronics – Display screens, hard disk\n\n</item>
+        <item>The accelerometer sensor/component is device-centric (according to manufacturer), so the accuracy of the acceleration values differs from device to device.\n\n
+
+            So before building an application, you should have built your device with accelerometer by the same manufacturer. Limitations are there; but they vary based on environmental conditions.\n\n</item>
     </string-array>
 
     <string-array name="linear_acceleration_images">
@@ -1140,19 +1192,21 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
     </string-array>
 
     <string-array name="rotation_vector_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Simple Definition</item>
     </string-array>
 
     <string-array name="rotation_vector_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>The older ORIENTATION sensors report orientation using three angles. The problem with this coordinate systems is that it suffers from \"gimbal lock\": when the actual orientation vector is close to vertical, one of the coordinates goes to 90 or -90 degrees, and the remaining two coordinates become either uninterpretable or dangerously denormalized.\n\n
+
+The newer ROTATION sensors report orientation using quarternion coordinates, which are more complicated to work with, but don\'t suffer from the Gimbal lock problem. When orientation is reported using quaternion coordinates, you can determine the precise orientation of the device no matter what the orientation is.\n\n
+
+Quaternions are also more computationally efficient. You don\'t need to call expensive trig functions to apply a quaternion rotation to a vector. If the w coordinate isn\'t supplied you can still compute w with a single sqrt call, compared to three sin and three cos function calls for orientation coordinates in the three angle Euler form.\n\n</item>
+        <item>Geomagnetic Rotation Vector sensor consists of an accelerometer + magnetometer  which helps in conserving battery while using apps like Gmaps, Compass, etc.\n\n
+
+            That sensor is helps in finding where the phone is pointed at, wrt magnetic poles and the phones orientation(landscape or portrait). From the data obtained from the sensor, 3d mapping can be drawn onto the screen which brings a visual flair over 2d.\n\n
+
+            This sensor is continuously powered and consumes very low amount of battery when compared to Game Rotation Vector (accelerometer + gyroscope), which is more sensitive than GeoRV and is triggered on by games which takes input data about the phone\'s tilt in 3-Dimension.\n\n</item>
     </string-array>
 
     <string-array name="rotation_vector_images">
@@ -1164,19 +1218,43 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
     </string-array>
 
     <string-array name="magnetic_field_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Principle And Uses</item>
+        <item>More Details</item>
+        <item>Ways To Find Path</item>
+        <item>Use In Navigation</item>
     </string-array>
 
     <string-array name="magnetic_field_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>The magnetic sensor, better known as magnetometer, measures earth\’s magnetic field. This in addition with software algorithms determines direction your phone is facing.\n\n</item>
+        <item>The magnetometer sensor in your tablet or smartphone also utilizes the modern solid state technology to create a miniature Hall-effect sensor that detects the Earth\'s magnetic field along three perpendicular axes X, Y and Z.\n\n
+
+            The Hall-effect sensor produces voltage which is proportional to the strength and polarity of the magnetic field along the axis each sensor is directed. The sensed voltage is converted to digital signal representing the magnetic field intensity.\n\n
+
+            Other technologies used for magnetometer may include magneto resistive devices which change the measured resistance based on changes in the magnetic field.\n\n
+
+The magnetometer is enclosed in a small electronic chip that often incorporate another sensor (typically a built in accelerometer) that help to correct the raw magnetic measurements using tilt information from the auxiliary sensor.\n\n
+
+In addition to general rotational information, the magnetometer is crucial for detecting the relative orientation of your device relative to the Earth\'s magnetic north.\n\n</item>
+        <item>Sophisticated smart phone applications such as maps or augmented reality use measurements of the Earth\'s magnetic and gravity fields to work out the orientation of the phone.\n\n
+
+A typical smart phone has three magnetic field sensors, fixed perpendicular to each other, which are used to work out the local direction of Magnetic North.\n\n
+
+In addition, they have three accelerometers which sense gravity to give tilt information and to help work out which way is down.\n\n
+
+        The application software uses the location of the phone from the mobile phone\’s nearest base-station or from a GPS reading along with a map of the declination of the magnetic field (produced by BGS and NOAA in the USA) to work out the direction of True North at the user\'s location.\n\n</item>
+        <item>Magnetic and gravity field sensors located within your phone measure the direction of Magnetic North and the downward direction at the phone\'s location.\n\n
+
+Using the GPS coordinates of the phone location and a global map of declination angle (the angle between true north and magnetic north) the application software computes the required correction angle for True North.\n\n
+
+The map or image shown to the user can now be correctly orientated to True North, which is what most people expect.\n\n</item>
+        <item>As is evident from the basics of smartphone navigation mentioned above, GPS and AGPS are sufficient to provide you with basic navigation. When your GPS sensor is week or the GPS signal is week, as is the case with many budget smartphones, you can use A-GPS, using the linked tutorial.\n\n
+
+The Magnetic sensor in your smartphone is not an actual magnet, it is however capable of sensing the magnetic field of earth (using Halls effect) and determining your Direction. With magnetic Compass turned on while using the navigation app, your navigation will be more precise.\n\n
+
+The Magnetic sensor will show minute details like change in your orientation as well. You can change your direction and you will be able to see that on your smartphone screen. This is particularly help full when you are using navigation on foot. In the Absence of magnetic senor you can see your position on the Map but, not your orientation. the Map doesn\’t rotate when you do. Magnetic sensor helps you to take that first step in the correct direction with the help of the direction pointer.\n\n
+
+Thus Magnetic sensor adds details to enhance your navigation experience, but it is not a necessity. Good navigation primarily requires good GPS receiver and Good A-GPS synchronization.\n\n</item>
     </string-array>
 
     <string-array name="magnetic_field_images">
@@ -1188,19 +1266,38 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
     </string-array>
 
     <string-array name="step_detector_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Benefits Of Pedometer</item>
+        <item>Accuracy Of The Count</item>
+        <item>Where To Keep The Phone</item>
+        <item>How It Works</item>
     </string-array>
 
     <string-array name="step_detector_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Using a Pedometer helps in keeping track of the steps you take while doing aerobics, running, walking, steps exercise.\n\n
+
+            While starting any fitness activity, You set some goals and would like to monitor it. E.g. If you have to prepare for a marathon which is 2 months away, You make a schedule of running every morning.\n\n
+
+            Now you run everyday and follow the same or different path. Sometimes you feel very tired and reduce the distance or sometimes you increase the distance, But you do not have track of whether your stamina or performance is increasing or not.\n\n
+
+            If you do your activity using the Pedometer, It will capture the details like distance covered each day, Steps taken and duration. You can review your performance after days and weeks to check whether it is improving or not.\n\n</item>
+        <item>It is close to the actual count but need to be  started and stopped at right time.e.g. If you start the app before starting your jogging and end it after you complete it, then the count will be near to the actual count.\n\n
+
+            But if you start the app, and talk on phone or play some game on it, then chances are that this activity will increase the step count.\n\n
+
+            One obvious question is that can these applications record all the steps taken by a person with the app on the phone in a day? The answer is, It can provide a rough idea of it but not accurate numbers. Some of the tasks like picking up the phone ,putting it down, sliding it , holding it for clicking picture etc. may also increase the step count.\n\n</item>
+        <item>It does not matter where you keep it and you should keep it at a place where you are comfortable for free body movement. You can keep it in pocket,in jacket,  hold it in hand or keep it in purse.\n\n
+
+            As long as it is directly or indirectly attached to your body during motion it will give the number of steps. Also it does not matter whether you keep your phone straight or upside down.\n\n
+
+            These applications work without GPS also, So we can assume that it does not need GPS for step counting. But if the application has other features like showing the map of the track you followed while jogging, then GPS will be required.\n\n
+        </item>
+        <item>These applications work with the phones which have the Accelerometer sensor built in it. While running, this application will monitor the change in accelerometer and based on it will conclude if the step is taken.\n\n
+
+            It can provide the information about the angle at which you are holding the device, direction , speed at which it is moved and the gravity. Accelerometer provides the values whenever they are changed along with the Time at which the event occurred. Application stores these values in the database and look for a pattern.\n\n
+
+An accelerometer will provide three values x-axis value, y-axis value and z-axis value. As the person starts taking the first step, x-axis value will increase at a rate depending upon the force at which the person starts to move, y-axis which will tell the relative change in the height of the device along with the force will show an increase in value as while taking the step person will rise from the ground and then it will decrease till the step touches the ground.\n\n
+
+            Based on this kind of pattern match, Step event is detected. Same kind of concept is used in wave to answer feature provided in phones.\n\n</item>
     </string-array>
 
     <string-array name="step_detector_images">
@@ -1208,23 +1305,41 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
         <item></item>
         <item></item>
         <item></item>
-        <item></item>
     </string-array>
 
     <string-array name="step_counter_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-    </string-array>
+    <item>Benefits Of Pedometer</item>
+    <item>Accuracy Of The Count</item>
+    <item>Where To Keep The Phone</item>
+    <item>How It Works</item>
+</string-array>
 
     <string-array name="step_counter_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Using a Pedometer helps in keeping track of the steps you take while doing aerobics, running, walking, steps exercise.\n\n
+
+            While starting any fitness activity, You set some goals and would like to monitor it. E.g. If you have to prepare for a marathon which is 2 months away, You make a schedule of running every morning.\n\n
+
+            Now you run everyday and follow the same or different path. Sometimes you feel very tired and reduce the distance or sometimes you increase the distance, But you do not have track of whether your stamina or performance is increasing or not.\n\n
+
+            If you do your activity using the Pedometer, It will capture the details like distance covered each day, Steps taken and duration. You can review your performance after days and weeks to check whether it is improving or not.\n\n</item>
+        <item>It is close to the actual count but need to be  started and stopped at right time.e.g. If you start the app before starting your jogging and end it after you complete it, then the count will be near to the actual count.\n\n
+
+            But if you start the app, and talk on phone or play some game on it, then chances are that this activity will increase the step count.\n\n
+
+            One obvious question is that can these applications record all the steps taken by a person with the app on the phone in a day? The answer is, It can provide a rough idea of it but not accurate numbers. Some of the tasks like picking up the phone ,putting it down, sliding it , holding it for clicking picture etc. may also increase the step count.\n\n</item>
+        <item>It does not matter where you keep it and you should keep it at a place where you are comfortable for free body movement. You can keep it in pocket,in jacket,  hold it in hand or keep it in purse.\n\n
+
+            As long as it is directly or indirectly attached to your body during motion it will give the number of steps. Also it does not matter whether you keep your phone straight or upside down.\n\n
+
+            These applications work without GPS also, So we can assume that it does not need GPS for step counting. But if the application has other features like showing the map of the track you followed while jogging, then GPS will be required.\n\n
+        </item>
+        <item>These applications work with the phones which have the Accelerometer sensor built in it. While running, this application will monitor the change in accelerometer and based on it will conclude if the step is taken.\n\n
+
+            It can provide the information about the angle at which you are holding the device, direction , speed at which it is moved and the gravity. Accelerometer provides the values whenever they are changed along with the Time at which the event occurred. Application stores these values in the database and look for a pattern.\n\n
+
+An accelerometer will provide three values x-axis value, y-axis value and z-axis value. As the person starts taking the first step, x-axis value will increase at a rate depending upon the force at which the person starts to move, y-axis which will tell the relative change in the height of the device along with the force will show an increase in value as while taking the step person will rise from the ground and then it will decrease till the step touches the ground.\n\n
+
+            Based on this kind of pattern match, Step event is detected. Same kind of concept is used in wave to answer feature provided in phones.\n\n</item>
     </string-array>
 
     <string-array name="step_counter_images">
@@ -1232,23 +1347,61 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
         <item></item>
         <item></item>
         <item></item>
-        <item></item>
     </string-array>
 
     <string-array name="ambient_temperature_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Ambient Temperature Sensor</item>
+        <item>More About ATS</item>
+        <item>Why There Are So Few Phones With ATS</item>
+        <item>First Phones With ATS</item>
     </string-array>
 
     <string-array name="ambient_temperature_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>The ambient (ATC) or outside air temperature sensor is an (NTC) negative temperature coefficient sensor that informs the semiautomatic/automatic temperature control system of outside air temperature.\n\n
+
+            The NTC sensor\’s resistance decreases as the outside air temperature increases. The computer uses this input, along with other in-car temperature sensors to control temperature and blower speed. When there\’s a problem with this sensor, performance will suffer and the compressor\’s clutch may not engage.\n\n
+
+Ambient air temperature sensor symptoms, like an inoperative clutch or input problems are diagnosed with a scan tool and a multimeter. Factory and many generic scan tools have the capability to activate certain components; the compressor clutch is one of them.\n\n
+
+            If the clutch engages with the scan tool, there is likely a problem with one of the inputs. Verify any suspicions with a visual inspection of the sensor and its connector. Use a multimeter and verify manufacturer\'s specifications, (~ 220-240 ohms at 70°-80° F), to test this sensor for proper resistance.\n\n
+
+        Automotive air conditioning systems use NTC sensors to monitor air temperature. The In Car Temperature sensor (ICTS) is an NTC that monitors the air temperature of the passenger compartment. The ambient temperature sensor (ATS) monitors the air temperature outside of the vehicle. The EATC compares these values and makes output decisions based on the difference of these air temperatures.\n\n</item>
+        <item>The ambient ( ATC ) or outside air temperature sensor is an ( NTC ) negative temperature coefficient sensing unit that informs the semiautomatic/automatic climate manage program of outside air temperature. The NTC sensor\’s resilience diminishes as the outside air warmth increases.\n\n
+
+            The computer utilizes this input, as well as other in-car temperature sensors to manage temperature and blower speed. When there\’s an issue with this sensor, performance will endure and the compressor\’s grapple may not employ.\n\n
+
+Ambient air temperature sensor indicators, like an inoperative clutch or input issues are identified as having a scan tool and a multimeter. Factory and many common scan tools have the ability to activate certain details; the compressor clutch is amongst them. If the clutch gets involved with the scan tool, there is certainly likely a problem with among the inputs. Verify any uncertainties with a visual examination of the sensor. Now you can use advance Wifi Temperature Sensor or wifi ambient temperature sensors.</item>
+        <item>Almost every device has an internal temperature sensor which monitors the CPU and battery temperature of device. Now if there is another temperature sensor to measure the air temperature, it should be implanted far enough from the  battery and CPU and also should be on the outer side of the device.\n\n
+
+            Even such measures are kept, we cannot rule out the possibility that its reading would be affected by the overall temperature of the mobile. It would be hard to get an accurate ambient temperature. And It should be the reason that not every Smartphone has such a sensor and even Samsung stopped equipping its devices with a temperature monitor.\n\n
+
+S-Health app of Galaxy S4 and Note 3 has clear directions about the use of temperature sensor that before you take air temperature with the device, you should let the device sufficiently cool off, put the device down on a stationary surface and not hold the device in your hand. These directions are there so that device is not heated up and the temperature sensor gives you an accurate idea of ambient temperature.\n\n
+
+After Samsung, Motorola fit temperature sensor in its two mobile phones. These mobiles were Moto X and Moto X Second Generation. But we are not sure how accurate their sensors are.\n\n
+
+If users are to be believed the temperature and humidity sensors of galaxy Note 3 and Galaxy S4 do not give as accurate reading with S-Health as they give when they utilize Weather Station app of A Minor.\n\n
+
+            With this app, you can set your own personal weather station which does not depend upon Satellite Weather Station. It uses the temperature and humidity sensor of your device i.e. Galaxy Note 3 and Galaxy S6\n\n</item>
+        <item>The Samsung Galaxy S4 and the S4 Active\n\n
+
+The S4 is the phone that has brought a dedicated temperature sensor to the masses. While it is not the first phone to contain a thermometer, it is the first internationally available device to do so. I\’m not going to write much about the sensors in the S4 because we all know they’re awesome, but unfortunately not cheap.\n\n
+
+        Anything from the Arrows line:\n\n
+
+These were among the first phones to use the Sensirion SHTC1 (the same chip in the S4). The devices are high spec, but they\’re probably not going to be that much use to you unless you have a working knowledge of Japanese. Incidentally these devices have some crazy names that give you the story of the entire supply chain, just one example:\n
+Docomo Fujitsu Arrows V Nvidia Tegra 3 Phone\n\n
+
+        Several devices by Xiaomi\n\n
+
+In Argentina, phones are generally extremely expensive because of the high import duties placed on them. These duties can easily increase the price of a phone to over 50% more than in the US. Some of the more savvy get round this by ordering individual phones direct from China and declaring the value incorrectly. While we do not advocate this,  it does mean that you see some models in Argentina that you might not see else where. During my last trip  I got to have a quick play with a Xiaomi and was extremely impressed, the build quality was good and the phone seemed very zippy. And that was before I knew that many of the Xiaomi devices are rocking thermometers. Check out the MI 2 and MI 2S, in addition the default MIUI is pretty nice and supports many languages.\n\n
+
+        Snopow M6\n\n
+
+Waterproof, anti-shock, thermometer … all for $250. This looks tasty, but we\’ve never actually tried one, if you have let us know whether it really is as good as it sounds. Find it here. In particular we don\’t know if the temperature readings are available through the Android APIs, they should be, but as we have no instances of this phone in our database we can\’t be sure. If you have one, download WeatherSignal, and then shoot us an email via the contact form.\n\n
+
+Casio Gz1 Commando (aka G’zOne Commando)\n\n
+
+The name of this phone gives you a good idea of what it\’s all about, it\’s a rugged gadget, rather like the Snopow. One of the first phones with a thermometer in the US, this is the sort of phone I would have wanted when I was 5, except phones didn\’t have thermometers then and I wouldn\’t have been allowed one even if they did.\n\n</item>
     </string-array>
 
     <string-array name="ambient_temperature_images">
@@ -1260,19 +1413,93 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
     </string-array>
 
     <string-array name="pressure_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Classification Of Pressure Measurements</item>
+        <item>Pressure Sensing Technology</item>
+        <item>Applications</item>
+        <item>Limitations And Challenges</item>
     </string-array>
 
     <string-array name="pressure_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>A pressure sensor is a device for pressure measurement of gases or liquids. Pressure is an expression of the force required to stop a fluid from expanding, and is usually stated in terms of force per unit area. A pressure sensor usually acts as a transducer; it generates a signal as a function of the pressure imposed. For the purposes of this article, such a signal is electrical.\n\n
+
+Pressure sensors are used for control and monitoring in thousands of everyday applications. Pressure sensors can also be used to indirectly measure other variables such as fluid/gas flow, speed, water level, and altitude. Pressure sensors can alternatively be called pressure transducers, pressure transmitters, pressure senders, pressure indicators, piezometers and manometers, among other names.\n\n
+
+Pressure sensors can vary drastically in technology, design, performance, application suitability and cost. A conservative estimate would be that there may be over 50 technologies and at least 300 companies making pressure sensors worldwide.\n\n
+
+There is also a category of pressure sensors that are designed to measure in a dynamic mode for capturing very high speed changes in pressure. Example applications for this type of sensor would be in the measuring of combustion pressure in an engine cylinder or in a gas turbine. These sensors are commonly manufactured out of piezoelectric materials such as quartz.\n\n
+
+Some pressure sensors are pressure switches, which turn on or off at a particular pressure. For example, a water pump can be controlled by a pressure switch so that it starts when water is released from the system, reducing the pressure in a reservoir.\n\n</item>
+        <item>Absolute pressure sensor\n\n
+This sensor measures the pressure relative to perfect vacuum.\n\n
+
+Gauge pressure sensor\n\n
+This sensor measures the pressure relative to atmospheric pressure. A tire pressure gauge is an example of gauge pressure measurement; when it indicates zero, then the pressure it is measuring is the same as the ambient pressure.\n\n
+
+Vacuum pressure sensor\n\n
+This term can cause confusion. It may be used to describe a sensor that measures pressures below atmospheric pressure, showing the difference between that low pressure and atmospheric pressure, but it may also be used to describe a sensor that measures absolute pressure relative to a vacuum.\n\n
+
+Differential pressure sensor\n\n
+This sensor measures the difference between two pressures, one connected to each side of the sensor. Differential pressure sensors are used to measure many properties, such as pressure drops across oil filters or air filters, fluid levels (by comparing the pressure above and below the liquid) or flow rates (by measuring the change in pressure across a restriction). Technically speaking, most pressure sensors are really differential pressure sensors; for example a gauge pressure sensor is merely a differential pressure sensor in which one side is open to the ambient atmosphere.\n\n
+
+Sealed pressure sensor\n\n
+This sensor is similar to a gauge pressure sensor except that it measures pressure relative to some fixed pressure rather than the ambient atmospheric pressure (which varies according to the location and the weather).\n\n</item>
+        <item>Piezoresistive strain gauge\n\n
+Uses the piezoresistive effect of bonded or formed strain gauges to detect strain due to applied pressure, resistance increasing as pressure deforms the material. Common technology types are Silicon (Monocrystalline), Polysilicon Thin Film, Bonded Metal Foil, Thick Film, Silicon-on-Sapphire and Sputtered Thin Film. Generally, the strain gauges are connected to form a Wheatstone bridge circuit to maximize the output of the sensor and to reduce sensitivity to errors. This is the most commonly employed sensing technology for general purpose pressure measurement.\n\n
+
+Capacitive\n\n
+Uses a diaphragm and pressure cavity to create a variable capacitor to detect strain due to applied pressure, capacitance decreasing as pressure deforms the diaphragm. Common technologies use metal, ceramic, and silicon diaphragms.\n\n
+
+Electromagnetic\n\n
+Measures the displacement of a diaphragm by means of changes in inductance (reluctance), LVDT, Hall Effect, or by eddy current principle.\n\n
+
+Piezoelectric\n\n
+Uses the piezoelectric effect in certain materials such as quartz to measure the strain upon the sensing mechanism due to pressure. This technology is commonly employed for the measurement of highly dynamic pressures.\n\n
+
+Strain-Gauge\n\n
+Strain gauge based pressure sensors also use a pressure sensitive element where metal strain gauges are glued on or thin film gauges are applied on by sputtering. This measuring element can either be a diaphragm or for metal foil gauges measuring bodies in can-type can also be used. The big advantages of this monolithic can-type design are an improved rigidity and the capability to measure highest pressures of up to 15,000 bar. The electrical connection is normally done via a Wheatstone bridge which allows for a good amplification of the signal and precise and constant measuring results.\n\n
+
+Optical\n\n
+Techniques include the use of the physical change of an optical fiber to detect strain due to applied pressure. A common example of this type utilizes Fiber Bragg Gratings. This technology is employed in challenging applications where the measurement may be highly remote, under high temperature, or may benefit from technologies inherently immune to electromagnetic interference. Another analogous technique utilizes an elastic film constructed in layers that can change reflected wavelengths according to the applied pressure (strain).\n\n
+
+Potentiometric\n\n
+Uses the motion of a wiper along a resistive mechanism to detect the strain caused by applied pressure.\n\n
+
+Other types\n\n
+
+These types of electronic pressure sensors use other properties (such as density) to infer pressure of a gas, or liquid.\n\n
+
+Resonant\n\n
+Uses the changes in resonant frequency in a sensing mechanism to measure stress, or changes in gas density, caused by applied pressure. This technology may be used in conjunction with a force collector, such as those in the category above. Alternatively, resonant technology may be employed by exposing the resonating element itself to the media, whereby the resonant frequency is dependent upon the density of the media. Sensors have been made out of vibrating wire, vibrating cylinders, quartz, and silicon MEMS. Generally, this technology is considered to provide very stable readings over time.\n\n
+
+Thermal\n\n
+Uses the changes in thermal conductivity of a gas due to density changes to measure pressure. A common example of this type is the Pirani gauge.
+
+Ionization\n\n
+Measures the flow of charged gas particles (ions) which varies due to density changes to measure pressure. Common examples are the Hot and Cold Cathode gauges.\n\n</item>
+        <item>Pressure sensing\n\n
+This is where the measurement of interest is pressure, expressed as a force per unit area. This is useful in weather instrumentation, aircraft, automobiles, and any other machinery that has pressure functionality implemented.\n\n
+
+Altitude sensing\n\n
+This is useful in aircraft, rockets, satellites, weather balloons, and many other applications. All these applications make use of the relationship between changes in pressure relative to the altitude. This relationship is governed by the following equation:\n\n
+
+Barometric pressure sensors can have an altitude resolution of less than 1 meter, which is significantly better than GPS systems (about 20 meters altitude resolution). In navigation applications altimeters are used to distinguish between stacked road levels for car navigation and floor levels in buildings for pedestrian navigation.\n\n
+
+Flow sensing\n\n
+This is the use of pressure sensors in conjunction with the venturi effect to measure flow. Differential pressure is measured between two segments of a venturi tube that have a different aperture. The pressure difference between the two segments is directly proportional to the flow rate through the venturi tube. A low pressure sensor is almost always required as the pressure difference is relatively small.\n\n
+
+Level / depth sensing\n\n
+A pressure sensor may also be used to calculate the level of a fluid. This technique is commonly employed to measure the depth of a submerged body (such as a diver or submarine), or level of contents in a tank (such as in a water tower). For most practical purposes, fluid level is directly proportional to pressure. In the case of fresh water where the contents are under atmospheric pressure, 1psi = 27.7 inH20 / 1Pa = 9.81 mmH20.\n\n
+
+Leak testing\n\n
+A pressure sensor may be used to sense the decay of pressure due to a system leak. This is commonly done by either comparison to a known leak using differential pressure, or by means of utilizing the pressure sensor to measure pressure change over time.\n\n</item>
+        <item> Pressure sensors have several limitations that restrict their use in several areas. High temperature dependency, hysteresis, inability to deduce quick and dynamic pressure variations, sensitivity to the external vibrations, irreparability of the electronic board assembly, sensitivity to electric, magnetic and RF fields, incompatibilities with external devices are few challenges that a general pressure sensor faces.\n\n
+
+            In some applications, pressure sensors have limited accuracy. For example, in a touch screen, the sensitivity of the sensor when multiple touches are made is affected while in the aviation sector high pressure can limit the working of the sensor.\n\n
+
+Pressure sensors are essentially required to make a device respond to its ambient conditions in an optimized manner. Their types and uses are plenty and will continue to evolve as the sensor technology continues to mature.\n\n
+
+            Extensive use of pressure sensors such as in touch screens or automobiles degrades their efficiency quite soon and hence the ruggedness of the pressure sensors is also a growing priority of industrial research. Nevertheless, pressure sensors tools, and as it goes with every other tool, these are to be used carefully as well as checked constantly to ensure quality results.\n\n</item>
     </string-array>
 
     <string-array name="pressure_images">
@@ -1285,19 +1512,37 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="relative_humidity_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Relative Humidity (RH)</item>
+        <item>Relative Humidity Sensor</item>
+        <item>Sensing Principle</item>
+        <item>Sensors Based On Capacitive Effect</item>
+        <item>Sensors Based On Resistive Effect</item>
     </string-array>
 
     <string-array name="relative_humidity_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Relative humidity (RH) is the ratio of the partial pressure of water vapor to the equilibrium vapor pressure of water at a given temperature.\n\n
+
+            Relative humidity depends on temperature and the pressure of the system of interest. It requires less water vapor to attain high relative humidity at low temperatures; more water vapor is required to attain high relative humidity in warm or hot air.\n\n</item>
+        <item>Humidity measurement in industries is critical because it may affect the business cost of the product and the health and safety of the personnel. Hence, humidity sensing is very important, especially in the control systems for industrial processes and human comfort.\n\n
+
+Controlling or monitoring humidity is of paramount importance in many industrial &amp; domestic applications. In semiconductor industry, humidity or moisture levels needs to be properly controlled &amp; monitored during wafer processing.\n\n
+
+            In medical applications, humidity control is required for respiratory equipments, sterilizers, incubators, pharmaceutical processing, and biological products. Humidity control is also necessary in chemical gas purification, dryers, ovens, film desiccation, paper and textile production, and food processing.\n\n
+
+            In agriculture, measurement of humidity is important for plantation protection (dew prevention), soil moisture monitoring, etc. For domestic applications, humidity control is required for living environment in buildings, cooking control for microwave ovens, etc.  In all such applications and many others, humidity sensors are employed to provide an indication of the moisture levels in the environment.\n\n</item>
+        <item>Humidity measurement can be done using dry and wet bulb hygrometers, dew point hygrometers, and electronic hygrometers. There has been a surge in the demand of electronic hygrometers, often called humidity sensors.\n\n
+
+Electronic type hygrometers or humidity sensors can be broadly divided into two categories: one employs capacitive sensing principle, while other use resistive effects.\n\n</item>
+        <item>Humidity sensors relying on this principle consists of a hygroscopic dielectric material sandwiched between a pair of electrodes forming a small capacitor. Most capacitive sensors use a plastic or polymer as the dielectric material, with a typical dielectric constant ranging from 2 to 15. In absence of moisture, the dielectric constant of the hygroscopic dielectric material and the sensor geometry determine the value of capacitance.\n\n
+
+At normal room temperature, the dielectric constant of water vapor has a value of about 80, a value much larger than the constant of the sensor dielectric material. Therefore, absorption of water vapor by the sensor results in an increase in sensor capacitance.\n\n
+
+At equilibrium conditions, the amount of moisture present in a hygroscopic material depends on both the ambient temperature and the ambient water vapor pressure. This is true also for the hygroscopic dielectric material used on the sensor.\n\n
+
+By definition, relative humidity is a function of both the ambient temperature and water vapor pressure. Therefore there is a relationship between relative humidity, the amount of moisture present in the sensor, and sensor capacitance. This relationship governs the operation of a capacitive humidity instrument.\n\n</item>
+        <item>Resistive type humidity sensors pick up changes in the resistance value of the sensor element in response to the change in the humidity.\n\n
+
+        Thick film conductor of precious metals like gold, ruthenium oxide is printed and calcinated in the shape of the comb to form an electrode. Then a polymeric film is applied on the electrode; the film acts as a humidity sensing film due to the existence of movable ions. Change in impedance occurs due to the change in the number of movable ions.\n\n</item>
     </string-array>
 
     <string-array name="relative_humidity_images">
@@ -1310,19 +1555,35 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="heart_rate_ecg_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Heart Rate Sensor</item>
+        <item>Forms</item>
+        <item>Working</item>
+        <item>What It Tells You</item>
+        <item>What It Doesn\'t Tells You</item>
     </string-array>
 
     <string-array name="heart_rate_ecg_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>A heart rate monitor is a personal monitoring device that allows one to measure one\'s heart rate in real time or record the heart rate for later study.\n\n
+
+            It is largely used by performers of various types of physical exercise. In recent years, it has been common for smartwatches to include heart rate monitors, which has greatly increased popularity.\n\n</item>
+        <item>Traditional heart rate monitors usually comprise two elements: a transmitter, worn on a chest strap, and a receiver. In early transmitters, water or liquid was required to get good conduction. In old versions, when a heart beat is detected a radio signal is transmitted, which the receiver uses to determine the current heart rate. This signal can be a simple radio pulse or a unique coded signal from the chest strap (such as Bluetooth, ANT, or other low-power radio link); the latter prevents one user\'s receiver from using signals from other nearby transmitters (known as cross-talk interference).\n\n
+
+More recent devices use optics to measure heart rate by which measures changes in blood flow by shining a light from an LED through the skin and measuring how it scatters off blood vessels. In addition to measuring the heart rate, devices using this technology are able to measure blood oxygen saturation (SpO2). Newer devices include a microprocessor, which simultaneously monitors heart rate, oxygen saturation, and other parameters. These may include sensors such as accelerometers, gyroscopes, and GPS to detect speed, location and distance eliminating the need for ankle worn devices.\n\n</item>
+        <item>Optical heart rate sensors work via pulse oximetry, a measurement technique that takes advantage of the fact that oxygenated and de-oxygenated hemoglobin have different optical properties.  With every heartbeat, there is a spike in arterial (oxygenated) blood, which is detected as a change in the absorbance and/or reflectance of red and/or infrared light.\n\n
+
+        Optical heart rate sensor on Samsung phones is located under or next to the camera.  From left to right, the elements in the rectangular portion are the flash (not used for heart rate measurement), the optical detector, and a red LED.\n\n
+
+Most optical heart rate monitors in smartphones or wearable devices are fairly rudimentary as compared to clinical oximeters.  They consist of a red LED and an optical detector which measures the reflectance of the red light from your skin (or more specifically, the blood under your skin).  The reflectance is a bit different during a heartbeat versus between heartbeats, so the detector will see a periodic signal for the duration of the measurement from which the heart rate is extracted.\n\n
+
+        The same principle can be used to measure blood oxygenation, and many heart rate monitors in wearables claim to do this too.  However, one really needs to measure at two wavelengths to get the relative concentration of oxygenated hemoglobin.\n\n</item>
+        <item>Knowing your heart rate can be useful because it helps you determine whether your exercise is intense enough to provide health benefits, but not so intense that it could present physical complications.\n\n
+
+            Doctors do not typically recommend that individuals track only their heart rates, but what they eat, drink, and how much rest is needed to recover after any physical activity. Heart rate monitors can be great tools for getting interested in your health, but you should always start by speaking with your doctor before beginning any exercise regimen.\n\n
+
+        The accuracy of the information and data provided by this device and its related software, including heart rate readings, may be affected by factors such as environmental conditions, skin condition, specific activity performed while using/wearing the device, settings of the device, user configuration, user-provided information, placement of the sensor on the body, and other end-user interactions. Please refer to the user manual for more information on proper wear and use.\n\n</item>
+        <item>Heart rate monitors or activity trackers cannot tell you if you are fit for any physical activity. Only your doctor can tell you that. Your doctor should be able to assess your current health, and help you create an exercise program that’s right for you. While the heart rate sensor on your device can be a useful tool for motivating you and tracking your exercise intensity, the heart rate sensor and compatible Samsung Health application are not medical devices and are not intended to diagnose, treat or prevent a disease or medical condition.\n\n
+
+Some applications or prolonged usage may increase device temperature. Prolonged skin contact with a device that is hot to the touch may produce skin discomfort or redness, or low-temperature burns. If the device feels hot to the touch, discontinue use and close all applications or turn off the device until it cools. Always ensure that the device has adequate ventilation and air flow. Covering the device with bedding, your body, thick clothing or any other materials that significantly affect air flow may affect the performance of the device and poses a possible risk of fire or explosion, which could lead to serious bodily injuries or damage to property.\n\n</item>
     </string-array>
 
     <string-array name="heart_rate_ecg_images">
@@ -1335,19 +1596,38 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="midi_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Applications</item>
+        <item>Interfaces</item>
     </string-array>
 
     <string-array name="midi_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>MIDI (Musical Instrument Digital Interface) is a protocol designed for recording and playing back music on digital synthesizers that is supported by many makes of personal computer sound cards. Originally intended to control one keyboard from another, it was quickly adopted for the personal computer. Rather than representing musical sound directly, it transmits information about how music is produced. The command set includes note-ons, note-offs, key velocity, pitch bend and other methods of controlling a synthesizer. The sound waves produced are those already stored in a wavetable in the receiving instrument or sound card.\n\n
+
+
+Since a MIDI file only represents player information, it is far more concise than formats that the sound directly. An advantage is very small file size. A disadvantage is the lack of specific sound control.\n\n
+
+With a program that provides this interface, you can create music using a standard keyboard or other input device. You or others can then play your MIDI-conforming creation with the same or another program and a sound card as a music synthesizer. The MIDI program may come with a graphical user interface that looks like a sound studio control room. Many sound cards come as a package with MIDI software (for example, Media Vision\'s Pro Audio Studio 16).\n\n
+
+The MIDI protocol uses eight-bit serial transmission with one start bit and one stop bit, has a 31.25 Kbs data rate, and is asynchronous. Connection is made through a five-pin DIN plug, of which three pins are used.</item>
+        <item>Instrument control\n\n
+
+MIDI was invented so that electronic or digital musical instruments could communicate with each other and so that one instrument can control another. For example, a MIDI-compatible sequencer can trigger beats produced by a drum sound module. \n\n
+
+            Analog synthesizers that have no digital component and were built prior to MIDI\'s development can be retrofit with kits that convert MIDI messages into analog control voltages. When a note is played on a MIDI instrument, it generates a digital signal that can be used to trigger a note on another instrument.\n\n
+
+            The capability for remote control allows full-sized instruments to be replaced with smaller sound modules, and allows musicians to combine instruments to achieve a fuller sound, or to create combinations of synthesized instrument sounds, such as acoustic piano and strings. MIDI also enables other instrument parameters (volume, effects, etc.) to be controlled remotely.\n\n
+
+        Composition\n\n
+
+        MIDI events can be sequenced with computer software, or in specialized hardware music workstations. Many digital audio workstations (DAWs) are specifically designed to work with MIDI as an integral component. MIDI piano rolls have been developed in many DAWs so that the recorded MIDI messages can be extensively modified. These tools allow composers to audition and edit their work much more quickly and efficiently than did older solutions, such as multitrack recording.\n\n</item>
+        <item>A computer MIDI interface\'s main function is to match clock speeds between the MIDI device and the computer. Some computer sound cards include a standard MIDI connector, whereas others connect by any of various means that include the D-subminiature DA-15 game port, USB, FireWire, Ethernet or a proprietary connection.\n\n
+
+            The increasing use of USB connectors in the 2000s has led to the availability of MIDI-to-USB data interfaces that can transfer MIDI channels to USB-equipped computers. Some MIDI keyboard controllers are equipped with USB jacks, and can be plugged into computers that run music software.\n\n
+
+MIDI\'s serial transmission leads to timing problems. A three-byte MIDI message requires nearly 1 millisecond for transmission. Because MIDI is serial, it can only send one event at a time. If an event is sent on two channels at once, the event on the higher-numbered channel cannot transmit until the first one is finished, and so is delayed by 1ms. If an event is sent on all channels at the same time, the highest-numbered channel\'s transmission is delayed by as much as 16ms.\n\n
+
+            This contributed to the rise of MIDI interfaces with multiple in- and out-ports, because timing improves when events are spread between multiple ports as opposed to multiple channels on the same port. The term \"MIDI slop\" refers to audible timing errors that result when MIDI transmission is delayed.\n\n</item>
     </string-array>
 
     <string-array name="midi_images">
@@ -1360,19 +1640,19 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="web_view_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>About</item>
     </string-array>
 
     <string-array name="web_view_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>A View that displays web pages. This class is the basis upon which you can roll your own web browser or simply display some online content within your Activity.\n\n
+
+            It uses the WebKit rendering engine to display web pages and includes methods to navigate forward and backward through a history, zoom in and out, perform text searches and more.\n\n
+
+            You can also specify HTML string and can show it inside your application using WebView. WebView makes turns your application to a web application.\n\n
+
+        Android webview is controlling default web component. That\'s used by non browser app. usually when application need to open web-based content.\n\n
+
+After kitkat, google added android webview that replacing default android in app browser (android.widget.webview class) into chrome based webview. this made google easily maintaining android in app browser due inability of google to maintain older android device browser security.\n\n</item>
     </string-array>
 
     <string-array name="web_view_images">
@@ -1385,19 +1665,41 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="vr_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>About</item>
+        <item>Etymology and terminology</item>
+        <item>Technology</item>
+        <item>Applications</item>
     </string-array>
 
     <string-array name="vr_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Virtual reality (VR) is an interactive computer-generated experience taking place within a simulated environment, that incorporates mainly auditory and visual, but also other types of sensory feedback like haptic.\n\n
+
+            This immersive environment can be similar to the real world or it can be fantastical, creating an experience that is not possible in ordinary physical reality. Augmented reality systems may also be considered a form of VR that layers virtual information over a live camera feed into a headset or through a smartphone or tablet device giving the user the ability to view three-dimensional images.\n\n
+
+Current VR technology most commonly uses virtual reality headsets or multi-projected environments, sometimes in combination with physical environments or props, to generate realistic images, sounds and other sensations that simulate a user\'s physical presence in a virtual or imaginary environment.\n\n
+
+            A person using virtual reality equipment is able to \"look around\" the artificial world, move around in it, and interact with virtual features or items. The effect is commonly created by VR headsets consisting of a head-mounted display with a small screen in front of the eyes, but can also be created through specially designed rooms with multiple large screens.\n\n</item>
+        <item>\"Virtual\" has had the meaning of \"being something in essence or effect, though not actually or in fact\" since the mid-1400s. The term \"virtual\" has been used in the computer sense of \"not physically existing but made to appear by software\" since 1959.[1] In 1938, Antonin Artaud described the illusory nature of characters and objects in the theatre as \"la réalité virtuelle\" in a collection of essays, Le Théâtre et son double. The English translation of this book, published in 1958 as The Theater and its Double, is the earliest published use of the term \"virtual reality\". The term \"artificial reality\", coined by Myron Krueger, has been in use since the 1970s. The term \"virtual reality\" was first used in a science fiction context in The Judas Mandala, a 1982 novel by Damien Broderick.\n\n
+
+A \"cyberspace\" is a networked virtual reality.\n\n
+
+Virtual reality shares some elements with \"augmented reality\" (or AR). AR is a type of virtual reality technology that blends what the user sees in their real surroundings with digital content generated by computer software. The additional software-generated images with the virtual scene typically enhance how the real surroundings look in some way. Some AR systems use a camera to capture the user\'s surroundings or some type of display screen which the user looks at (e.g., Microsoft\'s HoloLens, Magic Leap).\n\n</item>
+        <item>The Virtual Reality Modelling Language (VRML), first introduced in 1994, was intended for the development of \"virtual worlds\" without dependency on headsets. The Web3D consortium was subsequently founded in 1997 for the development of industry standards for web-based 3D graphics. The consortium subsequently developed X3D from the VRML framework as an archival, open-source standard for web-based distribution of VR content.\n\n
+
+All modern VR displays are based on technology developed for smartphones including: gyroscopes and motion sensors for tracking head, hand, and body positions; small HD screens for stereoscopic displays; and small, lightweight and fast processors. These components led to relative affordability for independent VR developers, and lead to the 2012 Oculus Rift Kickstarter offering the first independently developed VR headset.\n\n
+
+Independent production of VR images and video has increased by the development of omnidirectional cameras, also known as 360-degree cameras or VR cameras, that have the ability to record in all directions, although at low-resolutions or in highly compressed formats for online streaming of 360 video. In contrast, photogrammetry is increasingly used to combine several high-resolution photographs for the creation of detailed 3D objects and environments in VR applications.\n\n</item>
+        <item>VR is most commonly used in entertainment applications such as gaming and 3D cinema. Consumer virtual reality headsets were first released by video game companies in the early-mid 1990\'s. Beginning in the 2010\'s, next-generation commercial tethered headsets were released by Oculus, the HTC Vive and PlayStation VR, setting off a new wave of application development.\n\
+
+3D cinema has been used for sporting events, pornography, fine art, music videos and short films. Since 2015, virtual reality has been installed onto a number of roller coasters and theme parks.\n\n
+
+In robotics, virtual reality has been used to control robots in telepresence and telerobotic systems.\n\n
+
+In social sciences and psychology, virtual reality offers a cost-effective tool to study and replicate interactions in a controlled environment.\n\n
+
+        Surgery training can be done through virtual reality.[citation needed] Other medical uses include virtual reality exposure therapy (VRET), a form of exposure therapy for treating anxiety disorders such as post traumatic stress disorder (PTSD) and phobias.\n\n
+
+VR can simulate real workspaces for workplace occupational safety and health purposes, educational purposes, and training purposes. It can be used to provide learners with a virtual environment where they can develop their skills without the real-world consequences of failing. It has been used and studied in primary education, military, astronaut training, flight simulators and driver training.\n\n</item>
     </string-array>
 
     <string-array name="vr_images">
@@ -1410,19 +1712,33 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="fake_touch_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Touchpad</item>
+        <item>Operations And Functions</item>
+        <item>Use In Devices</item>
+        <item>Theory Of Operation</item>
     </string-array>
 
     <string-array name="fake_touch_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>A touchpad or trackpad is a pointing device featuring a tactile sensor, a specialized surface that can translate the motion and position of a user\'s fingers to a relative position on the operating system that is made output to the screen.\n\n
+
+            Touchpads are a common feature of laptop computers, and are also used as a substitute for a mouse where desk space is scarce. Because they vary in size, they can also be found on personal digital assistants (PDAs) and some portable media players. Wireless touchpads are also available as detached accessories.\n\n</item>
+        <item>Touchpads operate in one of several ways, including capacitive sensing and resistive touchscreen. The most common technology used in the 2010s senses the change of capacitance where a finger touches the pad. Capacitance-based touchpads will not sense the tip of a pencil or other similar ungrounded or non-conducting implement. Fingers insulated by a glove may also be problematic.\n\n
+
+While touchpads, like touchscreens, are able to sense absolute position, resolution is limited by their size. For common use as a pointer device, the dragging motion of a finger is translated into a finer, relative motion of the cursor on the output to the display on the operating system, analogous to the handling of a mouse that is lifted and put back on a surface. Hardware buttons equivalent to a standard mouse\'s left and right buttons are positioned adjacent to the touchpad.\n\n
+
+Some touchpads and associated device driver software may interpret tapping the pad as a mouse click, and a tap followed by a continuous pointing motion (a \"click-and-a-half\") can indicate dragging. Tactile touchpads allow for clicking and dragging by incorporating button functionality into the surface of the touchpad itself. To select, one presses down on the touchpad instead of a physical button. To drag, instead of performing the \"click-and-a-half\" technique, the user presses down while on the object, drags without releasing pressure, and lets go when done. Touchpad drivers can also allow the use of multiple fingers to emulate the other mouse buttons (commonly two-finger tapping for the center button).\n\n</item>
+        <item>Touchpads are primarily used in self-contained portable laptop computers and do not require a flat surface near the machine. The touchpad is close to the keyboard, and only very short finger movements are required to move the cursor across the display screen; while advantageous, this also makes it possible for a user\'s palm or wrist to move the mouse cursor accidentally while typing. Touchpads also exist for desktop computers as an external peripheral, albeit rarely seen. Touchpads are sometimes integrated in some desktop computer keyboards, particularly keyboards oriented for HTPC use.\n\n
+
+One-dimensional touchpads are the primary control interface for menu navigation on second-generation and later iPod Classic portable music players, where they are referred to as \"click wheels\", since they only sense motion along one axis, which is wrapped around like a wheel. Creative Labs also uses a touchpad for their Zen line of MP3 players, beginning with the Zen Touch. The second-generation Microsoft Zune product line (the Zune 80/120 and Zune 4/8) uses touch for the Zune Pad.\n\n
+
+Apple\'s PowerBook 500 series was its first laptop to carry such a device, which Apple refers to as a \"trackpad\". When introduced in May 1994, it replaced the trackball of previous PowerBook models. In late 2008 Apple\'s revisions of the MacBook and MacBook Pro incorporated a \"Tactile Touchpad\" design with button functionality incorporated into the tracking surface. Beginning in the second generation of MacBook Pro, the entire touchpad surface acts as a clickable button.\n\n
+
+Laptops today feature multitouch touchpads that can sense in some cases up to five fingers simultaneously, providing more options for input, such as the ability to bring up the context menu by tapping two fingers, dragging two fingers for scrolling, or gestures for zoom in/out or rotate.\n\n</item>
+        <item>There are two principal means by which touchpads work. In the matrix approach, a series of conductors are arranged in an array of parallel lines in two layers, separated by an insulator and crossing each other at right angles to form a grid.\n\n
+
+            A high frequency signal is applied sequentially between pairs in this two-dimensional grid array. The current that passes between the nodes is proportional to the capacitance. When a virtual ground, such as a finger, is placed over one of the intersections between the conductive layer some of the electrical field is shunted to this ground point, resulting in a change in the apparent capacitance at that location. This method received U.S. Patent 5,305,017 awarded to George Gerpheide in April 1994.\n\n
+
+The capacitive shunt method, described in an application note by Analog Devices, senses the change in capacitance between a transmitter and receiver that are on opposite sides of the sensor. The transmitter creates an electric field which oscillates at 200–300 kHz. If a ground point, such as the finger, is placed between the transmitter and receiver, some of the field lines are shunted away, decreasing the apparent capacitance.\n\n</item>
     </string-array>
 
     <string-array name="fake_touch_images">
@@ -1435,19 +1751,49 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="wifi_direct_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Conventional Wi-Fi</item>
+        <item>Automated Setup</item>
+        <item>New Uses</item>
     </string-array>
 
     <string-array name="wifi_direct_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Wi-Fi Direct, initially called Wi-Fi P2P, is a Wi-Fi standard enabling devices to easily connect with each other without requiring a wireless access point. Wi-Fi Direct allows two devices to establish a direct Wi-Fi connection without requiring a wireless router.\n\n
+
+            Hence, Wi-Fi Direct is single radio hop communication, not multihop wireless communication, unlike wireless ad hoc networks and mobile ad hoc networks. Wi-Fi ad hoc mode, however, supports multi-hop radio communications, with intermediate Wi-Fi nodes as packet relays.\n\n
+
+Wi-Fi becomes a way of communicating wirelessly, much like Bluetooth. It is useful for everything from internet browsing to file transfer, and to communicate with one or more devices simultaneously at typical Wi-Fi speeds. One advantage of Wi-Fi Direct is the ability to connect devices even if they are from different manufacturers. Only one of the Wi-Fi devices needs to be compliant with Wi-Fi Direct to establish a peer-to-peer connection that transfers data directly between them with greatly reduced setup.\n\n
+
+Wi-Fi Direct negotiates the link with a Wi-Fi Protected Setup system that assigns each device a limited wireless access point. The \"pairing\" of Wi-Fi Direct devices can be set up to require the proximity of a near field communication, a Bluetooth signal, or a button press on one or all the devices.\n\n</item>
+        <item>Conventional Wi-Fi networks are typically based on the presence of controller devices known as wireless access points. These devices normally combine three primary functions:\n\n
+
+Physical support for wireless and wired networking.\n
+Bridging and routing between devices on the network.\n
+Service provisioning to add and remove devices from the network.\n\n
+
+A typical Wi-Fi home network includes laptops, tablets and phones, devices like modern printers, music devices and televisions. The majority of Wi-Fi networks are set up in \"infrastructure mode\", where the access point acts as a central hub to which Wi-Fi capable devices are connected.\n\n
+
+            The devices do not communicate directly with each other (that is, in \"ad-hoc mode\"), but they go through the access point. Wi-Fi Direct devices are able to communicate with each other without requiring a dedicated wireless access point. The Wi-Fi Direct devices negotiate when they first connect to determine which device shall act as an access point.\n\n</item>
+        <item>With the increase in the number and type of devices attaching to Wi-Fi systems, the basic model of a simple router with smart computers became increasingly strained. At the same time, the increasing sophistication of the hot spots presented setup problems for the users. To address these problems, there have been numerous attempts to simplify certain aspects of the setup task.\n\n
+
+A common example is the Wi-Fi Protected Setup system included in most access points built since 2007 when the standard was introduced.[6] Wi-Fi Protected Setup allows access points to be set up simply by entering a PIN or other identification into a connection screen, or in some cases, simply by pressing a button.\n\n
+
+            The Protected Setup system uses this information to send data to a computer, handing it the information needed to complete the network setup and connect to the Internet. From the user\'s point of view, a single click replaces the multi-step, jargon-filled setup experience formerly required.\n\n
+
+While the Protected Setup model works as intended, it was intended only to simplify the connection between the access point and the devices that would make use of its services, primarily accessing the Internet. It provides little help within a network - finding and setting up printer access from a computer for instance.\n\n
+
+            To address those roles, a number of different protocols have developed, including Universal Plug and Play (UPnP), Devices Profile for Web Services (DPWS), and Zero Configuration Networking (ZeroConf). These protocols allow devices to seek out other devices within the network, query their capabilities, and provide some level of automatic setup.\n\n</item>
+        <item>Wi-Fi Direct has become a standard feature in smart phones and portable media players, and in feature phones as well. The process of adding Wi-Fi to smaller devices has accelerated, and it is now possible to find printers, cameras, scanners and many other common devices with Wi-Fi in addition to other connections, like USB.\n\n
+
+The widespread adoption of Wi-Fi in new classes of smaller devices made the need for ad hoc networking much more important. Even without a central Wi-Fi hub or router, it would be useful for a laptop computer to be able to wirelessly connect to a local printer. Although the ad hoc mode was created to address this sort of need, the lack of additional information for discovery makes it difficult to use in practice.\n\n
+
+Although systems like UPnP and Bonjour provide many of the needed capabilities and are included in some devices, a single widely supported standard was lacking, and support within existing devices was far from universal. A guest using their smart phone would likely be able to find a hot spot and connect to the Internet with ease, perhaps using Protected Setup to do so. But the same device would find streaming music to a computer or printing a file might be difficult, or simply not supported between differing brands of hardware.\n\n
+
+Wi-Fi Direct can provide a wireless connection to peripherals. Wireless mice, keyboards, remote controls, headsets, speakers, displays and many other functions can be implemented with Wi-Fi Direct. This has begun with Wi-Fi mouse products, and Wi-Fi Direct remote controls that were shipping circa November 2012.\n\n
+
+File sharing applications on Android and BlackBerry 10 devices could use Wi-Fi Direct, with most Android Version 4.1 (Jellybean), introduced in July 2012, and BlackBerry 10.2 supported. Android version 4.2 (Jellybean) included further refinements to Wi-Fi Direct including persistent permissions enabling two-way transfer of data between multiple devices.\n\n
+
+The Miracast standard for the wireless connection of devices to displays is based on Wi-Fi direct.\n\n</item>
     </string-array>
 
     <string-array name="wifi_direct_images">
@@ -1460,19 +1806,33 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="barometer_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Definition</item>
+        <item>Smartphone App: Weather Forecasting</item>
+        <item>Smartphone App: Altitude</item>
+        <item>Most Premium Phones Have Barometer Sensor</item>
     </string-array>
 
     <string-array name="barometer_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Wikipedia describes a barometer as \“a scientific instrument used in meteorology to measure atmospheric pressure.\”\n\n
+
+            It measures the pressure exerted by the atmosphere above it. This measurement of pressure can be used to forecast short term changes in the weather and can be used to estimate altitude.\n\n</item>
+        <item>HTC\’s Sense UI includes an iconic \“clock and weather\” widget prominently featured on the homescreen. Other app developers have created similar widgets, such as Beautiful Widgets, pictured below.\n\n
+
+These widgets use your smartphone\’s geo-location information and your Internet connection to retrieve local weather information (current, high, and low temperatures; and current conditions) for various weather data providers. Using the same information you can get the weather forecast for the next several days.\n\n
+
+Augmenting those with real-time, local, barometric pressure readings may allow these types of apps to be even more reactive to changes in the weather.\n\n</item>
+        <item>A barometer is a passive sensor (rather than an \“active\” sensor, like GPS).\n\n
+
+            An app could alert you to your altitude when you approach certain thresholds — without sucking down your battery like GPS does.\n\n
+
+            Perhaps apps like My Tracks could be updated to include an \“altitude trigger\” option, which could turn on the GPS to record your location at 50-foot increments of elevation change, saving your batter, but still recording a relatively accurate track.\n\n</item>
+        <item>Not just Samsung is using them, nearly every major smartphone vendor applies a barometer sensor on his premium devices.\n\n
+
+The barometer is needed to measure relative altitude. That\'s a crucial information for positioning, especially indoor-positioning.\n\n
+
+By combining GPS or Network-based positioning (X+Y coordinates) with Barometer-data (Z-axis) it\'s possible to determinate the location of the user in all 3 dimensions.\n\n
+
+That\'s important for services like Google maps to show you useful information related to which floor of a building (i.e. Shopping mall, airport) you currently are.\n\n</item>
     </string-array>
 
     <string-array name="barometer_images">
@@ -1485,19 +1845,41 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="usb_accessory_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>USB On-The-Go</item>
+        <item>Overview</item>
+        <item>Device Roles</item>
+        <item>USB Host Mode (Android) And The OTG Extension</item>
     </string-array>
 
     <string-array name="usb_accessory_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>USB On-The-Go, often abbreviated to USB OTG or just OTG, is a specification first used in late 2001 that allows USB devices, such as tablets or smartphones, to act as a host, allowing other USB devices, such as USB flash drives, digital cameras, mice or keyboards, to be attached to them.\n\n
+
+            Use of USB OTG allows those devices to switch back and forth between the roles of host and device. A mobile phone may read from removable media as the host device, but present itself as a USB Mass Storage Device when connected to a host computer.\n\n
+
+USB OTG introduces the concept of a device performing both master and slave roles – whenever two USB devices are connected and one of them is a USB OTG device, they establish a communication link. The device controlling the link is called the master or host, while the other is called the slave or peripheral.\n\n
+
+USB OTG defines two roles for devices: OTG A-device and OTG B-device, specifying which side supplies power to the link, and which initially is the host. The OTG A-device is a power supplier, and an OTG B-device is a power consumer. In the default link configuration, the A-device acts as a USB host with the B-device acting as a USB peripheral. The host and peripheral modes may be exchanged later by using Host Negotiation Protocol (HNP).\n\n
+
+The initial role of each device is defined by which mini plug a user inserts into its receptacle.\n\n</item>
+        <item>Standard USB uses a master/slave architecture; a host acts as the master device for the entire bus, and a USB device acts as a slave. If implementing standard USB, devices must assume one role or the other, with computers generally set up as hosts, while (for example) printers normally function as slaves. In the absence of USB OTG, cell phones often implemented slave functionality to allow easy transfer of data to and from computers. Such phones, as slaves, could not readily be connected to printers as they also implemented the slave role. USB OTG directly addresses this issue.\n\n
+
+When a device is plugged into the USB bus, the master device, or host, sets up communications with the device and handles service provisioning (the host\'s software enables or does the needed data-handling such as file managing or other desired kind of data communication or function). That allows the devices to be greatly simplified compared to the host; for example, a mouse contains very little logic and relies on the host to do almost all of the work. The host controls all data transfers over the bus, with the devices capable only of signalling (when polled) that they require attention. To transfer data between two devices, for example from a phone to a printer, the host first reads the data from one device, then writes it to the other.\n\n
+
+While the master-slave arrangement works for some devices, many devices can act either as master or as slave depending on what else shares the bus. For instance, a computer printer is normally a slave device, but when a USB flash drive containing images is plugged into the printer\'s USB port with no computer present (or at least turned off), it would be useful for the printer to take on the role of host, allowing it to communicate with the flash drive directly and to print images from it.\n\n</item>
+        <item>USB OTG defines two roles for devices: OTG A-device and OTG B-device, specifying which side supplies power to the link, and which initially is the host. The OTG A-device is a power supplier, and an OTG B-device is a power consumer. In the default link configuration, the A-device acts as a USB host with the B-device acting as a USB peripheral. The host and peripheral modes may be exchanged later by using HNP. Because every OTG controller supports both roles, they are often called \"Dual-Role\" controllers rather than \"OTG controllers\".\n\n
+
+For integrated circuit (IC) designers, an attractive feature of USB OTG is the ability to achieve more USB capabilities with fewer gates.\n\n
+
+A \"traditional\" approach includes four controllers, resulting in more gates to test and debug:\n\n
+
+USB high speed host controller based on EHCI (a register interface)\n
+Full/low speed host controller based on OHCI (another register interface)\n
+USB device controller, supporting both high and full speeds\n
+Fourth controller to switch the OTG root port between host and device controllers\n\n
+Also, most gadgets must be either a host or a device. OTG hardware design merges all of the controllers into one dual-role controller that is somewhat more complex than an individual device controller.\n\n</item>
+        <item>According to the USB (Universal Serial Bus) standard a device is classified as either a host or a peripheral device. In the most common scenarios the host, such as your PC, acts as a controller and the peripheral, such as a USB drive, responds to its commands. On-the-Go (OTG) is an extension to USB standard and is often referred to as USB OTG. The original host/peripheral model is maintained — however, what is new is the addition of a new class of devices that can function as either a host or peripheral and which are referred to as dual-role devices.\n\n
+
+To enable an OTG connection an OTG cable is connected between two devices. An OTG cable typically has an OTG micro A-Type connector on one end, which connects to the host (e.g. Android device), and a standard USB connector on the other, which connects to the peripheral (e.g. RF Explorer device). When connected with an OTG cable, the initial host device is designated the A-Device (i.e. the Android device), with the initial peripheral designated the B-Device (i.e. the RF Explorer device).\n\n</item>
     </string-array>
 
     <string-array name="usb_accessory_images">
@@ -1510,19 +1892,35 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="microphone_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Components Of A Mic</item>
+        <item>Uses Of Mics In Phone</item>
+        <item>Spying Possibility Through Mic</item>
     </string-array>
 
     <string-array name="microphone_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>A microphone, colloquially nicknamed mic or mike (/maɪk/), is a transducer that converts sound into an electrical signal.\n\n
+
+Microphones are used in many applications such as telephones, hearing aids, public address systems for concert halls and public events, motion picture production, live and recorded audio engineering, sound recording, two-way radios, megaphones, radio and television broadcasting, and in computers for recording voice, speech recognition, VoIP, and for non-acoustic purposes such as ultrasonic sensors or knock sensors.\n\n
+
+Several different types of microphone are in use, which employ different methods to convert the air pressure variations of a sound wave to an electrical signal. The most common are the dynamic microphone, which uses a coil of wire suspended in a magnetic field; the condenser microphone, which uses the vibrating diaphragm as a capacitor plate, and the piezoelectric microphone, which uses a crystal of piezoelectric material. Microphones typically need to be connected to a preamplifier before the signal can be recorded or reproduced.\n\n</item>
+        <item>The sensitive transducer element of a microphone is called its element or capsule. Sound is first converted to mechanical motion by means of a diaphragm, the motion of which is then converted to an electrical signal.\n\n
+
+            A complete microphone also includes a housing, some means of bringing the signal from the element to other equipment, and often an electronic circuit to adapt the output of the capsule to the equipment being driven. A wireless microphone contains a radio transmitter.\n\n</item>
+        <item>These days, smartphones have more than one microphone for many operations.\n\n
+
+Transmitting your voice over a digital network to the other person on the phone.\n
+Capturing sound in audio and video recordings.\n
+Taking voice as an input in dictation, voice commands, voice assistants, music recognition apps.\n\n</item>
+        <item>Smartphone users are highly sensitive about privacy, not least because so much personal data is stored in just a few square centimeters. We shudder at the thought of what happened to Jennifer Lawrence and company, and that it may happen to us; someone spying on our most intimate data.\n\n
+
+Yet that’s not all we should be wary of: There are some spy programs that can even remotely activate the microphone on your device and record you. One of the most infamous of these is StealthGenie, a spyware app that behaves like a Trojan and supports iOS, Android and Blackberry. It can geolocate the device, listen to conversations, capture messages and images and even activate the microphone, tracking all your actions throughout the day.\n\n
+
+A company video claimed that the app had more than 100,000 satisfied customers, though it looks like the game is now up. Last October the company\’s CEO was arrested in the USA for promoting and selling this phone monitoring app..\n\n
+
+It is paradoxical at least that this arrest should have occurred in the United States, where it has been revealed, thanks to Edward Snowden, that the government has been spying on the phones of so many users around the world. Such revelations from the CIA’s ex security analyst revealed that the NSA was using all types of systems to spy on smartphones, even using apps such as Angry Birds. And you thought killing a few pigs from your cell phone wouldn’t have any consequences!\n\n
+
+A simple search will return a host of apps that promise to enable you to spy on your neighbor\’s phone. So next time you need to visit the bathroom, perhaps it\’s best not to take your phone with you.\n\n</item>
     </string-array>
 
     <string-array name="microphone_images">
@@ -1535,19 +1933,44 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="nfc_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Overview</item>
+        <item>Design</item>
+        <item>Vulnerabilities</item>
     </string-array>
 
     <string-array name="nfc_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Near-field communication (NFC) is a set of communication protocols that enable two electronic devices, one of which is usually a portable device such as a smartphone, to establish communication by bringing them within 4 cm (1.6 in) of each other.\n\n
+
+NFC devices are used in contactless payment systems, similar to those used in credit cards and electronic ticket smartcards and allow mobile payment to replace/supplement these systems. This is sometimes referred to as NFC/CTLS (Contactless) or CTLS NFC. NFC is used for social networking, for sharing contacts, photos, videos or files. NFC-enabled devices can act as electronic identity documents and keycards. NFC offers a low-speed connection with simple setup that can be used to bootstrap more capable wireless connections.\n\n</item>
+        <item>Similar ideas in advertising and industrial applications were not generally successful commercially, outpaced by technologies such as barcodes and UHF RFID tags. NFC protocols established a generally supported standard. When one of the connected devices has Internet connectivity, the other can exchange data with online services.\n\n
+
+NFC-enabled portable devices can be provided with application software, for example to read electronic tags or make payments when connected to an NFC-compliant apparatus. Earlier close-range communication used technology that was proprietary to the manufacturer, for applications such as stock ticket, access control and payment readers.\n\n
+
+Like other \"proximity card\" technologies, NFC employs electromagnetic induction between two loop antennas when NFC-enabled devices—for example a smartphone and a printer—exchange information, operating within the globally available unlicensed radio frequency ISM band of 13.56 MHz on ISO/IEC 18000-3 air interface at rates ranging from 106 to 424 kbit/s.\n\n
+
+Each full NFC device can work in three modes:\n\n
+
+NFC card emulation\n\n
+Enables NFC-enabled devices such as smartphones to act like smart cards, allowing users to perform transactions such as payment or ticketing.\n\n
+NFC reader/writer\n\n
+Enables NFC-enabled devices to read information stored on inexpensive NFC tags embedded in labels or smart posters.\n\n
+NFC peer-to-peer\n\n
+Enables two NFC-enabled devices to communicate with each other to exchange information in an adhoc fashion.\n\n
+
+NFC tags are passive data stores which can be read, and under some circumstances written to, by an NFC device. They typically contain data (as of 2015 between 96 and 8,192 bytes) and are read-only in normal use, but may be rewritable. Applications include secure personal data storage (e.g. debit or credit card information, loyalty program data, personal identification numbers (PINs), contacts). NFC tags can be custom-encoded by their manufacturers or use the industry specifications.\n\n</item>
+        <item>NFC is a set of short-range wireless technologies, typically requiring a separation of 10 cm or less. NFC operates at 13.56 MHz on ISO/IEC 18000-3 air interface and at rates ranging from 106 kbit/s to 424 kbit/s. NFC always involves an initiator and a target; the initiator actively generates an RF field that can power a passive target. This enables NFC targets to take very simple form factors such as unpowered tags, stickers, key fobs, or cards. NFC peer-to-peer communication is possible, provided both devices are powered.\n\n
+
+NFC tags contain data and are typically read-only, but may be writeable. They can be custom-encoded by their manufacturers or use NFC Forum specifications. The tags can securely store personal data such as debit and credit card information, loyalty program data, PINs and networking contacts, among other information. The NFC Forum defines four types of tags that provide different communication speeds and capabilities in terms of configurability, memory, security, data retention and write endurance. Tags currently offer between 96 and 4,096 bytes of memory.\n\n
+
+As with proximity card technology, near-field communication uses electromagnetic induction between two loop antennas located within each other\'s near field, effectively forming an air-core transformer. It operates within the globally available and unlicensed radio frequency ISM band of 13.56 MHz. Most of the RF energy is concentrated in the allowed ±7 kHz bandwidth range, but the spectral mask for the main lobe is as wide as 1.8 MHz.\n\n
+
+Theoretical working distance with compact standard antennas: up to 20 cm (practical working distance of about 10 cm). Note because the pickup antenna may be quenched by nearby metallic surfaces, the tags may need to be spaced slightly away from the surface.\n\n</item>
+        <item>Although the range of NFC is limited to a few centimeters, plain NFC does not ensure secure communications. In 2006, Ernst Haselsteiner and Klemens Breitfuß described possible attacks and detailed how to leverage NFC\'s resistance to man-in-the-middle attacks to establish a specific key. As this technique is not part of the ISO standard, NFC offers no protection against eavesdropping and can be vulnerable to data modifications. Applications may use higher-layer cryptographic protocols (e.g. SSL) to establish a secure channel.\n\n
+
+The RF signal for the wireless data transfer can be picked up with antennas. The distance from which an attacker is able to eavesdrop the RF signal depends on multiple parameters, but is typically less than 10 meters. Also, eavesdropping is highly affected by the communication mode. A passive device that doesn\'t generate its own RF field is much harder to eavesdrop on than an active device. An attacker can typically eavesdrop within 10 m and 1 m for active devices and passive devices, respectively.\n\n
+
+Because NFC devices usually include ISO/IEC 14443 protocols, relay attacks are feasible. For this attack the adversary forwards the request of the reader to the victim and relays its answer to the reader in real time, pretending to be the owner of the victim\'s smart card. This is similar to a man-in-the-middle attack. One libnfc code example demonstrates a relay attack using two stock commercial NFC devices. This attack can be implemented using only two NFC-enabled mobile phones.\n\n</item>
     </string-array>
 
     <string-array name="nfc_images">
@@ -1560,19 +1983,40 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="infrared_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Infrared Radiation Theory</item>
+        <item>The Types of Infrared Sensors</item>
+        <item>Working Principle of IR Sensors</item>
     </string-array>
 
     <string-array name="infrared_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>An infrared sensor is an electronic instrument that is used to sense certain characteristics of its surroundings. It does this by either emitting or detecting infrared radiation. Infrared sensors are also capable of measuring the heat being emitted by an object and detecting motion.\n\n
+
+Infrared technology is found not just in industry, but also in every-day life. Televisions, for example, use an infrared detector to interpret the signals sent from a remote control. Passive Infrared sensors are used for motion detection systems, and LDR sensors are used for outdoor lighting systems. The key benefits of infrared sensors include their low power requirements, their simple circuitry and their portable features.\n\n</item>
+        <item>Infrared waves are not visible to the human eye. In the electromagnetic spectrum, infrared radiation can be found between the visible and microwave regions. The infrared waves typically have wavelengths between 0.75 and 1000µm.\n\n
+
+The infrared spectrum can be split into near IR, mid IR and far IR. The wavelength region from 0.75 to 3µm is known as the near infrared region. The region between 3 and 6µm is known as the mid-infrared region, and infrared radiation which has a wavelength greater higher than 6µm is known as far infrared.\n\n</item>
+        <item>Infrared sensors can be active or passive and they can be split into two main types:\n\n
+
+Thermal infrared sensors – use infrared energy as heat. Their photo sensitivity is independent of the wavelength being detected. Thermal detectors do not require cooling but do have slow response times and low detection capabilities. Read more about Thermal Infrared Sensors here.\n\n
+Quantum infrared sensors – provide higher detection performance and faster response speed. Their photo sensitivity is dependent on wavelength. Quantum detectors have to be cooled in order to obtain accurate measurements.\n\n</item>
+        <item>The physics behind infrared sensors is governed by three laws:\n\n
+
+Planck\’s radiation law: Every object at a temperature T not equal to 0 K emits radiation\n\n
+
+Stephan Boltzmann Law: The total energy emitted at all wavelengths by a black body is related to the absolute temperature\n\n
+
+Wein\’s Displacement Law: Objects of different temperature emit spectra that peak at different wavelengths
+All objects which have a temperature greater than absolute zero (0 Kelvin) posses thermal energy and are sources of infrared radiation as a result.\n\n
+
+Sources of infrared radiation include blackbody radiators, tungsten lamps and silicon carbide. Infrared sensors typically use infrared lasers and LEDs with specific infrared wavelengths as sources.\n\n
+
+        A transmission medium is required for infrared transmission, which can be comprised of either a vacuum, the atmosphere or an optical fiber.\n\n
+
+Optical components such as optical lenses made from quartz, CaF2, Ge and Si, polyethylene Fresnel lenses and Al or Au mirrors are used to converge or focus the infrared radiation. In order to limit spectral response, band-pass filters can be used.\n\n
+
+Next, infrared detectors are used to detect the radiation which has been focused. The output from the detector is usually very small and hence pre-amplifiers coupled with circuitry are required to further process the received signals.\n\n
+        </item>
     </string-array>
 
     <string-array name="infrared_images">
@@ -1585,19 +2029,50 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="android_os_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Operating Systems</item>
+        <item>Types Of OS</item>
+        <item>Android OS</item>
+        <item>History Of Android OS</item>
     </string-array>
 
     <string-array name="android_os_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs.\n\n
+
+Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources.\n\n
+
+For hardware functions such as input and output and memory allocation, the operating system acts as an intermediary between programs and the computer hardware, although the application code is usually executed directly by the hardware and frequently makes system calls to an OS function or is interrupted by it. Operating systems are found on many devices that contain a computer – from cellular phones and video game consoles to web servers and supercomputers.\n\n
+
+The dominant desktop operating system is Microsoft Windows with a market share of around 82.74%. macOS by Apple Inc. is in second place (13.23%), and the varieties of Linux are collectively in third place (1.57%). In the mobile (smartphone and tablet combined) sector, use in 2017 is up to 70% of Google\'s Android and according to third quarter 2016 data, Android on smartphones is dominant with 87.5 percent and a growth rate 10.3 percent per year, followed by Apple\'s iOS with 12.1 percent and a per year decrease in market share of 5.2 percent, while other operating systems amount to just 0.3 percent. Linux distributions are dominant in the server and supercomputing sectors. Other specialized classes of operating systems, such as embedded and real-time systems, exist for many applications.\n\n</item>
+        <item>Single- and multi-tasking\n\n
+A single-tasking system can only run one program at a time, while a multi-tasking operating system allows more than one program to be running in concurrency. This is achieved by time-sharing, where the available processor time is divided between multiple processes. These processes are each interrupted repeatedly in time slices by a task-scheduling subsystem of the operating system. Multi-tasking may be characterized in preemptive and co-operative types. In preemptive multitasking, the operating system slices the CPU time and dedicates a slot to each of the programs. Unix-like operating systems, such as Solaris and Linux—as well as non-Unix-like, such as AmigaOS—support preemptive multitasking. Cooperative multitasking is achieved by relying on each process to provide time to the other processes in a defined manner. 16-bit versions of Microsoft Windows used cooperative multi-tasking. 32-bit versions of both Windows NT and Win9x, used preemptive multi-tasking.\n\n
+
+Single- and multi-user\n\n
+Single-user operating systems have no facilities to distinguish users, but may allow multiple programs to run in tandem. A multi-user operating system extends the basic concept of multi-tasking with facilities that identify processes and resources, such as disk space, belonging to multiple users, and the system permits multiple users to interact with the system at the same time. Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources to multiple users.\n\n
+
+Distributed\n\n
+A distributed operating system manages a group of distinct computers and makes them appear to be a single computer. The development of networked computers that could be linked and communicate with each other gave rise to distributed computing. Distributed computations are carried out on more than one machine. When computers in a group work in cooperation, they form a distributed system.\n\n
+
+Templated\n\n
+In an OS, distributed and cloud computing context, templating refers to creating a single virtual machine image as a guest operating system, then saving it as a tool for multiple running virtual machines. The technique is used both in virtualization and cloud computing management, and is common in large server warehouses.\n\n
+
+Embedded\n\n
+Embedded operating systems are designed to be used in embedded computer systems. They are designed to operate on small machines like PDAs with less autonomy. They are able to operate with a limited number of resources. They are very compact and extremely efficient by design. Windows CE and Minix 3 are some examples of embedded operating systems.\n\n
+
+Real-time\n\n
+A real-time operating system is an operating system that guarantees to process events or data by a specific moment in time. A real-time operating system may be single- or multi-tasking, but when multitasking, it uses specialized scheduling algorithms so that a deterministic nature of behavior is achieved. An event-driven system switches between tasks based on their priorities or external events while time-sharing operating systems switch tasks based on clock interrupts.\n\n
+
+Library
+A library operating system is one in which the services that a typical operating system provides, such as networking, are provided in the form of libraries and composed with the application and configuration code to construct a unikernel: a specialized, single address space, machine image that can be deployed to cloud or embedded environments.\n\n
+
+</item>
+        <item>Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open source software and designed primarily for touchscreen mobile devices such as smartphones and tablets. In addition, Google has further developed Android TV for televisions, Android Auto for cars, and Wear OS for wrist watches, each with a specialized user interface. Variants of Android are also used on game consoles, digital cameras, PCs and other electronics.\n\n
+
+Initially developed by Android Inc., which Google bought in 2005, Android was unveiled in 2007, with the first commercial Android device launched in September 2008. The operating system has since gone through multiple major releases, with the current version being 8.1 \"Oreo\", released in December 2017. The core Android source code is known as Android Open Source Project (AOSP), and is primarily licensed under the Apache License.\n\n</item>
+        <item>Android Inc. was founded in Palo Alto, California, in October 2003 by Andy Rubin, Rich Miner, Nick Sears, and Chris White. Rubin described the Android project as \"tremendous potential in developing smarter mobile devices that are more aware of its owner\'s location and preferences\". The early intentions of the company were to develop an advanced operating system for digital cameras, and this was the basis of its pitch to investors in April 2004. The company then decided that the market for cameras was not large enough for its goals, and by five months later it had diverted its efforts and was pitching Android as a handset operating system that would rival Symbian and Microsoft Windows Mobile.
+
+Rubin had difficulty attracting investors early on, and Android was facing eviction from its office space. Steve Perlman, a close friend of Rubin, brought him $10,000 in cash in an envelope, and shortly thereafter wired an undisclosed amount as seed funding. Perlman refused a stake in the company, and has stated \"I did it because I believed in the thing, and I wanted to help Andy.\"
+
+In July 2005, Google acquired Android Inc. for at least $50 million. Its key employees, including Rubin, Miner and White, joined Google as part of the acquisition. Not much was known about the secretive Android at the time, with the company having provided few details other than that it was making software for mobile phones. At Google, the team led by Rubin developed a mobile device platform powered by the Linux kernel. Google marketed the platform to handset makers and carriers on the promise of providing a flexible, upgradeable system. Google had \"lined up a series of hardware components and software partners and signaled to carriers that it was open to various degrees of cooperation\".</item>
     </string-array>
 
     <string-array name="android_os_images">
@@ -1610,19 +2085,43 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="cpu_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Mobile Processors</item>
+        <item>Embedded Systems And CPUs</item>
+        <item>History</item>
+        <item>Composition Of A Processor</item>
     </string-array>
 
     <string-array name="cpu_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Today\’s smartphone and mobile processors are very powerful, so powerful that it is almost as powerful as a desktop computer.\n\n
+
+            Processors are now coming up with more cores. Initially it was Single core, then came Dual core, we now have Quad core, Hexa core and even Octa core. Most processors are 64 bit now as against 32 bit when it started initially. The processing speed have reached up to 3.0 -3.5 GHz.\n\n
+
+            The ability to include GPU (Graphic Processing Unit) inside mobile processors have enabled devices to churn out the best graphics picture, 3D capability, Virtual Reality capability and 4k recording. The improved processor technology also made today\’s modern mobile devices more power efficient.\n\n</item>
+        <item>A mobile processor is found in mobile computers and cellphones.\n\n
+
+A CPU chip is designed for portable computers, it is typically housed in a smaller chip package, but more importantly, in order to run cooler, it uses lower voltages than its desktop counterpart and has more sleep mode capability.\n\n
+
+            A mobile processor can be throttled down to different power levels or sections of the chip can be turned off entirely when not in use. Further, the clock frequency may be stepped down under low processor loads. This stepping down conserves power and prolongs battery life.\n\n</item>
+        <item>An embedded system is a computer system with a dedicated function within a larger mechanical or electrical system, often with real-time computing constraints. It is embedded as part of a complete device often including hardware and mechanical parts. Embedded systems control many devices in common use today. Ninety-eight percent of all microprocessors are manufactured as components of embedded systems.\n\n
+
+Examples of properties of typical embedded computers when compared with general-purpose counterparts are low power consumption, small size, rugged operating ranges, and low per-unit cost. This comes at the price of limited processing resources, which make them significantly more difficult to program and to interact with.\n\n
+
+            However, by building intelligence mechanisms on top of the hardware, taking advantage of possible existing sensors and the existence of a network of embedded units, one can both optimally manage available resources at the unit and network levels as well as provide augmented functions, well beyond those available. For example, intelligent techniques can be designed to manage power consumption of embedded systems.\n\n
+
+Modern embedded systems are often based on microcontrollers (i.e. CPUs with integrated memory or peripheral interfaces), but ordinary microprocessors (using external chips for memory and peripheral interface circuits) are also common, especially in more-complex systems. In either case, the processor(s) used may be types ranging from general purpose to those specialized in certain class of computations, or even custom designed for the application at hand. A common standard class of dedicated processors is the digital signal processor (DSP).\n\n</item>
+        <item>One of the very first recognizably modern embedded systems was the Apollo Guidance Computer, developed ca. 1965 by Charles Stark Draper at the MIT Instrumentation Laboratory. At the project\'s inception, the Apollo guidance computer was considered the riskiest item in the Apollo project as it employed the then newly developed monolithic integrated circuits to reduce the size and weight. An early mass-produced embedded system was the Autonetics D-17 guidance computer for the Minuteman missile, released in 1961. When the Minuteman II went into production in 1966, the D-17 was replaced with a new computer that was the first high-volume use of integrated circuits.\n\n
+
+Since these early applications in the 1960s, embedded systems have come down in price and there has been a dramatic rise in processing power and functionality. An early microprocessor for example, the Intel 4004, was designed for calculators and other small systems but still required external memory and support chips. In 1978 National Engineering Manufacturers Association released a \"standard\" for programmable microcontrollers, including almost any computer-based controllers, such as single board computers, numerical, and event-based controllers.\n\n
+
+As the cost of microprocessors and microcontrollers fell it became feasible to replace expensive knob-based analog components such as potentiometers and variable capacitors with up/down buttons or knobs read out by a microprocessor even in consumer products. By the early 1980s, memory, input and output system components had been integrated into the same chip as the processor forming a microcontroller. Microcontrollers find applications where a general-purpose computer would be too costly.\n\n</item>
+        <item>Nowadays, smartphones are so much more than phones and personal organizers. They\'re music and video players; they\'re mobile Web browsers; and they\'re cameras and camcorders. However, in order to do all those things, there needs to be a part of the system that can process and carry out those functions, which is where the processor enters the picture.\n\n
+
+\"The processor is the brain of the smartphone,\" explains Nick Stam, director of technical marketing at Nvidia. \"Just like a regular desktop or laptop, these devices are, at the highest level, computers, and like computers, they have a processor to do all the basic calculations and to execute code.\"
+
+Of course, with smartphones, you\'re dealing with a smaller form factor, so the design of the processor is somewhat different than what you\'d find on your computer. On your desktop, you\'ve got different elements, such as your central processor unit (CPU), graphics processing unit (GPU), memory, and peripheral buses, that all connect to the motherboard.\n\n
+
+On a smartphone, you\'ve got similar components, as well as other sub-processors, but they\'re integrated onto a single chipset, referred to as System-on-a-Chip (SoC), since there isn\'t room to have different chipsets with the battery taking up so much space. So technically, when we talk about processors, we\'re really talking about the SoC, but for pretty obvious reasons.\n\n</item>
     </string-array>
 
     <string-array name="cpu_images">
@@ -1635,19 +2134,37 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="radio_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>About Radio</item>
+        <item>Coomunication System</item>
+        <item>Use Of Radio</item>
+        <item>Audio</item>
     </string-array>
 
     <string-array name="radio_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Radio is the technology of using radio waves to carry information, such as sound, by systematically modulating properties of electromagnetic energy waves transmitted through space, such as their amplitude, frequency, phase, or pulse width. When radio waves strike an electrical conductor, the oscillating fields induce an alternating current in the conductor. The information in the waves can be extracted and transformed back into its original form.\n\n
+
+Radio systems need a transmitter to modulate (change) some property of the energy produced to impress a signal on it, for example using amplitude modulation or angle modulation (which can be frequency modulation or phase modulation). Radio systems also need an antenna to convert electric currents into radio waves, and radio waves into an electric current.\n\n
+
+            An antenna can be used for both transmitting and receiving. The electrical resonance of tuned circuits in radios allow individual frequencies to be selected. The electromagnetic wave is intercepted by a tuned receiving antenna. A radio receiver receives its input from an antenna and converts it into a form that is usable for the consumer, such as sound, pictures, digital data, measurement values, navigational positions, etc. Radio frequencies occupy the range from a 3 kHz to 300 GHz, although commercially important uses of radio use only a small part of this spectrum.\n\n
+
+A radio communication system requires a transmitter and a receiver, each having an antenna and appropriate terminal equipment such as a microphone at the transmitter and a loudspeaker at the receiver in the case of a voice-communication system.\n\n</item>
+        <item>A radio communication system sends signals by radio. Types of radio communication systems deployed depend on technology, standards, regulations, radio spectrum allocation, user requirements, service positioning, and investment.\n\n
+
+The radio equipment involved in communication systems includes a transmitter and a receiver, each having an antenna and appropriate terminal equipment such as a microphone at the transmitter and a loudspeaker at the receiver in the case of a voice-communication system. The power consumed in a transmitting station varies depending on the distance of communication and the transmission conditions. The power received at the receiving station is usually only a tiny fraction of the transmitter\'s output, since communication depends on receiving the information, not the energy, that was transmitted.\n\n
+
+Classical radio communications systems use frequency-division multiplexing (FDM) as a strategy to split up and share the available radio-frequency bandwidth for use by different parties\' communications concurrently. Modern radio communication systems include those that divide up a radio-frequency band by time-division multiplexing (TDM) and code-division multiplexing (CDM) as alternatives to the classical FDM strategy. These systems offer different tradeoffs in supporting multiple users, beyond the FDM strategy that was ideal for broadcast radio but less so for applications such as mobile telephony.\n\n
+
+A radio communication system may send information only one way. For example, in broadcasting a single transmitter sends signals to many receivers. Two stations may take turns sending and receiving, using a single radio frequency; this is called \"simplex.\" By using two radio frequencies, two stations may continuously and concurrently send and receive signals - this is called \"duplex\" operation.\n\n</item>
+        <item>Early uses were maritime, for sending telegraphic messages using Morse code between ships and land. The earliest users included the Japanese Navy scouting the Russian fleet during the Battle of Tsushima in 1905. One of the most memorable uses of marine telegraphy was during the sinking of the RMS Titanic in 1912, including communications between operators on the sinking ship and nearby vessels, and communications to shore stations listing the survivors.\n\n
+
+        Radio was used to pass on orders and communications between armies and navies on both sides in World War I; Germany used radio communications for diplomatic messages once it discovered that its submarine cables had been tapped by the British. The United States passed on President Woodrow Wilson\'s Fourteen Points to Germany via radio during the war.\n\n
+
+        Broadcasting began from San Jose, California in 1909, and became feasible in the 1920s, with the widespread introduction of radio receivers, particularly in Europe and the United States. Besides broadcasting, point-to-point broadcasting, including telephone messages and relays of radio programs, became widespread in the 1920s and 1930s. Another use of radio in the pre-war years was the development of detection and locating of aircraft and ships by the use of radar (RAdio Detection And Ranging).\n\n
+
+        Today, radio takes many forms, including wireless networks and mobile communications of all types, as well as radio broadcasting. Before the advent of television, commercial radio broadcasts included not only news and music, but dramas, comedies, variety shows, and many other forms of entertainment (the era from the late 1920s to the mid-1950s is commonly called radio\'s \"Golden Age\"). Radio was unique among methods of dramatic presentation in that it used only sound. For more, see radio programming.\n\n</item>
+        <item>FM broadcast radio sends music and voice with less noise than AM radio. It is often mistakenly thought that FM is higher fidelity than AM, but that is not true. AM is capable of the same audio bandwidth that FM employs. AM receivers typically use narrower filters in the receiver to recover the signal with less noise.\n\n
+
+            AM stereo receivers can reproduce the same audio bandwidth that FM does due to the wider filter used in an AM stereo receiver, but today, AM radios limit the audio bandpass to 3–5 kHz. In frequency modulation, amplitude variation at the microphone causes the transmitter frequency to fluctuate. Because the audio signal modulates the frequency and not the amplitude, an FM signal is not subject to static and interference in the same way as AM signals. Due to its need for a wider bandwidth, FM is transmitted in the Very High Frequency (VHF, 30 MHz to 300 MHz) radio spectrum.\n\n</item>
     </string-array>
 
     <string-array name="radio_images">
@@ -1660,19 +2177,43 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="gsm_umts_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>GSM</item>
+        <item>UMTS</item>
+        <item>Features Of UMTS</item>
+        <item>History Of GSM</item>
     </string-array>
 
     <string-array name="gsm_umts_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>GSM (Global System for Mobile communications) is a standard developed by the European Telecommunications Standards Institute (ETSI) to describe the protocols for second-generation digital cellular networks used by mobile devices such as tablets. It was first deployed in Finland in December 1991. As of 2014, it has become the global standard for mobile communications – with over 90% market share, operating in over 193 countries and territories.\n
+
+2G networks developed as a replacement for first generation (1G) analog cellular networks, and the GSM standard originally described as a digital, circuit-switched network optimized for full duplex voice telephony. This expanded over time to include data communications, first by circuit-switched transport, then by packet data transport via GPRS (General Packet Radio Services) and EDGE (Enhanced Data rates for GSM Evolution, or EGPRS).\n\n
+
+Subsequently, the 3GPP developed third-generation (3G) UMTS standards, followed by fourth-generation (4G) LTE Advanced standards, which do not form part of the ETSI GSM standard.\n\n
+
+\"GSM\" is a trademark owned by the GSM Association. It may also refer to the (initially) most common voice codec used, Full Rate.\n\n</item>
+        <item>The Universal Mobile Telecommunications System (UMTS) is a third generation mobile cellular system for networks based on the GSM standard. Developed and maintained by the 3GPP (3rd Generation Partnership Project), UMTS is a component of the International Telecommunications Union IMT-2000 standard set and compares with the CDMA2000 standard set for networks based on the competing cdmaOne technology. UMTS uses wideband code division multiple access (W-CDMA) radio access technology to offer greater spectral efficiency and bandwidth to mobile network operators.\n\n
+
+UMTS specifies a complete network system, which includes the radio access network (UMTS Terrestrial Radio Access Network, or UTRAN), the core network (Mobile Application Part, or MAP) and the authentication of users via SIM (subscriber identity module) cards.\n\n
+
+The technology described in UMTS is sometimes also referred to as Freedom of Mobile Multimedia Access (FOMA) or 3GSM.\n\n
+
+Unlike EDGE (IMT Single-Carrier, based on GSM) and CDMA2000 (IMT Multi-Carrier), UMTS requires new base stations and new frequency allocations.\n\n</item>
+        <item>UMTS supports maximum theoretical data transfer rates of 42 Mbit/s when Evolved HSPA (HSPA+) is implemented in the network.\n\n
+
+            Users in deployed networks can expect a transfer rate of up to 384 kbit/s for Release \'99 (R99) handsets (the original UMTS release), and 7.2 Mbit/s for High-Speed Downlink Packet Access (HSDPA) handsets in the downlink connection. These speeds are significantly faster than the 9.6 kbit/s of a single GSM error-corrected circuit switched data channel, multiple 9.6 kbit/s channels in High-Speed Circuit-Switched Data (HSCSD) and 14.4 kbit/s for CDMAOne channels.\n\n
+
+Since 2006, UMTS networks in many countries have been or are in the process of being upgraded with High-Speed Downlink Packet Access (HSDPA), sometimes known as 3.5G. Currently, HSDPA enables downlink transfer speeds of up to 21 Mbit/s.\n\n
+
+            Work is also progressing on improving the uplink transfer speed with the High-Speed Uplink Packet Access (HSUPA). Longer term, the 3GPP Long Term Evolution (LTE) project plans to move UMTS to 4G speeds of 100 Mbit/s down and 50 Mbit/s up, using a next generation air interface technology based upon orthogonal frequency-division multiplexing.\n\n</item>
+        <item>In 1983, work began to develop a European standard for digital cellular voice telecommunications when the European Conference of Postal and Telecommunications Administrations (CEPT) set up the Groupe Spécial Mobile committee and later provided a permanent technical-support group based in Paris.\n\n
+
+            Five years later, in 1987, 15 representatives from 13 European countries signed a memorandum of understanding in Copenhagen to develop and deploy a common cellular telephone system across Europe, and EU rules were passed to make GSM a mandatory standard. The decision to develop a continental standard eventually resulted in a unified, open, standard-based network which was larger than that in the United States.\n\n
+
+In February 1987 Europe produced the very first agreed GSM Technical Specification. Ministers from the four big EU countries cemented their political support for GSM with the Bonn Declaration on Global Information Networks in May and the GSM MoU was tabled for signature in September. The MoU drew in mobile operators from across Europe to pledge to invest in new GSM networks to an ambitious common date.\n\n
+
+In this short 38-week period the whole of Europe (countries and industries) had been brought behind GSM in a rare unity and speed guided by four public officials: Armin Silberhorn (Germany), Stephen Temple (UK), Philippe Dupuis (France), and Renzo Failli (Italy). In 1989 the Groupe Spécial Mobile committee was transferred from CEPT to the European Telecommunications Standards Institute (ETSI).\n\n
+
+In parallel France and Germany signed a joint development agreement in 1984 and were joined by Italy and the UK in 1986. In 1986, the European Commission proposed reserving the 900 MHz spectrum band for GSM. The former Finnish prime minister Harri Holkeri made the world's first GSM call on July 1, 1991, calling Kaarina Suonio (mayor of the city of Tampere) using a network built by Telenokia and Siemens and operated by Radiolinja. The following year saw the sending of the first short messaging service (SMS or \"text message\") message, and Vodafone UK and Telecom Finland signed the first international roaming agreement.\n\n</item>
     </string-array>
 
     <string-array name="gsm_umts_images">
@@ -1685,19 +2226,46 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="motion_detector_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Overview</item>
+        <item>Sensing Technology</item>
+        <item>Uses</item>
     </string-array>
 
     <string-array name="motion_detector_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>A motion detector is a device that detects moving objects, particularly people. Such a device is often integrated as a component of a system that automatically performs a task or alerts a user of motion in an area.\n\n
+
+            They form a vital component of security, automated lighting control, home control, energy efficiency, and other useful systems.\n\n</item>
+        <item>An electronic motion detector contains an optical, microwave, or acoustic sensor, and in many cases a transmitter for illumination. However, a passive sensor senses a signature only from the moving object via emission or reflection, i.e., it can be emitted by the object, or by some ambient emitter such as the sun or a radio station of sufficient strength.\n\n
+
+            Changes in the optical, microwave, or acoustic field in the device\'s proximity are interpreted by the electronics based on one of the technologies listed below. Most low-cost motion detectors can detect up to distances of at least 15 feet (4.6 m). Specialized systems cost more, but have much longer ranges. Tomographic motion detection systems can cover much larger areas because the radio waves are at frequencies which penetrate most walls and obstructions, and are detected in multiple locations, not only at the location of the transmitter.\n\n
+
+Motion detectors have found wide use in domestic and commercial applications. One common application is activating automatic door openers in businesses and public buildings. Motion sensors are also widely used in lieu of a true occupancy sensor in activating street lights or indoor lights in walkways, such as lobbies and staircases.\n\n
+
+            In such smart lighting systems, energy is conserved by only powering the lights for the duration of a timer, after which the person has presumably left the area. A motion detector may be among the sensors of a burglar alarm that is used to alert the home owner or security service when it detects the motion of a possible intruder. Such a detector may also trigger a security camera to record the possible intrusion.\n\n</item>
+        <item>Passive infrared (PIR)\n\n
+Passive infrared (PIR) sensors are sensitive to a person\'s skin temperature through emitted black body radiation at mid-infrared wavelengths, in contrast to background objects at room temperature. No energy is emitted from the sensor, thus the name passive infrared. This distinguishes it from the electric eye for instance (not usually considered a motion detector), in which the crossing of a person or vehicle interrupts a visible or infrared beam.\n\n
+Microwave\n\n
+These detect motion through the principle of Doppler radar, and are similar to a radar speed gun. A continuous wave of microwave radiation is emitted, and phase shifts in the reflected microwaves due to motion of an object toward (or away from) the receiver result in a heterodyne signal at a low audio frequency.\n\n
+Ultrasonic\n\n
+An ultrasonic transducer emits an ultrasonic wave (sound at a frequency higher than a human ear can hear) and receivers reflections from nearby objects. Exactly as in Doppler radar, heterodyne detection of the received field indicates motion. The detected doppler shift is also at low audio frequencies (for walking speeds) since the ultrasonic wavelength of around a centimeter is similar to the wavelengths used in microwave motion detectors. One potential drawback of ultrasonic sensors is that the sensor can be sensitive to motion in areas where coverage is undesired, for instance, due to reflections of sound waves around corners. Such extended coverage may be desirable for lighting control, where the goal is detection of any occupancy in an area. But for opening an automatic door, for example, a sensor selective to traffic in the path toward the door is superior.\n\n
+Tomographic motion detector\n\n
+These systems sense disturbances to radio waves as they pass from node to node of a mesh network. They have the ability to detect over large areas completely because they can sense through walls and other obstructions.\n\n
+Video camera software\n\n
+With the proliferation of low-cost digital cameras able to shoot video, it is possible to use the output of such a camera to detect motion in its field of view using software. This solution is particularly attractive when the intent is to record video triggered by motion detection, as no hardware beyond the camera and computer is needed. Since the observed field may be normally illuminated, this may be considered another passive technology. However it can also be used together with near-infrared illumination to detect motion in the dark, that is, with the illumination at a wavelength undetectable by a human eye.\n\n
+Gesture detector\n\n
+Photodetectors and infrared lighting elements can support digital screens to detect hand motions and gestures with the aid of machine learning algorithms.\n\n</item>
+        <item>Motion sensors aren\'t just used for home security. In industrial fields, they are used on assembly lines to keep track of the number of products and to shut down dangerous equipment if a person gets too close.\n\n
+
+Here are a few other ways motion sensors are used:\n\n
+
+To open and close automatic Doors\n
+To turn on and off automatic water faucets and toilets\n
+To turn on lights when a person enters a room\n
+To control ATM displays\n
+At automatic ticket gates\n
+For some parking meters\n\n
+Motion sensors aren\'t just an additional feature of a security system—they are essential. Without sensors, there wouldn\'t be a way to detect intruders.</item>
     </string-array>
 
     <string-array name="motion_detector_images">
@@ -1710,19 +2278,46 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
 
 
     <string-array name="stationary_detector_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Introduction</item>
+        <item>Overview</item>
+        <item>Sensing Technology</item>
+        <item>Uses</item>
     </string-array>
 
     <string-array name="stationary_detector_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+    <item>A motion detector is a device that detects moving objects, particularly people. Such a device is often integrated as a component of a system that automatically performs a task or alerts a user of motion in an area.\n\n
+
+        They form a vital component of security, automated lighting control, home control, energy efficiency, and other useful systems.\n\n</item>
+    <item>An electronic motion detector contains an optical, microwave, or acoustic sensor, and in many cases a transmitter for illumination. However, a passive sensor senses a signature only from the moving object via emission or reflection, i.e., it can be emitted by the object, or by some ambient emitter such as the sun or a radio station of sufficient strength.\n\n
+
+        Changes in the optical, microwave, or acoustic field in the device\'s proximity are interpreted by the electronics based on one of the technologies listed below. Most low-cost motion detectors can detect up to distances of at least 15 feet (4.6 m). Specialized systems cost more, but have much longer ranges. Tomographic motion detection systems can cover much larger areas because the radio waves are at frequencies which penetrate most walls and obstructions, and are detected in multiple locations, not only at the location of the transmitter.\n\n
+
+        Motion detectors have found wide use in domestic and commercial applications. One common application is activating automatic door openers in businesses and public buildings. Motion sensors are also widely used in lieu of a true occupancy sensor in activating street lights or indoor lights in walkways, such as lobbies and staircases.\n\n
+
+        In such smart lighting systems, energy is conserved by only powering the lights for the duration of a timer, after which the person has presumably left the area. A motion detector may be among the sensors of a burglar alarm that is used to alert the home owner or security service when it detects the motion of a possible intruder. Such a detector may also trigger a security camera to record the possible intrusion.\n\n</item>
+    <item>Passive infrared (PIR)\n\n
+        Passive infrared (PIR) sensors are sensitive to a person\'s skin temperature through emitted black body radiation at mid-infrared wavelengths, in contrast to background objects at room temperature. No energy is emitted from the sensor, thus the name passive infrared. This distinguishes it from the electric eye for instance (not usually considered a motion detector), in which the crossing of a person or vehicle interrupts a visible or infrared beam.\n\n
+        Microwave\n\n
+        These detect motion through the principle of Doppler radar, and are similar to a radar speed gun. A continuous wave of microwave radiation is emitted, and phase shifts in the reflected microwaves due to motion of an object toward (or away from) the receiver result in a heterodyne signal at a low audio frequency.\n\n
+        Ultrasonic\n\n
+        An ultrasonic transducer emits an ultrasonic wave (sound at a frequency higher than a human ear can hear) and receivers reflections from nearby objects. Exactly as in Doppler radar, heterodyne detection of the received field indicates motion. The detected doppler shift is also at low audio frequencies (for walking speeds) since the ultrasonic wavelength of around a centimeter is similar to the wavelengths used in microwave motion detectors. One potential drawback of ultrasonic sensors is that the sensor can be sensitive to motion in areas where coverage is undesired, for instance, due to reflections of sound waves around corners. Such extended coverage may be desirable for lighting control, where the goal is detection of any occupancy in an area. But for opening an automatic door, for example, a sensor selective to traffic in the path toward the door is superior.\n\n
+        Tomographic motion detector\n\n
+        These systems sense disturbances to radio waves as they pass from node to node of a mesh network. They have the ability to detect over large areas completely because they can sense through walls and other obstructions.\n\n
+        Video camera software\n\n
+        With the proliferation of low-cost digital cameras able to shoot video, it is possible to use the output of such a camera to detect motion in its field of view using software. This solution is particularly attractive when the intent is to record video triggered by motion detection, as no hardware beyond the camera and computer is needed. Since the observed field may be normally illuminated, this may be considered another passive technology. However it can also be used together with near-infrared illumination to detect motion in the dark, that is, with the illumination at a wavelength undetectable by a human eye.\n\n
+        Gesture detector\n\n
+        Photodetectors and infrared lighting elements can support digital screens to detect hand motions and gestures with the aid of machine learning algorithms.\n\n</item>
+    <item>Motion sensors aren\'t just used for home security. In industrial fields, they are used on assembly lines to keep track of the number of products and to shut down dangerous equipment if a person gets too close.\n\n
+
+        Here are a few other ways motion sensors are used:\n\n
+
+        To open and close automatic Doors\n
+        To turn on and off automatic water faucets and toilets\n
+        To turn on lights when a person enters a room\n
+        To control ATM displays\n
+        At automatic ticket gates\n
+        For some parking meters\n\n
+        Motion sensors aren\'t just an additional feature of a security system—they are essential. Without sensors, there wouldn\'t be a way to detect intruders.</item>
     </string-array>
 
     <string-array name="stationary_detector_images">
