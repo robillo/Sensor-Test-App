@@ -1088,7 +1088,8 @@ With an accelerometer you can either get a really \"noisy\" info output that is 
  6. You cannot use applications that works based on gyroscope.\n\n</item>
         <item>The gyroscope is a massive rotor that is fixed in light supporting rings called gimbals. The gimbals consist of frictionless bearings that isolate the central rotor from outside torques. The axle of the spinning wheel defines the spin axis.\n\n
 
-The rotor possesses three degrees of rotational freedom and spins about an axis. It acquires extraordinary stability of balance at high speeds as it maintains the high speed rotation axis of its central rotor.</item>\n\n
+The rotor possesses three degrees of rotational freedom and spins about an axis. It acquires extraordinary stability of balance at high speeds as it maintains the high speed rotation axis of its central rotor.</item>
+        \n\n
         <item>When the gyroscope is applied with external torques or rotations about the given axis, the orientation can be measured by a precession phenomenon. When an object rotating about an axis is applied with external torque along a direction perpendicular to the rotational axis, the precession occurs.\n\n
 
 This rotation about the spin axis is detected and information on this rotation is delivered to a motor or other device that applies torque in an opposite direction thereby canceling the precession and maintaining its orientation.\n\n
@@ -1308,11 +1309,11 @@ An accelerometer will provide three values x-axis value, y-axis value and z-axis
     </string-array>
 
     <string-array name="step_counter_headers">
-    <item>Benefits Of Pedometer</item>
-    <item>Accuracy Of The Count</item>
-    <item>Where To Keep The Phone</item>
-    <item>How It Works</item>
-</string-array>
+        <item>Benefits Of Pedometer</item>
+        <item>Accuracy Of The Count</item>
+        <item>Where To Keep The Phone</item>
+        <item>How It Works</item>
+    </string-array>
 
     <string-array name="step_counter_descriptions">
         <item>Using a Pedometer helps in keeping track of the steps you take while doing aerobics, running, walking, steps exercise.\n\n
@@ -2288,14 +2289,14 @@ Motion sensors aren\'t just an additional feature of a security system—they ar
     <item>A motion detector is a device that detects moving objects, particularly people. Such a device is often integrated as a component of a system that automatically performs a task or alerts a user of motion in an area.\n\n
 
         They form a vital component of security, automated lighting control, home control, energy efficiency, and other useful systems.\n\n</item>
-    <item>An electronic motion detector contains an optical, microwave, or acoustic sensor, and in many cases a transmitter for illumination. However, a passive sensor senses a signature only from the moving object via emission or reflection, i.e., it can be emitted by the object, or by some ambient emitter such as the sun or a radio station of sufficient strength.\n\n
+        <item>An electronic motion detector contains an optical, microwave, or acoustic sensor, and in many cases a transmitter for illumination. However, a passive sensor senses a signature only from the moving object via emission or reflection, i.e., it can be emitted by the object, or by some ambient emitter such as the sun or a radio station of sufficient strength.\n\n
 
         Changes in the optical, microwave, or acoustic field in the device\'s proximity are interpreted by the electronics based on one of the technologies listed below. Most low-cost motion detectors can detect up to distances of at least 15 feet (4.6 m). Specialized systems cost more, but have much longer ranges. Tomographic motion detection systems can cover much larger areas because the radio waves are at frequencies which penetrate most walls and obstructions, and are detected in multiple locations, not only at the location of the transmitter.\n\n
 
         Motion detectors have found wide use in domestic and commercial applications. One common application is activating automatic door openers in businesses and public buildings. Motion sensors are also widely used in lieu of a true occupancy sensor in activating street lights or indoor lights in walkways, such as lobbies and staircases.\n\n
 
         In such smart lighting systems, energy is conserved by only powering the lights for the duration of a timer, after which the person has presumably left the area. A motion detector may be among the sensors of a burglar alarm that is used to alert the home owner or security service when it detects the motion of a possible intruder. Such a detector may also trigger a security camera to record the possible intrusion.\n\n</item>
-    <item>Passive infrared (PIR)\n\n
+        <item>Passive infrared (PIR)\n\n
         Passive infrared (PIR) sensors are sensitive to a person\'s skin temperature through emitted black body radiation at mid-infrared wavelengths, in contrast to background objects at room temperature. No energy is emitted from the sensor, thus the name passive infrared. This distinguishes it from the electric eye for instance (not usually considered a motion detector), in which the crossing of a person or vehicle interrupts a visible or infrared beam.\n\n
         Microwave\n\n
         These detect motion through the principle of Doppler radar, and are similar to a radar speed gun. A continuous wave of microwave radiation is emitted, and phase shifts in the reflected microwaves due to motion of an object toward (or away from) the receiver result in a heterodyne signal at a low audio frequency.\n\n
@@ -2307,7 +2308,7 @@ Motion sensors aren\'t just an additional feature of a security system—they ar
         With the proliferation of low-cost digital cameras able to shoot video, it is possible to use the output of such a camera to detect motion in its field of view using software. This solution is particularly attractive when the intent is to record video triggered by motion detection, as no hardware beyond the camera and computer is needed. Since the observed field may be normally illuminated, this may be considered another passive technology. However it can also be used together with near-infrared illumination to detect motion in the dark, that is, with the illumination at a wavelength undetectable by a human eye.\n\n
         Gesture detector\n\n
         Photodetectors and infrared lighting elements can support digital screens to detect hand motions and gestures with the aid of machine learning algorithms.\n\n</item>
-    <item>Motion sensors aren\'t just used for home security. In industrial fields, they are used on assembly lines to keep track of the number of products and to shut down dangerous equipment if a person gets too close.\n\n
+        <item>Motion sensors aren\'t just used for home security. In industrial fields, they are used on assembly lines to keep track of the number of products and to shut down dangerous equipment if a person gets too close.\n\n
 
         Here are a few other ways motion sensors are used:\n\n
 
