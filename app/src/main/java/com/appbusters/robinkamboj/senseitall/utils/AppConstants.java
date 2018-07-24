@@ -645,5 +645,9 @@ public class AppConstants {
                 VR_MODE,
                 R.array.vr_descriptions
         );
+        sensorMapAbout.put(
+                FAKE_TOUCH,
+                R.array.fake_touch_descriptions
+        );
     }
 }
