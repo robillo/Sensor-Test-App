@@ -48,7 +48,6 @@
         android:paddingRight="20sp"
         android:paddingTop="10sp"
         android:paddingBottom="10sp"
-        fontPath="fonts/tsc.ttf"
         android:layout_margin="10sp"
         android:id="@+id/learn_more"
         android:gravity="center_horizontal"

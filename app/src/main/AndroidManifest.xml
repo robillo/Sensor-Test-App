@@ -153,7 +153,7 @@
                 <action android:name="android.intent.action.BATTERY_OKAY" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".view.test_activity.battery_test_fragment.BatteryReceiver">
+        <receiver android:name=".view.test_activity.tests.battery_test_fragment.BatteryReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
@@ -293,7 +293,8 @@
         <activity
             android:name=".view.test_activity.TestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.learn_more_activity.LearnMoreActivity"
+        <activity
+            android:name=".view.learn_more_activity.LearnMoreActivity"
             android:screenOrientation="portrait" />
     </application>
 

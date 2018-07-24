@@ -12,7 +12,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.FeatureFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.back_camera_test_fragment.BackCamTestInterface;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestInterface;
 
 import butterknife.ButterKnife;
 

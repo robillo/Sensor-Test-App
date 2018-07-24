@@ -17,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.controller.FingerprintHandler;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.fingerprint_test_fragment.FingerprintTestFragment;
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;

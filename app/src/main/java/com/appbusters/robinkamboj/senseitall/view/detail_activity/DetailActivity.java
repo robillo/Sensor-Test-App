@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity;
 
+import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -27,14 +28,14 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.sound
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.vibrator.VibratorFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi.WifiFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.gravity_sensor.GravityFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.light_sensor.LightFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor.ProximityFragment;
 import com.bumptech.glide.Glide;
 
-import java.util.Locale;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
@@ -49,14 +50,13 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRI
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEADPHONE_JACK_TEST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PROXIMITY_TEST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
@@ -209,7 +209,16 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
                 transaction.add(R.id.container, new SoundFragment()).commit();
                 break;
             }
+            case SENSOR_GRAVITY: {
+                transaction.add(R.id.container, new GravityFragment()).commit();
+                break;
+            }
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override

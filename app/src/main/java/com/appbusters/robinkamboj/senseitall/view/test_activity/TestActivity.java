@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity;
 
+import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -12,27 +13,28 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.accelerometer_test_fragment.AccelerometerTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.back_camera_test_fragment.BackCamTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.battery_test_fragment.BatteryTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.bluetooth_test_fragment.BluetoothTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.compass_test_fragment.CompassTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.directions_fragment.DirectionsFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.fingerprint_test_fragment.FingerprintTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.flashlight_test_fragment.FlashlightTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.front_camera_test_fragment.FrontCamTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.gps_test_fragment.GpsTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.headphone_jack_test_fragment.JackTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.light_test_fragment.LightTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.multi_touch_fragment.MultiTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.proximity_test_fragment.ProximityTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.screen_test_fragment.ScreenTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.speaker_volume_test_fragment.SoundTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.vibrator_test_fragment.VibratorTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.wifi_test_fragment.WifiTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.accelerometer_test_fragment.AccelerometerTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.battery_test_fragment.BatteryTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.bluetooth_test_fragment.BluetoothTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.compass_test_fragment.CompassTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.directions.directions_fragment.DirectionsFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.fingerprint_test_fragment.FingerprintTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.flashlight_test_fragment.FlashlightTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.front_camera_test_fragment.FrontCamTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.gps_test_fragment.GpsTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.headphone_jack_test_fragment.JackTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.light_test_fragment.LightTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.multi_touch_fragment.MultiTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.proximity_test_fragment.ProximityTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.screen_test_fragment.ScreenTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.speaker_volume_test_fragment.SoundTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.wifi_test_fragment.WifiTestFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
@@ -268,6 +270,11 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 break;
             }
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override

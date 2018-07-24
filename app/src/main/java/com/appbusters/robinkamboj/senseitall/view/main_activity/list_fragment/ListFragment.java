@@ -441,11 +441,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void fillGenericDataForSelected(int type) {
         list = new ArrayList<>();
 
-        //first row null and invisible for title bar space
-//        list.add(null);
-//        list.add(null);
-//        list.add(null);
-
         List<String> dataNames = new ArrayList<>();
         boolean[] dataPresent = new boolean[dataNames.size()];
         switch (type) {
@@ -484,11 +479,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                         dataPresent[i],
                         type));
 
-//        if(dataNames.size()%3 != 0) {
-//            list.add(null);
-//            list.add(null);
-//            list.add(null);
-//        }
     }
 
     @OnClick(R.id.card_permissions)

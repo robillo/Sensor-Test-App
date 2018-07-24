@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.learn_more_activity;
 
+import android.content.Context;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.shuhart.stepview.StepView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
@@ -292,5 +294,10 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         stepView.go(currentStep, true);
         manageVisibility();
         setTexts();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 }

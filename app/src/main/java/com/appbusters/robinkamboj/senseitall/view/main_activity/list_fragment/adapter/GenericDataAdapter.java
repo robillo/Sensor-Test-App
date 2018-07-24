@@ -35,6 +35,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
 public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.GenericViewHolder>
@@ -131,6 +132,11 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
             }
             case WIFI: {
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+                    isGiven = false;
+                break;
+            }
+            case HEART_RATE_ECG: {
+                if(ActivityCompat.checkSelfPermission(context, Manifest.permission.BODY_SENSORS) != PackageManager.PERMISSION_GRANTED)
                     isGiven = false;
                 break;
             }

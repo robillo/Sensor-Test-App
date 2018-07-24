@@ -237,11 +237,17 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="previous">PREVIOUS</string>
     <string name="next">NEXT</string>
 
+
     <string name="dummy_description">Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have over-saturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project. \n\n
+
         Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
-        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</string>
+
+        Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
+    </string>
 
     <string name="dummy_header">SAR AND YOUR BODY</string>
+
+
     <string name="feedback_currently_under_evaluation">FEEDBACK CURRENTLY UNDER EVALUATION:</string>
     <string name="your_experience">YOUR EXPERIENCE</string>
     <string name="did_you_love_the_app_experience">Did You Love The App Experience?</string>
@@ -280,7 +286,6 @@ The tests for the above sensors provided in the app will could be used for fun, 
         Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n
         Sar is a thing that pops your head away for some reason that you honestly dont want to know I might have oversaturated by brains capacity today for this sense it all project but maybe i want to prove myself that i can make an optimum project.\n\n</item>
     </string-array>
-
 
     <string-array name="proximity_headers">
         <item>Introduction</item>

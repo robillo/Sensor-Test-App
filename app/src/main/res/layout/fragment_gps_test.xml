@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
-    tools:context=".view.test_activity.gps_test_fragment.GpsTestFragment">
+    tools:context=".view.test_activity.tests.gps_test_fragment.GpsTestFragment">
 
 
 </FrameLayout>

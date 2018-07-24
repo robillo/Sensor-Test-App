@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.test_activity.back_camera_test_fragment.BackCamTestFragment">
+    tools:context=".view.test_activity.tests.back_camera_test_fragment.BackCamTestFragment">
 
     <TextureView
         android:id="@+id/texture_view"

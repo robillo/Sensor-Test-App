@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".view.test_activity.fingerprint_test_fragment.FingerprintTestFragment">
+    tools:context=".view.test_activity.tests.fingerprint_test_fragment.FingerprintTestFragment">
 
     <FrameLayout
         android:layout_width="match_parent"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.test_activity.multi_touch_fragment.MultiTestFragment">
+    tools:context=".view.test_activity.tests.multi_touch_fragment.MultiTestFragment">
 
     <com.appbusters.robinkamboj.senseitall.controller.MultiTouchCanvas
         android:id="@+id/multiTouchView"

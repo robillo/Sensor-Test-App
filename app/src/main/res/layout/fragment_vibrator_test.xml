@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.test_activity.vibrator_test_fragment.VibratorTestFragment">
+    tools:context=".view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment">
 
     <TextView
         android:layout_width="match_parent"

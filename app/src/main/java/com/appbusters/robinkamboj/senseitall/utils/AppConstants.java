@@ -16,47 +16,38 @@ public class AppConstants {
 
     public static final int REQUEST_CODE = 100;
 
-    //generic data arguments
-    public static final String RECYCLER_NAME = "RECYCLER NAME";
+    public static final String RECYCLER_NAME = "RECYCLER NAME";                 //generic data arguments
     public static final String DATA_NAME = "DATA NAME";
     public static final String DRAWABLE_ID = "DRAWABLE ID";
     public static final String IS_PRESENT = "IS PRESENT";
     public static final String TYPE = "TYPE";
 
-    //data types
-    public static final int TYPE_DIAGNOSTICS = 0;
+    public static final int TYPE_DIAGNOSTICS = 0;                               //data types
     public static final int TYPE_SENSORS = 1;
     public static final int TYPE_FEATURES = 2;
     public static final int TYPE_RATE = 3;
 
-    //data type names
-    public static final String DIAGNOSTIC = "Diagnostic";
+    public static final String DIAGNOSTIC = "Diagnostic";                       //data type names
     public static final String SENSOR = "Sensor";
     public static final String FEATURE = "Feature";
 
-    //random constants
-    public static final String UNKNOWN = "unknown";
+    public static final String UNKNOWN = "unknown";                             //random constants
 
-    //loader id
-    public static final int LOADER_ID = 1;
+    public static final int LOADER_ID = 1;                                      //loader id
 
-    //intent extra
-    public static final String PRESENT_SENSORS = "PRESENT SENSORS";
+    public static final String PRESENT_SENSORS = "PRESENT SENSORS";             //intent extra
     public static final String PRESENT_FEATURES = "PRESENT FEATURES";
     public static final String PRESENT_DIAGNOSTICS = "PRESENT DIAGNOSTICS";
 
-    //HEADERS
-    public static final String SHOWING_DEVICE_TESTS = "SHOWING DEVICE TESTS";
+    public static final String SHOWING_DEVICE_TESTS = "SHOWING DEVICE TESTS";   //HEADERS
     public static final String SHOWING_SENSORS_LIST = "SHOWING SENSORS LIST";
     public static final String SHOWING_FEATURES_LIST = "SHOWING FEATURES LIST";
     public static final String RATE_YOUR_EXPERIENCE = "RATE YOUR EXPERIENCE";
 
-    //PREFERENCES
-    public static final String PREF_FILE_NAME = "SIA";
+    public static final String PREF_FILE_NAME = "SIA";                          //PREFERENCES
     public static final String KEY_HEADER_TEXT = "HEADER TEXT";
 
-    //sensors
-    public static final String SENSOR_LIGHT = "Light Sensor";
+    public static final String SENSOR_LIGHT = "Light Sensor";                   //sensors
     public static final String SENSOR_PROXIMITY = "Proximity Sensor";
     public static final String SENSOR_TEMPERATURE = "Ambient Temperature Sensor";
     public static final String SENSOR_PRESSURE = "Pressure Sensor";
@@ -73,8 +64,7 @@ public class AppConstants {
     public static final String SENSOR_MAGNETIC_FIELD = "Magnetic Field";
     public static final String SENSOR_HEART_RATE = "Heart Rate Sensor";
 
-    //diagnostics
-    public static final String PROXIMITY_TEST = "Proximity Sensor Test";
+    public static final String PROXIMITY_TEST = "Proximity Sensor Test";        //diagnostics
     public static final String BATTERY_TEST = "Battery Test";
     public static final String HEADPHONE_JACK_TEST = "Headphone Jack Test";
     public static final String ACCELEROMETER_TEST = "Accelerometer Test";
@@ -91,9 +81,9 @@ public class AppConstants {
     public static final String SCREEN_TEST = "Screen Test";
     public static final String LIGHT_TEST = "Light Sensor Test";
     public static final String COMPASS_TEST = "Compass Test";
+    public static final String GRAVITY_TEST = "Gravity Sensor Test";
 
-    //features
-    public static final String BACK_CAMERA = "Back Camera";
+    public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
     public static final String GPS_LOCATION = "GPS Location";
     public static final String WIFI = "WiFi";
@@ -142,9 +132,6 @@ public class AppConstants {
         dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         dangerousPermissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
         dangerousPermissions.add(Manifest.permission.BODY_SENSORS);
-//        dangerousPermissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-//        dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-//        dangerousPermissions.add(Manifest.permission.RECEIVE_WAP_PUSH);
         dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
         dangerousPermissions.add(Manifest.permission.RECORD_AUDIO);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -203,13 +190,10 @@ public class AppConstants {
         sensorNames.add(SENSOR_MOTION_DETECTOR);
         sensorNames.add(SENSOR_STATIONARY_DETECTOR);
 
-
-        //sensors
-        diagnosticsNames.add(ACCELEROMETER_TEST);
+        diagnosticsNames.add(ACCELEROMETER_TEST);       //sensors
         diagnosticsNames.add(LIGHT_TEST);
         diagnosticsNames.add(PROXIMITY_TEST);
-        //features
-        diagnosticsNames.add(BACK_CAMERA_TEST);
+        diagnosticsNames.add(BACK_CAMERA_TEST);         //features
         diagnosticsNames.add(FRONT_CAMERA_TEST);
         diagnosticsNames.add(GPS_TEST);
         diagnosticsNames.add(WIFI_TEST);
@@ -320,22 +304,13 @@ public class AppConstants {
         packageManagerPaths.put(HEART_RATE_ECG, PackageManager.FEATURE_SENSOR_HEART_RATE_ECG);
         packageManagerPaths.put(FAKE_TOUCH, PackageManager.FEATURE_FAKETOUCH);
         packageManagerPaths.put(WEB_VIEW, PackageManager.FEATURE_WEBVIEW);
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             packageManagerPaths.put(FINGERPRINT, PackageManager.FEATURE_FINGERPRINT);
             packageManagerPaths.put(MIDI, PackageManager.FEATURE_MIDI);
         }
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             packageManagerPaths.put(VR_MODE, PackageManager.FEATURE_VR_MODE);
-
-        //RADIO
-        //BATTERY
-        //CPU
-        //SOUND
-        //VIBRATOR
-        //INFRARED
-        //ANDROID OS
+        //RADIO, BATTERY, CPU, SOUND, VIBRATOR, INFRARED, ANDROID OS
 
         sensorManagerInts.put(SENSOR_ACCELEROMETER, Sensor.TYPE_ACCELEROMETER);
         sensorManagerInts.put(SENSOR_LIGHT, Sensor.TYPE_LIGHT);
@@ -356,8 +331,6 @@ public class AppConstants {
             sensorManagerInts.put(SENSOR_STATIONARY_DETECTOR, Sensor.TYPE_STATIONARY_DETECT);
         }
 
-
-
         sensorMapDirections.put(
                 SENSOR_PROXIMITY,
                 "Place Your Hand Above Proximity Sensor To Increment Counter."
@@ -372,55 +345,59 @@ public class AppConstants {
         );
         sensorMapDirections.put(
                 BACK_CAMERA,
-                "You Should See Back Camera Preview In The Test"
+                "You Should See Back Camera Preview In The Test."
         );
         sensorMapDirections.put(
                 FRONT_CAMERA,
-                "You Should See Front Camera Preview In The Test"
+                "You Should See Front Camera Preview In The Test."
         );
         sensorMapDirections.put(
                 GPS_LOCATION,
-                "You Should See Your Location In The Test"
+                "You Should See Your Location In The Test."
         );
         sensorMapDirections.put(
                 WIFI,
-                "You Should See Your Location In The Test"
+                "You Should See Your Current Connection As Well As All Available WiFi Connections In The Test."
         );
         sensorMapDirections.put(
                 BLUETOOTH,
-                "You Should See Your Location In The Test"
+                "You Should See Your Current Connection As Well As All Available Bluetooth Connections In The Test."
         );
         sensorMapDirections.put(
                 SCREEN,
-                "You Should See Your Location In The Test"
+                "Draw By Using Touch Anywhere On The Screen In The Test."
         );
         sensorMapDirections.put(
                 BATTERY,
-                "You Should See Your Location In The Test"
+                "See Your Current Battery Level As Well As Whether It Is Plugged In For Charging Or Not."
         );
         sensorMapDirections.put(
                 SOUND,
-                "You Should See Your Location In The Test"
+                "Play A Sound Track And Adjust It's Volume To See If The Speaker And Volume UP/DOWN Buttons Are Working."
         );
         sensorMapDirections.put(
                 VIBRATOR,
-                "You Should See Your Location In The Test"
+                "Click Anywhere On The Next Screen To Vibrate Your Screen Once Per Click."
         );
         sensorMapDirections.put(
                 AV_OUTPUTS,
-                "You Should See Your Location In The Test"
+                "Plug In/Out To Verify If Headphone Jack Is Functioning Properly Or Not."
         );
         sensorMapDirections.put(
                 FLASH,
-                "You Should See Your Location In The Test"
+                "Click Anywhere On The Next Screen To Activate/Deactivate Flash On Your Device."
         );
         sensorMapDirections.put(
                 MULTI_TOUCH,
-                "You Should See Your Location In The Test"
+                "Click On The Next Screen Multiple Times Simultaneously To Create Circles On It."
         );
         sensorMapDirections.put(
                 FINGERPRINT,
-                "You Should See Your Location In The Test"
+                "Place Your Enrolled Fingerprints On The Fingerprint Sensor To Authenticate The Screen."
+        );
+        sensorMapDirections.put(
+                COMPASS,
+                "Rotate Your Phone In The Horizontal Plane (Parallel To The Floor) To Verify If The North Pole Of The Compass Still Points Towards The Same Direction."
         );
 
 
@@ -430,7 +407,7 @@ public class AppConstants {
         );
         sensorMapHints.put(
                 SENSOR_ACCELEROMETER,
-                "Enjoy the color switch."
+                "Naturally You Can Observe The Color Changes As You Walk Or Run."
         );
         sensorMapHints.put(
                 SENSOR_LIGHT,
@@ -438,55 +415,59 @@ public class AppConstants {
         );
         sensorMapHints.put(
                 BACK_CAMERA,
-                ""
+                "In Phones With Auto-focus Feature, The Focus Should Eventually Shift To The Object You Will Point Towards."
         );
         sensorMapHints.put(
                 FRONT_CAMERA,
-                ""
+                "In Phones With Auto-focus Feature, The Focus Should Eventually Shift To The Object You Will Point Towards."
         );
         sensorMapHints.put(
                 GPS_LOCATION,
-                "Tap the marker for location coordinates."
+                "Tap the marker for location coordinates (Longitude And Latitude)."
         );
         sensorMapHints.put(
                 WIFI,
-                "Tap the marker for location coordinates."
+                "This Might Not Work If Current WiFi State Is Disabled."
         );
         sensorMapHints.put(
                 BLUETOOTH,
-                "Tap the marker for location coordinates."
+                "This Might Not Work If Current Bluetooth State Is Disabled."
         );
         sensorMapHints.put(
                 SCREEN,
-                "Tap the marker for location coordinates."
+                "You Can Try Drawing Over Places On Screen That You Are Suspicious Of Not Working."
         );
         sensorMapHints.put(
                 BATTERY,
-                "Tap the marker for location coordinates."
+                "You Will Also Observe Changes As Your Battery Level Decreases Or Increases."
         );
         sensorMapHints.put(
                 SOUND,
-                "Tap the marker for location coordinates."
+                "Alternatively You Can Increase/Decrease Volume By Dragging The Slider."
         );
         sensorMapHints.put(
                 VIBRATOR,
-                "Tap the marker for location coordinates."
+                "Avoid Using Vibrations On Call Reception To Avoid Damage To The Vibrator Motor."
         );
         sensorMapHints.put(
                 AV_OUTPUTS,
-                "Tap the marker for location coordinates."
+                "On Plugging In The Port, Sometimes It May Momentarily Set State To Plugged And Then Unplugged. This Is Normal."
         );
         sensorMapHints.put(
                 FLASH,
-                "Tap the marker for location coordinates."
+                "It Is Recommended To Avoid Turning On Flash For Prolonged Period Of Time To Avoid Device Overheating."
         );
         sensorMapHints.put(
                 MULTI_TOUCH,
-                "Tap the marker for location coordinates."
+                "Try To Get Maximum Number Of Circles On The Screen."
         );
         sensorMapHints.put(
                 FINGERPRINT,
-                "Tap the marker for location coordinates."
+                "For Fingers Not Enrolled On The Device, Authentication Will Fail. You Can Reset The Screen To Re-test."
+        );
+        sensorMapHints.put(
+                COMPASS,
+                "If You Are Not Getting Expected Results, Try Re-calibrating The Device In Settings."
         );
 
 

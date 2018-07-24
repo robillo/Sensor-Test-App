@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.test_activity.wifi_test_fragment.WifiTestFragment">
+    tools:context=".view.test_activity.tests.wifi_test_fragment.WifiTestFragment">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

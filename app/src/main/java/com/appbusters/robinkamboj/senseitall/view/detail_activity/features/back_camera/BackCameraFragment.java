@@ -1,21 +1,18 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera;
 
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.FeatureFragment;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.SensorFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.back_camera_test_fragment.BackCamTestInterface;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestInterface;
 
 import butterknife.ButterKnife;
 
