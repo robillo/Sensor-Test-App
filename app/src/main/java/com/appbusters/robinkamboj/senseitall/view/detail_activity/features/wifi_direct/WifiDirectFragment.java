@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.av_test;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi_direct;
 
 
 import android.os.Bundle;
@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.FeatureFragment;
 
 import butterknife.ButterKnife;
@@ -18,10 +16,10 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class JackFragment extends FeatureFragment implements JackInterface {
+public class WifiDirectFragment extends FeatureFragment implements WifiDirectInterface {
 
 
-    public JackFragment() {
+    public WifiDirectFragment() {
         // Required empty public constructor
     }
 
@@ -30,7 +28,7 @@ public class JackFragment extends FeatureFragment implements JackInterface {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_jack, container, false);
+        View v = inflater.inflate(R.layout.fragment_wifi_direct, container, false);
         setup(v);
         return v;
     }
@@ -55,3 +53,5 @@ public class JackFragment extends FeatureFragment implements JackInterface {
 
     }
 }
+
+
