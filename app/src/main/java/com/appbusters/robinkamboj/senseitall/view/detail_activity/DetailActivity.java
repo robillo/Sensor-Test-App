@@ -29,8 +29,20 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.vibra
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi.WifiFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.gravity_sensor.GravityFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.gyroscope_sensor.GyroscopeFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.heart_rate_sensor.HeartRateFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.humidity_sensor.HumidityFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.light_sensor.LightFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.linear_accn_sensor.LinearAccelerationFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.mag_field_sensor.MagneticFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.motion_detector.MotionDetectFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.pressure_sensor.PressureFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proximity_sensor.ProximityFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.rotn_vector_sensor.RotationFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.stationary_detector.StationaryDetectFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.step_counter.StepCountFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.step_detector.StepDetectFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.temperature_sensor.TemperatureFragment;
 import com.bumptech.glide.Glide;
 
 import butterknife.BindView;
@@ -57,8 +69,20 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GYROSCOPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_HEART_RATE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LINEAR_ACCELERATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_MAGNETIC_FIELD;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_MOTION_DETECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PRESSURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_RELATIVE_HUMIDITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ROTATION_VECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STATIONARY_DETECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_COUNTER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_DETECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_TEMPERATURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
@@ -211,6 +235,54 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case SENSOR_GRAVITY: {
                 transaction.add(R.id.container, new GravityFragment()).commit();
+                break;
+            }
+            case SENSOR_TEMPERATURE: {
+                transaction.add(R.id.container, new TemperatureFragment()).commit();
+                break;
+            }
+            case SENSOR_PRESSURE: {
+                transaction.add(R.id.container, new PressureFragment()).commit();
+                break;
+            }
+            case SENSOR_RELATIVE_HUMIDITY: {
+                transaction.add(R.id.container, new HumidityFragment()).commit();
+                break;
+            }
+            case SENSOR_GYROSCOPE: {
+                transaction.add(R.id.container, new GyroscopeFragment()).commit();
+                break;
+            }
+            case SENSOR_LINEAR_ACCELERATION: {
+                transaction.add(R.id.container, new LinearAccelerationFragment()).commit();
+                break;
+            }
+            case SENSOR_ROTATION_VECTOR: {
+                transaction.add(R.id.container, new RotationFragment()).commit();
+                break;
+            }
+            case SENSOR_MAGNETIC_FIELD: {
+                transaction.add(R.id.container, new MagneticFragment()).commit();
+                break;
+            }
+            case SENSOR_HEART_RATE: {
+                transaction.add(R.id.container, new HeartRateFragment()).commit();
+                break;
+            }
+            case SENSOR_STEP_DETECTOR: {
+                transaction.add(R.id.container, new StepDetectFragment()).commit();
+                break;
+            }
+            case SENSOR_STEP_COUNTER: {
+                transaction.add(R.id.container, new StepCountFragment()).commit();
+                break;
+            }
+            case SENSOR_MOTION_DETECTOR: {
+                transaction.add(R.id.container, new MotionDetectFragment()).commit();
+                break;
+            }
+            case SENSOR_STATIONARY_DETECTOR: {
+                transaction.add(R.id.container, new StationaryDetectFragment()).commit();
                 break;
             }
         }
