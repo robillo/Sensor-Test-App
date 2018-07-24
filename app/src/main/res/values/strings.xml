@@ -337,4 +337,1400 @@ Firmware techniques for use case handling.\n\n</item>
         <item>https://4.bp.blogspot.com/-tDBug2ayUOc/W1R6A1u-LrI/AAAAAAAACQE/lyiPkXjsJQUcoOwi0YT1XBTmXH1vRVcAQCK4BGAYYCw/s1600/capacitive.jpg</item>
     </string-array>
 
+    <string-array name="accelerometer_headers">
+        <item>Introduction</item>
+        <item>Purpose</item>
+        <item>Characteristics</item>
+        <item>How It Works</item>
+    </string-array>
+
+    <string-array name="accelerometer_descriptions">
+        <item>An accelerometer is a sensor which measures the tilting motion and orientation of a mobile phone.\n\n
+
+The Apple iPhone was the first popular mobile phone to make the accelerometer a key feature of its user interface.\n\n
+
+The accelerometer is used to ensure photographs are presented in the correct way - portrait or landscape - depending on the way the phone is held.\n\n
+
+Accelerometers are also increasingly used as a means of user input, most noticeably in games where tilting and rotating the handset can control onscreen action.\n\n</item>
+        <item>The application of accelerometers extends to multiple disciplines, both academic and consumer-driven. For example, accelerometers in laptops protect hard drives from damage. If the laptop were to suddenly drop while in use, the accelerometer would detect the sudden free fall and immediately turn off the hard drive to avoid hitting the reading heads into the hard drive platter.\n\n
+
+            Without this, the two would strike and cause scratches to the platter for extensive file and reading damage. Accelerometers are likewise used in cars as the industry method way of detecting car crashes and deploying airbags almost instantaneously.\n\n
+
+In another example, a dynamic accelerometer measures gravitational pull to determine the angle at which a device is tilted with respect to the Earth. By sensing the amount of acceleration, users analyze how the device is moving.\n\n
+
+Accelerometers allow the user to understand the surroundings of an item better. With this small device, you can determine if an object is moving uphill, whether it will fall over if it tilts any more, or whether it’s flying horizontally or angling downward. For example, smartphones rotate their display between portrait and landscape mode depending on how you tilt the phone.\n\n</item>
+        <item>It changes/adjusts the screen to proper viewing, when user changes the orientation from horizontal/landscape to vertical/portrait and vice-versa.\n\n
+
+It interacts or controls the racing games (motion sensitive) by changing the direction or steer of the racing vehicle.\n\n
+
+It helps the user to mute the phone/device in case of incoming call or when music is played, just by turning the device facing downward.\n\n
+
+It makes web-browsing and photo viewing better by changing the orientation.\n\n
+
+Accelerometer is also used in many devices like laptop for detecting drops. Whenever any drop is detected, it signals the hard disk\'s heads and they are parked or stopped to avoid the data losses. Hence for data security, accelerometer plays an important role.\n\n</item>
+        <item>An accelerator looks like a simple circuit for some larger electronic device. Despite its humble appearance, the accelerometer consists of many different parts and works in many ways, two of which are the piezoelectric effect and the capacitance sensor.\n\n
+
+            The piezoelectric effect is the most common form of accelerometer and uses microscopic crystal structures that become stressed due to accelerative forces. These crystals create a voltage from the stress, and the accelerometer interprets the voltage to determine velocity and orientation.\n\n
+
+The capacitance accelerometer senses changes in capacitance between microstructures located next to the device. If an accelerative force moves one of these structures, the capacitance will change and the accelerometer will translate that capacitance to voltage for interpretation.\n\n
+
+Accelerometers are made up of many different components, and can be purchased as a separate device. Analog and digital displays are available, though for most technology devices, these components are integrated into the main technology and accessed using the governing software or operating system.\n\n</item>
+    </string-array>
+
+    <string-array name="accelerometer_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="light_headers">
+        <item>Introduction</item>
+        <item>Principle</item>
+        <item>Technology</item>
+        <item>Purpose</item>
+    </string-array>
+
+    <string-array name="light_descriptions">
+        <item>An ambient light sensor is a component in mobile devices, notebooks, automotive displays and LCD TVs.\n\n
+            It is used to sense the amount of light in a room, and appropriately dim the screen to match it. The international unit of ambient light is luminance (lux).\n\n
+        </item>
+        <item>The pupils of your eye dilate when the light entering it is dimmed.\n\n
+            Just like electronic devices, if the brightness is too bright, our eyes will respond appropriately.\n\n
+            In a smart-phone an ambient light sensor can be used for brightness adjustment, which saves energy and can also prolong the lifetime of the battery.\n\n</item>
+        <item>The current technology of ambient light sensors is equivalent to the light sensitivity of human beings.\n\n
+            Ambient light sensors are able to divide into three fields; photo transistor, photo diode and the optical IC which is integrated with the amplifier.\n\n</item>
+        <item>If a TV has a built-in ambient light sensor, it will adjust the brightness of TV making it clearer and more brilliant, and improving the good picture quality.\n\n
+            An ambient light sensor works like human eyes, to identify the ambient light and control the light source of display accordingly.\n\n
+While using a smart phone in the day or bright light, if the light is detected by ambient light sensor to be higher, the back-light of smart phone will decrease in brightness.\n\n
+            Conversely, the back-light will be stronger while using the smart phone at night..\n\n
+            The power consumption of the back-light effects the battery endurance. The power consumption of a smart phone is around 300 mW ~ 400 mW.\n\n
+            If the screen of a smart phone displays for long time, the power consumption is higher so the battery endurance will be reduced. Smart-phones with built-in ambient light sensors are able to reduce this issue.\n\n</item>
+    </string-array>
+
+    <string-array name="light_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="camera_headers">
+        <item>Introduction</item>
+        <item>Technology</item>
+        <item>Images</item>
+        <item>MMS</item>
+    </string-array>
+
+    <string-array name="camera_descriptions">
+        <item>Most camera phones are simpler than separate digital cameras. Their usual fixed-focus lenses and smaller sensors limit their performance in poor lighting.\n\n
+
+            Lacking a physical shutter, some have a long shutter lag. Photo-flash is typically provided by an LED source which illuminates less intensely over a much longer exposure time than a bright and near-instantaneous flash strobe.\n\n
+
+            Optical zoom and tripod screws are rare and none has a hot shoe for attaching an external flash. Some also lack a USB connection or a removable memory card. Most have Bluetooth and WiFi, and can make geo-tagged photographs.\n\n
+
+            Some of the more expensive camera phones have only a few of these technical disadvantages, but with bigger image sensors (a few are up to 1), their capabilities approach those of low-end point-and-shoot cameras.\n\n
+
+            In the smartphone era, the steady sales increase of camera phones caused point-and-shoot camera sales to peak about 2010 and decline thereafter. Most model lines improve their cameras every year or two.\n\n
+
+Most modern smartphones only have a menu choice to start a camera application program and an on-screen button to activate the shutter. Some also have a separate camera button, for quickness and convenience. A few camera phones are designed to resemble separate low-end digital compact cameras in appearance and to some degree in features and picture quality, and are branded as both mobile phones and cameras.\n\n
+
+The principal advantages of camera phones are cost and compactness; indeed for a user who carries a mobile phone anyway, the addition is negligible.\n\n
+
+            Smartphones that are camera phones may run mobile applications to add capabilities such as geotagging and image stitching. Also, smartphones can use their touch screens to direct their camera to focus on a particular object in the field of view, giving even an inexperienced user a degree of focus control exceeded only by seasoned photographers using manual focus.\n\n
+
+            However, the touch screen, being a general purpose control, lacks the agility of a separate camera\'s dedicated buttons and dial(s).\n\n</item>
+        <item>Nearly all camera phones use CMOS image sensors, due to largely reduced power consumption compared to CCD type cameras, which are also used, but in few camera phones. Some of camera phones even use more expensive Backside Illuminated CMOS which uses energy lesser than CMOS, although more expensive than CMOS and CCD.\n\n
+
+        As camera phone technology has progressed over the years, the lens design has evolved from a simple double Gauss or Cooke triplet to many molded plastic aspheric lens elements made with varying dispersion and refractive indexes. The latest generation of phone cameras also apply distortion (optics), vignetting, and various optical aberration corrections to the image before it is compressed into a .jpeg format.\n\n
+
+        Most camera phones have a digital zoom feature. A few have optical zoom. An external camera can be added, coupled wirelessly to the phone by Wi-Fi. They are compatible with most smartphones.\n\n</item>
+        <item>Images are usually saved in the JPEG file format, except for some high-end camera phones which have also RAW feature and the Android 5.0 Lollipop has facility of it. Windows Phones can be configured to operate as a camera even if the phone is asleep. An external flash can be employed, to improve performance.\n\n
+
+Phones usually store pictures and video in a directory called /DCIM in the internal memory. Some can store this media in external memory (Secure digital card or USB on the go pen drive).\n\n</item>
+        <item>Camera phones can share pictures almost instantly and automatically via a sharing infrastructure integrated with the carrier network. Early developers including Philippe Kahn envisioned a technology that would enable service providers to \"collect a fee every time anyone snaps a photo\".\n\n
+
+            The resulting technologies, Multimedia Messaging Service and Sha-Mail, were developed parallel to and in competition to open Internet-based mobile communication provided by GPRS and later 3G networks.\n\n
+
+The first commercial camera phone complete with infrastructure was the J-SH04, made by Sharp Corporation; it had an integrated CCD sensor, with the Sha-Mail (Picture-Mail in Japanese) infrastructure developed in collaboration with Kahn\'s LightSurf venture, and marketed from 2001 by J-Phone in Japan today owned by Softbank.\n\n
+
+            The first commercial deployment in North America of camera phones was in 2004. The Sprint wireless carriers deployed over one million camera phone manufactured by Sanyo and launched by the PictureMail infrastructure (Sha-Mail in English) developed and managed by LightSurf.\n\n
+
+While early phones had Internet connectivity, working web browsers and email-programs, the phone menu offered no way of including a photo in an email or uploading it to a web site.\n\n
+
+            Connecting cables or removable media that would enable the local transfer of pictures were also usually missing. Modern smartphones have almost unlimited connectivity and transfer options with photograph attachment features.\n\n</item>
+    </string-array>
+
+    <string-array name="camera_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="gps_headers">
+        <item>Introduction</item>
+        <item>History</item>
+        <item>Basic Concepts</item>
+        <item>Structure</item>
+    </string-array>
+
+    <string-array name="gps_descriptions">
+        <item>The Global Positioning System (GPS), originally Navstar GPS, is a satellite-based radionavigation system owned by the United States government and operated by the United States Air Force.\n\n
+
+            It is a global navigation satellite system that provides geolocation and time information to a GPS receiver anywhere on or near the Earth where there is an unobstructed line of sight to four or more GPS satellites.Obstacles such as mountains and buildings block the relatively weak GPS signals.\n\n
+
+The GPS does not require the user to transmit any data, and it operates independently of any telephonic or internet reception, though these technologies can enhance the usefulness of the GPS positioning information.\n\n
+
+            The GPS provides critical positioning capabilities to military, civil, and commercial users around the world. The United States government created the system, maintains it, and makes it freely accessible to anyone with a GPS receiver.\n\n</item>
+        <item>The GPS project was launched in the United States in 1973 to overcome the limitations of previous navigation systems, integrating ideas from several predecessors, including a number of classified engineering design studies from the 1960s. The U.S. Department of Defense developed the system, which originally used 24 satellites.\n\n
+
+            It was initially developed for use by the United States military and became fully operational in 1995. Civilian use was allowed from the 1980s. Roger L. Easton of the Naval Research Laboratory, Ivan A. Getting of The Aerospace Corporation, and Bradford Parkinson of the Applied Physics Laboratory are credited with inventing it.\n\n
+
+The design of GPS is based partly on similar ground-based radio-navigation systems, such as LORAN and the Decca Navigator, developed in the early 1940s.\n\n</item>
+        <item>The GPS concept is based on time and the known position of GPS specialized satellites. The satellites carry very stable atomic clocks that are synchronized with one another and with the ground clocks.\n\n
+
+            Any drift from true time maintained on the ground is corrected daily. In the same manner, the satellite locations are known with great precision. GPS receivers have clocks as well, but they are less stable and less precise.\n\n
+
+GPS satellites continuously transmit data about their current time and position. A GPS receiver monitors multiple satellites and solves equations to determine the precise position of the receiver and its deviation from true time.\n\n
+
+            At a minimum, four satellites must be in view of the receiver for it to compute four unknown quantities (three position coordinates and clock deviation from satellite time).\n\n</item>
+        <item>The current GPS consists of three major segments. These are the space segment, a control segment, and a user segment. The U.S. Air Force develops, maintains, and operates the space and control segments.\n\n
+
+            GPS satellites broadcast signals from space, and each GPS receiver uses these signals to calculate its three-dimensional location (latitude, longitude, and altitude) and the current time\n\n
+
+        The space segment (SS) is composed of 24 to 32 satellites in medium Earth orbit and also includes the payload adapters to the boosters required to launch them into orbit.\n\n
+
+        The control segment (CS) is composed of:\n\n
+
+a master control station (MCS),\n
+an alternative master control station,\n
+four dedicated ground antennas, and\n
+six dedicated monitor stations.\n\n
+
+        The user segment (US) is composed of hundreds of thousands of U.S. and allied military users of the secure GPS Precise Positioning Service, and tens of millions of civil, commercial and scientific users of the Standard Positioning Service (see GPS navigation devices).\n\n</item>
+    </string-array>
+
+    <string-array name="gps_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="flash_headers">
+        <item>Introduction</item>
+        <item>Drawbacks</item>
+        <item>Flash Duration</item>
+        <item>Flash LED In Phones</item>
+    </string-array>
+
+    <string-array name="flash_descriptions">
+        <item>A flash is a device used in photography producing a flash of artificial light (typically 1/1000 to 1/200 of a second) at a color temperature of about 5500 K to help illuminate a scene.\n\n
+
+            A major purpose of a flash is to illuminate a dark scene. Other uses are capturing quickly moving objects or changing the quality of light.\n\n
+
+            Flash refers either to the flash of light itself or to the electronic flash unit discharging the light. Most current flash units are electronic, having evolved from single-use flashbulbs and flammable powders. Modern cameras often activate flash units automatically.\n\n
+
+Flash units are commonly built directly into a camera. Some cameras allow separate flash units to be mounted via a standardized \"accessory mount\" bracket (a hot shoe). In professional studio equipment, flashes may be large, standalone units, or studio strobes, powered by special battery packs or connected to mains power.\n\n
+
+            They are either synchronized with the camera using a flash synchronization cable or radio signal, or are light-triggered, meaning that only one flash unit needs to be synchronized with the camera, and in turn triggers the other units, called slaves.\n\n</item>
+        <item>Using on-camera flash will give a very harsh light, which results in a loss of shadows in the image, because the only lightsource is in practically the same place as the camera.\n\n
+
+            Balancing the flash power and ambient lighting or using off-camera flash can help overcome these issues. Using an umbrella or softbox (the flash will have to be off-camera for this) makes softer shadows.\n\n
+
+A typical problem with cameras using built-in flash units is the low intensity of the flash; the level of light produced will often not suffice for good pictures at distances of over 3 metres (10 ft) or so.\n\n
+
+            Dark, murky pictures with excessive image noise or \"grain\" will result. In order to get good flash pictures with simple cameras, it is important not to exceed the recommended distance for flash pictures.\n\n
+
+            Larger flashes, especially studio units and monoblocks, have sufficient power for larger distances, even through an umbrella, and can even be used against sunlight at short distances.\n\n
+
+Cameras which automatically flash in low light conditions often do not take into account the distance to the subject, causing them to fire even when the subject is several tens of metres away and unaffected by the flash.\n\n
+
+            In crowds at sports matches, concerts and so on, the stands or the auditorium can be a constant sea of flashes, resulting in distraction to the performers or players and providing absolutely no benefit to the \'photographers\'.\n\n
+
+The \"red-eye effect\" is another problem with on camera and ring flash units. Since the retina of the human eye reflects red light straight back in the direction it came from, pictures taken from straight in front of a face often exhibit this effect.\n\n
+
+            It can be somewhat reduced by using the \"red eye reduction\" found on many cameras (a pre-flash that makes the subject\'s irises contract). However, very good results can be obtained only with a flash unit that is separated from the camera, sufficiently far from the optical axis, or by using bounce flash, where the flash head is angled to bounce light off a wall, ceiling or reflector.\n\n</item>
+        <item>Flash duration is commonly described by two numbers that are expressed in fractions of a second:\n\n
+
+t.1 is the length of time the light intensity is above 0.1 (10%) of the peak intensity\n
+t.5 is the length of time the light intensity is above 0.5 (50%) of the peak intensity\n\n
+
+For example, a single flash event might have a t.5 value of 1/1200 and t.1 of 1/450. These values determine the ability of a flash to \"freeze\" moving subjects in applications such as sports photography.\n\n
+
+In cases where intensity is controlled by capacitor discharge time, t.5 and t.1 decrease with decreasing intensity. Conversely, in cases where intensity is controlled by capacitor charge, t.5 and t.1 increase with decreasing intensity due to the non-linearity of the capacitor\'s discharge curve.\n\n</item>
+        <item>High-current flash LEDs are used as flash sources in camera phones, although they are not yet at the power levels to equal xenon flash devices (that are rarely used in phones) in still cameras.\n\n
+
+            The major advantages of LEDs over xenon include low voltage operation, higher efficiency, and extreme miniaturization. The LED flash can also be used for illumination of video recordings or as an autofocus assist lamp in low-light conditions.\n\n</item>
+    </string-array>
+
+    <string-array name="flash_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="multi_touch_headers">
+        <item>Introduction</item>
+        <item>Definition</item>
+        <item>Brands And Manufacturers</item>
+        <item>Implementations</item>
+    </string-array>
+
+    <string-array name="multi_touch_descriptions">
+        <item>In computing, multi-touch is technology that enables a surface (a trackpad or touchscreen) to recognize the presence of more than one or more than two points of contact with the surface.\n\n
+
+            The origins of multitouch began at CERN, MIT, University of Toronto, Carnegie Mellon University and Bell Labs in the 1970s. Multi-touch was in use as early as 1985. Apple popularized the term \"multi-touch\" in 2007. Plural-point awareness may be used to implement additional functionality, such as pinch to zoom or to activate certain subroutines attached to predefined gestures.\n\n
+
+The two different uses of the term resulted from the quick developments in this field, and many companies using the term to market older technology which is called gesture-enhanced single-touch or several other terms by other companies and researchers.\n\n
+
+            Several other similar or related terms attempt to differentiate between whether a device can exactly determine or only approximate the location of different points of contact to further differentiate between the various technological capabilities, but they are often used as synonyms in marketing.\n\n</item>
+        <item>In computing, multi-touch is technology which enables a trackpad or touchscreen to recognize more than one or more than two points of contact with the surface.\n\n
+
+            Apple popularized the term \"multi-touch\" in 2007 with which it implemented additional functionality, such as pinch to zoom or to activate certain subroutines attached to predefined gestures.\n\n
+
+The two different uses of the term resulted from the quick developments in this field, and many companies using the term to market older technology which is called gesture-enhanced single-touch or several other terms by other companies and researchers.\n\n
+
+            Several other similar or related terms attempt to differentiate between whether a device can exactly determine or only approximate the location of different points of contact to further differentiate between the various technological capabilities, but they are often used as synonyms in marketing\n\n</item>
+        <item>Apple has retailed and distributed numerous products using multi-touch technology, most prominently including its iPhone smartphone and iPad tablet.\n\n
+
+            Additionally, Apple also holds several patents related to the implementation of multi-touch in user interfaces, however the legitimacy of some patents has been disputed. Apple additionally attempted to register \"Multi-touch\" as a trademark in the United States—however its request was denied by the United States Patent and Trademark Office because it considered the term generic.\n\n
+
+Multi-touch sensing and processing occurs via an ASIC sensor that is attached to the touch surface. Usually, separate companies make the ASIC and screen that combine into a touch screen; conversely, a trackpad\'s surface and ASIC are usually manufactured by the same company.\n\n
+
+            There have been large companies in recent years that have expanded into the growing multi-touch industry, with systems designed for everything from the casual user to multinational organizations.\n\n
+
+It is now common for laptop manufacturers to include multi-touch trackpads on their laptops, and tablet computers respond to touch input rather than traditional stylus input and it is supported by many recent operating systems.\n\n</item>
+        <item>Multi-touch has been implemented in several different ways, depending on the size and type of interface. The most popular form are mobile devices, tablets, touchtables and walls. Both touchtables and touch walls project an image through acrylic or glass, and then back-light the image with LEDs.\n\n
+
+Touch surfaces can also be made pressure-sensitive by the addition of a pressure-sensitive coating that flexes differently depending on how firmly it is pressed, altering the reflection.\n\n
+
+Handheld technologies use a panel that carries an electrical charge. When a finger touches the screen, the touch disrupts the panel\'s electrical field. The disruption is registered as a computer event (gesture) and may be sent to the software, which may then initiates a response to the gesture event.\n\n
+
+In the past few years, several companies have released products that use multi-touch. In an attempt to make the expensive technology more accessible, hobbyists have also published methods of constructing DIY touchscreens.\n\n</item>
+    </string-array>
+
+    <string-array name="multi_touch_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="fingerprint_headers">
+        <item>Fingerprint</item>
+        <item>Fingerprint Recognition</item>
+        <item>Fingerprint Processing</item>
+        <item>Fingerprint Recognition In Electronic Devices</item>
+    </string-array>
+
+    <string-array name="fingerprint_descriptions">
+        <item>A fingerprint in its narrow sense is an impression left by the friction ridges of a human finger.[1] The recovery of fingerprints from a crime scene is an important method of forensic science.\n\n
+
+            Fingerprints are easily deposited on suitable surfaces (such as glass or metal or polished stone) by the natural secretions of sweat from the eccrine glands that are present in epidermal ridges. These are sometimes referred to as \"Chanced Impressions\".\n\n
+
+In a wider use of the term, fingerprints are the traces of an impression from the friction ridges of any part of a human or other primate hand. A print from the sole of the foot can also leave an impression of friction ridges.\n\n
+
+Deliberate impressions of fingerprints may be formed by ink or other substances transferred from the peaks of friction ridges on the skin to a relatively smooth surface such as a fingerprint card.\n\n
+
+            Fingerprint records normally contain impressions from the pad on the last joint of fingers and thumbs, although fingerprint cards also typically record portions of lower joint areas of the fingers.\n\n</item>
+        <item>Fingerprint authentication refers to the automated method of verifying a match between two human fingerprints. Fingerprints are one of many forms of biometrics used to identify individuals and verify their identity.\n\n
+
+The analysis of fingerprints for matching purposes generally requires the comparison of several features of the print pattern. These include patterns, which are aggregate characteristics of ridges, and minutia points, which are unique features found within the patterns.\n\n
+
+            It is also necessary to know the structure and properties of human skin in order to successfully employ some of the imaging technologies.\n\n
+
+The three basic patterns of fingerprint ridges are the arch, loop, and whorl:\n\n
+
+arch: The ridges enter from one side of the finger, rise in the center forming an arc, and then exit the other side of the finger.\n
+loop: The ridges enter from one side of a finger, form a curve, and then exit on that same side.\n
+whorl: Ridges form circularly around a central point on the finger.\n\n
+Scientists have found that family members often share the same general fingerprint patterns, leading to the belief that these patterns are inherited.\n\n</item>
+        <item>Fingerprint processing has three primary functions: enrollment, searching and verification. Among these functions, enrollment which captures fingerprint image from the sensor plays an important role.\n\n
+
+            A reason is that the way people put their fingerprints on a mirror to scan can affect to the result in the searching and verifying process.\n\n
+
+            Regarding to verification function, there are several techniques to match fingerprints such as correlation-based matching, minutiae-based matching, ridge feature-based matching and minutiae-based algorithm.\n\n
+
+            However, the most popular algorithm was minutiae based matching algorithm due to its efficiency and accuracy.\n\n</item>
+        <item>Two of the first smartphone manufacturers to integrate fingerprint recognition into their phones were Motorola with the Atrix 4G in 2011, and Apple with the iPhone 5S on 10 September 2013.\n\n
+
+            One month after, HTC launched the One Max, which also included fingerprint recognition. In April 2014, Samsung released the Galaxy S5, which integrated a fingerprint sensor on the home button.\n\n
+
+Since December 2015, cheaper smartphones with fingerprint recognition have been released, such as the $100 UMI Fair. Samsung also recently introduced fingerprint sensors to its mid-range A-series smartphones.\n\n
+
+On 25 September 2015 with iPhone 6s, two years after introduction of its first fingerprint scanner in the iPhone 5S, Apple introduced a new generation fingerprint scanner claiming faster response times. In August 2016, OPPO claimed 0,22s response time in its Oppo F1\'s model.\n\n
+
+Hewlett Packard, Asus, Huawei, Lenovo and Apple are using fingerprint reader in their laptops. Synaptics says the SecurePad sensor is now available for OEMs to start building into their laptops.\n\n</item>
+    </string-array>
+
+    <string-array name="fingerprint_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="screen_headers">
+        <item>Introduction</item>
+        <item>TFT-LCD Displays</item>
+        <item>AMOLED Displays</item>
+        <item>Super AMOLED/AMOLED Plus</item>
+    </string-array>
+
+    <string-array name="screen_descriptions">
+        <item>Mobile phones have progressed dramatically since the days their displays needed only to show you the number of the person calling. Once we added text messaging and even email, we need a bit more space to see what we\'d written.\n\n
+
+We added colour to give them a bit more interest. When we started adding cameras to the phones, we wanted the screens to be sharper, so we could see the terrible, pixelated VGA photos we\'d taken.\n\n
+
+Once the ability to store video arrived, we needed them to be smooth, with good refresh rates.\n\n
+
+In the era of touchscreen smartphones, we expect them to be as good as computer screens, offering crisp text, vibrant images, blur-free video and enough brightness to see outdoors, all under a responsive touch layer.\n\n
+
+Predictably, several different options have arisen, especially when it comes to high-end smartphones. As a result, it can be hard to know exactly what manufacturers (and, indeed, technology sites) are talking about when they boast about Super AMOLED screens or Retina displays.\n\n
+
+So what\'s the best phone screen to go for? We\'ve rounded up all the important information about different mobile screen types below, so you\'ll know what to look out for on your next phone.\n\n</item>
+        <item>By far the most common kind of screen used on mobile phones is TFT-LCD (often just referred to as LCD, since TFT-based LCD screens are the only type used in practice). It ranges from the budget smartphones like the HTC Desire C to high-end tablets, like the Google Nexus 7.\n\n
+
+TFT-LCD stands for thin-film transistor liquid crystal display and there are many different ways of manufacturing LCD screens, so knowing that a phone is LCD doesn\'t tell you much about its quality.\n\n
+
+In practice, cheap phone screens will often display dull colours, and have narrow viewing angles, which means that if you look at them from off-centre, it becomes hard to see what\'s on-screen.\n\n
+
+High quality LCD screens will have bright, accurate colours and with visibility from just about any angle.\n\n
+
+        All LCD screens need to have a light behind them, which shines through the pixels to make them visible. As a result, they don\'t offer quite the thinness of AMOLED technology.\n\n</item>
+        <item>Active-matrix organic light-emitting diode, or AMOLED for short, is a screen technology based on organic compounds that offers high image quality in exchange for potentially very low power usage.\n\n
+
+Unlike LCD screens, AMOLED displays don\'t need a backlight - each pixel produces its own light - so phones using them can potentially be thinner.\n\n
+
+It also means that a mostly black screen will use very little electricity, and true blacks when watching videos, rather than the dark grey some LCD screens produce.\n\n
+
+However, AMOLED screens have proved costly and difficult to produce in the same numbers as LCD, a fact that led to the HTC Desire having its AMOLED screen replaced with Super-LCD halfway through its manufacturing life.\n\n
+
+AMOLED uses a different subpixel arrangement to LCD, which can result in images that don\'t appear quite as sharp.</item>
+        <item>This is a derived form of AMOLED screen that actually includes the capacitive touchscreen technology in the manufacturing process, meaning that it doesn\'t have to be overlaid later.\n\n
+
+            It offers other advantages over earlier AMOLED screens, including increased brightness and lower power usage.\n\n
+
+        A new technology first used by the Samsung Galaxy S2. The significant change is in the subpixel construction, switching to something much closer to that used by LCD, which meant sharper, clearer images.\n\n</item>
+    </string-array>
+
+    <string-array name="screen_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="compass_headers">
+        <item>Types Of Compass</item>
+        <item>Introduction</item>
+        <item>Working</item>
+    </string-array>
+
+    <string-array name="compass_descriptions">
+        <item>
+            Marine compass or a card compass - This type of compass has a needle that is fixed and a compass card that is mounted in fluid and rotates according to orientation. It is used on boats because the moving card absorbs much of the motion of a boat which makes it easier to read than a needle compass.\n\n
+
+Prismatic compass or lensatic compass - has a glass prism or a lens and a lid that has a hairline. These are used for lining up with an object whose bearing is sought. It also has compass card which rotates in the base. When the compass card stops, the required bearing is read off through the prisms or lens. Some of them have liquid as a damping mechanism while other use electromagnetic induction for the same purpose. Some also have tritium and a combination of phosphors which help to read of the compass in the dark.\n\n
+
+Base plate compass or Orienteering compass - is a liquid filled compass placed on the rectangular base made of transparent plastic so a map can be read through it. It often has a magnifying lens for map reading, some sort of light for low light conditions and a ruler. It is often used for plotting.\n\n
+
+Thumb compass - is a variant of base plate compass but smaller. It is fixed on the thumb (as its name says) which leaves one hand free.\n\n
+
+            Solid state compasses - are found in electric devices. They often have two or three magnetic field sensors from which microprocessor reads data about the orientation of the device. They can often be found in clocks, mobile phones and tablets.\n\n
+
+Qibla compass - is used by Muslims to show the direction to Mecca so they would know where to turn while praying.\n\n
+
+GPS compass - uses satellites in a geo synchronous orbit over the Earth to show exact location and direction of movement of bearer.\n\n
+
+Astrocompass - uses positions of various astronomical bodies to find true north. It is used in polar regions where magnetic compasses and gyrocompasses are unreliable. It uses current time and geographical position in the form of latitude and longitude. According to this information, it is sighted on to any astronomical object with a known position to give an extremely accurate reading.\n\n</item>
+        <item>The smartphones  have a small magnetometer built in, which can measure the Earth’s magnetic field.\n\n
+
+            This information is combined with an accelerator that acquires information regarding the phone’s position in space.\n\n
+
+            It is able to pinpoint the phone’s position from solid-state sensors within the phone that can measure their tilt and movement.\n\n
+
+            The information provided by these devices means that the compass app can display cardinal directions no matter which orientation the phone is in, according to the algorithmic software development company Sensor Platforms.\n\n</item>
+        <item>The compass is able to determine north and south due to the magnet\’s interaction with the Earth\’s magnetic field. \n\n
+
+            The cause of the magnetic field is not clearly  known, but geologists have made hypotheses regarding the phenomenon by analyzing the layers of the Earth.\n\n
+
+            The Earth is made up of an outer crust, followed by the upper mantle, the inner mantle, the outer core, and then finally the inner core at the very center.\n\n
+
+            The inner core is made up mostly of molten iron, but the very center of the inner core is under so much pressure that the molten iron is in a solid form. It is believed that the rotation of the Earth and the immense heat from the core cause the iron to move in a rotational pattern.\n\n
+
+            This rotational pattern may be the source of the magnetic field that we see on Earth. The field produced is very weak, however, which is why the needle on the compass needs to be very lightweight and on a surface with minimal friction.\n\n</item>
+    </string-array>
+
+    <string-array name="compass_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="vibrator_headers">
+        <item>Introduction</item>
+        <item>Vibrating Alert</item>
+        <item>Breakdown Possibility</item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="vibrator_descriptions">
+        <item>When mobile phones and pagers vibrate, the vibrating alert is produced by a small component that is built into the phone or pager.\n\n
+
+            Many older, non-electronic buzzers and doorbells contain a component that vibrates for the purpose of producing a sound. Tattoo machines and some types of electric engraving tools contain a mechanism that vibrates a needle or cutting tool.\n\n</item>
+        <item>A vibrating alert is a feature of communications devices to notify the user of an incoming connection. It is particularly common on mobile phones and pagers and usually supplements the ring tone.\n\n
+
+Vibrating alerts are primarily used when a user cannot hear the ring tone (a noisy environment or through hearing loss) or wants a more discreet notification. However, when the device is placed on a hard surface, it can often be as loud or louder than a ringtone. Most 21st-century mobile phones are fitted with a vibrating alert.\n\n
+
+The vibrating alert is produced by a small electric motor connected to an off-center weight.\n\n</item>
+        <item>Modern vibration motors for mobile devices have, depending on their type, a MTBF (Mean Time Between Failure) of 10.000~30.000 hours.\n\n
+So even if your phone vibrator would run 1h per day (which it doesn\'t, it\'s probably less than half, since it\'s rarely vibrating constantly), it\'s not expected to fail for 10.000 days\n\n.</item>
+    </string-array>
+
+    <string-array name="vibrator_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="av_headers">
+        <item>Introduction</item>
+        <item>Audio Connectors</item>
+        <item>Video Connectors</item>
+        <item>Phone Connectors</item>
+    </string-array>
+
+    <string-array name="av_descriptions">
+        <item>Audio connectors and video connectors are electrical connectors (or optical connectors) - plugs and sockets - for carrying audio signal and video signal.\n\n
+
+Audio interfaces and video interfaces define physical parameters and interpretation of signals. For digital audio and digital video, this can be thought of as defining the physical layer, data link layer, and most or all of the application layer.\n\n
+
+            For analog audio and analog video these functions are all represented in a single signal specification like NTSC or the direct speaker-driving signal of analog audio. Physical characteristics of the electrical or optical equipment includes the types and numbers of wires required, voltages, frequencies, optical intensity, and the physical design of the connectors.\n\n
+
+            Any data link layer details define how application data is encapsulated (for example for synchronization or error-correction). Application layer details define the actual audio or video format being transmitted, often incorporating a codecs not specific to the interface, such as PCM, MPEG-2, or the DTS Coherent Acoustics codec. In some cases, the application layer is left open; for example, HDMI contains an Ethernet channel for general data transmission.\n\n
+
+Some types of connectors are used by multiple hardware interfaces; for example, RCA connectors are defined both by the composite video and component video interfaces, but DVI is the only interface that uses the DVI connector. This means that in some cases not all components with physically compatible connectors will actually work together.\n\n
+
+Some of these connectors, and other types of connectors, are also used at radio frequency (RF) to connect a radio or television receiver to an antenna or to a cable system; RF connector applications are not further described here. Analog A/V connectors often use shielded cables to inhibit radio frequency interference (RFI) and noise.\n\n</item>
+        <item>Audio connectors are used for audio frequencies. They can be analog or digital.\n\n
+
+Single-wire connectors used frequently for analog audio include:\n\n
+
+Banana connectors\n
+Spade connectors\n
+Five-way binding posts and banana plugs for loudspeakers\n
+Fahnestock clips on early breadboard radio receivers.\n
+Euroblock \"European-style terminal block\" or \"Phoenix connectors\", screw terminal connectors used for audio and control signals\n\n
+
+        A phone connector (tip, ring, sleeve) also called an audio jack, phone plug, jack plug, stereo plug, mini-jack, or mini-stereo. This includes the original 6.35mm (quarter inch) jack and the more recent 3.5mm (miniature or 1/8 inch) and 2.5mm (subminiature) jacks, both mono and stereo versions.\n\n
+        </item>
+        <item>Video connectors carry only video signals. Common video-only connectors include:\n\n
+
+Component video aka YPbPr (3 RCA or BNC; or D-Terminal)\n
+Composite video (1 RCA, Antenna socket, or BNC)\n
+DB13W3 (\"13W3\" computer video connector)\n
+DMS-59, single connector carrying two DVI and two VGA\n
+Musa, British connector used in broadcasting and telecommunications\n
+PAL connector, common in Europe as an antenna connector\n
+S-Video (1 Mini-DIN)\n
+SDI - Broadcast grade digital interface over BNC cables\n
+VGA connector A type of D-sub connector standard on most video cards\n\n</item>
+        <item>A phone connector, also known as phone jack, audio jack, headphone jack or jack plug, is a family of electrical connectors typically used for analog audio signals.\n\n
+
+The phone connector was invented for use in telephone switchboards in the 19th century and is still widely used.\n\n
+
+The phone connector is cylindrical in shape, with a grooved tip to retain it. In its original audio configuration, it typically has two, three, four and, occasionally, five contacts.\n\n
+
+            Three-contact versions are known as TRS connectors, where T stands for \"tip\", R stands for \"ring\" and S stands for \"sleeve\". Ring contacts are typically the same diameter as the sleeve, the long shank.\n\n
+
+            Similarly, two-, four- and five- contact versions are called TS, TRRS and TRRRS connectors respectively. The outside diameter of the \"sleeve\" conductor is 1⁄4 inch (6.35 millimetres). The \"mini\" connector has a diameter of 3.5 mm (0.14 in) and the \"sub-mini\" connector has a diameter of 2.5 mm (0.098 in).\n\n</item>
+    </string-array>
+
+    <string-array name="av_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="battery_headers">
+        <item>Introduction</item>
+        <item>Lithium Polymer (Li-Poly) Batteries</item>
+        <item>Lithium Ion (Li-Ion) Batteries</item>
+        <item>Usage Patterns</item>
+    </string-array>
+
+    <string-array name="battery_descriptions">
+        <item><b>Battery is one of the most important parts of a mobile phone or a tablet as this is what keeps the device mobile.</b>\n\n
+
+        Mobile phones and tablets these days come with different types of batteries and it is their quality that decides how much energy they can store and hence how long the device can be operated with a single charge.
+
+There are also limitations on size and weight as a big battery would make the device heavy and bulky, which is not a comfortable option. So, designers work on basically three parameters of a battery - chemical composition, size, and weight.
+
+In terms of chemical composition, there are only two types of batteries used in modern cell phones Lithium Polymer and Lithium Ion.
+</item>
+        <item>Li-Poly is the latest and most advanced technology for cell phone batteries. This makes the batteries ultra-lightweight, they do not suffer from memory effect and will deliver up to 40 per cent more battery capacity than a Nickel Metal Hybrid (NiMH) (one that you use in your camera) of the same size.\n\n
+
+        \"Memory effect\" happens when rechargeable batteries are not fully discharged between charge cycles; as a result the battery \"remembers\" the shortened cycle and is thus reduces its capacity. Devices like Blackberry PlayBook, Samsung Galaxy S3 use this type of battery.\n\n</item>
+        <item>This is the older and most popular technology for cell phone batteries. The only real drawback of Lithium Ion cell phone batteries is that they are expensive. However, they have higher energy density compared to Li-Polymer.\n\n
+
+Both Li-ion and Li Polymer batteries have the same chemical composition but the difference lies in their tendency to overheat. Because of this, Lithium Ion batteries have an active protection circuit—essentially an onboard computer—that prevents the battery from overheating and potentially bursting into flame.\n\n
+
+Lithium polymer batteries do not need the active protection circuit, which is why it is possible to manufacture them in sizes as small as a credit card.\n\n</item>
+        <item>Another feature that distinguishes different batteries is its usage pattern - replaceable and non-replaceable.\n\n
+
+In case of non-replaceable battery, it is called a Li-ion pouch cell which is a sealed bag containing carefully layered anode and cathode sheets, with separators between them. All of these layers are infused with a liquid electrolyte.\n\n
+
+At one end of the battery, a printed circuit board (PCB) is connected to the positive and negative terminals of each cell that provides active protection against short circuits, overcharge, and forced discharge.\n\n
+
+            Li-ion pouch cells tend to be fragile and rely on the smartphone case for protection, and so officially are not user-replaceable. This basically reduces the need for a separate battery casing which is the case with user replaceable batteries. Please note that these casing constitute most of the volume of the battery.\n\n
+
+Circuits also determine how much power can be stored. Ever since Li-Ion technology came into being in early nineties, a lot of work has gone into the making of better electronic circuit to manage the battery and thereby squeezing more energy into the same battery.\n\n</item>
+    </string-array>
+
+    <string-array name="battery_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="bluetooth_headers">
+        <item>Introduction</item>
+        <item>How Does It Work?</item>
+        <item>Technical Details</item>
+        <item>Low Power, Low Speed</item>
+    </string-array>
+
+    <string-array name="bluetooth_descriptions">
+        <item>Bluetooth is a short-range, wireless networking standard used by mobile phones and other peripherals.\n\n
+
+You can use Bluetooth to connect your mobile phone wirelessly to a Bluetooth headset or to transfer data back and forth with a Bluetooth-equipped computer.\n\n
+
+Bluetooth transfer speeds depend on the version of Bluetooth being used:\n\n
+
+Bluetooth 1.2: 1.2 Mbit/s\n
+Bluetooth 2.0 + EDR (Extended Data Rate): 3 Mbit/s\n
+The exact functionality of a Bluetooth device is dictated by the Bluetooth Profile embedded into it. For instance, the Apple iPhone doesn\'t include the profile needed for data transfer to and from the phone - so its Bluetooth functionality is limited to connecting to headsets.\n\n</item>
+        <item>To understand how a Bluetooth connection works, we need an example of the wireless technology being used, so let’s take a phone connected to wireless speaker. First, each device is equipped with Bluetooth connectivity, a feature that requires both software and hardware components. On the hardware side, an antenna-equipped chip in both devices sends and receives signals at a specific frequency. The software interprets incoming Bluetooth signals and sends them out in ways other devices can read and understand. In the case of the wireless speaker, the phone will know how to send audio files and information in a format that the speaker understands, while the speaker can interpret these signals–as well as other indicators such as volume and track controls–from the phone.\n\n
+
+When two devices are equipped with Bluetooth, usually one of them will to be set to be discoverable, meaning it’ll show up in a list of Bluetooth devices in the area on your phone or other controlling device. Using our example, the wireless speaker would be discoverable, and it will end up being controlled by a Bluetooth-equipped phone or remote. The speaker, or any Bluetooth accessory, sends out a signal with a little bit of information to alert other nearby devices of its presence and capabilities. You tell your phone to connect, and the two devices form a personal area network, or piconet.\n\n
+
+From this point on, the two devices know to connect with each other based on the unique address within their respective signals. No matter what other signals come in on wavelengths in which those devices operate, they will always detect, read, and send the correct signals. Bluetooth signals have a limited range, which prevents massive amounts of conflicting data covering huge areas and interrupting communication between other devices. In other words, your speaker will always know that you’re the one who is trying to listen to Nickelback, even if it doesn’t know how to criticize you for it.\n\n</item>
+        <item>According to the Bluetooth website, the technology \“operates in the unlicensed industrial, scientific and medical (ISM) band at 2.4 to 2.485GHz, using a spread spectrum, frequency hopping, full-duplex signal at a nominal rate of 1600 hops/sec\”. If you fell asleep part way through that, let\’s break it down to find out exactly how your headset knows to pick up calls from your phone.\n\n
+
+Bluetooth chips produce wavelengths that are bound to frequencies operating within a range specifically set aside for this sort of short-range communication. Other devices you might find that use this frequency include cordless telephones and baby monitors. However, there is an issue with always using the same frequency. Other devices operating at the same, or close, frequencies can cause interruptions in the signal.\n\n
+
+To prevent this from being an issue, the signal is spread out over a wider range of frequencies. In order to achieve this, the signal hops around the frequency, and in the case of Bluetooth that happens about 1600 times per second. The frequent change in wavelength means that even a consistent signal won\’t interrupt, and won\’t be interrupted, for longer than 1/1600th of a second.\n\n
+
+Bluetooth headsets can sync up in two different ways, using a full or part duplex connection. A full-duplex signal means that all connected devices are able to send and receive signals – in this case a two-way conversation – simultaneously, as opposed to a half-duplex signal, like a walkie-talkie, where each side can still talk and listen, just not both at the same time.\n\n</item>
+        <item>Bluetooth has evolved to be a perfect mobile connectivity option, because it doesn\’t take much energy, and the signal isn\’t broadcast for miles. Minimum standards require that Bluetooth chips have at least 10 meters (about 30 feet) of range unless they\’re being used in closed circumstances. Even industrial uses of Bluetooth typically don’t have a range greater than 300 feet. The data transfer speed of Bluetooth isn’t particularly high, so while uses like streaming music or talking on the phone are fine, transferring larger amounts of data would take far too long to be practical. The low power consumption is also important when Bluetooth is used in our mobile devices, where the last thing we need is something else draining our precious battery.\n\n
+
+In addition, Bluetooth 4.0 brought a new low power option that allows wireless objects to operate for long periods of time, even on the smallest of batteries. This enables all sorts of useful devices to be incorporated into the Internet of Things, from showerheads to ovens to countertops. These kinds of connections are part of the work being done to create greater connectivity between everyday objects, and the already heavily-used Bluetooth protocol will surely be a part of that movement. The newest version of the protocol, 4.1, also enables greater communication alongside powerful wireless connections like LTE, further increasing the versatility of Bluetooth and connected devices.\n\n</item>
+    </string-array>
+
+    <string-array name="bluetooth_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="wifi_headers">
+        <item>Definition</item>
+        <item>WiFi In Mobile Phones</item>
+        <item>Some Issues</item>
+        <item>Using Your Phone Over Wi-Fi</item>
+        <item>How It Works</item>
+    </string-array>
+
+    <string-array name="wifi_descriptions">
+        <item>Wi-Fi, which is a trademark of the Wi-Fi Alliance, is short for wireless fidelity. Wi-Fi\’s origins can be traced back to an FCC ruling in 1985.\n\n
+
+A device with Wi-Fi can wirelessly connect to the internet when it’s in a range of a wireless router that is hardwired to the internet. Wi-Fi-enabled devices can include:\n\n
+
+Mobile phones\n
+Personal computers\n
+Video game consoles\n
+Home appliances (lightbulbs, stereos systems, TVs)\n\n</item>
+        <item>Some mobile phones are Wi-Fi enabled and some are not. When a mobile phone has embedded Wi-Fi technology, the handset can access the Internet through a nearby wireless router. In doing so, the Wi-Fi-enabled mobile phone circumvents a cell phone carrier\’s network and is not charged or counted for data usage. Wi-Fi cannot replace a voice call with mobile phones.\n\n
+
+A Wi-Fi-enabled mobile phone can link to a wireless router at your home, a coffee shop, a business or anywhere with an active wireless router. Wi-Fi connections in airports, hotels, bars, coffee shops and more are traditionally called hot spots. Some Wi-Fi hotspots are free and some cost money. To establish a Wi-Fi connection between a mobile phone and a wireless router, it is very likely that login credentials (i.e. a password) will be required.\n\n
+
+Mobile phones use different technologies (such as GSM with T-Mobile or CDMA with Sprint). Wi-Fi, on the other hand, is a global standard. Unlike with mobile phones, any Wi-Fi device will work anywhere in the world.\n\n</item>
+        <item>Wi-Fi requires high power consumption when used with mobile devices. As mobile phones perform more and more tasks by the day, Wi-Fi can be an energy drain for such handsets. \n\n
+
+            Wi-Fi networks have a limited range; a traditional wireless router using the 802.11b or 802.11g standard with a regular antenna can work within a range of 120 feet indoors to 300 feet outdoors.\n\n</item>
+        <item>Wi-Fi is a wireless internet connection that you can use to connect devices like phones to the internet. Most home broadband routers have Wi-Fi connections, and many public places like cafes and libraries offer them too.\n\n
+
+If you\'re connected using Wi-Fi we won\'t charge you for using data as it means you\'re not connected to the internet over our network. If you\’re using it on a home broadband Wi-Fi, you should contact your internet provider to find out about any potential data allowances you have with them.\n\n
+
+If you don\’t have all-you-can-eat data and you\’re worried about going over your data allowance, you might want to use Wi-Fi to connect to the internet on your phone if you\'re doing things that use a lot of data, like downloading large app or phone operating system updates.\n\n
+
+When you\’re connected to Wi-Fi, your calls and texts still go over our network, but data use goes through your Wi-Fi connection rather than our network. This means that using data while connected to Wi-Fi won\’t come out of your data allowance. It also means that you can’t connect to certain secure services on our network, like your My3 account. To use My3, you’ll need to turn off your Wi-Fi connection in your phone’s settings.\n\n</item>
+        <item>
+When you make a call on a WiFi phone, you dial the number of the person you want to call, just like you would with a cell phone. If you\'re calling another VoIP user, you may enter a VoIP address instead of a phone number, depending on the service provider\'s requirements.\n\n
+
+The phone translates the number you dial into packets of data. It uses radio waves to transmit the packets to a wireless receiver. The receiver passes the information over the Internet to the call processor like an ordinary VoIP call. When you begin your conversation, the phone transmits your voice in packets of data as well. Your voice travels just like it does in a VoIP call, although the specifics can differ from one provider to another.\m\m
+
+            Many of these phones use a specific WiFi service or network. For example, Netgear makes a WiFi phone for Skype service, and UTStarcom makes a WiFi phone for Vonage service. In order to use either of these phones, you need to have an account with that provider, just like you need a service plan from a cell phone provider to use a particular phone. Either you or your service provider will configure the phone to work within the network.\n\n
+
+Other phones work with a protocol rather than a particular network or provider. For example, ZyXEL and Linksys both make WiFi phones that use Session Initiation Protocol (SIP). SIP is one of several VoIP protocols — you can find out more about them at Protocols.com. After setting up a SIP phone, you can make calls simply by entering the other party\'s SIP address and pressing \"Send.\"\n\n
+
+SIP is an open protocol. Anyone can use it, and anyone who has a SIP address can contact anyone else who has one for free. SIP is a standard protocol for handling voice data, and many VoIP providers use it, even though they maintain a closed network. It can also control other forms of communication, like instant messaging and video conferencing.\n\n
+
+Eventually, SIP will probably make communications tools interoperable. In other words, your computer, phone, PDA and other communications tools could all share the same address book and communicate with one another.\n\n
+        </item>
+    </string-array>
+
+    <string-array name="wifi_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="sound_headers">
+        <item>Introduction</item>
+        <item>How Are Speakers Tiny Yet Loud?</item>
+        <item>Speaker Placement</item>
+        <item>Audio Software And Hardware</item>
+    </string-array>
+
+    <string-array name="sound_descriptions">
+        <item>Speakers and phones have developed hand-in-hand for over 150 years. The first speakers were used in telephone receivers, shortly afterwards they branched off into sound reinforcement and grew larger and more powerful.\n\n
+
+In the 1980s and 90s things came full circle. Modern mobile phones have two speakers. One, still called a receiver, is in the earpiece. The second is for sound reinforcement, for things like ringtones, music playback and hands-free calling.\n\n
+
+Micro speakers try to bridge the gap, aiming to produce room-filling sound from a tiny volume. What began with a move to play better polyphonic ringtones has now grown towards using a cell phone instead of a home stereo. These speakers are caught between two opposing trends, more output power and smaller size. As these trends accelerate, speaker designers are starting to look for new and innovative ways to get the best possible sound.\n\n
+
+Modern micro speakers have a permanent magnet and a voice coil that is attached to a diaphragm that pushes the air to create sound. The entire speaker is enclosed in protective box that provides the \"back volume\" for the speaker to push against and project the sound from the speaker.\n\n</item>
+        <item>Mobile speakers aren\'t especially loud. My phone puts out about as many decibels at maximum volume as my regular speakers do at 30-40% of maximum.\n\n
+
+            But there\'s a difference between actual loudness and perceived loudness. Mobile speakers feel loud because they produce only high frequencies. (Your ear fills in some of the low-frequency information by inference from its higher overtones.) \n\n
+
+            High frequency sound is shrill and attention-grabbing. When sounds get attenuated by distance or obstacles, the high frequencies are the first to get filtered out. So when all the high frequencies are present, our brain thinks we\'re hearing something at full blast.\n\n</item>
+        <item>It\'s a remarkably common quirk of handset speaker placement that people who hold their phones in their right hand seem to suffer more from muffled speakers than lefties - wherever on the phone they\'re placed - so daft as it sounds, try switching hands.\n\n
+
+By the same token, those of us who use a protective case for our phones should check those aren\'t covering the speakers - most are designed to account for them, but it\'s surprising how many aren\'t.\n\n
+
+Phones with front facing speakers have the advantage here because whether we\'re watching videos, gaming, or streaming music, the speakers are probably going to be facing us - but beware covering one or both with a thumb while gaming or watching videos.\n\n
+
+A phone with a rear facing speaker is always going to present a challenge when we want to see the screen at the same time - but when that\'s not an issue, it\'s simplicity itself: rest the phone on its front, or so the speaker is pointing towards you to get the best sound.\n\n</item>
+        <item>Sound is a very physical thing - soundwaves are vibrations, after all - but those vibrations are the result of digital signals being processed, and the audio processing software used by a manufacturer can make a big difference to the sound quality.\n\n
+
+Some phone manufacturers put a lot of time and effort into their audio software, not just thinking about how it\'ll work when pumping the signal through the headphone jack, but how to make it work with the phone\'s speakers - which they\'ll probably have taken some considerable care in designing.\n\n
+
+Expect to find such manufacturers paying attention to trying to provide a better balance between frequencies - or giving us the ability to adjust them, at least, in the form of accessible global equalizers and other audio settings.\n\n
+
+They may also invest in higher bitrate processors and digital to analogue converters (DACs); while there are plenty of perfectly serviceable and very well regarded DACs made by chipset makers, some phones feature DACs made by dedicated audio companies like Bang and Olufsen.\n\n
+
+If we\'re determined to listen to audio via a phone\'s internal speakers, there\'s not much we can do in this regard, other than look for a handset made by one of the manufacturers that puts in this kind of effort - Apple, HTC, and Sony are known for their attention to audio, and the newer LG handsets feature better than standard processors.\n\n</item>
+    </string-array>
+
+    <string-array name="sound_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="gyroscope_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="gyroscope_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="gyroscope_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="gravity_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="gravity_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="gravity_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="linear_acceleration_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="linear_acceleration_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="linear_acceleration_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="rotation_vector_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="rotation_vector_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="rotation_vector_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="magnetic_field_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="magnetic_field_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="magnetic_field_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="step_detector_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="step_detector_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="step_detector_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="step_counter_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="step_counter_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="step_counter_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="ambient_temperature_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="ambient_temperature_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="ambient_temperature_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="pressure_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="pressure_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="pressure_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="relative_humidity_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="relative_humidity_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="relative_humidity_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="heart_rate_ecg_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="heart_rate_ecg_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="heart_rate_ecg_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="midi_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="midi_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="midi_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="web_view_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="web_view_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="web_view_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="vr_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="vr_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="vr_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="fake_touch_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="fake_touch_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="fake_touch_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="wifi_direct_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="wifi_direct_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="wifi_direct_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="barometer_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="barometer_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="barometer_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="usb_accessory_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="usb_accessory_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="usb_accessory_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="microphone_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="microphone_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="microphone_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="nfc_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="nfc_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="nfc_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="infrared_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="infrared_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="infrared_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="android_os_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="android_os_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="android_os_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="cpu_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="cpu_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="cpu_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="radio_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="radio_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="radio_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="gsm_umts_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="gsm_umts_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="gsm_umts_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="motion_detector_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="motion_detector_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="motion_detector_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+
+    <string-array name="stationary_detector_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="stationary_detector_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="stationary_detector_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
 </resources>

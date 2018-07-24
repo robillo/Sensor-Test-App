@@ -147,99 +147,99 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
                 break;
             }
             case SENSOR_ACCELEROMETER: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.accelerometer_headers);
+                descriptions = getResources().getStringArray(R.array.accelerometer_descriptions);
+                images = getResources().getStringArray(R.array.accelerometer_images);
                 break;
             }
             case SENSOR_LIGHT: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.light_headers);
+                descriptions = getResources().getStringArray(R.array.light_descriptions);
+                images = getResources().getStringArray(R.array.light_images);
                 break;
             }
             case BACK_CAMERA: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.camera_headers);
+                descriptions = getResources().getStringArray(R.array.camera_descriptions);
+                images = getResources().getStringArray(R.array.camera_images);
                 break;
             }
             case FRONT_CAMERA: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.camera_headers);
+                descriptions = getResources().getStringArray(R.array.camera_descriptions);
+                images = getResources().getStringArray(R.array.camera_images);
                 break;
             }
             case GPS_LOCATION: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.gps_headers);
+                descriptions = getResources().getStringArray(R.array.gps_descriptions);
+                images = getResources().getStringArray(R.array.gps_images);
                 break;
             }
             case FLASH: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.flash_headers);
+                descriptions = getResources().getStringArray(R.array.flash_descriptions);
+                images = getResources().getStringArray(R.array.flash_images);
                 break;
             }
             case MULTI_TOUCH: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.multi_touch_headers);
+                descriptions = getResources().getStringArray(R.array.multi_touch_descriptions);
+                images = getResources().getStringArray(R.array.multi_touch_images);
                 break;
             }
             case FINGERPRINT: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.fingerprint_headers);
+                descriptions = getResources().getStringArray(R.array.fingerprint_descriptions);
+                images = getResources().getStringArray(R.array.fingerprint_images);
                 break;
             }
             case SCREEN: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.screen_headers);
+                descriptions = getResources().getStringArray(R.array.screen_descriptions);
+                images = getResources().getStringArray(R.array.screen_images);
                 break;
             }
             case COMPASS: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.compass_headers);
+                descriptions = getResources().getStringArray(R.array.compass_descriptions);
+                images = getResources().getStringArray(R.array.compass_images);
                 break;
             }
             case VIBRATOR: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.vibrator_headers);
+                descriptions = getResources().getStringArray(R.array.vibrator_descriptions);
+                images = getResources().getStringArray(R.array.vibrator_images);
                 break;
             }
             case AV_OUTPUTS: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.av_headers);
+                descriptions = getResources().getStringArray(R.array.av_descriptions);
+                images = getResources().getStringArray(R.array.av_images);
                 break;
             }
             case BATTERY: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.battery_headers);
+                descriptions = getResources().getStringArray(R.array.battery_descriptions);
+                images = getResources().getStringArray(R.array.battery_images);
                 break;
             }
             case BLUETOOTH: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.bluetooth_headers);
+                descriptions = getResources().getStringArray(R.array.bluetooth_descriptions);
+                images = getResources().getStringArray(R.array.bluetooth_images);
                 break;
             }
             case WIFI: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.wifi_headers);
+                descriptions = getResources().getStringArray(R.array.wifi_descriptions);
+                images = getResources().getStringArray(R.array.wifi_images);
                 break;
             }
             case SOUND: {
-                headers = getResources().getStringArray(R.array.proximity_headers);
-                descriptions = getResources().getStringArray(R.array.proximity_descriptions);
-                images = getResources().getStringArray(R.array.proximity_images);
+                headers = getResources().getStringArray(R.array.sound_headers);
+                descriptions = getResources().getStringArray(R.array.sound_descriptions);
+                images = getResources().getStringArray(R.array.sound_images);
                 break;
             }
         }

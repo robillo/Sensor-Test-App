@@ -81,7 +81,6 @@ public class AppConstants {
     public static final String SCREEN_TEST = "Screen Test";
     public static final String LIGHT_TEST = "Light Sensor Test";
     public static final String COMPASS_TEST = "Compass Test";
-    public static final String GRAVITY_TEST = "Gravity Sensor Test";
 
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
