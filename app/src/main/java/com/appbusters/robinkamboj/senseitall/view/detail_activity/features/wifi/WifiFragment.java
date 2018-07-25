@@ -1,6 +1,8 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi;
 
 
+import android.content.Context;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -20,6 +22,8 @@ import butterknife.ButterKnife;
  */
 public class WifiFragment extends FeatureFragment implements WifiInterface {
 
+    private WifiManager wifiManager;
+
     public WifiFragment() {
         // Required empty public constructor
     }
@@ -38,26 +42,33 @@ public class WifiFragment extends FeatureFragment implements WifiInterface {
     public void setup(View v) {
         ButterKnife.bind(this, v);
         initializeSensor();
-//        if(sensor == null) {
-//            Toast.makeText(getActivity(), "Failed to load sensor.", Toast.LENGTH_SHORT).show();
-//            if(getActivity() != null) getActivity().onBackPressed();
-//        }
-//        else {
-//            showSensorDetails();
-//        }
 
         hideGoToTestIfNoTest();
 
         setupAbout();
+
+        showSensorDetails();
     }
 
     @Override
     public void initializeSensor() {
+        if(getActivity() == null) return;
 
+        wifiManager = (WifiManager) getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     }
 
     @Override
     public void initializeBasicInformation() {
-
+        if(wifiManager != null) {
+            addToDetailsList(sensorDetails, "Wi-Fi State", String.valueOf(wifiManager.getWifiState()));
+            addToDetailsList(sensorDetails, "Is 5GHz Band Supported", String.valueOf(wifiManager.is5GHzBandSupported()));
+            addToDetailsList(sensorDetails, "Is Device-To-AP RTT Supported", String.valueOf(wifiManager.isDeviceToApRttSupported()));
+            addToDetailsList(sensorDetails, "Is Enhanced Power Reportig Supported", String.valueOf(wifiManager.isEnhancedPowerReportingSupported()));
+            addToDetailsList(sensorDetails, "Is P2P Supported", String.valueOf(wifiManager.isP2pSupported()));
+            addToDetailsList(sensorDetails, "Is Preferred Network Offload Sopported", String.valueOf(wifiManager.isPreferredNetworkOffloadSupported()));
+            addToDetailsList(sensorDetails, "Is Scan Always Available", String.valueOf(wifiManager.isScanAlwaysAvailable()));
+            addToDetailsList(sensorDetails, "Is TDLS Supported", String.valueOf(wifiManager.isTdlsSupported()));
+            addToDetailsList(sensorDetails, "Is Wi-Fi Enabled", String.valueOf(wifiManager.isWifiEnabled()));
+        }
     }
 }

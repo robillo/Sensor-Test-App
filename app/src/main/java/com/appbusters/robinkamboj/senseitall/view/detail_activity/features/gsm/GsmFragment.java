@@ -64,7 +64,6 @@ public class GsmFragment extends FeatureFragment implements GsmInterface {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             addToDetailsList(sensorDetails, "IMEI", telephonyManager.getImei());
-            addToDetailsList(sensorDetails, "IMEI ID", telephonyManager.getMeid());
             addToDetailsList(sensorDetails, "Network Specifier", telephonyManager.getNetworkSpecifier());
             addToDetailsList(sensorDetails, "Voice Mail Package Name", telephonyManager.getVisualVoicemailPackageName());
         }
@@ -73,7 +72,6 @@ public class GsmFragment extends FeatureFragment implements GsmInterface {
             addToDetailsList(sensorDetails, "Phone Count", String.valueOf(telephonyManager.getPhoneCount()));
         }
         addToDetailsList(sensorDetails, "Device Software Version", telephonyManager.getDeviceSoftwareVersion());
-        addToDetailsList(sensorDetails, "Group ID Level", telephonyManager.getGroupIdLevel1());
         addToDetailsList(sensorDetails, "MMS UA Profile URL", telephonyManager.getMmsUAProfUrl());
         addToDetailsList(sensorDetails, "MMS User Agent", telephonyManager.getMmsUserAgent());
         addToDetailsList(sensorDetails, "Network Country ISO", telephonyManager.getNetworkCountryIso());
