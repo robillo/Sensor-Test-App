@@ -38,6 +38,9 @@ public class BasicInformationAdapter extends RecyclerView.Adapter<BasicInformati
 
     @Override
     public void onBindViewHolder(@NonNull BasicInfoHolder holder, int position) {
+        if(list.get(position).getKey().length() == 0) holder.key.setVisibility(View.GONE);
+        else holder.key.setVisibility(View.VISIBLE);
+
         holder.key.setText(list.get(position).getKey());
         holder.value.setText(list.get(position).getValue());
     }

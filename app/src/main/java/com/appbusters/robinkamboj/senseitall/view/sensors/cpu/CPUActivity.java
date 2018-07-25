@@ -14,7 +14,6 @@ import java.io.InputStream;
 
 public class CPUActivity extends AppCompatActivity {
 
-    String sensor_name, results[];
     TextView textView, cpu_all;
 
     ProcessBuilder processBuilder;
@@ -22,12 +21,7 @@ public class CPUActivity extends AppCompatActivity {
     String[] DATA = {"/system/bin/cat", "/proc/cpuinfo", "/proc/partitions"};
     InputStream inputStream;
     Process process ;
-    byte[] byteArry ;
-
-    TextView memory_size, memory_free, memory_used,
-             internal_size, internal_free, internal_used,
-            external_size, external_free, external_used,
-             storage_size, partition_size1, partition_size2, partition_size3, partition_size4, partition_size5;
+    byte[] byteArry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
