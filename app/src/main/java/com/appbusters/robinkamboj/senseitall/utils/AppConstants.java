@@ -224,7 +224,6 @@ public class AppConstants {
         featureNames.add(AV_OUTPUTS);
         featureNames.add(ANDROID_OS);
         featureNames.add(FLASH);
-        featureNames.add(INFRARED);
         featureNames.add(MULTI_TOUCH);
         featureNames.add(FINGERPRINT);
         featureNames.add(NFC);
@@ -234,6 +233,7 @@ public class AppConstants {
         featureNames.add(HEART_RATE_ECG);
         featureNames.add(FAKE_TOUCH);
         featureNames.add(MIDI);
+//        featureNames.add(INFRARED);
 //        featureNames.add(VR_MODE);
 //        featureNames.add(WIFI_DIRECT);
 //        featureNames.add(WEB_VIEW);
