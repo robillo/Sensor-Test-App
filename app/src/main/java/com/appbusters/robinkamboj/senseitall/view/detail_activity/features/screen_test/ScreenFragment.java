@@ -25,7 +25,6 @@ import butterknife.ButterKnife;
  */
 public class ScreenFragment extends FeatureFragment implements ScreenInterface {
 
-    private int screenWidth = 0, screenHeight = 0, dpHeight = 0, dpWidth = 0;
     private DisplayMetrics displayMetrics;
 
     public ScreenFragment() {
