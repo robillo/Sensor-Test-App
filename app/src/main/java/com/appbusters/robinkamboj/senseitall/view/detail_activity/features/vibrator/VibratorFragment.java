@@ -47,6 +47,8 @@ public class VibratorFragment extends FeatureFragment implements VibratorInterfa
         hideGoToTestIfNoTest();
 
         setupAbout();
+
+        showSensorDetails();
     }
 
     @Override
