@@ -1,6 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.bluetooth;
 
 
+import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothAdapter;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -21,6 +24,8 @@ import butterknife.ButterKnife;
  */
 public class BluetoothFragment extends FeatureFragment implements BluetoothInterface {
 
+    private BluetoothAdapter bluetoothAdapter;
+
     public BluetoothFragment() {
         // Required empty public constructor
     }
@@ -38,26 +43,38 @@ public class BluetoothFragment extends FeatureFragment implements BluetoothInter
     public void setup(View v) {
         ButterKnife.bind(this, v);
         initializeSensor();
-//        if(sensor == null) {
-//            Toast.makeText(getActivity(), "Failed to load sensor.", Toast.LENGTH_SHORT).show();
-//            if(getActivity() != null) getActivity().onBackPressed();
-//        }
-//        else {
-//            showSensorDetails();
-//        }
 
         hideGoToTestIfNoTest();
 
         setupAbout();
+
+        showSensorDetails();
     }
 
     @Override
     public void initializeSensor() {
-
+        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
+    @SuppressLint("HardwareIds")
     @Override
     public void initializeBasicInformation() {
-
+        if(bluetoothAdapter != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            addToDetailsList(sensorDetails, "Is LE 2M PHY Feature Supported", String.valueOf(bluetoothAdapter.isLe2MPhySupported()));
+            addToDetailsList(sensorDetails, "Is LE CODED PHY Feature Supported", String.valueOf(bluetoothAdapter.isLeCodedPhySupported()));
+            addToDetailsList(sensorDetails, "Is Extended Advertising Feature Supported", String.valueOf(bluetoothAdapter.isLeExtendedAdvertisingSupported()));
+            addToDetailsList(sensorDetails, "Is Periodic Advertising Feature Supported", String.valueOf(bluetoothAdapter.isLePeriodicAdvertisingSupported()));
+        }
+            addToDetailsList(sensorDetails, "Name", bluetoothAdapter.getName());
+            addToDetailsList(sensorDetails, "Address", bluetoothAdapter.getAddress());
+            addToDetailsList(sensorDetails, "Bluetooth LE Scanner", String.valueOf(bluetoothAdapter.getBluetoothLeScanner()));
+            addToDetailsList(sensorDetails, "Bluetooth LE Advertiser", String.valueOf(bluetoothAdapter.getBluetoothLeAdvertiser()));
+            addToDetailsList(sensorDetails, "Is Enabled", String.valueOf(bluetoothAdapter.isEnabled()));
+            addToDetailsList(sensorDetails, "Is Discovering", String.valueOf(bluetoothAdapter.isDiscovering()));
+            addToDetailsList(sensorDetails, "Is Multiple Advertising Supported", String.valueOf(bluetoothAdapter.isMultipleAdvertisementSupported()));
+            addToDetailsList(sensorDetails, "Is Offloaded Filtering Supported", String.valueOf(bluetoothAdapter.isOffloadedFilteringSupported()));
+            addToDetailsList(sensorDetails, "Is Offloaded Scan Batching Supported", String.valueOf(bluetoothAdapter.isOffloadedScanBatchingSupported()));
+        }
     }
 }
