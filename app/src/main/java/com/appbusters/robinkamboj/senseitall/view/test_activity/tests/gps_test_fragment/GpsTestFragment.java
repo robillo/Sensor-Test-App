@@ -44,7 +44,6 @@ public class GpsTestFragment extends Fragment implements
     private GoogleMap mMap;
     private GoogleApiClient googleApiClient;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private LocationRequest mLocationRequest;
 
     SupportMapFragment mapFragment;
 
@@ -132,7 +131,9 @@ public class GpsTestFragment extends Fragment implements
         checkLocationAndAddToMap();
     }
 
+    @SuppressWarnings("FieldCanBeLocal")
     private long UPDATE_INTERVAL = 10 * 1000;  /* 10 secs */
+    @SuppressWarnings("FieldCanBeLocal")
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
 
     @SuppressLint("MissingPermission")
@@ -143,7 +144,7 @@ public class GpsTestFragment extends Fragment implements
         //Fetching the last known location using the Fus
 
         // Create the location request to start receiving updates
-        mLocationRequest = new LocationRequest();
+        LocationRequest mLocationRequest = new LocationRequest();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         mLocationRequest.setInterval(UPDATE_INTERVAL);
         mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
