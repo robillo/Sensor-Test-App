@@ -20,7 +20,6 @@ import butterknife.ButterKnife;
  */
 public class VrFragment extends FeatureFragment implements VrInterface {
 
-
     public VrFragment() {
         // Required empty public constructor
     }

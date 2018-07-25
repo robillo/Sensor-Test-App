@@ -231,11 +231,11 @@ public class AppConstants {
         featureNames.add(MICROPHONE);
         featureNames.add(USB_ACCESSORY);
         featureNames.add(BAROMETER);
-        featureNames.add(WIFI_DIRECT);
         featureNames.add(HEART_RATE_ECG);
         featureNames.add(FAKE_TOUCH);
         featureNames.add(MIDI);
-        featureNames.add(VR_MODE);
+//        featureNames.add(VR_MODE);
+//        featureNames.add(WIFI_DIRECT);
 //        featureNames.add(WEB_VIEW);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);

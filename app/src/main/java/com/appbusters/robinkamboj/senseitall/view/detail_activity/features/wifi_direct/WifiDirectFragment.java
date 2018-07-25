@@ -1,6 +1,10 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi_direct;
 
 
+import android.content.Context;
+import android.net.wifi.p2p.WifiP2pConfig;
+import android.net.wifi.p2p.WifiP2pDevice;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -18,6 +22,7 @@ import butterknife.ButterKnife;
  */
 public class WifiDirectFragment extends FeatureFragment implements WifiDirectInterface {
 
+//    private WifiP2pManager wifiManager;
 
     public WifiDirectFragment() {
         // Required empty public constructor
@@ -45,11 +50,14 @@ public class WifiDirectFragment extends FeatureFragment implements WifiDirectInt
 
     @Override
     public void initializeSensor() {
+//        if(getActivity() == null) return;
 
+//        wifiManager = (WifiP2pManager) getActivity().getSystemService(Context.WIFI_P2P_SERVICE);
     }
 
     @Override
     public void initializeBasicInformation() {
+//        if(wifiManager == null) return;
 
     }
 }
