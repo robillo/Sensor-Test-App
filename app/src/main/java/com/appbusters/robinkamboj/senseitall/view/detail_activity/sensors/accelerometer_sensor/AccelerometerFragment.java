@@ -46,6 +46,8 @@ public class AccelerometerFragment extends SensorFragment implements Acceleromet
 
     @Override
     public void initializeBasicInformation() {
+        addToDetailsList(sensorDetails, "Standard Gravity", String.valueOf(SensorManager.STANDARD_GRAVITY));
+
         addToDetailsList(sensorDetails, "Vendor", sensor.getVendor());
         addToDetailsList(sensorDetails, "Resolution", String.valueOf(sensor.getResolution()));
         addToDetailsList(sensorDetails, "Minimum Delay", String.valueOf(sensor.getMinDelay()));

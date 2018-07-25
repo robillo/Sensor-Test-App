@@ -48,6 +48,9 @@ public class MagneticFragment extends SensorFragment implements MagneticFieldInt
 
     @Override
     public void initializeBasicInformation() {
+        addToDetailsList(sensorDetails, "Magnetic Field Earth Max", String.valueOf(SensorManager.MAGNETIC_FIELD_EARTH_MAX));
+        addToDetailsList(sensorDetails, "Magnetic Field Earth Min", String.valueOf(SensorManager.MAGNETIC_FIELD_EARTH_MIN));
+
         addToDetailsList(sensorDetails, "Vendor", sensor.getVendor());
         addToDetailsList(sensorDetails, "Resolution", String.valueOf(sensor.getResolution()));
         addToDetailsList(sensorDetails, "Minimum Delay", String.valueOf(sensor.getMinDelay()));

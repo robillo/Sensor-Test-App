@@ -48,6 +48,19 @@ public class GravityFragment extends SensorFragment implements GravityInterface 
 
     @Override
     public void initializeBasicInformation() {
+        addToDetailsList(sensorDetails, "Standard Gravity", String.valueOf(SensorManager.STANDARD_GRAVITY));
+        addToDetailsList(sensorDetails, "Sun's Gravity", String.valueOf(SensorManager.GRAVITY_SUN));
+        addToDetailsList(sensorDetails, "Mercury's Gravity", String.valueOf(SensorManager.GRAVITY_MERCURY));
+        addToDetailsList(sensorDetails, "Venus's Gravity", String.valueOf(SensorManager.GRAVITY_VENUS));
+        addToDetailsList(sensorDetails, "Earth's Gravity", String.valueOf(SensorManager.GRAVITY_EARTH));
+        addToDetailsList(sensorDetails, "Mars's Gravity", String.valueOf(SensorManager.GRAVITY_MARS));
+        addToDetailsList(sensorDetails, "Jupiter's Gravity", String.valueOf(SensorManager.GRAVITY_JUPITER));
+        addToDetailsList(sensorDetails, "Saturn's Gravity", String.valueOf(SensorManager.GRAVITY_SATURN));
+        addToDetailsList(sensorDetails, "Uranus's Gravity", String.valueOf(SensorManager.GRAVITY_URANUS));
+        addToDetailsList(sensorDetails, "Neptune's Gravity", String.valueOf(SensorManager.GRAVITY_NEPTUNE));
+        addToDetailsList(sensorDetails, "Pluto's Gravity", String.valueOf(SensorManager.GRAVITY_PLUTO));
+        addToDetailsList(sensorDetails, "Moon's Gravity", String.valueOf(SensorManager.GRAVITY_MOON));
+
         addToDetailsList(sensorDetails, "Vendor", sensor.getVendor());
         addToDetailsList(sensorDetails, "Resolution", String.valueOf(sensor.getResolution()));
         addToDetailsList(sensorDetails, "Minimum Delay", String.valueOf(sensor.getMinDelay()));

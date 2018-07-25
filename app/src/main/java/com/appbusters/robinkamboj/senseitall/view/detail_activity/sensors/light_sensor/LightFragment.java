@@ -19,7 +19,7 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.proxim
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LightFragment extends SensorFragment implements ProximityInterface {
+public class LightFragment extends SensorFragment implements LightInterface {
 
 
     public LightFragment() {
@@ -49,6 +49,15 @@ public class LightFragment extends SensorFragment implements ProximityInterface 
 
     @Override
     public void initializeBasicInformation() {
+        addToDetailsList(sensorDetails, "Max Sunlight Luminance", String.valueOf(SensorManager.LIGHT_SUNLIGHT_MAX));
+        addToDetailsList(sensorDetails, "Sunlight Luminance", String.valueOf(SensorManager.LIGHT_SUNLIGHT));
+        addToDetailsList(sensorDetails, "Luminance In Shade", String.valueOf(SensorManager.LIGHT_SHADE));
+        addToDetailsList(sensorDetails, "Luminance Under Overcast Sky", String.valueOf(SensorManager.LIGHT_OVERCAST));
+        addToDetailsList(sensorDetails, "Luminance Under Cloudy Sky", String.valueOf(SensorManager.LIGHT_CLOUDY));
+        addToDetailsList(sensorDetails, "Luminance At Sunrise", String.valueOf(SensorManager.LIGHT_SUNRISE));
+        addToDetailsList(sensorDetails, "Luminance During Full Moon", String.valueOf(SensorManager.LIGHT_FULLMOON));
+        addToDetailsList(sensorDetails, "Luminance During No Moon", String.valueOf(SensorManager.LIGHT_NO_MOON));
+
         addToDetailsList(sensorDetails, "Vendor", sensor.getVendor());
         addToDetailsList(sensorDetails, "Resolution", String.valueOf(sensor.getResolution()));
         addToDetailsList(sensorDetails, "Minimum Delay", String.valueOf(sensor.getMinDelay()));

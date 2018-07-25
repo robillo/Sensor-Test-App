@@ -48,6 +48,8 @@ public class PressureFragment extends SensorFragment implements PressureInterfac
 
     @Override
     public void initializeBasicInformation() {
+        addToDetailsList(sensorDetails, "Standard Pressure Atmosphere", String.valueOf(SensorManager.PRESSURE_STANDARD_ATMOSPHERE));
+
         addToDetailsList(sensorDetails, "Vendor", sensor.getVendor());
         addToDetailsList(sensorDetails, "Resolution", String.valueOf(sensor.getResolution()));
         addToDetailsList(sensorDetails, "Minimum Delay", String.valueOf(sensor.getMinDelay()));
