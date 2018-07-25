@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.features;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.compass;
 
 
 import android.content.Context;
@@ -13,10 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.FeatureFragment;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.screen_test.CompassInterface;
 
 import butterknife.ButterKnife;
 
@@ -43,6 +40,7 @@ public class CompassFragment extends FeatureFragment implements CompassInterface
     @Override
     public void setup(View v) {
         ButterKnife.bind(this, v);
+        initializeSensor();
 
         hideGoToTestIfNoTest();
 
@@ -64,6 +62,7 @@ public class CompassFragment extends FeatureFragment implements CompassInterface
 
     @Override
     public void initializeBasicInformation() {
+        if(sensor == null) return;
 
         addToDetailsList(sensorDetails, "Standard Gravity", String.valueOf(SensorManager.STANDARD_GRAVITY));
 

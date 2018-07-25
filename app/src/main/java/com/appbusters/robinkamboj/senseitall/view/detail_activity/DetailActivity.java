@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.CompassFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.compass.CompassFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.android_os.OsFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.av_test.JackFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.back_camera.BackCameraFragment;
