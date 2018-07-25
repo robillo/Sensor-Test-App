@@ -128,10 +128,10 @@ public class MainActivity extends AppCompatActivity
                 b = b && result == PackageManager.PERMISSION_GRANTED;
             }
             if(b) {
-                Toast.makeText(this, "Great! all permissions granted.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Permission(s) granted.", Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(this, "Some permissions were denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Permission(s) denied.", Toast.LENGTH_SHORT).show();
             }
         }
     }
