@@ -9,6 +9,6 @@ public interface GenericAdapterInterface {
 
     Intent returnDetailActivityIntent(Context context, GenericData data);
 
-    boolean isPermissionGranted(Context context, String sensorName);
+    boolean isPermissionGranted(Context context, String sensorName, int sensorType);
 
 }

@@ -4,6 +4,7 @@ package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.fingerpri
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
+import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,7 +12,6 @@ import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -44,7 +44,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.content.Context.FINGERPRINT_SERVICE;
 import static android.content.Context.KEYGUARD_SERVICE;
 
 /**
@@ -120,21 +119,20 @@ public class FingerprintTestFragment extends Fragment implements FingerprintTest
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
+    @SuppressLint("NewApi")
     @Override
     public void checkIfConfiguredForFingerprint() {
         if(getActivity() == null) return;
 
         KeyguardManager keyguardManager = (KeyguardManager) getActivity().getSystemService(KEYGUARD_SERVICE);
-        FingerprintManager fingerprintManager = (FingerprintManager) getActivity().getSystemService(FINGERPRINT_SERVICE);
+        FingerprintManager fingerprintManager =
+                (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         if (keyguardManager != null && !keyguardManager.isKeyguardSecure()) {
             Toast.makeText(getActivity(), R.string.security_not_enabled, Toast.LENGTH_LONG).show();
-            getActivity().onBackPressed();
         }
         if (fingerprintManager != null && !fingerprintManager.hasEnrolledFingerprints()) {
             Toast.makeText(getActivity(), R.string.no_fingerprints, Toast.LENGTH_LONG).show();
-            getActivity().onBackPressed();
         }
         else {
             generateKey();

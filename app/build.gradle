@@ -7,8 +7,8 @@ android {
         applicationId "com.appbusters.robinkamboj.senseitall"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 12
-        versionName "6.0"
+        versionCode 15
+        versionName "6.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // Enabling multi dex support.
         multiDexEnabled true
@@ -61,7 +61,6 @@ dependencies {
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     compile 'com.google.android.gms:play-services-location:15.0.1'
     compile 'com.google.android.gms:play-services-maps:15.0.1'
-    compile 'com.android.support:multidex:1.0.2'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 

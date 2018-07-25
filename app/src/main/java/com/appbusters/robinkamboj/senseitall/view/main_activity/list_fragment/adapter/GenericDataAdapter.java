@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,12 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAM
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_HEART_RATE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.diagnosticsPointer;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.reverseDiagnosticsPointer;
 
 public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.GenericViewHolder>
         implements GenericAdapterInterface {
@@ -77,7 +83,7 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
             public void onClick(View v) {
                 if(list.get(pos).isPresent()) {
 
-                    if(isPermissionGranted(context, list.get(pos).getName())) {
+                    if(isPermissionGranted(context, list.get(pos).getName(), list.get(pos).getType())) {
                         context.startActivity(returnDetailActivityIntent(context, list.get(pos)));
                         ((Activity) context)
                                 .overridePendingTransition(
@@ -106,13 +112,19 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
     }
 
     @Override
-    public boolean isPermissionGranted(Context context, String sensorName) {
+    public boolean isPermissionGranted(Context context, String sensorName, int sensorType) {
+
+        if(sensorType == TYPE_DIAGNOSTICS) {
+            sensorName = diagnosticsPointer.get(sensorName);
+        }
+
         boolean isGiven = true;
         switch (sensorName) {
             case BACK_CAMERA:
             case FRONT_CAMERA: {
-                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     isGiven = false;
+                }
                 break;
             }
             case FINGERPRINT: {
@@ -135,6 +147,7 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
                     isGiven = false;
                 break;
             }
+            case SENSOR_HEART_RATE:
             case HEART_RATE_ECG: {
                 if(ActivityCompat.checkSelfPermission(context, Manifest.permission.BODY_SENSORS) != PackageManager.PERMISSION_GRANTED)
                     isGiven = false;
@@ -143,8 +156,13 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
             case GPS_LOCATION: {
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED
-                        && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)
+                        || ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED)
+                    isGiven = false;
+                break;
+            }
+            case MICROPHONE: {
+                if(ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED)
                     isGiven = false;
                 break;
             }
