@@ -4,6 +4,7 @@ package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.fake
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
  */
 public class FakeTouchFragment extends FeatureFragment implements FakeTouchInterface {
 
+    private DisplayMetrics displayMetrics;
 
     public FakeTouchFragment() {
         // Required empty public constructor
@@ -41,16 +43,33 @@ public class FakeTouchFragment extends FeatureFragment implements FakeTouchInter
         hideGoToTestIfNoTest();
 
         setupAbout();
+
+        showSensorDetails();
     }
 
     @Override
     public void initializeSensor() {
-
+        if(getActivity() == null) return;
+        displayMetrics = getActivity().getResources().getDisplayMetrics();
     }
 
     @Override
     public void initializeBasicInformation() {
-
+        if(displayMetrics != null) {
+            addToDetailsList(sensorDetails, "Height In Pixels", String.valueOf(displayMetrics.heightPixels));
+            addToDetailsList(sensorDetails, "Width In Pixels", String.valueOf(displayMetrics.widthPixels));
+            addToDetailsList(sensorDetails, "Screen Density (Pixels)", String.valueOf(displayMetrics.density));
+            addToDetailsList(sensorDetails, "Density Per Inch (DPI)", String.valueOf(displayMetrics.densityDpi));
+            addToDetailsList(sensorDetails, "Scaled Density (SP)", String.valueOf(displayMetrics.scaledDensity));
+            addToDetailsList(sensorDetails, "Width In DPI", String.valueOf(displayMetrics.xdpi));
+            addToDetailsList(sensorDetails, "Height In DPI", String.valueOf(displayMetrics.ydpi));
+            addToDetailsList(sensorDetails, "Width In SP", String.valueOf(
+                    displayMetrics.widthPixels/displayMetrics.scaledDensity
+            ));
+            addToDetailsList(sensorDetails, "Height In SP", String.valueOf(
+                    displayMetrics.heightPixels/displayMetrics.scaledDensity
+            ));
+        }
     }
 }
 

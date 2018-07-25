@@ -234,9 +234,9 @@ public class AppConstants {
         featureNames.add(WIFI_DIRECT);
         featureNames.add(HEART_RATE_ECG);
         featureNames.add(FAKE_TOUCH);
-        featureNames.add(WEB_VIEW);
         featureNames.add(MIDI);
         featureNames.add(VR_MODE);
+//        featureNames.add(WEB_VIEW);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
         imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);

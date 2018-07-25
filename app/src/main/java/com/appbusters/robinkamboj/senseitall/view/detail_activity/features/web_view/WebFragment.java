@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.FeatureFragment;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
  */
 public class WebFragment extends FeatureFragment implements WebInterface {
 
+//    private WebView webView;
 
     public WebFragment() {
         // Required empty public constructor
@@ -45,7 +47,9 @@ public class WebFragment extends FeatureFragment implements WebInterface {
 
     @Override
     public void initializeSensor() {
+//        if(getActivity() == null) return;
 
+//        webView = new WebView(getActivity());
     }
 
     @Override

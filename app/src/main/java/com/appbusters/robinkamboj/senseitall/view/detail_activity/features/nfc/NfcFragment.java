@@ -1,6 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.nfc;
 
 
+import android.content.Context;
+import android.nfc.NfcAdapter;
+import android.nfc.NfcManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -18,6 +21,7 @@ import butterknife.ButterKnife;
  */
 public class NfcFragment extends FeatureFragment implements NfcInterface {
 
+    private NfcAdapter nfcAdapter;
 
     public NfcFragment() {
         // Required empty public constructor
@@ -41,16 +45,22 @@ public class NfcFragment extends FeatureFragment implements NfcInterface {
         hideGoToTestIfNoTest();
 
         setupAbout();
+
+        showSensorDetails();
     }
 
     @Override
     public void initializeSensor() {
-
+        if(getActivity() == null) return;
+        nfcAdapter = NfcAdapter.getDefaultAdapter(getActivity());
     }
 
     @Override
     public void initializeBasicInformation() {
+        if(nfcAdapter == null) return;
 
+        addToDetailsList(sensorDetails, "Is Enabled", String.valueOf(nfcAdapter.isEnabled()));
+        addToDetailsList(sensorDetails, "Is NDEF Push Enabled", String.valueOf(nfcAdapter.isNdefPushEnabled()));
     }
 }
 

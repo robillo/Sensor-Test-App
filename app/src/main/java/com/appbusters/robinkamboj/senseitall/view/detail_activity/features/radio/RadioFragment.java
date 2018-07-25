@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.radio;
 
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -41,6 +42,8 @@ public class RadioFragment extends FeatureFragment implements RadioInterface {
         hideGoToTestIfNoTest();
 
         setupAbout();
+
+        showSensorDetails();
     }
 
     @Override
@@ -50,7 +53,7 @@ public class RadioFragment extends FeatureFragment implements RadioInterface {
 
     @Override
     public void initializeBasicInformation() {
-
+        addToDetailsList(sensorDetails, "Radio Version", Build.getRadioVersion());
     }
 }
 
