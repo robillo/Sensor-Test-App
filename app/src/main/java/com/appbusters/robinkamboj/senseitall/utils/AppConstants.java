@@ -207,7 +207,6 @@ public class AppConstants {
         diagnosticsNames.add(FINGERPRINT_TEST);
         diagnosticsNames.add(COMPASS_TEST);
 
-
         featureNames.add(BACK_CAMERA);
         featureNames.add(FRONT_CAMERA);
         featureNames.add(GPS_LOCATION);

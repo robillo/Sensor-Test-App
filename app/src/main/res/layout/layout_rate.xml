@@ -151,10 +151,79 @@
         android:textSize="18sp"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
         android:layout_height="?android:attr/actionBarSize">
 
-    </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorMajorDark"
+                android:layout_gravity="center_vertical"
+                android:textSize="13sp"
+                android:text="Drawing Options In Screen Test"
+                android:background="@drawable/feedback_background"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:layout_margin="5sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorMajorDark"
+                android:layout_gravity="center_vertical"
+                android:textSize="13sp"
+                android:text="More Tests In Feature Category"
+                android:background="@drawable/feedback_background"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:layout_margin="5sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorMajorDark"
+                android:layout_gravity="center_vertical"
+                android:textSize="13sp"
+                android:text="Physical Buttons Test"
+                android:background="@drawable/feedback_background"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:layout_margin="5sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorMajorDark"
+                android:layout_gravity="center_vertical"
+                android:textSize="13sp"
+                android:text="Augmented Reality"
+                android:background="@drawable/feedback_background"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:layout_margin="5sp"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?android:attr/actionBarSize">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
 
 </LinearLayout>
