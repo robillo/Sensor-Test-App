@@ -116,6 +116,8 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         initialize();
 
         setTexts();
+
+        textImage.setVisibility(View.GONE);
     }
 
     @Override
@@ -442,10 +444,10 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
     public void setTexts() {
         headerText.setText(headers[currentStep].toUpperCase());
         descriptionText.setText(descriptions[currentStep]);
-        Glide.with(this)
-                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
-                .load(images[currentStep])
-                .into(textImage);
+//        Glide.with(this)
+//                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
+//                .load(images[currentStep])
+//                .into(textImage);
     }
 
     @Override
