@@ -33,7 +33,7 @@ public class WifiTestFragment extends Fragment implements WifiTestInterface {
 
     private WifiInfo wifiInfo;
     private WifiManager wifiManager;
-    private List<WifiScanInfo> wifiScanInfoItems = new ArrayList<>();
+    private List<WifiScanInfo> wifiScanInfoItems;
 
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
@@ -95,6 +95,8 @@ public class WifiTestFragment extends Fragment implements WifiTestInterface {
                     break;
                 }
             }
+
+            wifiScanInfoItems = new ArrayList<>();
 
             List<ScanResult> tempList = wifiManager.getScanResults();
             if(tempList != null && tempList.size() > 0) {

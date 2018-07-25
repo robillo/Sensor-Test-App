@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_weight="1"
-        android:id="@+id/recycler">
+        android:id="@+id/recycler"
+        android:padding="10sp">
 
     </android.support.v7.widget.RecyclerView>
 
