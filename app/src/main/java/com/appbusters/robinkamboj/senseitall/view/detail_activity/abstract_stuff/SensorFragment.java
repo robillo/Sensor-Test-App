@@ -30,6 +30,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.reverseDiagnosticsPointer;
 
 public abstract class SensorFragment extends Fragment implements SensorInterface {
 
@@ -81,7 +82,8 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
     @Override
     public void hideGoToTestIfNoTest() {
         if(getActivity() != null)
-            if(AppConstants.diagnosticsPointer.get(((DetailActivity) getActivity()).recyclerName) == null)
+            if(AppConstants.diagnosticsPointer.get(((DetailActivity) getActivity()).recyclerName) == null
+                    && reverseDiagnosticsPointer.get((((DetailActivity) getActivity()).intentData.getName())) == null)
                 goToTest.setVisibility(View.GONE);
     }
 
