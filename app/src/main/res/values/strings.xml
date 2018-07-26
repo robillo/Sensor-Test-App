@@ -248,7 +248,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="dummy_header">SAR AND YOUR BODY</string>
 
 
-    <string name="feedback_currently_under_evaluation">FEEDBACK CURRENTLY UNDER EVALUATION:</string>
+    <string name="feedback_currently_under_evaluation">Feedback Currently Under Evaluation:</string>
     <string name="your_experience">YOUR EXPERIENCE</string>
     <string name="did_you_love_the_app_experience">Did You Love The App Experience?</string>
     <string name="did_you_find_something_missing">Did You Find Something Missing?</string>

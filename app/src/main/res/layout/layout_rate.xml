@@ -5,16 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/gradient_rate"
+    android:background="@color/white"
     android:id="@+id/rate_experience_screen"
     android:visibility="gone"
     tools:visibility="visible"
     android:layout_marginBottom="?android:attr/actionBarSize">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextFour"
+        tools:ignore="ContentDescription,SmallSp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:textColor="@color/white"
+        android:textColor="@color/colorMajorDark"
         android:gravity="center"
         android:textSize="25sp"
         android:text="@string/your_experience"/>
@@ -22,7 +28,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:background="@color/colorMajorDarkLighter"
+        android:background="@color/colorTextFour"
         tools:ignore="ContentDescription,SmallSp" />
 
     <LinearLayout
@@ -43,16 +49,16 @@
                 android:layout_height="70sp"
                 tools:ignore="ContentDescription"
                 android:src="@drawable/experience"
-                android:tint="@color/white"
+                android:tint="@color/colorMajorDark"
                 android:padding="10sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/colorMajorDark"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="10sp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:text="@string/did_you_love_the_app_experience"
                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
@@ -60,29 +66,35 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
+            android:layout_height="50sp"
             tools:ignore="ContentDescription"
             android:src="@drawable/five_stars_one"
-            android:tint="@color/white"
+            android:tint="@color/colorFlashlightShade"
             android:padding="10sp"
             android:id="@+id/image_five_stars"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorMajorDark"
+            android:textColor="@color/green_shade_three"
             android:layout_gravity="center_horizontal"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:text="@string/rate_us_five_stars_text"
-            android:background="@drawable/feedback_background"
-            android:paddingLeft="25sp"
-            android:paddingRight="25sp"
+            android:background="@drawable/oval_button_green"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
             android:layout_margin="10sp"
             android:id="@+id/give_five_stars"/>
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextFour"
+        tools:ignore="ContentDescription,SmallSp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,16 +115,16 @@
                 android:layout_height="70sp"
                 tools:ignore="ContentDescription"
                 android:src="@drawable/missing"
-                android:tint="@color/white"
+                android:tint="@color/colorMajorDark"
                 android:padding="10sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/colorMajorDark"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="10sp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:text="@string/did_you_find_something_missing"
                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
@@ -121,16 +133,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorMajorDark"
+            android:textColor="@color/green_shade_three"
             android:layout_gravity="center_horizontal"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:text="@string/give_us_feedback"
-            android:background="@drawable/feedback_background"
-            android:paddingLeft="25sp"
-            android:paddingRight="25sp"
+            android:background="@drawable/oval_button_green"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
-            android:layout_margin="5sp"
+            android:layout_margin="10sp"
             android:id="@+id/give_feedback"/>
 
     </LinearLayout>
@@ -138,22 +150,23 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:background="@color/colorMajorDarkLighterLighter"
+        android:background="@color/colorTextFour"
         tools:ignore="ContentDescription,SmallSp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextTwo"
         android:text="@string/feedback_currently_under_evaluation"
         android:gravity="center_vertical|start"
-        android:paddingLeft="10sp"
-        android:textSize="18sp"
+        android:padding="10sp"
+        android:textSize="16sp"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
-        android:layout_height="?android:attr/actionBarSize">
+        android:layout_height="?android:attr/actionBarSize"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -163,11 +176,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorMajorDark"
+                android:textColor="@color/colorTextTwo"
                 android:layout_gravity="center_vertical"
                 android:textSize="13sp"
                 android:text="Augmented Reality"
-                android:background="@drawable/feedback_background"
+                android:background="@drawable/oval_button_gray"
                 android:paddingLeft="20sp"
                 android:paddingRight="20sp"
                 android:paddingTop="10sp"
@@ -177,11 +190,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorMajorDark"
+                android:textColor="@color/colorTextTwo"
                 android:layout_gravity="center_vertical"
                 android:textSize="13sp"
                 android:text="Virtual Reality"
-                android:background="@drawable/feedback_background"
+                android:background="@drawable/oval_button_gray"
                 android:paddingLeft="20sp"
                 android:paddingRight="20sp"
                 android:paddingTop="10sp"
@@ -191,11 +204,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorMajorDark"
+                android:textColor="@color/colorTextTwo"
                 android:layout_gravity="center_vertical"
                 android:textSize="13sp"
                 android:text="Physical Buttons Test"
-                android:background="@drawable/feedback_background"
+                android:background="@drawable/oval_button_gray"
                 android:paddingLeft="20sp"
                 android:paddingRight="20sp"
                 android:paddingTop="10sp"
@@ -205,11 +218,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorMajorDark"
+                android:textColor="@color/colorTextTwo"
                 android:layout_gravity="center_vertical"
                 android:textSize="13sp"
                 android:text="Drawing Options In Screen Test"
-                android:background="@drawable/feedback_background"
+                android:background="@drawable/oval_button_gray"
                 android:paddingLeft="20sp"
                 android:paddingRight="20sp"
                 android:paddingTop="10sp"
