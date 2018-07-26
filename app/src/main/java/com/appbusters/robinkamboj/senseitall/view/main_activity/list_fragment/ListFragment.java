@@ -35,7 +35,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
-import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -59,6 +58,7 @@ import static android.content.Context.CONSUMER_IR_SERVICE;
 import static android.content.Context.SENSOR_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static android.view.View.VISIBLE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_YOUR_EXPERIENCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_DEVICE_TESTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_FEATURES_LIST;
@@ -119,6 +119,18 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @BindView(R.id.highlight_rate)
     ImageView highlight_rate;
+
+    @BindView(R.id.button_tests_list)
+    ImageView buttonTestsList;
+
+    @BindView(R.id.button_sensors_list)
+    ImageView buttonSensorsList;
+
+    @BindView(R.id.button_features_list)
+    ImageView buttonFeaturesList;
+
+    @BindView(R.id.button_rate_experience)
+    ImageView buttonRateExperience;
 
     public ListFragment() {
         // Required empty public constructor
@@ -183,7 +195,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         setHeaderTextAndRv();
 
         if(listScreen.getVisibility() == View.GONE) {
-            listScreen.setVisibility(View.VISIBLE);
+            listScreen.setVisibility(VISIBLE);
             rateExperienceScreen.setVisibility(View.GONE);
         }
     }
@@ -195,7 +207,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         setHeaderTextAndRv();
 
         if(listScreen.getVisibility() == View.GONE) {
-            listScreen.setVisibility(View.VISIBLE);
+            listScreen.setVisibility(VISIBLE);
             rateExperienceScreen.setVisibility(View.GONE);
         }
     }
@@ -207,7 +219,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         setHeaderTextAndRv();
 
         if(listScreen.getVisibility() == View.GONE) {
-            listScreen.setVisibility(View.VISIBLE);
+            listScreen.setVisibility(VISIBLE);
             rateExperienceScreen.setVisibility(View.GONE);
         }
     }
@@ -220,7 +232,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
         if(rateExperienceScreen.getVisibility() == View.GONE) {
             listScreen.setVisibility(View.GONE);
-            rateExperienceScreen.setVisibility(View.VISIBLE);
+            rateExperienceScreen.setVisibility(VISIBLE);
         }
     }
 
@@ -228,14 +240,43 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void setHeaderTextAndRv() {
         togglePermissionCardVisibility();
 
+        Animation fadeIn = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_right_activity);
+        fadeIn.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                buttonTestsList.setClickable(false);
+                buttonSensorsList.setClickable(false);
+                buttonFeaturesList.setClickable(false);
+                buttonRateExperience.setClickable(false);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if(toolbar.getVisibility() == VISIBLE) toolbar.setVisibility(View.GONE);
+                rateExperienceScreen.setVisibility(VISIBLE);
+
+                buttonTestsList.setClickable(true);
+                buttonSensorsList.setClickable(true);
+                buttonFeaturesList.setClickable(true);
+                buttonRateExperience.setClickable(true);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        fadeIn.setDuration(100);
+
         String string = helper.getHeaderText();
 
         if(string.equals(RATE_YOUR_EXPERIENCE)) {
-            if(headerText.getVisibility() == View.VISIBLE) headerText.setVisibility(View.GONE);
+            if(headerText.getVisibility() == VISIBLE) headerText.setVisibility(View.GONE);
         }
         else {
             headerText.setText(string);
-            if(headerText.getVisibility() == View.GONE) headerText.setVisibility(View.VISIBLE);
+            if(headerText.getVisibility() == View.GONE) headerText.setVisibility(VISIBLE);
         }
 
         switch (string) {
@@ -258,7 +299,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 turnOnHighlight(TYPE_RATE);
                 if(rateExperienceScreen.getVisibility() == View.GONE) {
                     listScreen.setVisibility(View.GONE);
-                    rateExperienceScreen.setVisibility(View.VISIBLE);
+                    rateExperienceScreen.startAnimation(fadeIn);
                 }
                 break;
             }
@@ -319,7 +360,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         if(rejectedCount == 0)
             permissionsCard.setVisibility(View.GONE);
         else
-            permissionsCard.setVisibility(View.VISIBLE);
+            permissionsCard.setVisibility(VISIBLE);
     }
 
     @Override
@@ -333,7 +374,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE))
             permissionsCard.setVisibility(View.GONE);
         else {
-            if(rejectedCount > 0) permissionsCard.setVisibility(View.VISIBLE);
+            if(rejectedCount > 0) permissionsCard.setVisibility(VISIBLE);
             else permissionsCard.setVisibility(View.GONE);
         }
     }
@@ -345,67 +386,31 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @Override
     public void toggleToolbarVisibility(int type) {
-
-        Animation fadeIn = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_top_activity);
-        fadeIn.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                toolbar.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        Animation fadeOut = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_out_top_activity);
-        fadeOut.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                toolbar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
         switch (type) {
             case TYPE_DIAGNOSTICS: {
-                recyclerView.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(VISIBLE);
                 if(toolbar.getVisibility() == View.GONE) {
-                    toolbar.startAnimation(fadeIn);
+                    toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_FEATURES: {
-                recyclerView.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(VISIBLE);
                 if(toolbar.getVisibility() == View.GONE) {
-                    toolbar.startAnimation(fadeIn);
+                    toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_SENSORS: {
-                recyclerView.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(VISIBLE);
                 if(toolbar.getVisibility() == View.GONE) {
-                    toolbar.startAnimation(fadeIn);
+                    toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_RATE: {
                 recyclerView.setVisibility(View.GONE);
-                toolbar.startAnimation(fadeOut);
+                toolbar.setVisibility(View.GONE);
                 break;
             }
         }
