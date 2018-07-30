@@ -23,7 +23,7 @@
             app:indicator_width="15"
             app:is_continuous="false"
             app:label_color="@color/colorMajorDark"
-            app:label="CHANGE VOLUME"
+            app:label="Scroll Inside Circle To Alter Volume"
             app:main_circle_color="#FFFFFF"
             app:max="100"
             app:progress="50"
@@ -35,11 +35,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@color/red_shade_three"
         android:id="@+id/play_pause"
         android:text="@string/play"
-        android:textSize="25sp"
+        android:textSize="20sp"
+        android:padding="12sp"
         android:textColor="@color/white"
         android:gravity="center"/>
 
