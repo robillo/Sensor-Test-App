@@ -189,23 +189,25 @@ public class AppConstants {
         sensorNames.add(SENSOR_MOTION_DETECTOR);
         sensorNames.add(SENSOR_STATIONARY_DETECTOR);
 
-        diagnosticsNames.add(ACCELEROMETER_TEST);       //sensors
-        diagnosticsNames.add(LIGHT_TEST);
+        //sensors and features mixed
+
+        diagnosticsNames.add(SPEAKER_VOLUME_TEST);
+        diagnosticsNames.add(FLASH_LIGHT_TEST);
         diagnosticsNames.add(PROXIMITY_TEST);
-        diagnosticsNames.add(BACK_CAMERA_TEST);         //features
-        diagnosticsNames.add(FRONT_CAMERA_TEST);
-        diagnosticsNames.add(GPS_TEST);
-        diagnosticsNames.add(WIFI_TEST);
-        diagnosticsNames.add(BLUETOOTH_TEST);
         diagnosticsNames.add(SCREEN_TEST);
         diagnosticsNames.add(BATTERY_TEST);
-        diagnosticsNames.add(SPEAKER_VOLUME_TEST);
-        diagnosticsNames.add(VIBRATOR_TEST);
-        diagnosticsNames.add(HEADPHONE_JACK_TEST);
-        diagnosticsNames.add(FLASH_LIGHT_TEST);
-        diagnosticsNames.add(MULTI_TOUCH_TEST);
+        diagnosticsNames.add(BACK_CAMERA_TEST);
+        diagnosticsNames.add(FRONT_CAMERA_TEST);
+        diagnosticsNames.add(GPS_TEST);
         diagnosticsNames.add(FINGERPRINT_TEST);
         diagnosticsNames.add(COMPASS_TEST);
+        diagnosticsNames.add(LIGHT_TEST);
+        diagnosticsNames.add(VIBRATOR_TEST);
+        diagnosticsNames.add(MULTI_TOUCH_TEST);
+        diagnosticsNames.add(ACCELEROMETER_TEST);
+        diagnosticsNames.add(WIFI_TEST);
+        diagnosticsNames.add(BLUETOOTH_TEST);
+        diagnosticsNames.add(HEADPHONE_JACK_TEST);
 
         featureNames.add(BACK_CAMERA);
         featureNames.add(FRONT_CAMERA);
