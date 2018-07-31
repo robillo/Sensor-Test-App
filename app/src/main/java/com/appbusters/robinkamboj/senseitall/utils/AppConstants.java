@@ -136,59 +136,6 @@ public class AppConstants {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
 
-        diagnosticsPointer.put(ACCELEROMETER_TEST, SENSOR_ACCELEROMETER);
-        diagnosticsPointer.put(LIGHT_TEST, SENSOR_LIGHT);
-        diagnosticsPointer.put(PROXIMITY_TEST, SENSOR_PROXIMITY);
-        diagnosticsPointer.put(BACK_CAMERA_TEST, BACK_CAMERA);
-        diagnosticsPointer.put(FRONT_CAMERA_TEST, FRONT_CAMERA);
-        diagnosticsPointer.put(GPS_TEST, GPS_LOCATION);
-        diagnosticsPointer.put(WIFI_TEST, WIFI);
-        diagnosticsPointer.put(BLUETOOTH_TEST, BLUETOOTH);
-        diagnosticsPointer.put(SCREEN_TEST, SCREEN);
-        diagnosticsPointer.put(BATTERY_TEST, BATTERY);
-        diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
-        diagnosticsPointer.put(VIBRATOR_TEST, VIBRATOR);
-        diagnosticsPointer.put(HEADPHONE_JACK_TEST, AV_OUTPUTS);
-        diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
-        diagnosticsPointer.put(MULTI_TOUCH_TEST, MULTI_TOUCH);
-        diagnosticsPointer.put(FINGERPRINT_TEST, FINGERPRINT);
-        diagnosticsPointer.put(COMPASS_TEST, COMPASS);
-
-        reverseDiagnosticsPointer.put(SENSOR_ACCELEROMETER, ACCELEROMETER_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_LIGHT, LIGHT_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_PROXIMITY, PROXIMITY_TEST);
-        reverseDiagnosticsPointer.put(BACK_CAMERA, BACK_CAMERA_TEST);
-        reverseDiagnosticsPointer.put(FRONT_CAMERA, FRONT_CAMERA_TEST);
-        reverseDiagnosticsPointer.put(GPS_LOCATION, GPS_TEST);
-        reverseDiagnosticsPointer.put(WIFI, WIFI_TEST);
-        reverseDiagnosticsPointer.put(BLUETOOTH, BLUETOOTH_TEST);
-        reverseDiagnosticsPointer.put(SCREEN, SCREEN_TEST);
-        reverseDiagnosticsPointer.put(BATTERY, BATTERY_TEST);
-        reverseDiagnosticsPointer.put(SOUND, SPEAKER_VOLUME_TEST);
-        reverseDiagnosticsPointer.put(VIBRATOR, VIBRATOR_TEST);
-        reverseDiagnosticsPointer.put(AV_OUTPUTS, HEADPHONE_JACK_TEST);
-        reverseDiagnosticsPointer.put(FLASH, FLASH_LIGHT_TEST);
-        reverseDiagnosticsPointer.put(MULTI_TOUCH, MULTI_TOUCH_TEST);
-        reverseDiagnosticsPointer.put(FINGERPRINT, FINGERPRINT_TEST);
-        reverseDiagnosticsPointer.put(COMPASS, COMPASS_TEST);
-
-        sensorNames.add(SENSOR_ACCELEROMETER);
-        sensorNames.add(SENSOR_LIGHT);
-        sensorNames.add(SENSOR_PROXIMITY);
-        sensorNames.add(SENSOR_TEMPERATURE);
-        sensorNames.add(SENSOR_PRESSURE);
-        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
-        sensorNames.add(SENSOR_GYROSCOPE);
-        sensorNames.add(SENSOR_GRAVITY);
-        sensorNames.add(SENSOR_LINEAR_ACCELERATION);
-        sensorNames.add(SENSOR_ROTATION_VECTOR);
-        sensorNames.add(SENSOR_MAGNETIC_FIELD);
-        sensorNames.add(SENSOR_HEART_RATE);
-        sensorNames.add(SENSOR_STEP_DETECTOR);
-        sensorNames.add(SENSOR_STEP_COUNTER);
-        sensorNames.add(SENSOR_MOTION_DETECTOR);
-        sensorNames.add(SENSOR_STATIONARY_DETECTOR);
-
         //sensors and features mixed
 
         diagnosticsNames.add(SPEAKER_VOLUME_TEST);
@@ -208,6 +155,59 @@ public class AppConstants {
         diagnosticsNames.add(WIFI_TEST);
         diagnosticsNames.add(BLUETOOTH_TEST);
         diagnosticsNames.add(HEADPHONE_JACK_TEST);
+
+        diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
+        diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
+        diagnosticsPointer.put(PROXIMITY_TEST, SENSOR_PROXIMITY);
+        diagnosticsPointer.put(SCREEN_TEST, SCREEN);
+        diagnosticsPointer.put(BATTERY_TEST, BATTERY);
+        diagnosticsPointer.put(BACK_CAMERA_TEST, BACK_CAMERA);
+        diagnosticsPointer.put(FRONT_CAMERA_TEST, FRONT_CAMERA);
+        diagnosticsPointer.put(GPS_TEST, GPS_LOCATION);
+        diagnosticsPointer.put(FINGERPRINT_TEST, FINGERPRINT);
+        diagnosticsPointer.put(COMPASS_TEST, COMPASS);
+        diagnosticsPointer.put(LIGHT_TEST, SENSOR_LIGHT);
+        diagnosticsPointer.put(VIBRATOR_TEST, VIBRATOR);
+        diagnosticsPointer.put(MULTI_TOUCH_TEST, MULTI_TOUCH);
+        diagnosticsPointer.put(ACCELEROMETER_TEST, SENSOR_ACCELEROMETER);
+        diagnosticsPointer.put(WIFI_TEST, WIFI);
+        diagnosticsPointer.put(BLUETOOTH_TEST, BLUETOOTH);
+        diagnosticsPointer.put(HEADPHONE_JACK_TEST, AV_OUTPUTS);
+
+        reverseDiagnosticsPointer.put(SOUND, SPEAKER_VOLUME_TEST);
+        reverseDiagnosticsPointer.put(FLASH, FLASH_LIGHT_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_PROXIMITY, PROXIMITY_TEST);
+        reverseDiagnosticsPointer.put(SCREEN, SCREEN_TEST);
+        reverseDiagnosticsPointer.put(BATTERY, BATTERY_TEST);
+        reverseDiagnosticsPointer.put(BACK_CAMERA, BACK_CAMERA_TEST);
+        reverseDiagnosticsPointer.put(FRONT_CAMERA, FRONT_CAMERA_TEST);
+        reverseDiagnosticsPointer.put(GPS_LOCATION, GPS_TEST);
+        reverseDiagnosticsPointer.put(FINGERPRINT, FINGERPRINT_TEST);
+        reverseDiagnosticsPointer.put(COMPASS, COMPASS_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_LIGHT, LIGHT_TEST);
+        reverseDiagnosticsPointer.put(VIBRATOR, VIBRATOR_TEST);
+        reverseDiagnosticsPointer.put(MULTI_TOUCH, MULTI_TOUCH_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_ACCELEROMETER, ACCELEROMETER_TEST);
+        reverseDiagnosticsPointer.put(WIFI, WIFI_TEST);
+        reverseDiagnosticsPointer.put(BLUETOOTH, BLUETOOTH_TEST);
+        reverseDiagnosticsPointer.put(AV_OUTPUTS, HEADPHONE_JACK_TEST);
+
+        sensorNames.add(SENSOR_ACCELEROMETER);
+        sensorNames.add(SENSOR_LIGHT);
+        sensorNames.add(SENSOR_PROXIMITY);
+        sensorNames.add(SENSOR_TEMPERATURE);
+        sensorNames.add(SENSOR_PRESSURE);
+        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
+        sensorNames.add(SENSOR_GYROSCOPE);
+        sensorNames.add(SENSOR_GRAVITY);
+        sensorNames.add(SENSOR_LINEAR_ACCELERATION);
+        sensorNames.add(SENSOR_ROTATION_VECTOR);
+        sensorNames.add(SENSOR_MAGNETIC_FIELD);
+        sensorNames.add(SENSOR_HEART_RATE);
+        sensorNames.add(SENSOR_STEP_DETECTOR);
+        sensorNames.add(SENSOR_STEP_COUNTER);
+        sensorNames.add(SENSOR_MOTION_DETECTOR);
+        sensorNames.add(SENSOR_STATIONARY_DETECTOR);
 
         featureNames.add(BACK_CAMERA);
         featureNames.add(FRONT_CAMERA);
