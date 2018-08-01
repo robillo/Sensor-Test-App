@@ -112,6 +112,20 @@ public class AppConstants {
     public static final String MIDI = "MIDI";
     public static final String VR_MODE = "VR Mode";
 
+    //keys for key statistics
+    public static final String STANDARD_GRAVITY = "Standard Gravity";
+    public static final String VENDOR = "Vendor";
+    public static final String RESOLUTION = "Resolution";
+    public static final String MINIMUM_DELAY = "Minimum Delay";
+    public static final String MAXIMUM_DELAY = "Maximum Delay";
+    public static final String POWER = "Power";
+    public static final String MAXIMUM_RANGE = "Maximum Range";
+    public static final String VERSION = "Version";
+    public static final String IS_WAKE_UP_SENSOR = "Is Wake Up Sensor";
+    public static final String REPORTING_MODE = "Reporting Mode";
+    public static final String IS_DYNAMIC_SENSOR = "Is Dynamic Sensor";
+    public static final String V = "Standard";
+
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();

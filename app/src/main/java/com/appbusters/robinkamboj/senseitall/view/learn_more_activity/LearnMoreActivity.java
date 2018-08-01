@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -32,6 +33,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
@@ -41,6 +43,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RAT
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MIDI;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NFC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
@@ -74,6 +77,9 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
     public GenericData intentData = new GenericData();
     private String[] headers, descriptions, images;
+
+    @BindView(R.id.scroll_view)
+    ScrollView scrollView;
 
     @BindView(R.id.more_about_sensor)
     TextView more_about_sensor;
@@ -116,8 +122,6 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         initialize();
 
         setTexts();
-
-        textImage.setVisibility(View.GONE);
     }
 
     @Override
@@ -428,10 +432,16 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
                 images = getResources().getStringArray(R.array.vr_images);
                 break;
             }
-            case MIDI_SERVICE: {
+            case MIDI: {
                 headers = getResources().getStringArray(R.array.midi_headers);
                 descriptions = getResources().getStringArray(R.array.midi_descriptions);
                 images = getResources().getStringArray(R.array.midi_images);
+                break;
+            }
+            case FAKE_TOUCH: {
+                headers = getResources().getStringArray(R.array.fake_touch_headers);
+                descriptions = getResources().getStringArray(R.array.fake_touch_descriptions);
+                images = getResources().getStringArray(R.array.fake_touch_images);
                 break;
             }
         }
@@ -442,12 +452,15 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
     @Override
     public void setTexts() {
-        headerText.setText(headers[currentStep].toUpperCase());
-        descriptionText.setText(descriptions[currentStep]);
-//        Glide.with(this)
-//                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
-//                .load(images[currentStep])
-//                .into(textImage);
+        scrollView.smoothScrollTo(0, 0);
+        scrollView.fullScroll(View.FOCUS_UP);
+        if(headers != null) headerText.setText(headers[currentStep].toUpperCase());
+        if(descriptions != null) descriptionText.setText(descriptions[currentStep]);
+        if(images != null)
+            Glide.with(this)
+                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
+                .load(images[currentStep])
+                .into(textImage);
     }
 
     @Override

@@ -19,6 +19,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class CpuFragment extends FeatureFragment implements CpuInterface {
 
     private String[] DATA = {"/system/bin/cat", "/proc/cpuinfo", "/proc/partitions"};

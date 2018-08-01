@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Sense It All!</string>
 
     <string-array name="lightPercentages">
@@ -378,11 +378,11 @@ Accelerometers are made up of many different components, and can be purchased as
     </string-array>
 
     <string-array name="accelerometer_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-CvzW52rh6bI/W2GWnWNCLRI/AAAAAAAACns/y1U839aOPU0TL8DUaMEMwp0MXD1prsRFgCK4BGAYYCw/s1600/accel2.jpg</item>
+        <item>https://4.bp.blogspot.com/-CFWbMOXomOI/W2GWssV6B1I/AAAAAAAACoE/KiCDHtRS7ag1Eh7fKiEStZMBHZ2pyJpegCK4BGAYYCw/s1600/accel3.jpg</item>
+        <item>https://3.bp.blogspot.com/-Fv0lp_KliGE/W2GWrOI7-MI/AAAAAAAACn8/UT62B8wXtPQIxivCvrnN03GXaznGORn7wCK4BGAYYCw/s1600/accel4.jpg</item>
+        <item>https://4.bp.blogspot.com/-P4uzd-M8LAg/W2GXKKlMj6I/AAAAAAAACoc/ZdGYkX3YFH4eKTYrnDgSqPWgQxyW3VSBwCK4BGAYYCw/s1600/accel5.jpg</item>
+        <item>https://3.bp.blogspot.com/-3NNFxSbmYTk/W2GWf9hg3lI/AAAAAAAACnk/bFfNFZJRYSUg_RVcx2RWb7dDltlGMdnCwCK4BGAYYCw/s1600/accel1.jpg</item>
     </string-array>
 
     <string-array name="light_headers">
@@ -410,11 +410,11 @@ While using a smart phone in the day or bright light, if the light is detected b
     </string-array>
 
     <string-array name="light_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-n98v2Xt-nio/W2GYdRPFWuI/AAAAAAAACrE/0IzhkD9A0MIXHPJbFp1Et1vCK-TBFbcrQCK4BGAYYCw/s1600/light1.jpg</item>
+        <item>https://3.bp.blogspot.com/-Md-ZC9V5-dI/W2GYd4BU5LI/AAAAAAAACrc/61JEb-yi63ISIQYYehHYmJ89beXxAzCTQCK4BGAYYCw/s1600/light3.jpg</item>
+        <item>https://2.bp.blogspot.com/-53bvRQFo6vI/W2GYhlAQiqI/AAAAAAAACrs/g6XqeXvkeewhwCASsK3nOhM7NfQX-YHIQCK4BGAYYCw/s1600/light4.jpg</item>
+        <item>https://2.bp.blogspot.com/-GfFvznjL0e4/W2GYebnd8KI/AAAAAAAACrg/VvdQWXDjFpYhnxfEWPhhaZ-A3cDmvmYjgCK4BGAYYCw/s1600/light5.jpg</item>
+        <item>https://3.bp.blogspot.com/-s1bdLDme5jE/W2GYeYyWqSI/AAAAAAAACrk/-Vhrb4EuRy8l-cXX-VrQcdd-jwZR7bm0QCK4BGAYYCw/s400/light2.jpeg</item>
     </string-array>
 
     <string-array name="camera_headers">
@@ -464,10 +464,10 @@ While early phones had Internet connectivity, working web browsers and email-pro
     </string-array>
 
     <string-array name="camera_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-F7r2061L8BI/W2GYNVvYfrI/AAAAAAAACqc/O3t__2N8xm0Ovs7kmHkgMKjIktfjlZliwCK4BGAYYCw/s1600/cam1.jpg</item>
+        <item>https://3.bp.blogspot.com/-YOQeSiVd84E/W2GYNX3S1_I/AAAAAAAACqg/qMMDXGjnIpAtmYi4GRugTwrG5xr-hCJyQCK4BGAYYCw/s400/cam2.jpeg</item>
+        <item>https://3.bp.blogspot.com/-SnQwUUbPtXE/W2GYN4nYSZI/AAAAAAAACqo/jXKobnhcrVArmWW0cyp9aOtVjw6Ssr7agCK4BGAYYCw/s1600/cam3.jpg</item>
+        <item tools:ignore="TypographyDashes">https://3.bp.blogspot.com/--f8PvgyT5Lg/W2GYOKs_ciI/AAAAAAAACqw/s9IBtdB86v0LoeKG3ipa4o9-7ucB74fDgCK4BGAYYCw/s1600/cam4.jpg</item>
         <item></item>
     </string-array>
 
@@ -515,11 +515,11 @@ six dedicated monitor stations.\n\n
     </string-array>
 
     <string-array name="gps_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-ZaX3615-k6U/W2GZVC9hKgI/AAAAAAAACtA/uh23wEi4mDATRUzgd_1vW00KoKRtANaegCK4BGAYYCw/s1600/gps1.jpg</item>
+        <item>https://4.bp.blogspot.com/-783pPexpiSA/W2GZV6ZZgRI/AAAAAAAACtI/kmu0CpL82O0oJPQcZut3YWgtOUV9SIsMQCK4BGAYYCw/s1600/gps2.jpg</item>
+        <item>https://1.bp.blogspot.com/-qOsACQJiSvg/W2GZWpSLFmI/AAAAAAAACtQ/RQtP3yXZNKA0u17MC5OrnIcs2bPJJUFAQCK4BGAYYCw/s1600/gps3.jpg</item>
+        <item>https://1.bp.blogspot.com/-HGZzrdiHcoQ/W2GZXdDs-dI/AAAAAAAACtY/w3UAC007HkA4UzTVLFy_E7eXWyDDDHzqwCK4BGAYYCw/s1600/gps4.jpg</item>
+        <item>https://4.bp.blogspot.com/-jU6xYbfA9ys/W2GZc-AthEI/AAAAAAAACtg/GqhmDXrsjs4q3YOIwpqtSeAp9xNmfLnAQCK4BGAYYCw/s1600/gps5.jpg</item>
     </string-array>
 
     <string-array name="flash_headers">
@@ -570,11 +570,11 @@ In cases where intensity is controlled by capacitor discharge time, t.5 and t.1 
     </string-array>
 
     <string-array name="flash_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-rNmjPyVjQBs/W1pDIYUtuAI/AAAAAAAACWU/A_9lIrxUpngnmimLcoYHKVatmG-D-kZ7gCK4BGAYYCw/s1600/flash1.jpg</item>
+        <item>https://1.bp.blogspot.com/-rExdfWL8tcE/W1pDKOi8ZXI/AAAAAAAACWo/r2nmOVmnTeIVPBdNX3y4PQjUFhDYnZX1gCK4BGAYYCw/s1600/flash2.jpg</item>
+        <item tools:ignore="TypographyDashes">https://4.bp.blogspot.com/--Z6o5gFAxOI/W1pDKRoeeDI/AAAAAAAACWs/grAMb3tu0g8fMY5ggvY9AfCZIAUiA0DxwCK4BGAYYCw/s1600/flash3.jpg</item>
+        <item>https://2.bp.blogspot.com/-whveGuJBaMc/W1pDkfTgS4I/AAAAAAAACXI/Z045XLi1CYAhxybK-WBpTBGIj7kS7v8cwCK4BGAYYCw/s1600/flash4.png</item>
+        <item>https://4.bp.blogspot.com/-xrXcSEWdQbg/W1pDdSFq0TI/AAAAAAAACXA/6G_h5tCNVnsBBW6ZYZYyeEKDdla5eroIwCK4BGAYYCw/s1600/flash5.png</item>
     </string-array>
 
     <string-array name="multi_touch_headers">
@@ -618,11 +618,11 @@ In the past few years, several companies have released products that use multi-t
     </string-array>
 
     <string-array name="multi_touch_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://4.bp.blogspot.com/-QEjxGyldDdc/W1pC2EBDCEI/AAAAAAAACVk/vas1W5eQB6At7nwY4uGnsj2qHLPSZODaACK4BGAYYCw/s1600/multi1.jpg</item>
+        <item>https://4.bp.blogspot.com/-xzd_V4n3jIQ/W1pC4Us-XrI/AAAAAAAACV0/xnr5DKUYvoAzrrtXZAYo0qCl0Ba-exHXQCK4BGAYYCw/s1600/multi3.jpg</item>
+        <item>https://1.bp.blogspot.com/-6cNfsghkytg/W1pC5lQCbRI/AAAAAAAACV8/GI10-KX-W-4rvndthgZMxMLzjWaTzzXOACK4BGAYYCw/s1600/multi4.jpg</item>
+        <item>https://2.bp.blogspot.com/-3kpxlbm7Xu0/W1pC6LVZ7jI/AAAAAAAACWE/jCzsSNPoknU-YPT3ST1vjQpKCzfgiluoQCK4BGAYYCw/s1600/multi5.jpg</item>
+        <item>https://2.bp.blogspot.com/-JketTTDYOAg/W1pC3PzBv3I/AAAAAAAACVs/efbQkLGfO58iIoXIz6qyzpea49kQctBLQCK4BGAYYCw/s1600/multi2.jpg</item>
     </string-array>
 
     <string-array name="fingerprint_headers">
@@ -673,11 +673,11 @@ Hewlett Packard, Asus, Huawei, Lenovo and Apple are using fingerprint reader in 
     </string-array>
 
     <string-array name="fingerprint_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-e3jsaTBUGu0/W1o_uuXCDSI/AAAAAAAACUo/bK1c-GrJCWYC3q2HDYgl-0X_QlW6FOjxACK4BGAYYCw/s1600/finger1.jpg</item>
+        <item>https://2.bp.blogspot.com/-gu1qE09Lb7c/W1o_v01Cf1I/AAAAAAAACU0/58vFYEUj-Bo1TOYUwZ22Qv3i7oTK2TEWACK4BGAYYCw/s1600/finger2.jpg</item>
+        <item>https://2.bp.blogspot.com/-s1d9Ird9lzQ/W1o_2biwtbI/AAAAAAAACVM/DiPPR8jnVRACHti19W_C97CV55hMXnMMACK4BGAYYCw/s1600/finger4.jpg</item>
+        <item>https://1.bp.blogspot.com/-xq8aeWklqAM/W1o_0YPjmMI/AAAAAAAACVE/-PLvQ1mCixAK7qRv4ToIYl5WVIWGIwK3ACK4BGAYYCw/s1600/finger5.jpg</item>
+        <item>https://2.bp.blogspot.com/-4S37rkwNGlg/W1o_wnAjjqI/AAAAAAAACU8/P7W6HBb2M-4wWzkvkge6MpTgFrzRhrl9ACK4BGAYYCw/s1600/finger3.jpg</item>
     </string-array>
 
 
@@ -804,11 +804,11 @@ So even if your phone vibrator would run 1h per day (which it doesn\'t, it\'s pr
     </string-array>
 
     <string-array name="vibrator_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item tools:ignore="TypographyDashes">https://1.bp.blogspot.com/-gEdSkE-7-6U/W2GY6bdk_CI/AAAAAAAACsE/ueIvPMm9BnIllMnNBrow8Cr7ydMTVURyQCK4BGAYYCw/s1600/vib1.jpg</item>
+        <item>https://3.bp.blogspot.com/-1CPmfaVsfVo/W2GY7G4bfxI/AAAAAAAACsM/zS7hBAhWF74sq26pPfZZMYr8YNnKWrAGwCK4BGAYYCw/s1600/vib2.jpg</item>
+        <item>https://1.bp.blogspot.com/-RHb9BpPO6bM/W2GY7paT_CI/AAAAAAAACsY/75_zA3fckUscLp8QO77cuP4BYX2xIdLRgCK4BGAYYCw/s1600/vib3.jpg</item>
+        <item tools:ignore="TypographyDashes">https://4.bp.blogspot.com/-FV0zz2yPzgw/W2GY7-19x2I/AAAAAAAACsc/DwmUJpF2DmguYy7v2_soLeJi9tuQtqWtACK4BGAYYCw/s1600/vib4.jpg</item>
+        <item>https://1.bp.blogspot.com/-ajKuIAg0Sz0/W2GY8m6331I/AAAAAAAACsk/ZgUpzUAt6kEt4dSuUBA4DWwLUJpMAJVLACK4BGAYYCw/s1600/vib5.jpg</item>
     </string-array>
 
 
@@ -910,11 +910,11 @@ Circuits also determine how much power can be stored. Ever since Li-Ion technolo
     </string-array>
 
     <string-array name="battery_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-L32byotF_jQ/W2GXi68I8_I/AAAAAAAACo0/HdBti5iCynU3FeGMiJUKK7CapvHn7c9AQCK4BGAYYCw/s1600/battery1.jpg</item>
+        <item>https://3.bp.blogspot.com/-p_i89v6xpNA/W2GXi9QQSGI/AAAAAAAACo4/6P39oCA5hZ4c4dngiIKpgqDBusteUoLMgCK4BGAYYCw/s1600/battery2.jpg</item>
+        <item>https://3.bp.blogspot.com/-nNOz8SLs6m8/W2GXjGmLqgI/AAAAAAAACpA/nhVTMPYZXZ81WkOghq_-YIRwToiKsumZQCK4BGAYYCw/s1600/battery3.jpg</item>
+        <item>https://2.bp.blogspot.com/-Z_Nk9B47zEE/W2GXjQh1wSI/AAAAAAAACpI/xddG-8ofouQ-8QIOF7vkr-_UocbYffpgQCK4BGAYYCw/s1600/battery4.jpg</item>
+        <item>https://3.bp.blogspot.com/-jmyiMzgIxYs/W2GXjnnpAoI/AAAAAAAACpQ/voRN1SpoTBQprJvh0b630UDaNAPhRqzgACK4BGAYYCw/s1600/battery5.png</item>
     </string-array>
 
 
@@ -953,11 +953,11 @@ In addition, Bluetooth 4.0 brought a new low power option that allows wireless o
     </string-array>
 
     <string-array name="bluetooth_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-kEf9umwjWV8/W2GX5n8cavI/AAAAAAAACpo/_1gbsGmPgos3LrfuoHcY0u3Hbra_Z6-zQCK4BGAYYCw/s1600/bt1.jpg</item>
+        <item>https://3.bp.blogspot.com/-8WAikcD0rLk/W2GX5zrEXnI/AAAAAAAACpw/kKMxojodul48YS_O6jXCgjhvkK4iW7uJgCK4BGAYYCw/s1600/bt2.jpg</item>
+        <item>https://3.bp.blogspot.com/-UgGdOrEa2K8/W2GX_A9PjBI/AAAAAAAACqI/DDW8zYFVsfgkMySjqDSqIbnDWiH5GhUywCK4BGAYYCw/s1600/bt4.jpg</item>
+        <item>https://3.bp.blogspot.com/-8XDaa9kFK7w/W2GX8j1xhdI/AAAAAAAACqA/WKku3EYAJ-8Vyo4apay2IjrF3XScfsRJACK4BGAYYCw/s1600/bt5.jpg</item>
+        <item>https://1.bp.blogspot.com/-F6Ew9dTLbFE/W2GX6TeopkI/AAAAAAAACp4/pD8UgA4NECQcx4BZpIIebw63Ln8gFGBVQCK4BGAYYCw/s400/bt3.png</item>
     </string-array>
 
 
@@ -1009,10 +1009,10 @@ Eventually, SIP will probably make communications tools interoperable. In other 
     </string-array>
 
     <string-array name="wifi_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item tools:ignore="TypographyDashes">https://3.bp.blogspot.com/-YhK3vCMDWKc/W2GaSyAYhII/AAAAAAAACu8/LJjaU3-838ga6n2WbmJU8vus8jUE4WCmACK4BGAYYCw/s1600/wifi2.jpg</item>
+        <item>https://1.bp.blogspot.com/-y2JVAkDaHts/W2GaTz2O68I/AAAAAAAACvE/1cWMsa2699gEoXHRmEN7K2lsGflJGh9twCK4BGAYYCw/s1600/wifi3.jpg</item>
+        <item>https://4.bp.blogspot.com/-GOVqj0etEqI/W2GaXMuQIYI/AAAAAAAACvM/QvStYdsT7n4qsXstkzUkS8X_OVo5xKVSwCK4BGAYYCw/s1600/wifi5.png</item>
+        <item>https://1.bp.blogspot.com/-7_gR24lUj8A/W2GaSItJ0NI/AAAAAAAACu0/N80_mwwO1xAfEStIMFPwCukOn19obf7VACK4BGAYYCw/s1600/wifi1.jpg</item>
         <item></item>
     </string-array>
 
@@ -1056,11 +1056,11 @@ If we\'re determined to listen to audio via a phone\'s internal speakers, there\
     </string-array>
 
     <string-array name="sound_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item tools:ignore="TypographyDashes">https://2.bp.blogspot.com/-SaySvsqb-Ug/W2GaBmrUi9I/AAAAAAAACuQ/YGBtlVDH8-4rfQfIgyhmiO2pDM6F3TKkQCK4BGAYYCw/s1600/sound1.jpg</item>
+        <item>https://3.bp.blogspot.com/-HKXNBvOR6_M/W2GZ_xrshOI/AAAAAAAACuA/FR4xvaliUOse9ofw9SrxLFC19PJZGJfOACK4BGAYYCw/s1600/sound2.png</item>
+        <item>https://4.bp.blogspot.com/-sjVaqOgzVzA/W2GaCJpIpgI/AAAAAAAACuY/gOjyp1iWx2YxnoOOag5kAtf3V1m-EmZ7wCK4BGAYYCw/s1600/sound4.jpg</item>
+        <item>https://1.bp.blogspot.com/-J5v6TqhQhTc/W2GaAqvHx6I/AAAAAAAACuI/FqNYouahuMEw2j8BlNuDIjEjnjnm8x1qwCK4BGAYYCw/s400/sound5.jpeg</item>
+        <item>https://3.bp.blogspot.com/-JrHBUISj1ro/W2GZ_nytIhI/AAAAAAAACt4/m2pmiMLLtbE1mLwrXuCcDVlZ3WB6VL6iwCK4BGAYYCw/s400/sound3.jpeg</item>
     </string-array>
 
 
@@ -1632,11 +1632,12 @@ MIDI\'s serial transmission leads to timing problems. A three-byte MIDI message 
     </string-array>
 
     <string-array name="midi_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-DJfDIKMrwdw/W1oTgutAzAI/AAAAAAAACQ0/ZKtm5j-KEt45DjlFXRo7hBZf-aSD1DVYwCK4BGAYYCw/s1600/midi2.jpg</item>
+        <item>https://2.bp.blogspot.com/-1pulwy2-MBQ/W1oTdSdgYxI/AAAAAAAACQo/lELd2RnHynsw8vDNA5Q7dxMzYUqPFCdWwCK4BGAYYCw/s1600/midi_five.png</item>
+        <item>https://2.bp.blogspot.com/-1pulwy2-MBQ/W1oTdSdgYxI/AAAAAAAACQo/lELd2RnHynsw8vDNA5Q7dxMzYUqPFCdWwCK4BGAYYCw/s1600/midi_five.png</item>
+        <item>https://4.bp.blogspot.com/-9_akJihiwgA/W1oTZ_GoKKI/AAAAAAAACQg/3TgM7CI4nC8BHQiNoHl1Wurqt9C9qQXoQCK4BGAYYCw/s1600/midi_one.png</item>
+        <item>https://4.bp.blogspot.com/-YRyzDSLvnFo/W1oTWUBa89I/AAAAAAAACQY/wD_ZhWEN6P8syOxbpRJM9LLn9HXYevN8gCK4BGAYYCw/s1600/midi_four.jpg</item>
+        <item>https://3.bp.blogspot.com/-bnOSwrX07UQ/W1oTNvNsBxI/AAAAAAAACQQ/_MTTar48rOM361vmzRN-y9xWMbmr4_xhACK4BGAYYCw/s1600/midi_three.jpg</item>
     </string-array>
 
 
@@ -1743,11 +1744,11 @@ The capacitive shunt method, described in an application note by Analog Devices,
     </string-array>
 
     <string-array name="fake_touch_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-ZYMi0asqxq8/W1oVvmIy9VI/AAAAAAAACRc/6Mqtx1nCW4Q5BEDFRnL0z6lcJz04ILFDQCK4BGAYYCw/s1600/bb1.jpg</item>
+        <item>https://3.bp.blogspot.com/-VyW5e__ZB1Y/W1oVthMU2hI/AAAAAAAACRM/zqkOaQAeXIYi2jVOZ2OboHNSh1Gju58bwCK4BGAYYCw/s1600/bb2.jpg</item>
+        <item>https://3.bp.blogspot.com/-V3bYS9gjM4c/W1oVve6VIfI/AAAAAAAACRU/05y8CFaFVWoc9c05tMOCay2PrJwM6aa7QCK4BGAYYCw/s1600/bb3.jpg</item>
+        <item>https://3.bp.blogspot.com/-5BK_2sOSiGM/W1oVwZjtbHI/AAAAAAAACRk/Z3FdXAdVtFgma5KQBALTgHI9d7CFgalRACK4BGAYYCw/s1600/bb4.jpg</item>
+        <item>https://2.bp.blogspot.com/-ek_7PYAroRs/W1oVxOWZkJI/AAAAAAAACRs/gFcwTVLrSZAMvS7dZG0g4VQpacshH14dQCK4BGAYYCw/s1600/bb5.jpg</item>
     </string-array>
 
 
@@ -1884,11 +1885,11 @@ To enable an OTG connection an OTG cable is connected between two devices. An OT
     </string-array>
 
     <string-array name="usb_accessory_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-Vk_3CJH74dg/W1oXIyTCItI/AAAAAAAACSA/AB9rICyceOcQowG0Rcz1vTVi9gN2iIvRQCK4BGAYYCw/s1600/usb5.jpg</item>
+        <item>https://4.bp.blogspot.com/-uW18G-Yp4ao/W1oXMgB9H_I/AAAAAAAACSI/bjQdlexFR9cp5mW0dlE56eYNAyzc0imvgCK4BGAYYCw/s1600/usb2.png</item>
+        <item>https://4.bp.blogspot.com/-Pboq_Ndecxo/W1oXNfaWOLI/AAAAAAAACSQ/n8JepW8O5kwMOWMy1juyTFacv2FaaJAAQCK4BGAYYCw/s1600/usb1.png</item>
+        <item>https://4.bp.blogspot.com/-6IlpMzLRUUo/W1oXOSQOeDI/AAAAAAAACSY/rbyvdroA22svWVwxtTFietgUaAzAc0SwgCK4BGAYYCw/s400/usb4.png</item>
+        <item>https://4.bp.blogspot.com/-b-Vk1_2fjXs/W1oXY1CoaMI/AAAAAAAACSk/KLC4Q4GxSkkNhBKv1Z6eYUyk7XTusNYQACK4BGAYYCw/s400/usb3.jpeg</item>
     </string-array>
 
 
@@ -1925,11 +1926,11 @@ A simple search will return a host of apps that promise to enable you to spy on 
     </string-array>
 
     <string-array name="microphone_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://4.bp.blogspot.com/-JABpatvCy18/W1oYnmlBv7I/AAAAAAAACTQ/V8ApTd6-dWQD4zZY1-bVuOIeZZzirB1RwCK4BGAYYCw/s1600/mic%2Bone.jpg</item>
+        <item>https://2.bp.blogspot.com/-kEXFQpbNlfg/W1oYmM8RkDI/AAAAAAAACTI/iSyEgQMyHsEv5ZNKa6Mh5FIkhrIDZEYUACK4BGAYYCw/s1600/mic%2Btwo.jpg</item>
+        <item>https://2.bp.blogspot.com/-nwilKtiWxV0/W1oYswEO5EI/AAAAAAAACTg/SyahyEom4jQq8nIA3cEwwjCNQNJqQ01XgCK4BGAYYCw/s1600/mic%2Bthree.jpg</item>
+        <item>https://1.bp.blogspot.com/-sWH7G5bn_L8/W1oYod-DmYI/AAAAAAAACTY/52KBGp-KFGw0Zxl_Uw-WBNEOpohwvTeyQCK4BGAYYCw/s1600/mic%2Bfour.jpg</item>
+        <item>https://4.bp.blogspot.com/-whs8drNmZW0/W1oYgtBN9nI/AAAAAAAACTA/_d-TFYimJUAXraHDxXETfSxGfIgqYiOWgCK4BGAYYCw/s1600/mic%2Bfive.JPG</item>
     </string-array>
 
 
@@ -1975,11 +1976,11 @@ Because NFC devices usually include ISO/IEC 14443 protocols, relay attacks are f
     </string-array>
 
     <string-array name="nfc_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-tuqXl7mEHc8/W1o_XvqQaoI/AAAAAAAACT4/QJQU4cT8M_U801GUlQY-OItVU1cDzH_ZACK4BGAYYCw/s1600/nfc1.jpg</item>
+        <item>https://3.bp.blogspot.com/-AUJcL7vJVNE/W1o_X3Uvh8I/AAAAAAAACUA/7LtKU1Wd3XcgK4Y_q2HVUZjO7znnAlQyACK4BGAYYCw/s1600/nfc2.jpg</item>
+        <item>https://4.bp.blogspot.com/-G0S9su_ZKwQ/W1o_ZRAKTGI/AAAAAAAACUI/tvQBmxISJjIqx3POl_RQAqS7y5-bKvrsACK4BGAYYCw/s1600/nfc4.jpg</item>
+        <item>https://2.bp.blogspot.com/-EskRDBV69Lk/W1o_bt1zbRI/AAAAAAAACUQ/KQO_QPO10tIhqvh4Eu-kzTpA-lNfXCeywCK4BGAYYCw/s1600/nfc5.jpg</item>
+        <item>https://2.bp.blogspot.com/-t3ijaEyo7K8/W1o_fSvY7DI/AAAAAAAACUY/gTRixLBkPdAIh9IHiO3yD0XE3S4S7XZXgCK4BGAYYCw/s400/nfc3.jpeg</item>
     </string-array>
 
 

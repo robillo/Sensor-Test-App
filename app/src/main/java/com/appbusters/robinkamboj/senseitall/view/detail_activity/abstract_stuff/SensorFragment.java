@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,8 +29,19 @@ import butterknife.OnClick;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_DYNAMIC_SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_WAKE_UP_SENSOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MAXIMUM_DELAY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MAXIMUM_RANGE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MINIMUM_DELAY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.POWER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.REPORTING_MODE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RESOLUTION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STANDARD_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VENDOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VERSION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.reverseDiagnosticsPointer;
 
 public abstract class SensorFragment extends Fragment implements SensorInterface {
@@ -75,8 +87,15 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
     @Override
     public void showBasicInformation() {
+        GenericData intentData = null;
+        if(getActivity() != null)
+            intentData = ((DetailActivity) getActivity()).intentData;
         infoRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails));
+
+        if(intentData != null)
+            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails, intentData.getName()));
+        else
+            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails));
     }
 
     @Override
@@ -89,7 +108,57 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
     @Override
     public void addToDetailsList(List<SensorDetail> sensorDetails, String key, String value) {
-        sensorDetails.add(new SensorDetail(key, value));
+
+        String valueUnits = null;
+
+        switch (key) {
+            case STANDARD_GRAVITY:{
+                valueUnits = "m/s<sup>2</sup>";
+                break;
+            }
+            case VENDOR:{
+                valueUnits = "<font color='#8B95A3'><small>(vendor of this sensor)</small></font>";
+                break;
+            }
+            case RESOLUTION:{
+                valueUnits = "<font color='#8B95A3'><small>(resolution in sensor's units)</small></font>";
+                break;
+            }
+            case MINIMUM_DELAY:{
+                valueUnits = "microseconds <font color='#8B95A3'><small>(minimum delay allowed between two events)</small></font>";
+                break;
+            }
+            case MAXIMUM_DELAY:{
+                valueUnits = "microseconds <font color='#8B95A3'><small>(maximum delay allowed between two events)</small></font>";
+                break;
+            }
+            case VERSION:{
+                valueUnits = "mA";
+                break;
+            }
+            case POWER:{
+                valueUnits = "<font color='#8B95A3'><small>(maximum range of this sensor in sensor's units)</small></font>";
+                break;
+            }
+            case MAXIMUM_RANGE:{
+                valueUnits = "<font color='#8B95A3'><small>(version of the sensor's module)</small></font>";
+                break;
+            }
+            case IS_WAKE_UP_SENSOR:{
+                valueUnits = "<font color='#8B95A3'><small>(sensor is suspended when screen turns off)</small></font>";
+                break;
+            }
+            case REPORTING_MODE:{
+                valueUnits = "<font color='#8B95A3'><small>(reporting mode for the input sensor)</small></font>";
+                break;
+            }
+            case IS_DYNAMIC_SENSOR:{
+                valueUnits = "<font color='#8B95A3'><small>(can the sensor be created at runtime)</small></font>";
+                break;
+            }
+        }
+
+        sensorDetails.add(new SensorDetail(key, value + " " + valueUnits));
     }
 
     @Override

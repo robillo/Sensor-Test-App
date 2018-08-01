@@ -3,6 +3,7 @@ package com.appbusters.robinkamboj.senseitall.view.detail_activity.common_adapte
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.SensorDetail;
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 
 import java.util.List;
 
@@ -20,10 +22,17 @@ public class BasicInformationAdapter extends RecyclerView.Adapter<BasicInformati
 
     private Context context;
     private List<SensorDetail> list;
+    private String fromSensorName;
 
     public BasicInformationAdapter(Context context, List<SensorDetail> list) {
         this.context = context;
         this.list = list;
+    }
+
+    public BasicInformationAdapter(Context context, List<SensorDetail> list, String fromSensorName) {
+        this.context = context;
+        this.list = list;
+        this.fromSensorName = fromSensorName;
     }
 
     @NonNull
@@ -42,7 +51,12 @@ public class BasicInformationAdapter extends RecyclerView.Adapter<BasicInformati
         else holder.key.setVisibility(View.VISIBLE);
 
         holder.key.setText(list.get(position).getKey());
-        holder.value.setText(list.get(position).getValue());
+        if(fromSensorName != null && fromSensorName.equals(AppConstants.CPU)) {
+            holder.value.setText(list.get(position).getValue());
+        }
+        else {
+            holder.value.setText(Html.fromHtml(list.get(position).getValue()));
+        }
     }
 
     @Override

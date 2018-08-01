@@ -54,8 +54,15 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
 
     @Override
     public void showBasicInformation() {
+        GenericData intentData = null;
+        if(getActivity() != null)
+            intentData = ((DetailActivity) getActivity()).intentData;
         infoRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails));
+
+        if(intentData != null)
+            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails, intentData.getName()));
+        else
+            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails));
     }
 
     @Override
