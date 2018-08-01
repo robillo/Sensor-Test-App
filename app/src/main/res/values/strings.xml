@@ -468,7 +468,7 @@ While early phones had Internet connectivity, working web browsers and email-pro
         <item>https://3.bp.blogspot.com/-YOQeSiVd84E/W2GYNX3S1_I/AAAAAAAACqg/qMMDXGjnIpAtmYi4GRugTwrG5xr-hCJyQCK4BGAYYCw/s400/cam2.jpeg</item>
         <item>https://3.bp.blogspot.com/-SnQwUUbPtXE/W2GYN4nYSZI/AAAAAAAACqo/jXKobnhcrVArmWW0cyp9aOtVjw6Ssr7agCK4BGAYYCw/s1600/cam3.jpg</item>
         <item tools:ignore="TypographyDashes">https://3.bp.blogspot.com/--f8PvgyT5Lg/W2GYOKs_ciI/AAAAAAAACqw/s9IBtdB86v0LoeKG3ipa4o9-7ucB74fDgCK4BGAYYCw/s1600/cam4.jpg</item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-C6aIzF7pSGw/W2HH02OKE3I/AAAAAAAAC5M/tR8SSlaJSSw3Q7-Th1u2Y47ZlOERsT8WACK4BGAYYCw/s1600/camera6.jpg</item>
     </string-array>
 
     <string-array name="gps_headers">
@@ -726,11 +726,11 @@ AMOLED uses a different subpixel arrangement to LCD, which can result in images 
     </string-array>
 
     <string-array name="screen_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-6Y6hyzM0MEc/W2HASDT1vkI/AAAAAAAAC2E/QFyZAm6atZMGxoMTWyFK4XJfOhhb9Tf7gCK4BGAYYCw/s1600/screen%2B1.jpg</item>
+        <item>https://2.bp.blogspot.com/-QsJxtj5JQrE/W2HASL32BJI/AAAAAAAAC18/qc4kbM4EN3w1Tujqj53C0l0UzqXrGt1LwCK4BGAYYCw/s1600/screen2.jpg</item>
+        <item>https://3.bp.blogspot.com/-7eVquRq_eHk/W2HATRta0eI/AAAAAAAAC2M/LNaioXOpnz4tuoI76L8CifW9HWSOOTLTgCK4BGAYYCw/s1600/screen3.jpg</item>
+        <item>https://1.bp.blogspot.com/-cKVVER7tLaI/W2HAVVmgtVI/AAAAAAAAC2c/NqAspevy8SI0RJl4wd6l8GCbmppRsSDhgCK4BGAYYCw/s1600/screen4.jpg</item>
+        <item>https://2.bp.blogspot.com/-jlPHOr8OjbA/W2HATmtE1VI/AAAAAAAAC2U/EzIevFZwfbY8DG25APVXeQqMzLGMG3IsQCK4BGAYYCw/s1600/screen5.jpg</item>
     </string-array>
 
 
@@ -776,11 +776,11 @@ Astrocompass - uses positions of various astronomical bodies to find true north.
     </string-array>
 
     <string-array name="compass_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-vpR4Z2k1Cwg/W2HCrGqxMGI/AAAAAAAAC4A/pGxXjF44Bd0CXH0XV03Ypp-WnVbV_nyTwCK4BGAYYCw/s1600/compass5.jpg</item>
+        <item>https://1.bp.blogspot.com/-OG6g2isVhjI/W2HComN7g7I/AAAAAAAAC34/X2cYO67wxh0FSUbEuF-9PcR73ETWxm4vQCK4BGAYYCw/s1600/compass4.jpg</item>
+        <item tools:ignore="TypographyDashes">https://4.bp.blogspot.com/-lHmyAPl8-5Y/W2HCnABUmVI/AAAAAAAAC3w/8q9JbU7bSkEFsZOfKn5mU9gZUh4yksvMQCK4BGAYYCw/s400/compass3.jpeg</item>
+        <item>https://4.bp.blogspot.com/-x9S1Mn1pJY8/W2HCnP7I_4I/AAAAAAAAC3o/RQibDa8EhFQJQYIOTFGpw76DsAsPbJvCwCK4BGAYYCw/s400/compass2.jpeg</item>
+        <item>https://2.bp.blogspot.com/-CGXUlKbSba8/W2HCmnLkkSI/AAAAAAAAC3g/2ctk2L8eMYo1-Rk08_uBTDlNQTSs5QWiwCK4BGAYYCw/s400/compass1.jpeg</item>
     </string-array>
 
 
@@ -866,11 +866,11 @@ The phone connector is cylindrical in shape, with a grooved tip to retain it. In
     </string-array>
 
     <string-array name="av_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-NuezRkezNN4/W2G-Jqvr9bI/AAAAAAAAC0U/hVQlok99AXkOY-1v6bAGqNV3sNDC1y44ACK4BGAYYCw/s1600/av2.jpg</item>
+        <item>https://1.bp.blogspot.com/-8U6FV-bzu5o/W2G-Jx4ymNI/AAAAAAAAC0k/HlJjJ-9FDqoFgD7q4d1bAUhOlEbyDG68gCK4BGAYYCw/s1600/av4.jpg</item>
+        <item>https://3.bp.blogspot.com/-NnRgEcaB9xw/W2G-QizdTmI/AAAAAAAAC0w/ZCP6F6ivn4YSYQ9Glzl6OFleezKa5jLXACK4BGAYYCw/s400/av6.jpeg</item>
+        <item>https://1.bp.blogspot.com/-L2AQ5CcZ_is/W2G-J61ayxI/AAAAAAAAC0o/3kidnnaDv2sgJ8tnVbH51iilXSk2uplAwCK4BGAYYCw/s400/av5.jpeg</item>
+        <item>https://4.bp.blogspot.com/-A9UxjmynzH4/W2G-JikSZhI/AAAAAAAAC0I/NQpyp5ZhhLofspnKEQv4JVUvbtFhExXnwCK4BGAYYCw/s400/av1.jpeg</item>
     </string-array>
 
 
@@ -1013,7 +1013,7 @@ Eventually, SIP will probably make communications tools interoperable. In other 
         <item>https://1.bp.blogspot.com/-y2JVAkDaHts/W2GaTz2O68I/AAAAAAAACvE/1cWMsa2699gEoXHRmEN7K2lsGflJGh9twCK4BGAYYCw/s1600/wifi3.jpg</item>
         <item>https://4.bp.blogspot.com/-GOVqj0etEqI/W2GaXMuQIYI/AAAAAAAACvM/QvStYdsT7n4qsXstkzUkS8X_OVo5xKVSwCK4BGAYYCw/s1600/wifi5.png</item>
         <item>https://1.bp.blogspot.com/-7_gR24lUj8A/W2GaSItJ0NI/AAAAAAAACu0/N80_mwwO1xAfEStIMFPwCukOn19obf7VACK4BGAYYCw/s1600/wifi1.jpg</item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-ake_MXRoP2w/W2G875-vFzI/AAAAAAAACy0/vrLY2IpraBIh_Ru_SL4nYZPyYYM3MrQwwCK4BGAYYCw/s1600/wifi5.jpg</item>
     </string-array>
 
 
@@ -1099,11 +1099,11 @@ The precession can also be prevented using two gyroscopes that are arranged perp
     </string-array>
 
     <string-array name="gyroscope_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://4.bp.blogspot.com/-QW9WHj9CX5M/W2G8zIOQNUI/AAAAAAAACyc/yXYrf9OR2r8CwAyKDfjLwqNbb-OqqOjQwCK4BGAYYCw/s1600/gyro5.jpg</item>
+        <item>https://3.bp.blogspot.com/-cw_1lRZB24I/W2G8yN57h7I/AAAAAAAACyM/d24dH-qgbkUUHaAWQ7ilOjo0rz5eahKGgCK4BGAYYCw/s1600/gyro1.jpg</item>
+        <item>https://4.bp.blogspot.com/-au4MEY9NhLM/W2G8yYNvpRI/AAAAAAAACyU/ovDq7wl8OMMrmje7aTgeg_qZipEMKFpiACK4BGAYYCw/s1600/gyro2.jpg</item>
+        <item>https://4.bp.blogspot.com/-S5cmVi6fWeg/W2G82buj-2I/AAAAAAAACys/_4uzbVY6snIk7RXlktxrFyU4oiwCyaOpACK4BGAYYCw/s1600/gyro3.png</item>
+        <item>https://3.bp.blogspot.com/-QSVlYCptKrM/W2G80ggFWZI/AAAAAAAACyk/CL0Xl1QR06A7368QiMZmMzZSLwQfsCZAQCK4BGAYYCw/s1600/gyro4.jpg</item>
     </string-array>
 
 
@@ -1211,11 +1211,11 @@ Quaternions are also more computationally efficient. You don\'t need to call exp
     </string-array>
 
     <string-array name="rotation_vector_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://4.bp.blogspot.com/-QGPg6mP096A/W2G8JJbs7fI/AAAAAAAACx0/dIRy7CmvysUyxp-PGPt-RA5jQV3c87KrQCK4BGAYYCw/s1600/rotate1.jpg</item>
+        <item>https://2.bp.blogspot.com/-IH7DR23WiR4/W2G8G6-XbJI/AAAAAAAACxc/NohmVEQuQZE45ORHW2woNhF8lKOssclMwCK4BGAYYCw/s1600/rotate2.jpg</item>
+        <item>https://3.bp.blogspot.com/-faxCJ6yP7e8/W2G8Il11G4I/AAAAAAAACxk/9TdWDhu-YHILEn3AWQPcuVH_IhRiF1RrACK4BGAYYCw/s1600/rotate3.jpg</item>
+        <item>https://2.bp.blogspot.com/-trfnqk532io/W2G8I6krgII/AAAAAAAACxs/L9iQ8QYmY58XXaT0ku8H1yC50YBHA8VLACK4BGAYYCw/s1600/rotate5.jpg</item>
+        <item>https://3.bp.blogspot.com/-9uEYQJelJZM/W2G8DZ8iPqI/AAAAAAAACxU/5xQkPf2Ms1ouq3TMk_bqb0YVTzf8_HDqQCK4BGAYYCw/s400/rotate4.jpeg</item>
     </string-array>
 
     <string-array name="magnetic_field_headers">
@@ -1259,11 +1259,11 @@ Thus Magnetic sensor adds details to enhance your navigation experience, but it 
     </string-array>
 
     <string-array name="magnetic_field_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-QaxnTc-2QSA/W2G7rhzXdrI/AAAAAAAACxE/7bsQ5nd7N6AzkOHAhe8xu_iiRjnPlZsLQCK4BGAYYCw/s1600/magnet5.jpg</item>
+        <item>https://2.bp.blogspot.com/-8H53OyAg-Ko/W2G7re5ZFOI/AAAAAAAACw8/8Kpl8hHV2Lw_y_IOjIlv2UrqhH6u3ZA6gCK4BGAYYCw/s1600/magnet4.jpg</item>
+        <item>https://3.bp.blogspot.com/-M3LrgkZhSZs/W2G7UL_jBfI/AAAAAAAACwk/6H35-G57L8kTI92LbfB7aBx-Cj3bjg4zwCK4BGAYYCw/s1600/magnet3.jpg</item>
+        <item>https://4.bp.blogspot.com/-NHji5v7TRLE/W2G7U7K1rFI/AAAAAAAACws/4nAGRaMThBARb71oavKSNK_GplzvY_2zwCK4BGAYYCw/s1600/magnet2.jpg</item>
+        <item>https://1.bp.blogspot.com/-wkfjc9j7_Do/W2G7Qkt7WeI/AAAAAAAACwc/WHaYU7iICcYBPUDDLc5KLhkQ90bQ7M6SQCK4BGAYYCw/s400/magnet1.jpeg</item>
     </string-array>
 
     <string-array name="step_detector_headers">
@@ -1302,10 +1302,11 @@ An accelerometer will provide three values x-axis value, y-axis value and z-axis
     </string-array>
 
     <string-array name="step_detector_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-FVcCFxA6ttE/W2G6cKft8SI/AAAAAAAACv4/9BW4MPOaJLw1Io7DfQoCZ8o2wA99y6mFgCK4BGAYYCw/s1600/walk1.jpg</item>
+        <item>https://4.bp.blogspot.com/-iJeNNG0AK6c/W2G6cQYbuoI/AAAAAAAACwA/3bp_u1NllWwnZuMrOGP4kYpuH5Y00wTnwCK4BGAYYCw/s1600/walk2.jpg</item>
+        <item>https://3.bp.blogspot.com/-ZKRR8xoMUbY/W2G6ZkW5icI/AAAAAAAACvs/JQ3QWEVajNgUb2EVlxzqWuVglADmurh_QCK4BGAYYCw/s1600/walk3.jpg</item>
+        <item>https://1.bp.blogspot.com/-6b4BDJig1K4/W2G6X3_K3FI/AAAAAAAACvg/ijnSSckEJaw0KR2dYpC7GCiaAw7h7WH5QCK4BGAYYCw/s1600/walk4.jpg</item>
+        <item>https://2.bp.blogspot.com/-jPSDuCUspMg/W2G6ZkzwmJI/AAAAAAAACvw/H_T6DTQ2lJssidvczBOSVHxAMmsVGfiNACK4BGAYYCw/s1600/walk5.jpg</item>
     </string-array>
 
     <string-array name="step_counter_headers">
@@ -1344,10 +1345,11 @@ An accelerometer will provide three values x-axis value, y-axis value and z-axis
     </string-array>
 
     <string-array name="step_counter_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-FVcCFxA6ttE/W2G6cKft8SI/AAAAAAAACv4/9BW4MPOaJLw1Io7DfQoCZ8o2wA99y6mFgCK4BGAYYCw/s1600/walk1.jpg</item>
+        <item>https://4.bp.blogspot.com/-iJeNNG0AK6c/W2G6cQYbuoI/AAAAAAAACwA/3bp_u1NllWwnZuMrOGP4kYpuH5Y00wTnwCK4BGAYYCw/s1600/walk2.jpg</item>
+        <item>https://3.bp.blogspot.com/-ZKRR8xoMUbY/W2G6ZkW5icI/AAAAAAAACvs/JQ3QWEVajNgUb2EVlxzqWuVglADmurh_QCK4BGAYYCw/s1600/walk3.jpg</item>
+        <item>https://1.bp.blogspot.com/-6b4BDJig1K4/W2G6X3_K3FI/AAAAAAAACvg/ijnSSckEJaw0KR2dYpC7GCiaAw7h7WH5QCK4BGAYYCw/s1600/walk4.jpg</item>
+        <item>https://2.bp.blogspot.com/-jPSDuCUspMg/W2G6ZkzwmJI/AAAAAAAACvw/H_T6DTQ2lJssidvczBOSVHxAMmsVGfiNACK4BGAYYCw/s1600/walk5.jpg</item>
     </string-array>
 
     <string-array name="ambient_temperature_headers">
@@ -2078,11 +2080,11 @@ In July 2005, Google acquired Android Inc. for at least $50 million. Its key emp
     </string-array>
 
     <string-array name="android_os_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-6XOPwg4fVi8/W2G9mQste1I/AAAAAAAACzs/12AUrrwvHQk2ea1nMsJOzsZAM9zRprlvgCK4BGAYYCw/s1600/android4.jpg</item>
+        <item>https://1.bp.blogspot.com/-dLaVsycXwCU/W2G9mIMtteI/AAAAAAAACzg/4W67LUKNaPorSqiy4syQFi8yAtdoZGG0ACK4BGAYYCw/s1600/android2.jpg</item>
+        <item>https://3.bp.blogspot.com/-BvCbezNcuZs/W2G9mnz1ohI/AAAAAAAACz0/ASwLHzwfbf8NHs7RdJeVpkekT6sMbOZNACK4BGAYYCw/s1600/android5.jpg</item>
+        <item>https://3.bp.blogspot.com/-n8L3TsIDVn0/W2G9mfyqAlI/AAAAAAAACzo/sCfa0qxDW9g7c51S2FInmSTb8SRPn8kFgCK4BGAYYCw/s400/android3.jpeg</item>
+        <item>https://4.bp.blogspot.com/-NOVA_HMQkJM/W2G9mJRo0MI/AAAAAAAACzU/mHcor9KBtfAKAS7kZTByEfryWnM7gYHTgCK4BGAYYCw/s400/android1.jpeg</item>
     </string-array>
 
 
@@ -2127,11 +2129,11 @@ On a smartphone, you\'ve got similar components, as well as other sub-processors
     </string-array>
 
     <string-array name="cpu_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-kGm_FlIuU2o/W2G_e6jMKHI/AAAAAAAAC1o/SiAHYqnOflUCpK9Zhufx6VpAaGiL4hvCQCK4BGAYYCw/s1600/cpu6.jpg</item>
+        <item>https://1.bp.blogspot.com/-l0bGiTxPX_c/W2G_UrF7QKI/AAAAAAAAC1Y/p90KOt1BZ5Ik1g_3CidaGrdDQLu1NJtqgCK4BGAYYCw/s1600/cpu5.jpg</item>
+        <item>https://1.bp.blogspot.com/-gE41IOIlxlE/W2G_UaqQ2oI/AAAAAAAAC1Q/LUUDvZjeC84xzZfUFpA8qshxGe5rxthEwCK4BGAYYCw/s1600/cpu4.jpg</item>
+        <item>https://4.bp.blogspot.com/-vy70t51QLu8/W2G_RImsPMI/AAAAAAAAC1I/uK_7iTrWqtYUtmyPzUOVDcHavReTLSQ_gCK4BGAYYCw/s1600/cpu2.jpg</item>
+        <item>https://2.bp.blogspot.com/-Sr062RdX0kI/W2G_ZoigfOI/AAAAAAAAC1g/I2uxuw9MmcE8wT2Yz0ptTn32ZVfNmAXJwCK4BGAYYCw/s1600/cpu1.jpg</item>
     </string-array>
 
 
@@ -2170,11 +2172,11 @@ A radio communication system may send information only one way. For example, in 
     </string-array>
 
     <string-array name="radio_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-fcdFjNThGdI/W2HB2cQQXnI/AAAAAAAAC28/Em8dATBF1hUgdQRYcA9R7lXfrRFy8OENACK4BGAYYCw/s1600/radio5.jpg</item>
+        <item>https://3.bp.blogspot.com/-ojUMrqw2hAo/W2HBvAW7dPI/AAAAAAAAC20/3g8gFiWoktgFspD8e0cS3p8oYLZ67LLAgCK4BGAYYCw/s1600/radio4.jpg</item>
+        <item>https://1.bp.blogspot.com/-v_eQtgEqqhA/W2HB57zuZAI/AAAAAAAAC3E/0aRso2rhWdk4MbOaMHD5le3r06lTCRvOgCK4BGAYYCw/s1600/radio2.jpg</item>
+        <item>https://3.bp.blogspot.com/-_E6JXPyS7pM/W2HBtfiikTI/AAAAAAAAC2s/INywDpH4TVsoD8RtMByT2sDda-ntEIl4gCK4BGAYYCw/s400/radio3.jpeg</item>
+        <item>https://2.bp.blogspot.com/-Qi_owPFVpUw/W2HB-QylOzI/AAAAAAAAC3Q/xZe9E8gPqy0cXbroL0T9EVTXBYEtd0bewCK4BGAYYCw/s320/radio.png</item>
     </string-array>
 
 
@@ -2219,11 +2221,11 @@ In parallel France and Germany signed a joint development agreement in 1984 and 
     </string-array>
 
     <string-array name="gsm_umts_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-gE0cFR8aF0A/W2HDZy908lI/AAAAAAAAC4U/mvklzVN7rfoEMdrJ-G-pvZVO8OdCqPe3QCK4BGAYYCw/s1600/sim1.jpg</item>
+        <item>https://2.bp.blogspot.com/-KCoxpeRqI-k/W2HDa03r-eI/AAAAAAAAC4k/ldDAlupBHXMP07DijLo-CEitBKVkMSjZwCK4BGAYYCw/s1600/sim2.jpg</item>
+        <item>https://2.bp.blogspot.com/-PgdvH1GtcwI/W2HDcu-AJHI/AAAAAAAAC4s/b5ynMJV9r2ok1JEcykiLAIRx1BYu21WNgCK4BGAYYCw/s1600/sim3.jpg</item>
+        <item>https://3.bp.blogspot.com/-RhX66SXHwcE/W2HDc8XQRZI/AAAAAAAAC40/qGHu9mE4DLY34G0ZiAPKlJcoKq3vZY0owCK4BGAYYCw/s1600/sim4.jpg</item>
+        <item>https://4.bp.blogspot.com/-EJT-MkZKN2Q/W2HDaHBcmHI/AAAAAAAAC4c/JYsZmmQ9NLE4kqCMKEMpltHtIZFkLszUACK4BGAYYCw/s1600/sim5.jpg</item>
     </string-array>
 
 
