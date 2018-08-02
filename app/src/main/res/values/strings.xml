@@ -1146,11 +1146,11 @@ As of January 2009, almost all new mobile phones and digital cameras contain at 
     </string-array>
 
     <string-array name="gravity_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-D3w5f4bXu28/W2HPoQ3tNSI/AAAAAAAAC6Q/4Y2NW9W-QBw7S_1YP6h4vqeWuY1jtb1OwCK4BGAYYCw/s1600/gravity1.jpg</item>
+        <item>https://3.bp.blogspot.com/-3ODJ2chNCaA/W2HPqlWJRgI/AAAAAAAAC6Y/H87putLQszcKgHTAY0CVDM81Y_DEQM8gQCK4BGAYYCw/s1600/gravity2.jpg</item>
+        <item>https://4.bp.blogspot.com/-2Ogi55opvJE/W2HPxonWoLI/AAAAAAAAC6w/ECVQHAO8k5AlQxcRZ_Wx5wOEwQM-R_SZQCK4BGAYYCw/s1600/gravity3.jpg</item>
+        <item>https://3.bp.blogspot.com/-kB6c6oCFxr8/W2HPt-UY8nI/AAAAAAAAC6g/O1DRDXwJV9QVxpWp9mEHIx8KKN-eIRdrgCK4BGAYYCw/s1600/gravity4.jpg</item>
+        <item>https://3.bp.blogspot.com/-mmZHrKztO8E/W2HPwcsCqJI/AAAAAAAAC6o/oCZ7hyxFYc4kTgE2FW1hJwNpLAMjshRlwCK4BGAYYCw/s1600/gravity5.jpg</item>
     </string-array>
 
     <string-array name="linear_acceleration_headers">
@@ -1185,11 +1185,11 @@ Consumer electronics – Display screens, hard disk\n\n</item>
     </string-array>
 
     <string-array name="linear_acceleration_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-wCJkk9NLdHY/W2HQfup_FUI/AAAAAAAAC7E/dDYOT81-L2IYdLaUNQyjmygLAX_8CgZ0wCK4BGAYYCw/s1600/linear1.jpg</item>
+        <item>https://4.bp.blogspot.com/-27e1GXm71W4/W2HQoG3YREI/AAAAAAAAC7c/yFDOpjS9JZM42oBb-LSh20ka8kFTGMssACK4BGAYYCw/s1600/linear2.jpg</item>
+        <item>https://4.bp.blogspot.com/-cvFLTDDVUyg/W2HQsyvtm-I/AAAAAAAAC7k/ZlE0BGy79HwuX26wk5uZmouUgIVvhqLQQCK4BGAYYCw/s1600/linear4.jpg</item>
+        <item>https://1.bp.blogspot.com/-roKJyg_f-pg/W2HQhR0wtGI/AAAAAAAAC7M/XjFJVFcgNyMoIDUOdBsqLmctE-nFadNYwCK4BGAYYCw/s1600/linear5.jpg</item>
+        <item>https://2.bp.blogspot.com/-LFUjMs5Fbb4/W2HQkYbZNCI/AAAAAAAAC7U/jpZcq69Odtskk-jALoaWNMoqHDF1Ez2SgCK4BGAYYCw/s1600/linear3.jpg</item>
     </string-array>
 
     <string-array name="rotation_vector_headers">
@@ -1408,11 +1408,11 @@ The name of this phone gives you a good idea of what it\’s all about, it\’s 
     </string-array>
 
     <string-array name="ambient_temperature_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-_CxDQCq_8Jc/W2HRYMK_J5I/AAAAAAAAC74/aTORzK9nI-8_e98ZJgEnhLopi06gVUmxwCK4BGAYYCw/s1600/temp1.jpg</item>
+        <item>https://1.bp.blogspot.com/-gFr_KX90bKQ/W2HRYVMUW2I/AAAAAAAAC8A/01JwwAMvDHgJgFx66IdtKTyG6YD0UNytQCK4BGAYYCw/s1600/temp2.jpg</item>
+        <item>https://2.bp.blogspot.com/-LxOqsTtKz3k/W2HRZOzKClI/AAAAAAAAC8Q/SzCKwgy1W5cMixWPcreKp1pyUlAKP9fpQCK4BGAYYCw/s1600/temp3.jpg</item>
+        <item>https://2.bp.blogspot.com/-UU2iKy-k4F8/W2HRZKgS8FI/AAAAAAAAC8U/47aMlXgpzPglJKWY6aboaJ-cu0iQBCXfACK4BGAYYCw/s1600/temp5.jpg</item>
+        <item>https://2.bp.blogspot.com/-xed71w6Jtsc/W2HRZGr-8TI/AAAAAAAAC8Y/Afu7gQlfg0kKs485wdjS0uZa9bYf3iX8ACK4BGAYYCw/s1600/temp4.jpg</item>
     </string-array>
 
     <string-array name="pressure_headers">
@@ -1506,11 +1506,11 @@ Pressure sensors are essentially required to make a device respond to its ambien
     </string-array>
 
     <string-array name="pressure_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-KkxFXCauWXw/W2HfP4Mje1I/AAAAAAAAC88/bfnArsu07e4kfqDHaYdr3eztcSj_iCJnQCK4BGAYYCw/s1600/pressure4.jpg</item>
+        <item>https://1.bp.blogspot.com/-R5vTe3QM98A/W2HfPjmDY2I/AAAAAAAAC80/7cCjE5xcoT8rK9dRDjWve3rYZ7PH8dEEgCK4BGAYYCw/s1600/pressure1.jpg</item>
+        <item>https://1.bp.blogspot.com/-7nDHnKFPMLo/W2HfSmuf-gI/AAAAAAAAC9E/YUEELgOnhEQeOVy3OIr6StAIJ8I_pkmbQCK4BGAYYCw/s1600/pressure2.jpg</item>
+        <item>https://1.bp.blogspot.com/-F1eOMCnk5r8/W2HfK_cyfKI/AAAAAAAAC8s/W-V1ezhVPlkqntXIDbaf190X2KepzX9hACK4BGAYYCw/s1600/pressure3.jpg</item>
+        <item>https://3.bp.blogspot.com/-RZI2_DtFfz8/W2HfSsMR6WI/AAAAAAAAC9M/RfmrIEuEvrg0XfBQAhXCmgrcVLAYFrzhACK4BGAYYCw/s1600/pressure5.jpg</item>
     </string-array>
 
 
@@ -1549,11 +1549,11 @@ By definition, relative humidity is a function of both the ambient temperature a
     </string-array>
 
     <string-array name="relative_humidity_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-BJNphrsluug/W2HgWOa-XFI/AAAAAAAAC-A/kypzmGG-3RMe1XpZrOenZ9XLuRelOFbygCK4BGAYYCw/s1600/humid5.jpg</item>
+        <item>https://3.bp.blogspot.com/-6-XoIfSSEIA/W2HgVsUhIII/AAAAAAAAC94/nqE_jQtEcDE4ZmoD_0RzYmyE7MoXcdiEQCK4BGAYYCw/s1600/humid1.jpg</item>
+        <item>https://4.bp.blogspot.com/-KdUISF3uV9c/W2HgT6iZuCI/AAAAAAAAC9w/Z4xCbrTDqJ0whJ3Bh_lTg_6LQmy2UZBHACK4BGAYYCw/s1600/humid4.jpg</item>
+        <item>https://2.bp.blogspot.com/-L7YmHcBlj3M/W2HgS_3vL8I/AAAAAAAAC9o/3_rlHoHJt_UmyuI4EYfF3BlxiLIFxd8NQCK4BGAYYCw/s1600/humid3.jpg</item>
+        <item>https://3.bp.blogspot.com/-y0r0Adb8TJk/W2HgRi_hcRI/AAAAAAAAC9g/jxX0g_w-u88MbOppIbp3nyGB4J3HMHgJgCK4BGAYYCw/s400/humid2.jpeg</item>
     </string-array>
 
 
@@ -1590,11 +1590,11 @@ Some applications or prolonged usage may increase device temperature. Prolonged 
     </string-array>
 
     <string-array name="heart_rate_ecg_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-C_8HAMzJ7tU/W2Hg8ZV8G0I/AAAAAAAAC-U/bcR2-DMgiHAGF51BSGXkL9Icz0PkIrRAQCK4BGAYYCw/s1600/hr1.jpg</item>
+        <item>https://2.bp.blogspot.com/-L_iAlYEF4yM/W2Hg87vP2zI/AAAAAAAAC-c/Z6iPsF33g3o8Iq8Mz7dHoHUruVql2L9pQCK4BGAYYCw/s1600/hr2.jpg</item>
+        <item>https://1.bp.blogspot.com/-7TfVzWsKObQ/W2Hg-NtNLGI/AAAAAAAAC-s/fx9ZSFemt4sO-UKJ8zWuKg_siMXYuXxAQCK4BGAYYCw/s1600/hr3.jpg</item>
+        <item>https://1.bp.blogspot.com/-6KEInlwG5hY/W2Hg98QOCYI/AAAAAAAAC-o/Cce-_IdgDTYfJBKzU1MSuWUAu9Yxp2UsQCK4BGAYYCw/s1600/hr4.jpg</item>
+        <item>https://4.bp.blogspot.com/-2cYoNv7sBUs/W2Hg-pNWO7I/AAAAAAAAC-0/gYCZQ85AisE-xPCMM8VQfq1g6X_EbrvkwCK4BGAYYCw/s1600/hr5.jpg</item>
     </string-array>
 
 
@@ -1660,11 +1660,11 @@ After kitkat, google added android webview that replacing default android in app
     </string-array>
 
     <string-array name="web_view_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-44jUx9NQdKM/W2KdAHnUDgI/AAAAAAAAC_c/i7YhOUqb8OI8zjr9LZ9BcBYyCndaQJ1twCK4BGAYYCw/s1600/web5.png</item>
+        <item>https://2.bp.blogspot.com/-LpgovLpHcNY/W2KdPYeUZOI/AAAAAAAAC_w/PU5bOu2VhRQCKhOz6WjJKVt3C73dG9MhwCK4BGAYYCw/s1600/web2.jpg</item>
+        <item>https://1.bp.blogspot.com/-fCvL7mRzuD0/W2KdH3qNTYI/AAAAAAAAC_k/2CrL4pvO8jUaf_RDw7tW9Dy2ucNEtdjEwCK4BGAYYCw/s1600/web1.jpg</item>
+        <item>https://4.bp.blogspot.com/-UVHAcJfJ9Vg/W2Kc9YsWMXI/AAAAAAAAC_U/PV8KYmwgMTImoqTmpwew0Q3ZcEDcn9-KwCK4BGAYYCw/s1600/web4.png</item>
+        <item>https://1.bp.blogspot.com/-vD3ZzDEN_ig/W2KdUY2TZlI/AAAAAAAAC_8/WJPaz3q8grMuYmipjZjCUrER42bTuFbOQCK4BGAYYCw/s1600/web3.jpg</item>
     </string-array>
 
 
@@ -1707,11 +1707,11 @@ VR can simulate real workspaces for workplace occupational safety and health pur
     </string-array>
 
     <string-array name="vr_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-h-TWdxxh410/W2HO2gD82lI/AAAAAAAAC5o/Pp_1kJ0EXrcl0O-kTvN5ctDiXjovIT8ogCK4BGAYYCw/s1600/vr1.jpg</item>
+        <item>https://4.bp.blogspot.com/-mR-cExrTJDo/W2HPNdKrCKI/AAAAAAAAC6E/nStuUHaXcTESQjSzW9blPHgxCsgV-ZIZQCK4BGAYYCw/s1600/vr3.jpg</item>
+        <item>https://4.bp.blogspot.com/-78HXmX6rYAY/W2HOxtWOOoI/AAAAAAAAC5g/YpsybvoV8gA1QDsEKyILffqrbitiNi49gCK4BGAYYCw/s1600/vr2.jpg</item>
+        <item>https://3.bp.blogspot.com/-I9Guf1aJGZc/W2HO5xRkBLI/AAAAAAAAC5w/h7YfsSwXFZkb-3iOepn66MDIibkgmfp_QCK4BGAYYCw/s1600/vr4.jpg</item>
+        <item>https://1.bp.blogspot.com/-WBhr9cvV5T0/W2HOwDDRU1I/AAAAAAAAC5Y/VWpbP9pLkIY7GUHj33pVOas_FPeuNUD6gCK4BGAYYCw/s1600/vr5.jpg</item>
     </string-array>
 
 
@@ -1801,11 +1801,11 @@ The Miracast standard for the wireless connection of devices to displays is base
     </string-array>
 
     <string-array name="wifi_direct_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-hs5OgsQzfmA/W2Kdaj_LdwI/AAAAAAAADAQ/uiLNGaEJ2Qw_Xkd5wtdzZojoOlTNHytqwCK4BGAYYCw/s1600/wifid2.jpg</item>
+        <item>https://4.bp.blogspot.com/-7nbMkz2C_kQ/W2Kdc3CcsQI/AAAAAAAADAg/sGzucK0emqcyubcZsNoNVRwVtMGJwsg9gCK4BGAYYCw/s1600/wifid4.jpg</item>
+        <item>https://3.bp.blogspot.com/-iseEqKkneUY/W2KddYD9GhI/AAAAAAAADAo/9cEzILlG45QpD-TUGWoRhiQjPdFJXjRVQCK4BGAYYCw/s1600/wifid5.jpg</item>
+        <item>https://1.bp.blogspot.com/-0jKpnhTVfnI/W2KdaZIjdGI/AAAAAAAADAI/HbfRjTuEVDo1NIcsD_i-sa-XAQjyiaS2ACK4BGAYYCw/s1600/wifid1.png</item>
+        <item>https://4.bp.blogspot.com/-7FM0E96V3Ko/W2Kdc_pwITI/AAAAAAAADAc/J_M8UNOGcrw_gI3APznkMLWhD0-qZR_hgCK4BGAYYCw/s1600/wifid3.jpg</item>
     </string-array>
 
 
@@ -1840,11 +1840,11 @@ That\'s important for services like Google maps to show you useful information r
     </string-array>
 
     <string-array name="barometer_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-LCgKpBQ0eME/W2KfpW14k7I/AAAAAAAADBk/d49tCAqufLAySZMa9LTclMVqgCTXUD8CwCK4BGAYYCw/s1600/baro1.jpeg</item>
+        <item>https://3.bp.blogspot.com/-lmSLoqGW4tg/W2Kfvj4sUmI/AAAAAAAADBs/MnwqcpA8iMgHXgTSB0G85Pak3E075TrnwCK4BGAYYCw/s1600/baro3.png</item>
+        <item>https://2.bp.blogspot.com/-R0yUMpTDE54/W2KeU3JWbyI/AAAAAAAADBI/9dz1Xap92icGbL2qywxVoF8DenPrlgmYACK4BGAYYCw/s1600/baro4.jpg</item>
+        <item tools:ignore="TypographyDashes">https://2.bp.blogspot.com/-Et1gN70FtJE/W2KeSIi52OI/AAAAAAAADBA/Phk52k35-78V6fe3rzdhMvGPfB-4SvNoQCK4BGAYYCw/s1600/baro5.jpg</item>
+        <item>https://3.bp.blogspot.com/-A1sl9ZCtrB8/W2Kecvq0JdI/AAAAAAAADBQ/BIn8Ndi50nwldWlhNpN1HPLqDWWweikzwCK4BGAYYCw/s1600/bro2.jpg</item>
     </string-array>
 
 
@@ -2024,11 +2024,11 @@ Next, infrared detectors are used to detect the radiation which has been focused
     </string-array>
 
     <string-array name="infrared_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-bg-XGn2WiFo/W2KfzEQNxtI/AAAAAAAADCE/caYEQ24R6W82mixblXO24FPDufYD5NV9ACK4BGAYYCw/s1600/ir1.jpg</item>
+        <item>https://4.bp.blogspot.com/-uov_wdoKn0A/W2Kfx3NIApI/AAAAAAAADB8/LarFeIPjxxoH77PqQ6GUBNyzDf2aIerNgCK4BGAYYCw/s1600/ir2.jpg</item>
+        <item>https://2.bp.blogspot.com/-3kHOvJ_uDeE/W2Kf2pz73dI/AAAAAAAADCM/16XqAWzrxncMOZqEgKGUZSx4Rq87HU0KQCK4BGAYYCw/s1600/ir4.jpg</item>
+        <item>https://3.bp.blogspot.com/-iXzND5J3WE8/W2Kf4RwR8bI/AAAAAAAADCU/D8b0sfw7NJsXUATqRNt742VDtTcdAJ2ogCK4BGAYYCw/s1600/ir5.jpg</item>
+        <item>https://2.bp.blogspot.com/-yBAdzTSdfBc/W2KfwWrY2MI/AAAAAAAADB0/r0L2ztZvApgYStLy70TcKv3UnFZeNhrOQCK4BGAYYCw/s1600/ir3.jpg</item>
     </string-array>
 
 
@@ -2223,7 +2223,7 @@ In parallel France and Germany signed a joint development agreement in 1984 and 
     <string-array name="gsm_umts_images">
         <item>https://3.bp.blogspot.com/-gE0cFR8aF0A/W2HDZy908lI/AAAAAAAAC4U/mvklzVN7rfoEMdrJ-G-pvZVO8OdCqPe3QCK4BGAYYCw/s1600/sim1.jpg</item>
         <item>https://2.bp.blogspot.com/-KCoxpeRqI-k/W2HDa03r-eI/AAAAAAAAC4k/ldDAlupBHXMP07DijLo-CEitBKVkMSjZwCK4BGAYYCw/s1600/sim2.jpg</item>
-        <item>https://2.bp.blogspot.com/-PgdvH1GtcwI/W2HDcu-AJHI/AAAAAAAAC4s/b5ynMJV9r2ok1JEcykiLAIRx1BYu21WNgCK4BGAYYCw/s1600/sim3.jpg</item>
+        <item tools:ignore="Typos">https://2.bp.blogspot.com/-PgdvH1GtcwI/W2HDcu-AJHI/AAAAAAAAC4s/b5ynMJV9r2ok1JEcykiLAIRx1BYu21WNgCK4BGAYYCw/s1600/sim3.jpg</item>
         <item>https://3.bp.blogspot.com/-RhX66SXHwcE/W2HDc8XQRZI/AAAAAAAAC40/qGHu9mE4DLY34G0ZiAPKlJcoKq3vZY0owCK4BGAYYCw/s1600/sim4.jpg</item>
         <item>https://4.bp.blogspot.com/-EJT-MkZKN2Q/W2HDaHBcmHI/AAAAAAAAC4c/JYsZmmQ9NLE4kqCMKEMpltHtIZFkLszUACK4BGAYYCw/s1600/sim5.jpg</item>
     </string-array>
@@ -2273,11 +2273,11 @@ Motion sensors aren\'t just an additional feature of a security system—they ar
     </string-array>
 
     <string-array name="motion_detector_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-gH8iRS6U3nY/W2KhKmeIlMI/AAAAAAAADDY/s159pVqc7mAttwQ7bD07f3T9hMH8OKAFQCK4BGAYYCw/s1600/motion1.jpg</item>
+        <item>https://4.bp.blogspot.com/-9KBxKtMC7lU/W2KhJyLQqlI/AAAAAAAADDQ/WXWP3IYs4M8puXRmBRN7gxmsAKDYJ4-pQCK4BGAYYCw/s1600/motion2.jpg</item>
+        <item>https://1.bp.blogspot.com/-ha0ZNeuAqSY/W2KhA3QJVUI/AAAAAAAADC4/tEn_YuyHdFwOxjghbkCpbncXWT9lPqj_gCK4BGAYYCw/s1600/motion3.jpg</item>
+        <item>https://2.bp.blogspot.com/-I1XylY9ZFFg/W2Kg_u-jl1I/AAAAAAAADCw/-piFpcr_MzAhoZaqebLoWrUNg5tFqjKuwCK4BGAYYCw/s1600/motion4.jpg</item>
+        <item>https://1.bp.blogspot.com/-7iSbFMbA6nE/W2KhZwcdR3I/AAAAAAAADD0/rscNuoLJHyETjd8z_ExHHy0fSXA7AT40gCK4BGAYYCw/s1600/motion5.jpg</item>
     </string-array>
 
 
@@ -2325,11 +2325,11 @@ Motion sensors aren\'t just an additional feature of a security system—they ar
     </string-array>
 
     <string-array name="stationary_detector_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-FQwhKNVBBH0/W2KhF4FOZPI/AAAAAAAADDI/T8PuvhSAeTcpi36Aur_L4A_C6mA9YPVzQCK4BGAYYCw/s1600/station1.jpg</item>
+        <item>https://4.bp.blogspot.com/-rv9H-wuU66U/W2KhiXxS3bI/AAAAAAAADEE/anUMitDl4oUjDF1211YRHk6HN1sRMRKUwCK4BGAYYCw/s1600/station2.jpg</item>
+        <item>https://1.bp.blogspot.com/-b2TmTeO5j90/W2KhEMFMhvI/AAAAAAAADDA/-n_JRNXSadsQyLjWFccvj1QxS6QaOJyrwCK4BGAYYCw/s1600/station5.jpg</item>
+        <item tools:ignore="TypographyDashes">https://4.bp.blogspot.com/-GTKFjiQHcoo/W2KhMcAuGOI/AAAAAAAADDg/V1qP9dBK2HA102JTCuB3Dwe7id0--mbpgCK4BGAYYCw/s1600/station3.jpg</item>
+        <item>https://2.bp.blogspot.com/-14henRVD5P4/W2KhVzQmk-I/AAAAAAAADDs/UiNXDpH6cwYybEatE6PGflyGcIf71SNZACK4BGAYYCw/s1600/station4.jpg</item>
     </string-array>
 
 </resources>
