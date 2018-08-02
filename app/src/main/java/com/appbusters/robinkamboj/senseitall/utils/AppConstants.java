@@ -124,7 +124,32 @@ public class AppConstants {
     public static final String IS_WAKE_UP_SENSOR = "Is Wake Up Sensor";
     public static final String REPORTING_MODE = "Reporting Mode";
     public static final String IS_DYNAMIC_SENSOR = "Is Dynamic Sensor";
-    public static final String V = "Standard";
+
+    public static final String SUN_GRAVITY = "Sun's Gravity";
+    public static final String MOON_GRAVITY = "Moon's Gravity";
+    public static final String MERCURY_GRAVITY = "Mercury's Gravity";
+    public static final String VENUS_GRAVITY = "Venus' Gravity";
+    public static final String EARTH_GRAVITY = "Earth's Gravity";
+    public static final String MARS_GRAVITY = "Mars' Gravity";
+    public static final String JUPITER_GRAVITY = "Jupiter's Gravity";
+    public static final String SATURN_GRAVITY = "Saturn's Gravity";
+    public static final String URANUS_GRAVITY = "Uranus' Gravity";
+    public static final String NEPTUNE_GRAVITY = "Neptune's Gravity";
+    public static final String PLUTO_GRAVITY = "Pluto's Gravity";
+
+    public static final String MAX_SUNLIGHT_LUMINANCE = "Max Sunlight Luminance";
+    public static final String SUNLIGHT_LUMINANCE = "Sunlight Luminance";
+    public static final String SHADE_LUMINANCE = "Luminance In Shade";
+    public static final String OVERCAST_SKY_LUMINANCE = "Luminance Under Overcast Sky";
+    public static final String CLEAR_SKY_LUMINANCE = "Luminance Under Clear Sky";
+    public static final String SUNRISE_LUMINANCE = "Luminance At Sunrise";
+    public static final String FULL_MOON_LUMINANCE = "Luminance During Full Moon";
+    public static final String NO_MOON_LUMINANCE = "Luminace During No Moon";
+
+    public static final String MAGNETIC_FIELD_EARTH_MAX = "Magnetic Field Earth Max";
+    public static final String MAGNETIC_FIELD_EARTH_MIN = "Magnetic Field Earth Min";
+
+    public static final String STANDARD_PRESSURE_ATMOSPHERE = "Standard Pressure Atmosphere";
 
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
     public static List<String> sensorNames = new ArrayList<>();

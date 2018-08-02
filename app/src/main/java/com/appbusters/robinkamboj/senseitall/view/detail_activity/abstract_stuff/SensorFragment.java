@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,20 +26,42 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CLEAR_SKY_LUMINANCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.EARTH_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FULL_MOON_LUMINANCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_DYNAMIC_SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_WAKE_UP_SENSOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.JUPITER_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MAGNETIC_FIELD_EARTH_MAX;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MAGNETIC_FIELD_EARTH_MIN;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MARS_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MAXIMUM_DELAY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MAXIMUM_RANGE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MAX_SUNLIGHT_LUMINANCE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MERCURY_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MINIMUM_DELAY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MOON_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NEPTUNE_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NO_MOON_LUMINANCE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.OVERCAST_SKY_LUMINANCE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PLUTO_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.POWER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.REPORTING_MODE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RESOLUTION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SATURN_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHADE_LUMINANCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STANDARD_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STANDARD_PRESSURE_ATMOSPHERE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SUNLIGHT_LUMINANCE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SUNRISE_LUMINANCE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SUN_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.URANUS_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VENDOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VENUS_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VERSION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.reverseDiagnosticsPointer;
 
@@ -112,6 +133,37 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
         String valueUnits = null;
 
         switch (key) {
+            case STANDARD_PRESSURE_ATMOSPHERE: {
+                valueUnits = "hPa (milli-bar)";
+                break;
+            }
+            case MAGNETIC_FIELD_EARTH_MAX:
+            case MAGNETIC_FIELD_EARTH_MIN: {
+                valueUnits = "micro-teslas";
+                break;
+            }
+            case CLEAR_SKY_LUMINANCE:
+            case FULL_MOON_LUMINANCE:
+            case NO_MOON_LUMINANCE:
+            case MAX_SUNLIGHT_LUMINANCE:
+            case SUNRISE_LUMINANCE:
+            case SUNLIGHT_LUMINANCE:
+            case SHADE_LUMINANCE:
+            case OVERCAST_SKY_LUMINANCE: {
+                valueUnits = "lux";
+                break;
+            }
+            case SUN_GRAVITY:
+            case MOON_GRAVITY:
+            case MERCURY_GRAVITY:
+            case VENUS_GRAVITY:
+            case EARTH_GRAVITY:
+            case MARS_GRAVITY:
+            case JUPITER_GRAVITY:
+            case SATURN_GRAVITY:
+            case URANUS_GRAVITY:
+            case NEPTUNE_GRAVITY:
+            case PLUTO_GRAVITY:
             case STANDARD_GRAVITY:{
                 valueUnits = "m/s<sup>2</sup>";
                 break;
@@ -158,12 +210,8 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
             }
         }
 
-        if(valueUnits == null) {
-            sensorDetails.add(new SensorDetail(key, value));
-        }
-        else {
-            sensorDetails.add(new SensorDetail(key, value + " " + valueUnits));
-        }
+        if(valueUnits == null) sensorDetails.add(new SensorDetail(key, value));
+        else sensorDetails.add(new SensorDetail(key, value + " " + valueUnits));
     }
 
     @Override
