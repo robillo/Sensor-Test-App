@@ -42,6 +42,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="300sp"
+                android:layout_margin="10sp"
+                app:cardCornerRadius="5sp"
+                app:cardElevation="3sp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorTextThree"
+                    android:id="@+id/text_image"
+                    tools:ignore="ContentDescription" />
+
+            </android.support.v7.widget.CardView>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
@@ -61,13 +77,6 @@
                 android:paddingLeft="10sp"
                 android:paddingRight="10sp"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300sp"
-                android:background="@color/colorTextThree"
-                android:id="@+id/text_image"
-                tools:ignore="ContentDescription" />
-
         </LinearLayout>
 
     </ScrollView>
@@ -80,7 +89,7 @@
 
     <com.shuhart.stepview.StepView
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:id="@+id/step_view"
         android:padding="16dp"
         app:sv_selectedCircleColor="@color/colorMajorDark"

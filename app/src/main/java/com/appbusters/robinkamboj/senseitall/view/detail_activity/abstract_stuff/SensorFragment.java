@@ -158,7 +158,12 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
             }
         }
 
-        sensorDetails.add(new SensorDetail(key, value + " " + valueUnits));
+        if(valueUnits == null) {
+            sensorDetails.add(new SensorDetail(key, value));
+        }
+        else {
+            sensorDetails.add(new SensorDetail(key, value + " " + valueUnits));
+        }
     }
 
     @Override

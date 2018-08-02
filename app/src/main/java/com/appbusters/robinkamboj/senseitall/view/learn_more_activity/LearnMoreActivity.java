@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.shuhart.stepview.StepView;
 
@@ -456,11 +457,13 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         scrollView.fullScroll(View.FOCUS_UP);
         if(headers != null) headerText.setText(headers[currentStep].toUpperCase());
         if(descriptions != null) descriptionText.setText(descriptions[currentStep]);
-        if(images != null)
+        if(images != null) {
             Glide.with(this)
-                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
-                .load(images[currentStep])
-                .into(textImage);
+                    .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
+                    .load(images[currentStep])
+                    .transition(new DrawableTransitionOptions().crossFade())
+                    .into(textImage);
+        }
     }
 
     @Override
