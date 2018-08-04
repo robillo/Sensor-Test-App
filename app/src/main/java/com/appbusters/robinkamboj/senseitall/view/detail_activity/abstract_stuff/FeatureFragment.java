@@ -128,6 +128,7 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
             intent.putExtras(args);
 
             getActivity().startActivity(intent);
+            getActivity().overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
         }
     }
 }
