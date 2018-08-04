@@ -508,4 +508,10 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
+    }
 }
