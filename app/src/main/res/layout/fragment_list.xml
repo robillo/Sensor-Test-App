@@ -25,7 +25,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="35sp"
+                    android:layout_marginBottom="37sp"
                     android:id="@+id/list_screen">
 
                     <android.support.v7.widget.CardView
@@ -103,11 +103,15 @@
                         android:orientation="horizontal"
                         android:background="@color/white">
 
-                        <ImageButton
+                        <ImageView
                             android:layout_width="?android:attr/actionBarSize"
                             android:layout_height="?android:attr/actionBarSize"
                             android:background="?android:attr/selectableItemBackground"
-                            tools:ignore="ContentDescription" />
+                            android:src="@drawable/baseline_settings_black_48"
+                            android:padding="14sp"
+                            android:tint="@color/colorMajorDark"
+                            tools:ignore="ContentDescription"
+                            android:id="@+id/menu_settings"/>
 
                         <TextView
                             android:layout_width="0sp"
@@ -118,11 +122,15 @@
                             android:textColor="@color/colorMajorDark"
                             android:text="@string/sense_it_all"/>
 
-                        <ImageButton
+                        <ImageView
                             android:layout_width="?android:attr/actionBarSize"
                             android:layout_height="?android:attr/actionBarSize"
                             android:background="?android:attr/selectableItemBackground"
-                            tools:ignore="ContentDescription"/>
+                            android:src="@drawable/baseline_search_black_48"
+                            android:padding="14sp"
+                            android:tint="@color/colorMajorDark"
+                            tools:ignore="ContentDescription"
+                            android:id="@+id/search"/>
 
                     </LinearLayout>
 
@@ -164,7 +172,7 @@
                     android:gravity="center"
                     android:paddingTop="5sp"
                     android:paddingBottom="5sp"
-                    android:textSize="20sp"/>
+                    android:textSize="22sp"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -173,7 +181,7 @@
                     android:gravity="center"
                     android:paddingTop="5sp"
                     android:paddingBottom="5sp"
-                    android:textSize="20sp"/>
+                    android:textSize="22sp"/>
 
             </TextSwitcher>
 

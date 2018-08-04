@@ -35,6 +35,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -89,6 +90,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
     private boolean[] diagnosticsPresent;
+
+    @BindView(R.id.search)
+    ImageView searchImage;
+
+    @BindView(R.id.menu_settings)
+    ImageView settingsMenuImage;
 
     @BindView(R.id.rate_experience_screen)
     LinearLayout rateExperienceScreen;
@@ -521,6 +528,16 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         Email.putExtra(Intent.EXTRA_SUBJECT, "Feedback For Sense It All! - Device Test");
         Email.putExtra(Intent.EXTRA_TEXT, "Hi Robin," + "\n");
         startActivity(Intent.createChooser(Email, "Send Feedback:"));
+    }
+
+    @OnClick(R.id.search)
+    public void setSearch() {
+        Toast.makeText(getActivity(), "Search Fragment", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.menu_settings)
+    public void setMenuSettings() {
+        Toast.makeText(getActivity(), "Settings Bottom Sheet Menu", Toast.LENGTH_SHORT).show();
     }
 
     @NonNull
