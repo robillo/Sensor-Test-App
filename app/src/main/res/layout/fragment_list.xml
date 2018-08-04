@@ -54,7 +54,8 @@
                                 android:paddingBottom="5sp"
                                 android:text="@string/please_give_permissions"
                                 android:layout_gravity="center_vertical"
-                                tools:ignore="RtlHardcoded,RtlSymmetry" />
+                                tools:ignore="RtlHardcoded,RtlSymmetry"
+                                android:clickable="false"/>
 
                             <ImageButton
                                 android:layout_width="40sp"
@@ -65,7 +66,8 @@
                                 android:background="@color/transparent"
                                 android:padding="5sp"
                                 android:scaleType="centerInside"
-                                android:layout_gravity="center_vertical"/>
+                                android:layout_gravity="center_vertical"
+                                android:clickable="false"/>
 
                         </LinearLayout>
 

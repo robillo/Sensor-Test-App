@@ -168,7 +168,6 @@ public class AppConstants {
 
         dangerousPermissions.add(Manifest.permission.CAMERA);
         dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
-        dangerousPermissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
         dangerousPermissions.add(Manifest.permission.BODY_SENSORS);
         dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
         dangerousPermissions.add(Manifest.permission.RECORD_AUDIO);

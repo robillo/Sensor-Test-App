@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         if(getSupportFragmentManager().findFragmentByTag(TAG) != null) return;
         RequestFragment fragment = new RequestFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.slide_in_top_activity, R.anim.slide_out_top_activity);
+        transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity);
         transaction.add(R.id.container, fragment, TAG);
         transaction.commit();
     }
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_request_fragment));
         if(fragment != null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.slide_in_left_activity, R.anim.slide_out_top_activity);
+            transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity);
             transaction.remove(fragment);
             transaction.commit();
         }
