@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -91,7 +92,7 @@ public class BluetoothTestFragment extends Fragment implements BluetoothTestInte
         private Context context;
         private List<BluetoothScanInfo> list;
 
-        public BluetoothScanAdapter(Context context, List<BluetoothScanInfo> list) {
+        BluetoothScanAdapter(Context context, List<BluetoothScanInfo> list) {
             this.context = context;
             this.list = list;
         }
@@ -108,6 +109,10 @@ public class BluetoothTestFragment extends Fragment implements BluetoothTestInte
         @SuppressLint("SetTextI18n")
         @Override
         public void onBindViewHolder(@NonNull BluetoothScanHolder holder, int position) {
+            if(holder.lvAdd != null && holder.lvName != null) {
+                holder.lvName.setText(list.get(position).getName());
+                holder.lvAdd.setText(list.get(position).getAddress());
+            }
         }
 
         @Override
@@ -117,9 +122,11 @@ public class BluetoothTestFragment extends Fragment implements BluetoothTestInte
 
         class BluetoothScanHolder extends RecyclerView.ViewHolder {
 
+            @Nullable
             @BindView(R.id.lvName)
             TextView lvName;
 
+            @Nullable
             @BindView(R.id.lvAdd)
             TextView lvAdd;
 
