@@ -675,7 +675,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @OnClick(R.id.menu_settings)
     public void setMenuSettings() {
-        Toast.makeText(getActivity(), "Settings Bottom Sheet Menu", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "Settings Bottom Sheet Menu", Toast.LENGTH_SHORT).show();
     }
 
     @NonNull

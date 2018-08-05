@@ -257,7 +257,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="give_permissions_first">Please give the app permissions first</string>
     <string name="sorry">Sorry,</string>
     <string name="not_present">is not present in your device.</string>
-    <string name="search_hint">Search Here (Eg. Flash)</string>
+    <string name="search_hint">Search Here: Light, Flash..</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

@@ -67,11 +67,15 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         Fragment reqFragment = getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_request_fragment));
+        ListFragment listFragment = (ListFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_list_fragment));
         if(reqFragment != null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity);
             transaction.remove(reqFragment);
             transaction.commit();
+        }
+        else if(listFragment != null && listFragment.isSearching) {
+            listFragment.setSearch();
         }
         else {
             Intent homeIntent = new Intent(Intent.ACTION_MAIN);

@@ -111,7 +111,8 @@
                             android:padding="14sp"
                             android:tint="@color/colorMajorDark"
                             tools:ignore="ContentDescription"
-                            android:id="@+id/menu_settings"/>
+                            android:id="@+id/menu_settings"
+                            android:visibility="invisible"/>
 
                         <FrameLayout
                             android:layout_width="0sp"
