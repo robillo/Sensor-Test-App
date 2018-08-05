@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -65,11 +66,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_request_fragment));
-        if(fragment != null) {
+        Fragment reqFragment = getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_request_fragment));
+        if(reqFragment != null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity);
-            transaction.remove(fragment);
+            transaction.remove(reqFragment);
             transaction.commit();
         }
         else {

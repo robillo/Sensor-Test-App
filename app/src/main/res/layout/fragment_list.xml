@@ -125,7 +125,7 @@
                                 android:textSize="32sp"
                                 android:textColor="@color/colorMajorDark"
                                 android:text="@string/sense_it_all"
-                                android:visibility="gone"/>
+                                android:id="@+id/app_header_text"/>
 
                             <EditText
                                 android:layout_width="match_parent"
@@ -136,7 +136,8 @@
                                 android:textColorHint="@color/colorMajor"
                                 android:backgroundTint="@color/colorMajorDark"
                                 android:id="@+id/edit_text_search"
-                                android:inputType="textAutoComplete" />
+                                android:inputType="textAutoComplete"
+                                android:visibility="gone"/>
 
                         </FrameLayout>
 

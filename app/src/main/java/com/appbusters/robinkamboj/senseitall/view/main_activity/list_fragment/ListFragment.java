@@ -33,11 +33,13 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -62,6 +64,7 @@ import static android.content.Context.CONSUMER_IR_SERVICE;
 import static android.content.Context.SENSOR_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_YOUR_EXPERIENCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_DEVICE_TESTS;
@@ -80,11 +83,14 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlM
 public class ListFragment extends Fragment implements ListFragmentInterface,
         android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]> {
 
+    private InputMethodManager inputMethodManager;
     private AppPreferencesHelper helper;
     private List<GenericData> list;
     @SuppressWarnings("FieldCanBeLocal")
     private List<PermissionsItem> permissionsItems;
     private int rejectedCount;
+    @SuppressWarnings("FieldCanBeLocal")
+    public boolean isSearching = false;
     private GenericDataAdapter adapter = null;
 
     private List<String> sensorNames;
@@ -94,6 +100,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
     private boolean[] diagnosticsPresent;
+
+    @BindView(R.id.app_header_text)
+    TextView appHeaderText;
 
     @BindView(R.id.edit_text_search)
     EditText searchEditText;
@@ -167,6 +176,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         //noinspection ConstantConditions
         helper = new AppPreferencesHelper(getActivity());
 
+        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         Animation in = AnimationUtils.loadAnimation(getActivity(), R.anim.top_down_enter_header);
         Animation out = AnimationUtils.loadAnimation(getActivity(), R.anim.top_down_exit_header);
         in.setDuration(200);
@@ -209,9 +219,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         helper.setHeaderText(SHOWING_DEVICE_TESTS);
         setHeaderTextAndRv();
 
-        if(listScreen.getVisibility() == View.GONE) {
+        if(listScreen.getVisibility() == GONE) {
             listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(View.GONE);
+            rateExperienceScreen.setVisibility(GONE);
         }
     }
 
@@ -221,9 +231,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         helper.setHeaderText(SHOWING_SENSORS_LIST);
         setHeaderTextAndRv();
 
-        if(listScreen.getVisibility() == View.GONE) {
+        if(listScreen.getVisibility() == GONE) {
             listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(View.GONE);
+            rateExperienceScreen.setVisibility(GONE);
         }
     }
 
@@ -233,9 +243,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         helper.setHeaderText(SHOWING_FEATURES_LIST);
         setHeaderTextAndRv();
 
-        if(listScreen.getVisibility() == View.GONE) {
+        if(listScreen.getVisibility() == GONE) {
             listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(View.GONE);
+            rateExperienceScreen.setVisibility(GONE);
         }
     }
 
@@ -245,8 +255,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         helper.setHeaderText(RATE_YOUR_EXPERIENCE);
         setHeaderTextAndRv();
 
-        if(rateExperienceScreen.getVisibility() == View.GONE) {
-            listScreen.setVisibility(View.GONE);
+        if(rateExperienceScreen.getVisibility() == GONE) {
+            listScreen.setVisibility(GONE);
             rateExperienceScreen.setVisibility(VISIBLE);
         }
     }
@@ -267,7 +277,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if(toolbar.getVisibility() == VISIBLE) toolbar.setVisibility(View.GONE);
+                if(toolbar.getVisibility() == VISIBLE) toolbar.setVisibility(GONE);
                 rateExperienceScreen.setVisibility(VISIBLE);
 
                 buttonTestsList.setClickable(true);
@@ -287,34 +297,38 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         String string = helper.getHeaderText();
 
         if(string.equals(RATE_YOUR_EXPERIENCE)) {
-            if(headerText.getVisibility() == VISIBLE) headerText.setVisibility(View.GONE);
+            if(headerText.getVisibility() == VISIBLE) headerText.setVisibility(GONE);
         }
         else {
             headerText.setText(string);
-            if(headerText.getVisibility() == View.GONE) headerText.setVisibility(VISIBLE);
+            if(headerText.getVisibility() == GONE) headerText.setVisibility(VISIBLE);
         }
 
         switch (string) {
             case SHOWING_DEVICE_TESTS: {
                 turnOnHighlight(TYPE_DIAGNOSTICS);
                 fillGenericDataForSelected(TYPE_DIAGNOSTICS);
+                resetSearchText();
                 break;
             }
             case SHOWING_SENSORS_LIST: {
                 turnOnHighlight(TYPE_SENSORS);
                 fillGenericDataForSelected(TYPE_SENSORS);
+                resetSearchText();
                 break;
             }
             case SHOWING_FEATURES_LIST: {
                 turnOnHighlight(TYPE_FEATURES);
                 fillGenericDataForSelected(TYPE_FEATURES);
+                resetSearchText();
                 break;
             }
             case RATE_YOUR_EXPERIENCE: {
                 turnOnHighlight(TYPE_RATE);
-                if(rateExperienceScreen.getVisibility() == View.GONE) {
-                    listScreen.setVisibility(View.GONE);
+                if(rateExperienceScreen.getVisibility() == GONE) {
+                    listScreen.setVisibility(GONE);
                     rateExperienceScreen.startAnimation(fadeIn);
+                    if(isSearching) setSearch();
                 }
                 break;
             }
@@ -373,7 +387,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             }
 
         if(rejectedCount == 0)
-            permissionsCard.setVisibility(View.GONE);
+            permissionsCard.setVisibility(GONE);
         else
             permissionsCard.setVisibility(VISIBLE);
     }
@@ -387,10 +401,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @Override
     public void togglePermissionCardVisibility() {
         if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE))
-            permissionsCard.setVisibility(View.GONE);
+            permissionsCard.setVisibility(GONE);
         else {
             if(rejectedCount > 0) permissionsCard.setVisibility(VISIBLE);
-            else permissionsCard.setVisibility(View.GONE);
+            else permissionsCard.setVisibility(GONE);
         }
     }
 
@@ -404,28 +418,28 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         switch (type) {
             case TYPE_DIAGNOSTICS: {
                 recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == View.GONE) {
+                if(toolbar.getVisibility() == GONE) {
                     toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_FEATURES: {
                 recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == View.GONE) {
+                if(toolbar.getVisibility() == GONE) {
                     toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_SENSORS: {
                 recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == View.GONE) {
+                if(toolbar.getVisibility() == GONE) {
                     toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_RATE: {
-                recyclerView.setVisibility(View.GONE);
-                toolbar.setVisibility(View.GONE);
+                recyclerView.setVisibility(GONE);
+                toolbar.setVisibility(GONE);
                 break;
             }
         }
@@ -461,6 +475,22 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
         if(adapter != null)
             adapter.filterList(newList);
+    }
+
+    @Override
+    public void hideOrShowSoftKeyboard(boolean haveToShow) {
+        if(haveToShow) {
+            searchEditText.requestFocus();
+            inputMethodManager.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT);
+        }
+        else {
+            inputMethodManager.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
+        }
+    }
+
+    @Override
+    public void resetSearchText() {
+        searchEditText.setText("");
     }
 
     @Override
@@ -573,7 +603,20 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @OnClick(R.id.search)
     public void setSearch() {
-        Toast.makeText(getActivity(), "Search Fragment", Toast.LENGTH_SHORT).show();
+        if(!isSearching) {
+            appHeaderText.setVisibility(GONE);
+            searchEditText.setVisibility(VISIBLE);
+            hideOrShowSoftKeyboard(true);
+        }
+        else {
+
+            searchEditText.setText("");
+
+            appHeaderText.setVisibility(VISIBLE);
+            searchEditText.setVisibility(GONE);
+            hideOrShowSoftKeyboard(false);
+        }
+        isSearching = !isSearching;
     }
 
     @OnClick(R.id.menu_settings)
