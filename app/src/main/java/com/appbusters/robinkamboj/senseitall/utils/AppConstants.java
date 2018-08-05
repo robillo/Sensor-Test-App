@@ -39,9 +39,9 @@ public class AppConstants {
     public static final String PRESENT_FEATURES = "PRESENT FEATURES";
     public static final String PRESENT_DIAGNOSTICS = "PRESENT DIAGNOSTICS";
 
-    public static final String SHOWING_DEVICE_TESTS = "SHOWING DEVICE TESTS";   //HEADERS
-    public static final String SHOWING_SENSORS_LIST = "SHOWING SENSORS LIST";
-    public static final String SHOWING_FEATURES_LIST = "SHOWING FEATURES LIST";
+    public static final String SHOWING_DEVICE_TESTS = "DEVICE TESTS";   //HEADERS
+    public static final String SHOWING_SENSORS_LIST = "SENSORS LIST";
+    public static final String SHOWING_FEATURES_LIST = "FEATURES LIST";
     public static final String RATE_YOUR_EXPERIENCE = "RATE YOUR EXPERIENCE";
 
     public static final String PREF_FILE_NAME = "SIA";                          //PREFERENCES

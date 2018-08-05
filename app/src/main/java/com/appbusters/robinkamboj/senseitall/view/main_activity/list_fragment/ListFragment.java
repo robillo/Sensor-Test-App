@@ -18,11 +18,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,10 +35,14 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -58,6 +66,7 @@ import static android.content.Context.CONSUMER_IR_SERVICE;
 import static android.content.Context.SENSOR_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_YOUR_EXPERIENCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_DEVICE_TESTS;
@@ -76,11 +85,15 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlM
 public class ListFragment extends Fragment implements ListFragmentInterface,
         android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]> {
 
+    private InputMethodManager inputMethodManager;
     private AppPreferencesHelper helper;
     private List<GenericData> list;
     @SuppressWarnings("FieldCanBeLocal")
     private List<PermissionsItem> permissionsItems;
     private int rejectedCount;
+    @SuppressWarnings("FieldCanBeLocal")
+    public boolean isSearching = false;
+    private GenericDataAdapter adapter = null;
 
     private List<String> sensorNames;
     private List<String> featureNames;
@@ -89,6 +102,18 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
     private boolean[] diagnosticsPresent;
+
+    @BindView(R.id.app_header_text)
+    TextView appHeaderText;
+
+    @BindView(R.id.edit_text_search)
+    EditText searchEditText;
+
+    @BindView(R.id.search)
+    ImageView searchImage;
+
+    @BindView(R.id.menu_settings)
+    ImageView settingsMenuImage;
 
     @BindView(R.id.rate_experience_screen)
     LinearLayout rateExperienceScreen;
@@ -153,6 +178,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         //noinspection ConstantConditions
         helper = new AppPreferencesHelper(getActivity());
 
+        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         Animation in = AnimationUtils.loadAnimation(getActivity(), R.anim.top_down_enter_header);
         Animation out = AnimationUtils.loadAnimation(getActivity(), R.anim.top_down_exit_header);
         in.setDuration(200);
@@ -162,6 +188,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         checkIfAllPermissionsGiven();
         checkForPresentSensors();
         changeStatusBarColor();
+        setEditTextSearchListener();
     }
 
     @Override
@@ -194,9 +221,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         helper.setHeaderText(SHOWING_DEVICE_TESTS);
         setHeaderTextAndRv();
 
-        if(listScreen.getVisibility() == View.GONE) {
+        if(listScreen.getVisibility() == GONE) {
             listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(View.GONE);
+            rateExperienceScreen.setVisibility(GONE);
         }
     }
 
@@ -206,9 +233,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         helper.setHeaderText(SHOWING_SENSORS_LIST);
         setHeaderTextAndRv();
 
-        if(listScreen.getVisibility() == View.GONE) {
+        if(listScreen.getVisibility() == GONE) {
             listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(View.GONE);
+            rateExperienceScreen.setVisibility(GONE);
         }
     }
 
@@ -218,9 +245,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         helper.setHeaderText(SHOWING_FEATURES_LIST);
         setHeaderTextAndRv();
 
-        if(listScreen.getVisibility() == View.GONE) {
+        if(listScreen.getVisibility() == GONE) {
             listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(View.GONE);
+            rateExperienceScreen.setVisibility(GONE);
         }
     }
 
@@ -230,8 +257,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         helper.setHeaderText(RATE_YOUR_EXPERIENCE);
         setHeaderTextAndRv();
 
-        if(rateExperienceScreen.getVisibility() == View.GONE) {
-            listScreen.setVisibility(View.GONE);
+        if(rateExperienceScreen.getVisibility() == GONE) {
+            listScreen.setVisibility(GONE);
             rateExperienceScreen.setVisibility(VISIBLE);
         }
     }
@@ -252,7 +279,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if(toolbar.getVisibility() == VISIBLE) toolbar.setVisibility(View.GONE);
+                if(toolbar.getVisibility() == VISIBLE) toolbar.setVisibility(GONE);
                 rateExperienceScreen.setVisibility(VISIBLE);
 
                 buttonTestsList.setClickable(true);
@@ -272,34 +299,38 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         String string = helper.getHeaderText();
 
         if(string.equals(RATE_YOUR_EXPERIENCE)) {
-            if(headerText.getVisibility() == VISIBLE) headerText.setVisibility(View.GONE);
+            if(headerText.getVisibility() == VISIBLE) headerText.setVisibility(GONE);
         }
         else {
             headerText.setText(string);
-            if(headerText.getVisibility() == View.GONE) headerText.setVisibility(VISIBLE);
+            if(headerText.getVisibility() == GONE) headerText.setVisibility(VISIBLE);
         }
 
         switch (string) {
             case SHOWING_DEVICE_TESTS: {
                 turnOnHighlight(TYPE_DIAGNOSTICS);
                 fillGenericDataForSelected(TYPE_DIAGNOSTICS);
+                resetSearchText();
                 break;
             }
             case SHOWING_SENSORS_LIST: {
                 turnOnHighlight(TYPE_SENSORS);
                 fillGenericDataForSelected(TYPE_SENSORS);
+                resetSearchText();
                 break;
             }
             case SHOWING_FEATURES_LIST: {
                 turnOnHighlight(TYPE_FEATURES);
                 fillGenericDataForSelected(TYPE_FEATURES);
+                resetSearchText();
                 break;
             }
             case RATE_YOUR_EXPERIENCE: {
                 turnOnHighlight(TYPE_RATE);
-                if(rateExperienceScreen.getVisibility() == View.GONE) {
-                    listScreen.setVisibility(View.GONE);
+                if(rateExperienceScreen.getVisibility() == GONE) {
+                    listScreen.setVisibility(GONE);
                     rateExperienceScreen.startAnimation(fadeIn);
+                    if(isSearching) setSearch();
                 }
                 break;
             }
@@ -358,7 +389,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             }
 
         if(rejectedCount == 0)
-            permissionsCard.setVisibility(View.GONE);
+            permissionsCard.setVisibility(GONE);
         else
             permissionsCard.setVisibility(VISIBLE);
     }
@@ -372,10 +403,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @Override
     public void togglePermissionCardVisibility() {
         if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE))
-            permissionsCard.setVisibility(View.GONE);
+            permissionsCard.setVisibility(GONE);
         else {
             if(rejectedCount > 0) permissionsCard.setVisibility(VISIBLE);
-            else permissionsCard.setVisibility(View.GONE);
+            else permissionsCard.setVisibility(GONE);
         }
     }
 
@@ -389,31 +420,79 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         switch (type) {
             case TYPE_DIAGNOSTICS: {
                 recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == View.GONE) {
+                if(toolbar.getVisibility() == GONE) {
                     toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_FEATURES: {
                 recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == View.GONE) {
+                if(toolbar.getVisibility() == GONE) {
                     toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_SENSORS: {
                 recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == View.GONE) {
+                if(toolbar.getVisibility() == GONE) {
                     toolbar.setVisibility(VISIBLE);
                 }
                 break;
             }
             case TYPE_RATE: {
-                recyclerView.setVisibility(View.GONE);
-                toolbar.setVisibility(View.GONE);
+                recyclerView.setVisibility(GONE);
+                toolbar.setVisibility(GONE);
                 break;
             }
         }
+    }
+
+    @Override
+    public void setEditTextSearchListener() {
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    @Override
+    public void filter(String searchText) {
+        List<GenericData> newList = new ArrayList<>();
+        for(GenericData data : list) {
+            if(data.getName().toLowerCase().contains(searchText.toLowerCase())) {
+                newList.add(data);
+            }
+        }
+        if(adapter != null)
+            adapter.filterList(newList);
+    }
+
+    @Override
+    public void hideOrShowSoftKeyboard(boolean haveToShow) {
+        if(haveToShow) {
+            searchEditText.requestFocus();
+            inputMethodManager.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT);
+        }
+        else {
+            inputMethodManager.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
+        }
+    }
+
+    @Override
+    public void resetSearchText() {
+        searchEditText.setText("");
     }
 
     @Override
@@ -441,7 +520,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), span);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setLayoutAnimation(animationController);
-        recyclerView.setAdapter(new GenericDataAdapter(list, getActivity()));
+        adapter = new GenericDataAdapter(list, getActivity());
+        recyclerView.setAdapter(adapter);
 
     }
 
@@ -521,6 +601,81 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         Email.putExtra(Intent.EXTRA_SUBJECT, "Feedback For Sense It All! - Device Test");
         Email.putExtra(Intent.EXTRA_TEXT, "Hi Robin," + "\n");
         startActivity(Intent.createChooser(Email, "Send Feedback:"));
+    }
+
+    @OnClick(R.id.search)
+    public void setSearch() {
+
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
+        fadeInAnimation.setDuration(300);
+
+        if(!isSearching) {
+            appHeaderText.setVisibility(GONE);
+            searchEditText.setVisibility(VISIBLE);
+
+            fadeInAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    searchImage.setClickable(false);
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    searchImage.setClickable(true);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+
+            searchEditText.startAnimation(fadeInAnimation);
+
+            hideOrShowSoftKeyboard(true);
+
+            searchImage.setImageResource(R.drawable.baseline_clear_black_48);
+            if(getActivity() != null)
+                searchImage.setColorFilter(ContextCompat.getColor(getActivity(), R.color.red_shade_four));
+        }
+        else {
+
+            searchEditText.setText("");
+
+            appHeaderText.setVisibility(VISIBLE);
+            searchEditText.setVisibility(GONE);
+
+            fadeInAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    searchImage.setClickable(false);
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    searchImage.setClickable(true);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+
+            appHeaderText.startAnimation(fadeInAnimation);
+
+            hideOrShowSoftKeyboard(false);
+
+            searchImage.setImageResource(R.drawable.baseline_search_black_48);
+            if(getActivity() != null)
+                searchImage.setColorFilter(ContextCompat.getColor(getActivity(), R.color.colorMajorDark));
+        }
+        isSearching = !isSearching;
+    }
+
+    @OnClick(R.id.menu_settings)
+    public void setMenuSettings() {
+//        Toast.makeText(getActivity(), "Settings Bottom Sheet Menu", Toast.LENGTH_SHORT).show();
     }
 
     @NonNull

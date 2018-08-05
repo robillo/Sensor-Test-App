@@ -28,6 +28,14 @@ public interface ListFragmentInterface {
 
     void toggleToolbarVisibility(int type);
 
+    void setEditTextSearchListener();
+
+    void filter(String searchText);
+
+    void hideOrShowSoftKeyboard(boolean haveToShow);
+
+    void resetSearchText();
+
     //adapter related stuff
 
     void initializeAdapter();

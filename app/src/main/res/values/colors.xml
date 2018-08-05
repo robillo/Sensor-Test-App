@@ -70,4 +70,8 @@
         <item>#fafafa</item>
     </array>
 
+    <color name="header_one"></color>
+    <color name="header_two"></color>
+    <color name="header_three"></color>
+
 </resources>

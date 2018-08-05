@@ -25,7 +25,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="35sp"
+                    android:layout_marginBottom="37sp"
                     android:id="@+id/list_screen">
 
                     <android.support.v7.widget.CardView
@@ -103,26 +103,54 @@
                         android:orientation="horizontal"
                         android:background="@color/white">
 
-                        <ImageButton
+                        <ImageView
                             android:layout_width="?android:attr/actionBarSize"
                             android:layout_height="?android:attr/actionBarSize"
-                            android:background="?android:attr/selectableItemBackground"
-                            tools:ignore="ContentDescription" />
+                            android:background="@color/transparent"
+                            android:src="@drawable/baseline_settings_black_48"
+                            android:padding="14sp"
+                            android:tint="@color/colorMajorDark"
+                            tools:ignore="ContentDescription"
+                            android:id="@+id/menu_settings"
+                            android:visibility="invisible"/>
 
-                        <TextView
+                        <FrameLayout
                             android:layout_width="0sp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textSize="32sp"
-                            android:textColor="@color/colorMajorDark"
-                            android:text="@string/sense_it_all"/>
+                            android:layout_weight="1">
 
-                        <ImageButton
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textSize="32sp"
+                                android:textColor="@color/colorMajorDark"
+                                android:text="@string/sense_it_all"
+                                android:id="@+id/app_header_text"/>
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="@string/search_hint"
+                                android:textSize="18sp"
+                                android:textColor="@color/colorMajorDark"
+                                android:textColorHint="@color/colorMajor"
+                                android:backgroundTint="@color/colorMajorDark"
+                                android:id="@+id/edit_text_search"
+                                android:inputType="textAutoComplete"
+                                android:visibility="gone"/>
+
+                        </FrameLayout>
+
+                        <ImageView
                             android:layout_width="?android:attr/actionBarSize"
                             android:layout_height="?android:attr/actionBarSize"
-                            android:background="?android:attr/selectableItemBackground"
-                            tools:ignore="ContentDescription"/>
+                            android:background="@color/transparent"
+                            android:src="@drawable/baseline_search_black_48"
+                            android:padding="14sp"
+                            android:tint="@color/colorMajorDark"
+                            tools:ignore="ContentDescription"
+                            android:id="@+id/search"/>
 
                     </LinearLayout>
 
@@ -164,7 +192,7 @@
                     android:gravity="center"
                     android:paddingTop="5sp"
                     android:paddingBottom="5sp"
-                    android:textSize="20sp"/>
+                    android:textSize="22sp"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -173,7 +201,7 @@
                     android:gravity="center"
                     android:paddingTop="5sp"
                     android:paddingBottom="5sp"
-                    android:textSize="20sp"/>
+                    android:textSize="22sp"/>
 
             </TextSwitcher>
 
