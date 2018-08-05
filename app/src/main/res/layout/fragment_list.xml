@@ -113,14 +113,32 @@
                             tools:ignore="ContentDescription"
                             android:id="@+id/menu_settings"/>
 
-                        <TextView
+                        <FrameLayout
                             android:layout_width="0sp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textSize="32sp"
-                            android:textColor="@color/colorMajorDark"
-                            android:text="@string/sense_it_all"/>
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textSize="32sp"
+                                android:textColor="@color/colorMajorDark"
+                                android:text="@string/sense_it_all"
+                                android:visibility="gone"/>
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="@string/search_hint"
+                                android:textSize="18sp"
+                                android:textColor="@color/colorMajorDark"
+                                android:textColorHint="@color/colorMajor"
+                                android:backgroundTint="@color/colorMajorDark"
+                                android:id="@+id/edit_text_search"
+                                android:inputType="textAutoComplete" />
+
+                        </FrameLayout>
 
                         <ImageView
                             android:layout_width="?android:attr/actionBarSize"

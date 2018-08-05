@@ -14,6 +14,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -166,6 +168,12 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
             }
         }
         return isGiven;
+    }
+
+    @Override
+    public void filterList(List<GenericData> newList) {
+        this.list = newList;
+        notifyDataSetChanged();
     }
 
     @Override

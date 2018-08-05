@@ -23,6 +23,8 @@ import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -82,6 +85,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @SuppressWarnings("FieldCanBeLocal")
     private List<PermissionsItem> permissionsItems;
     private int rejectedCount;
+    private GenericDataAdapter adapter = null;
 
     private List<String> sensorNames;
     private List<String> featureNames;
@@ -90,6 +94,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
     private boolean[] diagnosticsPresent;
+
+    @BindView(R.id.edit_text_search)
+    EditText searchEditText;
 
     @BindView(R.id.search)
     ImageView searchImage;
@@ -169,6 +176,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         checkIfAllPermissionsGiven();
         checkForPresentSensors();
         changeStatusBarColor();
+        setEditTextSearchListener();
     }
 
     @Override
@@ -424,6 +432,38 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     }
 
     @Override
+    public void setEditTextSearchListener() {
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    @Override
+    public void filter(String searchText) {
+        List<GenericData> newList = new ArrayList<>();
+        for(GenericData data : list) {
+            if(data.getName().toLowerCase().contains(searchText.toLowerCase())) {
+                newList.add(data);
+            }
+        }
+        if(adapter != null)
+            adapter.filterList(newList);
+    }
+
+    @Override
     public void initializeAdapter() {
         int span;
         switch (getResources().getConfiguration().orientation) {
@@ -448,7 +488,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), span);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setLayoutAnimation(animationController);
-        recyclerView.setAdapter(new GenericDataAdapter(list, getActivity()));
+        adapter = new GenericDataAdapter(list, getActivity());
+        recyclerView.setAdapter(adapter);
 
     }
 
