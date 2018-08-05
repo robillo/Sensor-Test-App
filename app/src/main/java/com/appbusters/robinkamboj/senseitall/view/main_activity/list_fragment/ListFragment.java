@@ -18,6 +18,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.widget.CardView;
@@ -25,6 +26,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -603,10 +605,38 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @OnClick(R.id.search)
     public void setSearch() {
+
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
+        fadeInAnimation.setDuration(300);
+
         if(!isSearching) {
             appHeaderText.setVisibility(GONE);
             searchEditText.setVisibility(VISIBLE);
+
+            fadeInAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    searchImage.setClickable(false);
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    searchImage.setClickable(true);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+
+            searchEditText.startAnimation(fadeInAnimation);
+
             hideOrShowSoftKeyboard(true);
+
+            searchImage.setImageResource(R.drawable.baseline_clear_black_48);
+            if(getActivity() != null)
+                searchImage.setColorFilter(ContextCompat.getColor(getActivity(), R.color.red_shade_four));
         }
         else {
 
@@ -614,7 +644,31 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
             appHeaderText.setVisibility(VISIBLE);
             searchEditText.setVisibility(GONE);
+
+            fadeInAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    searchImage.setClickable(false);
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    searchImage.setClickable(true);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+
+            appHeaderText.startAnimation(fadeInAnimation);
+
             hideOrShowSoftKeyboard(false);
+
+            searchImage.setImageResource(R.drawable.baseline_search_black_48);
+            if(getActivity() != null)
+                searchImage.setColorFilter(ContextCompat.getColor(getActivity(), R.color.colorMajorDark));
         }
         isSearching = !isSearching;
     }

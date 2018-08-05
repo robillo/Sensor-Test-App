@@ -106,7 +106,7 @@
                         <ImageView
                             android:layout_width="?android:attr/actionBarSize"
                             android:layout_height="?android:attr/actionBarSize"
-                            android:background="?android:attr/selectableItemBackground"
+                            android:background="@color/transparent"
                             android:src="@drawable/baseline_settings_black_48"
                             android:padding="14sp"
                             android:tint="@color/colorMajorDark"
@@ -144,7 +144,7 @@
                         <ImageView
                             android:layout_width="?android:attr/actionBarSize"
                             android:layout_height="?android:attr/actionBarSize"
-                            android:background="?android:attr/selectableItemBackground"
+                            android:background="@color/transparent"
                             android:src="@drawable/baseline_search_black_48"
                             android:padding="14sp"
                             android:tint="@color/colorMajorDark"
