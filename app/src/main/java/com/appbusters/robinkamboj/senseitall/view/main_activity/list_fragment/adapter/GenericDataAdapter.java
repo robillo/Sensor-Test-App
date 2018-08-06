@@ -24,6 +24,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -92,7 +93,8 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
                                 );
                     }
                     else {
-                        Toast.makeText(context, R.string.give_permissions_first, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, R.string.give_permissions_first, Toast.LENGTH_SHORT).show();
+                        ((MainActivity) context).setRequestFragment();
                     }
                 }
                 else {

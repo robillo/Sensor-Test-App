@@ -35,6 +35,8 @@
     <color name="red_shade_two">#7F000D</color>
     <color name="red_shade_three">#FF4C5C</color>
     <color name="red_shade_four">#FF7B86</color>
+    <color name="red_shade_five">#fff5f6</color>
+    <color name="red_shade_six">#ffa7af</color>
 
     <color name="colorTextOne">#6E7B8C</color>
     <color name="colorTextTwo">#8B95A3</color>

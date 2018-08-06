@@ -171,8 +171,8 @@ public class AppConstants {
         dangerousPermissions.add(Manifest.permission.BODY_SENSORS);
         dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
         dangerousPermissions.add(Manifest.permission.RECORD_AUDIO);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+//            dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
 
         //sensors and features mixed
 
