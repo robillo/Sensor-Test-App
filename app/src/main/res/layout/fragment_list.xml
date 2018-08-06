@@ -25,17 +25,21 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="37sp"
+                    android:layout_marginTop="40sp"
                     android:id="@+id/list_screen">
+
+                    <!--75 margin for top and 22 + 5 = 32 for text-switcher-->
 
                     <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@color/red_shade_three"
-                        android:layout_marginTop="75sp"
+                        app:cardBackgroundColor="@color/colorMajorDark"
+                        android:layout_marginBottom="70sp"
                         android:layout_marginLeft="10sp"
                         android:layout_marginRight="10sp"
+                        android:layout_gravity="bottom"
                         app:cardCornerRadius="10sp"
+                        app:cardElevation="5sp"
                         android:id="@+id/card_permissions">
 
                         <LinearLayout
@@ -134,7 +138,7 @@
                                 android:hint="@string/search_hint"
                                 android:textSize="18sp"
                                 android:textColor="@color/colorMajorDark"
-                                android:textColorHint="@color/colorMajor"
+                                android:textColorHint="@color/red_shade_six"
                                 android:backgroundTint="@color/colorMajorDark"
                                 android:id="@+id/edit_text_search"
                                 android:inputType="textAutoComplete"
@@ -160,6 +164,32 @@
                         android:background="@color/colorTextThree"
                         tools:ignore="ContentDescription,SmallSp" />
 
+                    <TextSwitcher
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/header_text"
+                        android:background="@color/red_shade_five">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/red_shade_four"
+                            android:gravity="center"
+                            android:paddingTop="5sp"
+                            android:paddingBottom="5sp"
+                            android:textSize="22sp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/red_shade_four"
+                            android:gravity="center"
+                            android:paddingTop="5sp"
+                            android:paddingBottom="5sp"
+                            android:textSize="22sp"/>
+
+                    </TextSwitcher>
+
                 </LinearLayout>
 
             </FrameLayout>
@@ -179,32 +209,6 @@
                 android:background="@color/colorTextThree"
                 tools:ignore="ContentDescription,SmallSp" />
 
-            <TextSwitcher
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/header_text"
-                android:background="@color/colorMajorDark">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="@color/white"
-                    android:gravity="center"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="5sp"
-                    android:textSize="22sp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="@color/white"
-                    android:gravity="center"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="5sp"
-                    android:textSize="22sp"/>
-
-            </TextSwitcher>
-
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1sp"
@@ -216,31 +220,35 @@
                 android:layout_height="?android:attr/actionBarSize"
                 android:orientation="horizontal">
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/button_tests_list">
 
-                    <ImageButton
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:tint="@color/colorMajorDark"
+                        android:layout_height="0sp"
+                        android:layout_weight="1"
+                        android:tint="@color/red_shade_four"
                         android:src="@drawable/baseline_device_unknown_black_48"
-                        android:background="@color/white"
+                        android:background="@color/transparent"
                         android:scaleType="centerInside"
-                        android:padding="10sp"
-                        tools:ignore="ContentDescription"
-                        android:id="@+id/button_tests_list"/>
+                        android:padding="2sp"
+                        tools:ignore="ContentDescription,NestedWeights"/>
 
-                    <ImageView
-                        android:id="@+id/highlight_tests"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="5sp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="TESTS"
+                        android:gravity="center"
                         android:layout_gravity="bottom"
-                        tools:ignore="ContentDescription,SmallSp" />
+                        android:paddingBottom="3sp"
+                        android:textColor="@color/red_shade_four"/>
 
-                </FrameLayout>
+                </LinearLayout>
 
                 <ImageView
                     android:layout_width="1sp"
@@ -248,31 +256,35 @@
                     android:background="@color/colorTextFive"
                     tools:ignore="ContentDescription,SmallSp" />
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/button_sensors_list">
 
-                    <ImageButton
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:tint="@color/colorMajorDark"
+                        android:layout_height="0sp"
+                        android:layout_weight="1"
+                        android:tint="@color/red_shade_four"
                         android:src="@drawable/baseline_mobile_friendly_black_48"
-                        android:background="@color/white"
+                        android:background="@color/transparent"
                         android:scaleType="centerInside"
-                        android:padding="10sp"
-                        tools:ignore="ContentDescription"
-                        android:id="@+id/button_sensors_list"/>
+                        android:padding="2sp"
+                        tools:ignore="ContentDescription,NestedWeights"/>
 
-                    <ImageView
-                        android:id="@+id/highlight_sensors"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="5sp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="SENSORS"
+                        android:gravity="center"
                         android:layout_gravity="bottom"
-                        tools:ignore="ContentDescription,SmallSp" />
+                        android:paddingBottom="3sp"
+                        android:textColor="@color/red_shade_four"/>
 
-                </FrameLayout>
+                </LinearLayout>
 
                 <ImageView
                     android:layout_width="1sp"
@@ -280,31 +292,35 @@
                     android:background="@color/colorTextFive"
                     tools:ignore="ContentDescription,SmallSp" />
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/button_features_list">
 
-                    <ImageButton
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:tint="@color/colorMajorDark"
+                        android:layout_height="0sp"
+                        android:layout_weight="1"
+                        android:tint="@color/red_shade_four"
                         android:src="@drawable/baseline_battery_charging_full_black_48"
-                        android:background="@color/white"
+                        android:background="@color/transparent"
                         android:scaleType="centerInside"
-                        android:padding="10sp"
-                        tools:ignore="ContentDescription"
-                        android:id="@+id/button_features_list"/>
+                        android:padding="2sp"
+                        tools:ignore="ContentDescription,NestedWeights"/>
 
-                    <ImageView
-                        android:id="@+id/highlight_features"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="5sp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="FEATURES"
+                        android:gravity="center"
                         android:layout_gravity="bottom"
-                        tools:ignore="ContentDescription,SmallSp" />
+                        android:paddingBottom="3sp"
+                        android:textColor="@color/red_shade_four"/>
 
-                </FrameLayout>
+                </LinearLayout>
 
                 <ImageView
                     android:layout_width="1sp"
@@ -312,32 +328,36 @@
                     android:background="@color/colorTextFive"
                     tools:ignore="ContentDescription,SmallSp" />
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/button_rate_experience">
 
-                    <ImageButton
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:tint="@color/colorMajorDark"
+                        android:layout_height="0sp"
+                        android:layout_weight="1"
+                        android:tint="@color/red_shade_four"
                         android:src="@drawable/baseline_verified_user_black_48"
-                        android:background="@color/white"
+                        android:background="@color/transparent"
                         android:scaleType="centerInside"
-                        android:padding="10sp"
-                        tools:ignore="ContentDescription"
-                        android:id="@+id/button_rate_experience"
+                        android:padding="2sp"
+                        tools:ignore="ContentDescription,NestedWeights"
                         android:layout_marginBottom="5sp"/>
 
-                    <ImageView
-                        android:id="@+id/highlight_rate"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="5sp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="EXPERIENCE"
+                        android:gravity="center"
                         android:layout_gravity="bottom"
-                        tools:ignore="ContentDescription,SmallSp" />
+                        android:paddingBottom="3sp"
+                        android:textColor="@color/red_shade_four"/>
 
-                </FrameLayout>
+                </LinearLayout>
 
             </LinearLayout>
 

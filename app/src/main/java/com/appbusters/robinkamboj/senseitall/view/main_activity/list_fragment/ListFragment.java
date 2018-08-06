@@ -26,7 +26,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -133,29 +131,29 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @BindView(R.id.header_text)
     TextSwitcher headerText;
 
-    @BindView(R.id.highlight_tests)
-    ImageView highlight_tests;
-
-    @BindView(R.id.highlight_sensors)
-    ImageView highlight_sensors;
-
-    @BindView(R.id.highlight_features)
-    ImageView highlight_features;
-
-    @BindView(R.id.highlight_rate)
-    ImageView highlight_rate;
+//    @BindView(R.id.highlight_tests)
+//    ImageView highlight_tests;
+//
+//    @BindView(R.id.highlight_sensors)
+//    ImageView highlight_sensors;
+//
+//    @BindView(R.id.highlight_features)
+//    ImageView highlight_features;
+//
+//    @BindView(R.id.highlight_rate)
+//    ImageView highlight_rate;
 
     @BindView(R.id.button_tests_list)
-    ImageView buttonTestsList;
+    LinearLayout buttonTestsList;
 
     @BindView(R.id.button_sensors_list)
-    ImageView buttonSensorsList;
+    LinearLayout buttonSensorsList;
 
     @BindView(R.id.button_features_list)
-    ImageView buttonFeaturesList;
+    LinearLayout buttonFeaturesList;
 
     @BindView(R.id.button_rate_experience)
-    ImageView buttonRateExperience;
+    LinearLayout buttonRateExperience;
 
     public ListFragment() {
         // Required empty public constructor
@@ -344,31 +342,31 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         toggleToolbarVisibility(type);
         switch (type) {
             case TYPE_DIAGNOSTICS: {
-                highlight_tests.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
-                highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
+                buttonTestsList.setBackgroundColor(getResources().getColor(R.color.red_shade_five));
+                buttonSensorsList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonFeaturesList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonRateExperience.setBackgroundColor(getResources().getColor(R.color.white));
                 break;
             }
             case TYPE_SENSORS: {
-                highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_sensors.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
-                highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
+                buttonTestsList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonSensorsList.setBackgroundColor(getResources().getColor(R.color.red_shade_five));
+                buttonFeaturesList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonRateExperience.setBackgroundColor(getResources().getColor(R.color.white));
                 break;
             }
             case TYPE_FEATURES: {
-                highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_features.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
-                highlight_rate.setBackgroundColor(getResources().getColor(R.color.transparent));
+                buttonTestsList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonSensorsList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonFeaturesList.setBackgroundColor(getResources().getColor(R.color.red_shade_five));
+                buttonRateExperience.setBackgroundColor(getResources().getColor(R.color.white));
                 break;
             }
             case TYPE_RATE: {
-                highlight_tests.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_sensors.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_features.setBackgroundColor(getResources().getColor(R.color.transparent));
-                highlight_rate.setBackgroundColor(getResources().getColor(R.color.green_shade_three));
+                buttonTestsList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonSensorsList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonFeaturesList.setBackgroundColor(getResources().getColor(R.color.white));
+                buttonRateExperience.setBackgroundColor(getResources().getColor(R.color.red_shade_five));
                 break;
             }
         }
@@ -470,13 +468,15 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @Override
     public void filter(String searchText) {
         List<GenericData> newList = new ArrayList<>();
-        for(GenericData data : list) {
-            if(data.getName().toLowerCase().contains(searchText.toLowerCase())) {
-                newList.add(data);
+        if(list != null) {
+            for(GenericData data : list) {
+                if(data.getName().toLowerCase().contains(searchText.toLowerCase())) {
+                    newList.add(data);
+                }
             }
+            if(adapter != null)
+                adapter.filterList(newList);
         }
-        if(adapter != null)
-            adapter.filterList(newList);
     }
 
     @Override
