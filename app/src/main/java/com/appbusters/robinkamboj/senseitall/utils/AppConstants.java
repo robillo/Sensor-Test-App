@@ -81,6 +81,12 @@ public class AppConstants {
     public static final String SCREEN_TEST = "Screen Test";
     public static final String LIGHT_TEST = "Light Sensor Test";
     public static final String COMPASS_TEST = "Compass Test";
+    //new
+    public static final String GYROSCOPE_TEST = "Gyroscope Test";
+    public static final String GRAVITY_TEST = "Gravity Test";
+    public static final String LINEAR_ACCELERATION_TEST = "Linear Acceleration Test";
+    public static final String ROTATION_VECTOR_TEST = "Rotation Vector Test";
+    public static final String MAGNETIC_FIELD_TEST = "Magnetic Field Test";
 
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
@@ -193,6 +199,12 @@ public class AppConstants {
         diagnosticsNames.add(WIFI_TEST);
         diagnosticsNames.add(BLUETOOTH_TEST);
         diagnosticsNames.add(HEADPHONE_JACK_TEST);
+        //new sensors
+        diagnosticsNames.add(SENSOR_GYROSCOPE);
+        diagnosticsNames.add(SENSOR_GRAVITY);
+        diagnosticsNames.add(SENSOR_LINEAR_ACCELERATION);
+        diagnosticsNames.add(SENSOR_ROTATION_VECTOR);
+        diagnosticsNames.add(SENSOR_MAGNETIC_FIELD);
 
         diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
         diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
@@ -211,6 +223,12 @@ public class AppConstants {
         diagnosticsPointer.put(WIFI_TEST, WIFI);
         diagnosticsPointer.put(BLUETOOTH_TEST, BLUETOOTH);
         diagnosticsPointer.put(HEADPHONE_JACK_TEST, AV_OUTPUTS);
+        //new
+        diagnosticsPointer.put(GYROSCOPE_TEST, SENSOR_GYROSCOPE);
+        diagnosticsPointer.put(GRAVITY_TEST, SENSOR_GRAVITY);
+        diagnosticsPointer.put(LINEAR_ACCELERATION_TEST, SENSOR_LINEAR_ACCELERATION);
+        diagnosticsPointer.put(ROTATION_VECTOR_TEST, SENSOR_ROTATION_VECTOR);
+        diagnosticsPointer.put(MAGNETIC_FIELD_TEST, SENSOR_MAGNETIC_FIELD);
 
         reverseDiagnosticsPointer.put(SOUND, SPEAKER_VOLUME_TEST);
         reverseDiagnosticsPointer.put(FLASH, FLASH_LIGHT_TEST);
@@ -229,6 +247,12 @@ public class AppConstants {
         reverseDiagnosticsPointer.put(WIFI, WIFI_TEST);
         reverseDiagnosticsPointer.put(BLUETOOTH, BLUETOOTH_TEST);
         reverseDiagnosticsPointer.put(AV_OUTPUTS, HEADPHONE_JACK_TEST);
+        //new
+        reverseDiagnosticsPointer.put(SENSOR_GYROSCOPE, GYROSCOPE_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_GRAVITY, GRAVITY_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_LINEAR_ACCELERATION, LINEAR_ACCELERATION_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_ROTATION_VECTOR, ROTATION_VECTOR_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_MAGNETIC_FIELD, MAGNETIC_FIELD_TEST);
 
         sensorNames.add(SENSOR_ACCELEROMETER);
         sensorNames.add(SENSOR_LIGHT);
@@ -437,6 +461,26 @@ public class AppConstants {
                 COMPASS,
                 "Rotate Your Phone In The Horizontal Plane (Parallel To The Floor) To Verify If The North Pole Of The Compass Still Points Towards The Same Direction."
         );
+        sensorMapDirections.put(
+                SENSOR_GYROSCOPE,
+                ""
+        );
+        sensorMapDirections.put(
+                SENSOR_GRAVITY,
+                ""
+        );
+        sensorMapDirections.put(
+                SENSOR_LINEAR_ACCELERATION,
+                ""
+        );
+        sensorMapDirections.put(
+                SENSOR_ROTATION_VECTOR,
+                ""
+        );
+        sensorMapDirections.put(
+                SENSOR_MAGNETIC_FIELD,
+                ""
+        );
 
 
         sensorMapHints.put(
@@ -506,6 +550,26 @@ public class AppConstants {
         sensorMapHints.put(
                 COMPASS,
                 "If You Are Not Getting Expected Results, Try Re-calibrating The Device In Settings."
+        );
+        sensorMapHints.put(
+                SENSOR_GYROSCOPE,
+                ""
+        );
+        sensorMapHints.put(
+                SENSOR_GRAVITY,
+                ""
+        );
+        sensorMapHints.put(
+                SENSOR_LINEAR_ACCELERATION,
+                ""
+        );
+        sensorMapHints.put(
+                SENSOR_ROTATION_VECTOR,
+                ""
+        );
+        sensorMapHints.put(
+                SENSOR_MAGNETIC_FIELD,
+                ""
         );
 
         sensorMapAbout.put(
