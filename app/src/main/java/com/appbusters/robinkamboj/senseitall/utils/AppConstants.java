@@ -200,11 +200,11 @@ public class AppConstants {
         diagnosticsNames.add(BLUETOOTH_TEST);
         diagnosticsNames.add(HEADPHONE_JACK_TEST);
         //new sensors
-        diagnosticsNames.add(SENSOR_GYROSCOPE);
-        diagnosticsNames.add(SENSOR_GRAVITY);
-        diagnosticsNames.add(SENSOR_LINEAR_ACCELERATION);
-        diagnosticsNames.add(SENSOR_ROTATION_VECTOR);
-        diagnosticsNames.add(SENSOR_MAGNETIC_FIELD);
+        diagnosticsNames.add(GYROSCOPE_TEST);
+        diagnosticsNames.add(GRAVITY_TEST);
+        diagnosticsNames.add(LINEAR_ACCELERATION_TEST);
+        diagnosticsNames.add(MAGNETIC_FIELD_TEST);
+        diagnosticsNames.add(ROTATION_VECTOR_TEST);
 
         diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
         diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
