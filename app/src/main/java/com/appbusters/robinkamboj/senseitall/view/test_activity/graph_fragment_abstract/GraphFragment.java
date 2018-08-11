@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -30,6 +33,8 @@ public class GraphFragment extends Fragment implements GraphInterface {
     protected Sensor sensor;
     protected SensorManager sensorManager;
     protected SensorEventListener sensorEventListener;
+    protected GenericData genericData;
+    protected String sensorName;
 
     protected float valueX = 0;
     protected float valueY = 0;
@@ -50,6 +55,9 @@ public class GraphFragment extends Fragment implements GraphInterface {
     @Override
     public void setup(View v) {
         ButterKnife.bind(this, v);
+
+        if(getActivity() != null) genericData = ((TestActivity) getActivity()).intentData;
+        if(genericData != null) sensorName = genericData.getName();
 
         mSeriesX = new LineGraphSeries<>();
         mSeriesY = new LineGraphSeries<>();
@@ -73,6 +81,30 @@ public class GraphFragment extends Fragment implements GraphInterface {
     }
 
     @Override
+    public String returnUnits(String sensor) {
+        switch (sensor) {
+            case AppConstants.SENSOR_GRAVITY: {
+                return " m/s<sup>2</sup>";
+            }
+            case AppConstants.SENSOR_GYROSCOPE: {
+                return " rad/s";
+            }
+            case AppConstants.SENSOR_LINEAR_ACCELERATION: {
+                return " m/s<sup>2</sup>";
+            }
+            case AppConstants.SENSOR_MAGNETIC_FIELD: {
+                return " uT";
+            }
+            case AppConstants.SENSOR_ROTATION_VECTOR: {
+                return " Magnitude x sin(Angle)";
+            }
+            default: {
+                return "";
+            }
+        }
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         if(sensorManager != null && sensor != null && sensorEventListener != null)
@@ -88,17 +120,17 @@ public class GraphFragment extends Fragment implements GraphInterface {
                 mSeriesZ.appendData(new DataPoint(graph2LastXValue, valueZ), true, 40);
                 xValue.setText(
                         Html.fromHtml(
-                                getString(R.string.x) + " " + decimalFormat.format(valueX) + " " +  "m/s<sup>2</sup>"
+                                getString(R.string.x) + " " + decimalFormat.format(valueX) + returnUnits(sensorName)
                         )
                 );
                 yValue.setText(
                         Html.fromHtml(
-                                getString(R.string.y) + " " + decimalFormat.format(valueY) + " " + "m/s<sup>2</sup>"
+                                getString(R.string.y) + " " + decimalFormat.format(valueY) + returnUnits(sensorName)
                         )
                 );
                 zValue.setText(
                         Html.fromHtml(
-                                getString(R.string.z) + " " + decimalFormat.format(valueZ) + " " + "m/s<sup>2</sup>"
+                                getString(R.string.z) + " " + decimalFormat.format(valueZ) + returnUnits(sensorName)
                         )
                 );
                 mHandler.postDelayed(this, 200);

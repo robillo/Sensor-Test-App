@@ -463,23 +463,23 @@ public class AppConstants {
         );
         sensorMapDirections.put(
                 SENSOR_GYROSCOPE,
-                ""
+                "Rotate The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
         sensorMapDirections.put(
                 SENSOR_GRAVITY,
-                ""
+                "Accelerate The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
         sensorMapDirections.put(
                 SENSOR_LINEAR_ACCELERATION,
-                ""
+                "Accelerate The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
         sensorMapDirections.put(
                 SENSOR_ROTATION_VECTOR,
-                ""
+                "Rotate The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
         sensorMapDirections.put(
                 SENSOR_MAGNETIC_FIELD,
-                ""
+                "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
 
 
@@ -553,23 +553,23 @@ public class AppConstants {
         );
         sensorMapHints.put(
                 SENSOR_GYROSCOPE,
-                ""
+                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
         sensorMapHints.put(
                 SENSOR_GRAVITY,
-                ""
+                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
         sensorMapHints.put(
                 SENSOR_LINEAR_ACCELERATION,
-                ""
+                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
         sensorMapHints.put(
                 SENSOR_ROTATION_VECTOR,
-                ""
+                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
         sensorMapHints.put(
                 SENSOR_MAGNETIC_FIELD,
-                ""
+                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
 
         sensorMapAbout.put(

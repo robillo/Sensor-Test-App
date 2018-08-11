@@ -47,7 +47,7 @@ public class LinearAccTestFragment extends GraphFragment implements LinearAccTes
         sensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
 
         if(sensorManager == null) return;
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 
         sensorEventListener = new SensorEventListener() {
             @Override

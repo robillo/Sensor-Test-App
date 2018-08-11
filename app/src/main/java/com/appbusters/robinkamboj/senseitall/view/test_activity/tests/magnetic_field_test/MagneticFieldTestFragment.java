@@ -47,7 +47,7 @@ public class MagneticFieldTestFragment extends GraphFragment implements Magnetic
         sensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
 
         if(sensorManager == null) return;
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         sensorEventListener = new SensorEventListener() {
             @Override

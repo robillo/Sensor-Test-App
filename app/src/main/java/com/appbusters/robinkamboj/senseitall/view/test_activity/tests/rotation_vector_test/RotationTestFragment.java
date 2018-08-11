@@ -47,7 +47,7 @@ public class RotationTestFragment extends GraphFragment implements RotationTestI
         sensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
 
         if(sensorManager == null) return;
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
         sensorEventListener = new SensorEventListener() {
             @Override
