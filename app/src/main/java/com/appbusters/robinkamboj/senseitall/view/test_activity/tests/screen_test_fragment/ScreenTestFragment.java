@@ -40,6 +40,6 @@ public class ScreenTestFragment extends Fragment implements ScreenTestInterface 
     public void setup(View v) {
         ButterKnife.bind(this, v);
 
-        fabricView.setBackgroundMode(FabricView.BACKGROUND_STYLE_NOTEBOOK_PAPER);
+        fabricView.setBackgroundMode(FabricView.BACKGROUND_STYLE_GRAPH_PAPER);
     }
 }

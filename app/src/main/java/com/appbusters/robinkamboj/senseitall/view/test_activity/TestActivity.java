@@ -23,10 +23,15 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.fingerprin
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.flashlight_test_fragment.FlashlightTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.front_camera_test_fragment.FrontCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.gps_test_fragment.GpsTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.gravity_test_fragment.GravityTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.gyroscope_test.GyroscopeTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.headphone_jack_test_fragment.JackTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.light_test_fragment.LightTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.linear_acceleration_test.LinearAccTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.magnetic_field_test.MagneticFieldTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.multi_touch_fragment.MultiTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.proximity_test_fragment.ProximityTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.rotation_vector_test.RotationTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.screen_test_fragment.ScreenTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.speaker_volume_test_fragment.SoundTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment;
@@ -47,13 +52,19 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRI
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GRAVITY_TEST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GYROSCOPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LINEAR_ACCELERATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_MAGNETIC_FIELD;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ROTATION_VECTOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
@@ -265,6 +276,46 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new SoundTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SENSOR_GYROSCOPE: {
+                transaction.add(
+                        R.id.container,
+                        new GyroscopeTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SENSOR_GRAVITY: {
+                transaction.add(
+                        R.id.container,
+                        new GravityTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SENSOR_LINEAR_ACCELERATION: {
+                transaction.add(
+                        R.id.container,
+                        new LinearAccTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SENSOR_ROTATION_VECTOR: {
+                transaction.add(
+                        R.id.container,
+                        new RotationTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SENSOR_MAGNETIC_FIELD: {
+                transaction.add(
+                        R.id.container,
+                        new MagneticFieldTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;

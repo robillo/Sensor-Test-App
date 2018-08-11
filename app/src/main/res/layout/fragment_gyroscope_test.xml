@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".view.test_activity.tests.gravity_test_fragment.GravityTestFragment">
+    tools:context=".view.test_activity.tests.gyroscope_test.GyroscopeTestFragment">
 
     <include layout="@layout/graph_test_common_layout"/>
 

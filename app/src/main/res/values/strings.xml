@@ -258,6 +258,9 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="sorry">Sorry,</string>
     <string name="not_present">is not present in your device.</string>
     <string name="search_hint">Search Here: Light, Flash..</string>
+    <string name="x">x =</string>
+    <string name="y">y =</string>
+    <string name="z">z =</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

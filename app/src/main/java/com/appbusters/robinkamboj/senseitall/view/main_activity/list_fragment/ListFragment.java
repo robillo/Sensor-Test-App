@@ -26,6 +26,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -553,7 +554,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             }
         }
 
-        for(int i=0; i<dataNames.size(); i++)
+        for(int i=0; i<dataNames.size(); i++) {
+            Log.e("tag", "" + dataNames.get(i));
             if(type == TYPE_DIAGNOSTICS)
                 list.add(new GenericData(
                         dataNames.get(i),
@@ -566,7 +568,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                         imageUrlMap.get(dataNames.get(i)),
                         dataPresent[i],
                         type));
-
+        }
     }
 
     @OnClick(R.id.card_permissions)
