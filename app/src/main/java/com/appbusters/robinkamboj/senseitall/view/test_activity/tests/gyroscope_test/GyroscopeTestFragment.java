@@ -15,6 +15,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.graph_fragment_abstract.GraphFragment;
+
+import java.text.DecimalFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,24 +27,7 @@ import static android.content.Context.SENSOR_SERVICE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GyroscopeTestFragment extends Fragment implements GyroscopeTestInterface {
-
-    private Sensor sensor;
-    private SensorManager sensorManager;
-    SensorEventListener sensorEventListener;
-
-    @BindView(R.id.x_val)
-    TextView xValue;
-
-    @BindView(R.id.y_val)
-    TextView yValue;
-
-    @BindView(R.id.z_val)
-    TextView zValue;
-
-    private float valueX = 0;
-    private float valueY = 0;
-    private float valueZ = 0;
+public class GyroscopeTestFragment extends GraphFragment implements GyroscopeTestInterface {
 
     public GyroscopeTestFragment() {
         // Required empty public constructor
@@ -58,14 +44,9 @@ public class GyroscopeTestFragment extends Fragment implements GyroscopeTestInte
     }
 
     @Override
-    public void setup(View v) {
-        ButterKnife.bind(this, v);
-
-        initialize();
-    }
-
-    @Override
     public void initialize() {
+        decimalFormat = new DecimalFormat("#.##");
+
         if(getActivity() == null) return;
         sensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
 
@@ -79,9 +60,6 @@ public class GyroscopeTestFragment extends Fragment implements GyroscopeTestInte
                     valueX = event.values[0];
                     valueY = event.values[1];
                     valueZ = event.values[2];
-                    xValue.setText(String.valueOf(valueX));
-                    yValue.setText(String.valueOf(valueY));
-                    zValue.setText(String.valueOf(valueZ));
                 }
             }
 
@@ -92,19 +70,5 @@ public class GyroscopeTestFragment extends Fragment implements GyroscopeTestInte
         };
 
         sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
-    }
-
-    @Override
-    public void onPause() {
-        if(sensorManager != null && sensorEventListener != null)
-            sensorManager.unregisterListener(sensorEventListener);
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if(sensorManager != null && sensor != null && sensorEventListener != null)
-            sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
     }
 }

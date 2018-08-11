@@ -1,8 +1,5 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.rotation_vector_test;
 
-import android.view.View;
+interface RotationTestInterface {
 
-public interface RotationTestInterface {
-
-    void setup(View v);
 }

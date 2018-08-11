@@ -6,46 +6,6 @@
     android:orientation="vertical"
     tools:context=".view.test_activity.tests.gyroscope_test.GyroscopeTestFragment">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0sp"
-        android:layout_weight="1">
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0sp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorTextOne"
-            android:textSize="18sp"
-            android:text="@string/x"
-            android:padding="10sp"
-            android:id="@+id/x_val"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorTextOne"
-            android:textSize="18sp"
-            android:text="@string/y"
-            android:padding="10sp"
-            android:id="@+id/y_val"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorTextOne"
-            android:textSize="18sp"
-            android:text="@string/z"
-            android:padding="10sp"
-            android:id="@+id/z_val"/>
-
-    </LinearLayout>
+    <include layout="@layout/graph_test_common_layout"/>
 
 </LinearLayout>
