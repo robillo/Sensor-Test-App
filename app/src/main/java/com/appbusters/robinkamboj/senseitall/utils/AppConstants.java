@@ -195,15 +195,14 @@ public class AppConstants {
         diagnosticsNames.add(LIGHT_TEST);
         diagnosticsNames.add(VIBRATOR_TEST);
         diagnosticsNames.add(MULTI_TOUCH_TEST);
-        diagnosticsNames.add(ACCELEROMETER_TEST);
-        diagnosticsNames.add(WIFI_TEST);
-        diagnosticsNames.add(BLUETOOTH_TEST);
-        diagnosticsNames.add(HEADPHONE_JACK_TEST);
-        //new sensors
         diagnosticsNames.add(GYROSCOPE_TEST);
         diagnosticsNames.add(GRAVITY_TEST);
         diagnosticsNames.add(LINEAR_ACCELERATION_TEST);
         diagnosticsNames.add(MAGNETIC_FIELD_TEST);
+        diagnosticsNames.add(ACCELEROMETER_TEST);
+        diagnosticsNames.add(WIFI_TEST);
+        diagnosticsNames.add(BLUETOOTH_TEST);
+        diagnosticsNames.add(HEADPHONE_JACK_TEST);
         diagnosticsNames.add(ROTATION_VECTOR_TEST);
 
         diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
