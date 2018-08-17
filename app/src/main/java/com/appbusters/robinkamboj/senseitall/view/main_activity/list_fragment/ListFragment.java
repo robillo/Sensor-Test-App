@@ -87,10 +87,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private InputMethodManager inputMethodManager;
     private AppPreferencesHelper helper;
     private List<GenericData> list;
-    @SuppressWarnings("FieldCanBeLocal")
     private List<PermissionsItem> permissionsItems;
     private int rejectedCount;
-    @SuppressWarnings("FieldCanBeLocal")
     public boolean isSearching = false;
     private GenericDataAdapter adapter = null;
 
@@ -205,13 +203,15 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @Override
     public void changeStatusBarColor() {
-        @SuppressWarnings("ConstantConditions") Window window = getActivity().getWindow();
-        View view = window.getDecorView();
-        int flags = view.getSystemUiVisibility();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-        view.setSystemUiVisibility(flags);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        if(getActivity() != null) {
+            Window window = getActivity().getWindow();
+            View view = window.getDecorView();
+            int flags = view.getSystemUiVisibility();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            view.setSystemUiVisibility(flags);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        }
     }
 
     @OnClick(R.id.button_tests_list)
@@ -395,8 +395,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @Override
     public void checkForPresentSensors() {
-        //noinspection ConstantConditions
-        getActivity().getSupportLoaderManager().initLoader(AppConstants.LOADER_ID, null, this).forceLoad();
+        if(getActivity() != null)
+            getActivity()
+                    .getSupportLoaderManager()
+                    .initLoader(AppConstants.LOADER_ID, null, this).forceLoad();
     }
 
     @Override
@@ -555,7 +557,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
 
         for(int i=0; i<dataNames.size(); i++) {
-            Log.e("tag", "" + dataNames.get(i));
             if(type == TYPE_DIAGNOSTICS)
                 list.add(new GenericData(
                         dataNames.get(i),
@@ -573,8 +574,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @OnClick(R.id.card_permissions)
     public void askPermissions() {
-        //noinspection ConstantConditions
-        ((MainActivity) getActivity()).setRequestFragment();
+        if(getActivity() != null)
+            ((MainActivity) getActivity()).setRequestFragment();
     }
 
     @OnClick(R.id.image_five_stars)

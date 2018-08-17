@@ -385,7 +385,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
+        try {
+            super.onBackPressed();
+            overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
+        }
+        catch (IllegalStateException ignored) {}
     }
 }

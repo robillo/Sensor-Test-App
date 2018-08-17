@@ -235,13 +235,13 @@
                         android:src="@drawable/baseline_device_unknown_black_48"
                         android:background="@color/transparent"
                         android:scaleType="centerInside"
-                        android:padding="2sp"
+                        android:padding="7sp"
                         tools:ignore="ContentDescription,NestedWeights"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
+                        android:textSize="13sp"
                         android:text="TESTS"
                         android:gravity="center"
                         android:layout_gravity="bottom"
@@ -271,13 +271,13 @@
                         android:src="@drawable/baseline_mobile_friendly_black_48"
                         android:background="@color/transparent"
                         android:scaleType="centerInside"
-                        android:padding="2sp"
+                        android:padding="7sp"
                         tools:ignore="ContentDescription,NestedWeights"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
+                        android:textSize="13sp"
                         android:text="SENSORS"
                         android:gravity="center"
                         android:layout_gravity="bottom"
@@ -307,13 +307,13 @@
                         android:src="@drawable/baseline_battery_charging_full_black_48"
                         android:background="@color/transparent"
                         android:scaleType="centerInside"
-                        android:padding="2sp"
+                        android:padding="7sp"
                         tools:ignore="ContentDescription,NestedWeights"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
+                        android:textSize="13sp"
                         android:text="FEATURES"
                         android:gravity="center"
                         android:layout_gravity="bottom"
@@ -326,14 +326,16 @@
                     android:layout_width="1sp"
                     android:layout_height="match_parent"
                     android:background="@color/colorTextFive"
-                    tools:ignore="ContentDescription,SmallSp" />
+                    tools:ignore="ContentDescription,SmallSp"
+                    android:visibility="gone"/>
 
                 <LinearLayout
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:id="@+id/button_rate_experience">
+                    android:id="@+id/button_rate_experience"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -350,7 +352,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:text="EXPERIENCE"
                         android:gravity="center"
                         android:layout_gravity="bottom"

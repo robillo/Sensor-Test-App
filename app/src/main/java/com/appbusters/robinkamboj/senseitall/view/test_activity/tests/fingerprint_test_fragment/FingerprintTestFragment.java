@@ -160,8 +160,8 @@ public class FingerprintTestFragment extends Fragment implements FingerprintTest
                     "AndroidKeyStore");
         } catch (NoSuchAlgorithmException |
                 NoSuchProviderException e) {
-            throw new RuntimeException(
-                    "Failed to get KeyGenerator instance", e);
+            Toast.makeText(getActivity(), "Oops. An Exception Occurred!", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         try {
@@ -179,7 +179,7 @@ public class FingerprintTestFragment extends Fragment implements FingerprintTest
         } catch (NoSuchAlgorithmException |
                 InvalidAlgorithmParameterException
                 | CertificateException | IOException e) {
-            throw new RuntimeException(e);
+            Toast.makeText(getActivity(), "Oops. An Exception Occurred!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -192,7 +192,7 @@ public class FingerprintTestFragment extends Fragment implements FingerprintTest
                             + KeyProperties.ENCRYPTION_PADDING_PKCS7);
         } catch (NoSuchAlgorithmException |
                 NoSuchPaddingException e) {
-            throw new RuntimeException("Failed to get Cipher", e);
+            Toast.makeText(getActivity(), "Oops. Failed To Get Cypher Instance!", Toast.LENGTH_SHORT).show();
         }
 
         try {
@@ -206,7 +206,8 @@ public class FingerprintTestFragment extends Fragment implements FingerprintTest
         } catch (KeyStoreException | CertificateException
                 | UnrecoverableKeyException | IOException
                 | NoSuchAlgorithmException | InvalidKeyException e) {
-            throw new RuntimeException("Failed to init Cipher", e);
+            Toast.makeText(getActivity(), "Oops. Failed To Init Cypher Instance!", Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
 

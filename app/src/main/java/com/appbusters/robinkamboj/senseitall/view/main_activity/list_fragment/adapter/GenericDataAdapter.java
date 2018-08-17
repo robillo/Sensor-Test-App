@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.fingerprint.FingerprintManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -130,8 +132,28 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
                 break;
             }
             case FINGERPRINT: {
-                if(ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED)
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if(ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
+                        isGiven = false;
+                    }
+                    else {
+                        FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+                        if(fingerprintManager == null) {
+                            Toast.makeText(context, "Error Retrieving Fingerprint Instance", Toast.LENGTH_SHORT).show();
+                            isGiven = false;
+                        }
+                        else if (!fingerprintManager.isHardwareDetected()) {
+                            Toast.makeText(context, "Device Doesn't Support Fingerprint Authentication", Toast.LENGTH_SHORT).show();
+                            isGiven = false;
+                        } else if (!fingerprintManager.hasEnrolledFingerprints()) {
+                            Toast.makeText(context, "Please Enroll Fingerprint Authentication First", Toast.LENGTH_SHORT).show();
+                            isGiven = false;
+                        }
+                    }
+                }
+                else {
                     isGiven = false;
+                }
                 break;
             }
             case FLASH: {

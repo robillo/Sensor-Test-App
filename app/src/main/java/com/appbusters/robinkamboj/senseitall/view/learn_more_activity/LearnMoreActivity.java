@@ -474,10 +474,11 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
             intentData.setDrawableId(intent.getInt(DRAWABLE_ID));
             intentData.setPresent(intent.getBoolean(IS_PRESENT));
             intentData.setType(intent.getInt(TYPE));
-        }
-        if(intentData.getName() != null) {
-            String temp = getString(R.string.more_about) + " " + intentData.getName().toUpperCase();
-            more_about_sensor.setText(temp);
+
+            if(intentData.getName() != null) {
+                String temp = getString(R.string.more_about) + " " + intentData.getName().toUpperCase();
+                more_about_sensor.setText(temp);
+            }
         }
 
         getStrings();
