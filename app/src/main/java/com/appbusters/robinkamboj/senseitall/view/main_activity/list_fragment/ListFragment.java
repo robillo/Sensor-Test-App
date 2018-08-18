@@ -486,10 +486,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void hideOrShowSoftKeyboard(boolean haveToShow) {
         if(haveToShow) {
             searchEditText.requestFocus();
-            inputMethodManager.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT);
+            if(inputMethodManager != null)
+                inputMethodManager.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT);
         }
         else {
-            inputMethodManager.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
+            if(inputMethodManager != null)
+                inputMethodManager.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
         }
     }
 

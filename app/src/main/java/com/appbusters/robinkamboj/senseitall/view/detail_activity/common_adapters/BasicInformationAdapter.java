@@ -38,7 +38,7 @@ public class BasicInformationAdapter extends RecyclerView.Adapter<BasicInformati
     @NonNull
     @Override
     public BasicInfoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        this.context = context;
+        this.context = parent.getContext();
         return new BasicInfoHolder(
                 LayoutInflater.from(context)
                 .inflate(R.layout.row_basic_information, parent, false)

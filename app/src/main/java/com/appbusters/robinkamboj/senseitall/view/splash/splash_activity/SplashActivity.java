@@ -40,19 +40,19 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.sensorNam
 
 public class SplashActivity extends AppCompatActivity implements SplashMvpView {
 
-    Animation topDown, bottomUp;
+//    Animation topDown, bottomUp;
 
-    @BindView(R.id.upper)
-    ImageView mUpper;
-
-    @BindView(R.id.lower)
-    ImageView mLower;
-
-    @BindView(R.id.ll_one)
-    LinearLayout mViewOne;
-
-    @BindView(R.id.ll_two)
-    LinearLayout mViewTwo;
+//    @BindView(R.id.upper)
+//    ImageView mUpper;
+//
+//    @BindView(R.id.lower)
+//    ImageView mLower;
+//
+//    @BindView(R.id.ll_one)
+//    LinearLayout mViewOne;
+//
+//    @BindView(R.id.ll_two)
+//    LinearLayout mViewTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,20 +64,24 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView {
 
     @Override
     public void setup() {
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
         changeStatusBarColor();
-        startCountDown(2000);
-        animateStuff();
+
+        startListActivity();
+        finish();
+
+//        startCountDown(2000);
+//        animateStuff();
     }
 
     @Override
     public void animateStuff() {
-        Glide.with(this).load(R.drawable.upper).into(mUpper);
-        Glide.with(this).load(R.drawable.lower).into(mLower);
-        topDown = AnimationUtils.loadAnimation(this, R.anim.top_down);
-        bottomUp = AnimationUtils.loadAnimation(this, R.anim.bottom_up);
-        mViewOne.startAnimation(topDown);
-        mViewTwo.startAnimation(bottomUp);
+//        Glide.with(this).load(R.drawable.upper).into(mUpper);
+//        Glide.with(this).load(R.drawable.lower).into(mLower);
+//        topDown = AnimationUtils.loadAnimation(this, R.anim.top_down);
+//        bottomUp = AnimationUtils.loadAnimation(this, R.anim.bottom_up);
+//        mViewOne.startAnimation(topDown);
+//        mViewTwo.startAnimation(bottomUp);
     }
 
     @Override
@@ -87,13 +91,13 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView {
 
     @Override
     public void startCountDown(@SuppressWarnings("SameParameterValue") int millis) {
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                SplashActivity.this.startListActivity();
-            }
-        }, millis);
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                SplashActivity.this.startListActivity();
+//            }
+//        }, millis);
     }
 
     @Override
