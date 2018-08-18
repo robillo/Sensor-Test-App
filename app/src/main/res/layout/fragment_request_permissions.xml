@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".view.main_activity.request_permissons_fragment.RequestFragment">
 
@@ -30,7 +31,24 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1sp"
-            android:background="@color/colorTextFour"
+            android:background="@color/colorTextTwo"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="10sp"
+            android:textSize="16sp"
+            android:textColor="@color/green_shade_two"
+            android:text=""
+            android:background="@color/white"
+            android:id="@+id/pending_text"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextTwo"
             tools:ignore="ContentDescription,SmallSp" />
 
         <android.support.v7.widget.RecyclerView

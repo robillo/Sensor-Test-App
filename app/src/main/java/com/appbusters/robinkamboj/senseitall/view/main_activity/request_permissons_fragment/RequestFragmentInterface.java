@@ -15,4 +15,6 @@ public interface RequestFragmentInterface {
     void showRecycler(List<PermissionsItem> list);
 
     void updatePermissionsListAndRecycler(List<PermissionsItem> permissionsItems);
+
+    void updatePendingCount(int pendingCount);
 }

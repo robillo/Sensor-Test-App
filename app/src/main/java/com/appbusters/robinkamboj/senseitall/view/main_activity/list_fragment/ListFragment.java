@@ -374,7 +374,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     }
 
     @Override
-    public void checkIfAllPermissionsGiven() {
+    public int checkIfAllPermissionsGiven() {
         List<String> permissionNames = AppConstants.dangerousPermissions;
         permissionsItems = new ArrayList<>();
         rejectedCount = 0;
@@ -391,6 +391,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             permissionsCard.setVisibility(GONE);
         else
             permissionsCard.setVisibility(VISIBLE);
+
+        return rejectedCount;
     }
 
     @Override

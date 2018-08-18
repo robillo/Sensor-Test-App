@@ -18,7 +18,7 @@ public interface ListFragmentInterface {
 
     void turnOnHighlight(int type);
 
-    void checkIfAllPermissionsGiven();
+    int checkIfAllPermissionsGiven();
 
     void checkForPresentSensors();
 

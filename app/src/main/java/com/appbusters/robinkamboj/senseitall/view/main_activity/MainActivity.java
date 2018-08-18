@@ -112,8 +112,9 @@ public class MainActivity extends AppCompatActivity
 
         if(lFragment == null || rFragment == null) return;
 
-        lFragment.checkIfAllPermissionsGiven();
+        int rejectedCount = lFragment.checkIfAllPermissionsGiven();
         rFragment.showRecycler(lFragment.getPermissionItemsList());
+        rFragment.updatePendingCount(rejectedCount);
     }
 
     @Override

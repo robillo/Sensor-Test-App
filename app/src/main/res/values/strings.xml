@@ -261,6 +261,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="x">x =</string>
     <string name="y">y =</string>
     <string name="z">z =</string>
+    <string name="press_back_to_get_started">All Set! Press back to get started!</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

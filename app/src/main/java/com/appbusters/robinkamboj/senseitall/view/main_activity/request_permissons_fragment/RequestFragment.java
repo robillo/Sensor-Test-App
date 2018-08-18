@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
@@ -39,6 +40,9 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
 
+    @BindView(R.id.pending_text)
+    TextView pendingText;
+
     public RequestFragment() {
         // Required empty public constructor
     }
@@ -57,10 +61,8 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
     public void setup(View v) {
         ButterKnife.bind(this, v);
 
-        //noinspection ConstantConditions
-        permissionsItems = ((MainActivity) getActivity()).getPermissionItemsList();
-
-        showRecycler(permissionsItems);
+        if(getActivity() == null) return;
+        ((MainActivity) getActivity()).refreshPermissionsRecycler();
     }
 
     @Override
@@ -88,7 +90,9 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
             items.add(new PermissionsItem(tempItem, item.isGranted()));
         }
 
-        @SuppressWarnings("ConstantConditions") RequestAdapter adapter = new RequestAdapter(
+        if(getActivity() == null) return;
+
+        RequestAdapter adapter = new RequestAdapter(
                 getActivity(),
                 items,
                 rawPermissions,
@@ -103,6 +107,14 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
     public void updatePermissionsListAndRecycler(List<PermissionsItem> permissionsItems) {
         this.permissionsItems = permissionsItems;
         showRecycler(permissionsItems);
+    }
+
+    @Override
+    public void updatePendingCount(int pendingCount) {
+        if(pendingCount != 0)
+            pendingText.setText(String.format("Amazing! Just %s permission(s) remaining to get started.", pendingCount));
+        else
+            pendingText.setText(R.string.press_back_to_get_started);
     }
 
     @OnClick(R.id.go_back)
