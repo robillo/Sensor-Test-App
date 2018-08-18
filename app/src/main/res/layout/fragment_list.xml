@@ -34,11 +34,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardBackgroundColor="@color/colorMajorDark"
-                        android:layout_marginBottom="70sp"
-                        android:layout_marginLeft="10sp"
-                        android:layout_marginRight="10sp"
+                        android:layout_marginBottom="58sp"
                         android:layout_gravity="bottom"
-                        app:cardCornerRadius="10sp"
                         app:cardElevation="5sp"
                         android:id="@+id/card_permissions">
 
@@ -168,12 +165,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/header_text"
-                        android:background="@color/red_shade_five">
+                        android:background="@color/red_shade_four">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/red_shade_four"
+                            android:textColor="@color/white"
                             android:gravity="center"
                             android:paddingTop="5sp"
                             android:paddingBottom="5sp"
@@ -182,7 +179,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/red_shade_four"
+                            android:textColor="@color/white"
                             android:gravity="center"
                             android:paddingTop="5sp"
                             android:paddingBottom="5sp"
