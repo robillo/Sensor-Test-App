@@ -7,8 +7,8 @@ android {
         applicationId "com.appbusters.robinkamboj.senseitall"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 35
-        versionName "9.0"
+        versionCode 36
+        versionName "9.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // Enabling multi dex support.
         multiDexEnabled true
@@ -55,6 +55,9 @@ dependencies {
     implementation 'com.sdsmdg.harjot:croller:1.0.7'
     implementation 'com.shuhart.stepview:stepview:1.2.8'
 
+    //firebase analytics
+    compile 'com.google.firebase:firebase-core:16.0.1'
+
     compile 'com.wang.avi:library:2.1.3'
     compile 'com.github.bumptech.glide:glide:4.7.1'
     compile 'com.willowtreeapps.spruce:spruce-android:1.0.1'
@@ -64,3 +67,4 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 }
+apply plugin: 'com.google.gms.google-services'
