@@ -9,6 +9,7 @@
     <color name="colorMajorDark">#0083BF</color>
     <color name="colorMajorDarkLighter">#0194d7</color>
     <color name="colorMajorDarkLighterLighter">#01a2ec</color>
+    <color name="colorMajorDarkMuchLighter">#30abe4</color>
     <color name="colorMajorDarkTx">#3f0083bf</color>
 
     <color name="colorPrimaryLight">#B2EBF2</color>
@@ -71,6 +72,15 @@
         <item>#f5f5f5</item>
         <item>#fafafa</item>
     </array>
+
+    <color name="primary_new">#6540f9</color>
+    <color name="primary_new_gradient">#7957ff</color>
+    <color name="primary_new_light">#947bf7</color>
+
+    <color name="primary_new_two">#6ea4f5</color>
+    <color name="primary_new_two_gradient">#79acf9</color>
+
+    <color name="primary_new_two_lightest">#ebeff5</color>
 
     <color name="header_one"></color>
     <color name="header_two"></color>

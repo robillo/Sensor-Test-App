@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.DashboardActivity;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 import com.bumptech.glide.Glide;
@@ -70,12 +71,17 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView {
     }
 
     @Override
+    public void startDashboardActivity() {
+        startActivity(new Intent(this, DashboardActivity.class));
+    }
+
+    @Override
     public void startCountDown(@SuppressWarnings("SameParameterValue") int millis) {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                SplashActivity.this.startListActivity();
+                SplashActivity.this.startDashboardActivity();
             }
         }, millis);
     }

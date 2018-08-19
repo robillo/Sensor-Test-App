@@ -6,15 +6,24 @@ import android.hardware.Sensor;
 import android.os.Build;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @SuppressWarnings("WeakerAccess")
 public class AppConstants {
 
     public static final int REQUEST_CODE = 100;
+
+    //redundant
+    public static final String RATE_APP = "Rate App";
+    public static final String INFORMATION = "Information";
+    public static final String SOFTWARE = "Software";
+    public static final String ANDROID = "Android";
 
     public static final String RECYCLER_NAME = "RECYCLER NAME";                 //generic data arguments
     public static final String DATA_NAME = "DATA NAME";
@@ -160,6 +169,7 @@ public class AppConstants {
     public static final String STANDARD_PRESSURE_ATMOSPHERE = "Standard Pressure Atmosphere";
 
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
+    public static List<Category> categories = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
     public static List<String> diagnosticsNames = new ArrayList<>();
@@ -756,6 +766,48 @@ public class AppConstants {
         sensorMapAbout.put(
                 FAKE_TOUCH,
                 R.array.fake_touch_descriptions
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_device_unknown_black_48,
+                DIAGNOSTIC,
+                diagnosticsNames.size() + " Diagnostics")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_mobile_friendly_black_48,
+                SENSOR,
+                sensorNames.size() + " Sensors")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_battery_charging_full_black_48,
+                FEATURE,
+                featureNames.size() + " Features")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_info_black_48,
+                INFORMATION,
+                sensorNames.size() + " Details")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_system_update_black_48,
+                SOFTWARE,
+                featureNames.size() + " Capabilities")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_android_black_48,
+                ANDROID,
+                "9 Android Versions")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_verified_user_black_48,
+                RATE_APP,
+                "Give Feedback")
         );
     }
 }

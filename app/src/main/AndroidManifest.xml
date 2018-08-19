@@ -113,7 +113,6 @@
         <meta-data
             android:name="com.sec.android.support.multiwindow"
             android:value="true" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -129,6 +128,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.learn_more_activity.LearnMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.dashboard_activity.DashboardActivity"
             android:screenOrientation="portrait" />
     </application>
 
