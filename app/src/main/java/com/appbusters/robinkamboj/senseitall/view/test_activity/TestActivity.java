@@ -30,6 +30,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.light_test
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.linear_acceleration_test.LinearAccTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.magnetic_field_test.MagneticFieldTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.multi_touch_fragment.MultiTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.pressure_sensor_test.PressureTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.proximity_test_fragment.ProximityTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.rotation_vector_test.RotationTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.screen_test_fragment.ScreenTestFragment;
@@ -63,6 +64,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GY
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LINEAR_ACCELERATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_MAGNETIC_FIELD;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PRESSURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ROTATION_VECTOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
@@ -319,6 +321,13 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;
+            }
+            case SENSOR_PRESSURE: {
+                transaction.add(
+                        R.id.container,
+                        new PressureTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
             }
         }
     }

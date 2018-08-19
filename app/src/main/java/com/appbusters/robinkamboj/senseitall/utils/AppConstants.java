@@ -87,6 +87,8 @@ public class AppConstants {
     public static final String LINEAR_ACCELERATION_TEST = "Linear Acceleration Test";
     public static final String ROTATION_VECTOR_TEST = "Rotation Vector Test";
     public static final String MAGNETIC_FIELD_TEST = "Magnetic Field Test";
+    public static final String BAROMETER_TEST = "Barometer Test";
+    public static final String PRESSURE_SENSOR_TEST = "Pressure Sensor Test";
 
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
@@ -181,7 +183,6 @@ public class AppConstants {
 //            dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
 
         //sensors and features mixed
-
         diagnosticsNames.add(SPEAKER_VOLUME_TEST);
         diagnosticsNames.add(FLASH_LIGHT_TEST);
         diagnosticsNames.add(PROXIMITY_TEST);
@@ -204,6 +205,8 @@ public class AppConstants {
         diagnosticsNames.add(BLUETOOTH_TEST);
         diagnosticsNames.add(HEADPHONE_JACK_TEST);
         diagnosticsNames.add(ROTATION_VECTOR_TEST);
+//        diagnosticsNames.add(BAROMETER_TEST);
+        diagnosticsNames.add(PRESSURE_SENSOR_TEST);
 
         diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
         diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
@@ -228,6 +231,8 @@ public class AppConstants {
         diagnosticsPointer.put(LINEAR_ACCELERATION_TEST, SENSOR_LINEAR_ACCELERATION);
         diagnosticsPointer.put(ROTATION_VECTOR_TEST, SENSOR_ROTATION_VECTOR);
         diagnosticsPointer.put(MAGNETIC_FIELD_TEST, SENSOR_MAGNETIC_FIELD);
+//        diagnosticsPointer.put(BAROMETER_TEST, BAROMETER);
+        diagnosticsPointer.put(PRESSURE_SENSOR_TEST, SENSOR_PRESSURE);
 
         reverseDiagnosticsPointer.put(SOUND, SPEAKER_VOLUME_TEST);
         reverseDiagnosticsPointer.put(FLASH, FLASH_LIGHT_TEST);
@@ -252,6 +257,8 @@ public class AppConstants {
         reverseDiagnosticsPointer.put(SENSOR_LINEAR_ACCELERATION, LINEAR_ACCELERATION_TEST);
         reverseDiagnosticsPointer.put(SENSOR_ROTATION_VECTOR, ROTATION_VECTOR_TEST);
         reverseDiagnosticsPointer.put(SENSOR_MAGNETIC_FIELD, MAGNETIC_FIELD_TEST);
+//        reverseDiagnosticsPointer.put(BAROMETER, BAROMETER_TEST);
+        reverseDiagnosticsPointer.put(SENSOR_PRESSURE, PRESSURE_SENSOR_TEST);
 
         sensorNames.add(SENSOR_ACCELEROMETER);
         sensorNames.add(SENSOR_LIGHT);
@@ -291,7 +298,7 @@ public class AppConstants {
         featureNames.add(NFC);
         featureNames.add(MICROPHONE);
         featureNames.add(USB_ACCESSORY);
-        featureNames.add(BAROMETER);
+//        featureNames.add(BAROMETER);
         featureNames.add(HEART_RATE_ECG);
         featureNames.add(FAKE_TOUCH);
         featureNames.add(MIDI);
@@ -480,7 +487,6 @@ public class AppConstants {
                 SENSOR_MAGNETIC_FIELD,
                 "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
-
 
         sensorMapHints.put(
                 SENSOR_PROXIMITY,
