@@ -152,6 +152,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         if(getActivity() == null) return;
 
         String intentCategory = getActivity().getIntent().getStringExtra(AppConstants.CATEGORY);
+        appHeaderText.setText(intentCategory);
         setHeaderText(intentCategory);
 
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

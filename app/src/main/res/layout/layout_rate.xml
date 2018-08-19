@@ -8,8 +8,7 @@
     android:background="@color/white"
     android:id="@+id/rate_experience_screen"
     android:visibility="gone"
-    tools:visibility="visible"
-    android:layout_marginBottom="?android:attr/actionBarSize">
+    tools:visibility="visible">
 
     <ImageView
         android:layout_width="match_parent"
@@ -232,11 +231,5 @@
         </LinearLayout>
 
     </HorizontalScrollView>
-
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="?android:attr/actionBarSize">-->
-
-    <!--</android.support.v7.widget.RecyclerView>-->
 
 </LinearLayout>
