@@ -18,6 +18,7 @@ import java.util.Set;
 public class AppConstants {
 
     public static final int REQUEST_CODE = 100;
+    public static final String CATEGORY = "CATEGORY";
 
     //redundant
     public static final String RATE_APP = "Rate App";

@@ -10,6 +10,8 @@ public interface ListFragmentInterface {
 
     void setup(View v);
 
+    void setHeaderText(String intentCategory);
+
     void inflateData();
 
     void changeStatusBarColor();

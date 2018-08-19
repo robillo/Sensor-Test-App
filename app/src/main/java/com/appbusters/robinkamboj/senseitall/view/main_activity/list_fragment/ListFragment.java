@@ -26,7 +26,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -67,10 +65,16 @@ import static android.content.Context.VIBRATOR_SERVICE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FEATURE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFORMATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_APP;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_YOUR_EXPERIENCE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_DEVICE_TESTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_FEATURES_LIST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_SENSORS_LIST;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOFTWARE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_RATE;
@@ -85,12 +89,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]> {
 
     private InputMethodManager inputMethodManager;
-    private AppPreferencesHelper helper;
     private List<GenericData> list;
     private List<PermissionsItem> permissionsItems;
     private int rejectedCount;
     public boolean isSearching = false;
     private GenericDataAdapter adapter = null;
+    private String headerTextString;
 
     private List<String> sensorNames;
     private List<String> featureNames;
@@ -127,33 +131,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
 
-    @BindView(R.id.header_text)
-    TextSwitcher headerText;
-
-//    @BindView(R.id.highlight_tests)
-//    ImageView highlight_tests;
-//
-//    @BindView(R.id.highlight_sensors)
-//    ImageView highlight_sensors;
-//
-//    @BindView(R.id.highlight_features)
-//    ImageView highlight_features;
-//
-//    @BindView(R.id.highlight_rate)
-//    ImageView highlight_rate;
-
-    @BindView(R.id.button_tests_list)
-    LinearLayout buttonTestsList;
-
-    @BindView(R.id.button_sensors_list)
-    LinearLayout buttonSensorsList;
-
-    @BindView(R.id.button_features_list)
-    LinearLayout buttonFeaturesList;
-
-    @BindView(R.id.button_rate_experience)
-    LinearLayout buttonRateExperience;
-
     public ListFragment() {
         // Required empty public constructor
     }
@@ -172,8 +149,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void setup(View v) {
         ButterKnife.bind(this, v);
 
-        //noinspection ConstantConditions
-        helper = new AppPreferencesHelper(getActivity());
+        if(getActivity() == null) return;
+
+        String intentCategory = getActivity().getIntent().getStringExtra(AppConstants.CATEGORY);
+        setHeaderText(intentCategory);
 
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         Animation in = AnimationUtils.loadAnimation(getActivity(), R.anim.top_down_enter_header);
@@ -186,6 +165,40 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         checkForPresentSensors();
         changeStatusBarColor();
         setEditTextSearchListener();
+    }
+
+    @Override
+    public void setHeaderText(String intentCategory) {
+        switch (intentCategory) {
+            case DIAGNOSTIC: {
+                headerTextString = SHOWING_DEVICE_TESTS;
+                setShowTests();
+                break;
+            }
+            case FEATURE: {
+                headerTextString = SHOWING_FEATURES_LIST;
+                setShowFeatures();
+                break;
+            }
+            case SENSOR: {
+                headerTextString = SHOWING_SENSORS_LIST;
+                setShowSensors();
+                break;
+            }
+            case INFORMATION: {
+
+                break;
+            }
+            case SOFTWARE: {
+
+                break;
+            }
+            case RATE_APP: {
+                headerTextString = RATE_YOUR_EXPERIENCE;
+                setRateExperience();
+                break;
+            }
+        }
     }
 
     @Override
@@ -214,10 +227,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
     }
 
-    @OnClick(R.id.button_tests_list)
     public void setShowTests() {
-        if(helper.getHeaderText().equals(SHOWING_DEVICE_TESTS)) return;
-        helper.setHeaderText(SHOWING_DEVICE_TESTS);
+        if(headerTextString.equals(SHOWING_DEVICE_TESTS)) return;
         setHeaderTextAndRv();
 
         if(listScreen.getVisibility() == GONE) {
@@ -226,10 +237,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
     }
 
-    @OnClick(R.id.button_sensors_list)
     public void setShowSensors() {
-        if(helper.getHeaderText().equals(SHOWING_SENSORS_LIST)) return;
-        helper.setHeaderText(SHOWING_SENSORS_LIST);
+        if(headerTextString.equals(SHOWING_SENSORS_LIST)) return;
         setHeaderTextAndRv();
 
         if(listScreen.getVisibility() == GONE) {
@@ -238,10 +247,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
     }
 
-    @OnClick(R.id.button_features_list)
     public void setShowFeatures() {
-        if(helper.getHeaderText().equals(SHOWING_FEATURES_LIST)) return;
-        helper.setHeaderText(SHOWING_FEATURES_LIST);
+        if(headerTextString.equals(SHOWING_FEATURES_LIST)) return;
         setHeaderTextAndRv();
 
         if(listScreen.getVisibility() == GONE) {
@@ -250,10 +257,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
     }
 
-    @OnClick(R.id.button_rate_experience)
     public void setRateExperience() {
-        if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE)) return;
-        helper.setHeaderText(RATE_YOUR_EXPERIENCE);
+        if(headerTextString.equals(RATE_YOUR_EXPERIENCE)) return;
         setHeaderTextAndRv();
 
         if(rateExperienceScreen.getVisibility() == GONE) {
@@ -270,21 +275,13 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                buttonTestsList.setClickable(false);
-                buttonSensorsList.setClickable(false);
-                buttonFeaturesList.setClickable(false);
-                buttonRateExperience.setClickable(false);
+
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
                 if(toolbar.getVisibility() == VISIBLE) toolbar.setVisibility(GONE);
                 rateExperienceScreen.setVisibility(VISIBLE);
-
-                buttonTestsList.setClickable(true);
-                buttonSensorsList.setClickable(true);
-                buttonFeaturesList.setClickable(true);
-                buttonRateExperience.setClickable(true);
             }
 
             @Override
@@ -295,17 +292,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
         fadeIn.setDuration(100);
 
-        String string = helper.getHeaderText();
-
-        if(string.equals(RATE_YOUR_EXPERIENCE)) {
-            if(headerText.getVisibility() == VISIBLE) headerText.setVisibility(GONE);
-        }
-        else {
-            headerText.setText(string);
-            if(headerText.getVisibility() == GONE) headerText.setVisibility(VISIBLE);
-        }
-
-        switch (string) {
+        switch (headerTextString) {
             case SHOWING_DEVICE_TESTS: {
                 turnOnHighlight(TYPE_DIAGNOSTICS);
                 fillGenericDataForSelected(TYPE_DIAGNOSTICS);
@@ -341,36 +328,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @Override
     public void turnOnHighlight(int type) {
         toggleToolbarVisibility(type);
-        switch (type) {
-            case TYPE_DIAGNOSTICS: {
-                buttonTestsList.setBackgroundColor(getResources().getColor(R.color.red_shade_five));
-                buttonSensorsList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonFeaturesList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonRateExperience.setBackgroundColor(getResources().getColor(R.color.white));
-                break;
-            }
-            case TYPE_SENSORS: {
-                buttonTestsList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonSensorsList.setBackgroundColor(getResources().getColor(R.color.red_shade_five));
-                buttonFeaturesList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonRateExperience.setBackgroundColor(getResources().getColor(R.color.white));
-                break;
-            }
-            case TYPE_FEATURES: {
-                buttonTestsList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonSensorsList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonFeaturesList.setBackgroundColor(getResources().getColor(R.color.red_shade_five));
-                buttonRateExperience.setBackgroundColor(getResources().getColor(R.color.white));
-                break;
-            }
-            case TYPE_RATE: {
-                buttonTestsList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonSensorsList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonFeaturesList.setBackgroundColor(getResources().getColor(R.color.white));
-                buttonRateExperience.setBackgroundColor(getResources().getColor(R.color.red_shade_five));
-                break;
-            }
-        }
     }
 
     @Override
@@ -405,7 +362,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @Override
     public void togglePermissionCardVisibility() {
-        if(helper.getHeaderText().equals(RATE_YOUR_EXPERIENCE))
+        if(headerTextString.equals(RATE_YOUR_EXPERIENCE))
             permissionsCard.setVisibility(GONE);
         else {
             if(rejectedCount > 0) permissionsCard.setVisibility(VISIBLE);

@@ -54,7 +54,6 @@ dependencies {
     implementation 'com.jjoe64:graphview:4.2.2'
     implementation 'com.sdsmdg.harjot:croller:1.0.7'
     implementation 'com.shuhart.stepview:stepview:1.2.8'
-    compile 'de.hdodenhof:circleimageview:2.2.0'
 
     //firebase analytics
     implementation 'com.google.firebase:firebase-core:16.0.1'
