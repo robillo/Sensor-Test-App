@@ -64,20 +64,27 @@ import static android.content.Context.VIBRATOR_SERVICE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FEATURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFORMATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_APP;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_YOUR_EXPERIENCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_ANDROID_FEATURE_LIST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_DEVICE_TESTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_FEATURES_LIST;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_INFORMATION_LIST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_SENSORS_LIST;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_SOFTWARE_LIST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOFTWARE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_INFORMATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_RATE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SOFTWARE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.diagnosticsPointer;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlMap;
 
@@ -95,13 +102,19 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private GenericDataAdapter adapter = null;
     private String headerTextString;
 
+    private List<String> diagnosticsNames;
     private List<String> sensorNames;
     private List<String> featureNames;
-    private List<String> diagnosticsNames;
+    private List<String> informationNames;
+    private List<String> softwareNames;
+    private List<String> androidNames;
 
+    private boolean[] diagnosticsPresent;
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
-    private boolean[] diagnosticsPresent;
+    private boolean[] informationsPresent;
+    private boolean[] softwaresPresent;
+    private boolean[] androidsPresent;
 
     @BindView(R.id.app_header_text)
     TextView appHeaderText;
@@ -186,11 +199,18 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 break;
             }
             case INFORMATION: {
-
+                headerTextString = SHOWING_INFORMATION_LIST;
+                setShowInformation();
                 break;
             }
             case SOFTWARE: {
-
+                headerTextString = SHOWING_SOFTWARE_LIST;
+                setShowSoftware();
+                break;
+            }
+            case ANDROID: {
+                headerTextString = SHOWING_ANDROID_FEATURE_LIST;
+                setShowAndroidFeatures();
                 break;
             }
             case RATE_APP: {
@@ -203,9 +223,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @Override
     public void inflateData() {
+        diagnosticsNames = AppConstants.diagnosticsNames;
         sensorNames = AppConstants.sensorNames;
         featureNames = AppConstants.featureNames;
-        diagnosticsNames = AppConstants.diagnosticsNames;
+        informationNames = AppConstants.informationNames;
+        softwareNames = AppConstants.softwareNames;
+        androidNames = AppConstants.androidNames;
     }
 
     @Override
@@ -249,6 +272,36 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     public void setShowFeatures() {
         if(headerTextString.equals(SHOWING_FEATURES_LIST)) return;
+        setHeaderTextAndRv();
+
+        if(listScreen.getVisibility() == GONE) {
+            listScreen.setVisibility(VISIBLE);
+            rateExperienceScreen.setVisibility(GONE);
+        }
+    }
+
+    private void setShowAndroidFeatures() {
+        if(headerTextString.equals(SHOWING_ANDROID_FEATURE_LIST)) return;
+        setHeaderTextAndRv();
+
+        if(listScreen.getVisibility() == GONE) {
+            listScreen.setVisibility(VISIBLE);
+            rateExperienceScreen.setVisibility(GONE);
+        }
+    }
+
+    private void setShowSoftware() {
+        if(headerTextString.equals(SHOWING_SOFTWARE_LIST)) return;
+        setHeaderTextAndRv();
+
+        if(listScreen.getVisibility() == GONE) {
+            listScreen.setVisibility(VISIBLE);
+            rateExperienceScreen.setVisibility(GONE);
+        }
+    }
+
+    private void setShowInformation() {
+        if(headerTextString.equals(SHOWING_INFORMATION_LIST)) return;
         setHeaderTextAndRv();
 
         if(listScreen.getVisibility() == GONE) {
@@ -308,6 +361,24 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             case SHOWING_FEATURES_LIST: {
                 turnOnHighlight(TYPE_FEATURES);
                 fillGenericDataForSelected(TYPE_FEATURES);
+                resetSearchText();
+                break;
+            }
+            case SHOWING_INFORMATION_LIST: {
+                turnOnHighlight(TYPE_INFORMATION);
+                fillGenericDataForSelected(TYPE_INFORMATION);
+                resetSearchText();
+                break;
+            }
+            case SHOWING_SOFTWARE_LIST: {
+                turnOnHighlight(TYPE_SOFTWARE);
+                fillGenericDataForSelected(TYPE_SOFTWARE);
+                resetSearchText();
+                break;
+            }
+            case SHOWING_ANDROID_FEATURE_LIST: {
+                turnOnHighlight(TYPE_ANDROID);
+                fillGenericDataForSelected(TYPE_ANDROID);
                 resetSearchText();
                 break;
             }
@@ -378,21 +449,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @Override
     public void toggleToolbarVisibility(int type) {
         switch (type) {
-            case TYPE_DIAGNOSTICS: {
-                recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == GONE) {
-                    toolbar.setVisibility(VISIBLE);
-                }
-                break;
-            }
-            case TYPE_FEATURES: {
-                recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == GONE) {
-                    toolbar.setVisibility(VISIBLE);
-                }
-                break;
-            }
-            case TYPE_SENSORS: {
+            case TYPE_DIAGNOSTICS:
+            case TYPE_FEATURES:
+            case TYPE_SENSORS:
+            case TYPE_INFORMATION:
+            case TYPE_SOFTWARE:
+            case TYPE_ANDROID: {
                 recyclerView.setVisibility(VISIBLE);
                 if(toolbar.getVisibility() == GONE) {
                     toolbar.setVisibility(VISIBLE);
@@ -509,6 +571,21 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             case TYPE_FEATURES: {
                 dataNames = featureNames;
                 dataPresent = featuresPresent;
+                break;
+            }
+            case TYPE_INFORMATION: {
+                dataNames = informationNames;
+                dataPresent = informationsPresent;
+                break;
+            }
+            case TYPE_SOFTWARE: {
+                dataNames = softwareNames;
+                dataPresent = softwaresPresent;
+                break;
+            }
+            case TYPE_ANDROID: {
+                dataNames = androidNames;
+                dataPresent = androidsPresent;
                 break;
             }
             case TYPE_RATE: {
@@ -657,6 +734,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         HashMap<String, String> featureMap = AppConstants.packageManagerPaths;
 
         List<String> diagnosticsList = AppConstants.diagnosticsNames;
+        List<String> informationList = AppConstants.informationNames;
+        List<String> softwareList = AppConstants.softwareNames;
+        List<String> androidList = AppConstants.androidNames;
 
         Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
         ConsumerIrManager infrared = (ConsumerIrManager) context.getSystemService(CONSUMER_IR_SERVICE);
@@ -683,7 +763,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 vibrator,
                 infrared,
                 b,
-                diagnosticsList
+                diagnosticsList,
+                informationList,
+                softwareList,
+                androidList
         );
     }
 
@@ -692,6 +775,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         this.sensorsPresent = isPresent[0];
         this.featuresPresent = isPresent[1];
         this.diagnosticsPresent = isPresent[2];
+
+        this.informationsPresent = isPresent[3];
+        this.softwaresPresent = isPresent[4];
+        this.androidsPresent = isPresent[5];
 
         setHeaderTextAndRv();
     }

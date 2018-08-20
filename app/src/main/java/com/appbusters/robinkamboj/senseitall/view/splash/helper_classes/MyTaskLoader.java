@@ -24,7 +24,12 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 
 public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boolean[][]> {
 
-    private boolean[] sensorsPresent, featuresPresent, diagnosticsPresent;
+    private boolean[] sensorsPresent,
+            featuresPresent,
+            diagnosticsPresent,
+            informationsPresent,
+            softwaresPresent,
+            androidsPresent;
     private SensorManager sensorManager;
     private List<String> sensors;
     private HashMap<String, Integer> sMap;
@@ -45,21 +50,31 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
                         Vibrator vibrator,
                         ConsumerIrManager infrared,
                         boolean fingerprintBool,
-                        List<String> diagnostics) {
+                        List<String> diagnostics,
+                        List<String> informations,
+                        List<String> softwares,
+                        List<String> androids) {
         super(context);
 
         this.sensorManager = sManager;
         this.sensors = sensors;
         this.sMap = sMap;
+
         this.fManager = fManager;
         this.features = features;
         this.fMap = fMap;
+
         this.vibrator = vibrator;
         this.infrared = infrared;
+
+        this.fingerprintBool = fingerprintBool;
+
         sensorsPresent = new boolean[sensors.size()];
         featuresPresent = new boolean[features.size()];
         diagnosticsPresent = new boolean[diagnostics.size()];
-        this.fingerprintBool = fingerprintBool;
+        informationsPresent = new boolean[informations.size()];
+        softwaresPresent = new boolean[softwares.size()];
+        androidsPresent = new boolean[androids.size()];
     }
 
     @Override
@@ -128,10 +143,13 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
             pos++;
         }
 
-        boolean[][] isPresent = new boolean[3][];
+        boolean[][] isPresent = new boolean[6][];
         isPresent[0] = sensorsPresent;
         isPresent[1] = featuresPresent;
         isPresent[2] = diagnosticsPresent;
+        isPresent[3] = informationsPresent;
+        isPresent[4] = softwaresPresent;
+        isPresent[5] = androidsPresent;
 
         return isPresent;
     }

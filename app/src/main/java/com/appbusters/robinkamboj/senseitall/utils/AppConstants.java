@@ -34,7 +34,10 @@ public class AppConstants {
     public static final int TYPE_DIAGNOSTICS = 0;                               //data types
     public static final int TYPE_SENSORS = 1;
     public static final int TYPE_FEATURES = 2;
-    public static final int TYPE_RATE = 3;
+    public static final int TYPE_INFORMATION = 3;
+    public static final int TYPE_SOFTWARE = 4;
+    public static final int TYPE_ANDROID = 5;
+    public static final int TYPE_RATE = 6;
 
     public static final String DIAGNOSTIC = "Diagnostic";                       //data type names
     public static final String SENSOR = "Sensor";
@@ -51,6 +54,9 @@ public class AppConstants {
     public static final String SHOWING_DEVICE_TESTS = "DEVICE TESTS";   //HEADERS
     public static final String SHOWING_SENSORS_LIST = "SENSORS LIST";
     public static final String SHOWING_FEATURES_LIST = "FEATURES LIST";
+    public static final String SHOWING_INFORMATION_LIST = "INFORMATION LIST";
+    public static final String SHOWING_SOFTWARE_LIST = "SOFTWARE LIST";
+    public static final String SHOWING_ANDROID_FEATURE_LIST = "SOFTWARE FEATURES LIST";
     public static final String RATE_YOUR_EXPERIENCE = "RATE YOUR EXPERIENCE";
 
     public static final String PREF_FILE_NAME = "SIA";                          //PREFERENCES
@@ -168,10 +174,16 @@ public class AppConstants {
     public static final String STANDARD_PRESSURE_ATMOSPHERE = "Standard Pressure Atmosphere";
 
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
+
     public static List<Category> categories = new ArrayList<>();
+
+    public static List<String> diagnosticsNames = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
-    public static List<String> diagnosticsNames = new ArrayList<>();
+    public static List<String> informationNames = new ArrayList<>();
+    public static List<String> softwareNames = new ArrayList<>();
+    public static List<String> androidNames = new ArrayList<>();
+
     public static HashMap<String, String> packageManagerPaths = new HashMap<>();
     public static HashMap<String, Integer> sensorManagerInts = new HashMap<>();
     public static HashMap<String, String> diagnosticsPointer = new HashMap<>();
@@ -246,6 +258,12 @@ public class AppConstants {
 //        featureNames.add(VR_MODE);
 //        featureNames.add(WIFI_DIRECT);
 //        featureNames.add(WEB_VIEW);
+
+        informationNames.add(GSM_UMTS);
+        informationNames.add(RADIO);
+        informationNames.add(CPU);
+        informationNames.add(ANDROID_OS);
+        informationNames.add(MICROPHONE);
 
         sensorNames.add(SENSOR_ACCELEROMETER);  //d
         sensorNames.add(SENSOR_LIGHT);  //d
