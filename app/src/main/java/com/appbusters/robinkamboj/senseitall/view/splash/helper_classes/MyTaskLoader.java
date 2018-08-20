@@ -12,6 +12,16 @@ import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+
 public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boolean[][]> {
 
     private boolean[] sensorsPresent, featuresPresent, diagnosticsPresent;
@@ -55,66 +65,66 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
     @Override
     public boolean[][] loadInBackground() {
 
-        int diagPos = 0;
+        int testPos = 0;
 
         int pos = 0;
         for(String s : sensors) {
             if (sMap.get(s) != null && sensorManager != null && sensorManager.getDefaultSensor(sMap.get(s)) != null) {
                 sensorsPresent[pos] = true;
-                setDiagnostics(s, diagPos, diagnosticsPresent);
+                setDiagnostics(s, testPos, diagnosticsPresent);
             }
-            if(AppConstants.reverseDiagnosticsPointer.get(s) != null) diagPos += 1;
+            if(AppConstants.reverseDiagnosticsPointer.get(s) != null) testPos += 1;
             pos++;
         }
 
         pos = 0;
         for(String f : features) {
             if(fMap.get(f) != null) {
-                if(f.equals(AppConstants.FINGERPRINT)) {
+                if(f.equals(FINGERPRINT)) {
                     if(fingerprintBool) {
                         featuresPresent[pos] = true;
-                        setDiagnostics(f, diagPos, diagnosticsPresent);
+                        setDiagnostics(f, testPos, diagnosticsPresent);
                     }
                 }
                 else if(fManager.hasSystemFeature(fMap.get(f))) {
                     featuresPresent[pos] = true;
-                    setDiagnostics(f, diagPos, diagnosticsPresent);
+                    setDiagnostics(f, testPos, diagnosticsPresent);
                 }
             }
             else {
                 switch (f) {
-                    case AppConstants.BACK_CAMERA: {
+                    case BACK_CAMERA: {
 
                         break;
                     }
-                    case AppConstants.ANDROID_OS:
-                    case AppConstants.BATTERY:
-                    case AppConstants.CPU:
-                    case AppConstants.SOUND:
+                    case ANDROID_OS:
+                    case BATTERY:
+                    case CPU:
+                    case SOUND:
                         featuresPresent[pos] = true;
-                        setDiagnostics(f, diagPos, diagnosticsPresent);
+                        setDiagnostics(f, testPos, diagnosticsPresent);
                         break;
-                    case AppConstants.RADIO:
+                    case RADIO:
                         if (Build.getRadioVersion() != null || Build.getRadioVersion().equals(AppConstants.UNKNOWN)) {
                             featuresPresent[pos] = true;
-                            setDiagnostics(f, diagPos, diagnosticsPresent);
+                            setDiagnostics(f, testPos, diagnosticsPresent);
                         }
                         break;
-                    case AppConstants.VIBRATOR:
+                    case VIBRATOR:
                         if (vibrator != null && vibrator.hasVibrator()) {
                             featuresPresent[pos] = true;
-                            setDiagnostics(f, diagPos, diagnosticsPresent);
+                            setDiagnostics(f, testPos, diagnosticsPresent);
                         }
                         break;
-                    case AppConstants.INFRARED:
+                    case INFRARED:
                         if (infrared != null && infrared.hasIrEmitter()) {
                             featuresPresent[pos] = true;
-                            setDiagnostics(f, diagPos, diagnosticsPresent);
+                            setDiagnostics(f, testPos, diagnosticsPresent);
                         }
                         break;
                 }
             }
-            if(AppConstants.reverseDiagnosticsPointer.get(f) != null) diagPos += 1;
+            if(AppConstants.reverseDiagnosticsPointer.get(f) != null) testPos += 1;
             pos++;
         }
 

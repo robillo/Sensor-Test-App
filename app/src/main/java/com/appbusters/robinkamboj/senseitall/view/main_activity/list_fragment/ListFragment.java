@@ -44,7 +44,6 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
-import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.adapter.GenericDataAdapter;
@@ -640,7 +639,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @OnClick(R.id.menu_settings)
     public void setMenuSettings() {
-//        Toast.makeText(getActivity(), "Settings Bottom Sheet Menu", Toast.LENGTH_SHORT).show();
+
     }
 
     @NonNull
@@ -648,15 +647,16 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public Loader<boolean[][]> onCreateLoader(int id, @Nullable Bundle args) {
         Context context = getActivity();
         assert context != null;
+
         SensorManager sManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
-        List<String> sensors = AppConstants.sensorNames;
-        HashMap<String, Integer> sMap = AppConstants.sensorManagerInts;
+        List<String> sensorsList = AppConstants.sensorNames;
+        HashMap<String, Integer> sensorMap = AppConstants.sensorManagerInts;
 
         PackageManager fManager = context.getPackageManager();
-        List<String> features = AppConstants.featureNames;
-        HashMap<String, String> fMap = AppConstants.packageManagerPaths;
+        List<String> featuresList = AppConstants.featureNames;
+        HashMap<String, String> featureMap = AppConstants.packageManagerPaths;
 
-        List<String> diagnostics = AppConstants.diagnosticsNames;
+        List<String> diagnosticsList = AppConstants.diagnosticsNames;
 
         Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
         ConsumerIrManager infrared = (ConsumerIrManager) context.getSystemService(CONSUMER_IR_SERVICE);
@@ -675,15 +675,15 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         return new MyTaskLoader(
                 context,
                 sManager,
-                sensors,
-                sMap,
+                sensorsList,
+                sensorMap,
                 fManager,
-                features,
-                fMap,
+                featuresList,
+                featureMap,
                 vibrator,
                 infrared,
                 b,
-                diagnostics
+                diagnosticsList
         );
     }
 

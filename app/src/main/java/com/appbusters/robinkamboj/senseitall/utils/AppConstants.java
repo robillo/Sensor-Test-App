@@ -191,31 +191,78 @@ public class AppConstants {
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
 //            dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
 
-        //sensors and features mixed
-        diagnosticsNames.add(SPEAKER_VOLUME_TEST);
-        diagnosticsNames.add(FLASH_LIGHT_TEST);
-        diagnosticsNames.add(PROXIMITY_TEST);
-        diagnosticsNames.add(SCREEN_TEST);
-        diagnosticsNames.add(BATTERY_TEST);
-        diagnosticsNames.add(BACK_CAMERA_TEST);
-        diagnosticsNames.add(FRONT_CAMERA_TEST);
-        diagnosticsNames.add(GPS_TEST);
-        diagnosticsNames.add(FINGERPRINT_TEST);
-        diagnosticsNames.add(COMPASS_TEST);
+        //sensors
+        diagnosticsNames.add(ACCELEROMETER_TEST);
         diagnosticsNames.add(LIGHT_TEST);
-        diagnosticsNames.add(VIBRATOR_TEST);
-        diagnosticsNames.add(MULTI_TOUCH_TEST);
+        diagnosticsNames.add(PROXIMITY_TEST);
+        diagnosticsNames.add(PRESSURE_SENSOR_TEST);
         diagnosticsNames.add(GYROSCOPE_TEST);
         diagnosticsNames.add(GRAVITY_TEST);
         diagnosticsNames.add(LINEAR_ACCELERATION_TEST);
+        diagnosticsNames.add(ROTATION_VECTOR_TEST);
         diagnosticsNames.add(MAGNETIC_FIELD_TEST);
-        diagnosticsNames.add(ACCELEROMETER_TEST);
+        //features
+        diagnosticsNames.add(BACK_CAMERA_TEST);
+        diagnosticsNames.add(FRONT_CAMERA_TEST);
+        diagnosticsNames.add(GPS_TEST);
         diagnosticsNames.add(WIFI_TEST);
         diagnosticsNames.add(BLUETOOTH_TEST);
+        diagnosticsNames.add(COMPASS_TEST);
+        diagnosticsNames.add(SCREEN_TEST);
+        diagnosticsNames.add(BATTERY_TEST);
+        diagnosticsNames.add(SPEAKER_VOLUME_TEST);
+        diagnosticsNames.add(VIBRATOR_TEST);
         diagnosticsNames.add(HEADPHONE_JACK_TEST);
-        diagnosticsNames.add(ROTATION_VECTOR_TEST);
-//        diagnosticsNames.add(BAROMETER_TEST);
-        diagnosticsNames.add(PRESSURE_SENSOR_TEST);
+        diagnosticsNames.add(FLASH_LIGHT_TEST);
+        diagnosticsNames.add(MULTI_TOUCH_TEST);
+        diagnosticsNames.add(FINGERPRINT_TEST);
+
+        featureNames.add(BACK_CAMERA);  //d
+        featureNames.add(FRONT_CAMERA);  //d
+        featureNames.add(GPS_LOCATION);  //d
+        featureNames.add(WIFI);  //d
+        featureNames.add(BLUETOOTH);  //d
+        featureNames.add(GSM_UMTS);
+        featureNames.add(COMPASS);  //d
+        featureNames.add(RADIO);
+        featureNames.add(SCREEN);  //d
+        featureNames.add(BATTERY);  //d
+        featureNames.add(CPU);
+        featureNames.add(SOUND);  //d
+        featureNames.add(VIBRATOR);  //d
+        featureNames.add(AV_OUTPUTS);  //d
+        featureNames.add(ANDROID_OS);
+        featureNames.add(FLASH);  //d
+        featureNames.add(MULTI_TOUCH);  //d
+        featureNames.add(FINGERPRINT);  //d
+        featureNames.add(NFC);
+        featureNames.add(MICROPHONE);
+        featureNames.add(USB_ACCESSORY);
+        featureNames.add(HEART_RATE_ECG);
+        featureNames.add(FAKE_TOUCH);
+        featureNames.add(MIDI);
+//        featureNames.add(BAROMETER);
+//        featureNames.add(INFRARED);
+//        featureNames.add(VR_MODE);
+//        featureNames.add(WIFI_DIRECT);
+//        featureNames.add(WEB_VIEW);
+
+        sensorNames.add(SENSOR_ACCELEROMETER);  //d
+        sensorNames.add(SENSOR_LIGHT);  //d
+        sensorNames.add(SENSOR_PROXIMITY);  //d
+        sensorNames.add(SENSOR_TEMPERATURE);
+        sensorNames.add(SENSOR_PRESSURE);  //d
+        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
+        sensorNames.add(SENSOR_GYROSCOPE);  //d
+        sensorNames.add(SENSOR_GRAVITY);  //d
+        sensorNames.add(SENSOR_LINEAR_ACCELERATION);  //d
+        sensorNames.add(SENSOR_ROTATION_VECTOR);  //d
+        sensorNames.add(SENSOR_MAGNETIC_FIELD);  //d
+        sensorNames.add(SENSOR_HEART_RATE);
+        sensorNames.add(SENSOR_STEP_DETECTOR);
+        sensorNames.add(SENSOR_STEP_COUNTER);
+        sensorNames.add(SENSOR_MOTION_DETECTOR);
+        sensorNames.add(SENSOR_STATIONARY_DETECTOR);
 
         diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
         diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
@@ -234,13 +281,11 @@ public class AppConstants {
         diagnosticsPointer.put(WIFI_TEST, WIFI);
         diagnosticsPointer.put(BLUETOOTH_TEST, BLUETOOTH);
         diagnosticsPointer.put(HEADPHONE_JACK_TEST, AV_OUTPUTS);
-        //new
         diagnosticsPointer.put(GYROSCOPE_TEST, SENSOR_GYROSCOPE);
         diagnosticsPointer.put(GRAVITY_TEST, SENSOR_GRAVITY);
         diagnosticsPointer.put(LINEAR_ACCELERATION_TEST, SENSOR_LINEAR_ACCELERATION);
         diagnosticsPointer.put(ROTATION_VECTOR_TEST, SENSOR_ROTATION_VECTOR);
         diagnosticsPointer.put(MAGNETIC_FIELD_TEST, SENSOR_MAGNETIC_FIELD);
-//        diagnosticsPointer.put(BAROMETER_TEST, BAROMETER);
         diagnosticsPointer.put(PRESSURE_SENSOR_TEST, SENSOR_PRESSURE);
 
         reverseDiagnosticsPointer.put(SOUND, SPEAKER_VOLUME_TEST);
@@ -260,61 +305,12 @@ public class AppConstants {
         reverseDiagnosticsPointer.put(WIFI, WIFI_TEST);
         reverseDiagnosticsPointer.put(BLUETOOTH, BLUETOOTH_TEST);
         reverseDiagnosticsPointer.put(AV_OUTPUTS, HEADPHONE_JACK_TEST);
-        //new
         reverseDiagnosticsPointer.put(SENSOR_GYROSCOPE, GYROSCOPE_TEST);
         reverseDiagnosticsPointer.put(SENSOR_GRAVITY, GRAVITY_TEST);
         reverseDiagnosticsPointer.put(SENSOR_LINEAR_ACCELERATION, LINEAR_ACCELERATION_TEST);
         reverseDiagnosticsPointer.put(SENSOR_ROTATION_VECTOR, ROTATION_VECTOR_TEST);
         reverseDiagnosticsPointer.put(SENSOR_MAGNETIC_FIELD, MAGNETIC_FIELD_TEST);
-//        reverseDiagnosticsPointer.put(BAROMETER, BAROMETER_TEST);
         reverseDiagnosticsPointer.put(SENSOR_PRESSURE, PRESSURE_SENSOR_TEST);
-
-        sensorNames.add(SENSOR_ACCELEROMETER);
-        sensorNames.add(SENSOR_LIGHT);
-        sensorNames.add(SENSOR_PROXIMITY);
-        sensorNames.add(SENSOR_TEMPERATURE);
-        sensorNames.add(SENSOR_PRESSURE);
-        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
-        sensorNames.add(SENSOR_GYROSCOPE);
-        sensorNames.add(SENSOR_GRAVITY);
-        sensorNames.add(SENSOR_LINEAR_ACCELERATION);
-        sensorNames.add(SENSOR_ROTATION_VECTOR);
-        sensorNames.add(SENSOR_MAGNETIC_FIELD);
-        sensorNames.add(SENSOR_HEART_RATE);
-        sensorNames.add(SENSOR_STEP_DETECTOR);
-        sensorNames.add(SENSOR_STEP_COUNTER);
-        sensorNames.add(SENSOR_MOTION_DETECTOR);
-        sensorNames.add(SENSOR_STATIONARY_DETECTOR);
-
-        featureNames.add(BACK_CAMERA);
-        featureNames.add(FRONT_CAMERA);
-        featureNames.add(GPS_LOCATION);
-        featureNames.add(WIFI);
-        featureNames.add(BLUETOOTH);
-        featureNames.add(GSM_UMTS);
-        featureNames.add(COMPASS);
-        featureNames.add(RADIO);
-        featureNames.add(SCREEN);
-        featureNames.add(BATTERY);
-        featureNames.add(CPU);
-        featureNames.add(SOUND);
-        featureNames.add(VIBRATOR);
-        featureNames.add(AV_OUTPUTS);
-        featureNames.add(ANDROID_OS);
-        featureNames.add(FLASH);
-        featureNames.add(MULTI_TOUCH);
-        featureNames.add(FINGERPRINT);
-        featureNames.add(NFC);
-        featureNames.add(MICROPHONE);
-        featureNames.add(USB_ACCESSORY);
-//        featureNames.add(BAROMETER);
-        featureNames.add(HEART_RATE_ECG);
-        featureNames.add(FAKE_TOUCH);
-        featureNames.add(MIDI);
-//        featureNames.add(INFRARED);
-//        featureNames.add(VR_MODE);
-//        featureNames.add(WIFI_DIRECT);
-//        featureNames.add(WEB_VIEW);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
         imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);
