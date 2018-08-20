@@ -24,6 +24,7 @@ import static android.content.Context.VIBRATOR_SERVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
@@ -208,7 +209,8 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
                 return isPresentFeature(element);
             }
             case STORAGE:
-            case RAM: {
+            case RAM:
+            case FAKE_TOUCH: {
                 return true;
             }
         }

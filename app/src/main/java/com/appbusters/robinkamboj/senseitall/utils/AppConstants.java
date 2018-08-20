@@ -233,6 +233,7 @@ public class AppConstants {
         informationNames.add(RADIO);
         informationNames.add(ANDROID_OS);
         informationNames.add(CPU);
+        informationNames.add(FAKE_TOUCH);
 
         isTestMap.put(BACK_CAMERA, true);
         isTestMap.put(FRONT_CAMERA, true);
@@ -776,19 +777,19 @@ public class AppConstants {
         categories.add(new Category(
                 R.drawable.baseline_info_black_48,
                 INFORMATION,
-                sensorNames.size() + " Details")
+                informationNames.size() + " Device Details")
         );
 
         categories.add(new Category(
                 R.drawable.baseline_system_update_black_48,
                 SOFTWARE,
-                featureNames.size() + " Capabilities")
+                softwareNames.size() + " Capabilities")
         );
 
         categories.add(new Category(
                 R.drawable.baseline_android_black_48,
                 ANDROID,
-                "9 Android Versions")
+                androidNames.size() + " Android Versions")
         );
 
         categories.add(new Category(
