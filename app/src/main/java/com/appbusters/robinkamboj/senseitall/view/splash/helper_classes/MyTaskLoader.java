@@ -88,7 +88,6 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
                 sensorsPresent[pos] = true;
                 setDiagnostics(s, testPos, diagnosticsPresent);
             }
-            if(AppConstants.reverseDiagnosticsPointer.get(s) != null) testPos += 1;
             pos++;
         }
 
@@ -139,7 +138,6 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
                         break;
                 }
             }
-            if(AppConstants.reverseDiagnosticsPointer.get(f) != null) testPos += 1;
             pos++;
         }
 
@@ -155,7 +153,5 @@ public class MyTaskLoader extends android.support.v4.content.AsyncTaskLoader<boo
     }
 
     private void setDiagnostics(String data, int position, boolean[] diagnosticsPresent) {
-        if(AppConstants.reverseDiagnosticsPointer.get(data) != null)
-            diagnosticsPresent[position] = true;
     }
 }

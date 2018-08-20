@@ -47,6 +47,7 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.adapter.GenericDataAdapter;
+import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.IsPresentLoader;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 
 import java.util.ArrayList;
@@ -85,7 +86,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_INFO
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_RATE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SOFTWARE;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.diagnosticsPointer;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlMap;
 
 /**
@@ -595,18 +595,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
 
         for(int i=0; i<dataNames.size(); i++) {
-            if(type == TYPE_DIAGNOSTICS)
-                list.add(new GenericData(
-                        dataNames.get(i),
-                        imageUrlMap.get(diagnosticsPointer.get(dataNames.get(i))),
-                        dataPresent[i],
-                        type));
-            else
-                list.add(new GenericData(
-                        dataNames.get(i),
-                        imageUrlMap.get(dataNames.get(i)),
-                        dataPresent[i],
-                        type));
+            list.add(new GenericData(
+                    dataNames.get(i),
+                    imageUrlMap.get(dataNames.get(i)),
+                    dataPresent[i],
+                    type));
         }
     }
 
@@ -724,50 +717,13 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public Loader<boolean[][]> onCreateLoader(int id, @Nullable Bundle args) {
         Context context = getActivity();
         assert context != null;
-
-        SensorManager sManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
-        List<String> sensorsList = AppConstants.sensorNames;
-        HashMap<String, Integer> sensorMap = AppConstants.sensorManagerInts;
-
-        PackageManager fManager = context.getPackageManager();
-        List<String> featuresList = AppConstants.featureNames;
-        HashMap<String, String> featureMap = AppConstants.packageManagerPaths;
-
-        List<String> diagnosticsList = AppConstants.diagnosticsNames;
-        List<String> informationList = AppConstants.informationNames;
-        List<String> softwareList = AppConstants.softwareNames;
-        List<String> androidList = AppConstants.androidNames;
-
-        Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
-        ConsumerIrManager infrared = (ConsumerIrManager) context.getSystemService(CONSUMER_IR_SERVICE);
-
-        boolean b;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            b = ActivityCompat
-                    .checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) ==
-                    PackageManager.PERMISSION_GRANTED &&
-                    Objects.requireNonNull(context.getSystemService(FingerprintManager.class))
-                            .isHardwareDetected();
-        } else {
-            b = FingerprintManagerCompat.from(context).isHardwareDetected();
-        }
-
-        return new MyTaskLoader(
-                context,
-                sManager,
-                sensorsList,
-                sensorMap,
-                fManager,
-                featuresList,
-                featureMap,
-                vibrator,
-                infrared,
-                b,
-                diagnosticsList,
-                informationList,
-                softwareList,
-                androidList
-        );
+        return new IsPresentLoader(getActivity(),
+                AppConstants.diagnosticsNames,
+                AppConstants.sensorNames,
+                AppConstants.featureNames,
+                AppConstants.informationNames,
+                AppConstants.softwareNames,
+                AppConstants.androidNames);
     }
 
     @Override

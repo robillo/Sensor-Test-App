@@ -46,7 +46,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHON
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_HEART_RATE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.diagnosticsPointer;
 
 public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.GenericViewHolder>
         implements GenericAdapterInterface {
@@ -118,10 +117,6 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
 
     @Override
     public boolean isPermissionGranted(Context context, String sensorName, int sensorType) {
-
-        if(sensorType == TYPE_DIAGNOSTICS) {
-            sensorName = diagnosticsPointer.get(sensorName);
-        }
 
         boolean isGiven = true;
         switch (sensorName) {
@@ -207,13 +202,8 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
 
         Bundle args = new Bundle();
 
-        if(data.getType() == AppConstants.TYPE_DIAGNOSTICS)
-            args.putString(AppConstants.DATA_NAME, AppConstants.diagnosticsPointer.get(data.getName()));
-        else
-            args.putString(AppConstants.DATA_NAME, data.getName());
-
+        args.putString(AppConstants.DATA_NAME, data.getName());
         args.putString(AppConstants.RECYCLER_NAME, data.getName());
-
         args.putInt(AppConstants.DRAWABLE_ID, data.getDrawableId());
         args.putBoolean(AppConstants.IS_PRESENT, data.isPresent());
         args.putInt(AppConstants.TYPE, data.getType());

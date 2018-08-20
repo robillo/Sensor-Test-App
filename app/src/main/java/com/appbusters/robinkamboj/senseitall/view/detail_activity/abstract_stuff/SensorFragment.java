@@ -64,7 +64,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.URANUS_GR
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VENDOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VENUS_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VERSION;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.reverseDiagnosticsPointer;
 
 public abstract class SensorFragment extends Fragment implements SensorInterface {
 
@@ -137,9 +136,7 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
     @Override
     public void hideGoToTestIfNoTest() {
-        if(getActivity() != null
-                && AppConstants.diagnosticsPointer.get(((DetailActivity) getActivity()).recyclerName) == null
-                && reverseDiagnosticsPointer.get((((DetailActivity) getActivity()).intentData.getName())) == null) {
+        if(getActivity() != null && AppConstants.isTestMap.get(((DetailActivity) getActivity()).recyclerName) == null) {
             goToTest.setVisibility(View.GONE);
         }
     }
