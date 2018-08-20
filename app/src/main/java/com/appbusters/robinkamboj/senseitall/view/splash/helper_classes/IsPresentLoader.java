@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
+import android.util.Log;
 
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 
@@ -28,6 +29,12 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUC
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.KITKAT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LOLLIPOP;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MARSHMALLOW;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NOUGAT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.OREO;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PIE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
@@ -223,7 +230,31 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
     }
 
     private boolean isPresentAndroid(String element) {
+        //currently just showing features added in each android version
+        //maybe will add tests later
 
-        return false;
+//        switch (Build.VERSION.SDK_INT) {
+//            case Build.VERSION_CODES.O_MR1:
+//            case Build.VERSION_CODES.O: {
+//                if(element.equals(PIE)) return false;
+//                break;
+//            }
+//            case Build.VERSION_CODES.N_MR1:
+//            case Build.VERSION_CODES.N: {
+//                if(element.equals(PIE) || element.equals(OREO)) return false;
+//                break;
+//            }
+//            case Build.VERSION_CODES.M: {
+//                if(element.equals(PIE) || element.equals(OREO) || element.equals(NOUGAT)) return false;
+//                break;
+//            }
+//            case Build.VERSION_CODES.LOLLIPOP_MR1:
+//            case Build.VERSION_CODES.LOLLIPOP: {
+//                if(element.equals(PIE) || element.equals(OREO) || element.equals(NOUGAT) || element.equals(MARSHMALLOW))
+//                    return false;
+//                break;
+//            }
+//        }
+        return true;
     }
 }

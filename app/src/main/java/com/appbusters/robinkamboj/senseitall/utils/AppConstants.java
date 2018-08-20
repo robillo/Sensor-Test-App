@@ -111,6 +111,13 @@ public class AppConstants {
     public static final String STORAGE = "STORAGE";     //specific information
     public static final String RAM = "RAM";
 
+    public static final String PIE = "P - Pie (9)";     //android versions
+    public static final String OREO = "O - Oreo (8)";
+    public static final String NOUGAT = "N - Nougat (7)";
+    public static final String MARSHMALLOW = "M - Marshmallow (6)";
+    public static final String LOLLIPOP = "L - Lollipop (5)";
+    public static final String KITKAT = "K - Kitkat (4)";
+
     //keys for key statistics
     public static final String STANDARD_GRAVITY = "Standard Gravity";
     public static final String VENDOR = "Vendor";
@@ -235,6 +242,13 @@ public class AppConstants {
         informationNames.add(CPU);
         informationNames.add(FAKE_TOUCH);
 
+        androidNames.add(PIE);
+        androidNames.add(OREO);
+        androidNames.add(NOUGAT);
+        androidNames.add(MARSHMALLOW);
+        androidNames.add(LOLLIPOP);
+        androidNames.add(KITKAT);
+
         isTestMap.put(BACK_CAMERA, true);
         isTestMap.put(FRONT_CAMERA, true);
         isTestMap.put(GPS_LOCATION, true);
@@ -342,6 +356,12 @@ public class AppConstants {
         imageUrlMap.put(VR_MODE, R.drawable.baseline_videogame_asset_black_48);
         imageUrlMap.put(STORAGE, R.drawable.baseline_storage_black_48);
         imageUrlMap.put(RAM, R.drawable.baseline_memory_black_48);
+        imageUrlMap.put(PIE, R.drawable.p);
+        imageUrlMap.put(OREO, R.drawable.o);
+        imageUrlMap.put(NOUGAT, R.drawable.n);
+        imageUrlMap.put(MARSHMALLOW, R.drawable.m);
+        imageUrlMap.put(LOLLIPOP, R.drawable.l);
+        imageUrlMap.put(KITKAT, R.drawable.k);
 
         packageManagerPaths.put(BACK_CAMERA, PackageManager.FEATURE_CAMERA);
         packageManagerPaths.put(FRONT_CAMERA, PackageManager.FEATURE_CAMERA_FRONT);

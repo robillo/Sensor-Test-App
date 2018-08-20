@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.PorterDuff;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
@@ -44,6 +47,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_HEART_RATE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
@@ -70,11 +74,16 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
     public void onBindViewHolder(@NonNull final GenericViewHolder holder, final int position) {
         @SuppressWarnings("UnnecessaryLocalVariable") final int pos = position;
 
-        if(list.get(pos).isPresent()) {
-            holder.dataDrawable.setColorFilter(ContextCompat.getColor(context, R.color.colorMajorDark));
+        if(list.get(pos).getType() != TYPE_ANDROID) {
+            if(list.get(pos).isPresent()) {
+                holder.dataDrawable.setColorFilter(ContextCompat.getColor(context, R.color.colorMajorDark));
+            }
+            else {
+                holder.dataDrawable.setColorFilter(ContextCompat.getColor(context, R.color.red_shade_four));
+            }
         }
         else {
-            holder.dataDrawable.setColorFilter(ContextCompat.getColor(context, R.color.red_shade_four));
+            holder.dataDrawable.setColorFilter(0xFFFFFFFF, PorterDuff.Mode.MULTIPLY);
         }
         holder.dataName.setText(list.get(pos).getName());
         Glide.with(context)

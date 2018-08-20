@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -203,6 +204,7 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
                 break;
             case TYPE_ANDROID:
                 dataType.setText(ANDROID.toUpperCase());
+                dataDrawable.setColorFilter(0xFFFFFFFF, PorterDuff.Mode.MULTIPLY);
                 break;
         }
         Glide.with(this).load(intentData.getDrawableId()).into(dataDrawable);
