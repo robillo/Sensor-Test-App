@@ -99,12 +99,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:textSize="32sp"
+                                android:textSize="28sp"
                                 android:textColor="@color/colorMajorDarkMuchLighter"
                                 tools:text="Diagnostic"
-                                fontPath="fonts/one.ttf"
-                                android:id="@+id/app_header_text"
-                                tools:ignore="MissingPrefix" />
+                                android:id="@+id/app_header_text"/>
+
+                            <!--fontPath="fonts/one.ttf"-->
+                            <!--tools:ignore="MissingPrefix"-->
 
                             <EditText
                                 android:layout_width="match_parent"

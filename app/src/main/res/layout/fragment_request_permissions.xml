@@ -21,7 +21,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:gravity="center"
             android:textSize="32sp"
             android:textColor="@color/green_shade_three"
@@ -35,14 +35,16 @@
             tools:ignore="ContentDescription,SmallSp" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="10sp"
-            android:textSize="16sp"
-            android:textColor="@color/green_shade_two"
+            android:textSize="15sp"
+            android:textColor="@color/green_shade_three"
             android:text=""
-            android:background="@color/white"
+            android:background="@drawable/oval_button_green"
+            android:layout_margin="10sp"
             android:id="@+id/pending_text"/>
 
         <ImageView

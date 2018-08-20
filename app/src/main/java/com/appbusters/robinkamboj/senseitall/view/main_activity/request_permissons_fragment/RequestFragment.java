@@ -112,7 +112,7 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
     @Override
     public void updatePendingCount(int pendingCount) {
         if(pendingCount != 0)
-            pendingText.setText(String.format("Amazing! Just %s permission(s) remaining to get started.", pendingCount));
+            pendingText.setText(String.format("Amazing... Just %s permission remaining to get started.", pendingCount));
         else
             pendingText.setText(R.string.press_back_to_get_started);
     }
