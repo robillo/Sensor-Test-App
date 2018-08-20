@@ -193,7 +193,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="ask_permissions_manually"><![CDATA[Please go to Settings -> Apps -> Sense It All - Device Test -> Permissions. \nAnd enable permissions manually]]></string>
     <string name="key_statistics">KEY STATISTICS:</string>
     <string name="go_to_test">GO TO TEST</string>
-    <string name="about_sensor">ABOUT:</string>
+    <string name="about_sensor">ABOUT</string>
     <string name="learn_more">LEARN MORE</string>
 
     <string name="about_proximity">
@@ -266,6 +266,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="splash_icon">Splash Icon</string>
     <string name="sense_it_all_abbreviation">S.I.A</string>
     <string name="device_test_splash">DEVICE TEST</string>
+    <string name="more_statistics">MORE STATISTICS</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

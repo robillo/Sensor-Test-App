@@ -10,15 +10,14 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @SuppressWarnings("WeakerAccess")
 public class AppConstants {
 
     public static final int REQUEST_CODE = 100;
     public static final String CATEGORY = "CATEGORY";
+    public static final int INFO_RECYCLER_COUNT = 4;
 
     //redundant
     public static final String RATE_APP = "Rate App";
@@ -97,7 +96,6 @@ public class AppConstants {
     public static final String LINEAR_ACCELERATION_TEST = "Linear Acceleration Test";
     public static final String ROTATION_VECTOR_TEST = "Rotation Vector Test";
     public static final String MAGNETIC_FIELD_TEST = "Magnetic Field Test";
-    public static final String BAROMETER_TEST = "Barometer Test";
     public static final String PRESSURE_SENSOR_TEST = "Pressure Sensor Test";
 
     public static final String BACK_CAMERA = "Back Camera";                     //features

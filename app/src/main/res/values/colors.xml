@@ -14,7 +14,9 @@
 
     <color name="colorPrimaryLight">#B2EBF2</color>
     <color name="colorPrimaryLightTx">#9edaebed</color>
+    <color name="colorPrimaryLightTxMore">#9eeffafa</color>
     <color name="colorPrimaryLightLight">#E1F5FE</color>
+    <color name="colorPrimaryLightLight2">#cfe1e9</color>
     <color name="colorAccentDark">#BF360C</color>
     <color name="colorPrimaryDifferent">#FF3D00</color>
     <color name="colorFlashlightShade">#FFECB3</color>
@@ -35,6 +37,7 @@
     <color name="red_shade_one">#400007</color>
     <color name="red_shade_two">#7F000D</color>
     <color name="red_shade_three">#FF4C5C</color>
+    <color name="red_shade_three_less_vibrant">#d94f5b</color>
     <color name="red_shade_four">#FF7B86</color>
     <color name="red_shade_five">#fff5f6</color>
     <color name="red_shade_six">#ffa7af</color>

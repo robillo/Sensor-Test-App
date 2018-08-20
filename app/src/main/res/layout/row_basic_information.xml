@@ -12,18 +12,18 @@
         android:orientation="horizontal"
         android:background="@color/colorAlmostWhite">
 
-        <ImageView
-            android:layout_width="5sp"
-            android:layout_height="match_parent"
-            android:background="@color/colorMajorDark"
-            tools:ignore="ContentDescription" />
+        <!--<ImageView-->
+            <!--android:layout_width="5sp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/colorMajorDark"-->
+            <!--tools:ignore="ContentDescription" />-->
 
         <TextView
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@color/colorTextOne"
-            android:textSize="18sp"
+            android:textSize="16sp"
             tools:text="MINIMUM DELAY"
             tools:ignore="RtlHardcoded,RtlSymmetry"
             android:id="@+id/key"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@color/colorTextOne"
-            android:textSize="16sp"
+            android:textSize="15sp"
             tools:text="56 Seconds"
             tools:ignore="RtlHardcoded,RtlSymmetry"
             android:id="@+id/value"

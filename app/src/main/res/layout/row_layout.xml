@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:id="@+id/data_card"
     android:clickable="false"
     tools:layout_width="100sp"
     android:layout_margin="6sp"
@@ -16,7 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="5sp">
+        android:background="@drawable/card_background"
+        android:padding="5sp"
+        android:id="@+id/data_card">
 
         <FrameLayout
             android:layout_width="60sp"

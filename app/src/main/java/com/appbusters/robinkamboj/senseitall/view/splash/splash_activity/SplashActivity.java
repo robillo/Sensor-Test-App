@@ -73,6 +73,7 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView {
     @Override
     public void startDashboardActivity() {
         startActivity(new Intent(this, DashboardActivity.class));
+        overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
     }
 
     @Override

@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity
         }
         else {
             super.onBackPressed();
+            overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
         }
     }
 

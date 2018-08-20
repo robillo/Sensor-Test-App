@@ -31,6 +31,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.EARTH_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FULL_MOON_LUMINANCE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFO_RECYCLER_COUNT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_DYNAMIC_SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_WAKE_UP_SENSOR;
@@ -69,6 +70,9 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
     public Sensor sensor;
     public List<SensorDetail> sensorDetails = new ArrayList<>();
+
+    @BindView(R.id.view_more)
+    TextView viewMoreStatistics;
 
     @BindView(R.id.info_recycler)
     public RecyclerView infoRecycler;
@@ -113,18 +117,31 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
             intentData = ((DetailActivity) getActivity()).intentData;
         infoRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        List<SensorDetail> subSensorDetails = new ArrayList<>();
+        for(int i=0; i<INFO_RECYCLER_COUNT && i<sensorDetails.size(); i++) {
+            subSensorDetails.add(sensorDetails.get(i));
+        }
+
         if(intentData != null)
-            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails, intentData.getName()));
+            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), subSensorDetails, intentData.getName()));
         else
-            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails));
+            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), subSensorDetails));
+
+        if(sensorDetails.size() > INFO_RECYCLER_COUNT) {
+            viewMoreStatistics.setVisibility(View.VISIBLE);
+        }
+        else {
+            viewMoreStatistics.setVisibility(View.GONE);
+        }
     }
 
     @Override
     public void hideGoToTestIfNoTest() {
-        if(getActivity() != null)
-            if(AppConstants.diagnosticsPointer.get(((DetailActivity) getActivity()).recyclerName) == null
-                    && reverseDiagnosticsPointer.get((((DetailActivity) getActivity()).intentData.getName())) == null)
-                goToTest.setVisibility(View.GONE);
+        if(getActivity() != null
+                && AppConstants.diagnosticsPointer.get(((DetailActivity) getActivity()).recyclerName) == null
+                && reverseDiagnosticsPointer.get((((DetailActivity) getActivity()).intentData.getName())) == null) {
+            goToTest.setVisibility(View.GONE);
+        }
     }
 
     @Override

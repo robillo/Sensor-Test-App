@@ -1,39 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/colorAlmostWhite">
+    app:cardCornerRadius="15sp"
+    app:cardElevation="5sp"
+    android:layout_marginLeft="10sp"
+    android:layout_marginRight="10sp"
+    android:layout_marginBottom="10sp"
+    android:layout_marginTop="10sp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="@color/colorTextThree"
-        tools:ignore="ContentDescription,SmallSp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorMajorDark"
-        android:textSize="20sp"
-        android:text="@string/key_statistics"
-        android:gravity="start"
-        android:padding="10sp"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="@color/colorTextThree"
-        tools:ignore="ContentDescription,SmallSp" />
-
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/info_recycler"
-        android:background="@color/colorTextSix"
-        android:nestedScrollingEnabled="false">
+        android:orientation="vertical">
 
-    </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTextOne"
+            android:textSize="18sp"
+            android:text="@string/key_statistics"
+            android:gravity="center"
+            android:padding="10sp"/>
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextThree"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_recycler"
+            android:background="@color/colorTextSix"
+            android:nestedScrollingEnabled="false">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextThree"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/more_statistics"
+            android:textColor="@color/green_shade_three"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
+            android:paddingTop="8sp"
+            android:paddingBottom="8sp"
+            android:id="@+id/view_more"
+            android:layout_margin="5sp"
+            android:gravity="center_horizontal"
+            android:background="@drawable/oval_button_green"
+            android:layout_gravity="center_horizontal"
+            tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:background="@color/colorAlmostWhite">-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1sp"-->
+        <!--android:background="@color/colorTextThree"-->
+        <!--tools:ignore="ContentDescription,SmallSp" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/colorMajorDark"-->
+        <!--android:textSize="20sp"-->
+        <!--android:text="@string/key_statistics"-->
+        <!--android:gravity="start"-->
+        <!--android:padding="10sp"/>-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1sp"-->
+        <!--android:background="@color/colorTextThree"-->
+        <!--tools:ignore="ContentDescription,SmallSp" />-->
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/info_recycler"-->
+        <!--android:background="@color/colorTextSix"-->
+        <!--android:nestedScrollingEnabled="false">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+
+<!--</LinearLayout>-->

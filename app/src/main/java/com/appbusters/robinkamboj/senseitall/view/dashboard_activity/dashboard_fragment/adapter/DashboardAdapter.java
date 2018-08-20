@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.dashboard_fragment.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -74,12 +76,17 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(AppConstants.CATEGORY, name);
         context.startActivity(intent);
+        ((Activity) context)
+                .overridePendingTransition(
+                        R.anim.slide_in_right_activity,
+                        R.anim.slide_out_left_activity
+                );
     }
 
     class DashboardHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.parent_card)
-        CardView parentCard;
+        LinearLayout parentCard;
 
         @BindView(R.id.image)
         ImageView drawableImage;
