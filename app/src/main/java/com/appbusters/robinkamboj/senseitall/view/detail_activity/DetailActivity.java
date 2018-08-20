@@ -42,7 +42,7 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.vr.Vr
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.web_view.WebFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi.WifiFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi_direct.WifiDirectFragment;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.information.StorageFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.information.storage.StorageFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.information.ram.RamFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.gravity_sensor.GravityFragment;

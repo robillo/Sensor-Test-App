@@ -2343,19 +2343,35 @@ Motion sensors aren\'t just an additional feature of a security system—they ar
     </string-array>
 
     <string-array name="storage_headers">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>SD (Secure Digital)</item>
+        <item>SD Card Speeds</item>
+        <item>Internal Storage</item>
+        <item>Phone Storage</item>
+        <item>External Storage</item>
     </string-array>
 
     <string-array name="storage_descriptions">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Secure Digital (SD) is a non-volatile memory card format developed by the SD Card Association (SDA) for use in portable devices.\n\n
+
+The standard was introduced in August 1999 by joint efforts between SanDisk, Panasonic (Matsushita Electric) and Toshiba as an improvement over MultiMediaCards (MMC), and has become the industry standard. The three companies formed SD-3C, LLC, a company that licenses and enforces intellectual property rights associated with SD memory cards and SD host and ancillary products.\n\n
+
+The companies also formed the SD Association (SDA), a non-profit organization, in January 2000 to promote and create SD Card standards. SDA today has about 1,000 member companies. The SDA uses several trademarked logos owned and licensed by SD-3C to enforce compliance with its specifications and assure users of compatibility.\n\n
+
+        Secure Digital includes five card families available in three different sizes. The five families are the original Standard-Capacity (SDSC), the High-Capacity (SDHC), the eXtended-Capacity (SDXC), the Ultra-Capacity (SDUC) and the SDIO, which combines input/output functions with data storage. The three form factors are the original size, the mini size, and the micro size. Electrically passive adapters allow a smaller card to fit and function in a device built for a larger card. The SD card\'s small footprint is an ideal storage medium for smaller, thinner and more portable electronic devices.\n\n</item>
+        <item>SD card speed is customarily rated by its sequential read or write speed. The sequential performance aspect is the most relevant for storing and retrieving large files (relative to block sizes internal to the flash memory), such as images and multimedia. Small data (such as file names, sizes and timestamps) falls under the much lower speed limit of random access, which can be the limiting factor in some use cases.\n\n
+
+With early SD cards, a few card manufacturers specified the speed as a \"times\" (\"×\") rating, which compared the average speed of reading data to that of the original CD-ROM drive. This was superseded by the Speed Class Rating, which guarantees a minimum rate at which data can be written to the card.\n\n
+
+The newer families of SD card improve card speed by increasing the bus rate (the frequency of the clock signal that strobes information into and out of the card). Whatever the bus rate, the card can signal to the host that it is \"busy\" until a read or a write operation is complete. Compliance with a higher speed rating is a guarantee that the card limits its use of the \"busy\" indication.\n\n</item>
+        <item>Internal Storage, also being called System Memory, is used to store the operation system, system apps, and other app data (messages, contacts, email settings, and other personal information). This part of storage is unaccessible to users. To better understand the internal storage, let\'s connect a 32GB Samsung S7 Edge to the computer, we can see there are only 23.9 GB of storage accessible. The remaining 8.1 GB belong to Internal Storage for operating system and sensitive data.\n\n
+
+        When most of the Internal Storage are used, a system file on Internal Storage will trigger a low storage message, reminding us to delete files, even there are much space left in phone storage. That\'s why we find it strange to get the insufficient storage notification with enough space left.\n\n</item>
+        <item>Phone Storage is the space that can actually accessed and used by the users. When we navigate to \"Settings\" > \"Storage\" and open \"Used space\", we can see the files that are stored on Phone Storage, including downloaded apps, pictures, videos, audio, etc. In fact, Phone Storage is the default location for installed apps, games, camera photos, downloaded music and media files. When the phone is connected to PC, this part of storage area behaves much like a SD card, on which you can add or delete files.\n\n</item>
+        <item>External storage generally means removable microSD card that is inserted into the phone to add extra space to the phone. But not all Android models come with SD card slot, for example, most of the Nexus models don\'t support external storage. That\'s simply because cheap SD card usually affects the device\'s performance and make it sluggish. External storage can be used to save media files such as pictures, music, videos while most applications can not be installed on external storage.\n\n
+
+If your mobile phone is OTG supported, you can also use USB driver for external storage.\n\n
+
+Tip: If you accidentally delete media files on SD card, you can restore the lost files from SD card with Android Data Recovery\n\n</item>
     </string-array>
 
     <string-array name="storage_images">

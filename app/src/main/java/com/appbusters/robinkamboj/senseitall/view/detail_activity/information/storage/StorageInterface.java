@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.information;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.information.storage;
 
 import android.view.View;
 
