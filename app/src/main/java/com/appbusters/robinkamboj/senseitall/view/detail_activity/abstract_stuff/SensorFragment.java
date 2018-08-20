@@ -232,7 +232,7 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
     public void setupAbout() {
         if (getActivity() != null) {
             String[] temp = getActivity().getResources().getStringArray(
-                    AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName())
+                    AppConstants.mapAbout.get(((DetailActivity) getActivity()).intentData.getName())
             );
             about.setText(temp[0]);
         }

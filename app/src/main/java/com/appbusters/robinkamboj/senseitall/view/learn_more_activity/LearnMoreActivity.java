@@ -48,6 +48,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MIDI;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NFC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GRAVITY;
@@ -66,6 +67,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ST
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_DETECTOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_TEMPERATURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STORAGE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.USB_ACCESSORY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
@@ -443,6 +445,18 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
                 headers = getResources().getStringArray(R.array.fake_touch_headers);
                 descriptions = getResources().getStringArray(R.array.fake_touch_descriptions);
                 images = getResources().getStringArray(R.array.fake_touch_images);
+                break;
+            }
+            case RAM: {
+                headers = getResources().getStringArray(R.array.ram_headers);
+                descriptions = getResources().getStringArray(R.array.ram_descriptions);
+                images = getResources().getStringArray(R.array.ram_images);
+                break;
+            }
+            case STORAGE: {
+                headers = getResources().getStringArray(R.array.storage_headers);
+                descriptions = getResources().getStringArray(R.array.storage_descriptions);
+                images = getResources().getStringArray(R.array.storage_images);
                 break;
             }
         }

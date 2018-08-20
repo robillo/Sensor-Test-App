@@ -42,6 +42,8 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.vr.Vr
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.web_view.WebFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi.WifiFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.wifi_direct.WifiDirectFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.information.StorageFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.information.ram.RamFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.accelerometer_sensor.AccelerometerFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.gravity_sensor.GravityFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.sensors.gyroscope_sensor.GyroscopeFragment;
@@ -64,6 +66,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
@@ -83,6 +86,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAM
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFORMATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
@@ -90,6 +94,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MIDI;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NFC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
@@ -109,11 +114,16 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ST
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_COUNTER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_DETECTOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_TEMPERATURE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOFTWARE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STORAGE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_INFORMATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SOFTWARE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.USB_ACCESSORY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VR_MODE;
@@ -184,6 +194,15 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
                 break;
             case TYPE_SENSORS:
                 dataType.setText(SENSOR.toUpperCase());
+                break;
+            case TYPE_INFORMATION:
+                dataType.setText(INFORMATION.toUpperCase());
+                break;
+            case TYPE_SOFTWARE:
+                dataType.setText(SOFTWARE.toUpperCase());
+                break;
+            case TYPE_ANDROID:
+                dataType.setText(ANDROID.toUpperCase());
                 break;
         }
         Glide.with(this).load(intentData.getDrawableId()).into(dataDrawable);
@@ -373,6 +392,14 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case VR_MODE: {
                 transaction.add(R.id.container, new VrFragment()).commit();
+                break;
+            }
+            case STORAGE: {
+                transaction.add(R.id.container, new StorageFragment()).commit();
+                break;
+            }
+            case RAM: {
+                transaction.add(R.id.container, new RamFragment()).commit();
                 break;
             }
         }

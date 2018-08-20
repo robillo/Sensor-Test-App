@@ -108,6 +108,9 @@ public class AppConstants {
     public static final String MIDI = "MIDI";
     public static final String VR_MODE = "VR Mode";
 
+    public static final String STORAGE = "STORAGE";     //specific information
+    public static final String RAM = "RAM";
+
     //keys for key statistics
     public static final String STANDARD_GRAVITY = "Standard Gravity";
     public static final String VENDOR = "Vendor";
@@ -165,7 +168,7 @@ public class AppConstants {
     public static List<String> dangerousPermissions = new ArrayList<>();
     public static HashMap<String, String> sensorMapDirections = new HashMap<>();
     public static HashMap<String, String> sensorMapHints = new HashMap<>();
-    public static HashMap<String, Integer> sensorMapAbout = new HashMap<>();
+    public static HashMap<String, Integer> mapAbout = new HashMap<>();
 
     static {
 
@@ -224,11 +227,12 @@ public class AppConstants {
         featureNames.add(FAKE_TOUCH);
         featureNames.add(MIDI);
 
+        informationNames.add(STORAGE);
+        informationNames.add(RAM);
         informationNames.add(GSM_UMTS);
         informationNames.add(RADIO);
-        informationNames.add(CPU);
         informationNames.add(ANDROID_OS);
-        informationNames.add(MICROPHONE);
+        informationNames.add(CPU);
 
         isTestMap.put(BACK_CAMERA, true);
         isTestMap.put(FRONT_CAMERA, true);
@@ -270,6 +274,8 @@ public class AppConstants {
         isTestMap.put(SENSOR_STEP_COUNTER, false);
         isTestMap.put(SENSOR_MOTION_DETECTOR, false);
         isTestMap.put(SENSOR_STATIONARY_DETECTOR, false);
+        isTestMap.put(STORAGE, false);
+        isTestMap.put(RAM, false);
 
         sensorNames.add(SENSOR_ACCELEROMETER);  //d
         sensorNames.add(SENSOR_LIGHT);  //d
@@ -333,6 +339,8 @@ public class AppConstants {
         imageUrlMap.put(WEB_VIEW, R.drawable.baseline_web_black_48);
         imageUrlMap.put(MIDI, R.drawable.baseline_speaker_black_48);
         imageUrlMap.put(VR_MODE, R.drawable.baseline_videogame_asset_black_48);
+        imageUrlMap.put(STORAGE, R.drawable.baseline_storage_black_48);
+        imageUrlMap.put(RAM, R.drawable.baseline_memory_black_48);
 
         packageManagerPaths.put(BACK_CAMERA, PackageManager.FEATURE_CAMERA);
         packageManagerPaths.put(FRONT_CAMERA, PackageManager.FEATURE_CAMERA_FRONT);
@@ -558,185 +566,193 @@ public class AppConstants {
                 "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
 
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_PROXIMITY,
                 R.array.proximity_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_ACCELEROMETER,
                 R.array.accelerometer_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_LIGHT,
                 R.array.light_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 BACK_CAMERA,
                 R.array.camera_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 FRONT_CAMERA,
                 R.array.camera_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 GPS_LOCATION,
                 R.array.gps_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 WIFI,
                 R.array.wifi_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 BLUETOOTH,
                 R.array.bluetooth_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SCREEN,
                 R.array.screen_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 BATTERY,
                 R.array.battery_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SOUND,
                 R.array.sound_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 VIBRATOR,
                 R.array.vibrator_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 AV_OUTPUTS,
                 R.array.av_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 FLASH,
                 R.array.flash_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 MULTI_TOUCH,
                 R.array.multi_touch_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 FINGERPRINT,
                 R.array.fingerprint_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 COMPASS,
                 R.array.compass_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_TEMPERATURE,
                 R.array.ambient_temperature_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_PRESSURE,
                 R.array.pressure_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_RELATIVE_HUMIDITY,
                 R.array.relative_humidity_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_GYROSCOPE,
                 R.array.gyroscope_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_GRAVITY,
                 R.array.gravity_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_LINEAR_ACCELERATION,
                 R.array.linear_acceleration_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_ROTATION_VECTOR,
                 R.array.rotation_vector_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_MAGNETIC_FIELD,
                 R.array.magnetic_field_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_HEART_RATE,
                 R.array.heart_rate_ecg_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_STEP_DETECTOR,
                 R.array.step_detector_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_STEP_COUNTER,
                 R.array.step_counter_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_MOTION_DETECTOR,
                 R.array.motion_detector_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_STATIONARY_DETECTOR,
                 R.array.stationary_detector_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 GSM_UMTS,
                 R.array.gsm_umts_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 RADIO,
                 R.array.radio_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 CPU,
                 R.array.cpu_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 ANDROID_OS,
                 R.array.android_os_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 INFRARED,
                 R.array.infrared_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 NFC,
                 R.array.nfc_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 MICROPHONE,
                 R.array.microphone_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 USB_ACCESSORY,
                 R.array.usb_accessory_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 BAROMETER,
                 R.array.barometer_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 WIFI_DIRECT,
                 R.array.wifi_direct_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 HEART_RATE_ECG,
                 R.array.heart_rate_ecg_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 WEB_VIEW,
                 R.array.web_view_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 MIDI,
                 R.array.midi_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 VR_MODE,
                 R.array.vr_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 FAKE_TOUCH,
                 R.array.fake_touch_descriptions
+        );
+        mapAbout.put(
+                RAM,
+                R.array.ram_descriptions
+        );
+        mapAbout.put(
+                STORAGE,
+                R.array.storage_descriptions
         );
 
         categories.add(new Category(

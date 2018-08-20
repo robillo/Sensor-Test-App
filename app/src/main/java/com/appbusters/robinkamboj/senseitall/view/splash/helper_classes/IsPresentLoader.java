@@ -25,9 +25,12 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_O
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STORAGE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.featureNames;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.sensorNames;
@@ -197,7 +200,18 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
     }
 
     private boolean isPresentInformation(String element) {
-
+        switch (element) {
+            case GSM_UMTS:
+            case RADIO:
+            case CPU:
+            case ANDROID_OS: {
+                return isPresentFeature(element);
+            }
+            case STORAGE:
+            case RAM: {
+                return true;
+            }
+        }
         return false;
     }
 

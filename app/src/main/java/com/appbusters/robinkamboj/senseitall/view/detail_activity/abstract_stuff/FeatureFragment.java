@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -82,7 +81,7 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
 
     @Override
     public void hideGoToTestIfNoTest() {
-        if(getActivity() != null && AppConstants.isTestMap.get(((DetailActivity) getActivity()).recyclerName) == null) {
+        if(getActivity() != null && !AppConstants.isTestMap.get(((DetailActivity) getActivity()).recyclerName)) {
             goToTest.setVisibility(View.GONE);
         }
     }
@@ -96,7 +95,7 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
     public void setupAbout() {
         if (getActivity() != null) {
             String[] temp = getActivity().getResources().getStringArray(
-                    AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName())
+                    AppConstants.mapAbout.get(((DetailActivity) getActivity()).intentData.getName())
             );
             about.setText(temp[0]);
         }

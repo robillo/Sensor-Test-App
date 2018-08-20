@@ -2342,4 +2342,81 @@ Motion sensors aren\'t just an additional feature of a security system—they ar
         <item>https://2.bp.blogspot.com/-14henRVD5P4/W2KhVzQmk-I/AAAAAAAADDs/UiNXDpH6cwYybEatE6PGflyGcIf71SNZACK4BGAYYCw/s1600/station4.jpg</item>
     </string-array>
 
+    <string-array name="storage_headers">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="storage_descriptions">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="storage_images">
+        <item>https://3.bp.blogspot.com/-ejmN87aVi6M/W3sZAk5701I/AAAAAAAADFw/GqqXqbHEVOQBBAhNDwQt4mo3IxP9HcvvgCK4BGAYYCw/s1600/storage1.jpg</item>
+        <item>https://1.bp.blogspot.com/-f2la0OMOyac/W3sZI1eIXiI/AAAAAAAADGQ/Q0-deif-Y4cyZJOkve8qhyHqf0ewkm-vQCK4BGAYYCw/s1600/storage3.jpg</item>
+        <item>https://3.bp.blogspot.com/-PwdFEuOQ1rw/W3sZFAbFm2I/AAAAAAAADGA/itmkdpiEUm84pp6gNr83s0s1npHbjlQtACK4BGAYYCw/s1600/storage4.jpg</item>
+        <item>https://1.bp.blogspot.com/-53Hldbm-7Yw/W3sZFPv398I/AAAAAAAADF4/zaiMrA7_5u8loHvwcH3CtcYNictMBsQ7wCK4BGAYYCw/s1600/storage5.jpg</item>
+        <item>https://4.bp.blogspot.com/-y0U59i3R7MA/W3sZIAgeCoI/AAAAAAAADGI/B-d8_3zxq94GOMk9jlNAjGW9fje0nNX1ACK4BGAYYCw/s1600/storage2.jpg</item>
+    </string-array>
+
+    <string-array name="ram_headers">
+        <item>Introduction</item>
+        <item>History</item>
+        <item>Ram vs Multitasking</item>
+        <item>How Much Ram A Phone Needs</item>
+    </string-array>
+
+    <string-array name="ram_descriptions">
+        <item>Random-access memory (RAM /ræm/) is a form of computer data storage that stores data and machine code currently being used. A random-access memory device allows data items to be read or written in almost the same amount of time irrespective of the physical location of data inside the memory. In contrast, with other direct-access data storage media such as hard disks, CD-RWs, DVD-RWs and the older magnetic tapes and drum memory, the time required to read and write data items varies significantly depending on their physical locations on the recording medium, due to mechanical limitations such as media rotation speeds and arm movement.\n\n
+
+RAM contains multiplexing and de-multiplexing circuitry, to connect the data lines to the addressed storage for reading or writing the entry. Usually more than one bit of storage is accessed by the same address, and RAM devices often have multiple data lines and are said to be \"8-bit\" or \"16-bit\", etc. devices.\n\n
+
+In today\'s technology, random-access memory takes the form of integrated circuits. RAM is normally associated with volatile types of memory (such as DRAM modules), where stored information is lost if power is removed, although non-volatile RAM has also been developed. Other types of non-volatile memories exist that allow random access for read operations, but either do not allow write operations or have other kinds of limitations on them. These include most types of ROM and a type of flash memory called NOR-Flash.</item>
+        <item>Early computers used relays, mechanical counters or delay lines for main memory functions. Ultrasonic delay lines could only reproduce data in the order it was written. Drum memory could be expanded at relatively low cost but efficient retrieval of memory items required knowledge of the physical layout of the drum to optimize speed. Latches built out of vacuum tube triodes, and later, out of discrete transistors, were used for smaller and faster memories such as registers. Such registers were relatively large and too costly to use for large amounts of data; generally only a few dozen or few hundred bits of such memory could be provided.\n\n
+
+The first practical form of random-access memory was the Williams tube starting in 1947. It stored data as electrically charged spots on the face of a cathode ray tube. Since the electron beam of the CRT could read and write the spots on the tube in any order, memory was random access. The capacity of the Williams tube was a few hundred to around a thousand bits, but it was much smaller, faster, and more power-efficient than using individual vacuum tube latches. Developed at the University of Manchester in England, the Williams tube provided the medium on which the first electronically stored program was implemented in the Manchester Baby computer, which first successfully ran a program on 21 June 1948. In fact, rather than the Williams tube memory being designed for the Baby, the Baby was a testbed to demonstrate the reliability of the memory.\n\n
+
+Magnetic-core memory was invented in 1947 and developed up until the mid-1970s. It became a widespread form of random-access memory, relying on an array of magnetized rings. By changing the sense of each ring\'s magnetization, data could be stored with one bit stored per ring. Since every ring had a combination of address wires to select and read or write it, access to any memory location in any sequence was possible.</item>
+        <item>Today\’s phones\’ general storage is random access too, because it\’s comprised of eMMC chips rather than little spinning disc platters, but the most important distinction remains. A phone\’s RAM is going to be much, much faster than the 8GB-64GB storage you use to store apps and music.\n\n
+
+            RAM is used to hold the data a phone, or any computer system, is currently using. That way the speed of the storage doesn\’t become a bottleneck that slows the whole system down.
+
+In the context of a phone, this means a chunk of an app\’s data is loaded into RAM as soon as the app is started. Data is then shifted from RAM into a relatively tiny but even faster chunk of memory, the CPU caches, as it\’s dealt with.
+
+If the CPU is a chef, the cache is their chopping board, RAM the kitchen cupboards, and general storage the supermarket 15 minutes down the road. That gives you an idea of how impossibly slow a phone would be if it really only used the kind of \‘memory\’ we install apps onto.\n\n
+
+            Just as important, RAM is also what holds the data that enables multi-tasking. Some mobile devices now offer real Windows-style multi-tasking, where two apps are running on-screen at once.  A good amount of RAM is crucial for this.\n\n
+
+
+The iPad mini 4 has 2GB RAM, and can perform real multi-tasking thanks to iOS 9. The iPad mini 3 with 1GB RAM cannot. This doesn\’t mean it would be impossible, of course, but that Apple thinks multi-tasking doesn\’t run well enough on a 1GB RAM device.\n\n
+
+This isn’t the most important kind of mobile multi-tasking, though. RAM is also what lets you flick between apps without having to start from scratch each time. Even if an app isn\’t actively doing anything in the background, RAM is used to create a saved state that the phone can zap back into as if you’d never left.\n\n
+
+We take all this for granted, but have RAM to thank.\n\n
+        </item>
+        <item>This is the crux of why having more RAM is better. It lets a phone store more of these app snapshots without encroaching on the RAM a phone needs to make its OS run effectively.\n\n
+
+Android and iOS do not run like Windows, though. With a desktop operating system it\’s still possible to open far too many apps, to the point that the computer collapses into a juddering heap. I do this all the time, ending up annoyed at my laptop before realising it\’s only running poorly because I have 70 browser instances open and 100 3MB images loaded on Photoshop. It\’s my fault.\n\n
+
+
+You can\’t really misuse mobile operating systems in the same way because memory management happens automatically, and is more aggressive. Where with Windows you’d have to start closing apps when you stretch your RAM, iOS and Android simply offload app data from system RAM like a digital PA. Some apps may then still retain some of their \‘state\’ data on the solid state storage, but at this point the app will have to reload fully when you return.\n\n
+
+This is why a phone with barely enough RAM to keep its system running properly is going to be crap at multi-tasking. Leave at app, return 30 seconds later and you\’ll have to wait just as long as you did when you first booted it up.\n\n
+</item>
+    </string-array>
+
+    <string-array name="ram_images">
+        <item>https://3.bp.blogspot.com/-OTCwFdsbPpQ/W3sY7hk_spI/AAAAAAAADFg/8pfdwM_L00Alkq6vY4TzRaV2ugHiONLfQCK4BGAYYCw/s1600/ram4.jpg</item>
+        <item>https://2.bp.blogspot.com/-UuRfiddRUtc/W3sY8A5078I/AAAAAAAADFo/6XRFyQZZktY0VY2Q_QLKGlNZv2BarpNIQCK4BGAYYCw/s1600/ram5.jpg</item>
+        <item>https://2.bp.blogspot.com/-tw2EdR7wflc/W3sY6CmUsWI/AAAAAAAADFY/YmzKJxk53XYNS8kf7acAaD5QEAAZxI6UQCK4BGAYYCw/s1600/ram2.png</item>
+        <item>https://1.bp.blogspot.com/-5DLqFP3f4Rg/W3sY3I430UI/AAAAAAAADFQ/qj5es_qMZ9AHi7WY4uFAJ1qlTYu435QUgCK4BGAYYCw/s1600/ram1.jpg</item>
+    </string-array>
+
 </resources>
