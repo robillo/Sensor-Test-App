@@ -118,6 +118,12 @@ public class AppConstants {
     public static final String LOLLIPOP = "L - Lollipop (5)";
     public static final String KITKAT = "K - Kitkat (4)";
 
+    public static final String MOTION_DETECT = "Motion Detect";     //software
+    public static final String AUGMENTED_REALITY = "Augmented Reality";
+    public static final String VIRTUAL_REALITY = "Virtual Reality";
+    public static final String FACE_EMOTION_DETECT = "Face Emotion Detect";
+    public static final String FACE_EMOJI = "Face Emoji";
+
     //keys for key statistics
     public static final String STANDARD_GRAVITY = "Standard Gravity";
     public static final String VENDOR = "Vendor";
@@ -306,8 +312,12 @@ public class AppConstants {
         sensorNames.add(SENSOR_HEART_RATE);
         sensorNames.add(SENSOR_STEP_DETECTOR);
         sensorNames.add(SENSOR_STEP_COUNTER);
-        sensorNames.add(SENSOR_MOTION_DETECTOR);
-        sensorNames.add(SENSOR_STATIONARY_DETECTOR);
+
+        softwareNames.add(MOTION_DETECT);
+        softwareNames.add(AUGMENTED_REALITY);
+        softwareNames.add(VIRTUAL_REALITY);
+        softwareNames.add(FACE_EMOTION_DETECT);
+        softwareNames.add(FACE_EMOJI);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
         imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);
@@ -362,6 +372,11 @@ public class AppConstants {
         imageUrlMap.put(MARSHMALLOW, R.drawable.m);
         imageUrlMap.put(LOLLIPOP, R.drawable.l);
         imageUrlMap.put(KITKAT, R.drawable.k);
+        imageUrlMap.put(AUGMENTED_REALITY, R.drawable.ar);
+        imageUrlMap.put(VIRTUAL_REALITY, R.drawable.vr);
+        imageUrlMap.put(MOTION_DETECT, R.drawable.motion);
+        imageUrlMap.put(FACE_EMOTION_DETECT, R.drawable.face);
+        imageUrlMap.put(FACE_EMOJI, R.drawable.emoji);
 
         packageManagerPaths.put(BACK_CAMERA, PackageManager.FEATURE_CAMERA);
         packageManagerPaths.put(FRONT_CAMERA, PackageManager.FEATURE_CAMERA_FRONT);
@@ -801,15 +816,15 @@ public class AppConstants {
         );
 
         categories.add(new Category(
-                R.drawable.baseline_system_update_black_48,
-                SOFTWARE,
-                softwareNames.size() + " Capabilities")
-        );
-
-        categories.add(new Category(
                 R.drawable.baseline_android_black_48,
                 ANDROID,
                 androidNames.size() + " Android Versions")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_system_update_black_48,
+                SOFTWARE,
+                softwareNames.size() + " Capabilities")
         );
 
         categories.add(new Category(
