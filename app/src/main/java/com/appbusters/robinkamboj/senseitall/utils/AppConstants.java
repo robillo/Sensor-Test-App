@@ -111,18 +111,26 @@ public class AppConstants {
     public static final String STORAGE = "STORAGE";     //specific information
     public static final String RAM = "RAM";
 
+    @SuppressWarnings("WeakerAccess")
     public static final String PIE = "P - Pie (9)";     //android versions
+    @SuppressWarnings("WeakerAccess")
     public static final String OREO = "O - Oreo (8)";
+    @SuppressWarnings("WeakerAccess")
     public static final String NOUGAT = "N - Nougat (7)";
+    @SuppressWarnings("WeakerAccess")
     public static final String MARSHMALLOW = "M - Marshmallow (6)";
+    @SuppressWarnings("WeakerAccess")
     public static final String LOLLIPOP = "L - Lollipop (5)";
+    @SuppressWarnings("WeakerAccess")
     public static final String KITKAT = "K - Kitkat (4)";
 
     public static final String MOTION_DETECT = "Motion Detect";     //software
     public static final String AUGMENTED_REALITY = "Augmented Reality";
     public static final String VIRTUAL_REALITY = "Virtual Reality";
-    public static final String FACE_EMOTION_DETECT = "Face Emotion Detect";
+    public static final String FACE_DETECT = "Face Detect";
     public static final String FACE_EMOJI = "Face Emoji";
+    public static final String BARCODE_READER = "Barcode Reader";
+    public static final String TEXT_SCAN = "Text Scan";
 
     //keys for key statistics
     public static final String STANDARD_GRAVITY = "Standard Gravity";
@@ -182,6 +190,7 @@ public class AppConstants {
     public static HashMap<String, String> sensorMapDirections = new HashMap<>();
     public static HashMap<String, String> sensorMapHints = new HashMap<>();
     public static HashMap<String, Integer> mapAbout = new HashMap<>();
+    public static HashMap<String, String> versionMapUri = new HashMap<>();
 
     static {
 
@@ -314,10 +323,12 @@ public class AppConstants {
         sensorNames.add(SENSOR_STEP_COUNTER);
 
         softwareNames.add(MOTION_DETECT);
+        softwareNames.add(FACE_DETECT);
+        softwareNames.add(BARCODE_READER);
+        softwareNames.add(TEXT_SCAN);
+        softwareNames.add(FACE_EMOJI);
         softwareNames.add(AUGMENTED_REALITY);
         softwareNames.add(VIRTUAL_REALITY);
-        softwareNames.add(FACE_EMOTION_DETECT);
-        softwareNames.add(FACE_EMOJI);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
         imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);
@@ -375,8 +386,17 @@ public class AppConstants {
         imageUrlMap.put(AUGMENTED_REALITY, R.drawable.ar);
         imageUrlMap.put(VIRTUAL_REALITY, R.drawable.vr);
         imageUrlMap.put(MOTION_DETECT, R.drawable.motion);
-        imageUrlMap.put(FACE_EMOTION_DETECT, R.drawable.face);
+        imageUrlMap.put(FACE_DETECT, R.drawable.face);
         imageUrlMap.put(FACE_EMOJI, R.drawable.emoji);
+        imageUrlMap.put(BARCODE_READER, R.drawable.barcode);
+        imageUrlMap.put(TEXT_SCAN, R.drawable.baseline_text_format_black_48);
+
+        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
+        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
+        versionMapUri.put(NOUGAT, "https://developer.android.com/about/versions/nougat");
+        versionMapUri.put(MARSHMALLOW, "https://developer.android.com/about/versions/marshmallow");
+        versionMapUri.put(LOLLIPOP, "https://developer.android.com/about/versions/lollipop");
+        versionMapUri.put(KITKAT, "https://developer.android.com/about/versions/kitkat");
 
         packageManagerPaths.put(BACK_CAMERA, PackageManager.FEATURE_CAMERA);
         packageManagerPaths.put(FRONT_CAMERA, PackageManager.FEATURE_CAMERA_FRONT);

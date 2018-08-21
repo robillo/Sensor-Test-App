@@ -14,7 +14,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.util.Log;
 
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 
@@ -25,25 +24,21 @@ import static android.content.Context.CONSUMER_IR_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AUGMENTED_REALITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BARCODE_READER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_EMOJI;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_EMOTION_DETECT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.KITKAT;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LOLLIPOP;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MARSHMALLOW;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MOTION_DETECT;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NOUGAT;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.OREO;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PIE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STORAGE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.featureNames;
@@ -237,10 +232,12 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
             case VIRTUAL_REALITY:
                 return true;
             case MOTION_DETECT:
+            case BARCODE_READER:
+            case TEXT_SCAN:
             case AUGMENTED_REALITY:
             case FACE_EMOJI:
-            case FACE_EMOTION_DETECT: {
-                return cameraManager == null;
+            case FACE_DETECT: {
+                return cameraManager != null;
             }
         }
         return false;

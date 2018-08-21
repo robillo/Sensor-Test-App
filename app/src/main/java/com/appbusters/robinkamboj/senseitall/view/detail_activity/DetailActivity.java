@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.android.version_pie.PieFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.compass.CompassFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.android_os.OsFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.av_test.JackFragment;
@@ -94,6 +95,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHON
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MIDI;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NFC;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PIE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
@@ -403,6 +405,9 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             case RAM: {
                 transaction.add(R.id.container, new RamFragment()).commit();
                 break;
+            }
+            case PIE: {
+                transaction.add(R.id.container, new PieFragment()).commit();
             }
         }
     }
