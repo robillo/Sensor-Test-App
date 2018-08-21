@@ -5,11 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".view.detail_activity.android.version_oreo.OreoFragment">
 
-    <WebView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/web_view">
-
-    </WebView>
+    <include layout="@layout/layout_web_view"/>
 
 </FrameLayout>
