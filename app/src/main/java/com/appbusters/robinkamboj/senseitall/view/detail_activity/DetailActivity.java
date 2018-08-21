@@ -14,6 +14,10 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.android.version_kitkat.KitkatFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.android.version_lollipop.LollipopFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.android.version_marshmallow.MarshmallowFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.android.version_nougat.NougatFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.android.version_pie.PieFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.compass.CompassFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.features.android_os.OsFragment;
@@ -91,10 +95,15 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RAT
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFORMATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.KITKAT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LOLLIPOP;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MARSHMALLOW;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MIDI;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NFC;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NOUGAT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.OREO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PIE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
@@ -408,6 +417,27 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case PIE: {
                 transaction.add(R.id.container, new PieFragment()).commit();
+                break;
+            }
+            case OREO: {
+                transaction.add(R.id.container, new PieFragment()).commit();
+                break;
+            }
+            case NOUGAT: {
+                transaction.add(R.id.container, new NougatFragment()).commit();
+                break;
+            }
+            case MARSHMALLOW: {
+                transaction.add(R.id.container, new MarshmallowFragment()).commit();
+                break;
+            }
+            case LOLLIPOP: {
+                transaction.add(R.id.container, new LollipopFragment()).commit();
+                break;
+            }
+            case KITKAT: {
+                transaction.add(R.id.container, new KitkatFragment()).commit();
+                break;
             }
         }
     }
