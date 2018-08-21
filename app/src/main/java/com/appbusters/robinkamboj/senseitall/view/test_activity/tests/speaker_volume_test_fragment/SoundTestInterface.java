@@ -13,4 +13,10 @@ public interface SoundTestInterface {
     void play();
 
     void pause();
+
+    void volumeUpButtonPressed();
+
+    void volumeDownButtonPressed();
+
+    void setCroller();
 }

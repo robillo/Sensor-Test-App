@@ -5,8 +5,10 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,8 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class SoundTestFragment extends Fragment implements SoundTestInterface, MediaPlayer.OnCompletionListener {
+
+    private SettingsContentObserver contentObserver;
 
     @BindView(R.id.croller)
     Croller croller;
@@ -56,6 +60,12 @@ public class SoundTestFragment extends Fragment implements SoundTestInterface, M
 
     @Override
     public void initialize() {
+
+        if(getActivity() == null) return;
+
+        audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+        contentObserver = new SettingsContentObserver(getActivity(), new Handler(), audioManager);
+
         croller.setOnProgressChangedListener(new Croller.onProgressChangedListener() {
             @Override
             public void onProgressChanged(int volumeProgress) {
@@ -63,14 +73,9 @@ public class SoundTestFragment extends Fragment implements SoundTestInterface, M
             }
         });
 
-        if(getActivity() == null) return;
-
-        audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
-
         if(audioManager == null) return;
 
-        croller.setMax(audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
-        croller.setProgress(audioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
+        setCroller();
 
         mediaPlayer = MediaPlayer.create(getActivity(), R.raw.song1);
         mediaPlayer.setOnCompletionListener(this);
@@ -100,11 +105,48 @@ public class SoundTestFragment extends Fragment implements SoundTestInterface, M
     }
 
     @Override
+    public void volumeUpButtonPressed() {
+        if(audioManager == null) return;
+        setCroller();
+    }
+
+    @Override
+    public void volumeDownButtonPressed() {
+        if(audioManager == null) return;
+        setCroller();
+    }
+
+    @Override
+    public void setCroller() {
+        croller.setMax(audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
+        croller.setProgress(audioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
+    }
+
+    @Override
     public void onPause() {
-        super.onPause();
+
+        if(getActivity() != null) {
+            getActivity().getApplicationContext().getContentResolver().unregisterContentObserver(contentObserver);
+        }
+
         isPlaying = false;
         if(mediaPlayer != null && mediaPlayer.isPlaying()) mediaPlayer.pause();
         if(getActivity() != null) play_pause.setText(getActivity().getString(R.string.play));
+
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(getActivity() != null) {
+            getActivity().getApplicationContext().getContentResolver().registerContentObserver(
+                    android.provider.Settings.System.CONTENT_URI,
+                    true,
+                    contentObserver
+            );
+        }
     }
 
     @OnClick(R.id.play_pause)
@@ -118,4 +160,6 @@ public class SoundTestFragment extends Fragment implements SoundTestInterface, M
         if(mediaPlayer != null) mediaPlayer.pause();
         if(getActivity() != null) play_pause.setText(getActivity().getString(R.string.play));
     }
+
+
 }
