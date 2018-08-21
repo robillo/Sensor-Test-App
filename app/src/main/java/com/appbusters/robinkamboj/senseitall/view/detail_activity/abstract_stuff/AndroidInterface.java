@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff;
 
+import android.content.Context;
 import android.view.View;
 
 public interface AndroidInterface {
@@ -9,5 +10,7 @@ public interface AndroidInterface {
     void initialize();
 
     void loadUri();
+
+    boolean isConnected(Context context);
 
 }

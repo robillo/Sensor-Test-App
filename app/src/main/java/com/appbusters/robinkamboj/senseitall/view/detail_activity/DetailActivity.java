@@ -3,6 +3,7 @@ package com.appbusters.robinkamboj.senseitall.view.detail_activity;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Build;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -147,6 +148,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
 
     public GenericData intentData = new GenericData();
     public String recyclerName;
+
+    @BindView(R.id.coordinatorLayout)
+    public
+    CoordinatorLayout coordinatorLayout;
 
     @BindView(R.id.data_name)
     TextView dataName;
