@@ -473,9 +473,8 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         if(descriptions != null) descriptionText.setText(descriptions[currentStep]);
         if(images != null) {
             Glide.with(this)
-                    .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
+                    .applyDefaultRequestOptions(RequestOptions.centerCropTransform().placeholder(R.drawable.placeholder))
                     .load(images[currentStep])
-                    .transition(new DrawableTransitionOptions().crossFade())
                     .into(textImage);
         }
     }

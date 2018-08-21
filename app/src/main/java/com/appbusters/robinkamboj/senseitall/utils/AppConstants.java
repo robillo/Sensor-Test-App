@@ -512,6 +512,10 @@ public class AppConstants {
                 SENSOR_MAGNETIC_FIELD,
                 "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
+        sensorMapDirections.put(
+                SENSOR_PRESSURE,
+                "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
+        );
 
         sensorMapHints.put(
                 SENSOR_PROXIMITY,
@@ -599,6 +603,10 @@ public class AppConstants {
         );
         sensorMapHints.put(
                 SENSOR_MAGNETIC_FIELD,
+                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
+        );
+        sensorMapHints.put(
+                SENSOR_PRESSURE,
                 "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
 

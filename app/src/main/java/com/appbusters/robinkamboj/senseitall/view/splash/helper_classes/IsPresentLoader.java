@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.ConsumerIrManager;
 import android.hardware.SensorManager;
+import android.hardware.camera2.CameraManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Vibrator;
@@ -23,8 +24,11 @@ import java.util.Objects;
 import static android.content.Context.CONSUMER_IR_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AUGMENTED_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_EMOJI;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_EMOTION_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
@@ -32,6 +36,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.KITKAT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LOLLIPOP;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MARSHMALLOW;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MOTION_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NOUGAT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.OREO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PIE;
@@ -40,6 +45,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STORAGE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.featureNames;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.sensorNames;
 
@@ -50,6 +56,7 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
     private Vibrator vibrator;
     private ConsumerIrManager infrared;
     private PackageManager featureManager;
+    private CameraManager cameraManager;
 
     private boolean[] sensorsPresent,
             featuresPresent,
@@ -79,6 +86,7 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
         vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
         infrared = (ConsumerIrManager) context.getSystemService(CONSUMER_IR_SERVICE);
         featureManager = context.getPackageManager();
+        cameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
 
         this.diagnosticList = diagnosticList;
         this.sensorList = sensorList;
@@ -225,7 +233,16 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
     }
 
     private boolean isPresentSoftware(String element) {
-
+        switch (element) {
+            case VIRTUAL_REALITY:
+                return true;
+            case MOTION_DETECT:
+            case AUGMENTED_REALITY:
+            case FACE_EMOJI:
+            case FACE_EMOTION_DETECT: {
+                return cameraManager == null;
+            }
+        }
         return false;
     }
 

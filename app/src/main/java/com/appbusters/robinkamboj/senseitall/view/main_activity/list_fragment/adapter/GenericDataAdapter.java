@@ -12,14 +12,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -37,7 +33,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
@@ -48,7 +43,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RAT
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_HEART_RATE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDROID;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
 public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.GenericViewHolder>
@@ -103,10 +97,7 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
                                         R.anim.slide_out_left_activity
                                 );
                     }
-                    else {
-//                        Toast.makeText(context, R.string.give_permissions_first, Toast.LENGTH_SHORT).show();
-                        ((MainActivity) context).setRequestFragment();
-                    }
+                    else ((MainActivity) context).setRequestFragment();
                 }
                 else {
                     Toast.makeText(
