@@ -536,6 +536,36 @@ public class AppConstants {
                 SENSOR_PRESSURE,
                 "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        sensorMapDirections.put(
+                MOTION_DETECT,
+                ""
+        );
+        sensorMapDirections.put(
+                FACE_DETECT,
+                ""
+        );
+        sensorMapDirections.put(
+                BARCODE_READER,
+                ""
+        );
+        sensorMapDirections.put(
+                TEXT_SCAN,
+                ""
+        );
+        sensorMapDirections.put(
+                FACE_EMOJI,
+                ""
+        );
+        sensorMapDirections.put(
+                AUGMENTED_REALITY,
+                ""
+        );
+        sensorMapDirections.put(
+                VIRTUAL_REALITY,
+                ""
+        );
+
 
         sensorMapHints.put(
                 SENSOR_PROXIMITY,
@@ -628,6 +658,35 @@ public class AppConstants {
         sensorMapHints.put(
                 SENSOR_PRESSURE,
                 "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
+        );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        sensorMapHints.put(
+                MOTION_DETECT,
+                ""
+        );
+        sensorMapHints.put(
+                FACE_DETECT,
+                ""
+        );
+        sensorMapHints.put(
+                BARCODE_READER,
+                ""
+        );
+        sensorMapHints.put(
+                TEXT_SCAN,
+                ""
+        );
+        sensorMapHints.put(
+                FACE_EMOJI,
+                ""
+        );
+        sensorMapHints.put(
+                AUGMENTED_REALITY,
+                ""
+        );
+        sensorMapHints.put(
+                VIRTUAL_REALITY,
+                ""
         );
 
         mapAbout.put(
@@ -816,6 +875,35 @@ public class AppConstants {
         );
         mapAbout.put(
                 STORAGE,
+                R.array.storage_descriptions
+        );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        mapAbout.put(
+                MOTION_DETECT,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                FACE_DETECT,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                BARCODE_READER,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                TEXT_SCAN,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                FACE_EMOJI,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                AUGMENTED_REALITY,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                VIRTUAL_REALITY,
                 R.array.storage_descriptions
         );
 
