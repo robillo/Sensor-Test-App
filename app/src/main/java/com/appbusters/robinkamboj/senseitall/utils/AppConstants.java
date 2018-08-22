@@ -306,6 +306,13 @@ public class AppConstants {
         isTestMap.put(SENSOR_STATIONARY_DETECTOR, false);
         isTestMap.put(STORAGE, false);
         isTestMap.put(RAM, false);
+        isTestMap.put(MOTION_DETECT, true);
+        isTestMap.put(FACE_DETECT, true);
+        isTestMap.put(BARCODE_READER, true);
+        isTestMap.put(TEXT_SCAN, true);
+        isTestMap.put(FACE_EMOJI, true);
+        isTestMap.put(AUGMENTED_REALITY, true);
+        isTestMap.put(VIRTUAL_REALITY, true);
 
         sensorNames.add(SENSOR_ACCELEROMETER);  //d
         sensorNames.add(SENSOR_LIGHT);  //d
