@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.AndroidFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.android.AndroidFragment;
 
 /**
  * A simple {@link Fragment} subclass.

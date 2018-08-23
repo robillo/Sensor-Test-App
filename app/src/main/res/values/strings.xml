@@ -269,6 +269,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="device_test_splash">DEVICE TEST</string>
     <string name="more_statistics">MORE STATISTICS</string>
     <string name="loading">Loading…</string>
+    <string name="less_statistics">LESS STATISTICS</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

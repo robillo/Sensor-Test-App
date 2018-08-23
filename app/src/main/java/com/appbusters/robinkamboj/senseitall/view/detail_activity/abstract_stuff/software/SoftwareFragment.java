@@ -1,11 +1,10 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.software;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;

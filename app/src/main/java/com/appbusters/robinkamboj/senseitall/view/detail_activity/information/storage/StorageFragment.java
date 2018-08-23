@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.FeatureFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.feature_and_sensor.FeatureFragment;
 
 import java.io.File;
 
@@ -70,10 +70,7 @@ public class StorageFragment extends FeatureFragment implements StorageInterface
 
     public static boolean isSdCardOnDevice(Context context) {
         File[] storages = ContextCompat.getExternalFilesDirs(context, null);
-        if (storages.length > 1 && storages[0] != null && storages[1] != null)
-            return true;
-        else
-            return false;
+        return storages.length > 1 && storages[0] != null && storages[1] != null;
     }
 
     public boolean externalMemoryAvailable() {

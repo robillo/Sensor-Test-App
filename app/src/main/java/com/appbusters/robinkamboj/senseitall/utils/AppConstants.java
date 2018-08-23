@@ -17,6 +17,7 @@ public class AppConstants {
     public static final int REQUEST_CODE = 100;
     public static final String CATEGORY = "CATEGORY";
     public static final int INFO_RECYCLER_COUNT = 4;
+    public static final int FLING_VELOCITY = 3000;
 
     //redundant
     public static final String RATE_APP = "Rate App";

@@ -20,7 +20,8 @@
         android:layout_height="match_parent"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        tools:context=".view.detail_activity.features.gps_location.GpsFragment">
+        tools:context=".view.detail_activity.features.gps_location.GpsFragment"
+        android:id="@+id/scroll_view">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"

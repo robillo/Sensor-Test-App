@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.android;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
