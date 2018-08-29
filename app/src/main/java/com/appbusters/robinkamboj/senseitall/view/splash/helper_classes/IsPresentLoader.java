@@ -33,6 +33,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUC
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LABEL_GENERATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MOTION_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
@@ -234,7 +235,7 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
             case MOTION_DETECT:
             case BARCODE_READER:
             case TEXT_SCAN:
-            case AUGMENTED_REALITY:
+            case LABEL_GENERATOR:
             case FACE_EMOJI:
             case FACE_DETECT: {
                 return cameraManager != null;

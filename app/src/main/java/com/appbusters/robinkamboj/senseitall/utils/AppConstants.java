@@ -125,13 +125,14 @@ public class AppConstants {
     @SuppressWarnings("WeakerAccess")
     public static final String KITKAT = "K - Kitkat (4)";
 
-    public static final String MOTION_DETECT = "Motion Detect";     //software
+    public static final String MOTION_DETECT = "Motion Detect";             //software
     public static final String AUGMENTED_REALITY = "Augmented Reality";
     public static final String VIRTUAL_REALITY = "Virtual Reality";
     public static final String FACE_DETECT = "Face Detect";
     public static final String FACE_EMOJI = "Face Emoji";
     public static final String BARCODE_READER = "Barcode Reader";
     public static final String TEXT_SCAN = "Text Scan";
+    public static final String LABEL_GENERATOR = "Label Generator";
 
     //keys for key statistics
     public static final String STANDARD_GRAVITY = "Standard Gravity";
@@ -314,6 +315,7 @@ public class AppConstants {
         isTestMap.put(FACE_EMOJI, true);
         isTestMap.put(AUGMENTED_REALITY, true);
         isTestMap.put(VIRTUAL_REALITY, true);
+        isTestMap.put(LABEL_GENERATOR, true);
 
         sensorNames.add(SENSOR_ACCELEROMETER);  //d
         sensorNames.add(SENSOR_LIGHT);  //d
@@ -333,10 +335,11 @@ public class AppConstants {
         softwareNames.add(MOTION_DETECT);
         softwareNames.add(FACE_DETECT);
         softwareNames.add(BARCODE_READER);
-        softwareNames.add(TEXT_SCAN);
+//        softwareNames.add(TEXT_SCAN);
         softwareNames.add(FACE_EMOJI);
-        softwareNames.add(AUGMENTED_REALITY);
+//        softwareNames.add(AUGMENTED_REALITY);
         softwareNames.add(VIRTUAL_REALITY);
+        softwareNames.add(LABEL_GENERATOR);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
         imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);
@@ -398,6 +401,7 @@ public class AppConstants {
         imageUrlMap.put(FACE_EMOJI, R.drawable.emoji);
         imageUrlMap.put(BARCODE_READER, R.drawable.barcode);
         imageUrlMap.put(TEXT_SCAN, R.drawable.baseline_text_format_black_48);
+        imageUrlMap.put(LABEL_GENERATOR, R.drawable.baseline_speaker_notes_black_48);
 
         versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
         versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
@@ -573,7 +577,10 @@ public class AppConstants {
                 VIRTUAL_REALITY,
                 ""
         );
-
+        sensorMapDirections.put(
+                LABEL_GENERATOR,
+                ""
+        );
 
         sensorMapHints.put(
                 SENSOR_PROXIMITY,
@@ -694,6 +701,10 @@ public class AppConstants {
         );
         sensorMapHints.put(
                 VIRTUAL_REALITY,
+                ""
+        );
+        sensorMapHints.put(
+                LABEL_GENERATOR,
                 ""
         );
 
@@ -912,6 +923,10 @@ public class AppConstants {
         );
         mapAbout.put(
                 VIRTUAL_REALITY,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                LABEL_GENERATOR,
                 R.array.storage_descriptions
         );
 

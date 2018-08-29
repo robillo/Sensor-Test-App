@@ -71,6 +71,7 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.augme
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.barcode.BarcodeFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.face_detect.FaceDetectFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.face_emoji.FaceEmojiFragment;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.label_generator.LabelFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.motion_detect.AiMotionDetectFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.text_detect.TextScanFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.virtual_reality.VirtualRealityFragment;
@@ -108,6 +109,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFORMATI
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.KITKAT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LABEL_GENERATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LOLLIPOP;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MARSHMALLOW;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
@@ -484,6 +486,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             }
             case TEXT_SCAN: {
                 transaction.add(R.id.container, new TextScanFragment()).commit();
+                break;
+            }
+            case LABEL_GENERATOR: {
+                transaction.add(R.id.container, new LabelFragment()).commit();
                 break;
             }
         }
