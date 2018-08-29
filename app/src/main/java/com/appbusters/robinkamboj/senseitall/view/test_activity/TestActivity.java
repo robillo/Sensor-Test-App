@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -37,6 +38,7 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.proximity_
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.rotation_vector_test.RotationTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.screen_test_fragment.ScreenTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.speaker_volume_test_fragment.SoundTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.text_scan_test_fragment.TextScanTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.wifi_test_fragment.WifiTestFragment;
 
@@ -69,6 +71,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PR
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ROTATION_VECTOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
@@ -329,6 +332,15 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                         new PressureTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
+                break;
+            }
+            case TEXT_SCAN: {
+                transaction.add(
+                        R.id.container,
+                        new TextScanTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
             }
         }
     }

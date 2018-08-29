@@ -15,6 +15,9 @@ import java.util.List;
 public class AppConstants {
 
     public static final int REQUEST_CODE = 100;
+    public static final int REQUEST_CODE_PICK_IMAGE = 101;
+    public static final String CHOOSER_INTENT_TITLE = "Select Image";
+    public static final String IMAGE_CONTENT_TYPE = "image/*";
     public static final String CATEGORY = "CATEGORY";
     public static final int INFO_RECYCLER_COUNT = 4;
     public static final int FLING_VELOCITY = 3000;
@@ -332,10 +335,10 @@ public class AppConstants {
         sensorNames.add(SENSOR_STEP_DETECTOR);
         sensorNames.add(SENSOR_STEP_COUNTER);
 
-        softwareNames.add(MOTION_DETECT);
+//        softwareNames.add(MOTION_DETECT);
         softwareNames.add(FACE_DETECT);
         softwareNames.add(BARCODE_READER);
-//        softwareNames.add(TEXT_SCAN);
+        softwareNames.add(TEXT_SCAN);
         softwareNames.add(FACE_EMOJI);
 //        softwareNames.add(AUGMENTED_REALITY);
         softwareNames.add(VIRTUAL_REALITY);
