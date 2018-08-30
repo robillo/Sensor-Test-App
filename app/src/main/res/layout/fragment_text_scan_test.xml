@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:text="CLICK PHOTO"
             tools:ignore="HardcodedText"
-            android:id="@+id/click_image"/>
+            android:id="@+id/capture_image"/>
 
     </LinearLayout>
 
@@ -33,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_weight="1"
+        android:scaleType="centerCrop"
         android:id="@+id/image_to_work_on"
         tools:ignore="ContentDescription" />
 

@@ -270,6 +270,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="more_statistics">MORE STATISTICS</string>
     <string name="loading">Loading…</string>
     <string name="less_statistics">LESS STATISTICS</string>
+    <string name="tag_bottom_sheet">BOTTOM_SHEET</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

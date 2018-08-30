@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.test_activity;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.BottomSheetFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.battery_test_fragment.BatteryTestFragment;
@@ -80,6 +82,7 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
     public GenericData intentData = new GenericData();
     public String recyclerName;
+    private BottomSheetFragment bottomSheetFragment;
 
     @BindView(R.id.test_name)
     TextView testName;
@@ -354,5 +357,17 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
+    }
+
+    public void showBottomSheetResults() {
+        if(bottomSheetFragment == null) {
+            bottomSheetFragment = new BottomSheetFragment();
+        }
+
+        bottomSheetFragment.show(getSupportFragmentManager(), getString(R.string.tag_bottom_sheet));
+    }
+
+    public void setResultsToBottomSheet(String text) {
+        bottomSheetFragment.setResults(text);
     }
 }

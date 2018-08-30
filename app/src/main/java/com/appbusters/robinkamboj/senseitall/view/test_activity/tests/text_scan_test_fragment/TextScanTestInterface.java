@@ -8,6 +8,8 @@ public interface TextScanTestInterface {
 
     void openGalleryForImageSelect();
 
+    void openCameraForImageSelect();
+
     void initialize();
 
 }

@@ -16,6 +16,7 @@ public class AppConstants {
 
     public static final int REQUEST_CODE = 100;
     public static final int REQUEST_CODE_PICK_IMAGE = 101;
+    public static final int REQUEST_CODE_CAPTURE_IMAGE = 102;
     public static final String CHOOSER_INTENT_TITLE = "Select Image";
     public static final String IMAGE_CONTENT_TYPE = "image/*";
     public static final String CATEGORY = "CATEGORY";
@@ -204,6 +205,8 @@ public class AppConstants {
         dangerousPermissions.add(Manifest.permission.BODY_SENSORS);
         dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
         dangerousPermissions.add(Manifest.permission.RECORD_AUDIO);
+        dangerousPermissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         diagnosticsNames.add(SENSOR_ACCELEROMETER);
         diagnosticsNames.add(SENSOR_LIGHT);
