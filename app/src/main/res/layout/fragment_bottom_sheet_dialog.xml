@@ -14,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="300sp"
         android:scrollbars="vertical"
-        android:scrollbarFadeDuration="1000">
+        android:scrollbarFadeDuration="5000">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Showing Results.."
-            android:gravity="center"
+            android:gravity="start"
             android:textSize="16sp"
             android:padding="10sp"
             android:textColor="@color/colorMajorDark"

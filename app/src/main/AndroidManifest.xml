@@ -103,6 +103,16 @@
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="barcode,text,face,label" />
 
+        <provider
+            android:name=".view.test_activity.other_files.GenericFileProvider"
+            android:authorities="com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.GenericFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
         <activity
             android:name=".view.splash.splash_activity.SplashActivity"
             android:screenOrientation="portrait">

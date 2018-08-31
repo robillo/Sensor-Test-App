@@ -13,6 +13,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.app.Activity.RESULT_OK;
 import static android.support.constraint.Constraints.TAG;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CHOOSER_INTENT_TITLE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IMAGE_CONTENT_TYPE;
@@ -57,6 +59,7 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
     private String mCurrentPhotoPath;
     private FirebaseVisionTextRecognizer detector;
     private FirebaseVisionImage visionImage;
+    private String captureUriString;
 
     @BindView(R.id.image_to_work_on)
     ImageView imageToWorkOn;
@@ -132,7 +135,7 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
     private void processTextRecognitionResult(List<FirebaseVisionText.TextBlock> texts) {
         StringBuilder builder = new StringBuilder();
         for(FirebaseVisionText.TextBlock t : texts) {
-            builder.append(t.getText()).append(" ... ");
+            builder.append(t.getText()).append("\n");
         }
         if(getActivity() != null) {
             ((TestActivity) getActivity()).setResultsToBottomSheet(builder.toString());
@@ -155,17 +158,27 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
 
     @Override
     public void openCameraForImageSelect() {
-        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        if (getActivity()!= null && cameraIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-            File photoFile = null;
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (getActivity() != null && cameraIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+
+            File pictureFile;
             try {
-                photoFile = createImageFile();
+                pictureFile = createImageFile();
             } catch (IOException ex) {
-                Log.i(TAG, "IOException");
+                Toast.makeText(getActivity(),
+                        "Photo file can't be created, please try again", Toast.LENGTH_SHORT)
+                        .show();
+                return;
             }
-            if (photoFile != null) {
-                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+            if (pictureFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(getActivity(),
+                        "com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.GenericFileProvider",
+                        pictureFile);
+                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(cameraIntent, REQUEST_CODE_CAPTURE_IMAGE);
+            }
+            else {
+                Toast.makeText(getActivity(), "null photo path", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -177,7 +190,7 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == REQUEST_CODE_PICK_IMAGE) {
+        if(requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == RESULT_OK) {
             if(data != null) {
                 Uri selectedImage = data.getData();
 
@@ -196,34 +209,25 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
                 Toast.makeText(getActivity(), "Seems Like No Image Was Selected", Toast.LENGTH_SHORT).show();
             }
         }
-        else if(requestCode == REQUEST_CODE_CAPTURE_IMAGE) {
-            try {
-                if(getActivity() == null) return;
-                bitmap = MediaStore.Images.Media.getBitmap(
-                        getActivity().getContentResolver(), Uri.parse(mCurrentPhotoPath)
-                );
-                imageToWorkOn.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
+        else if(requestCode == REQUEST_CODE_CAPTURE_IMAGE && resultCode == RESULT_OK) {
+            bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
+            File imageFile = new File(mCurrentPhotoPath);
+            if(imageFile.exists()) {
+                imageToWorkOn.setImageURI(Uri.fromFile(imageFile));
+            }
+            else {
+                Toast.makeText(getActivity(), "current path photo null", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     private File createImageFile() throws IOException {
-        // Create an image file name
-        @SuppressLint("SimpleDateFormat")
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  // prefix
-                ".jpg",         // suffix
-                storageDir      // directory
-        );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        @SuppressLint("SimpleDateFormat") String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String pictureFile = "SENSE_IT_ALL_" + timeStamp;
+        if(getActivity() == null) return null;
+        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(pictureFile,  ".jpg", storageDir);
+        mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
 }
