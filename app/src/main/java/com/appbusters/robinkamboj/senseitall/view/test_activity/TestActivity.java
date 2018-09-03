@@ -18,6 +18,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.BottomSheetFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.barcode_detection_test_fragment.BarcodeReaderTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.face_detection_test_fragment.FaceDetectionTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_test_fragment.LabelDetectionTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestFragment;
@@ -57,6 +58,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
@@ -377,6 +379,13 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;
+            }
+            case FACE_DETECT: {
+                transaction.add(
+                        R.id.container,
+                        new FaceDetectionTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
             }
         }
     }

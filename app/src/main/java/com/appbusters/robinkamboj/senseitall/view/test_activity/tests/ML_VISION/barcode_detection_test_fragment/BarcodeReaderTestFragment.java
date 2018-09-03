@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION
 
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import android.view.ViewGroup;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.MachineLearningFragment;
+import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.vision.FirebaseVision;
@@ -35,7 +38,7 @@ import java.util.List;
  */
 public class BarcodeReaderTestFragment extends MachineLearningFragment implements BarcodeReaderTestInterface {
 
-    private List<Rect> boundingBoxes = new ArrayList<>();
+    private List<Rect> boundingBoxes;
 
     public BarcodeReaderTestFragment() {
         // Required empty public constructor
@@ -85,6 +88,9 @@ public class BarcodeReaderTestFragment extends MachineLearningFragment implement
     @Override
     public void processBarcodeReaderResult(List<FirebaseVisionBarcode> firebaseVisionBarcodes) {
 
+        boundingBoxes = null;
+        boundingBoxes = new ArrayList<>();
+
         StringBuilder builder = new StringBuilder();
 
         for(FirebaseVisionBarcode barcode : firebaseVisionBarcodes) {
@@ -104,6 +110,7 @@ public class BarcodeReaderTestFragment extends MachineLearningFragment implement
     @Override
     public void showPreviewInNewBitmapIfAny() {
         if(bitmap != null && getActivity() != null && boundingBoxes.size() > 0) {
+
             Bitmap newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
             Canvas canvas = new Canvas(newBitmap);
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
