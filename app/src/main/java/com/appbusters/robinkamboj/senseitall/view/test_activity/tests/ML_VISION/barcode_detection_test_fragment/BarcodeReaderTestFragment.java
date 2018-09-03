@@ -114,7 +114,9 @@ public class BarcodeReaderTestFragment extends MachineLearningFragment implement
             Bitmap newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
             Canvas canvas = new Canvas(newBitmap);
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            paint.setColor(ContextCompat.getColor(getActivity(), R.color.red_shade_four_tx));
+            paint.setStrokeWidth(20);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(ContextCompat.getColor(getActivity(), R.color.green_shade_three));
 
             for(Rect rect: boundingBoxes) {
                 canvas.drawRect(rect, paint);

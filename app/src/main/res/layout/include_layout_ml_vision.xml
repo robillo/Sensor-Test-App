@@ -63,28 +63,31 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffe4b9">
+                android:background="#ffe4b9"
+                android:id="@+id/place_holder_frame">
 
                 <ImageView
                     android:layout_width="100sp"
                     android:layout_height="100sp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery_three"
-                    tools:ignore="ContentDescription" />
+                    tools:ignore="ContentDescription"
+                    android:id="@+id/place_holder_gallery"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="50sp"
                     android:background="#ff8b10"
                     android:layout_gravity="bottom"
-                    tools:ignore="ContentDescription" />
+                    tools:ignore="ContentDescription"
+                    android:id="@+id/place_holder_banner"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
+                    android:scaleType="centerInside"
                     android:id="@+id/image_to_work_on"
-                    tools:ignore="ContentDescription" />
+                    tools:ignore="ContentDescription"/>
 
             </FrameLayout>
 

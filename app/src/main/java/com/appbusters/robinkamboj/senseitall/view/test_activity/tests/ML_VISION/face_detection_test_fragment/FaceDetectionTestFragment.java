@@ -34,8 +34,6 @@ import java.util.List;
  */
 public class FaceDetectionTestFragment extends MachineLearningFragment implements FaceDetectionTestInterface {
 
-    private Bitmap newBitmap;
-
     public FaceDetectionTestFragment() {
         // Required empty public constructor
     }
@@ -129,7 +127,7 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
     public void showPreviewInNewBitmapIfAny(List<Rect> boundingBoxes) {
         if(bitmap != null && getActivity() != null && boundingBoxes.size() > 0) {
 
-            newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+            Bitmap newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
             Canvas canvas = new Canvas(newBitmap);
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
             paint.setStrokeWidth(30);

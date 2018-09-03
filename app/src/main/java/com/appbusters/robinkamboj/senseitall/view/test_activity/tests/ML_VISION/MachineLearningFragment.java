@@ -14,24 +14,23 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.support.v7.graphics.Palette;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.ml.vision.FirebaseVision;
-import com.google.firebase.ml.vision.common.FirebaseVisionImage;
-import com.google.firebase.ml.vision.text.FirebaseVisionText;
-import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -50,6 +49,15 @@ abstract public class MachineLearningFragment extends Fragment implements Machin
     protected String HEADER_TEXT_SCAN;
     protected Bitmap bitmap;
     private String mCurrentPhotoPath;
+
+    @BindView(R.id.place_holder_banner)
+    ImageView placeHolderBanner;
+
+    @BindView(R.id.place_holder_gallery)
+    ImageView placeHolderGallery;
+
+    @BindView(R.id.place_holder_frame)
+    FrameLayout placeHolderFrame;
 
     @BindView(R.id.coordinator_layout)
     CoordinatorLayout coordinatorLayout;
@@ -163,6 +171,8 @@ abstract public class MachineLearningFragment extends Fragment implements Machin
                             getActivity().getContentResolver().openInputStream(selectedImage)
                     );
                     imageToWorkOn.setImageBitmap(bitmap);
+                    hidePlaceholderViews();
+                    setDominantColorBackground();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -176,6 +186,8 @@ abstract public class MachineLearningFragment extends Fragment implements Machin
             File imageFile = new File(mCurrentPhotoPath);
             if(imageFile.exists()) {
                 imageToWorkOn.setImageURI(Uri.fromFile(imageFile));
+                hidePlaceholderViews();
+                setDominantColorBackground();
             }
             else {
                 showCoordinator(getString(R.string.null_photo_error));
@@ -214,6 +226,7 @@ abstract public class MachineLearningFragment extends Fragment implements Machin
         );
 
         imageToWorkOn.setImageBitmap(bitmap);
+        hidePlaceholderViews();
     }
 
     @OnClick(R.id.rotate_right)
@@ -237,10 +250,30 @@ abstract public class MachineLearningFragment extends Fragment implements Machin
         );
 
         imageToWorkOn.setImageBitmap(bitmap);
+        hidePlaceholderViews();
     }
 
     @OnClick(R.id.crop_image)
     public void setCropImage() {
         if(bitmap == null) showCoordinator(getString(R.string.please_show_image));
+    }
+
+    @Override
+    public void hidePlaceholderViews() {
+        placeHolderBanner.setVisibility(View.GONE);
+        placeHolderGallery.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void setDominantColorBackground() {
+        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(@NonNull Palette palette) {
+                Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
+                if (vibrantSwatch != null) {
+                    placeHolderFrame.setBackgroundColor(vibrantSwatch.getRgb());
+                }
+            }
+        });
     }
 }

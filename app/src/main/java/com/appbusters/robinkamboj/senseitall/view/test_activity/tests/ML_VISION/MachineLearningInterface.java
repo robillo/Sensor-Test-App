@@ -14,4 +14,8 @@ public interface MachineLearningInterface {
 
     void processImage();
 
+    void hidePlaceholderViews();
+
+    void setDominantColorBackground();
+
 }
