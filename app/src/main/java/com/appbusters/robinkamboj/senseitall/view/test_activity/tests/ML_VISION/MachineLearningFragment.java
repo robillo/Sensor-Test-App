@@ -64,6 +64,7 @@ abstract public class MachineLearningFragment extends Fragment implements Machin
     ImageView cropImage;
 
     @BindView(R.id.image_to_work_on)
+    protected
     ImageView imageToWorkOn;
 
     @BindView(R.id.select_image_from_gallery)

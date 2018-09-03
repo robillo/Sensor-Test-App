@@ -17,7 +17,8 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.BottomSheetFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_text_fragment.LabelDetectionTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.barcode_detection_test_fragment.BarcodeReaderTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_test_fragment.LabelDetectionTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.battery_test_fragment.BatteryTestFragment;
@@ -50,6 +51,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BARCODE_READER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
@@ -366,6 +368,15 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                         new LabelDetectionTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
+                break;
+            }
+            case BARCODE_READER: {
+                transaction.add(
+                        R.id.container,
+                        new BarcodeReaderTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
             }
         }
     }

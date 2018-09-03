@@ -342,7 +342,7 @@ public class AppConstants {
         softwareNames.add(FACE_DETECT);
         softwareNames.add(BARCODE_READER);
         softwareNames.add(TEXT_SCAN);
-        softwareNames.add(FACE_EMOJI);
+//        softwareNames.add(FACE_EMOJI);
 //        softwareNames.add(AUGMENTED_REALITY);
         softwareNames.add(VIRTUAL_REALITY);
         softwareNames.add(LABEL_GENERATOR);
@@ -937,6 +937,12 @@ public class AppConstants {
         );
 
         categories.add(new Category(
+                R.drawable.baseline_system_update_black_48,
+                SOFTWARE,
+                softwareNames.size() + " Capabilities")
+        );
+
+        categories.add(new Category(
                 R.drawable.baseline_device_unknown_black_48,
                 DIAGNOSTIC,
                 diagnosticsNames.size() + " Diagnostics")
@@ -964,12 +970,6 @@ public class AppConstants {
                 R.drawable.baseline_android_black_48,
                 ANDROID,
                 androidNames.size() + " Android Versions")
-        );
-
-        categories.add(new Category(
-                R.drawable.baseline_system_update_black_48,
-                SOFTWARE,
-                softwareNames.size() + " Capabilities")
         );
 
         categories.add(new Category(

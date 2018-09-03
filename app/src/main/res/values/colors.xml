@@ -39,6 +39,7 @@
     <color name="red_shade_three">#FF4C5C</color>
     <color name="red_shade_three_less_vibrant">#d94f5b</color>
     <color name="red_shade_four">#FF7B86</color>
+    <color name="red_shade_four_tx">#bfff7b86</color>
     <color name="red_shade_five">#fff5f6</color>
     <color name="red_shade_six">#ffa7af</color>
 
@@ -84,9 +85,5 @@
     <color name="primary_new_two_gradient">#79acf9</color>
 
     <color name="primary_new_two_lightest">#ebeff5</color>
-
-    <color name="header_one"></color>
-    <color name="header_two"></color>
-    <color name="header_three"></color>
 
 </resources>

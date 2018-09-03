@@ -1,9 +1,16 @@
-package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_text_fragment;
+package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.barcode_detection_test_fragment;
 
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +21,23 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.vision.FirebaseVision;
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode;
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.label.FirebaseVisionLabel;
 import com.google.firebase.ml.vision.label.FirebaseVisionLabelDetector;
-import com.google.firebase.ml.vision.text.FirebaseVisionText;
-import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LabelDetectionTestFragment extends MachineLearningFragment implements LabelDetectionTestInterface {
+public class BarcodeReaderTestFragment extends MachineLearningFragment implements BarcodeReaderTestInterface {
 
+    private List<Rect> boundingBoxes = new ArrayList<>();
 
-    public LabelDetectionTestFragment() {
+    public BarcodeReaderTestFragment() {
         // Required empty public constructor
     }
 
@@ -37,7 +46,7 @@ public class LabelDetectionTestFragment extends MachineLearningFragment implemen
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_label_detection_test, container, false);
+        View v = inflater.inflate(R.layout.fragment_barcode_reader_test, container, false);
         setup(v);
         return v;
     }
@@ -56,11 +65,11 @@ public class LabelDetectionTestFragment extends MachineLearningFragment implemen
         if(getActivity() != null) ((TestActivity) getActivity()).showBottomSheetResults();
 
         FirebaseVisionImage visionImage = FirebaseVisionImage.fromBitmap(bitmap);
-        FirebaseVisionLabelDetector detector = FirebaseVision.getInstance().getVisionLabelDetector();
-        detector.detectInImage(visionImage).addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionLabel>>() {
+        FirebaseVisionBarcodeDetector detector = FirebaseVision.getInstance().getVisionBarcodeDetector();
+        detector.detectInImage(visionImage).addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionBarcode>>() {
             @Override
-            public void onSuccess(List<FirebaseVisionLabel> firebaseVisionLabels) {
-                processLabelDetectionResult(firebaseVisionLabels);
+            public void onSuccess(List<FirebaseVisionBarcode> firebaseVisionBarcodes) {
+                processBarcodeReaderResult(firebaseVisionBarcodes);
                 doneButton.setEnabled(true);
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -74,13 +83,37 @@ public class LabelDetectionTestFragment extends MachineLearningFragment implemen
     }
 
     @Override
-    public void processLabelDetectionResult(List<FirebaseVisionLabel> firebaseVisionLabels) {
+    public void processBarcodeReaderResult(List<FirebaseVisionBarcode> firebaseVisionBarcodes) {
+
         StringBuilder builder = new StringBuilder();
-        for(FirebaseVisionLabel label : firebaseVisionLabels) {
-            builder.append(label.getLabel()).append(" - ").append(label.getConfidence()).append(" % sure").append("\n");
+
+        for(FirebaseVisionBarcode barcode : firebaseVisionBarcodes) {
+            if(barcode.getBoundingBox() != null) {
+                boundingBoxes.add(barcode.getBoundingBox());
+            }
+            builder.append(barcode.getDisplayValue()).append("\n");
         }
+
+        showPreviewInNewBitmapIfAny();
+
         if(getActivity() != null) {
             ((TestActivity) getActivity()).setResultsToBottomSheet(HEADER_TEXT_SCAN, builder.toString());
+        }
+    }
+
+    @Override
+    public void showPreviewInNewBitmapIfAny() {
+        if(bitmap != null && getActivity() != null && boundingBoxes.size() > 0) {
+            Bitmap newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+            Canvas canvas = new Canvas(newBitmap);
+            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            paint.setColor(ContextCompat.getColor(getActivity(), R.color.red_shade_four_tx));
+
+            for(Rect rect: boundingBoxes) {
+                canvas.drawRect(rect, paint);
+            }
+
+            imageToWorkOn.setImageBitmap(newBitmap);
         }
     }
 }

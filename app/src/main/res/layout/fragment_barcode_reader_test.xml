@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/coordinator_layout"
-    tools:context=".view.test_activity.tests.ML_VISION.label_detection_test_fragment.LabelDetectionTestFragment">
+    tools:context=".view.test_activity.tests.ML_VISION.barcode_detection_test_fragment.BarcodeReaderTestFragment">
 
     <include layout="@layout/include_layout_ml_vision"/>
 
