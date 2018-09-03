@@ -277,6 +277,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="null_photo_error">Oops. Null photo path.</string>
     <string name="couldnt_create_error">Oops. Photo file couldn\'t be created. Please try again.</string>
     <string name="no_image_selected_oops">Oops. Seems like no image was selected.</string>
+    <string name="showing_results">Showing Results..</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

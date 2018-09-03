@@ -383,7 +383,8 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
         bottomSheetFragment.show(getSupportFragmentManager(), getString(R.string.tag_bottom_sheet));
     }
 
-    public void setResultsToBottomSheet(String text) {
+    public void setResultsToBottomSheet(String header, String text) {
+        bottomSheetFragment.setHeader(header);
         bottomSheetFragment.setResults(text);
     }
 }

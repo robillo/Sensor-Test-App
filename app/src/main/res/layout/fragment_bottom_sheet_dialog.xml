@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:gravity="center"
+        tools:text="TEXT SCAN RESULTS"
+        android:id="@+id/header_text"
+        android:background="@color/red_shade_four"/>
 
     <ProgressBar
         android:layout_width="match_parent"
@@ -12,18 +25,17 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300sp"
+        android:layout_height="400sp"
         android:scrollbars="vertical"
         android:scrollbarFadeDuration="5000">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Showing Results.."
             android:gravity="start"
             android:textSize="16sp"
             android:padding="10sp"
-            android:textColor="@color/colorMajorDark"
+            android:textColor="@color/red_shade_four"
             android:id="@+id/results"/>
 
     </ScrollView>

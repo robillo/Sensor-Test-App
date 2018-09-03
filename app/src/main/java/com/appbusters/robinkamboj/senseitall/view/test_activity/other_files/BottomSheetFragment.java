@@ -22,6 +22,9 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     @BindView(R.id.results)
     TextView results;
 
+    @BindView(R.id.header_text)
+    TextView headerText;
+
     public BottomSheetFragment() {
         // Required empty public constructor
     }
@@ -47,5 +50,11 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     public void setResults(String text) {
         progressBar.setVisibility(View.GONE);
         results.setText(text);
+    }
+
+    public void setHeader(String header) {
+        @SuppressWarnings("StringBufferReplaceableByString")
+        StringBuilder builder = new StringBuilder(header).append(" Results");
+        headerText.setText(builder.toString());
     }
 }

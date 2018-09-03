@@ -53,6 +53,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.REQUEST_C
  */
 public class TextScanTestFragment extends Fragment implements TextScanTestInterface {
 
+    private final String HEADER_TEXT_SCAN = "Text Scan";
     private Bitmap bitmap;
     private String mCurrentPhotoPath;
 
@@ -148,7 +149,7 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
             builder.append(t.getText()).append("\n");
         }
         if(getActivity() != null) {
-            ((TestActivity) getActivity()).setResultsToBottomSheet(builder.toString());
+            ((TestActivity) getActivity()).setResultsToBottomSheet(HEADER_TEXT_SCAN, builder.toString());
         }
     }
 
