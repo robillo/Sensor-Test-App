@@ -1,8 +1,8 @@
-package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.text_scan_test_fragment;
+package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION;
 
 import android.view.View;
 
-public interface TextScanTestInterface {
+public interface MachineLearningInterface {
 
     void setup(View v);
 
@@ -10,8 +10,8 @@ public interface TextScanTestInterface {
 
     void openCameraForImageSelect();
 
-    void initialize();
-
     void showCoordinator(String coordinatorText);
+
+    void processImage();
 
 }

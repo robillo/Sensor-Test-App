@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.text_scan_test_fragment;
+package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -15,9 +14,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,13 +45,10 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IMAGE_CON
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.REQUEST_CODE_CAPTURE_IMAGE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.REQUEST_CODE_PICK_IMAGE;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class TextScanTestFragment extends Fragment implements TextScanTestInterface {
+abstract public class MachineLearningFragment extends Fragment implements MachineLearningInterface {
 
-    private final String HEADER_TEXT_SCAN = "Text Scan";
-    private Bitmap bitmap;
+    private String HEADER_TEXT_SCAN;
+    protected Bitmap bitmap;
     private String mCurrentPhotoPath;
 
     @BindView(R.id.coordinator_layout)
@@ -79,27 +73,14 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
     ImageView captureImage;
 
     @BindView(R.id.done_button)
+    protected
     Button doneButton;
-
-    public TextScanTestFragment() {
-        // Required empty public constructor
-    }
-
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_text_scan_test, container, false);
-        setup(v);
-        return v;
-    }
 
     @Override
     public void setup(View v) {
+        if(getActivity() == null) return;
         ButterKnife.bind(this, v);
-
-        initialize();
+        HEADER_TEXT_SCAN = ((TestActivity) getActivity()).recyclerName;
     }
 
     @OnClick(R.id.select_image_from_gallery)
@@ -114,36 +95,10 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
 
     @OnClick(R.id.done_button)
     public void startProcessingImage() {
-        //disable button till image is processed
-        doneButton.setEnabled(false);
-        //process image
-        if(bitmap == null) {
-            showCoordinator(getString(R.string.please_show_image));
-            doneButton.setEnabled(true);
-            return;
-        }
-
-        if(getActivity() != null) ((TestActivity) getActivity()).showBottomSheetResults();
-
-        FirebaseVisionImage visionImage = FirebaseVisionImage.fromBitmap(bitmap);
-        FirebaseVisionTextRecognizer detector = FirebaseVision.getInstance().getOnDeviceTextRecognizer();
-        detector.processImage(visionImage).addOnSuccessListener(new OnSuccessListener<FirebaseVisionText>() {
-            @Override
-            public void onSuccess(FirebaseVisionText firebaseVisionText) {
-                processTextRecognitionResult(firebaseVisionText.getTextBlocks());
-                doneButton.setEnabled(true);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                showCoordinator(getString(R.string.please_try_again));
-                doneButton.setEnabled(true);
-            }
-        });
-        //enable button
+        processImage();
     }
 
-    private void processTextRecognitionResult(List<FirebaseVisionText.TextBlock> texts) {
+    protected void processTextRecognitionResult(List<FirebaseVisionText.TextBlock> texts) {
         StringBuilder builder = new StringBuilder();
         for(FirebaseVisionText.TextBlock t : texts) {
             builder.append(t.getText()).append("\n");
@@ -190,11 +145,6 @@ public class TextScanTestFragment extends Fragment implements TextScanTestInterf
                 showCoordinator(getString(R.string.null_photo_error));
             }
         }
-    }
-
-    @Override
-    public void initialize() {
-
     }
 
     @Override
