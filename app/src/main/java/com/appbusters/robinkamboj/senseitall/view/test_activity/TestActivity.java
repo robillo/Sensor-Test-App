@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -44,6 +45,8 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.screen_tes
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.speaker_volume_test_fragment.SoundTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.text_scan_test_fragment.TextScanTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.activity.VirtualRealityTestActivity;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.fragment.VrTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.wifi_test_fragment.WifiTestFragment;
 
 import butterknife.BindView;
@@ -81,6 +84,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
 public class TestActivity extends AppCompatActivity implements TestInterface {
@@ -386,6 +390,15 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                         new FaceDetectionTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
+                break;
+            }
+            case VIRTUAL_REALITY: {
+                transaction.add(
+                        R.id.container,
+                        new VrTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
             }
         }
     }

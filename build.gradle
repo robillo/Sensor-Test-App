@@ -51,6 +51,7 @@ ext {
     spruceVersion = '1.0.1'
     navTabBarVersion = '1.2.5'
     shimmerLayoutVersion = '1.0.2'
+    panoWidgetVersion = '1.160.0'
 
     rx2FastAndroidNetworking = '1.0.0'
 

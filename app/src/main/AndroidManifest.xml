@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.appbusters.robinkamboj.senseitall">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.ACCESS_COARSE_LOCATION"
         android:required="false" />
@@ -98,7 +98,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="barcode,text,face,label" />
@@ -110,7 +109,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
 
         <activity
@@ -146,8 +145,11 @@
         <activity
             android:name=".view.learn_more_activity.LearnMoreActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.dashboard_activity.DashboardActivity"
+        <activity
+            android:name=".view.dashboard_activity.DashboardActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".view.test_activity.tests.virtual_reality_test_activity.activity.VirtualRealityTestActivity"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
