@@ -23,8 +23,10 @@ import butterknife.OnClick;
  */
 public class VrTestFragment extends Fragment {
 
+
     @BindView(R.id.start_test)
     TextView startTest;
+
 
     public VrTestFragment() {
         // Required empty public constructor
