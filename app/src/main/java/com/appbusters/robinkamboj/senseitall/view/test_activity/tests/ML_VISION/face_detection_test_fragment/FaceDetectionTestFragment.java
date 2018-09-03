@@ -106,11 +106,11 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
             builder.append("Face ")
                     .append(faceCount).append("\n")
                     .append("Smile Probability ")
-                    .append(decimalFormat.format(face.getSmilingProbability()*100)).append(" %\n")
+                    .append(decimalFormat.format(face.getSmilingProbability()*100)).append("%\n")
                     .append("Left eye open probability: ")
-                    .append(decimalFormat.format(face.getLeftEyeOpenProbability()*100)).append(" %\n")
+                    .append(decimalFormat.format(face.getLeftEyeOpenProbability()*100)).append("%\n")
                     .append("Right eye open probability: ")
-                    .append(decimalFormat.format(face.getRightEyeOpenProbability()*100)).append(" %\n")
+                    .append(decimalFormat.format(face.getRightEyeOpenProbability()*100)).append("%\n")
                     .append("\n");
 
             faceCount++;

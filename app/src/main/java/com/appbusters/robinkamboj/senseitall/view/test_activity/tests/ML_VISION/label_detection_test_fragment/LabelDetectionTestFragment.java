@@ -18,6 +18,7 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.label.FirebaseVisionLabel;
 import com.google.firebase.ml.vision.label.FirebaseVisionLabelDetector;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -74,8 +75,13 @@ public class LabelDetectionTestFragment extends MachineLearningFragment implemen
     @Override
     public void processLabelDetectionResult(List<FirebaseVisionLabel> firebaseVisionLabels) {
         StringBuilder builder = new StringBuilder();
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
         for(FirebaseVisionLabel label : firebaseVisionLabels) {
-            builder.append(label.getLabel()).append(" - ").append(label.getConfidence()).append(" % sure").append("\n");
+            builder.append(label.getLabel()).append(" - ")
+                    .append(decimalFormat.format(label.getConfidence() * 100))
+                    .append("% sure")
+                    .append("\n");
         }
         if(getActivity() != null) {
             ((TestActivity) getActivity()).setResultsToBottomSheet(HEADER_TEXT_SCAN, builder.toString());
