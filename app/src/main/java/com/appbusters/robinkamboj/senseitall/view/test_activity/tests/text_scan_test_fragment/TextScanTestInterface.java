@@ -12,4 +12,6 @@ public interface TextScanTestInterface {
 
     void initialize();
 
+    void showCoordinator(String coordinatorText);
+
 }

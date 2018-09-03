@@ -2,9 +2,11 @@ package com.appbusters.robinkamboj.senseitall.view.test_activity;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -87,6 +89,9 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     @BindView(R.id.test_name)
     TextView testName;
 
+    @BindView(R.id.coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +112,17 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
         }
         if(recyclerName != null)
             testName.setText(recyclerName.toUpperCase());
+    }
+
+    @Override
+    public void showCoordinator(String coordinatorText) {
+        Snackbar s = Snackbar.make(coordinatorLayout, coordinatorText, Snackbar.LENGTH_SHORT);
+        View v = s.getView();
+        v.setBackgroundColor(ContextCompat.getColor(this, R.color.red_shade_four));
+        TextView t = v.findViewById(android.support.design.R.id.snackbar_text);
+        t.setTextColor(ContextCompat.getColor(this, R.color.white));
+        t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        s.show();
     }
 
     @Override

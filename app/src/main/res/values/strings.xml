@@ -271,6 +271,12 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="loading">Loading…</string>
     <string name="less_statistics">LESS STATISTICS</string>
     <string name="tag_bottom_sheet">BOTTOM_SHEET</string>
+    <string name="please_show_image">No image is selected. Please select an image first.</string>
+    <string name="okay_snackbar">Okay</string>
+    <string name="please_try_again">It seems like an error has occurred. Please try again.</string>
+    <string name="null_photo_error">Oops. Null photo path.</string>
+    <string name="couldnt_create_error">Oops. Photo file couldn\'t be created. Please try again.</string>
+    <string name="no_image_selected_oops">Oops. Seems like no image was selected.</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>
