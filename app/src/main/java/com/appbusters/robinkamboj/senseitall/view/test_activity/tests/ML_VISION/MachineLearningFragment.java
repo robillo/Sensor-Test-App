@@ -47,7 +47,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.REQUEST_C
 
 abstract public class MachineLearningFragment extends Fragment implements MachineLearningInterface {
 
-    private String HEADER_TEXT_SCAN;
+    protected String HEADER_TEXT_SCAN;
     protected Bitmap bitmap;
     private String mCurrentPhotoPath;
 
@@ -96,16 +96,6 @@ abstract public class MachineLearningFragment extends Fragment implements Machin
     @OnClick(R.id.done_button)
     public void startProcessingImage() {
         processImage();
-    }
-
-    protected void processTextRecognitionResult(List<FirebaseVisionText.TextBlock> texts) {
-        StringBuilder builder = new StringBuilder();
-        for(FirebaseVisionText.TextBlock t : texts) {
-            builder.append(t.getText()).append("\n");
-        }
-        if(getActivity() != null) {
-            ((TestActivity) getActivity()).setResultsToBottomSheet(HEADER_TEXT_SCAN, builder.toString());
-        }
     }
 
     @Override

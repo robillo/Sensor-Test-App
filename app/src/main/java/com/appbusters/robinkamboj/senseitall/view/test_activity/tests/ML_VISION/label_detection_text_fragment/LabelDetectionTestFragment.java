@@ -1,4 +1,5 @@
-package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.text_scan_test_fragment;
+package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_text_fragment;
+
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
+import com.google.firebase.ml.vision.label.FirebaseVisionLabel;
+import com.google.firebase.ml.vision.label.FirebaseVisionLabelDetector;
 import com.google.firebase.ml.vision.text.FirebaseVisionText;
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 
@@ -22,10 +25,10 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TextScanTestFragment extends MachineLearningFragment implements TextScanTestInterface {
+public class LabelDetectionTestFragment extends MachineLearningFragment implements LabelDetectionTestInterface {
 
 
-    public TextScanTestFragment() {
+    public LabelDetectionTestFragment() {
         // Required empty public constructor
     }
 
@@ -34,7 +37,7 @@ public class TextScanTestFragment extends MachineLearningFragment implements Tex
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_text_scan_test, container, false);
+        View v = inflater.inflate(R.layout.fragment_label_detection_test, container, false);
         setup(v);
         return v;
     }
@@ -53,11 +56,11 @@ public class TextScanTestFragment extends MachineLearningFragment implements Tex
         if(getActivity() != null) ((TestActivity) getActivity()).showBottomSheetResults();
 
         FirebaseVisionImage visionImage = FirebaseVisionImage.fromBitmap(bitmap);
-        FirebaseVisionTextRecognizer detector = FirebaseVision.getInstance().getOnDeviceTextRecognizer();
-        detector.processImage(visionImage).addOnSuccessListener(new OnSuccessListener<FirebaseVisionText>() {
+        FirebaseVisionLabelDetector detector = FirebaseVision.getInstance().getVisionLabelDetector();
+        detector.detectInImage(visionImage).addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionLabel>>() {
             @Override
-            public void onSuccess(FirebaseVisionText firebaseVisionText) {
-                processTextRecognitionResult(firebaseVisionText.getTextBlocks());
+            public void onSuccess(List<FirebaseVisionLabel> firebaseVisionLabels) {
+                processLabelDetectionResult(firebaseVisionLabels);
                 doneButton.setEnabled(true);
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -71,10 +74,10 @@ public class TextScanTestFragment extends MachineLearningFragment implements Tex
     }
 
     @Override
-    public void processTextRecognitionResult(List<FirebaseVisionText.TextBlock> texts) {
+    public void processLabelDetectionResult(List<FirebaseVisionLabel> firebaseVisionLabels) {
         StringBuilder builder = new StringBuilder();
-        for(FirebaseVisionText.TextBlock t : texts) {
-            builder.append(t.getText()).append("\n");
+        for(FirebaseVisionLabel label : firebaseVisionLabels) {
+            builder.append(label.getLabel()).append(" - ").append(label.getConfidence()).append(" % sure").append("\n");
         }
         if(getActivity() != null) {
             ((TestActivity) getActivity()).setResultsToBottomSheet(HEADER_TEXT_SCAN, builder.toString());

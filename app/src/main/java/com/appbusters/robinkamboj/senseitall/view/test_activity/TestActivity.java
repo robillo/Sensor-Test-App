@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.BottomSheetFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_text_fragment.LabelDetectionTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.battery_test_fragment.BatteryTestFragment;
@@ -59,6 +60,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LABEL_GENERATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
@@ -358,6 +360,13 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 ).commit();
                 break;
             }
+            case LABEL_GENERATOR: {
+                transaction.add(
+                        R.id.container,
+                        new LabelDetectionTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+            }
         }
     }
 
@@ -381,6 +390,7 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     }
 
     public void setResultsToBottomSheet(String header, String text) {
+        if(bottomSheetFragment == null) return;
         bottomSheetFragment.setHeader(header);
         bottomSheetFragment.setResults(text);
     }
