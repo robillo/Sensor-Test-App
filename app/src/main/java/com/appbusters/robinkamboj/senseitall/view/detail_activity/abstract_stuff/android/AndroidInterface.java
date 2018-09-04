@@ -13,4 +13,10 @@ public interface AndroidInterface {
 
     boolean isConnected(Context context);
 
+    void setupView(View v);
+
+    void initializeData();
+
+    void setAdapter();
+
 }

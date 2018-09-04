@@ -6,6 +6,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -15,13 +17,23 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.recycler.LearnMoreItem;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
+import com.appbusters.robinkamboj.senseitall.view.learn_more_activity.LearnMoreAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public abstract class AndroidFragment extends Fragment implements AndroidInterface {
+
+    @BindView(R.id.recycler)
+    RecyclerView recyclerView;
+    private String[] headers, descriptions, images;
+    private List<LearnMoreItem> list = new ArrayList<>();
 
 //    private String loadUri = null;
 //
@@ -101,5 +113,40 @@ public abstract class AndroidFragment extends Fragment implements AndroidInterfa
 //            return (info != null && info.isConnected());
 //        }
         return false;
+    }
+
+
+    @Override
+    public void setupView(View v) {
+        ButterKnife.bind(this, v);
+
+        initializeData();
+
+        setAdapter();
+    }
+
+    @Override
+    public void initializeData() {
+        DetailActivity activity = (DetailActivity) getActivity();
+        if(activity == null) return;
+        String recyclerName = activity.recyclerName;
+
+        switch (recyclerName) {
+            case AppConstants.PIE: {
+                headers = getResources().getStringArray(R.array.pie_headers);
+                descriptions = getResources().getStringArray(R.array.pie_descriptions);
+                images = getResources().getStringArray(R.array.pie_images);
+                break;
+            }
+        }
+
+        for(int i=0; i<headers.length; i++) list.add(new LearnMoreItem(images[i], headers[i], descriptions[i]));
+    }
+
+    @Override
+    public void setAdapter() {
+        LearnMoreAdapter adapter = new LearnMoreAdapter(list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
     }
 }

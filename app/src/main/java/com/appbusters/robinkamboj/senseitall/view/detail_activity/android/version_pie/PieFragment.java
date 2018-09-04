@@ -30,11 +30,6 @@ import butterknife.ButterKnife;
  */
 public class PieFragment extends AndroidFragment implements PieInterface {
 
-    @BindView(R.id.recycler)
-    RecyclerView recyclerView;
-    private String[] headers, descriptions, images;
-    private List<LearnMoreItem> list = new ArrayList<>();
-
     public PieFragment() {
         // Required empty public constructor
     }
@@ -48,37 +43,4 @@ public class PieFragment extends AndroidFragment implements PieInterface {
         return v;
     }
 
-    @Override
-    public void setupView(View v) {
-        ButterKnife.bind(this, v);
-
-        initializeData();
-
-        setAdapter();
-    }
-
-    @Override
-    public void initializeData() {
-        DetailActivity activity = (DetailActivity) getActivity();
-        if(activity == null) return;
-        String recyclerName = activity.recyclerName;
-
-        switch (recyclerName) {
-            case AppConstants.PIE: {
-                headers = getResources().getStringArray(R.array.pie_headers);
-                descriptions = getResources().getStringArray(R.array.pie_descriptions);
-                images = getResources().getStringArray(R.array.pie_images);
-                break;
-            }
-        }
-
-        for(int i=0; i<headers.length; i++) list.add(new LearnMoreItem(images[i], headers[i], descriptions[i]));
-    }
-
-    @Override
-    public void setAdapter() {
-        LearnMoreAdapter adapter = new LearnMoreAdapter(list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
-    }
 }
