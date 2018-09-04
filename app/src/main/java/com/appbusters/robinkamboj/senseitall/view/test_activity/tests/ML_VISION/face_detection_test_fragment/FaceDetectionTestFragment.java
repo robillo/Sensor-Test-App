@@ -67,7 +67,7 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
                 .setModeType(FirebaseVisionFaceDetectorOptions.ACCURATE_MODE)
                 .setLandmarkType(FirebaseVisionFaceDetectorOptions.ALL_LANDMARKS)
                 .setClassificationType(FirebaseVisionFaceDetectorOptions.ALL_CLASSIFICATIONS)
-                .setMinFaceSize(0.15f).build();
+                .setMinFaceSize(0.05f).build();
         FirebaseVisionFaceDetector detector = FirebaseVision.getInstance().getVisionFaceDetector(options);
         detector.detectInImage(visionImage).addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionFace>>() {
             @Override
@@ -130,7 +130,7 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
             Bitmap newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
             Canvas canvas = new Canvas(newBitmap);
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            paint.setStrokeWidth(30);
+            paint.setStrokeWidth(20);
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(ContextCompat.getColor(getActivity(), R.color.green_shade_three));
 

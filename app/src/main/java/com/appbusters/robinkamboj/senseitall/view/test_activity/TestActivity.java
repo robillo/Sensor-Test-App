@@ -19,6 +19,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.BottomSheetFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.barcode_detection_test_fragment.BarcodeReaderTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.dialog.MachineLearningDialogFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.face_detection_test_fragment.FaceDetectionTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_test_fragment.LabelDetectionTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.accelerometer_test_fragment.AccelerometerTestFragment;
@@ -92,6 +93,7 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     public GenericData intentData = new GenericData();
     public String recyclerName;
     private BottomSheetFragment bottomSheetFragment;
+    private MachineLearningDialogFragment dialogFragment;
 
     @BindView(R.id.test_name)
     TextView testName;
@@ -415,16 +417,17 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     }
 
     public void showBottomSheetResults() {
-        if(bottomSheetFragment == null) {
-            bottomSheetFragment = new BottomSheetFragment();
+        if(dialogFragment == null) {
+            dialogFragment = new MachineLearningDialogFragment();
+            dialogFragment.setRetainInstance(true);
         }
-
-        bottomSheetFragment.show(getSupportFragmentManager(), getString(R.string.tag_bottom_sheet));
+        dialogFragment.show(getSupportFragmentManager(), getString(R.string.tag_bottom_sheet));
     }
 
     public void setResultsToBottomSheet(String header, String text) {
-        if(bottomSheetFragment == null) return;
-        bottomSheetFragment.setHeader(header);
-        bottomSheetFragment.setResults(text);
+
+        if(dialogFragment == null) return;
+        dialogFragment.setHeader(header);
+        dialogFragment.setResults(text);
     }
 }
