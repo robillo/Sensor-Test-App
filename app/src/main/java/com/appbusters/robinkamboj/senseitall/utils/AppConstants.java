@@ -220,8 +220,8 @@ public class AppConstants {
         diagnosticsNames.add(BACK_CAMERA);
         diagnosticsNames.add(FRONT_CAMERA);
         diagnosticsNames.add(GPS_LOCATION);
-        diagnosticsNames.add(WIFI);
-        diagnosticsNames.add(BLUETOOTH);
+//        diagnosticsNames.add(WIFI);
+//        diagnosticsNames.add(BLUETOOTH);
         diagnosticsNames.add(COMPASS);
         diagnosticsNames.add(SCREEN);
         diagnosticsNames.add(BATTERY);
@@ -235,8 +235,8 @@ public class AppConstants {
         featureNames.add(BACK_CAMERA);  //d
         featureNames.add(FRONT_CAMERA);  //d
         featureNames.add(GPS_LOCATION);  //d
-        featureNames.add(WIFI);  //d
-        featureNames.add(BLUETOOTH);  //d
+//        featureNames.add(WIFI);  //d
+//        featureNames.add(BLUETOOTH);  //d
         featureNames.add(GSM_UMTS);
         featureNames.add(COMPASS);  //d
         featureNames.add(RADIO);

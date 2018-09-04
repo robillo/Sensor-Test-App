@@ -5,23 +5,22 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
-import com.bumptech.glide.request.RequestOptions;
-import com.shuhart.stepview.StepView;
+import com.appbusters.robinkamboj.senseitall.model.recycler.LearnMoreItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
@@ -80,33 +79,13 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
     public GenericData intentData = new GenericData();
     private String[] headers, descriptions, images;
+    private List<LearnMoreItem> list = new ArrayList<>();
 
-    @BindView(R.id.scroll_view)
-    ScrollView scrollView;
+    @BindView(R.id.recycler)
+    RecyclerView recycler;
 
     @BindView(R.id.more_about_sensor)
     TextView more_about_sensor;
-
-    @BindView(R.id.step_view)
-    StepView stepView;
-
-    @BindView(R.id.previous)
-    TextView previous;
-
-    @BindView(R.id.next)
-    TextView next;
-
-    @BindView(R.id.text_image)
-    ImageView textImage;
-
-    @BindView(R.id.header_text)
-    TextView headerText;
-
-    @BindView(R.id.description_text)
-    TextView descriptionText;
-
-    private int currentStep = 0;
-    private int maxStep = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +103,6 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
         initialize();
 
-        setTexts();
     }
 
     @Override
@@ -136,40 +114,6 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         view.setSystemUiVisibility(flags);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-    }
-
-    @Override
-    public void manageVisibility() {
-        if(currentStep == 0) {
-            if(previous.getVisibility() == View.VISIBLE) {
-                previous.setVisibility(View.INVISIBLE);
-                previous.setClickable(false);
-            }
-            if(next.getVisibility() == View.INVISIBLE) {
-                next.setVisibility(View.VISIBLE);
-                next.setClickable(true);
-            }
-        }
-        else if(currentStep == maxStep) {
-            if(previous.getVisibility() == View.INVISIBLE) {
-                previous.setVisibility(View.VISIBLE);
-                previous.setClickable(true);
-            }
-            if(next.getVisibility() == View.VISIBLE) {
-                next.setVisibility(View.INVISIBLE);
-                next.setClickable(false);
-            }
-        }
-        else {
-            if(previous.getVisibility() == View.INVISIBLE) {
-                previous.setVisibility(View.VISIBLE);
-                previous.setClickable(true);
-            }
-            if(next.getVisibility() == View.INVISIBLE) {
-                next.setVisibility(View.VISIBLE);
-                next.setClickable(true);
-            }
-        }
     }
 
     @SuppressLint("InlinedApi")
@@ -461,22 +405,14 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
             }
         }
 
-        if(headers != null) maxStep = headers.length - 1;
-        else maxStep = 1;
+        for(int i=0; i<headers.length; i++) list.add(new LearnMoreItem(images[i], headers[i], descriptions[i]));
     }
 
     @Override
-    public void setTexts() {
-        scrollView.smoothScrollTo(0, 0);
-        scrollView.fullScroll(View.FOCUS_UP);
-        if(headers != null) headerText.setText(headers[currentStep].toUpperCase());
-        if(descriptions != null) descriptionText.setText(descriptions[currentStep]);
-        if(images != null) {
-            Glide.with(this)
-                    .applyDefaultRequestOptions(RequestOptions.centerCropTransform().placeholder(R.drawable.placeholder))
-                    .load(images[currentStep])
-                    .into(textImage);
-        }
+    public void fillAdapter() {
+        LearnMoreAdapter adapter = new LearnMoreAdapter(list);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+        recycler.setAdapter(adapter);
     }
 
     @Override
@@ -496,26 +432,7 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
         getStrings();
 
-        manageVisibility();
-
-        if(headers != null) stepView.setStepsNumber(headers.length);
-        else stepView.setStepsNumber(1);
-    }
-
-    @OnClick(R.id.previous)
-    public void setPrevious() {
-        currentStep = currentStep - 1;
-        stepView.go(currentStep, true);
-        manageVisibility();
-        setTexts();
-    }
-
-    @OnClick(R.id.next)
-    public void setNext() {
-        currentStep = currentStep + 1;
-        stepView.go(currentStep, true);
-        manageVisibility();
-        setTexts();
+        fillAdapter();
     }
 
     @Override

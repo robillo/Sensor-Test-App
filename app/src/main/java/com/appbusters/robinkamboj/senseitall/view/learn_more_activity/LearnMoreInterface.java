@@ -8,10 +8,8 @@ public interface LearnMoreInterface {
 
     void setStatusBarColor();
 
-    void manageVisibility();
-
     void getStrings();
 
-    void setTexts();
+    void fillAdapter();
 
 }
