@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.face_detection_test_fragment;
 
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -72,7 +73,6 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
         detector.detectInImage(visionImage).addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionFace>>() {
             @Override
             public void onSuccess(List<FirebaseVisionFace> firebaseVisionFaces) {
-                Log.e("tag", "on success");
                 processFaceDetectorFaces(firebaseVisionFaces);
                 doneButton.setEnabled(true);
             }
@@ -99,19 +99,27 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
 
         for(FirebaseVisionFace face : firebaseVisionFaces) {
             if(face.getBoundingBox() != null) {
-                Log.e("tag", "new bounding box");
                 boundingBoxes.add(face.getBoundingBox());
             }
 
-            builder.append("Face ")
-                    .append(faceCount).append("\n")
-                    .append("Smile Probability ")
-                    .append(returnPercentageValue(decimalFormat, face.getSmilingProbability())).append("%\n")
-                    .append("Left eye open probability: ")
-                    .append(returnPercentageValue(decimalFormat, face.getLeftEyeOpenProbability())).append("%\n")
-                    .append("Right eye open probability: ")
-                    .append(returnPercentageValue(decimalFormat, face.getRightEyeOpenProbability())).append("%\n")
-                    .append("\n");
+            builder.append("<hr/>").append("<h1>").append("<font color=\'black\'>").append("Face ")
+                    .append(faceCount).append("</font></h1>")
+                    .append(returnPercentageValue(
+                            "Smile",
+                            decimalFormat,
+                            face.getSmilingProbability())
+                    )
+                    .append(returnPercentageValue(
+                            "Left eye open",
+                            decimalFormat,
+                            face.getLeftEyeOpenProbability())
+                    )
+                    .append(returnPercentageValue(
+                            "Right eye open",
+                            decimalFormat,
+                            face.getRightEyeOpenProbability())
+                    )
+                    .append("<br>");
 
             faceCount++;
         }
@@ -146,9 +154,58 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
         }
     }
 
+    @SuppressLint("ResourceType")
     @Override
-    public String returnPercentageValue(DecimalFormat decimalFormat, float probability) {
-        if(probability < 0) return String.valueOf(0.00);
-        return decimalFormat.format(probability * 100);
+    public String returnPercentageValue(String header, DecimalFormat decimalFormat, float probability) {
+        if(probability < 0) probability = 0.00f;
+        else probability = Float.valueOf(decimalFormat.format(probability*100));
+
+        StringBuilder builder = new StringBuilder();
+        String colorHex;
+
+        if(getActivity() == null) return null;
+
+        if(probability > 90) {
+            colorHex = getResources().getString(R.color.ninety_plus);
+        }
+        else if(probability > 80) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.eighty_plus) & 0xffffff);;
+        }
+        else if(probability > 70) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.seventy_plus) & 0xffffff);;
+        }
+        else if(probability > 60) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.sixty_plus) & 0xffffff);;
+        }
+        else if(probability > 50) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.fifty_plus) & 0xffffff);;
+        }
+        else if(probability > 40) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.forty_plus) & 0xffffff);;
+        }
+        else if(probability > 30) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.thirty_plus) & 0xffffff);;
+        }
+        else if(probability > 20) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.twenty_plus) & 0xffffff);;
+        }
+        else if(probability > 10) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.ten_plus) & 0xffffff);;
+        }
+        else if(probability >= 0) {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.zero_plus) & 0xffffff);;
+        }
+        else {
+            colorHex = String.format("#%06x", ContextCompat.getColor(getActivity(), R.color.zero_plus) & 0xffffff);;
+        }
+
+        builder.append("<h5>")
+                .append(header).append(" <font color=\'")
+                .append("#")
+                .append(colorHex.substring(3))
+                .append("\'>").append(probability)
+                .append("%</font> sure</h4>\n");
+
+        return builder.toString();
     }
 }

@@ -13,6 +13,6 @@ public interface FaceDetectionTestInterface {
 
     void showPreviewInNewBitmapIfAny(List<Rect> boundingBoxes);
 
-    String returnPercentageValue(DecimalFormat decimalFormat, float probability);
+    String returnPercentageValue(String header, DecimalFormat decimalFormat, float probability);
 
 }

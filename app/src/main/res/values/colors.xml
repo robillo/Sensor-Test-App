@@ -65,6 +65,17 @@
     <color name="colorAlmostWhite">#fbfbfb</color>
     <color name="white_tx">#bbfbfbfb</color>
 
+    <color name="ninety_plus">#1B5E20</color>
+    <color name="eighty_plus">#43A047</color>
+    <color name="seventy_plus">#81C784</color>
+    <color name="sixty_plus">#AEEA00</color>
+    <color name="fifty_plus">#C6FF00</color>
+    <color name="forty_plus">#FFB74D</color>
+    <color name="thirty_plus">#FF9800</color>
+    <color name="twenty_plus">#F57C00</color>
+    <color name="ten_plus">#E65100</color>
+    <color name="zero_plus">#D50000</color>
+
     <array name="intensityColors">
         <item>#212121</item>
         <item>#424242</item>

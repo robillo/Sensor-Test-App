@@ -9,6 +9,6 @@ public interface LabelDetectionTestInterface {
 
     void processLabelDetectionResult(List<FirebaseVisionLabel> firebaseVisionLabels);
 
-    String returnPercentageValue(DecimalFormat decimalFormat, float probability);
+    String returnPercentageValue(String header, DecimalFormat decimalFormat, float probability);
 
 }

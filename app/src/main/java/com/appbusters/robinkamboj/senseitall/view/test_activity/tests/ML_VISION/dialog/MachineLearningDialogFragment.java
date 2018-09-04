@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,7 @@ public class MachineLearningDialogFragment extends DialogFragment implements Mac
 
     public void setResults(String text) {
         progressBar.setVisibility(View.GONE);
-        results.setText(text);
+        results.setText(Html.fromHtml(text));
     }
 
     public void setHeader(String header) {
