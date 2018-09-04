@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.detail_activity.android.version_pie.PieFragment">
 
-    <include layout="@layout/layout_web_view"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler">
 
-</FrameLayout>
+    </android.support.v7.widget.RecyclerView>
+
+    <!--<include layout="@layout/layout_web_view"/>-->
+
+</LinearLayout>

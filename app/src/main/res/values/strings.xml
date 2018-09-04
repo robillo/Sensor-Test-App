@@ -2446,4 +2446,103 @@ This is why a phone with barely enough RAM to keep its system running properly i
         <item>https://1.bp.blogspot.com/-5DLqFP3f4Rg/W3sY3I430UI/AAAAAAAADFQ/qj5es_qMZ9AHi7WY4uFAJ1qlTYu435QUgCK4BGAYYCw/s1600/ram1.jpg</item>
     </string-array>
 
+    <string-array name="pie_headers">
+        <item>Accessibility</item>
+        <item>Battery &amp; Brightness</item>
+        <item>Camera</item>
+        <item>Digital Wellbeing</item>
+        <item>Display</item>
+        <item>Enterprise</item>
+        <item>Media</item>
+        <item>Notifications</item>
+        <item>Privacy &amp; Security</item>
+        <item>System Usability Enhancements</item>
+    </string-array>
+
+    <string-array name="pie_descriptions">
+        <item>\n<b>Accessibility Menu:</b> With Android 9\'s new accessibility menu, common actions like taking screenshots and navigating with one hand are now easier for motor impaired users.\n\n
+
+<b>Select to Speak - OCR in Camera View:</b> With Select to Speak, you can select text on the screen and the content will be read aloud. Now, Android 9 has added OCR support for S2S in Camera and Pictures to make text even more accessible. Simply select text when using the camera or in picture, and the text will be highlighted and read aloud.\n\n
+
+<b>Sound amplifier:</b> This new Accessibility Service makes it easier to understand conversations by dynamically adjusting over 100 settings to boost the audio in scenarios such as a loud restaurant, bar, or concert.\n</item>
+        <item>\n<b>Battery Saver:</b> Battery Saver keeps your charge going longer than ever by turning off features like the Always-On display. Plus, you have more control over when it comes on - so you can go further on one charge.\n\n
+
+<b>Adaptive Battery:</b> This feature uses machine learning to predict which apps you\'ll use in the next few hours and which you likely won\'t, so your phone only spends battery power on the apps you care about.\n\n
+
+<b>Adaptive Brightness:</b> With Adaptive Brightness, your phone learns how you set your screen\'s brightness in different lighting environments and automatically does it for you over time.\n\n
+
+<b>Background restrictions:</b> Now, you\'ll see recommendations in Settings to restrict certain apps that use too much battery, so you can have more control over your battery.\n</item>
+        <item>\n<b>Multi-camera support:</b> With Android 9, developers can now create immersive experiences using streams from two or more physical cameras, such as on devices with either dual-front or dual-back cameras. Examples include depth, bokeh, stereo vision, and more.\n\n
+
+<b>External camera support:</b> Android 9 now supports external USB / UVC cameras on certain devices.\n</item>
+        <item>\n<b>Do Not Disturb:</b> Improvements to Do Not Disturb to silence not just notification sounds, but also all the visual interruptions. Calls from starred contacts will still come through, so you don\'t have to worry about missing something urgent.\n\n
+
+<b>App dashboard:</b> Get a daily view of the time spent on your phone, how frequently you use different apps, and how many notifications you get.\n\n
+
+<b>Wind Down:</b> Set a daily schedule to get your phone ready for bed. Grayscale fades your screen to gray while Do Not Disturb silences notifications for a restful sleep.\n\n
+
+<b>App timers:</b> App timers let you set daily time limits for your apps. When you reach the limit, the app is paused for the rest of the day.\n\n</item>
+        <item>\n<b>Display cutout:</b> Support for devices with cutouts to make use of available screen space.\n\n
+
+<b>Edge-to-edge screens:</b> Support for devices with 18:9 and taller aspect ratios, and devices with display cutouts.\n</item>
+        <item>\n<b>Multiple users on dedicated devices:</b> Android 9 makes it easy for users to share a single device, good for shift workers or public kiosks.\n\n
+
+<b>Work tab in launcher:</b> Now, you can visually separate your work apps. Tap on the work tab to see work apps all in one place, and turn them off with a simple toggle when you get off work.\n\n
+
+<b>Postpone Over-the-air (OTA) updates:</b> Android 9 now provides the ability for Enterprise IT admins to define freeze periods up to 90 days during which time devices in their fleet will not update the Android OS. This ensures their devices states remain unchanged during critical time like holidays.\n</item>
+        <item>\n<b>Multiple Bluetooth connections:</b> With Android 9, you can connect up to five Bluetooth devices and switch between these devices seamlessly. Incoming phone calls will be sent to all connected Bluetooth devices that can accept, so you\'ll never miss a call.\n\n
+
+<b>Sound delay reporting:</b> Android 9 offers support for headsets with sound delay reporting, so video on your device and audio on your headphones can always stay in sync.\n\n
+
+<b>Volume memory per Bluetooth device:</b> Android 9 will now remember the last volume you set for each of your Bluetooth devices. No more blasting music too loudly when you reconnect to your car or headphones.\n\n
+
+<b>HDR:</b> Android 9 adds built-in support for High Dynamic Range (HDR) VP9 Profile 2, so you can watch HDR-enabled movies on YouTube and Google Play Movies. HDR improves the brightness and color range of video to improve the picture quality and experience.\n\n
+
+<b>HD Audio:</b> Improved performance and support for HD audio delivering clearer, sharper, and richer quality sound.\n\n
+
+<b>HEIF:</b> Android 9 now supports HEIF photos on the Android platform to improve compression of pictures and reduce the amount of storage needed.\n</item>
+        <item>\n<b>Notification enhancements for messaging:</b> Now, messaging apps can provide suggested \'smart replies\' in the notification, so you can respond in a tap. Plus, any inline reply drafts won\'t disappear if you navigate away, and you\'ll be able to see images sent from your friends right in the notification.\n\n
+
+<b>Manage Notifications:</b> You now have a quick way to turn off notifications from a range of apps, so you only receive those that are helpful to you. You\'ll also get a smart prompt if you\'re swiping away certain notifications whether you want to keep receiving them.\n</item>
+        <item>\n<b>Android Backups:</b> Android 9 enables encryption of Android backups with a client-side secret (the device PIN, pattern or password) for greater security.\n\n
+
+<b>Android biometric prompt:</b> Android 9 introduces a number of new security features, including a standardized biometric authentication prompt to provide a more consistent authentication experience across Android.\n\n
+
+<b>Android Protected Confirmation:</b> On compatible hardware, apps can now use UI controlled by the secure hardware to get your confirmation for a sensitive transaction, such as making a payment.\n\n
+
+<b>StrongBox:</b> On compatible hardware, apps can now take advantage of tamper-resistant hardware to protect their private keys, making it harder than ever for malware to steal their credentials.\n\n
+
+<b>Privacy enhancements:</b> Android 9 safeguards privacy in a number of new ways. Now, Android will restrict access to your phone\'s microphone, camera, or other sensors when an app is idle or running in the background. (If an app does need to access a sensor, it will show a persistent notification on your phone.) Android 9 also brings important improvements that protect all web communications and offer private web surfing.\n</item>
+        <item>\n<b>At-a-Glance on Always-on-Display:</b> See things like calendar events and weather on your Lock Screen and Always-on Display.\n\n
+
+<b>Redesigned Quick Settings:</b> A more consistent user experience for Quick Settings with all toggles, plus an updated visual design and added informational subtext.\n\n
+
+<b>Volume controls:</b> Simpler, more accessible volume controls let you control media volume instantly, as well as quickly toggle call and notification volume settings.\n\n
+
+<b>Screenshots:</b> Now, you can take screenshots easily from the power menu and draw, annotate, or crop them quickly.\n\n
+
+<b>Rotation:</b> Get more control over your phone\’s display rotation with a simple button that confirms when you\’d like to change the rotation on your device - even when your orientation is locked.\n\n
+
+<b>New system navigation:</b> Re-design of Android\'s system navigation to help make it simpler to search and move between apps. Swipe up from anywhere to see full-screen previews of recently used apps, swipe left and right to easily navigate between them, and tap on one to jump in.\n\n
+
+<b>App Actions:</b> App Actions predicts what you\’ll want to do next based on your context and displays that action right on your phone, saving you time.\n\n
+
+<b>Slices:</b> Interactive snippets of your favorite apps can be surfaced in different places, like Google Search.\n\n
+
+<b>Overview Selection:</b> Long-press to select text or image in Overview mode and see actions based on what you\'ve selected (for example, an option to route to an address with Google Maps or share for an image).\n</item>
+    </string-array>
+
+    <string-array name="pie_images">
+        <item>https://3.bp.blogspot.com/-XKUT7dwqLaQ/W47QBq22hVI/AAAAAAAADJQ/T4dI-jur40UZprGYS3tfgX22eeLj4w_nwCLcBGAs/s640/accessibility.jpg</item>
+        <item>https://4.bp.blogspot.com/-anVV4AqL16s/W47E20CgW8I/AAAAAAAADHY/HxGxgzYyEvsSrjbJpox8nHH9AMFkJXRxACK4BGAYYCw/s640/battery.jpg</item>
+        <item>https://1.bp.blogspot.com/-KoJOtgHg2ro/W47E37i9tQI/AAAAAAAADHg/PORiReOel74594WsVdpqwJ0a_7Xhq0CbACK4BGAYYCw/s640/camera.jpg</item>
+        <item>https://3.bp.blogspot.com/-jizmeez94_s/W47PLdXtEnI/AAAAAAAADIw/T3gQK7oh8b0cSTzJOvha3t_5iORiSqE0wCK4BGAYYCw/s640/wellbeing.jpg</item>
+        <item>https://1.bp.blogspot.com/-n5_bt9uBDC4/W47E74A55zI/AAAAAAAADHw/J39LOnqJwWIEI09xwetk7KOLN4z8b4afACK4BGAYYCw/s640/display.png</item>
+        <item>https://1.bp.blogspot.com/-Z0wjT44ofnA/W47PNOc0wmI/AAAAAAAADI4/cTrsB5yB3SA7tPyhu4ZA8k3gscawFNwAwCK4BGAYYCw/s640/enterprise.jpg</item>
+        <item>https://3.bp.blogspot.com/-e8KfuGsjDsA/W47E-YjVDVI/AAAAAAAADIA/uXkpv95Pz0onw_S16xrxs91vc03wvcZ7ACK4BGAYYCw/s640/media.jpg</item>
+        <item>https://2.bp.blogspot.com/-CF10gkg8ZgM/W47E_0ZOzeI/AAAAAAAADII/3YoQh8rpytUSIK9l-Uu35PQ8-d-aFhlMQCK4BGAYYCw/s640/notifications.jpg</item>
+        <item>https://3.bp.blogspot.com/-T0XAs5fFYgs/W47PPGVih5I/AAAAAAAADJA/7CuP0lwi5XQosTAXB1jgnS2R6wA1X54OACK4BGAYYCw/s640/privacie.jpg</item>
+        <item>https://1.bp.blogspot.com/-U7FsDfDXvY8/W47FC4EVWWI/AAAAAAAADIY/N20vkjg_3Lgga9jzVx7jSjj6UzNBffmKgCK4BGAYYCw/s640/usability.jpg</item>
+    </string-array>
+
 </resources>

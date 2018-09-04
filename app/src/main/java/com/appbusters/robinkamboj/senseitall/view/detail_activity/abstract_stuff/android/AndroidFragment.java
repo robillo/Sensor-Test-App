@@ -23,83 +23,83 @@ import butterknife.ButterKnife;
 
 public abstract class AndroidFragment extends Fragment implements AndroidInterface {
 
-    private String loadUri = null;
-
-    @BindView(R.id.error_or_load_text)
-    TextView errorOrLoadText;
-
-    @BindView(R.id.load_progress)
-    ProgressBar loadingProgressBar;
-
-    @BindView(R.id.web_view)
-    WebView webView;
+//    private String loadUri = null;
+//
+//    @BindView(R.id.error_or_load_text)
+//    TextView errorOrLoadText;
+//
+//    @BindView(R.id.load_progress)
+//    ProgressBar loadingProgressBar;
+//
+//    @BindView(R.id.web_view)
+//    WebView webView;
 
     @Override
     public void setup(View v) {
-        ButterKnife.bind(this, v);
-
-        initialize();
-        loadUri();
+//        ButterKnife.bind(this, v);
+//
+//        initialize();
+//        loadUri();
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void initialize() {
 
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-
-        if(getActivity() == null) return;
-
-        String version = ((DetailActivity) getActivity()).intentData.getName();
-        loadUri = AppConstants.versionMapUri.get(version);
+//        WebSettings webSettings = webView.getSettings();
+//        webSettings.setJavaScriptEnabled(true);
+//
+//        if(getActivity() == null) return;
+//
+//        String version = ((DetailActivity) getActivity()).intentData.getName();
+//        loadUri = AppConstants.versionMapUri.get(version);
 
     }
 
     @Override
     public void loadUri() {
-        if(isConnected(getContext())) {
-            webView.setWebChromeClient(new WebChromeClient() {
-                @SuppressLint("SetTextI18n")
-                public void onProgressChanged(WebView view, int progress) {
-                    errorOrLoadText.setText(R.string.loading);
-                    loadingProgressBar.setProgress(progress);
-
-                    if(progress == 100) {
-                        loadingProgressBar.setVisibility(View.GONE);
-                        errorOrLoadText.setVisibility(View.GONE);
-                    }
-                }
-            });
-
-            webView.setWebViewClient(new WebViewClient());
-            webView.loadUrl(loadUri);
-        }
-        else {
-            if(getActivity() == null) return;
-            Snackbar mySnackbar = Snackbar.make(((DetailActivity) getActivity()).coordinatorLayout,
-                    "NO INTERNET CONNECTION", Snackbar.LENGTH_INDEFINITE);
-            mySnackbar.setAction("RETRY", new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    loadUri();
-                }
-            });
-            mySnackbar.show();
-        }
+//        if(isConnected(getContext())) {
+//            webView.setWebChromeClient(new WebChromeClient() {
+//                @SuppressLint("SetTextI18n")
+//                public void onProgressChanged(WebView view, int progress) {
+//                    errorOrLoadText.setText(R.string.loading);
+//                    loadingProgressBar.setProgress(progress);
+//
+//                    if(progress == 100) {
+//                        loadingProgressBar.setVisibility(View.GONE);
+//                        errorOrLoadText.setVisibility(View.GONE);
+//                    }
+//                }
+//            });
+//
+//            webView.setWebViewClient(new WebViewClient());
+//            webView.loadUrl(loadUri);
+//        }
+//        else {
+//            if(getActivity() == null) return;
+//            Snackbar mySnackbar = Snackbar.make(((DetailActivity) getActivity()).coordinatorLayout,
+//                    "NO INTERNET CONNECTION", Snackbar.LENGTH_INDEFINITE);
+//            mySnackbar.setAction("RETRY", new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    loadUri();
+//                }
+//            });
+//            mySnackbar.show();
+//        }
     }
 
     @Override
     public boolean isConnected(Context context) {
-
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (null != cm) {
-            NetworkInfo info = cm.getActiveNetworkInfo();
-
-            return (info != null && info.isConnected());
-        }
+//
+//        ConnectivityManager cm = (ConnectivityManager) context
+//                .getSystemService(Context.CONNECTIVITY_SERVICE);
+//
+//        if (null != cm) {
+//            NetworkInfo info = cm.getActiveNetworkInfo();
+//
+//            return (info != null && info.isConnected());
+//        }
         return false;
     }
 }

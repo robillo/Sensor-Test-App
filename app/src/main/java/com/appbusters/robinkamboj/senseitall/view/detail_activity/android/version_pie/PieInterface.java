@@ -4,9 +4,9 @@ import android.view.View;
 
 public interface PieInterface {
 
-    void setup(View v);
+    void setupView(View v);
 
-    void initialize();
+    void initializeData();
 
-    void loadUri();
+    void setAdapter();
 }
