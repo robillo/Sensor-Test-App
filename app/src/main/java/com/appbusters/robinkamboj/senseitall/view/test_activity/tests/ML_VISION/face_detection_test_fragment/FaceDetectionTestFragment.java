@@ -106,11 +106,11 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
             builder.append("Face ")
                     .append(faceCount).append("\n")
                     .append("Smile Probability ")
-                    .append(decimalFormat.format(face.getSmilingProbability()*100)).append("%\n")
+                    .append(returnPercentageValue(decimalFormat, face.getSmilingProbability())).append("%\n")
                     .append("Left eye open probability: ")
-                    .append(decimalFormat.format(face.getLeftEyeOpenProbability()*100)).append("%\n")
+                    .append(returnPercentageValue(decimalFormat, face.getLeftEyeOpenProbability())).append("%\n")
                     .append("Right eye open probability: ")
-                    .append(decimalFormat.format(face.getRightEyeOpenProbability()*100)).append("%\n")
+                    .append(returnPercentageValue(decimalFormat, face.getRightEyeOpenProbability())).append("%\n")
                     .append("\n");
 
             faceCount++;
@@ -144,5 +144,11 @@ public class FaceDetectionTestFragment extends MachineLearningFragment implement
                 canvas.clipRect(rect);
             }
         }
+    }
+
+    @Override
+    public String returnPercentageValue(DecimalFormat decimalFormat, float probability) {
+        if(probability < 0) return String.valueOf(0.00);
+        return decimalFormat.format(probability * 100);
     }
 }

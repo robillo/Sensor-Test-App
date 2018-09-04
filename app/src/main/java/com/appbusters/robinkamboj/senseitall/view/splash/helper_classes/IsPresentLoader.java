@@ -240,8 +240,8 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
             case FACE_DETECT: {
                 return cameraManager != null;
             }
+            default: return false;
         }
-        return false;
     }
 
     private boolean isPresentAndroid(String element) {

@@ -78,13 +78,19 @@ public class LabelDetectionTestFragment extends MachineLearningFragment implemen
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
         for(FirebaseVisionLabel label : firebaseVisionLabels) {
-            builder.append(label.getLabel()).append(" - ")
-                    .append(decimalFormat.format(label.getConfidence() * 100))
+            builder.append(label.getLabel()).append(" -> ")
+                    .append(returnPercentageValue(decimalFormat, label.getConfidence()))
                     .append("% sure")
                     .append("\n");
         }
         if(getActivity() != null) {
             ((TestActivity) getActivity()).setResultsToBottomSheet(HEADER_TEXT_SCAN, builder.toString());
         }
+    }
+
+    @Override
+    public String returnPercentageValue(DecimalFormat decimalFormat, float probability) {
+        if(probability < 0) return String.valueOf(0.00);
+        return decimalFormat.format(probability * 100);
     }
 }
