@@ -2576,18 +2576,18 @@ This is why a phone with barely enough RAM to keep its system running properly i
     </string-array>
 
     <string-array name="oreo_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://3.bp.blogspot.com/-zsSaVFwO6CY/W47tWePlF9I/AAAAAAAADJg/YjuLGJoN4uMuxz_Fuk3GRq8ztIP-RLYjACK4BGAYYCw/s640/access.jpg</item>
+        <item>https://2.bp.blogspot.com/-VIxV8Z6KOBY/W47tYITp0MI/AAAAAAAADJo/JumZX-yifUIhUeo4FkkrLowdNjeyarleACK4BGAYYCw/s640/adaptive_icons.png</item>
+        <item>https://1.bp.blogspot.com/-DbrMw69jMCA/W47tZVofo4I/AAAAAAAADJw/-5FFYCMAyXMfOBOPOC3PmzRUbhpefly-ACK4BGAYYCw/s640/ambient.jpg</item>
+        <item tools:ignore="TypographyDashes">https://1.bp.blogspot.com/-FSBZBy4VW2s/W47tcuqiD0I/AAAAAAAADJ4/_h_6UZUtx5AksY0-1cmM-Hbuat4u9m7UwCK4BGAYYCw/s640/background.jpg</item>
+        <item>https://4.bp.blogspot.com/-34sVNqHTcbc/W47tdujt2UI/AAAAAAAADKA/kKbCdMQqPcAENGEN8H1gi-ZMFQNfdzRJQCK4BGAYYCw/s640/deep_color.jpg</item>
+        <item>https://2.bp.blogspot.com/-3CQA_txo6wI/W47te51iDMI/AAAAAAAADKI/OemvvVMavZ8SfRZYGgvnGruKUkGISITFgCK4BGAYYCw/s640/fonts.png</item>
+        <item>https://4.bp.blogspot.com/-FDIcqJJthqk/W47tfKMjcyI/AAAAAAAADKQ/IJaoxFUYPS8J-N8aB2C2YN2PFi-DPDLtACK4BGAYYCw/s640/apps.jpg</item>
+        <item>https://1.bp.blogspot.com/-kPmi2H4PTJw/W47tg19V0-I/AAAAAAAADKY/2Byu-FYQJyMLRf7iBpE_mknmb51i9VYBwCK4BGAYYCw/s640/printer.jpg</item>
+        <item>https://1.bp.blogspot.com/-m9IO9N1J-tY/W47tisdS4qI/AAAAAAAADKo/DFOjLUI5st88Q8eJAP2QTlPUeaCVRxy6ACK4BGAYYCw/s640/notif2.jpeg</item>
+        <item>https://3.bp.blogspot.com/-WU8b3YbBn0s/W47tiZPZSxI/AAAAAAAADKg/wAZEGMexMNQiCZ0ZmPN8bpzwQ7Cd-5iCQCK4BGAYYCw/s640/notif1.jpg</item>
+        <item>https://1.bp.blogspot.com/-R2cgmg8i8LY/W47tiyidtXI/AAAAAAAADKw/C29uQ7llmz4HzYwNDqF0Rqwdejl9vSujQCK4BGAYYCw/s640/treble.jpg</item>
+        <item>https://2.bp.blogspot.com/-Smk2MhqdIVM/W47tl7PaHII/AAAAAAAADK4/T94Y3w3w0Qo-wJep-pXujxU-twFqKlogwCK4BGAYYCw/s640/auto_size_tv.png</item>
     </string-array>
 
     <string-array name="nougat__headers">
