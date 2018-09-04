@@ -25,7 +25,7 @@ public class NougatFragment extends AndroidFragment implements NougatInterface {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_nougat, container, false);
-        setup(v);
+        setupView(v);
         return v;
     }
 

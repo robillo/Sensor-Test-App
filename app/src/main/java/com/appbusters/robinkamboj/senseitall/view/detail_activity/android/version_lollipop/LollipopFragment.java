@@ -25,7 +25,7 @@ public class LollipopFragment extends AndroidFragment implements LollipopInterfa
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_lollipop, container, false);
-        setup(v);
+        setupView(v);
         return v;
     }
 

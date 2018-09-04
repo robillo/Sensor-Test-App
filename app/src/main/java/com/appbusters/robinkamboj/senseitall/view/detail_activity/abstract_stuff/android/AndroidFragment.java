@@ -2,23 +2,13 @@ package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuf
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.LearnMoreItem;
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
 import com.appbusters.robinkamboj.senseitall.view.learn_more_activity.LearnMoreAdapter;
 
@@ -27,6 +17,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.KITKAT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LOLLIPOP;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MARSHMALLOW;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NOUGAT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.OREO;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PIE;
 
 public abstract class AndroidFragment extends Fragment implements AndroidInterface {
 
@@ -132,15 +129,47 @@ public abstract class AndroidFragment extends Fragment implements AndroidInterfa
         String recyclerName = activity.recyclerName;
 
         switch (recyclerName) {
-            case AppConstants.PIE: {
+            case PIE: {
                 headers = getResources().getStringArray(R.array.pie_headers);
                 descriptions = getResources().getStringArray(R.array.pie_descriptions);
                 images = getResources().getStringArray(R.array.pie_images);
                 break;
             }
+            case OREO: {
+                headers = getResources().getStringArray(R.array.oreo_headers);
+                descriptions = getResources().getStringArray(R.array.oreo_descriptions);
+                images = getResources().getStringArray(R.array.oreo_images);
+                break;
+            }
+            case NOUGAT: {
+                headers = getResources().getStringArray(R.array.nougat__headers);
+                descriptions = getResources().getStringArray(R.array.nougat_descriptions);
+                images = getResources().getStringArray(R.array.nougat_images);
+                break;
+            }
+            case MARSHMALLOW: {
+                headers = getResources().getStringArray(R.array.marshmallow_headers);
+                descriptions = getResources().getStringArray(R.array.marshmallow_descriptions);
+                images = getResources().getStringArray(R.array.marshmallow_images);
+                break;
+            }
+            case LOLLIPOP: {
+                headers = getResources().getStringArray(R.array.lollipop_headers);
+                descriptions = getResources().getStringArray(R.array.lollipop_descriptions);
+                images = getResources().getStringArray(R.array.lollipop_images);
+                break;
+            }
+            case KITKAT: {
+                headers = getResources().getStringArray(R.array.kitkat_headers);
+                descriptions = getResources().getStringArray(R.array.kitkat_descriptions);
+                images = getResources().getStringArray(R.array.kitkat_images);
+                break;
+            }
         }
 
-        for(int i=0; i<headers.length; i++) list.add(new LearnMoreItem(images[i], headers[i], descriptions[i]));
+        for(int i=0; i<headers.length; i++) {
+            list.add(new LearnMoreItem(null, headers[i], descriptions[i]));
+        }
     }
 
     @Override

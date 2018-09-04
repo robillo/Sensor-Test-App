@@ -2545,4 +2545,332 @@ This is why a phone with barely enough RAM to keep its system running properly i
         <item>https://1.bp.blogspot.com/-U7FsDfDXvY8/W47FC4EVWWI/AAAAAAAADIY/N20vkjg_3Lgga9jzVx7jSjj6UzNBffmKgCK4BGAYYCw/s640/usability.jpg</item>
     </string-array>
 
+    <string-array name="oreo_headers">
+        <item>Accessibility button</item>
+        <item>Adaptive icons</item>
+        <item>Ambient screen</item>
+        <item>Background execution limits</item>
+        <item>Deep colour</item>
+        <item>Downloadable fonts</item>
+        <item>Install unknown apps</item>
+        <item>Integrated printing support</item>
+        <item>Notification categories</item>
+        <item>Notification snoozing</item>
+        <item>Project Treble</item>
+        <item>TextView auto-sizing</item>
+    </string-array>
+
+    <string-array name="oreo_descriptions">
+        <item>Lets you quickly reach accessibility features from the navigation bar, such as magnification, and functionality within accessibility services, such as Select to Speak.</item>
+        <item>Developers can now provide a full-bleed square-shaped icon and OEMs will mask the icon to ensure intra-device consistency.</item>
+        <item>Highlights the incoming notification with larger font, highlighted app name and immediate access to actions.</item>
+        <item>More control over how apps run in the background for better overall system performance.</item>
+        <item>Enables applications to render richer visual content with more vibrant colours and subtler gradients. Supports full colour management, which allows applications to render images in the format and quality they were intended.</item>
+        <item>Applications no longer need to bundle custom fonts, which helps reduce their size.</item>
+        <item>Hostile downloader apps can't operate without permission; users now permit the installation of APKs per-source.</item>
+        <item>Compatible with all Mopria-certified printers, which make up 97% of printers sold worldwide.</item>
+        <item>More granular and consistent control over which notifications can appear and how intrusive they are.</item>
+        <item>Lets users hide notifications for a period of time, similar to inbox snoozing.</item>
+        <item>The biggest change to the foundations of Android to date: A modular architecture that makes it easier and faster for hardware makers to deliver Android updates.</item>
+        <item>Developers can now let the size of their text expand or contract automatically, based on the size and characteristics of the TextView, making it much easier to optimise the text size on different screens or with dynamic content.</item>
+    </string-array>
+
+    <string-array name="oreo_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="nougat__headers">
+        <item>Performance</item>
+        <item>Battery &amp; Data</item>
+        <item>Productivity</item>
+        <item>Notifications</item>
+        <item>System Usability Improvements</item>
+        <item>Emoji</item>
+        <item>Privacy &amp; Security</item>
+        <item>Device Setup &amp; Migration</item>
+        <item>Internationalization</item>
+        <item>Accessibility</item>
+        <item>Android at Work</item>
+    </string-array>
+
+    <string-array name="nougat_descriptions">
+        <item>JIT compiler: The new JIT compiler improves runtime device performance, reduces the amount of storage space required for apps and makes app and system updates much faster.
+VR mode: With VR mode, Android Nougat is ready to transport you to new worlds. Coming soon with Daydream and Daydream-ready phones.
+Vulkan™ API: Vulkan API is a real game changer with high-performance 3D graphics. See apps spring to life with sharper graphics and eye candy effects.</item>
+        <item>Doze: Doze is now dozier, with your device going into lower power usage when you’re on the move. That means your Android device will conserve battery even when it’s jostling around in your pocket.
+Data saver: Limit how much data your device uses with Data Saver. When Data Saver is turned on, apps in the background won't be able to access mobile data.</item>
+        <item>Split-screen mode: Now you can multitask with ease. Run two apps side by side in split-screen mode – watch a movie while texting, or read a recipe with your timer open.
+Picture-in-picture mode: On Android TV, you can continue watching your current video while browsing or changing settings.
+Quick switch: Double tap the Overview button to switch between your two most recently used apps.</item>
+        <item>Bundled notifications: See what’s new at a glance with bundled notifications from individual apps. Simply tap to view each alert.
+Direct reply: Direct reply lets you quickly reply to a message, directly from within the notification shade. So, you no longer need to launch the app to send a quick response.
+Notification controls: When a notification pops up, just press and hold to toggle the settings. For instance, you can silence future alerts from an app in the notification itself.</item>
+        <item>Customisable Quick Settings: Rearrange your Quick Setting tiles so you can get to what you want faster.
+Quick Settings bar: Quick Settings has been redesigned so that you can get faster access to top Quick Settings tiles directly in the notification shade.
+Improved Settings navigation: Find the right setting faster with an updated navigation menu in Settings.
+Settings suggestions: Within Settings, get suggestions for how to get even more out of your device.
+'Clear all' in Overview: Instantly close all of your apps running in the background by tapping 'clear all' in Overview.
+Emergency information: Emergency Information lets you add information such as name, blood type, allergies and an emergency contact so that emergency responders can view this information through your device's lock screen.
+Lockscreen wallpaper: You can now have different wallpapers on your device's homescreen and lockscreen.</item>
+        <item>Unicode 9 emoji: Bring your words to life with all-new emoji, including redesigned human emoji with multiple skin tones.</item>
+        <item>Direct boot: When restarting your device, Direct Boot helps it start up faster and ensures that important communications still run. So before you even put in your password, you'll still get that important text message and hear your alarm clock ring.
+Seamless software updates: On select, new devices running Android Nougat, OS updates can download in the background, so you can go on with your day while your device syncs with the latest OS.
+File-based encryption: Building on top of our security platform, Android Nougat introduces file-based encryption. By encrypting at the file level instead of the block level, Android can better isolate and protect files for individual users on your device.
+Scoped folder access: Apps can request access to specific folders that you can allow or deny access to (just like app runtime permissions). This is a reduced-scope version of the Storage permission for Apps that only need access to certain folders. It can also allow Apps to request direct access to removable media (on devices with that hardware).
+Trusted face: Trusted face, a part of Smart Lock, makes unlocking even easier thanks to a new face recogniser. The new recogniser is less sensitive to conditions like lighting, facial decorations (eyewear, facial hair, etc.), and how you hold your phone. Available on selected devices.</item>
+        <item>Improved system backup coverage: More device settings are covered by Android Backup, including accessibility settings, run-time permissions for apps, Wi-Fi hotspot settings and Wi-Fi network restrictions.</item>
+        <item>Multi-locale support: Select multiple locales in Settings to tailor experiences for you, such as showing search results in multiple languages and not offering to translate web pages in a language you already know.
+New languages supported: Coupled with allowing you to select multiple languages preferences, Android Nougat allows you to select from 100 new languages and 25 locales for commonly used languages such as English, Spanish, French and Arabic. This enables Apps to better support and understand your language preferences, even if your devices lacks official support for it.
+New language preferences: Sort your language preferences so that apps can pick the right keyboard &amp; text for you.</item>
+        <item>Accessibility settings in setup: it’s easier than ever before for you to discover and configure accessibility features on your new device. Set magnification gesture, font size, display size and TalkBack, straight out of the box.
+Display size: Not only can you change the size of the text on your device, but the size of all the display elements like icons and images.
+Accessibility mono output: Accessibility mono output assists users with hearing loss in one ear by combining stereo left- and right-channel output to a single mono stream.
+Variable text-to-speech speed: Variable text-to-speech speed increases productivity of text-to-speech users by allowing setting wider range for speech speed and pitches.</item>
+        <item>Work mode: Work mode allows you to turn on and off your device's work apps and notifications for a better work-life balance.</item>
+    </string-array>
+
+    <string-array name="nougat_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="marshmallow_headers">
+        <item>Contextual Assistance</item>
+        <item>Battery</item>
+        <item>Privacy &amp; Security</item>
+        <item>Android Runtime - ART</item>
+        <item>Productivity</item>
+        <item>System Usability Improvements</item>
+        <item>Connectivity</item>
+        <item>Expandable Storage</item>
+        <item>Device Setup &amp; Migration</item>
+        <item>Media</item>
+        <item>Internationalization</item>
+    </string-array>
+
+    <string-array name="marshmallow_descriptions">
+        <item>Now on Tap: get assistance without having to leave what you’re doing—whether you’re in an app or on a website. Just touch and hold the home button.
+Do more with your voice. Now you can have a dialogue with any of your apps that support the new voice interaction service. For example, if a user says “play some music on TuneIn,” TuneIn will respond by asking “What genre?”.
+Direct Share: a fast and easy way to share to the right person in the right app.</item>
+        <item>Doze: when your device is at rest, Doze automatically puts it into a sleep state to increase your standby battery life.
+App Standby: no more battery drain from seldom used apps; App Standby limits their impact on battery life so your charge lasts longer.
+USB Type C support*: Quickly transfer power and data all through the same cable. Lightning fast charging gives you hours of power in just minutes.</item>
+        <item>On an Android Marshmallow device, apps designed for Android Marshmallow only ask for permission right when it’s needed. You can deny any permission and still continue to use the app.
+Advanced controls to turn permissions on or off for all your installed apps.
+Verified boot: when your Android device boots up, it will warn you if the firmware and Android operating system have been modified from the factory version.
+Use fingerprint sensors* to unlock your device, make purchases in Google Play, authenticate transactions in apps, and pay in stores.</item>
+        <item>Improved application performance and lower memory overhead for faster multi-tasking.</item>
+        <item>Bluetooth™ stylus support*, including pressure sensitivity and modifier keys.
+Improved typesetting and text rendering performance.
+Smarter text selection, built-in undo/redo, and text actions closer to your fingers.
+Text selection actions such as a new Translate option that lets you translate text from one language to another right on the spot. (Note: requires Google Translate app installed)
+Save paper with duplex printing support.</item>
+        <item>App links: enables installed apps to automatically handle their web URLs so you can jump right into the app, rather than the mobile web site, as appropriate.
+Easily toggle and configure Do Not Disturb from quick settings.
+If someone calls you twice within 15 minutes, you can choose to allow the call to ring through while Do Not Disturb is enabled.
+Use automatic rules to enable Do Not Disturb for as many custom time blocks as you like or around events on your calendar.
+Simplified volume controls allow you to manage notification, music, and alarm volumes easily from anywhere with the touch of your volume keys.
+Streamlined Settings let you manage an app’s settings all in one place, from battery and memory usage, to notifications and permissions controls.
+Google Now Launcher app list refreshed with search, fast alphabetic scrolling, and predictive App Suggestions.</item>
+        <item>More power efficient Bluetooth Low Energy (“BLE”) scanning for nearby beacons and your accessories.
+Hotspot 2.0: Connect to compatible Wi-Fi networks seamlessly and securely.
+Bluetooth SAP: Make calls from your carphone using your phone’s SIM.
+Portable Wi-Fi hotspot now supports 5GHz frequency bands.</item>
+        <item>Flex Storage: makes using SD cards or external storage devices as encrypted expanded storage for your apps and games on Android Marshmallow a whole lot easier.</item>
+        <item>Easily transfer your accounts, apps and data to a new device.
+During setup, you can add an additional personal or corporate email account (e.g., IMAP)
+Auto backup for Apps: seamless app data backup and restore.
+Backup/restore of additional system settings such as your Sync settings, preferred apps, Do Not Disturb settings, Accessibility settings and enabled IMEs.</item>
+        <item>MIDI support: create, consume, and perform music using your Android device with USB MIDI devices, MIDI over BLE, and software-based MIDI devices.</item>
+        <item>Android is now available in 74+ languages with 6 new additions: Azerbaijani, Gujarati, Kazakh, Albanian, Urdu, and Uzbek.</item>
+    </string-array>
+
+    <string-array name="marshmallow_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="lollipop_headers">
+        <item>Material Design</item>
+        <item>Notifications</item>
+        <item>Battery</item>
+        <item>Security</item>
+        <item>Device Sharing</item>
+        <item>New Quick Settings</item>
+        <item>Connectivity</item>
+        <item>Runtime &amp; Performance</item>
+        <item>Media</item>
+        <item>OK Google</item>
+        <item>Android TV</item>
+        <item>Accessibility</item>
+    </string-array>
+
+    <string-array name="lollipop_descriptions">
+        <item>A bold, colourful and responsive UI design for consistent, intuitive experiences across all your devices.
+
+Responsive, natural motion, realistic lighting and shadows, and familiar visual elements make it easier to navigate your device.
+Vivid new colours, typography and edge-to-edge imagery help to focus your attention.</item>
+        <item>New ways to control when and how you receive messages – only get interrupted when you want to be.
+
+View and respond to messages directly from your lock screen. Includes the ability to hide sensitive content for these notifications.
+For fewer disruptions, turn on Priority mode via your device’s volume button so only certain people and notifications get through. Or schedule recurring downtime, such as from 10.00 p.m. until 8.00 a.m., when only Priority notifications can get through.
+With Lollipop, incoming phone calls won’t interrupt what you’re watching or playing. You can choose to answer the call or just keep doing what you’re doing.
+Control the notifications triggered by your apps; hide sensitive content and prioritise or turn off the app’s notifications entirely.
+More intelligent ranking of notifications based on who they’re from and the type of communication. See all your notifications in one place by tapping the top of the screen.</item>
+        <item>Power for the long haul
+
+A battery saver feature that extends device use by up to 90 mins.
+Estimated time left to fully charge is displayed when your device is plugged in.
+Estimated time left on your device before you need to charge again can now be found in battery settings.</item>
+        <item>Keep your stuff safe and sound
+
+SELinux enforcing for all applications means even better protection against vulnerabilities and malware.
+Use Android Smart Lock to secure your phone or tablet by pairing it with a trusted device like your wearable or even your car.</item>
+        <item>More flexible sharing with family and friends
+
+Multiple users for phones. If you forget your phone, you still can call any of your friends (or access any of your messages, photos, etc.) by simply logging in to another Android phone running Lollipop. Also perfect for families who want to share a phone, but not their stuff.
+Guest user for phones and tablets means you can lend your device and not your info
+Screen pinning: pin your screen so that another user can access just that content without messing with your other stuff</item>
+        <item>Get to the most frequently used settings with just two swipes down from the top of the screen.
+
+New handy controls like flashlight, hotspot, screen rotation and cast screen controls.
+Easier on/off toggles for Wi-Fi, Bluetooth and location.
+Manually adjust your brightness for certain conditions. Then, adaptive brightness will kick in based on ambient lighting.</item>
+        <item>A better Internet connection everywhere and more powerful Bluetooth low energy capabilities
+
+Improved network handoffs resulting in limited interruption in connectivity. For example, continue your video chat or VoIP calls without interruption as you leave the house and switch from your home Wi-Fi back to mobile.
+Improved network selection logic so that your device connects only if there is a verified Internet connection on Wi-Fi.
+Power-efficient scanning for nearby Bluetooth low energy (“BLE”) devices like wearables or beacons.
+New BLE peripheral mode.</item>
+        <item>A faster, smoother and more powerful computing experience.
+
+ART, an entirely new Android runtime, improves application performance and responsiveness.
+Up to 4x performance improvements.
+Smoother UI for complex, visually rich applications.
+Compacting backgrounded apps and services so that you can do more at once.
+Support for 64-bit devices, like the Nexus 9, brings desktop class CPUs to Android.
+Support for 64-bit SoCs using ARM, x86 and MIPS-based cores.
+Shipping 64-bit native apps like Chrome, Gmail, Calendar, Google Play Music and more.
+Pure Java language apps run as 64-bit apps automatically.</item>
+        <item>Bolder graphics and improved audio, video and camera capabilities.
+
+Lower latency audio input ensuring that music and communication applications that have strict delay requirements provide an amazing realtime experience.
+Multi-channel audio stream mixing means professional audio applications can now mix up to eight channels including 5.1 and 7.1 channels.
+USB Audio support means that you can plug USB microphones, speakers and a myriad of other USB audio devices like amplifiers and mixers into your Android device.
+OpenGL ES 3.1 and Android extension pack brings Android to the forefront of mobile graphics putting it on par with desktop and console class performance.
+A range of new professional photography features for Android Lollipop that let you:
+Capture full resolution frames around 30 fps.
+Support raw formats like YUV and Bayer RAW.
+Control capture settings for the sensor, lens and flash per individual frame.
+Capture metadata like noise models and optical information.
+State-of-the-art video technology with support for HEVC to allow for UHD 4K video playback, tunnelled video for high-quality video playback on Android TV and improved HLS support for streaming.</item>
+        <item>Easy access to information and performing tasks
+
+Even if your screen is off, you can say "OK Google" on devices with digital signal processing support such as Nexus 6 and Nexus 9.
+Talk to Google on the go to get quick answers, send a text, get directions and more.</item>
+        <item>Support for living room devices
+
+User interface adapted for the living room.
+Less browsing, more watching with personalised recommendations for content like films and TV shows.
+Voice search for Google Play, YouTube and supported apps so that you can just see what you want to see.
+Console-style Android gaming on your TV with a gamepad.
+Cast your favourite entertainment apps to your big screen with Google Cast support for Android TV devices.</item>
+        <item>Enhanced low-vision and colour-blind capabilities.
+
+Boost text contrast or invert colours to improve legibility.
+Adjust display to improve colour differentiation.</item>
+    </string-array>
+
+    <string-array name="lollipop_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="kitkat_headers">
+        <item>Bluetooth Map Support</item>
+        <item>Chromecast Support</item>
+        <item>Chrome Web View</item>
+        <item>Closed Captioning</item>
+        <item>Device Management Built In</item>
+        <item>Downloads App Redesign</item>
+        <item>Easy Home Screen Switching</item>
+        <item>Email App Refresh</item>
+        <item>Full Screen Wallpapers</item>
+        <item>HDR+ Photography</item>
+        <item>Infrared Blasting</item>
+        <item>Location In Quick Settings</item>
+        <item>Step Counting Built In</item>
+    </string-array>
+
+    <string-array name="kitkat_descriptions">
+        <item>Android now supports the Message Access Profile (MAP) so Bluetooth-enabled cars can exchange messages with your devices.</item>
+        <item>With your Android device and a Chromecast, you can enjoy your favourite online entertainment, from BBC iPlayer, Netflix, Youtube and Google Play on your HDTV.</item>
+        <item>Applications that embed web content now use Chrome to render web components accurately and quickly.</item>
+        <item>Android now supports closed captioning and subtitles. To turn on closed captioning, go to Settings > Accessibility and turn on Captions.</item>
+        <item>If you ever lose your device, you can find or wipe it with the Android Device Manager</item>
+        <item>The Downloads app has been redesigned, giving you new sorting options and list and grid views for all the files that you've downloaded.</item>
+        <item>If you love to customise your device and have installed one or more home screen replacements, you can switch between them easily in Settings > Home.</item>
+        <item>The redesigned Email app has a fresh new look with nested folders, contact photos and better navigation.</item>
+        <item>Your wallpaper now extends through the notification tray and system buttons. And when you change your wallpaper, you can preview just how it will look before you set it.*</item>
+        <item>HDR+ mode on Nexus 5 automatically snaps a rapid burst of photos and combines them to give you the best possible single shot. Daytime pictures are vivid with clean shadows and night-time photos are sharp with less noise.*</item>
+        <item>On devices with an infrared (IR) blaster, Android now supports applications for remote control of TVs and other nearby devices.</item>
+        <item>Access your location settings from anywhere with a new tile in Quick Settings.</item>
+        <item>When you use fitness apps like Moves on Nexus 5, the phone acts as a pedometer to count steps. Android 4.4 and updated hardware make this a more battery-friendly way to measure your activity.</item>
+    </string-array>
+
+    <string-array name="kitkat_images">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
 </resources>
