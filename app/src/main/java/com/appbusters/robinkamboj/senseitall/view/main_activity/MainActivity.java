@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     public void showSnackBar(String text) {
-        Snackbar snackbar = Snackbar.make(coordinatorLayout, text, Snackbar.LENGTH_LONG);
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, text, 600);
         View view = snackbar.getView();
         TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
