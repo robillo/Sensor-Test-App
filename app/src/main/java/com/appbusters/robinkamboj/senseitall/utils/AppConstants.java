@@ -954,18 +954,6 @@ public class AppConstants {
 
 
         categories.add(new Category(
-                R.drawable.baseline_system_update_black_48,
-                SOFTWARE,
-                softwareNames.size() + " Capabilities")
-        );
-
-        categories.add(new Category(
-                R.drawable.baseline_device_unknown_black_48,
-                DIAGNOSTIC,
-                diagnosticsNames.size() + " Diagnostics")
-        );
-
-        categories.add(new Category(
                 R.drawable.baseline_mobile_friendly_black_48,
                 SENSOR,
                 sensorNames.size() + " Sensors")
@@ -975,6 +963,12 @@ public class AppConstants {
                 R.drawable.baseline_battery_charging_full_black_48,
                 FEATURE,
                 featureNames.size() + " Features")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_system_update_black_48,
+                SOFTWARE,
+                softwareNames.size() + " Capabilities")
         );
 
         categories.add(new Category(
@@ -994,5 +988,11 @@ public class AppConstants {
                 RATE_APP,
                 "Give Feedback")
         );
+
+//        categories.add(new Category(
+//                R.drawable.baseline_device_unknown_black_48,
+//                DIAGNOSTIC,
+//                diagnosticsNames.size() + " Diagnostics")
+//        );
     }
 }
