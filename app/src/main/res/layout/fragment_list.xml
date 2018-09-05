@@ -28,28 +28,28 @@
                     android:layout_marginTop="?android:attr/actionBarSize"
                     android:id="@+id/list_screen">
 
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        app:cardBackgroundColor="@color/colorMajorDark"
-                        android:id="@+id/card_permissions">
+                    <!--<android.support.v7.widget.CardView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="bottom"-->
+                        <!--app:cardBackgroundColor="@color/colorMajorDark"-->
+                        <!--android:id="@+id/card_permissions">-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:paddingLeft="10sp"
-                            android:paddingRight="10sp"
-                            android:paddingTop="5sp"
-                            android:paddingBottom="5sp"
-                            android:text="@string/please_give_permissions"
-                            android:gravity="center_horizontal"
-                            tools:ignore="RtlHardcoded,RtlSymmetry"
-                            android:clickable="false"/>
+                        <!--<TextView-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textColor="@color/white"-->
+                            <!--android:textSize="15sp"-->
+                            <!--android:paddingLeft="10sp"-->
+                            <!--android:paddingRight="10sp"-->
+                            <!--android:paddingTop="5sp"-->
+                            <!--android:paddingBottom="5sp"-->
+                            <!--android:text="@string/please_give_permissions"-->
+                            <!--android:gravity="center_horizontal"-->
+                            <!--tools:ignore="RtlHardcoded,RtlSymmetry"-->
+                            <!--android:clickable="false"/>-->
 
-                    </android.support.v7.widget.CardView>
+                    <!--</android.support.v7.widget.CardView>-->
 
                     <android.support.v7.widget.RecyclerView
                         android:layout_width="match_parent"

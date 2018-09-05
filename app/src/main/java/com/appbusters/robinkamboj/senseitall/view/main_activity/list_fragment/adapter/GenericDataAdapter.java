@@ -34,14 +34,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BARCODE_READER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LABEL_GENERATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_HEART_RATE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
@@ -120,6 +124,10 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
 
         boolean isGiven = true;
         switch (sensorName) {
+            case FACE_DETECT:
+            case BARCODE_READER:
+            case TEXT_SCAN:
+            case LABEL_GENERATOR:
             case BACK_CAMERA:
             case FRONT_CAMERA: {
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {

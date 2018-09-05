@@ -157,7 +157,7 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
     @Override
     public void hideGoToTestIfNoTest() {
-        if(getActivity() != null && AppConstants.isTestMap.get(((DetailActivity) getActivity()).recyclerName) == null) {
+        if(getActivity() != null && !AppConstants.isTestMap.get(((DetailActivity) getActivity()).recyclerName)) {
             goToTest.setVisibility(View.GONE);
         }
     }

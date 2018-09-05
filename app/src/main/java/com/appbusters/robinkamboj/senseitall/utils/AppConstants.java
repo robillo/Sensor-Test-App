@@ -196,7 +196,7 @@ public class AppConstants {
     public static HashMap<String, String> sensorMapDirections = new HashMap<>();
     public static HashMap<String, String> sensorMapHints = new HashMap<>();
     public static HashMap<String, Integer> mapAbout = new HashMap<>();
-    public static HashMap<String, String> versionMapUri = new HashMap<>();
+//    public static HashMap<String, String> versionMapUri = new HashMap<>();
 
     static {
 
@@ -409,12 +409,12 @@ public class AppConstants {
         imageUrlMap.put(TEXT_SCAN, R.drawable.baseline_text_format_black_48);
         imageUrlMap.put(LABEL_GENERATOR, R.drawable.baseline_speaker_notes_black_48);
 
-        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
-        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
-        versionMapUri.put(NOUGAT, "https://developer.android.com/about/versions/nougat");
-        versionMapUri.put(MARSHMALLOW, "https://developer.android.com/about/versions/marshmallow");
-        versionMapUri.put(LOLLIPOP, "https://developer.android.com/about/versions/lollipop");
-        versionMapUri.put(KITKAT, "https://developer.android.com/about/versions/kitkat");
+//        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
+//        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
+//        versionMapUri.put(NOUGAT, "https://developer.android.com/about/versions/nougat");
+//        versionMapUri.put(MARSHMALLOW, "https://developer.android.com/about/versions/marshmallow");
+//        versionMapUri.put(LOLLIPOP, "https://developer.android.com/about/versions/lollipop");
+//        versionMapUri.put(KITKAT, "https://developer.android.com/about/versions/kitkat");
 
         packageManagerPaths.put(BACK_CAMERA, PackageManager.FEATURE_CAMERA);
         packageManagerPaths.put(FRONT_CAMERA, PackageManager.FEATURE_CAMERA_FRONT);

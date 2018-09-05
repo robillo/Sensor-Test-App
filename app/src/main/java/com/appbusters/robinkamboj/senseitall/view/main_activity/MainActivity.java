@@ -24,8 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
-public class MainActivity extends AppCompatActivity
-        implements MainActivityInterface {
+public class MainActivity extends AppCompatActivity implements MainActivityInterface {
 
     @BindView(R.id.container)
     FrameLayout fragmentContainer;

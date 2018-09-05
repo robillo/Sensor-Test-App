@@ -137,8 +137,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @BindView(R.id.toolbar)
     LinearLayout toolbar;
 
-    @BindView(R.id.card_permissions)
-    CardView permissionsCard;
+//    @BindView(R.id.card_permissions)
+//    CardView permissionsCard;
 
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
@@ -415,10 +415,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 if(!b) rejectedCount++;
             }
 
-        if(rejectedCount == 0)
-            permissionsCard.setVisibility(GONE);
-        else
-            permissionsCard.setVisibility(VISIBLE);
+//        if(rejectedCount == 0)
+//            permissionsCard.setVisibility(GONE);
+//        else
+//            permissionsCard.setVisibility(VISIBLE);
 
         return rejectedCount;
     }
@@ -433,12 +433,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @Override
     public void togglePermissionCardVisibility() {
-        if(headerTextString.equals(RATE_YOUR_EXPERIENCE))
-            permissionsCard.setVisibility(GONE);
-        else {
-            if(rejectedCount > 0) permissionsCard.setVisibility(VISIBLE);
-            else permissionsCard.setVisibility(GONE);
-        }
+//        if(headerTextString.equals(RATE_YOUR_EXPERIENCE))
+//            permissionsCard.setVisibility(GONE);
+//        else {
+//            if(rejectedCount > 0) permissionsCard.setVisibility(VISIBLE);
+//            else permissionsCard.setVisibility(GONE);
+//        }
     }
 
     @Override
@@ -603,11 +603,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
     }
 
-    @OnClick(R.id.card_permissions)
-    public void askPermissions() {
-        if(getActivity() != null)
-            ((MainActivity) getActivity()).setRequestFragment();
-    }
+//    @OnClick(R.id.card_permissions)
+//    public void askPermissions() {
+//        if(getActivity() != null)
+//            ((MainActivity) getActivity()).setRequestFragment();
+//    }
 
     @OnClick(R.id.image_five_stars)
     public void giveImageFiveStars() {
