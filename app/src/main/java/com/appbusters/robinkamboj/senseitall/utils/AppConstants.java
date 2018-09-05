@@ -554,21 +554,29 @@ public class AppConstants {
                 SENSOR_PRESSURE,
                 "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
-        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
         sensorMapDirections.put(
-                MOTION_DETECT,
-                ""
+                VIRTUAL_REALITY,
+                "Move the screen to observe the virtual world."
+        );
+        sensorMapDirections.put(
+                LABEL_GENERATOR,
+                "Capture / Upload an image to generate labels."
         );
         sensorMapDirections.put(
                 FACE_DETECT,
-                ""
+                "Capture / Upload an image to detect faces."
         );
         sensorMapDirections.put(
                 BARCODE_READER,
-                ""
+                "Capture / Upload an image to detect barcodes."
         );
         sensorMapDirections.put(
                 TEXT_SCAN,
+                "Capture / Upload an image to detect text."
+        );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        sensorMapDirections.put(
+                MOTION_DETECT,
                 ""
         );
         sensorMapDirections.put(
@@ -577,14 +585,6 @@ public class AppConstants {
         );
         sensorMapDirections.put(
                 AUGMENTED_REALITY,
-                ""
-        );
-        sensorMapDirections.put(
-                VIRTUAL_REALITY,
-                ""
-        );
-        sensorMapDirections.put(
-                LABEL_GENERATOR,
                 ""
         );
 
@@ -680,21 +680,29 @@ public class AppConstants {
                 SENSOR_PRESSURE,
                 "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
-        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
-        sensorMapHints.put(
-                MOTION_DETECT,
-                ""
-        );
         sensorMapHints.put(
                 FACE_DETECT,
-                ""
+                "MAKE SURE to set the orientation of the selected image correctly."
         );
         sensorMapHints.put(
                 BARCODE_READER,
-                ""
+                "MAKE SURE to set the orientation of the selected image correctly."
         );
         sensorMapHints.put(
                 TEXT_SCAN,
+                "MAKE SURE to set the orientation of the selected image correctly."
+        );
+        sensorMapHints.put(
+                VIRTUAL_REALITY,
+                "Increase the screen brightness to max for a more pleasant experience."
+        );
+        sensorMapHints.put(
+                LABEL_GENERATOR,
+                "MAKE SURE to set the orientation of the selected image correctly."
+        );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        sensorMapHints.put(
+                MOTION_DETECT,
                 ""
         );
         sensorMapHints.put(
@@ -705,14 +713,7 @@ public class AppConstants {
                 AUGMENTED_REALITY,
                 ""
         );
-        sensorMapHints.put(
-                VIRTUAL_REALITY,
-                ""
-        );
-        sensorMapHints.put(
-                LABEL_GENERATOR,
-                ""
-        );
+
 
         mapAbout.put(
                 SENSOR_PROXIMITY,

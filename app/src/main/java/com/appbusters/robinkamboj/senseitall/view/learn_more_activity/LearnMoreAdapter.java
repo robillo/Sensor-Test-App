@@ -46,7 +46,7 @@ public class LearnMoreAdapter extends RecyclerView.Adapter<LearnMoreAdapter.Lear
         holder.drawable.setPadding(0, 0, 0, 0);
         Glide.with(context)
                 .load(list.get(position).getDrawable())
-                .transition(DrawableTransitionOptions.withCrossFade(1000))
+                .transition(DrawableTransitionOptions.withCrossFade(500))
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.drawable);
         holder.content.setText(list.get(position).getContent());
