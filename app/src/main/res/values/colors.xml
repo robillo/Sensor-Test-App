@@ -32,6 +32,7 @@
     <color name="green_shade_one">#1E4000</color>
     <color name="green_shade_two">#3C7F00</color>
     <color name="green_shade_three">#5ABF00</color>
+    <color name="green_shade_three_whiter">#5ABF00</color>
     <color name="green_shade_three_tx">#ac5abf00</color>
     <color name="green_shade_four">#77FF00</color>
     <color name="green_shade_three_tx_tx">#3c5abf00</color>

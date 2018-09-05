@@ -1,27 +1,17 @@
 package com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment;
 
-
-import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.hardware.ConsumerIrManager;
-import android.hardware.SensorManager;
-import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -45,23 +35,16 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.adapter.GenericDataAdapter;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.IsPresentLoader;
-import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.content.Context.CONSUMER_IR_SERVICE;
-import static android.content.Context.SENSOR_SERVICE;
-import static android.content.Context.VIBRATOR_SERVICE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -97,7 +80,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private InputMethodManager inputMethodManager;
     private List<GenericData> list;
     private List<PermissionsItem> permissionsItems;
-    private int rejectedCount;
     public boolean isSearching = false;
     private GenericDataAdapter adapter = null;
     private String headerTextString;
@@ -405,7 +387,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public int checkIfAllPermissionsGiven() {
         List<String> permissionNames = AppConstants.dangerousPermissions;
         permissionsItems = new ArrayList<>();
-        rejectedCount = 0;
+        int rejectedCount = 0;
 
         if(getActivity() != null)
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)

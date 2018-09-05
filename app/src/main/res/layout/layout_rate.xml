@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white"
     android:id="@+id/rate_experience_screen"
@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:textColor="@color/colorMajorDark"
+        android:textColor="@color/colorTextThree"
         android:gravity="center"
         android:textSize="25sp"
         android:text="@string/your_experience"/>
@@ -48,13 +48,13 @@
                 android:layout_height="70sp"
                 tools:ignore="ContentDescription"
                 android:src="@drawable/experience"
-                android:tint="@color/colorMajorDark"
+                android:tint="@color/colorTextTwo"
                 android:padding="10sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorMajorDark"
+                android:textColor="@color/colorTextTwo"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="10sp"
                 android:textSize="18sp"
@@ -72,20 +72,27 @@
             android:padding="10sp"
             android:id="@+id/image_five_stars"/>
 
-        <TextView
+        <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/green_shade_three"
             android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:text="@string/rate_us_five_stars_text"
-            android:background="@drawable/oval_button_green"
-            android:paddingLeft="20sp"
-            android:paddingRight="20sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:layout_margin="10sp"
-            android:id="@+id/give_five_stars"/>
+            app:cardBackgroundColor="@color/green_shade_three"
+            app:cardCornerRadius="20sp"
+            android:id="@+id/give_five_stars">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="@string/rate_us_five_stars_text"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:paddingTop="5sp"
+                android:paddingBottom="5sp"
+                android:layout_margin="5sp"/>
+
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 
@@ -114,13 +121,13 @@
                 android:layout_height="70sp"
                 tools:ignore="ContentDescription"
                 android:src="@drawable/missing"
-                android:tint="@color/colorMajorDark"
+                android:tint="@color/colorTextTwo"
                 android:padding="10sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorMajorDark"
+                android:textColor="@color/colorTextTwo"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="10sp"
                 android:textSize="18sp"
@@ -129,20 +136,29 @@
 
         </LinearLayout>
 
-        <TextView
+        <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/green_shade_three"
             android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:text="@string/give_us_feedback"
-            android:background="@drawable/oval_button_green"
-            android:paddingLeft="20sp"
-            android:paddingRight="20sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:layout_margin="10sp"
-            android:id="@+id/give_feedback"/>
+            app:cardBackgroundColor="@color/green_shade_three_tx"
+            app:cardCornerRadius="15sp"
+            app:cardElevation="0sp"
+            android:id="@+id/give_feedback">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:textSize="14sp"
+                android:text="@string/give_us_feedback"
+                android:paddingLeft="7sp"
+                android:paddingRight="7sp"
+                android:paddingTop="4sp"
+                android:paddingBottom="4sp"
+                android:layout_margin="3sp"/>
+
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 
@@ -155,7 +171,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTextTwo"
+        android:textColor="@color/colorTextThree"
         android:text="@string/feedback_currently_under_evaluation"
         android:gravity="center_vertical|start"
         android:padding="10sp"
@@ -179,20 +195,6 @@
                 android:layout_gravity="center_vertical"
                 android:textSize="13sp"
                 android:text="Augmented Reality"
-                android:background="@drawable/oval_button_gray"
-                android:paddingLeft="20sp"
-                android:paddingRight="20sp"
-                android:paddingTop="10sp"
-                android:paddingBottom="10sp"
-                android:layout_margin="5sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorTextTwo"
-                android:layout_gravity="center_vertical"
-                android:textSize="13sp"
-                android:text="Virtual Reality"
                 android:background="@drawable/oval_button_gray"
                 android:paddingLeft="20sp"
                 android:paddingRight="20sp"
