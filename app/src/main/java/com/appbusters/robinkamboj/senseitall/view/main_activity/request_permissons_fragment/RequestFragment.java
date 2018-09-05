@@ -4,7 +4,6 @@ package com.appbusters.robinkamboj.senseitall.view.main_activity.request_permiss
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -23,7 +24,6 @@ import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.request_permissons_fragment.adapter.RequestAdapter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -36,6 +36,12 @@ import butterknife.OnClick;
 public class RequestFragment extends Fragment implements RequestFragmentInterface {
 
     List<PermissionsItem> permissionsItems;
+
+    @BindView(R.id.go_back)
+    FrameLayout goBack;
+
+    @BindView(R.id.load_progress)
+    ProgressBar loadProgress;
 
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
@@ -83,7 +89,6 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
         List<String> rawPermissions = new ArrayList<>();
         for(PermissionsItem item : permissionsItems) {
             rawPermissions.add(item.getPermissionName());
-
             int index = item.getPermissionName().lastIndexOf('.');
             String tempItem = item.getPermissionName().substring(++index);
             tempItem = tempItem.replaceAll("_", " ");
@@ -111,10 +116,22 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
 
     @Override
     public void updatePendingCount(int pendingCount) {
-        if(pendingCount != 0)
-            pendingText.setText(String.format("Amazing... Just %s permission remaining to get started.", pendingCount));
-        else
+        loadProgress.setProgress(
+                (AppConstants.dangerousPermissions.size() - pendingCount)*100/AppConstants.dangerousPermissions.size()
+        );
+        if(pendingCount != 0) {
+            pendingText.setText(
+                    String.format(
+                            "%s out of %s permissions given",
+                            AppConstants.dangerousPermissions.size() - pendingCount,
+                            AppConstants.dangerousPermissions.size()
+                    )
+            );
+        }
+        else {
             pendingText.setText(R.string.press_back_to_get_started);
+            goBack.setVisibility(View.VISIBLE);
+        }
     }
 
     @OnClick(R.id.go_back)

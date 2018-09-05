@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorTextSix">
+        android:background="@color/colorTextFour">
 
         <ImageView
             android:layout_width="match_parent"
@@ -23,9 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:gravity="center"
-            android:textSize="32sp"
+            android:textSize="25sp"
             android:textColor="@color/green_shade_three"
             android:text="@string/allow_permissions"
+            tools:text="CLICK PERMISSION TO ALLOW"
             android:background="@color/white"/>
 
         <ImageView
@@ -34,17 +35,27 @@
             android:background="@color/colorTextTwo"
             tools:ignore="ContentDescription,SmallSp" />
 
+        <ProgressBar
+            style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            tools:progress="2"
+            android:progressDrawable="@drawable/progressbar_states"
+            android:layout_gravity="top"
+            android:id="@+id/load_progress"
+            android:max="100"/>
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="10sp"
             android:textSize="15sp"
-            android:textColor="@color/green_shade_three"
+            android:textColor="@color/colorTextTwo"
+            tools:text="1 out of 7 permissions given"
             android:text=""
-            android:background="@drawable/oval_button_green"
-            android:layout_margin="10sp"
+            android:background="@color/white"
             android:id="@+id/pending_text"/>
 
         <ImageView
@@ -57,7 +68,11 @@
             android:layout_width="match_parent"
             android:layout_height="0sp"
             android:layout_weight="1"
-            android:id="@+id/recycler">
+            android:id="@+id/recycler"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="15sp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginBottom="10sp">
 
         </android.support.v7.widget.RecyclerView>
 
@@ -71,22 +86,24 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:id="@+id/go_back"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5sp"
+                android:background="@color/primary_new_two"
+                tools:ignore="ContentDescription,SmallSp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textSize="20sp"
-                android:textColor="@color/red_shade_three"
+                android:textSize="18sp"
+                android:padding="15sp"
+                android:textColor="@color/primary_new_two"
                 android:text="@string/go_back"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="5sp"
-                android:background="@color/red_shade_three"
-                tools:ignore="ContentDescription,SmallSp"
-                android:layout_gravity="bottom"/>
 
         </FrameLayout>
 

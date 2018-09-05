@@ -206,7 +206,7 @@ public class AppConstants {
         dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
         dangerousPermissions.add(Manifest.permission.RECORD_AUDIO);
         dangerousPermissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-        dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//        dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         diagnosticsNames.add(SENSOR_ACCELEROMETER);
         diagnosticsNames.add(SENSOR_LIGHT);

@@ -188,7 +188,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="allow_permissions">ALLOW PERMISSIONS</string>
+    <string name="allow_permissions">CLICK PERMISSION TO ALLOW</string>
     <string name="go_back">GO BACK</string>
     <string name="allow_all">Allow All</string>
     <string name="ask_permissions_manually"><![CDATA[Please go to Settings -> Apps -> Sense It All - Device Test -> Permissions. \nAnd enable permissions manually]]></string>
