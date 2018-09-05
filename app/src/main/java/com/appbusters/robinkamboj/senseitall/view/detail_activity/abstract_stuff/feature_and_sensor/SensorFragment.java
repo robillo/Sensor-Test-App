@@ -1,9 +1,11 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.feature_and_sensor;
 
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -30,7 +32,9 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CLEAR_SKY
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.EARTH_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLING_VELOCITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FULL_MOON_LUMINANCE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFO_RECYCLER_COUNT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_DYNAMIC_SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_WAKE_UP_SENSOR;
@@ -63,12 +67,21 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.URANUS_GR
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VENDOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VENUS_GRAVITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VERSION;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.reverseDiagnosticsPointer;
 
 public abstract class SensorFragment extends Fragment implements SensorInterface {
 
+    private GenericData intentData;
+    public boolean isViewingMore = false;
     public Sensor sensor;
     public List<SensorDetail> sensorDetails = new ArrayList<>();
+    public List<SensorDetail> subSensorDetails = new ArrayList<>();
+    public BasicInformationAdapter adapter;
+
+    @BindView(R.id.scroll_view)
+    NestedScrollView scrollView;
+
+    @BindView(R.id.view_more)
+    TextView viewMoreStatistics;
 
     @BindView(R.id.info_recycler)
     public RecyclerView infoRecycler;
@@ -108,23 +121,45 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
     @Override
     public void showBasicInformation() {
-        GenericData intentData = null;
-        if(getActivity() != null)
-            intentData = ((DetailActivity) getActivity()).intentData;
+        if(getActivity() != null) intentData = ((DetailActivity) getActivity()).intentData;
+
         infoRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        for(int i=0; i<INFO_RECYCLER_COUNT && i<sensorDetails.size(); i++) {
+            subSensorDetails.add(sensorDetails.get(i));
+        }
+
+        setStatisticsAdapter();
+
+        if(sensorDetails.size() > INFO_RECYCLER_COUNT) {
+            viewMoreStatistics.setVisibility(View.VISIBLE);
+        }
+        else {
+            viewMoreStatistics.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void setStatisticsAdapter() {
+
+        List<SensorDetail> listToShow;
+
+        if(isViewingMore) listToShow = sensorDetails;
+        else listToShow = subSensorDetails;
+
         if(intentData != null)
-            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails, intentData.getName()));
+            adapter = new BasicInformationAdapter(getActivity(), listToShow, intentData.getName());
         else
-            infoRecycler.setAdapter(new BasicInformationAdapter(getActivity(), sensorDetails));
+            adapter = new BasicInformationAdapter(getActivity(), listToShow);
+
+        infoRecycler.setAdapter(adapter);
     }
 
     @Override
     public void hideGoToTestIfNoTest() {
-        if(getActivity() != null)
-            if(AppConstants.diagnosticsPointer.get(((DetailActivity) getActivity()).recyclerName) == null
-                    && reverseDiagnosticsPointer.get((((DetailActivity) getActivity()).intentData.getName())) == null)
-                goToTest.setVisibility(View.GONE);
+        if(getActivity() != null && !AppConstants.isTestMap.get(((DetailActivity) getActivity()).recyclerName)) {
+            goToTest.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -218,7 +253,7 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
     public void setupAbout() {
         if (getActivity() != null) {
             String[] temp = getActivity().getResources().getStringArray(
-                    AppConstants.sensorMapAbout.get(((DetailActivity) getActivity()).intentData.getName())
+                    AppConstants.mapAbout.get(((DetailActivity) getActivity()).intentData.getName())
             );
             about.setText(temp[0]);
         }
@@ -265,6 +300,21 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
             getActivity().startActivity(intent);
             getActivity().overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
+        }
+    }
+
+    @OnClick(R.id.view_more)
+    public void toggleViewMore() {
+        isViewingMore = !isViewingMore;
+
+        if(isViewingMore) {
+            viewMoreStatistics.setText(getString(R.string.less_statistics));
+            setStatisticsAdapter();
+            scrollView.fling(FLING_VELOCITY);
+        }
+        else {
+            viewMoreStatistics.setText(getString(R.string.more_statistics));
+            setStatisticsAdapter();
         }
     }
 }

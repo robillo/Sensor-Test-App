@@ -1,16 +1,17 @@
 package com.appbusters.robinkamboj.senseitall.view.main_activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
@@ -24,8 +25,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
-public class MainActivity extends AppCompatActivity
-        implements MainActivityInterface {
+public class MainActivity extends AppCompatActivity implements MainActivityInterface {
+
+    @BindView(R.id.coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
 
     @BindView(R.id.container)
     FrameLayout fragmentContainer;
@@ -78,10 +81,8 @@ public class MainActivity extends AppCompatActivity
             listFragment.setSearch();
         }
         else {
-            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
-            homeIntent.addCategory(Intent.CATEGORY_HOME);
-            homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(homeIntent);
+            super.onBackPressed();
+            overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
         }
     }
 
@@ -118,6 +119,15 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public void showSnackBar(String text) {
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, text, 600);
+        View view = snackbar.getView();
+        TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        snackbar.show();
+    }
+
+    @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
@@ -134,10 +144,10 @@ public class MainActivity extends AppCompatActivity
                 b = b && result == PackageManager.PERMISSION_GRANTED;
             }
             if(b) {
-                Toast.makeText(this, "Permission(s) granted.", Toast.LENGTH_SHORT).show();
+                showSnackBar("Permission granted");
             }
             else {
-                Toast.makeText(this, "Permission(s) denied.", Toast.LENGTH_SHORT).show();
+                showSnackBar("Permission denied");
             }
         }
     }

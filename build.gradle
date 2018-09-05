@@ -38,7 +38,7 @@ ext {
     targetSdkVersion = 27
     compileSdkVersion = 27
     buildToolsVersion = '27.0.3'
-    constraintLayoutVersion = '1.1.2'
+    constraintLayoutVersion = '1.1.3'
 
     // App dependencies
     supportLibraryVersion = '27.1.1'
@@ -51,6 +51,7 @@ ext {
     spruceVersion = '1.0.1'
     navTabBarVersion = '1.2.5'
     shimmerLayoutVersion = '1.0.2'
+    panoWidgetVersion = '1.160.0'
 
     rx2FastAndroidNetworking = '1.0.0'
 

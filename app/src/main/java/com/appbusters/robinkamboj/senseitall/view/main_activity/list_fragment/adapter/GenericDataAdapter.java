@@ -5,20 +5,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.PorterDuff;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,17 +34,20 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BARCODE_READER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LABEL_GENERATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_HEART_RATE;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.diagnosticsPointer;
 
 public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.GenericViewHolder>
         implements GenericAdapterInterface {
@@ -70,11 +72,16 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
     public void onBindViewHolder(@NonNull final GenericViewHolder holder, final int position) {
         @SuppressWarnings("UnnecessaryLocalVariable") final int pos = position;
 
-        if(list.get(pos).isPresent()) {
-            holder.dataDrawable.setColorFilter(ContextCompat.getColor(context, R.color.colorMajorDark));
+        if(list.get(pos).getType() != TYPE_ANDROID) {
+            if(list.get(pos).isPresent()) {
+                holder.dataDrawable.setColorFilter(ContextCompat.getColor(context, R.color.colorMajorDark));
+            }
+            else {
+                holder.dataDrawable.setColorFilter(ContextCompat.getColor(context, R.color.red_shade_four));
+            }
         }
         else {
-            holder.dataDrawable.setColorFilter(ContextCompat.getColor(context, R.color.red_shade_four));
+            holder.dataDrawable.setColorFilter(0xFFFFFFFF, PorterDuff.Mode.MULTIPLY);
         }
         holder.dataName.setText(list.get(pos).getName());
         Glide.with(context)
@@ -94,10 +101,7 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
                                         R.anim.slide_out_left_activity
                                 );
                     }
-                    else {
-//                        Toast.makeText(context, R.string.give_permissions_first, Toast.LENGTH_SHORT).show();
-                        ((MainActivity) context).setRequestFragment();
-                    }
+                    else ((MainActivity) context).setRequestFragment();
                 }
                 else {
                     Toast.makeText(
@@ -118,12 +122,12 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
     @Override
     public boolean isPermissionGranted(Context context, String sensorName, int sensorType) {
 
-        if(sensorType == TYPE_DIAGNOSTICS) {
-            sensorName = diagnosticsPointer.get(sensorName);
-        }
-
         boolean isGiven = true;
         switch (sensorName) {
+            case FACE_DETECT:
+            case BARCODE_READER:
+            case TEXT_SCAN:
+            case LABEL_GENERATOR:
             case BACK_CAMERA:
             case FRONT_CAMERA: {
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -206,13 +210,8 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
 
         Bundle args = new Bundle();
 
-        if(data.getType() == AppConstants.TYPE_DIAGNOSTICS)
-            args.putString(AppConstants.DATA_NAME, AppConstants.diagnosticsPointer.get(data.getName()));
-        else
-            args.putString(AppConstants.DATA_NAME, data.getName());
-
+        args.putString(AppConstants.DATA_NAME, data.getName());
         args.putString(AppConstants.RECYCLER_NAME, data.getName());
-
         args.putInt(AppConstants.DRAWABLE_ID, data.getDrawableId());
         args.putBoolean(AppConstants.IS_PRESENT, data.isPresent());
         args.putInt(AppConstants.TYPE, data.getType());
@@ -225,7 +224,7 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
     class GenericViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.data_card)
-        CardView dataCard;
+        LinearLayout dataCard;
 
         @BindView(R.id.data_drawable)
         ImageView dataDrawable;

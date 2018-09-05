@@ -16,4 +16,6 @@ public interface MainActivityInterface {
 
     void refreshPermissionsRecycler();
 
+    void showSnackBar(String text);
+
 }

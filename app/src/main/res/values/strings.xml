@@ -1,5 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Sense It All!</string>
+    <string name="app_name_simple">SENSE IT ALL - Device Test</string>
 
     <string-array name="lightPercentages">
         <item>0 to 10 %</item>
@@ -177,22 +178,23 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="showing_sensors_list">SHOWING SENSORS LIST</string>
     <string name="showing_features_list">SHOWING FEATURES LIST</string>
     <string name="rate_your_experience">RATE YOUR EXPERIENCE</string>
-    <string name="please_give_permissions">Some permissions not given. Click here to allow these permissions.</string>
+    <string name="please_give_permissions">Some permissions are not given.\nPlease click here to allow them.</string>
 
     <string name="tag_list_fragment">LIST FRAGMENT</string>
+    <string name="tag_sound_test_fragment">SOUD TEST FRAGMENT</string>
     <string name="tag_request_fragment">REQUEST FRAGMENT</string>
     <string name="tag_directions_fragment">DIRECTIONS FRAGMENT</string>
     <string name="tag_test_fragment">TEST FRAGMENT</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="allow_permissions">ALLOW PERMISSIONS</string>
+    <string name="allow_permissions">CLICK PERMISSION TO ALLOW</string>
     <string name="go_back">GO BACK</string>
     <string name="allow_all">Allow All</string>
     <string name="ask_permissions_manually"><![CDATA[Please go to Settings -> Apps -> Sense It All - Device Test -> Permissions. \nAnd enable permissions manually]]></string>
     <string name="key_statistics">KEY STATISTICS:</string>
     <string name="go_to_test">GO TO TEST</string>
-    <string name="about_sensor">ABOUT:</string>
+    <string name="about_sensor">ABOUT</string>
     <string name="learn_more">LEARN MORE</string>
 
     <string name="about_proximity">
@@ -255,13 +257,30 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="give_us_feedback">GIVE US FEEDBACK</string>
     <string name="rate_us_five_stars_text">RATE US FIVE STARS</string>
     <string name="give_permissions_first">Please give the app permissions first</string>
-    <string name="sorry">Sorry,</string>
-    <string name="not_present">is not present in your device.</string>
+    <string name="sorry">Sorry, </string>
+    <string name="not_present"> is not present in your device.</string>
     <string name="search_hint">Search Here: Light, Flash..</string>
     <string name="x">x =</string>
     <string name="y">y =</string>
     <string name="z">z =</string>
     <string name="press_back_to_get_started">All Set! Press back to get started!</string>
+    <string name="splash_icon">Splash Icon</string>
+    <string name="sense_it_all_abbreviation">S.I.A</string>
+    <string name="device_test_splash">DEVICE TEST</string>
+    <string name="more_statistics">MORE STATISTICS</string>
+    <string name="loading">Loading…</string>
+    <string name="less_statistics">LESS STATISTICS</string>
+    <string name="tag_bottom_sheet">BOTTOM_SHEET</string>
+    <string name="please_show_image">No image is selected. Please select an image first.</string>
+    <string name="okay_snackbar">Okay</string>
+    <string name="please_try_again">It seems like an error has occurred. Please try again.</string>
+    <string name="null_photo_error">Oops. Null photo path.</string>
+    <string name="couldnt_create_error">Oops. Photo file couldn\'t be created. Please try again.</string>
+    <string name="no_image_selected_oops">Oops. Seems like no image was selected.</string>
+    <string name="showing_results">Showing Results..</string>
+    <string name="ram_used">Ram Used :</string>
+    <string name="internal_storage_used">Internal Storage Used :</string>
+    <string name="external_storage_used">External Storage Used :</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>
@@ -1719,6 +1738,144 @@ VR can simulate real workspaces for workplace occupational safety and health pur
         <item>https://1.bp.blogspot.com/-WBhr9cvV5T0/W2HOwDDRU1I/AAAAAAAAC5Y/VWpbP9pLkIY7GUHj33pVOas_FPeuNUD6gCK4BGAYYCw/s1600/vr5.jpg</item>
     </string-array>
 
+    <string-array name="face_detect_headers">
+        <item>Face Detection</item>
+        <item>Face Recognition</item>
+        <item>How Face Detection Works</item>
+        <item>Face Detection vs. Face Recognition</item>
+    </string-array>
+
+    <string-array name="face_detect_descriptions">
+        <item>Fortunately, faces have some easily recognisable features that cameras can lock on to; a pair of eyes, nose, and a mouth. By being able to detect a face in the scene, the camera can concentrate its autofocus on that person\’s face to ensure it is the primary subject in focus within the image. More sophisticated implementations can also link up to scene-recognition algorithms and optimise the exposure for the subject\’s face.\n\n
+
+Once a face has been detected, the system will track that face as best it can. If the person turns away, detection lock will be lost, though some camera manufacturers have enhanced the detection capability to maintain a lock even when the subject has turned to the extent that only one eye remains visible. Some face detection modes can lock onto several faces at once, in which case the face that is used as the primary subject of focus will usually be based on which is closest or most prominent, though sometimes you can override this by selecting a face manually. If several faces are detected at once, not all of them will necessarily be in focus.\n\n</item>
+        <item>Face recognition is an enhanced form of face detection. Instead of simply letting the camera recognise any face in the crowd, you can configure the camera to recognise a particular person\’s face and use this as the focal point. To do this, you simply take a portrait shot of the person you want the camera to recognise and save it in the recognition system\’s memory.\n\n
+            You can usually program in several identities at once. Some camera manufacturers are even starting to supply software that reads the embedded identity data saved in the image file. This could be a useful tool when searching images for a particular person who was recognised by the camera at the time the picture was taken.\n\n</item>
+        <item>While the process is somewhat complex, face detection algorithms often begin by searching for human eyes. Eyes constitute what is known as a valley region and are one of the easiest features to detect. Once eyes are detected, the algorithm might then attempt to detect facial regions including eyebrows, the mouth, nose, nostrils and the iris. Once the algorithm surmises that it has detected a facial region, it can then apply additional tests to validate whether it has, in fact, detected a face.\n\n</item>
+        <item>One of the most important applications of face detection, however, is facial recognition. Face recognition describes a biometric technology that goes way beyond recognizing when a human face is present. It actually attempts to establish whose face it is. The process works using a computer application that captures a digital image of an individual\’s face (sometimes taken from a video frame) and compares it to images in a database of stored records. While facial recognition isn\’t 100% accurate, it can very accurately determine when there is a strong chance that an person’s face matches someone in the database.\n\n
+
+There are lots of applications of face recognition. Face recognition is already being used to unlock phones and specific applications. Face recognition is also used for biometric surveillance. Banks, retail stores, stadiums, airports and other facilities use facial recognition to reduce crime and prevent violence.\n\n
+
+So in short, while all facial recognition systems use face detection, not all face detection systems have a facial recognition component.\n\n</item>
+    </string-array>
+
+    <string-array name="face_detect_images">
+        <item>https://1.bp.blogspot.com/-Qqz4YxGF4dE/W4-uhpiNkmI/AAAAAAAADU0/_qmqdrQR3ZA2dQEL5y_mbq6Av_-kUMgEQCK4BGAYYCw/s640/face1.png</item>
+        <item>https://2.bp.blogspot.com/-Lq5NfPrNQ28/W4-uhLLIyYI/AAAAAAAADUs/ncRi_9rsaqIwYLAibh1gSBiApbA3wZWrwCK4BGAYYCw/s640/recognition.jpg</item>
+        <item>https://2.bp.blogspot.com/-Ec73HD7UoGQ/W4-ugtVmCKI/AAAAAAAADUk/VsvaeZYTbOQdJXnuygi83U6WKJUYUDlYwCK4BGAYYCw/s640/face%2Bworking.jpeg</item>
+        <item>https://3.bp.blogspot.com/-TGZCkYOPEN0/W4-tw20On0I/AAAAAAAADTE/Q1XPapIeTLEhXqFBwrOeKFE6q0TntSKlwCK4BGAYYCw/s640/label%2B2.png</item>
+    </string-array>
+
+    <string-array name="barcode_reader_headers">
+        <item>What Is It?</item>
+        <item>Laser Scanners</item>
+        <item>CCD/LED Scanners</item>
+        <item>Camera Based Readers</item>
+        <item>Resolution</item>
+        <item>How It Works</item>
+    </string-array>
+
+    <string-array name="barcode_reader_descriptions">
+        <item>A bar code reader (or bar code scanner) is an electronic device that can read and output printed barcodes to a computer. Like a flatbed scanner, it consists of a light source, a lens and a light sensor translating optical impulses into electrical ones. Additionally, nearly all barcode readers contain decoder circuitry analyzing the bar code\'s image data provided by the sensor and sending the barcode\'s content to the scanner\'s output port.\n\n</item>
+        <item>Laser scanners work the same way as pen type readers except that they use a laser beam as the light source and typically employ either a reciprocating mirror or a rotating prism to scan the laser beam back and forth across the bar code. As with the pen type reader, a photo-diode is used to measure the intensity of the light reflected back from the bar code. In both pen readers and laser scanners, the light emitted by the reader is rapidly varied in brightness with a data pattern and the photo-diode receive circuitry is designed to detect only signals with the same modulated pattern.\n\n</item>
+        <item>CCD readers use an array of hundreds of tiny light sensors lined up in a row in the head of the reader. Each sensor measures the intensity of the light immediately in front of it. Each individual light sensor in the CCD reader is extremely small and because there are hundreds of sensors lined up in a row, a voltage pattern identical to the pattern in a bar code is generated in the reader by sequentially measuring the voltages across each sensor in the row. The important difference between a CCD reader and a pen or laser scanner is that the CCD reader is measuring emitted ambient light from the bar code whereas pen or laser scanners are measuring reflected light of a specific frequency originating from the scanner itself.\n\n</item>
+        <item>Two-dimensional imaging scanners are a newer type of bar code reader. They use a camera and image processing techniques to decode the bar code.\n\n
+
+Video camera readers use small video cameras with the same CCD technology as in a CCD bar code reader except that instead of having a single row of sensors, a video camera has hundreds of rows of sensors arranged in a two dimensional array so that they can generate an image.\n\n
+
+Large field-of-view readers use high resolution industrial cameras to capture multiple bar codes simultaneously. All the bar codes appearing in the photo are decoded instantly (ImageID patents and code creation tools) or by use of plugins (e.g. the Barcodepedia used a flash application and some web cam for querying a database), have been realized options for resolving the given tasks.\n\n</item>
+        <item>The scanner resolution is measured by the size of the dot of light emitted by the reader. If this dot of light is wider than any bar or space in the bar code, then it will overlap two elements (two spaces or two bars) and it may produce wrong output. On the other hand, if a too small dot of light is used, then it can misinterpret any spot on the bar code making the final output wrong.\n\n
+
+The most commonly used dimension is 13 thou (0.013 in or 0.33 mm), although some scanners can read codes with dimensions as small as 3 thou (0.003 in or 0.075 mm). Most manufacturers advertise bar code resolution in mil, which is interchangeable with thou. Smaller bar codes must be printed at high resolution to be read accurately.\n\n</item>
+        <item>A barcode scanner usually consists of three different parts including the illumination system, the sensor, and the decoder.\n\n
+
+In general, a barcode scanner \“scans\” the black and white elements of a barcode by illuminating the code with a red light, which is then converted into matching text. More specifically, the sensor in the barcode scanner detects the reflected light from the illumination system (the red light) and generates an analog signal that is sent to the decoder. The decoder interprets that signal, validates the barcode using the check digit, and converts it into text.\n\n
+
+This converted text is delivered by the scanner to a computer software system holding a database of the maker, cost, and quantity of all products sold. This video is a quick lesson in barcode scanners and highlights the basic differences between a Contact Scanner, Laser Scanner, and an Imager.\n\n</item>
+    </string-array>
+
+    <string-array name="barcode_reader_images">
+        <item>https://3.bp.blogspot.com/-8j2dhxpqtig/W4-uqgc3BQI/AAAAAAAADVE/V610XX1Z1A0NUn-4wU1DFChsQfNEcMGwgCK4BGAYYCw/s640/barcode%2B4.jpg</item>
+        <item>https://1.bp.blogspot.com/-daO7Zy9rdug/W4-uudFqC4I/AAAAAAAADVk/6yEmZl0IxdQnKm4X9OaDxh5-WcxsduPnwCK4BGAYYCw/s640/laser%2Bscanner.png</item>
+        <item>https://4.bp.blogspot.com/-6hdIwPQZKL4/W4-url5MhKI/AAAAAAAADVM/YxFo_qfqqzsAtQNlwAn4Et_DgHhm-Q6SgCK4BGAYYCw/s640/barcode%2Btwo.jpg</item>
+        <item>https://4.bp.blogspot.com/-VkRXUGbq3Cs/W4-uqTEdLGI/AAAAAAAADU8/FtRvM3EoR2MBQieq3oyrI8SPk5ZBLOokgCK4BGAYYCw/s640/barcode%2Bone.jpg</item>
+        <item>https://4.bp.blogspot.com/-mWP9tsd-DJI/W4-ur3YX_hI/AAAAAAAADVU/f9N-zic7wAswCCMOvQ4GUBOnGwWdhI3UQCK4BGAYYCw/s640/barcode%2B5.jpg</item>
+        <item>https://1.bp.blogspot.com/-O3iUQgYeUnk/W4-uujqVwjI/AAAAAAAADVs/U6vgLteUMD8ERPqFQn6ZLGI0QhKkmktcACK4BGAYYCw/s640/barcode%2B3.jpg</item>
+    </string-array>
+
+    <string-array name="text_scan_headers">
+        <item>OCR - What It Is</item>
+        <item>History</item>
+        <item>Applications</item>
+        <item>Types</item>
+    </string-array>
+
+    <string-array name="text_scan_descriptions">
+        <item>Optical character recognition (also optical character reader, OCR) is the mechanical or electronic conversion of images of typed, handwritten or printed text into machine-encoded text, whether from a scanned document, a photo of a document, a scene-photo (for example the text on signs and billboards in a landscape photo) or from subtitle text superimposed on an image (for example from a television broadcast).\n\n
+
+Widely used as a form of information entry from printed paper data records – whether passport documents, invoices, bank statements, computerised receipts, business cards, mail, printouts of static-data, or any suitable documentation – it is a common method of digitising printed texts so that they can be electronically edited, searched, stored more compactly, displayed on-line, and used in machine processes such as cognitive computing, machine translation, (extracted) text-to-speech, key data and text mining. OCR is a field of research in pattern recognition, artificial intelligence and computer vision.\n\n</item>
+        <item>Early optical character recognition may be traced to technologies involving telegraphy and creating reading devices for the blind. In 1914, Emanuel Goldberg developed a machine that read characters and converted them into standard telegraph code. Concurrently, Edmund Fournier d\'Albe developed the Optophone, a handheld scanner that when moved across a printed page, produced tones that corresponded to specific letters or characters.\n\n
+
+In the late 1920s and into the 1930s Emanuel Goldberg developed what he called a \"Statistical Machine\" for searching microfilm archives using an optical code recognition system. In 1931 he was granted USA Patent number 1,838,389 for the invention. The patent was acquired by IBM.\n\n
+
+With the advent of smart-phones and smartglasses, OCR can be used in internet connected mobile device applications that extract text captured using the device\'s camera. These devices that do not have OCR functionality built into the operating system will typically use an OCR API to extract the text from the image file captured and provided by the device. The OCR API returns the extracted text, along with information about the location of the detected text in the original image back to the device app for further processing (such as text-to-speech) or display.\n\n</item>
+        <item>Data entry for business documents, e.g. check, passport, invoice, bank statement and receipt\n\n
+Automatic number plate recognition\n\n
+In airports, for passport recognition and information extraction\n\n
+Automatic insurance documents key information extraction\n\n
+Extracting business card information into a contact list\n\n
+More quickly make textual versions of printed documents, e.g. book scanning for Project Gutenberg\n\n
+Make electronic images of printed documents searchable, e.g. Google Books\n\n
+Converting handwriting in real time to control a computer (pen computing)\n\n
+Defeating CAPTCHA anti-bot systems, though these are specifically designed to prevent OCR. The purpose can also be to test the robustness of CAPTCHA anti-bot systems.\n\n
+Assistive technology for blind and visually impaired users\n\n</item>
+        <item>Optical character recognition (OCR) – targets typewritten text, one glyph or character at a time.
+Optical word recognition – targets typewritten text, one word at a time (for languages that use a space as a word divider). (Usually just called \"OCR\".)\n\n
+Intelligent character recognition (ICR) – also targets handwritten printscript or cursive text one glyph or character at a time, usually involving machine learning.\n\n
+Intelligent word recognition (IWR) – also targets handwritten printscript or cursive text, one word at a time. This is especially useful for languages where glyphs are not separated in cursive script.\n\n
+OCR is generally an \"offline\" process, which analyses a static document. Handwriting movement analysis can be used as input to handwriting recognition. Instead of merely using the shapes of glyphs and words, this technique is able to capture motions, such as the order in which segments are drawn, the direction, and the pattern of putting the pen down and lifting it. This additional information can make the end-to-end process more accurate. This technology is also known as \"on-line character recognition\", \"dynamic character recognition\", \"real-time character recognition\", and \"intelligent character recognition\".\n\n</item>
+    </string-array>
+
+    <string-array name="text_scan_images">
+        <item>https://2.bp.blogspot.com/-vZ8X082fuMk/W4-uGPqcwQI/AAAAAAAADTo/5xN-oF0I8J0M4Q_UAQ4NL861LmrVSo4EACK4BGAYYCw/s640/ocr%2B2.png</item>
+        <item>https://3.bp.blogspot.com/-uvmZG4Acny0/W4-uHInhWGI/AAAAAAAADT0/j_mwCLKbffQXU740njuy53SyrpgU-0h0gCK4BGAYYCw/s640/ocr%2B3.jpg</item>
+        <item>https://2.bp.blogspot.com/-ib3p7EjDLyY/W4-uHQKnGOI/AAAAAAAADUE/Rr8MjuNpks0PW_KQGI2_u6yG8Et8dqX3ACK4BGAYYCw/s640/ocr%2Bone.jpg</item>
+        <item>https://2.bp.blogspot.com/-Sd41NOaEtrg/W4-uH6ylB-I/AAAAAAAADUM/St-1sZqmVbYORFrFJ_WDNTVRZNfa5s9JwCK4BGAYYCw/s640/ocr%2B5.jpg</item>
+        <item>https://4.bp.blogspot.com/-sSJGrCHoQkI/W4-uHIraXXI/AAAAAAAADUA/D4ufAXeYbMUNsPDh_trrxg5XPyPWZmKVgCK4BGAYYCw/s640/ocr%2B4.png</item>
+    </string-array>
+
+    <string-array name="label_generator_headers">
+        <item>Image Recognition</item>
+        <item>Applications</item>
+        <item>Growth</item>
+        <item>Working</item>
+    </string-array>
+
+    <string-array name="label_generator_descriptions">
+        <item>Image recognition, in the context of machine vision, is the ability of software to identify objects, places, people, writing and actions in images. Computers can use machine vision technologies in combination with a camera and artificial intelligence software to achieve image recognition.\n\n
+
+Image recognition is used to perform a large number of machine-based visual tasks, such as labeling the content of images with meta-tags, performing image content search and guiding autonomous robots, self-driving cars and accident avoidance systems.\n\n
+
+While human and animal brains recognize objects with ease, computers have difficulty with the task. Software for image recognition requires deep machine learning. Performance is best on convolutional neural net processors as the specific task otherwise requires massive amounts of power for its compute-intensive nature. Image recognition algorithms can function by use of comparative 3D models, appearances from different angles using edge detection or by components. Image recognition algorithms are often trained on millions of pre-labeled pictures with guided computer learning.\n\n</item>
+        <item>Current and future applications of image recognition include smart photo libraries, targeted advertising, the interactivity of media, accessibility for the visually impaired and enhanced research capabilities. Google, Facebook, Microsoft, Apple and Pinterest are among the many companies that are investing significant resources and research into image recognition and related applications. Privacy concerns over image recognition and similar technologies are controversial as these companies can pull a large volume of data from user photos uploaded to their social media platforms.\n\n</item>
+        <item>The image recognition market is estimated to grow from USD 15.95 Billion in 2016 to USD 38.92 Billion by 2021, at a CAGR of 19.5% between 2016 and 2021. Advancements in machine learning and use of high bandwidth data services is fueling the growth of this technology. Companies in different sectors such as e-commerce, automotive, healthcare, and gaming are rapidly adopting image recognition. According to the report by MarketsandMarkets, the image recognition market is divided into hardware, software, and services. The hardware segment dominated by smartphones and scanners can play a huge role in the growth of image recognition market. There is an increasing need for security applications and products with innovative technologies such as surveillance cameras and face recognition.\n\n
+
+Image recognition refers to technologies that identify places, logos, people, objects, buildings, and several other variables in images. Users are sharing vast amounts of data through apps, social networks, and websites. Additionally, mobile phones equipped with cameras are leading to the creation of limitless digital images and videos. The large volume of digital data is being used by companies to deliver better and smarter services to the people accessing it.\n\n
+
+Image recognition is a part of computer vision and a process to identify and detect an object or attribute in a digital video or image. Computer vision is a broader term which includes methods of gathering, processing and analyzing data from the real world. The data is high-dimensional and produces numerical or symbolic information in the form of decisions. Apart from image recognition, computer vision also includes event detection, object recognition, learning, image reconstruction and video tracking.\n\n</item>
+        <item>Facebook can now perform face recognize at 98% accuracy which is comparable to the ability of humans. Facebook can identify your friend\’s face with only a few tagged pictures. The efficacy of this technology depends on the ability to classify images. Classification is pattern matching with data. Images are data in the form of 2-dimensional matrices. In fact, image recognition is classifying data into one category out of many. One common and an important example is optical character recognition (OCR). OCR converts images of typed or handwritten text into machine-encoded text.\n\n
+
+The major steps in image recognition process are gather and organize data, build a predictive model and use it to recognize images.\n\n
+
+The human eye perceives an image as a set of signals which are processed by the visual cortex in the brain. This results in a vivid experience of a scene, associated with concepts and objects recorded in one\’s memory. Image recognition tries to mimic this process. Computer perceives an image as either a raster or a vector image. Raster images are a sequence of pixels with discrete numerical values for colors while vector images are a set of color-annotated polygons.\n\n</item>
+    </string-array>
+
+    <string-array name="label_generator_images">
+        <item>https://3.bp.blogspot.com/-LHEoYBSBasQ/W4-twlNDJHI/AAAAAAAADS4/7joXdqzp2tA2YU5zHKlGxPQUYVVIMxCBQCK4BGAYYCw/s640/label%2B1.png</item>
+        <item>https://2.bp.blogspot.com/-xHYPS3pj9Hg/W4-t21k5YcI/AAAAAAAADTY/tlH4W0ElOOgg72mOJhq85hwHBctBVXTAwCK4BGAYYCw/s640/label%2B4.jpeg</item>
+        <item>https://4.bp.blogspot.com/-gNrtP8xlBx0/W4-tw_TLSKI/AAAAAAAADTI/oh9WA45Twe4yS4Qy4O_Jg3nzHr-z2fAEACK4BGAYYCw/s640/label%2B3.png</item>
+        <item>https://3.bp.blogspot.com/-TGZCkYOPEN0/W4-tw20On0I/AAAAAAAADTE/Q1XPapIeTLEhXqFBwrOeKFE6q0TntSKlwCK4BGAYYCw/s640/label%2B2.png</item>
+    </string-array>
 
     <string-array name="fake_touch_headers">
         <item>Touchpad</item>
@@ -2335,6 +2492,526 @@ Motion sensors aren\'t just an additional feature of a security system—they ar
         <item>https://1.bp.blogspot.com/-b2TmTeO5j90/W2KhEMFMhvI/AAAAAAAADDA/-n_JRNXSadsQyLjWFccvj1QxS6QaOJyrwCK4BGAYYCw/s1600/station5.jpg</item>
         <item tools:ignore="TypographyDashes">https://4.bp.blogspot.com/-GTKFjiQHcoo/W2KhMcAuGOI/AAAAAAAADDg/V1qP9dBK2HA102JTCuB3Dwe7id0--mbpgCK4BGAYYCw/s1600/station3.jpg</item>
         <item>https://2.bp.blogspot.com/-14henRVD5P4/W2KhVzQmk-I/AAAAAAAADDs/UiNXDpH6cwYybEatE6PGflyGcIf71SNZACK4BGAYYCw/s1600/station4.jpg</item>
+    </string-array>
+
+    <string-array name="storage_headers">
+        <item>SD (Secure Digital)</item>
+        <item>SD Card Speeds</item>
+        <item>Internal Storage</item>
+        <item>Phone Storage</item>
+        <item>External Storage</item>
+    </string-array>
+
+    <string-array name="storage_descriptions">
+        <item>Secure Digital (SD) is a non-volatile memory card format developed by the SD Card Association (SDA) for use in portable devices.\n\n
+
+The standard was introduced in August 1999 by joint efforts between SanDisk, Panasonic (Matsushita Electric) and Toshiba as an improvement over MultiMediaCards (MMC), and has become the industry standard. The three companies formed SD-3C, LLC, a company that licenses and enforces intellectual property rights associated with SD memory cards and SD host and ancillary products.\n\n
+
+The companies also formed the SD Association (SDA), a non-profit organization, in January 2000 to promote and create SD Card standards. SDA today has about 1,000 member companies. The SDA uses several trademarked logos owned and licensed by SD-3C to enforce compliance with its specifications and assure users of compatibility.\n\n
+
+        Secure Digital includes five card families available in three different sizes. The five families are the original Standard-Capacity (SDSC), the High-Capacity (SDHC), the eXtended-Capacity (SDXC), the Ultra-Capacity (SDUC) and the SDIO, which combines input/output functions with data storage. The three form factors are the original size, the mini size, and the micro size. Electrically passive adapters allow a smaller card to fit and function in a device built for a larger card. The SD card\'s small footprint is an ideal storage medium for smaller, thinner and more portable electronic devices.\n\n</item>
+        <item>SD card speed is customarily rated by its sequential read or write speed. The sequential performance aspect is the most relevant for storing and retrieving large files (relative to block sizes internal to the flash memory), such as images and multimedia. Small data (such as file names, sizes and timestamps) falls under the much lower speed limit of random access, which can be the limiting factor in some use cases.\n\n
+
+With early SD cards, a few card manufacturers specified the speed as a \"times\" (\"×\") rating, which compared the average speed of reading data to that of the original CD-ROM drive. This was superseded by the Speed Class Rating, which guarantees a minimum rate at which data can be written to the card.\n\n
+
+The newer families of SD card improve card speed by increasing the bus rate (the frequency of the clock signal that strobes information into and out of the card). Whatever the bus rate, the card can signal to the host that it is \"busy\" until a read or a write operation is complete. Compliance with a higher speed rating is a guarantee that the card limits its use of the \"busy\" indication.\n\n</item>
+        <item>Internal Storage, also being called System Memory, is used to store the operation system, system apps, and other app data (messages, contacts, email settings, and other personal information). This part of storage is unaccessible to users. To better understand the internal storage, let\'s connect a 32GB Samsung S7 Edge to the computer, we can see there are only 23.9 GB of storage accessible. The remaining 8.1 GB belong to Internal Storage for operating system and sensitive data.\n\n
+
+        When most of the Internal Storage are used, a system file on Internal Storage will trigger a low storage message, reminding us to delete files, even there are much space left in phone storage. That\'s why we find it strange to get the insufficient storage notification with enough space left.\n\n</item>
+        <item>Phone Storage is the space that can actually accessed and used by the users. When we navigate to \"Settings\" > \"Storage\" and open \"Used space\", we can see the files that are stored on Phone Storage, including downloaded apps, pictures, videos, audio, etc. In fact, Phone Storage is the default location for installed apps, games, camera photos, downloaded music and media files. When the phone is connected to PC, this part of storage area behaves much like a SD card, on which you can add or delete files.\n\n</item>
+        <item>External storage generally means removable microSD card that is inserted into the phone to add extra space to the phone. But not all Android models come with SD card slot, for example, most of the Nexus models don\'t support external storage. That\'s simply because cheap SD card usually affects the device\'s performance and make it sluggish. External storage can be used to save media files such as pictures, music, videos while most applications can not be installed on external storage.\n\n
+
+If your mobile phone is OTG supported, you can also use USB driver for external storage.\n\n
+
+Tip: If you accidentally delete media files on SD card, you can restore the lost files from SD card with Android Data Recovery\n\n</item>
+    </string-array>
+
+    <string-array name="storage_images">
+        <item>https://3.bp.blogspot.com/-ejmN87aVi6M/W3sZAk5701I/AAAAAAAADFw/GqqXqbHEVOQBBAhNDwQt4mo3IxP9HcvvgCK4BGAYYCw/s1600/storage1.jpg</item>
+        <item>https://1.bp.blogspot.com/-f2la0OMOyac/W3sZI1eIXiI/AAAAAAAADGQ/Q0-deif-Y4cyZJOkve8qhyHqf0ewkm-vQCK4BGAYYCw/s1600/storage3.jpg</item>
+        <item>https://3.bp.blogspot.com/-PwdFEuOQ1rw/W3sZFAbFm2I/AAAAAAAADGA/itmkdpiEUm84pp6gNr83s0s1npHbjlQtACK4BGAYYCw/s1600/storage4.jpg</item>
+        <item>https://1.bp.blogspot.com/-53Hldbm-7Yw/W3sZFPv398I/AAAAAAAADF4/zaiMrA7_5u8loHvwcH3CtcYNictMBsQ7wCK4BGAYYCw/s1600/storage5.jpg</item>
+        <item>https://4.bp.blogspot.com/-y0U59i3R7MA/W3sZIAgeCoI/AAAAAAAADGI/B-d8_3zxq94GOMk9jlNAjGW9fje0nNX1ACK4BGAYYCw/s1600/storage2.jpg</item>
+    </string-array>
+
+    <string-array name="ram_headers">
+        <item>Introduction</item>
+        <item>History</item>
+        <item>Ram vs Multitasking</item>
+        <item>How Much Ram A Phone Needs</item>
+    </string-array>
+
+    <string-array name="ram_descriptions">
+        <item>Random-access memory (RAM /ræm/) is a form of computer data storage that stores data and machine code currently being used. A random-access memory device allows data items to be read or written in almost the same amount of time irrespective of the physical location of data inside the memory. In contrast, with other direct-access data storage media such as hard disks, CD-RWs, DVD-RWs and the older magnetic tapes and drum memory, the time required to read and write data items varies significantly depending on their physical locations on the recording medium, due to mechanical limitations such as media rotation speeds and arm movement.\n\n
+
+RAM contains multiplexing and de-multiplexing circuitry, to connect the data lines to the addressed storage for reading or writing the entry. Usually more than one bit of storage is accessed by the same address, and RAM devices often have multiple data lines and are said to be \"8-bit\" or \"16-bit\", etc. devices.\n\n
+
+In today\'s technology, random-access memory takes the form of integrated circuits. RAM is normally associated with volatile types of memory (such as DRAM modules), where stored information is lost if power is removed, although non-volatile RAM has also been developed. Other types of non-volatile memories exist that allow random access for read operations, but either do not allow write operations or have other kinds of limitations on them. These include most types of ROM and a type of flash memory called NOR-Flash.</item>
+        <item>Early computers used relays, mechanical counters or delay lines for main memory functions. Ultrasonic delay lines could only reproduce data in the order it was written. Drum memory could be expanded at relatively low cost but efficient retrieval of memory items required knowledge of the physical layout of the drum to optimize speed. Latches built out of vacuum tube triodes, and later, out of discrete transistors, were used for smaller and faster memories such as registers. Such registers were relatively large and too costly to use for large amounts of data; generally only a few dozen or few hundred bits of such memory could be provided.\n\n
+
+The first practical form of random-access memory was the Williams tube starting in 1947. It stored data as electrically charged spots on the face of a cathode ray tube. Since the electron beam of the CRT could read and write the spots on the tube in any order, memory was random access. The capacity of the Williams tube was a few hundred to around a thousand bits, but it was much smaller, faster, and more power-efficient than using individual vacuum tube latches. Developed at the University of Manchester in England, the Williams tube provided the medium on which the first electronically stored program was implemented in the Manchester Baby computer, which first successfully ran a program on 21 June 1948. In fact, rather than the Williams tube memory being designed for the Baby, the Baby was a testbed to demonstrate the reliability of the memory.\n\n
+
+Magnetic-core memory was invented in 1947 and developed up until the mid-1970s. It became a widespread form of random-access memory, relying on an array of magnetized rings. By changing the sense of each ring\'s magnetization, data could be stored with one bit stored per ring. Since every ring had a combination of address wires to select and read or write it, access to any memory location in any sequence was possible.</item>
+        <item>Today\’s phones\’ general storage is random access too, because it\’s comprised of eMMC chips rather than little spinning disc platters, but the most important distinction remains. A phone\’s RAM is going to be much, much faster than the 8GB-64GB storage you use to store apps and music.\n\n
+
+            RAM is used to hold the data a phone, or any computer system, is currently using. That way the speed of the storage doesn\’t become a bottleneck that slows the whole system down.
+
+In the context of a phone, this means a chunk of an app\’s data is loaded into RAM as soon as the app is started. Data is then shifted from RAM into a relatively tiny but even faster chunk of memory, the CPU caches, as it\’s dealt with.
+
+If the CPU is a chef, the cache is their chopping board, RAM the kitchen cupboards, and general storage the supermarket 15 minutes down the road. That gives you an idea of how impossibly slow a phone would be if it really only used the kind of \‘memory\’ we install apps onto.\n\n
+
+            Just as important, RAM is also what holds the data that enables multi-tasking. Some mobile devices now offer real Windows-style multi-tasking, where two apps are running on-screen at once.  A good amount of RAM is crucial for this.\n\n
+
+
+The iPad mini 4 has 2GB RAM, and can perform real multi-tasking thanks to iOS 9. The iPad mini 3 with 1GB RAM cannot. This doesn\’t mean it would be impossible, of course, but that Apple thinks multi-tasking doesn\’t run well enough on a 1GB RAM device.\n\n
+
+This isn\’t the most important kind of mobile multi-tasking, though. RAM is also what lets you flick between apps without having to start from scratch each time. Even if an app isn\’t actively doing anything in the background, RAM is used to create a saved state that the phone can zap back into as if you\’d never left.\n\n
+
+We take all this for granted, but have RAM to thank.\n\n
+        </item>
+        <item>This is the crux of why having more RAM is better. It lets a phone store more of these app snapshots without encroaching on the RAM a phone needs to make its OS run effectively.\n\n
+
+Android and iOS do not run like Windows, though. With a desktop operating system it\’s still possible to open far too many apps, to the point that the computer collapses into a juddering heap. I do this all the time, ending up annoyed at my laptop before realising it\’s only running poorly because I have 70 browser instances open and 100 3MB images loaded on Photoshop. It\’s my fault.\n\n
+
+
+You can\’t really misuse mobile operating systems in the same way because memory management happens automatically, and is more aggressive. Where with Windows yo’d have to start closing apps when you stretch your RAM, iOS and Android simply offload app data from system RAM like a digital PA. Some apps may then still retain some of their \‘state\’ data on the solid state storage, but at this point the app will have to reload fully when you return.\n\n
+
+This is why a phone with barely enough RAM to keep its system running properly is going to be crap at multi-tasking. Leave at app, return 30 seconds later and you\’ll have to wait just as long as you did when you first booted it up.\n\n
+</item>
+    </string-array>
+
+    <string-array name="ram_images">
+        <item>https://3.bp.blogspot.com/-OTCwFdsbPpQ/W3sY7hk_spI/AAAAAAAADFg/8pfdwM_L00Alkq6vY4TzRaV2ugHiONLfQCK4BGAYYCw/s1600/ram4.jpg</item>
+        <item>https://2.bp.blogspot.com/-UuRfiddRUtc/W3sY8A5078I/AAAAAAAADFo/6XRFyQZZktY0VY2Q_QLKGlNZv2BarpNIQCK4BGAYYCw/s1600/ram5.jpg</item>
+        <item>https://2.bp.blogspot.com/-tw2EdR7wflc/W3sY6CmUsWI/AAAAAAAADFY/YmzKJxk53XYNS8kf7acAaD5QEAAZxI6UQCK4BGAYYCw/s1600/ram2.png</item>
+        <item>https://1.bp.blogspot.com/-5DLqFP3f4Rg/W3sY3I430UI/AAAAAAAADFQ/qj5es_qMZ9AHi7WY4uFAJ1qlTYu435QUgCK4BGAYYCw/s1600/ram1.jpg</item>
+    </string-array>
+
+    <string-array name="pie_headers">
+        <item>Accessibility</item>
+        <item>Battery &amp; Brightness</item>
+        <item>Camera</item>
+        <item>Digital Wellbeing</item>
+        <item>Display</item>
+        <item>Enterprise</item>
+        <item>Media</item>
+        <item>Notifications</item>
+        <item>Privacy &amp; Security</item>
+        <item>System Usability Enhancements</item>
+    </string-array>
+
+    <string-array name="pie_descriptions">
+        <item>\n<b>Accessibility Menu:</b> With Android 9\'s new accessibility menu, common actions like taking screenshots and navigating with one hand are now easier for motor impaired users.\n\n
+
+<b>Select to Speak - OCR in Camera View:</b> With Select to Speak, you can select text on the screen and the content will be read aloud. Now, Android 9 has added OCR support for S2S in Camera and Pictures to make text even more accessible. Simply select text when using the camera or in picture, and the text will be highlighted and read aloud.\n\n
+
+<b>Sound amplifier:</b> This new Accessibility Service makes it easier to understand conversations by dynamically adjusting over 100 settings to boost the audio in scenarios such as a loud restaurant, bar, or concert.\n</item>
+        <item>\n<b>Battery Saver:</b> Battery Saver keeps your charge going longer than ever by turning off features like the Always-On display. Plus, you have more control over when it comes on - so you can go further on one charge.\n\n
+
+<b>Adaptive Battery:</b> This feature uses machine learning to predict which apps you\'ll use in the next few hours and which you likely won\'t, so your phone only spends battery power on the apps you care about.\n\n
+
+<b>Adaptive Brightness:</b> With Adaptive Brightness, your phone learns how you set your screen\'s brightness in different lighting environments and automatically does it for you over time.\n\n
+
+<b>Background restrictions:</b> Now, you\'ll see recommendations in Settings to restrict certain apps that use too much battery, so you can have more control over your battery.\n</item>
+        <item>\n<b>Multi-camera support:</b> With Android 9, developers can now create immersive experiences using streams from two or more physical cameras, such as on devices with either dual-front or dual-back cameras. Examples include depth, bokeh, stereo vision, and more.\n\n
+
+<b>External camera support:</b> Android 9 now supports external USB / UVC cameras on certain devices.\n</item>
+        <item>\n<b>Do Not Disturb:</b> Improvements to Do Not Disturb to silence not just notification sounds, but also all the visual interruptions. Calls from starred contacts will still come through, so you don\'t have to worry about missing something urgent.\n\n
+
+<b>App dashboard:</b> Get a daily view of the time spent on your phone, how frequently you use different apps, and how many notifications you get.\n\n
+
+<b>Wind Down:</b> Set a daily schedule to get your phone ready for bed. Grayscale fades your screen to gray while Do Not Disturb silences notifications for a restful sleep.\n\n
+
+<b>App timers:</b> App timers let you set daily time limits for your apps. When you reach the limit, the app is paused for the rest of the day.\n\n</item>
+        <item>\n<b>Display cutout:</b> Support for devices with cutouts to make use of available screen space.\n\n
+
+<b>Edge-to-edge screens:</b> Support for devices with 18:9 and taller aspect ratios, and devices with display cutouts.\n</item>
+        <item>\n<b>Multiple users on dedicated devices:</b> Android 9 makes it easy for users to share a single device, good for shift workers or public kiosks.\n\n
+
+<b>Work tab in launcher:</b> Now, you can visually separate your work apps. Tap on the work tab to see work apps all in one place, and turn them off with a simple toggle when you get off work.\n\n
+
+<b>Postpone Over-the-air (OTA) updates:</b> Android 9 now provides the ability for Enterprise IT admins to define freeze periods up to 90 days during which time devices in their fleet will not update the Android OS. This ensures their devices states remain unchanged during critical time like holidays.\n</item>
+        <item>\n<b>Multiple Bluetooth connections:</b> With Android 9, you can connect up to five Bluetooth devices and switch between these devices seamlessly. Incoming phone calls will be sent to all connected Bluetooth devices that can accept, so you\'ll never miss a call.\n\n
+
+<b>Sound delay reporting:</b> Android 9 offers support for headsets with sound delay reporting, so video on your device and audio on your headphones can always stay in sync.\n\n
+
+<b>Volume memory per Bluetooth device:</b> Android 9 will now remember the last volume you set for each of your Bluetooth devices. No more blasting music too loudly when you reconnect to your car or headphones.\n\n
+
+<b>HDR:</b> Android 9 adds built-in support for High Dynamic Range (HDR) VP9 Profile 2, so you can watch HDR-enabled movies on YouTube and Google Play Movies. HDR improves the brightness and color range of video to improve the picture quality and experience.\n\n
+
+<b>HD Audio:</b> Improved performance and support for HD audio delivering clearer, sharper, and richer quality sound.\n\n
+
+<b>HEIF:</b> Android 9 now supports HEIF photos on the Android platform to improve compression of pictures and reduce the amount of storage needed.\n</item>
+        <item>\n<b>Notification enhancements for messaging:</b> Now, messaging apps can provide suggested \'smart replies\' in the notification, so you can respond in a tap. Plus, any inline reply drafts won\'t disappear if you navigate away, and you\'ll be able to see images sent from your friends right in the notification.\n\n
+
+<b>Manage Notifications:</b> You now have a quick way to turn off notifications from a range of apps, so you only receive those that are helpful to you. You\'ll also get a smart prompt if you\'re swiping away certain notifications whether you want to keep receiving them.\n</item>
+        <item>\n<b>Android Backups:</b> Android 9 enables encryption of Android backups with a client-side secret (the device PIN, pattern or password) for greater security.\n\n
+
+<b>Android biometric prompt:</b> Android 9 introduces a number of new security features, including a standardized biometric authentication prompt to provide a more consistent authentication experience across Android.\n\n
+
+<b>Android Protected Confirmation:</b> On compatible hardware, apps can now use UI controlled by the secure hardware to get your confirmation for a sensitive transaction, such as making a payment.\n\n
+
+<b>StrongBox:</b> On compatible hardware, apps can now take advantage of tamper-resistant hardware to protect their private keys, making it harder than ever for malware to steal their credentials.\n\n
+
+<b>Privacy enhancements:</b> Android 9 safeguards privacy in a number of new ways. Now, Android will restrict access to your phone\'s microphone, camera, or other sensors when an app is idle or running in the background. (If an app does need to access a sensor, it will show a persistent notification on your phone.) Android 9 also brings important improvements that protect all web communications and offer private web surfing.\n</item>
+        <item>\n<b>At-a-Glance on Always-on-Display:</b> See things like calendar events and weather on your Lock Screen and Always-on Display.\n\n
+
+<b>Redesigned Quick Settings:</b> A more consistent user experience for Quick Settings with all toggles, plus an updated visual design and added informational subtext.\n\n
+
+<b>Volume controls:</b> Simpler, more accessible volume controls let you control media volume instantly, as well as quickly toggle call and notification volume settings.\n\n
+
+<b>Screenshots:</b> Now, you can take screenshots easily from the power menu and draw, annotate, or crop them quickly.\n\n
+
+<b>Rotation:</b> Get more control over your phone\’s display rotation with a simple button that confirms when you\’d like to change the rotation on your device - even when your orientation is locked.\n\n
+
+<b>New system navigation:</b> Re-design of Android\'s system navigation to help make it simpler to search and move between apps. Swipe up from anywhere to see full-screen previews of recently used apps, swipe left and right to easily navigate between them, and tap on one to jump in.\n\n
+
+<b>App Actions:</b> App Actions predicts what you\’ll want to do next based on your context and displays that action right on your phone, saving you time.\n\n
+
+<b>Slices:</b> Interactive snippets of your favorite apps can be surfaced in different places, like Google Search.\n\n
+
+<b>Overview Selection:</b> Long-press to select text or image in Overview mode and see actions based on what you\'ve selected (for example, an option to route to an address with Google Maps or share for an image).\n</item>
+    </string-array>
+
+    <string-array name="pie_images">
+        <item>https://3.bp.blogspot.com/-XKUT7dwqLaQ/W47QBq22hVI/AAAAAAAADJQ/T4dI-jur40UZprGYS3tfgX22eeLj4w_nwCLcBGAs/s640/accessibility.jpg</item>
+        <item>https://4.bp.blogspot.com/-anVV4AqL16s/W47E20CgW8I/AAAAAAAADHY/HxGxgzYyEvsSrjbJpox8nHH9AMFkJXRxACK4BGAYYCw/s640/battery.jpg</item>
+        <item>https://1.bp.blogspot.com/-KoJOtgHg2ro/W47E37i9tQI/AAAAAAAADHg/PORiReOel74594WsVdpqwJ0a_7Xhq0CbACK4BGAYYCw/s640/camera.jpg</item>
+        <item>https://3.bp.blogspot.com/-jizmeez94_s/W47PLdXtEnI/AAAAAAAADIw/T3gQK7oh8b0cSTzJOvha3t_5iORiSqE0wCK4BGAYYCw/s640/wellbeing.jpg</item>
+        <item>https://1.bp.blogspot.com/-n5_bt9uBDC4/W47E74A55zI/AAAAAAAADHw/J39LOnqJwWIEI09xwetk7KOLN4z8b4afACK4BGAYYCw/s640/display.png</item>
+        <item>https://1.bp.blogspot.com/-Z0wjT44ofnA/W47PNOc0wmI/AAAAAAAADI4/cTrsB5yB3SA7tPyhu4ZA8k3gscawFNwAwCK4BGAYYCw/s640/enterprise.jpg</item>
+        <item>https://3.bp.blogspot.com/-e8KfuGsjDsA/W47E-YjVDVI/AAAAAAAADIA/uXkpv95Pz0onw_S16xrxs91vc03wvcZ7ACK4BGAYYCw/s640/media.jpg</item>
+        <item>https://2.bp.blogspot.com/-CF10gkg8ZgM/W47E_0ZOzeI/AAAAAAAADII/3YoQh8rpytUSIK9l-Uu35PQ8-d-aFhlMQCK4BGAYYCw/s640/notifications.jpg</item>
+        <item>https://3.bp.blogspot.com/-T0XAs5fFYgs/W47PPGVih5I/AAAAAAAADJA/7CuP0lwi5XQosTAXB1jgnS2R6wA1X54OACK4BGAYYCw/s640/privacie.jpg</item>
+        <item>https://1.bp.blogspot.com/-U7FsDfDXvY8/W47FC4EVWWI/AAAAAAAADIY/N20vkjg_3Lgga9jzVx7jSjj6UzNBffmKgCK4BGAYYCw/s640/usability.jpg</item>
+    </string-array>
+
+    <string-array name="oreo_headers">
+        <item>Accessibility button</item>
+        <item>Adaptive icons</item>
+        <item>Ambient screen</item>
+        <item>Background execution limits</item>
+        <item>Deep colour</item>
+        <item>Downloadable fonts</item>
+        <item>Install unknown apps</item>
+        <item>Integrated printing support</item>
+        <item>Notification categories</item>
+        <item>Notification snoozing</item>
+        <item>Project Treble</item>
+        <item>TextView auto-sizing</item>
+    </string-array>
+
+    <string-array name="oreo_descriptions">
+        <item>Lets you quickly reach accessibility features from the navigation bar, such as magnification, and functionality within accessibility services, such as Select to Speak.</item>
+        <item>Developers can now provide a full-bleed square-shaped icon and OEMs will mask the icon to ensure intra-device consistency.</item>
+        <item>Highlights the incoming notification with larger font, highlighted app name and immediate access to actions.</item>
+        <item>More control over how apps run in the background for better overall system performance.</item>
+        <item>Enables applications to render richer visual content with more vibrant colours and subtler gradients. Supports full colour management, which allows applications to render images in the format and quality they were intended.</item>
+        <item>Applications no longer need to bundle custom fonts, which helps reduce their size.</item>
+        <item>Hostile downloader apps can\'t operate without permission; users now permit the installation of APKs per-source.</item>
+        <item>Compatible with all Mopria-certified printers, which make up 97% of printers sold worldwide.</item>
+        <item>More granular and consistent control over which notifications can appear and how intrusive they are.</item>
+        <item>Lets users hide notifications for a period of time, similar to inbox snoozing.</item>
+        <item>The biggest change to the foundations of Android to date: A modular architecture that makes it easier and faster for hardware makers to deliver Android updates.</item>
+        <item>Developers can now let the size of their text expand or contract automatically, based on the size and characteristics of the TextView, making it much easier to optimise the text size on different screens or with dynamic content.</item>
+    </string-array>
+
+    <string-array name="oreo_images">
+        <item>https://3.bp.blogspot.com/-zsSaVFwO6CY/W47tWePlF9I/AAAAAAAADJg/YjuLGJoN4uMuxz_Fuk3GRq8ztIP-RLYjACK4BGAYYCw/s640/access.jpg</item>
+        <item>https://2.bp.blogspot.com/-VIxV8Z6KOBY/W47tYITp0MI/AAAAAAAADJo/JumZX-yifUIhUeo4FkkrLowdNjeyarleACK4BGAYYCw/s640/adaptive_icons.png</item>
+        <item>https://1.bp.blogspot.com/-DbrMw69jMCA/W47tZVofo4I/AAAAAAAADJw/-5FFYCMAyXMfOBOPOC3PmzRUbhpefly-ACK4BGAYYCw/s640/ambient.jpg</item>
+        <item tools:ignore="TypographyDashes">https://1.bp.blogspot.com/-FSBZBy4VW2s/W47tcuqiD0I/AAAAAAAADJ4/_h_6UZUtx5AksY0-1cmM-Hbuat4u9m7UwCK4BGAYYCw/s640/background.jpg</item>
+        <item>https://4.bp.blogspot.com/-34sVNqHTcbc/W47tdujt2UI/AAAAAAAADKA/kKbCdMQqPcAENGEN8H1gi-ZMFQNfdzRJQCK4BGAYYCw/s640/deep_color.jpg</item>
+        <item>https://2.bp.blogspot.com/-3CQA_txo6wI/W47te51iDMI/AAAAAAAADKI/OemvvVMavZ8SfRZYGgvnGruKUkGISITFgCK4BGAYYCw/s640/fonts.png</item>
+        <item>https://4.bp.blogspot.com/-FDIcqJJthqk/W47tfKMjcyI/AAAAAAAADKQ/IJaoxFUYPS8J-N8aB2C2YN2PFi-DPDLtACK4BGAYYCw/s640/apps.jpg</item>
+        <item>https://1.bp.blogspot.com/-kPmi2H4PTJw/W47tg19V0-I/AAAAAAAADKY/2Byu-FYQJyMLRf7iBpE_mknmb51i9VYBwCK4BGAYYCw/s640/printer.jpg</item>
+        <item>https://1.bp.blogspot.com/-m9IO9N1J-tY/W47tisdS4qI/AAAAAAAADKo/DFOjLUI5st88Q8eJAP2QTlPUeaCVRxy6ACK4BGAYYCw/s640/notif2.jpeg</item>
+        <item>https://3.bp.blogspot.com/-WU8b3YbBn0s/W47tiZPZSxI/AAAAAAAADKg/wAZEGMexMNQiCZ0ZmPN8bpzwQ7Cd-5iCQCK4BGAYYCw/s640/notif1.jpg</item>
+        <item>https://1.bp.blogspot.com/-R2cgmg8i8LY/W47tiyidtXI/AAAAAAAADKw/C29uQ7llmz4HzYwNDqF0Rqwdejl9vSujQCK4BGAYYCw/s640/treble.jpg</item>
+        <item>https://2.bp.blogspot.com/-Smk2MhqdIVM/W47tl7PaHII/AAAAAAAADK4/T94Y3w3w0Qo-wJep-pXujxU-twFqKlogwCK4BGAYYCw/s640/auto_size_tv.png</item>
+    </string-array>
+
+    <string-array name="nougat__headers">
+        <item>Performance</item>
+        <item>Battery &amp; Data</item>
+        <item>Productivity</item>
+        <item>Notifications</item>
+        <item>System Usability Improvements</item>
+        <item>Emoji</item>
+        <item>Privacy &amp; Security</item>
+        <item>Device Setup &amp; Migration</item>
+        <item>Internationalization</item>
+        <item>Accessibility</item>
+        <item>Android at Work</item>
+    </string-array>
+
+    <string-array name="nougat_descriptions">
+        <item>JIT compiler: The new JIT compiler improves runtime device performance, reduces the amount of storage space required for apps and makes app and system updates much faster.
+VR mode: With VR mode, Android Nougat is ready to transport you to new worlds. Coming soon with Daydream and Daydream-ready phones.
+Vulkan™ API: Vulkan API is a real game changer with high-performance 3D graphics. See apps spring to life with sharper graphics and eye candy effects.</item>
+        <item>Doze: Doze is now dozier, with your device going into lower power usage when you\’re on the move. That means your Android device will conserve battery even when it\’s jostling around in your pocket.
+Data saver: Limit how much data your device uses with Data Saver. When Data Saver is turned on, apps in the background won\'t be able to access mobile data.</item>
+        <item>Split-screen mode: Now you can multitask with ease. Run two apps side by side in split-screen mode – watch a movie while texting, or read a recipe with your timer open.
+Picture-in-picture mode: On Android TV, you can continue watching your current video while browsing or changing settings.
+Quick switch: Double tap the Overview button to switch between your two most recently used apps.</item>
+        <item>Bundled notifications: See what\’s new at a glance with bundled notifications from individual apps. Simply tap to view each alert.
+Direct reply: Direct reply lets you quickly reply to a message, directly from within the notification shade. So, you no longer need to launch the app to send a quick response.
+Notification controls: When a notification pops up, just press and hold to toggle the settings. For instance, you can silence future alerts from an app in the notification itself.</item>
+        <item>Customisable Quick Settings: Rearrange your Quick Setting tiles so you can get to what you want faster.
+Quick Settings bar: Quick Settings has been redesigned so that you can get faster access to top Quick Settings tiles directly in the notification shade.
+Improved Settings navigation: Find the right setting faster with an updated navigation menu in Settings.
+Settings suggestions: Within Settings, get suggestions for how to get even more out of your device.
+\'Clear all\' in Overview: Instantly close all of your apps running in the background by tapping \'clear all\' in Overview.
+Emergency information: Emergency Information lets you add information such as name, blood type, allergies and an emergency contact so that emergency responders can view this information through your device\'s lock screen.
+Lockscreen wallpaper: You can now have different wallpapers on your device\'s homescreen and lockscreen.</item>
+        <item>Unicode 9 emoji: Bring your words to life with all-new emoji, including redesigned human emoji with multiple skin tones.</item>
+        <item>Direct boot: When restarting your device, Direct Boot helps it start up faster and ensures that important communications still run. So before you even put in your password, you\'ll still get that important text message and hear your alarm clock ring.
+Seamless software updates: On select, new devices running Android Nougat, OS updates can download in the background, so you can go on with your day while your device syncs with the latest OS.
+File-based encryption: Building on top of our security platform, Android Nougat introduces file-based encryption. By encrypting at the file level instead of the block level, Android can better isolate and protect files for individual users on your device.
+Scoped folder access: Apps can request access to specific folders that you can allow or deny access to (just like app runtime permissions). This is a reduced-scope version of the Storage permission for Apps that only need access to certain folders. It can also allow Apps to request direct access to removable media (on devices with that hardware).
+Trusted face: Trusted face, a part of Smart Lock, makes unlocking even easier thanks to a new face recogniser. The new recogniser is less sensitive to conditions like lighting, facial decorations (eyewear, facial hair, etc.), and how you hold your phone. Available on selected devices.</item>
+        <item>Improved system backup coverage: More device settings are covered by Android Backup, including accessibility settings, run-time permissions for apps, Wi-Fi hotspot settings and Wi-Fi network restrictions.</item>
+        <item>Multi-locale support: Select multiple locales in Settings to tailor experiences for you, such as showing search results in multiple languages and not offering to translate web pages in a language you already know.
+New languages supported: Coupled with allowing you to select multiple languages preferences, Android Nougat allows you to select from 100 new languages and 25 locales for commonly used languages such as English, Spanish, French and Arabic. This enables Apps to better support and understand your language preferences, even if your devices lacks official support for it.
+New language preferences: Sort your language preferences so that apps can pick the right keyboard &amp; text for you.</item>
+        <item>Accessibility settings in setup: it\’s easier than ever before for you to discover and configure accessibility features on your new device. Set magnification gesture, font size, display size and TalkBack, straight out of the box.
+Display size: Not only can you change the size of the text on your device, but the size of all the display elements like icons and images.
+Accessibility mono output: Accessibility mono output assists users with hearing loss in one ear by combining stereo left- and right-channel output to a single mono stream.
+Variable text-to-speech speed: Variable text-to-speech speed increases productivity of text-to-speech users by allowing setting wider range for speech speed and pitches.</item>
+        <item>Work mode: Work mode allows you to turn on and off your device\'s work apps and notifications for a better work-life balance.</item>
+    </string-array>
+
+    <string-array name="nougat_images">
+        <item>https://2.bp.blogspot.com/-IDJBPuR4Rng/W4-AH0ERJVI/AAAAAAAADLc/f_uLJso0HMUX0gHYdIYcN7iYk-VoZkNnwCK4BGAYYCw/s640/performance.png</item>
+        <item>https://1.bp.blogspot.com/-hWtg8b-6aiQ/W4-AIQ96B_I/AAAAAAAADLk/hylR7KJe0uctZg9J0fLboOqrp06ESUKAQCK4BGAYYCw/s640/battery.jpg</item>
+        <item>https://4.bp.blogspot.com/-XdLIAxjtBXQ/W4-AJuo4XFI/AAAAAAAADLs/8uyhHsSh8uwvYngDnpaN-gvvKvNvZm2UACK4BGAYYCw/s640/productivity.jpg</item>
+        <item>https://2.bp.blogspot.com/-4MjWxPTi98w/W4-AKZ1_nuI/AAAAAAAADL0/_XP90AkzI_49QmdR54UvpMLjuoUbuHBlgCK4BGAYYCw/s640/notifications.jpg</item>
+        <item>https://3.bp.blogspot.com/-gxSf0rslX3E/W4-ANBsh9rI/AAAAAAAADME/V-g4oeLsVz43z5GYzUBi-OI8DU8XCi5aACK4BGAYYCw/s640/usability.jpg</item>
+        <item>https://4.bp.blogspot.com/-ZpLhjVk9USY/W4-AO8rnuYI/AAAAAAAADMM/BLkxg1g9jRwbBlcj1WqCOZKrPyaHzy9AQCK4BGAYYCw/s640/empji.jpg</item>
+        <item>https://1.bp.blogspot.com/-bxdLYC7rqYA/W4-ARjHdN_I/AAAAAAAADMc/G9WahkpOPkwKt-ZCL3Z0HhuJZboxQ9zPwCK4BGAYYCw/s640/privacy.jpg</item>
+        <item>https://2.bp.blogspot.com/-SgUvAcG_1zY/W4-AQLNMYrI/AAAAAAAADMU/tr7KHtJVrU8D4wOp85F9s3EQFfio-WgcQCK4BGAYYCw/s640/device.jpg</item>
+        <item>https://3.bp.blogspot.com/-XOuoH9poFLE/W4-AVe9MBQI/AAAAAAAADM0/9B4CHg94PDsKPnzau5jGcqnMk46IgClBgCK4BGAYYCw/s640/international.png</item>
+        <item>https://4.bp.blogspot.com/-CEwvLcBLj4k/W4-AUfS9goI/AAAAAAAADMk/p-5JVDAuQl4_j6SGJms50ufNGfHWat6IACK4BGAYYCw/s640/accessibility.jpg</item>
+        <item>https://3.bp.blogspot.com/-HnDUmRieGHA/W4-AVOV5MkI/AAAAAAAADMs/u2ePNhItqnElOOqM2W09Tm5xmo_iCeCrwCK4BGAYYCw/s640/work.jpg</item>
+    </string-array>
+
+    <string-array name="marshmallow_headers">
+        <item>Contextual Assistance</item>
+        <item>Battery</item>
+        <item>Privacy &amp; Security</item>
+        <item>Android Runtime - ART</item>
+        <item>Productivity</item>
+        <item>System Usability Improvements</item>
+        <item>Connectivity</item>
+        <item>Expandable Storage</item>
+        <item>Device Setup &amp; Migration</item>
+        <item>Media</item>
+        <item>Internationalization</item>
+    </string-array>
+
+    <string-array name="marshmallow_descriptions">
+        <item>Now on Tap: get assistance without having to leave what you\’re doing—whether you\’re in an app or on a website. Just touch and hold the home button.
+Do more with your voice. Now you can have a dialogue with any of your apps that support the new voice interaction service. For example, if a user says “play some music on TuneIn,” TuneIn will respond by asking “What genre?”.
+Direct Share: a fast and easy way to share to the right person in the right app.</item>
+        <item>Doze: when your device is at rest, Doze automatically puts it into a sleep state to increase your standby battery life.
+App Standby: no more battery drain from seldom used apps; App Standby limits their impact on battery life so your charge lasts longer.
+USB Type C support*: Quickly transfer power and data all through the same cable. Lightning fast charging gives you hours of power in just minutes.</item>
+        <item>On an Android Marshmallow device, apps designed for Android Marshmallow only ask for permission right when it\’s needed. You can deny any permission and still continue to use the app.
+Advanced controls to turn permissions on or off for all your installed apps.
+Verified boot: when your Android device boots up, it will warn you if the firmware and Android operating system have been modified from the factory version.
+Use fingerprint sensors* to unlock your device, make purchases in Google Play, authenticate transactions in apps, and pay in stores.</item>
+        <item>Improved application performance and lower memory overhead for faster multi-tasking.</item>
+        <item>Bluetooth™ stylus support*, including pressure sensitivity and modifier keys.
+Improved typesetting and text rendering performance.
+Smarter text selection, built-in undo/redo, and text actions closer to your fingers.
+Text selection actions such as a new Translate option that lets you translate text from one language to another right on the spot. (Note: requires Google Translate app installed)
+Save paper with duplex printing support.</item>
+        <item>App links: enables installed apps to automatically handle their web URLs so you can jump right into the app, rather than the mobile web site, as appropriate.
+Easily toggle and configure Do Not Disturb from quick settings.
+If someone calls you twice within 15 minutes, you can choose to allow the call to ring through while Do Not Disturb is enabled.
+Use automatic rules to enable Do Not Disturb for as many custom time blocks as you like or around events on your calendar.
+Simplified volume controls allow you to manage notification, music, and alarm volumes easily from anywhere with the touch of your volume keys.
+Streamlined Settings let you manage an app\’s settings all in one place, from battery and memory usage, to notifications and permissions controls.
+Google Now Launcher app list refreshed with search, fast alphabetic scrolling, and predictive App Suggestions.</item>
+        <item>More power efficient Bluetooth Low Energy (“BLE”) scanning for nearby beacons and your accessories.
+Hotspot 2.0: Connect to compatible Wi-Fi networks seamlessly and securely.
+Bluetooth SAP: Make calls from your carphone using your phone\’s SIM.
+Portable Wi-Fi hotspot now supports 5GHz frequency bands.</item>
+        <item>Flex Storage: makes using SD cards or external storage devices as encrypted expanded storage for your apps and games on Android Marshmallow a whole lot easier.</item>
+        <item>Easily transfer your accounts, apps and data to a new device.
+During setup, you can add an additional personal or corporate email account (e.g., IMAP)
+Auto backup for Apps: seamless app data backup and restore.
+Backup/restore of additional system settings such as your Sync settings, preferred apps, Do Not Disturb settings, Accessibility settings and enabled IMEs.</item>
+        <item>MIDI support: create, consume, and perform music using your Android device with USB MIDI devices, MIDI over BLE, and software-based MIDI devices.</item>
+        <item>Android is now available in 74+ languages with 6 new additions: Azerbaijani, Gujarati, Kazakh, Albanian, Urdu, and Uzbek.</item>
+    </string-array>
+
+    <string-array name="marshmallow_images">
+        <item>https://1.bp.blogspot.com/-aEGWqlP2MCU/W4-EKjbJXOI/AAAAAAAADNs/H01EDCnQhGU3_VbDnXSxpY4XoOUyWEu1wCK4BGAYYCw/s640/context.jpg</item>
+        <item>https://3.bp.blogspot.com/-YTI0uRIntL0/W4-EJgHDvAI/AAAAAAAADNc/v4tO3b31pRUtqmmSfIHo5U4x84JK3ckJACK4BGAYYCw/s640/battery.jpg</item>
+        <item>https://4.bp.blogspot.com/-tdWlDHzGtbk/W4-EQZN1i2I/AAAAAAAADN4/9CSwFeSLsmgAlRuge6WiA31yZquzWXQCACK4BGAYYCw/s640/privacy.jpg</item>
+        <item>https://1.bp.blogspot.com/-9wQe8Qb5thY/W4-EJEcLb1I/AAAAAAAADNU/i6cJATL27NAov2XQiNbih22GNtLx9Td4QCK4BGAYYCw/s640/art.jpg</item>
+        <item>https://1.bp.blogspot.com/-BWXab3i0mzg/W4-ERTMm_GI/AAAAAAAADOM/8zt4VCVdgtUok_6hnEHcxu-uZpwrbFxHACK4BGAYYCw/s640/productivity.jpg</item>
+        <item>https://3.bp.blogspot.com/-BGOag9mASZ4/W4-ERyBG0gI/AAAAAAAADOc/M6UYxnaaoPgh9W0g9NLz4_lQ-prXb-zgQCK4BGAYYCw/s640/usability.jpg</item>
+        <item>https://1.bp.blogspot.com/-PTyDhqSRQNU/W4-EKNWz1aI/AAAAAAAADNk/48ytLkE5_H0zFiv2v706Slmlq73gAzOrACK4BGAYYCw/s640/connectivity.jpg</item>
+        <item>https://1.bp.blogspot.com/-ZElGMMWXXGc/W4-ERV_aUmI/AAAAAAAADOE/lEafWNpWr_kKTPreNu4KnVZiTmrjLyfjwCK4BGAYYCw/s640/expandable.jpg</item>
+        <item>https://3.bp.blogspot.com/-MG0-VdoLms4/W4-EQiFXcQI/AAAAAAAADN8/p31MVz7ZGwM1oZcOLaZuAdYjgcYuAH_HQCK4BGAYYCw/s640/migration.jpg</item>
+        <item>https://3.bp.blogspot.com/-f9wEVHRk2vo/W4-ERvAPpmI/AAAAAAAADOU/P9Bwie8OMSI1PtoLPyGWEUDeOQMH6acSwCK4BGAYYCw/s640/media.jpg</item>
+        <item>https://2.bp.blogspot.com/-fNLHlK3dNv8/W4-ESqz2ySI/AAAAAAAADOk/lG1g8oU0ew8c2zz-7JaK772HtyMCCh7jgCK4BGAYYCw/s640/internationalization.jpg</item>
+    </string-array>
+
+    <string-array name="lollipop_headers">
+        <item>Material Design</item>
+        <item>Notifications</item>
+        <item>Battery</item>
+        <item>Security</item>
+        <item>Device Sharing</item>
+        <item>New Quick Settings</item>
+        <item>Connectivity</item>
+        <item>Runtime &amp; Performance</item>
+        <item>Media</item>
+        <item>OK Google</item>
+        <item>Android TV</item>
+        <item>Accessibility</item>
+    </string-array>
+
+    <string-array name="lollipop_descriptions">
+        <item>A bold, colourful and responsive UI design for consistent, intuitive experiences across all your devices.
+
+Responsive, natural motion, realistic lighting and shadows, and familiar visual elements make it easier to navigate your device.
+Vivid new colours, typography and edge-to-edge imagery help to focus your attention.</item>
+        <item>New ways to control when and how you receive messages – only get interrupted when you want to be.
+
+View and respond to messages directly from your lock screen. Includes the ability to hide sensitive content for these notifications.
+For fewer disruptions, turn on Priority mode via your device\’s volume button so only certain people and notifications get through. Or schedule recurring downtime, such as from 10.00 p.m. until 8.00 a.m., when only Priority notifications can get through.
+With Lollipop, incoming phone calls won\’t interrupt what you\’re watching or playing. You can choose to answer the call or just keep doing what you\’re doing.
+Control the notifications triggered by your apps; hide sensitive content and prioritise or turn off the app\’s notifications entirely.
+More intelligent ranking of notifications based on who they\’re from and the type of communication. See all your notifications in one place by tapping the top of the screen.</item>
+        <item>Power for the long haul
+
+A battery saver feature that extends device use by up to 90 mins.
+Estimated time left to fully charge is displayed when your device is plugged in.
+Estimated time left on your device before you need to charge again can now be found in battery settings.</item>
+        <item>Keep your stuff safe and sound
+
+SELinux enforcing for all applications means even better protection against vulnerabilities and malware.
+Use Android Smart Lock to secure your phone or tablet by pairing it with a trusted device like your wearable or even your car.</item>
+        <item>More flexible sharing with family and friends
+
+Multiple users for phones. If you forget your phone, you still can call any of your friends (or access any of your messages, photos, etc.) by simply logging in to another Android phone running Lollipop. Also perfect for families who want to share a phone, but not their stuff.
+Guest user for phones and tablets means you can lend your device and not your info
+Screen pinning: pin your screen so that another user can access just that content without messing with your other stuff</item>
+        <item>Get to the most frequently used settings with just two swipes down from the top of the screen.
+
+New handy controls like flashlight, hotspot, screen rotation and cast screen controls.
+Easier on/off toggles for Wi-Fi, Bluetooth and location.
+Manually adjust your brightness for certain conditions. Then, adaptive brightness will kick in based on ambient lighting.</item>
+        <item>A better Internet connection everywhere and more powerful Bluetooth low energy capabilities
+
+Improved network handoffs resulting in limited interruption in connectivity. For example, continue your video chat or VoIP calls without interruption as you leave the house and switch from your home Wi-Fi back to mobile.
+Improved network selection logic so that your device connects only if there is a verified Internet connection on Wi-Fi.
+Power-efficient scanning for nearby Bluetooth low energy (“BLE”) devices like wearables or beacons.
+New BLE peripheral mode.</item>
+        <item>A faster, smoother and more powerful computing experience.
+
+ART, an entirely new Android runtime, improves application performance and responsiveness.
+Up to 4x performance improvements.
+Smoother UI for complex, visually rich applications.
+Compacting backgrounded apps and services so that you can do more at once.
+Support for 64-bit devices, like the Nexus 9, brings desktop class CPUs to Android.
+Support for 64-bit SoCs using ARM, x86 and MIPS-based cores.
+Shipping 64-bit native apps like Chrome, Gmail, Calendar, Google Play Music and more.
+Pure Java language apps run as 64-bit apps automatically.</item>
+        <item>Bolder graphics and improved audio, video and camera capabilities.
+
+Lower latency audio input ensuring that music and communication applications that have strict delay requirements provide an amazing realtime experience.
+Multi-channel audio stream mixing means professional audio applications can now mix up to eight channels including 5.1 and 7.1 channels.
+USB Audio support means that you can plug USB microphones, speakers and a myriad of other USB audio devices like amplifiers and mixers into your Android device.
+OpenGL ES 3.1 and Android extension pack brings Android to the forefront of mobile graphics putting it on par with desktop and console class performance.
+A range of new professional photography features for Android Lollipop that let you:
+Capture full resolution frames around 30 fps.
+Support raw formats like YUV and Bayer RAW.
+Control capture settings for the sensor, lens and flash per individual frame.
+Capture metadata like noise models and optical information.
+State-of-the-art video technology with support for HEVC to allow for UHD 4K video playback, tunnelled video for high-quality video playback on Android TV and improved HLS support for streaming.</item>
+        <item>Easy access to information and performing tasks
+
+Even if your screen is off, you can say "OK Google" on devices with digital signal processing support such as Nexus 6 and Nexus 9.
+Talk to Google on the go to get quick answers, send a text, get directions and more.</item>
+        <item>Support for living room devices
+
+User interface adapted for the living room.
+Less browsing, more watching with personalised recommendations for content like films and TV shows.
+Voice search for Google Play, YouTube and supported apps so that you can just see what you want to see.
+Console-style Android gaming on your TV with a gamepad.
+Cast your favourite entertainment apps to your big screen with Google Cast support for Android TV devices.</item>
+        <item>Enhanced low-vision and colour-blind capabilities.
+
+Boost text contrast or invert colours to improve legibility.
+Adjust display to improve colour differentiation.</item>
+    </string-array>
+
+    <string-array name="lollipop_images">
+        <item>https://2.bp.blogspot.com/-iD6exz3XxEs/W4-Jh0JJwHI/AAAAAAAADQE/j8a9OUO59aMrkjz7Eeg6YtGuewjrgLtlQCK4BGAYYCw/s640/material.jpg</item>
+        <item>https://2.bp.blogspot.com/-_d9mP2YIJUc/W4-JirZScKI/AAAAAAAADQU/V3-OZcwGsxIWLLDVJTKr_S5gpqHNhJoVACK4BGAYYCw/s640/notifications.jpg</item>
+        <item>https://3.bp.blogspot.com/-kAYh5w2GcDk/W4-JhnMHDUI/AAAAAAAADQA/gUuOcyx3rr4N5ygGsH6pO3QLaWJGMauIwCK4BGAYYCw/s640/lollipop.png</item>
+        <item>https://2.bp.blogspot.com/-vHTV0WtEAYs/W4-JgFKkE_I/AAAAAAAADPM/kVD2rdsI-i0xRfczsy4pnUVx2EiOMfSnACK4BGAYYCw/s640/security.jpg</item>
+        <item>https://3.bp.blogspot.com/-ZaM7Sea8ngI/W4-JhD3tsUI/AAAAAAAADPs/fMkooltsTFwLCaSROzqohnahaV2S-edrgCK4BGAYYCw/s640/device_sharing.jpg</item>
+        <item tools:ignore="TypographyDashes">https://2.bp.blogspot.com/--vNiwC1P44g/W4-Jg_fN-LI/AAAAAAAADPo/u7UHcc6aG_Mo-bqiYvHKJF2nT0yEQVcngCK4BGAYYCw/s640/quick%2Bsettings.jpg</item>
+        <item>https://3.bp.blogspot.com/-sKTqx7fShb0/W4-JgUlUYtI/AAAAAAAADPU/q_Yy5jsE1W8mrx7sUtOHj_shWZ8tlceCACK4BGAYYCw/s640/connectivity.jpg</item>
+        <item>https://4.bp.blogspot.com/-8wlKKAk073U/W4-JhZUR1EI/AAAAAAAADP4/CPoJFaucFRMEcJJsRv6AnnE0bNb-lQCRQCK4BGAYYCw/s640/rt.png</item>
+        <item>https://1.bp.blogspot.com/-UN0FP2SM1KY/W4-Jjog5RbI/AAAAAAAADQk/u-P2GXPo8OU8tOPOi_j2cTc5VRfXjg6AgCK4BGAYYCw/s640/media.png</item>
+        <item tools:ignore="Typos">https://3.bp.blogspot.com/-nXIMymA4NQI/W4-JiSG4KEI/AAAAAAAADQM/o4UpiVjNiDsXNyL1ydVsZAGzb3yOkpNgwCK4BGAYYCw/s640/ok%2Bgoogle.jpg</item>
+        <item>https://3.bp.blogspot.com/-w1_9U59laDo/W4-JgoZjFbI/AAAAAAAADPc/Xia0oH3YBIM_1JXXcwNh_HHNZ6_jvID2QCK4BGAYYCw/s640/tv.jpg</item>
+        <item>https://3.bp.blogspot.com/-vIE2kdAYj_8/W4-Jjk4DELI/AAAAAAAADQg/UkyvF2XKP78ob_t0knGzuR2TUiHf-MYGACK4BGAYYCw/s640/accessibility.jpg</item>
+    </string-array>
+
+    <string-array name="kitkat_headers">
+        <item>Bluetooth Map Support</item>
+        <item>Chromecast Support</item>
+        <item>Chrome Web View</item>
+        <item>Closed Captioning</item>
+        <item>Device Management Built In</item>
+        <item>Downloads App Redesign</item>
+        <item>Easy Home Screen Switching</item>
+        <item>Email App Refresh</item>
+        <item>Full Screen Wallpapers</item>
+        <item>HDR+ Photography</item>
+        <item>Infrared Blasting</item>
+        <item>Location In Quick Settings</item>
+        <item>Step Counting Built In</item>
+    </string-array>
+
+    <string-array name="kitkat_descriptions">
+        <item>Android now supports the Message Access Profile (MAP) so Bluetooth-enabled cars can exchange messages with your devices.</item>
+        <item>With your Android device and a Chromecast, you can enjoy your favourite online entertainment, from BBC iPlayer, Netflix, Youtube and Google Play on your HDTV.</item>
+        <item>Applications that embed web content now use Chrome to render web components accurately and quickly.</item>
+        <item>Android now supports closed captioning and subtitles. To turn on closed captioning, go to Settings > Accessibility and turn on Captions.</item>
+        <item>If you ever lose your device, you can find or wipe it with the Android Device Manager</item>
+        <item>The Downloads app has been redesigned, giving you new sorting options and list and grid views for all the files that you\'ve downloaded.</item>
+        <item>If you love to customise your device and have installed one or more home screen replacements, you can switch between them easily in Settings > Home.</item>
+        <item>The redesigned Email app has a fresh new look with nested folders, contact photos and better navigation.</item>
+        <item>Your wallpaper now extends through the notification tray and system buttons. And when you change your wallpaper, you can preview just how it will look before you set it.*</item>
+        <item>HDR+ mode on Nexus 5 automatically snaps a rapid burst of photos and combines them to give you the best possible single shot. Daytime pictures are vivid with clean shadows and night-time photos are sharp with less noise.*</item>
+        <item>On devices with an infrared (IR) blaster, Android now supports applications for remote control of TVs and other nearby devices.</item>
+        <item>Access your location settings from anywhere with a new tile in Quick Settings.</item>
+        <item>When you use fitness apps like Moves on Nexus 5, the phone acts as a pedometer to count steps. Android 4.4 and updated hardware make this a more battery-friendly way to measure your activity.</item>
+    </string-array>
+
+    <string-array name="kitkat_images">
+        <item>https://4.bp.blogspot.com/-UR-kZw0sAnk/W4-c1R9BA1I/AAAAAAAADRA/y3kg_Klm0cUeP1ydX3qzGl9txV1vSiJAwCK4BGAYYCw/s640/bluetooth%2Bmap.jpg</item>
+        <item>https://3.bp.blogspot.com/-7_FXiJiNhSI/W4-c9Zuw4iI/AAAAAAAADSQ/t-6m8US0N4Ath9P8sIVSF6vM7EYIlPQwwCK4BGAYYCw/s640/chrome%2Bcast.jpg</item>
+        <item>https://1.bp.blogspot.com/-WMmkIHfwyxE/W4-c49xsttI/AAAAAAAADRI/Sjhfj8St4dMS7TC08PY63GzLPEdsdwUuQCK4BGAYYCw/s640/web%2Bview.jpeg</item>
+        <item>https://1.bp.blogspot.com/-588XADjZ8Hc/W4-c6SvWdeI/AAAAAAAADR0/5GiE1cobLWA8s9aYQ-L_KwFwVs4WHIYjgCK4BGAYYCw/s640/closed%2Bcaptioning.jpg</item>
+        <item>https://2.bp.blogspot.com/-PVN9BYMA1b8/W4-c6fCPZWI/AAAAAAAADRw/Yh3vAJL62JE7Zb1QrIS2eWOYDNhkrW8xgCK4BGAYYCw/s640/device%2Bmanagement.png</item>
+        <item>https://2.bp.blogspot.com/-wmKiEfLkOkk/W4-c5SZH2pI/AAAAAAAADRY/_SNCQZmkj3o43k30Q3tAogtFl-4iwQZ-ACK4BGAYYCw/s640/downloads%2Bapp.jpg</item>
+        <item>https://3.bp.blogspot.com/-fqBYSVKYucU/W4-c7adcR1I/AAAAAAAADSE/r4KfUFwUPDEDzPz5v6kGM_axrVr-GP-hQCK4BGAYYCw/s640/screen%2Bswitching.jpg</item>
+        <item>https://2.bp.blogspot.com/-FRpz03W1dv0/W4-c-M3oKOI/AAAAAAAADSY/M2xjYpUNhCw6XoTjyZ1WFP7_7DrL3UaxgCK4BGAYYCw/s640/email%2Bapp.png</item>
+        <item>https://3.bp.blogspot.com/-VY41HJR0N_w/W4-c6LyheXI/AAAAAAAADRo/D3_iIybVwQ43gYUqlgg6d8CAK3tGLlPHQCK4BGAYYCw/s640/full%2Bscreen%2Bwallpapers.jpg</item>
+        <item>https://2.bp.blogspot.com/-qfBQ1wSppXI/W4-c-4Tl1lI/AAAAAAAADSg/9-OrrBUgN-A368Nalp4KbZEkhi6xc19AQCK4BGAYYCw/s640/hdr%2Bplus.png</item>
+        <item>https://3.bp.blogspot.com/-ov_nbFAPqfk/W4-c6QX4h9I/AAAAAAAADR4/Otd6NeY7kBwyrXghs8iRgtJ6y2HO2YYHgCK4BGAYYCw/s640/irb.jpg</item>
+        <item>https://4.bp.blogspot.com/-VPMQhP9xvKg/W4-c7TUBYEI/AAAAAAAADSI/69FlUg_xR8cx4XOrw7WAOf4rqJswIwMaACK4BGAYYCw/s640/quick%2Bsettings.jpg</item>
+        <item>https://2.bp.blogspot.com/-fT4dfMf74h4/W4-c5P6cOgI/AAAAAAAADRQ/rgSzItnhwFg9f6iNmZG461eSGPr-XClqwCK4BGAYYCw/s640/step%2Bcounting.jpg</item>
     </string-array>
 
 </resources>

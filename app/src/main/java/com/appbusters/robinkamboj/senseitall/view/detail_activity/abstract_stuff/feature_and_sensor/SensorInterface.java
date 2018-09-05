@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff;
+package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.feature_and_sensor;
 
 import android.view.View;
 
@@ -21,6 +21,8 @@ public interface SensorInterface {
     void hideGoToTestIfNoTest();
 
     void setupAbout();
+
+    void setStatisticsAdapter();
 
     void addToDetailsList(List<SensorDetail> sensorDetails, String key, String value);
 }

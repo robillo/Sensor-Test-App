@@ -9,11 +9,14 @@
     <color name="colorMajorDark">#0083BF</color>
     <color name="colorMajorDarkLighter">#0194d7</color>
     <color name="colorMajorDarkLighterLighter">#01a2ec</color>
+    <color name="colorMajorDarkMuchLighter">#30abe4</color>
     <color name="colorMajorDarkTx">#3f0083bf</color>
 
     <color name="colorPrimaryLight">#B2EBF2</color>
     <color name="colorPrimaryLightTx">#9edaebed</color>
+    <color name="colorPrimaryLightTxMore">#9eeffafa</color>
     <color name="colorPrimaryLightLight">#E1F5FE</color>
+    <color name="colorPrimaryLightLight2">#cfe1e9</color>
     <color name="colorAccentDark">#BF360C</color>
     <color name="colorPrimaryDifferent">#FF3D00</color>
     <color name="colorFlashlightShade">#FFECB3</color>
@@ -29,12 +32,17 @@
     <color name="green_shade_one">#1E4000</color>
     <color name="green_shade_two">#3C7F00</color>
     <color name="green_shade_three">#5ABF00</color>
+    <color name="green_shade_three_whiter">#5ABF00</color>
+    <color name="green_shade_three_tx">#ac5abf00</color>
     <color name="green_shade_four">#77FF00</color>
+    <color name="green_shade_three_tx_tx">#3c5abf00</color>
 
     <color name="red_shade_one">#400007</color>
     <color name="red_shade_two">#7F000D</color>
     <color name="red_shade_three">#FF4C5C</color>
+    <color name="red_shade_three_less_vibrant">#d94f5b</color>
     <color name="red_shade_four">#FF7B86</color>
+    <color name="red_shade_four_tx">#94ff7b86</color>
     <color name="red_shade_five">#fff5f6</color>
     <color name="red_shade_six">#ffa7af</color>
 
@@ -59,6 +67,17 @@
     <color name="colorAlmostWhite">#fbfbfb</color>
     <color name="white_tx">#bbfbfbfb</color>
 
+    <color name="ninety_plus">#1B5E20</color>
+    <color name="eighty_plus">#43A047</color>
+    <color name="seventy_plus">#81C784</color>
+    <color name="sixty_plus">#AEEA00</color>
+    <color name="fifty_plus">#C6FF00</color>
+    <color name="forty_plus">#FFB74D</color>
+    <color name="thirty_plus">#FF9800</color>
+    <color name="twenty_plus">#F57C00</color>
+    <color name="ten_plus">#E65100</color>
+    <color name="zero_plus">#D50000</color>
+
     <array name="intensityColors">
         <item>#212121</item>
         <item>#424242</item>
@@ -72,8 +91,13 @@
         <item>#fafafa</item>
     </array>
 
-    <color name="header_one"></color>
-    <color name="header_two"></color>
-    <color name="header_three"></color>
+    <color name="primary_new">#6540f9</color>
+    <color name="primary_new_gradient">#7957ff</color>
+    <color name="primary_new_light">#947bf7</color>
+
+    <color name="primary_new_two">#6ea4f5</color>
+    <color name="primary_new_two_gradient">#79acf9</color>
+
+    <color name="primary_new_two_lightest">#ebeff5</color>
 
 </resources>

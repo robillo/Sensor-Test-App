@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/web_view">
+
+    </WebView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/error_or_load_text"
+        android:background="@color/white"
+        tools:text="...LOADING..."
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/colorMajorDark"/>
+
+    <ProgressBar
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20sp"
+        tools:progress="50"
+        android:progressDrawable="@drawable/progressbar_states"
+        android:layout_gravity="top"
+        android:id="@+id/load_progress"
+        android:max="100"/>
+
+</FrameLayout>

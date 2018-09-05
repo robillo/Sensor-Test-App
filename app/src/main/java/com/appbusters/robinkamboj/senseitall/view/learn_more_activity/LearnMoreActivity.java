@@ -5,28 +5,28 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
-import com.bumptech.glide.request.RequestOptions;
-import com.shuhart.stepview.StepView;
+import com.appbusters.robinkamboj.senseitall.model.recycler.LearnMoreItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BARCODE_READER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BAROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH;
@@ -34,6 +34,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
@@ -43,11 +44,13 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LABEL_GENERATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MIDI;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.NFC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GRAVITY;
@@ -66,9 +69,12 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ST
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_DETECTOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_TEMPERATURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STORAGE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.USB_ACCESSORY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VR_MODE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WEB_VIEW;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
@@ -78,33 +84,13 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
     public GenericData intentData = new GenericData();
     private String[] headers, descriptions, images;
+    private List<LearnMoreItem> list = new ArrayList<>();
 
-    @BindView(R.id.scroll_view)
-    ScrollView scrollView;
+    @BindView(R.id.recycler)
+    RecyclerView recycler;
 
     @BindView(R.id.more_about_sensor)
     TextView more_about_sensor;
-
-    @BindView(R.id.step_view)
-    StepView stepView;
-
-    @BindView(R.id.previous)
-    TextView previous;
-
-    @BindView(R.id.next)
-    TextView next;
-
-    @BindView(R.id.text_image)
-    ImageView textImage;
-
-    @BindView(R.id.header_text)
-    TextView headerText;
-
-    @BindView(R.id.description_text)
-    TextView descriptionText;
-
-    private int currentStep = 0;
-    private int maxStep = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +108,6 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
         initialize();
 
-        setTexts();
     }
 
     @Override
@@ -134,40 +119,6 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
         view.setSystemUiVisibility(flags);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-    }
-
-    @Override
-    public void manageVisibility() {
-        if(currentStep == 0) {
-            if(previous.getVisibility() == View.VISIBLE) {
-                previous.setVisibility(View.INVISIBLE);
-                previous.setClickable(false);
-            }
-            if(next.getVisibility() == View.INVISIBLE) {
-                next.setVisibility(View.VISIBLE);
-                next.setClickable(true);
-            }
-        }
-        else if(currentStep == maxStep) {
-            if(previous.getVisibility() == View.INVISIBLE) {
-                previous.setVisibility(View.VISIBLE);
-                previous.setClickable(true);
-            }
-            if(next.getVisibility() == View.VISIBLE) {
-                next.setVisibility(View.INVISIBLE);
-                next.setClickable(false);
-            }
-        }
-        else {
-            if(previous.getVisibility() == View.INVISIBLE) {
-                previous.setVisibility(View.VISIBLE);
-                previous.setClickable(true);
-            }
-            if(next.getVisibility() == View.INVISIBLE) {
-                next.setVisibility(View.VISIBLE);
-                next.setClickable(true);
-            }
-        }
     }
 
     @SuppressLint("InlinedApi")
@@ -445,25 +396,58 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
                 images = getResources().getStringArray(R.array.fake_touch_images);
                 break;
             }
+            case RAM: {
+                headers = getResources().getStringArray(R.array.ram_headers);
+                descriptions = getResources().getStringArray(R.array.ram_descriptions);
+                images = getResources().getStringArray(R.array.ram_images);
+                break;
+            }
+            case STORAGE: {
+                headers = getResources().getStringArray(R.array.storage_headers);
+                descriptions = getResources().getStringArray(R.array.storage_descriptions);
+                images = getResources().getStringArray(R.array.storage_images);
+                break;
+            }
+            case FACE_DETECT: {
+                headers = getResources().getStringArray(R.array.face_detect_headers);
+                descriptions = getResources().getStringArray(R.array.face_detect_descriptions);
+                images = getResources().getStringArray(R.array.face_detect_images);
+                break;
+            }
+            case BARCODE_READER: {
+                headers = getResources().getStringArray(R.array.barcode_reader_headers);
+                descriptions = getResources().getStringArray(R.array.barcode_reader_descriptions);
+                images = getResources().getStringArray(R.array.barcode_reader_images);
+                break;
+            }
+            case TEXT_SCAN: {
+                headers = getResources().getStringArray(R.array.text_scan_headers);
+                descriptions = getResources().getStringArray(R.array.text_scan_descriptions);
+                images = getResources().getStringArray(R.array.text_scan_images);
+                break;
+            }
+            case VIRTUAL_REALITY: {
+                headers = getResources().getStringArray(R.array.vr_headers);
+                descriptions = getResources().getStringArray(R.array.vr_descriptions);
+                images = getResources().getStringArray(R.array.vr_images);
+                break;
+            }
+            case LABEL_GENERATOR: {
+                headers = getResources().getStringArray(R.array.label_generator_headers);
+                descriptions = getResources().getStringArray(R.array.label_generator_descriptions);
+                images = getResources().getStringArray(R.array.label_generator_images);
+                break;
+            }
         }
 
-        if(headers != null) maxStep = headers.length - 1;
-        else maxStep = 1;
+        for(int i=0; i<headers.length; i++) list.add(new LearnMoreItem(images[i], headers[i], descriptions[i]));
     }
 
     @Override
-    public void setTexts() {
-        scrollView.smoothScrollTo(0, 0);
-        scrollView.fullScroll(View.FOCUS_UP);
-        if(headers != null) headerText.setText(headers[currentStep].toUpperCase());
-        if(descriptions != null) descriptionText.setText(descriptions[currentStep]);
-        if(images != null) {
-            Glide.with(this)
-                    .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
-                    .load(images[currentStep])
-                    .transition(new DrawableTransitionOptions().crossFade())
-                    .into(textImage);
-        }
+    public void fillAdapter() {
+        LearnMoreAdapter adapter = new LearnMoreAdapter(list);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+        recycler.setAdapter(adapter);
     }
 
     @Override
@@ -483,26 +467,7 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
 
         getStrings();
 
-        manageVisibility();
-
-        if(headers != null) stepView.setStepsNumber(headers.length);
-        else stepView.setStepsNumber(1);
-    }
-
-    @OnClick(R.id.previous)
-    public void setPrevious() {
-        currentStep = currentStep - 1;
-        stepView.go(currentStep, true);
-        manageVisibility();
-        setTexts();
-    }
-
-    @OnClick(R.id.next)
-    public void setNext() {
-        currentStep = currentStep + 1;
-        stepView.go(currentStep, true);
-        manageVisibility();
-        setTexts();
+        fillAdapter();
     }
 
     @Override

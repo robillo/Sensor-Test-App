@@ -1,51 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="@color/colorTextFive"
-        tools:ignore="ContentDescription,SmallSp" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0sp"
-        android:layout_weight="1"
-        android:id="@+id/ll_one">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_vertical">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200sp"
-            android:layout_margin="10sp"
-            android:layout_gravity="bottom"
-            android:scaleType="centerInside"
-            android:contentDescription="@string/sense_it_all"
-            android:id="@+id/upper"
-            android:tint="@color/colorMajorDark"/>
+            android:layout_width="75sp"
+            android:layout_height="75sp"
+            android:src="@drawable/splash_icon"
+            android:contentDescription="@string/splash_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="10sp"
+            android:text="@string/sense_it_all_abbreviation"
+            android:textColor="@color/colorMajorDark"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/device_test_splash"
+            android:textColor="@color/colorMajorDarkLighterLighter"/>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0sp"
-        android:layout_weight="1"
-        android:id="@+id/ll_two">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100sp"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="centerInside"
-            android:contentDescription="@string/device_test"
-            android:id="@+id/lower"
-            android:tint="@color/colorMajorDark"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>

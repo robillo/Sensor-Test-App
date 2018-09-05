@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.splash.splash_activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.ConsumerIrManager;
@@ -21,6 +22,7 @@ import android.widget.LinearLayout;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.DashboardActivity;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.MyTaskLoader;
 import com.bumptech.glide.Glide;
@@ -30,6 +32,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PRESENT_FEATURES;
@@ -39,20 +42,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.featureNa
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.sensorNames;
 
 public class SplashActivity extends AppCompatActivity implements SplashMvpView {
-
-//    Animation topDown, bottomUp;
-
-//    @BindView(R.id.upper)
-//    ImageView mUpper;
-//
-//    @BindView(R.id.lower)
-//    ImageView mLower;
-//
-//    @BindView(R.id.ll_one)
-//    LinearLayout mViewOne;
-//
-//    @BindView(R.id.ll_two)
-//    LinearLayout mViewTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,24 +53,16 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView {
 
     @Override
     public void setup() {
-//        ButterKnife.bind(this);
+        ButterKnife.bind(this);
         changeStatusBarColor();
 
-        startListActivity();
-        finish();
-
-//        startCountDown(2000);
-//        animateStuff();
+        startCountDown(1000);
+        animateStuff();
     }
 
     @Override
     public void animateStuff() {
-//        Glide.with(this).load(R.drawable.upper).into(mUpper);
-//        Glide.with(this).load(R.drawable.lower).into(mLower);
-//        topDown = AnimationUtils.loadAnimation(this, R.anim.top_down);
-//        bottomUp = AnimationUtils.loadAnimation(this, R.anim.bottom_up);
-//        mViewOne.startAnimation(topDown);
-//        mViewTwo.startAnimation(bottomUp);
+
     }
 
     @Override
@@ -90,14 +71,25 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView {
     }
 
     @Override
+    public void startDashboardActivity() {
+        startActivity(new Intent(this, DashboardActivity.class));
+        overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
+    }
+
+    @Override
     public void startCountDown(@SuppressWarnings("SameParameterValue") int millis) {
-//        Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                SplashActivity.this.startListActivity();
-//            }
-//        }, millis);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                SplashActivity.this.startDashboardActivity();
+            }
+        }, millis);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override

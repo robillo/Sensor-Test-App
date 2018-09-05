@@ -1,9 +1,13 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +17,11 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.BottomSheetFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.barcode_detection_test_fragment.BarcodeReaderTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.dialog.MachineLearningDialogFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.face_detection_test_fragment.FaceDetectionTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_test_fragment.LabelDetectionTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.battery_test_fragment.BatteryTestFragment;
@@ -30,11 +39,15 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.light_test
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.linear_acceleration_test.LinearAccTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.magnetic_field_test.MagneticFieldTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.multi_touch_fragment.MultiTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.pressure_sensor_test.PressureTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.proximity_test_fragment.ProximityTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.rotation_vector_test.RotationTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.screen_test_fragment.ScreenTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.speaker_volume_test_fragment.SoundTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.text_scan_test_fragment.TextScanTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.activity.VirtualRealityTestActivity;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.fragment.VrTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.wifi_test_fragment.WifiTestFragment;
 
 import butterknife.BindView;
@@ -43,17 +56,19 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BARCODE_READER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FRONT_CAMERA;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GRAVITY_TEST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LABEL_GENERATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
@@ -63,20 +78,28 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GY
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LIGHT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_LINEAR_ACCELERATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_MAGNETIC_FIELD;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PRESSURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ROTATION_VECTOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
 public class TestActivity extends AppCompatActivity implements TestInterface {
 
     public GenericData intentData = new GenericData();
     public String recyclerName;
+    private BottomSheetFragment bottomSheetFragment;
+    private MachineLearningDialogFragment dialogFragment;
 
     @BindView(R.id.test_name)
     TextView testName;
+
+    @BindView(R.id.coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +121,17 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
         }
         if(recyclerName != null)
             testName.setText(recyclerName.toUpperCase());
+    }
+
+    @Override
+    public void showCoordinator(String coordinatorText) {
+        Snackbar s = Snackbar.make(coordinatorLayout, coordinatorText, Snackbar.LENGTH_SHORT);
+        View v = s.getView();
+        v.setBackgroundColor(ContextCompat.getColor(this, R.color.red_shade_four));
+        TextView t = v.findViewById(android.support.design.R.id.snackbar_text);
+        t.setTextColor(ContextCompat.getColor(this, R.color.white));
+        t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        s.show();
     }
 
     @Override
@@ -276,7 +310,7 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new SoundTestFragment(),
-                        getString(R.string.tag_test_fragment)
+                        getString(R.string.tag_sound_test_fragment)
                 ).commit();
                 break;
             }
@@ -320,6 +354,54 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 ).commit();
                 break;
             }
+            case SENSOR_PRESSURE: {
+                transaction.add(
+                        R.id.container,
+                        new PressureTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case TEXT_SCAN: {
+                transaction.add(
+                        R.id.container,
+                        new TextScanTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case LABEL_GENERATOR: {
+                transaction.add(
+                        R.id.container,
+                        new LabelDetectionTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case BARCODE_READER: {
+                transaction.add(
+                        R.id.container,
+                        new BarcodeReaderTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case FACE_DETECT: {
+                transaction.add(
+                        R.id.container,
+                        new FaceDetectionTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case VIRTUAL_REALITY: {
+                transaction.add(
+                        R.id.container,
+                        new VrTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
         }
     }
 
@@ -332,5 +414,20 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
+    }
+
+    public void showBottomSheetResults() {
+        if(dialogFragment == null) {
+            dialogFragment = new MachineLearningDialogFragment();
+            dialogFragment.setRetainInstance(true);
+        }
+        dialogFragment.show(getSupportFragmentManager(), getString(R.string.tag_bottom_sheet));
+    }
+
+    public void setResultsToBottomSheet(String header, String text) {
+
+        if(dialogFragment == null) return;
+        dialogFragment.setHeader(header);
+        dialogFragment.setResults(text);
     }
 }

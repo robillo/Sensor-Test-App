@@ -6,15 +6,43 @@ import android.hardware.Sensor;
 import android.os.Build;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-@SuppressWarnings("WeakerAccess")
 public class AppConstants {
 
     public static final int REQUEST_CODE = 100;
+    public static final int REQUEST_CODE_PICK_IMAGE = 101;
+    public static final int REQUEST_CODE_CAPTURE_IMAGE = 102;
+    public static final String CHOOSER_INTENT_TITLE = "Select Image";
+    public static final String IMAGE_CONTENT_TYPE = "image/*";
+    public static final String CATEGORY = "CATEGORY";
+    public static final int INFO_RECYCLER_COUNT = 4;
+    public static final int FLING_VELOCITY = 3000;
+
+    //redundant
+    public static final String RATE_APP = "Rate App";
+    public static final String INFORMATION = "Information";
+    public static final String SOFTWARE = "Software";
+    public static final String ANDROID = "Android";
+
+    //storage constants
+    public static final String FREE_INTERNAL_STORAGE = "Free Internal Storage";
+    public static final String TOTAL_INTERNAL_STORAGE = "Total Internal Storage Excluding System-Used Storage";
+    public static final String IS_SD_CARD_MOUNTED = "Is SD Card Mounted?";
+    public static final String FREE_EXTERNAL_STORAGE = "Free External Storage";
+    public static final String TOTAL_EXTERNAL_STORAGE = "Total External Storage Excluding SD Card Specific Storage";
+
+    //ram constants
+    public static final String PERCENT_AVAILABLE_MEMORY = "Percent Memory Available";
+    public static final String AVAILABLE_MEMORY = "Available Memory";
+    public static final String TOTAL_MEMORY = "Total Memory Excluding System-Used Memory";
+    public static final String MEMORY_THRESHOLD = "Memory Threshold";
+    public static final String IS_LOW_MEMORY = "Is Low Memory?";
+    public static final String DESCRIPTION_COUNT = "Description Count";
 
     public static final String RECYCLER_NAME = "RECYCLER NAME";                 //generic data arguments
     public static final String DATA_NAME = "DATA NAME";
@@ -25,7 +53,10 @@ public class AppConstants {
     public static final int TYPE_DIAGNOSTICS = 0;                               //data types
     public static final int TYPE_SENSORS = 1;
     public static final int TYPE_FEATURES = 2;
-    public static final int TYPE_RATE = 3;
+    public static final int TYPE_INFORMATION = 3;
+    public static final int TYPE_SOFTWARE = 4;
+    public static final int TYPE_ANDROID = 5;
+    public static final int TYPE_RATE = 6;
 
     public static final String DIAGNOSTIC = "Diagnostic";                       //data type names
     public static final String SENSOR = "Sensor";
@@ -42,6 +73,9 @@ public class AppConstants {
     public static final String SHOWING_DEVICE_TESTS = "DEVICE TESTS";   //HEADERS
     public static final String SHOWING_SENSORS_LIST = "SENSORS LIST";
     public static final String SHOWING_FEATURES_LIST = "FEATURES LIST";
+    public static final String SHOWING_INFORMATION_LIST = "INFORMATION LIST";
+    public static final String SHOWING_SOFTWARE_LIST = "SOFTWARE LIST";
+    public static final String SHOWING_ANDROID_FEATURE_LIST = "SOFTWARE FEATURES LIST";
     public static final String RATE_YOUR_EXPERIENCE = "RATE YOUR EXPERIENCE";
 
     public static final String PREF_FILE_NAME = "SIA";                          //PREFERENCES
@@ -63,30 +97,6 @@ public class AppConstants {
     public static final String SENSOR_STATIONARY_DETECTOR = "Stationary Detector";
     public static final String SENSOR_MAGNETIC_FIELD = "Magnetic Field";
     public static final String SENSOR_HEART_RATE = "Heart Rate Sensor";
-
-    public static final String PROXIMITY_TEST = "Proximity Sensor Test";        //diagnostics
-    public static final String BATTERY_TEST = "Battery Test";
-    public static final String HEADPHONE_JACK_TEST = "Headphone Jack Test";
-    public static final String ACCELEROMETER_TEST = "Accelerometer Test";
-    public static final String GPS_TEST = "GPS Test";
-    public static final String BLUETOOTH_TEST = "Bluetooth Test";
-    public static final String SPEAKER_VOLUME_TEST = "Speaker Volume Test";
-    public static final String VIBRATOR_TEST = "Vibrator Test";
-    public static final String FLASH_LIGHT_TEST = "Flashlight Test";
-    public static final String WIFI_TEST = "WIFI Test";
-    public static final String FINGERPRINT_TEST = "Fingerprint Sensor Test";
-    public static final String MULTI_TOUCH_TEST = "Multi-Touch Test";
-    public static final String FRONT_CAMERA_TEST = "Front Camera Test";
-    public static final String BACK_CAMERA_TEST = "Back Camera Test";
-    public static final String SCREEN_TEST = "Screen Test";
-    public static final String LIGHT_TEST = "Light Sensor Test";
-    public static final String COMPASS_TEST = "Compass Test";
-    //new
-    public static final String GYROSCOPE_TEST = "Gyroscope Test";
-    public static final String GRAVITY_TEST = "Gravity Test";
-    public static final String LINEAR_ACCELERATION_TEST = "Linear Acceleration Test";
-    public static final String ROTATION_VECTOR_TEST = "Rotation Vector Test";
-    public static final String MAGNETIC_FIELD_TEST = "Magnetic Field Test";
 
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
@@ -117,6 +127,31 @@ public class AppConstants {
     public static final String WEB_VIEW = "Web-View";
     public static final String MIDI = "MIDI";
     public static final String VR_MODE = "VR Mode";
+
+    public static final String STORAGE = "STORAGE";     //specific information
+    public static final String RAM = "RAM";
+
+    @SuppressWarnings("WeakerAccess")
+    public static final String PIE = "P - Pie (9)";     //android versions
+    @SuppressWarnings("WeakerAccess")
+    public static final String OREO = "O - Oreo (8)";
+    @SuppressWarnings("WeakerAccess")
+    public static final String NOUGAT = "N - Nougat (7)";
+    @SuppressWarnings("WeakerAccess")
+    public static final String MARSHMALLOW = "M - Marshmallow (6)";
+    @SuppressWarnings("WeakerAccess")
+    public static final String LOLLIPOP = "L - Lollipop (5)";
+    @SuppressWarnings("WeakerAccess")
+    public static final String KITKAT = "K - Kitkat (4)";
+
+    public static final String MOTION_DETECT = "Motion Detect";             //software
+    public static final String AUGMENTED_REALITY = "Augmented Reality";
+    public static final String VIRTUAL_REALITY = "Virtual Reality";
+    public static final String FACE_DETECT = "Face Detect";
+    public static final String FACE_EMOJI = "Face Emoji";
+    public static final String BARCODE_READER = "Barcode Reader";
+    public static final String TEXT_SCAN = "Text Scan";
+    public static final String LABEL_GENERATOR = "Label Generator";
 
     //keys for key statistics
     public static final String STANDARD_GRAVITY = "Standard Gravity";
@@ -158,17 +193,25 @@ public class AppConstants {
     public static final String STANDARD_PRESSURE_ATMOSPHERE = "Standard Pressure Atmosphere";
 
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
+
+    public static List<Category> categories = new ArrayList<>();
+
+    public static List<String> diagnosticsNames = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
-    public static List<String> diagnosticsNames = new ArrayList<>();
+    public static List<String> informationNames = new ArrayList<>();
+    public static List<String> softwareNames = new ArrayList<>();
+    public static List<String> androidNames = new ArrayList<>();
+
+    public static HashMap<String, Boolean> isTestMap = new HashMap<>();
+
     public static HashMap<String, String> packageManagerPaths = new HashMap<>();
     public static HashMap<String, Integer> sensorManagerInts = new HashMap<>();
-    public static HashMap<String, String> diagnosticsPointer = new HashMap<>();
-    public static HashMap<String, String> reverseDiagnosticsPointer = new HashMap<>();
     public static List<String> dangerousPermissions = new ArrayList<>();
     public static HashMap<String, String> sensorMapDirections = new HashMap<>();
     public static HashMap<String, String> sensorMapHints = new HashMap<>();
-    public static HashMap<String, Integer> sensorMapAbout = new HashMap<>();
+    public static HashMap<String, Integer> mapAbout = new HashMap<>();
+//    public static HashMap<String, String> versionMapUri = new HashMap<>();
 
     static {
 
@@ -177,129 +220,147 @@ public class AppConstants {
         dangerousPermissions.add(Manifest.permission.BODY_SENSORS);
         dangerousPermissions.add(Manifest.permission.READ_PHONE_STATE);
         dangerousPermissions.add(Manifest.permission.RECORD_AUDIO);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-//            dangerousPermissions.add(Manifest.permission.USE_FINGERPRINT);
+        dangerousPermissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+//        dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
+        diagnosticsNames.add(SENSOR_ACCELEROMETER);
+        diagnosticsNames.add(SENSOR_LIGHT);
+        diagnosticsNames.add(SENSOR_PROXIMITY);
+        diagnosticsNames.add(SENSOR_PRESSURE);
+        diagnosticsNames.add(SENSOR_GYROSCOPE);
+        diagnosticsNames.add(SENSOR_GRAVITY);
+        diagnosticsNames.add(SENSOR_LINEAR_ACCELERATION);
+        diagnosticsNames.add(SENSOR_ROTATION_VECTOR);
+        diagnosticsNames.add(SENSOR_MAGNETIC_FIELD);
+        diagnosticsNames.add(BACK_CAMERA);
+        diagnosticsNames.add(FRONT_CAMERA);
+        diagnosticsNames.add(GPS_LOCATION);
+//        diagnosticsNames.add(WIFI);
+//        diagnosticsNames.add(BLUETOOTH);
+        diagnosticsNames.add(COMPASS);
+        diagnosticsNames.add(SCREEN);
+        diagnosticsNames.add(BATTERY);
+        diagnosticsNames.add(SOUND);
+        diagnosticsNames.add(VIBRATOR);
+        diagnosticsNames.add(AV_OUTPUTS);
+        diagnosticsNames.add(FLASH);
+        diagnosticsNames.add(MULTI_TOUCH);
+        diagnosticsNames.add(FINGERPRINT);
 
-        sensorNames.add(SENSOR_ACCELEROMETER);
-        sensorNames.add(SENSOR_LIGHT);
-        sensorNames.add(SENSOR_PROXIMITY);
-        sensorNames.add(SENSOR_TEMPERATURE);
-        sensorNames.add(SENSOR_PRESSURE);
-        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
-        sensorNames.add(SENSOR_GYROSCOPE);
-        sensorNames.add(SENSOR_GRAVITY);
-        sensorNames.add(SENSOR_LINEAR_ACCELERATION);
-        sensorNames.add(SENSOR_ROTATION_VECTOR);
-        sensorNames.add(SENSOR_MAGNETIC_FIELD);
-        sensorNames.add(SENSOR_HEART_RATE);
-        sensorNames.add(SENSOR_STEP_DETECTOR);
-        sensorNames.add(SENSOR_STEP_COUNTER);
-        sensorNames.add(SENSOR_MOTION_DETECTOR);
-        sensorNames.add(SENSOR_STATIONARY_DETECTOR);
-
-        featureNames.add(BACK_CAMERA);
-        featureNames.add(FRONT_CAMERA);
-        featureNames.add(GPS_LOCATION);
-        featureNames.add(WIFI);
-        featureNames.add(BLUETOOTH);
+        featureNames.add(BACK_CAMERA);  //d
+        featureNames.add(FRONT_CAMERA);  //d
+        featureNames.add(GPS_LOCATION);  //d
+//        featureNames.add(WIFI);  //d
+//        featureNames.add(BLUETOOTH);  //d
         featureNames.add(GSM_UMTS);
-        featureNames.add(COMPASS);
+        featureNames.add(COMPASS);  //d
         featureNames.add(RADIO);
-        featureNames.add(SCREEN);
-        featureNames.add(BATTERY);
+        featureNames.add(SCREEN);  //d
+        featureNames.add(BATTERY);  //d
         featureNames.add(CPU);
-        featureNames.add(SOUND);
-        featureNames.add(VIBRATOR);
-        featureNames.add(AV_OUTPUTS);
+        featureNames.add(SOUND);  //d
+        featureNames.add(VIBRATOR);  //d
+        featureNames.add(AV_OUTPUTS);  //d
         featureNames.add(ANDROID_OS);
-        featureNames.add(FLASH);
-        featureNames.add(MULTI_TOUCH);
-        featureNames.add(FINGERPRINT);
+        featureNames.add(FLASH);  //d
+        featureNames.add(MULTI_TOUCH);  //d
+        featureNames.add(FINGERPRINT);  //d
         featureNames.add(NFC);
         featureNames.add(MICROPHONE);
         featureNames.add(USB_ACCESSORY);
-        featureNames.add(BAROMETER);
         featureNames.add(HEART_RATE_ECG);
         featureNames.add(FAKE_TOUCH);
         featureNames.add(MIDI);
-//        featureNames.add(INFRARED);
-//        featureNames.add(VR_MODE);
-//        featureNames.add(WIFI_DIRECT);
-//        featureNames.add(WEB_VIEW);
 
-        //sensors and features mixed
+        informationNames.add(STORAGE);
+        informationNames.add(RAM);
+        informationNames.add(GSM_UMTS);
+        informationNames.add(RADIO);
+        informationNames.add(ANDROID_OS);
+        informationNames.add(CPU);
+        informationNames.add(FAKE_TOUCH);
 
-        diagnosticsNames.add(ACCELEROMETER_TEST);
-        diagnosticsNames.add(LIGHT_TEST);
-        diagnosticsNames.add(PROXIMITY_TEST);
-        diagnosticsNames.add(GYROSCOPE_TEST);
-        diagnosticsNames.add(GRAVITY_TEST);
-        diagnosticsNames.add(LINEAR_ACCELERATION_TEST);
-        diagnosticsNames.add(ROTATION_VECTOR_TEST);
-        diagnosticsNames.add(MAGNETIC_FIELD_TEST);
-        diagnosticsNames.add(BACK_CAMERA_TEST);
-        diagnosticsNames.add(FRONT_CAMERA_TEST);
-        diagnosticsNames.add(GPS_TEST);
-        diagnosticsNames.add(WIFI_TEST);
-        diagnosticsNames.add(BLUETOOTH_TEST);
-        diagnosticsNames.add(COMPASS_TEST);
-        diagnosticsNames.add(SCREEN_TEST);
-        diagnosticsNames.add(BATTERY_TEST);
-        diagnosticsNames.add(SPEAKER_VOLUME_TEST);
-        diagnosticsNames.add(VIBRATOR_TEST);
-        diagnosticsNames.add(HEADPHONE_JACK_TEST);
-        diagnosticsNames.add(FLASH_LIGHT_TEST);
-        diagnosticsNames.add(MULTI_TOUCH_TEST);
-        diagnosticsNames.add(FINGERPRINT_TEST);
+        androidNames.add(PIE);
+        androidNames.add(OREO);
+        androidNames.add(NOUGAT);
+        androidNames.add(MARSHMALLOW);
+        androidNames.add(LOLLIPOP);
+        androidNames.add(KITKAT);
 
-        diagnosticsPointer.put(SPEAKER_VOLUME_TEST, SOUND);
-        diagnosticsPointer.put(FLASH_LIGHT_TEST, FLASH);
-        diagnosticsPointer.put(PROXIMITY_TEST, SENSOR_PROXIMITY);
-        diagnosticsPointer.put(SCREEN_TEST, SCREEN);
-        diagnosticsPointer.put(BATTERY_TEST, BATTERY);
-        diagnosticsPointer.put(BACK_CAMERA_TEST, BACK_CAMERA);
-        diagnosticsPointer.put(FRONT_CAMERA_TEST, FRONT_CAMERA);
-        diagnosticsPointer.put(GPS_TEST, GPS_LOCATION);
-        diagnosticsPointer.put(FINGERPRINT_TEST, FINGERPRINT);
-        diagnosticsPointer.put(COMPASS_TEST, COMPASS);
-        diagnosticsPointer.put(LIGHT_TEST, SENSOR_LIGHT);
-        diagnosticsPointer.put(VIBRATOR_TEST, VIBRATOR);
-        diagnosticsPointer.put(MULTI_TOUCH_TEST, MULTI_TOUCH);
-        diagnosticsPointer.put(ACCELEROMETER_TEST, SENSOR_ACCELEROMETER);
-        diagnosticsPointer.put(WIFI_TEST, WIFI);
-        diagnosticsPointer.put(BLUETOOTH_TEST, BLUETOOTH);
-        diagnosticsPointer.put(HEADPHONE_JACK_TEST, AV_OUTPUTS);
-        //new
-        diagnosticsPointer.put(GYROSCOPE_TEST, SENSOR_GYROSCOPE);
-        diagnosticsPointer.put(GRAVITY_TEST, SENSOR_GRAVITY);
-        diagnosticsPointer.put(LINEAR_ACCELERATION_TEST, SENSOR_LINEAR_ACCELERATION);
-        diagnosticsPointer.put(ROTATION_VECTOR_TEST, SENSOR_ROTATION_VECTOR);
-        diagnosticsPointer.put(MAGNETIC_FIELD_TEST, SENSOR_MAGNETIC_FIELD);
+        isTestMap.put(BACK_CAMERA, true);
+        isTestMap.put(FRONT_CAMERA, true);
+        isTestMap.put(GPS_LOCATION, true);
+        isTestMap.put(WIFI, true);
+        isTestMap.put(BLUETOOTH, true);
+        isTestMap.put(GSM_UMTS, false);
+        isTestMap.put(COMPASS, true);
+        isTestMap.put(RADIO, false);
+        isTestMap.put(SCREEN, true);
+        isTestMap.put(BATTERY, true);
+        isTestMap.put(CPU, false);
+        isTestMap.put(SOUND, true);
+        isTestMap.put(VIBRATOR, true);
+        isTestMap.put(AV_OUTPUTS, true);
+        isTestMap.put(ANDROID_OS, false);
+        isTestMap.put(FLASH, true);
+        isTestMap.put(MULTI_TOUCH, true);
+        isTestMap.put(FINGERPRINT, true);
+        isTestMap.put(NFC, false);
+        isTestMap.put(MICROPHONE, false);
+        isTestMap.put(USB_ACCESSORY, false);
+        isTestMap.put(HEART_RATE_ECG, false);
+        isTestMap.put(FAKE_TOUCH, false);
+        isTestMap.put(MIDI, false);
+        isTestMap.put(SENSOR_ACCELEROMETER, true);
+        isTestMap.put(SENSOR_LIGHT, true);
+        isTestMap.put(SENSOR_PROXIMITY, true);
+        isTestMap.put(SENSOR_TEMPERATURE, false);
+        isTestMap.put(SENSOR_PRESSURE, true);
+        isTestMap.put(SENSOR_RELATIVE_HUMIDITY, false);
+        isTestMap.put(SENSOR_GYROSCOPE, true);
+        isTestMap.put(SENSOR_GRAVITY, true);
+        isTestMap.put(SENSOR_LINEAR_ACCELERATION, true);
+        isTestMap.put(SENSOR_ROTATION_VECTOR, true);
+        isTestMap.put(SENSOR_MAGNETIC_FIELD, true);
+        isTestMap.put(SENSOR_HEART_RATE, false);
+        isTestMap.put(SENSOR_STEP_DETECTOR, false);
+        isTestMap.put(SENSOR_STEP_COUNTER, false);
+        isTestMap.put(SENSOR_MOTION_DETECTOR, false);
+        isTestMap.put(SENSOR_STATIONARY_DETECTOR, false);
+        isTestMap.put(STORAGE, false);
+        isTestMap.put(RAM, false);
+        isTestMap.put(MOTION_DETECT, true);
+        isTestMap.put(FACE_DETECT, true);
+        isTestMap.put(BARCODE_READER, true);
+        isTestMap.put(TEXT_SCAN, true);
+        isTestMap.put(FACE_EMOJI, true);
+        isTestMap.put(AUGMENTED_REALITY, true);
+        isTestMap.put(VIRTUAL_REALITY, true);
+        isTestMap.put(LABEL_GENERATOR, true);
 
-        reverseDiagnosticsPointer.put(SOUND, SPEAKER_VOLUME_TEST);
-        reverseDiagnosticsPointer.put(FLASH, FLASH_LIGHT_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_PROXIMITY, PROXIMITY_TEST);
-        reverseDiagnosticsPointer.put(SCREEN, SCREEN_TEST);
-        reverseDiagnosticsPointer.put(BATTERY, BATTERY_TEST);
-        reverseDiagnosticsPointer.put(BACK_CAMERA, BACK_CAMERA_TEST);
-        reverseDiagnosticsPointer.put(FRONT_CAMERA, FRONT_CAMERA_TEST);
-        reverseDiagnosticsPointer.put(GPS_LOCATION, GPS_TEST);
-        reverseDiagnosticsPointer.put(FINGERPRINT, FINGERPRINT_TEST);
-        reverseDiagnosticsPointer.put(COMPASS, COMPASS_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_LIGHT, LIGHT_TEST);
-        reverseDiagnosticsPointer.put(VIBRATOR, VIBRATOR_TEST);
-        reverseDiagnosticsPointer.put(MULTI_TOUCH, MULTI_TOUCH_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_ACCELEROMETER, ACCELEROMETER_TEST);
-        reverseDiagnosticsPointer.put(WIFI, WIFI_TEST);
-        reverseDiagnosticsPointer.put(BLUETOOTH, BLUETOOTH_TEST);
-        reverseDiagnosticsPointer.put(AV_OUTPUTS, HEADPHONE_JACK_TEST);
-        //new
-        reverseDiagnosticsPointer.put(SENSOR_GYROSCOPE, GYROSCOPE_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_GRAVITY, GRAVITY_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_LINEAR_ACCELERATION, LINEAR_ACCELERATION_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_ROTATION_VECTOR, ROTATION_VECTOR_TEST);
-        reverseDiagnosticsPointer.put(SENSOR_MAGNETIC_FIELD, MAGNETIC_FIELD_TEST);
+        sensorNames.add(SENSOR_ACCELEROMETER);  //d
+        sensorNames.add(SENSOR_LIGHT);  //d
+        sensorNames.add(SENSOR_PROXIMITY);  //d
+        sensorNames.add(SENSOR_TEMPERATURE);
+        sensorNames.add(SENSOR_PRESSURE);  //d
+        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
+        sensorNames.add(SENSOR_GYROSCOPE);  //d
+        sensorNames.add(SENSOR_GRAVITY);  //d
+        sensorNames.add(SENSOR_LINEAR_ACCELERATION);  //d
+        sensorNames.add(SENSOR_ROTATION_VECTOR);  //d
+        sensorNames.add(SENSOR_MAGNETIC_FIELD);  //d
+        sensorNames.add(SENSOR_HEART_RATE);
+        sensorNames.add(SENSOR_STEP_DETECTOR);
+        sensorNames.add(SENSOR_STEP_COUNTER);
+
+//        softwareNames.add(MOTION_DETECT);
+        softwareNames.add(FACE_DETECT);
+        softwareNames.add(BARCODE_READER);
+        softwareNames.add(TEXT_SCAN);
+//        softwareNames.add(FACE_EMOJI);
+//        softwareNames.add(AUGMENTED_REALITY);
+        softwareNames.add(VIRTUAL_REALITY);
+        softwareNames.add(LABEL_GENERATOR);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
         imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);
@@ -346,6 +407,29 @@ public class AppConstants {
         imageUrlMap.put(WEB_VIEW, R.drawable.baseline_web_black_48);
         imageUrlMap.put(MIDI, R.drawable.baseline_speaker_black_48);
         imageUrlMap.put(VR_MODE, R.drawable.baseline_videogame_asset_black_48);
+        imageUrlMap.put(STORAGE, R.drawable.baseline_storage_black_48);
+        imageUrlMap.put(RAM, R.drawable.baseline_memory_black_48);
+        imageUrlMap.put(PIE, R.drawable.p);
+        imageUrlMap.put(OREO, R.drawable.o);
+        imageUrlMap.put(NOUGAT, R.drawable.n);
+        imageUrlMap.put(MARSHMALLOW, R.drawable.m);
+        imageUrlMap.put(LOLLIPOP, R.drawable.l);
+        imageUrlMap.put(KITKAT, R.drawable.k);
+        imageUrlMap.put(AUGMENTED_REALITY, R.drawable.ar);
+        imageUrlMap.put(VIRTUAL_REALITY, R.drawable.vr);
+        imageUrlMap.put(MOTION_DETECT, R.drawable.motion);
+        imageUrlMap.put(FACE_DETECT, R.drawable.face);
+        imageUrlMap.put(FACE_EMOJI, R.drawable.emoji);
+        imageUrlMap.put(BARCODE_READER, R.drawable.barcode);
+        imageUrlMap.put(TEXT_SCAN, R.drawable.baseline_text_format_black_48);
+        imageUrlMap.put(LABEL_GENERATOR, R.drawable.baseline_speaker_notes_black_48);
+
+//        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
+//        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
+//        versionMapUri.put(NOUGAT, "https://developer.android.com/about/versions/nougat");
+//        versionMapUri.put(MARSHMALLOW, "https://developer.android.com/about/versions/marshmallow");
+//        versionMapUri.put(LOLLIPOP, "https://developer.android.com/about/versions/lollipop");
+//        versionMapUri.put(KITKAT, "https://developer.android.com/about/versions/kitkat");
 
         packageManagerPaths.put(BACK_CAMERA, PackageManager.FEATURE_CAMERA);
         packageManagerPaths.put(FRONT_CAMERA, PackageManager.FEATURE_CAMERA_FRONT);
@@ -481,7 +565,43 @@ public class AppConstants {
                 SENSOR_MAGNETIC_FIELD,
                 "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
-
+        sensorMapDirections.put(
+                SENSOR_PRESSURE,
+                "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
+        );
+        sensorMapDirections.put(
+                VIRTUAL_REALITY,
+                "Move the screen to observe the virtual world."
+        );
+        sensorMapDirections.put(
+                LABEL_GENERATOR,
+                "Capture / Upload an image to generate labels."
+        );
+        sensorMapDirections.put(
+                FACE_DETECT,
+                "Capture / Upload an image to detect faces."
+        );
+        sensorMapDirections.put(
+                BARCODE_READER,
+                "Capture / Upload an image to detect barcodes."
+        );
+        sensorMapDirections.put(
+                TEXT_SCAN,
+                "Capture / Upload an image to detect text."
+        );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        sensorMapDirections.put(
+                MOTION_DETECT,
+                ""
+        );
+        sensorMapDirections.put(
+                FACE_EMOJI,
+                ""
+        );
+        sensorMapDirections.put(
+                AUGMENTED_REALITY,
+                ""
+        );
 
         sensorMapHints.put(
                 SENSOR_PROXIMITY,
@@ -571,186 +691,308 @@ public class AppConstants {
                 SENSOR_MAGNETIC_FIELD,
                 "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
+        sensorMapHints.put(
+                SENSOR_PRESSURE,
+                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
+        );
+        sensorMapHints.put(
+                FACE_DETECT,
+                "MAKE SURE to set the orientation of the selected image correctly."
+        );
+        sensorMapHints.put(
+                BARCODE_READER,
+                "MAKE SURE to set the orientation of the selected image correctly."
+        );
+        sensorMapHints.put(
+                TEXT_SCAN,
+                "MAKE SURE to set the orientation of the selected image correctly."
+        );
+        sensorMapHints.put(
+                VIRTUAL_REALITY,
+                "Increase the screen brightness to max for a more pleasant experience."
+        );
+        sensorMapHints.put(
+                LABEL_GENERATOR,
+                "MAKE SURE to set the orientation of the selected image correctly."
+        );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        sensorMapHints.put(
+                MOTION_DETECT,
+                ""
+        );
+        sensorMapHints.put(
+                FACE_EMOJI,
+                ""
+        );
+        sensorMapHints.put(
+                AUGMENTED_REALITY,
+                ""
+        );
 
-        sensorMapAbout.put(
+
+        mapAbout.put(
                 SENSOR_PROXIMITY,
                 R.array.proximity_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_ACCELEROMETER,
                 R.array.accelerometer_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_LIGHT,
                 R.array.light_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 BACK_CAMERA,
                 R.array.camera_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 FRONT_CAMERA,
                 R.array.camera_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 GPS_LOCATION,
                 R.array.gps_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 WIFI,
                 R.array.wifi_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 BLUETOOTH,
                 R.array.bluetooth_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SCREEN,
                 R.array.screen_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 BATTERY,
                 R.array.battery_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SOUND,
                 R.array.sound_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 VIBRATOR,
                 R.array.vibrator_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 AV_OUTPUTS,
                 R.array.av_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 FLASH,
                 R.array.flash_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 MULTI_TOUCH,
                 R.array.multi_touch_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 FINGERPRINT,
                 R.array.fingerprint_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 COMPASS,
                 R.array.compass_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_TEMPERATURE,
                 R.array.ambient_temperature_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_PRESSURE,
                 R.array.pressure_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_RELATIVE_HUMIDITY,
                 R.array.relative_humidity_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_GYROSCOPE,
                 R.array.gyroscope_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_GRAVITY,
                 R.array.gravity_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_LINEAR_ACCELERATION,
                 R.array.linear_acceleration_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_ROTATION_VECTOR,
                 R.array.rotation_vector_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_MAGNETIC_FIELD,
                 R.array.magnetic_field_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_HEART_RATE,
                 R.array.heart_rate_ecg_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_STEP_DETECTOR,
                 R.array.step_detector_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_STEP_COUNTER,
                 R.array.step_counter_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_MOTION_DETECTOR,
                 R.array.motion_detector_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 SENSOR_STATIONARY_DETECTOR,
                 R.array.stationary_detector_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 GSM_UMTS,
                 R.array.gsm_umts_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 RADIO,
                 R.array.radio_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 CPU,
                 R.array.cpu_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 ANDROID_OS,
                 R.array.android_os_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 INFRARED,
                 R.array.infrared_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 NFC,
                 R.array.nfc_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 MICROPHONE,
                 R.array.microphone_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 USB_ACCESSORY,
                 R.array.usb_accessory_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 BAROMETER,
                 R.array.barometer_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 WIFI_DIRECT,
                 R.array.wifi_direct_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 HEART_RATE_ECG,
                 R.array.heart_rate_ecg_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 WEB_VIEW,
                 R.array.web_view_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 MIDI,
                 R.array.midi_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 VR_MODE,
                 R.array.vr_descriptions
         );
-        sensorMapAbout.put(
+        mapAbout.put(
                 FAKE_TOUCH,
                 R.array.fake_touch_descriptions
         );
+        mapAbout.put(
+                RAM,
+                R.array.ram_descriptions
+        );
+        mapAbout.put(
+                STORAGE,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                FACE_DETECT,
+                R.array.face_detect_descriptions
+        );
+        mapAbout.put(
+                BARCODE_READER,
+                R.array.barcode_reader_descriptions
+        );
+        mapAbout.put(
+                VIRTUAL_REALITY,
+                R.array.vr_descriptions
+        );
+        mapAbout.put(
+                LABEL_GENERATOR,
+                R.array.label_generator_descriptions
+        );
+        mapAbout.put(
+                TEXT_SCAN,
+                R.array.text_scan_descriptions
+        );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        mapAbout.put(
+                MOTION_DETECT,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                FACE_EMOJI,
+                R.array.storage_descriptions
+        );
+        mapAbout.put(
+                AUGMENTED_REALITY,
+                R.array.storage_descriptions
+        );
+
+
+        categories.add(new Category(
+                R.drawable.baseline_mobile_friendly_black_48,
+                SENSOR,
+                sensorNames.size() + " Sensors")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_battery_charging_full_black_48,
+                FEATURE,
+                featureNames.size() + " Features")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_system_update_black_48,
+                SOFTWARE,
+                softwareNames.size() + " Capabilities")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_info_black_48,
+                INFORMATION,
+                informationNames.size() + " Device Details")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_android_black_48,
+                ANDROID,
+                androidNames.size() + " Android Versions")
+        );
+
+        categories.add(new Category(
+                R.drawable.baseline_verified_user_black_48,
+                RATE_APP,
+                "Give Feedback")
+        );
+
+//        categories.add(new Category(
+//                R.drawable.baseline_device_unknown_black_48,
+//                DIAGNOSTIC,
+//                diagnosticsNames.size() + " Diagnostics")
+//        );
     }
 }

@@ -12,10 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
-import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.FeatureFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.headphone_jack_test_fragment.ReceiverAudio;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.feature_and_sensor.FeatureFragment;
 
 import butterknife.ButterKnife;
 

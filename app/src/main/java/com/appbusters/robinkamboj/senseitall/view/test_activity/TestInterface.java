@@ -12,4 +12,6 @@ public interface TestInterface {
 
     void initializeIntentData();
 
+    void showCoordinator(String coordinatorText);
+
 }

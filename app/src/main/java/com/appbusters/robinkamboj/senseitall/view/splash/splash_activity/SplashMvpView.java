@@ -8,6 +8,8 @@ public interface SplashMvpView {
 
     void startListActivity();
 
+    void startDashboardActivity();
+
     void startCountDown(int millis);
 
     void changeStatusBarColor();
