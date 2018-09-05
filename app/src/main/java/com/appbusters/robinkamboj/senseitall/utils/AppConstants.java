@@ -29,6 +29,14 @@ public class AppConstants {
     public static final String SOFTWARE = "Software";
     public static final String ANDROID = "Android";
 
+    //ram constants
+    public static final String PERCENT_AVAILABLE_MEMORY = "Percent Memory Available";
+    public static final String AVAILABLE_MEMORY = "Available Memory";
+    public static final String TOTAL_MEMORY = "Total Memory Excluding System-Used Memory";
+    public static final String MEMORY_THRESHOLD = "Memory Threshold";
+    public static final String IS_LOW_MEMORY = "Is Low Memory?";
+    public static final String DESCRIPTION_COUNT = "Description Count";
+
     public static final String RECYCLER_NAME = "RECYCLER NAME";                 //generic data arguments
     public static final String DATA_NAME = "DATA NAME";
     public static final String DRAWABLE_ID = "DRAWABLE ID";

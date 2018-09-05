@@ -6,4 +6,6 @@ public interface RamInterface {
 
     void setup(View v);
 
+    void setProgress();
+
 }
