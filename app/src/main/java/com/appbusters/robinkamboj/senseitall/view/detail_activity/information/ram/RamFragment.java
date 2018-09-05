@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.feature_and_sensor.FeatureFragment;
 
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 import butterknife.ButterKnife;
@@ -62,11 +63,32 @@ public class RamFragment extends FeatureFragment implements RamInterface {
     public void initializeBasicInformation() {
         if(memoryInfo == null) return;
 
-        addToDetailsList(sensorDetails, "Percent Memory Available", ((float) memoryInfo.availMem*100/memoryInfo.totalMem) + "");
-        addToDetailsList(sensorDetails, "Available Memory", memoryInfo.availMem/1048576.0 + "");
-        addToDetailsList(sensorDetails, "Total Memory", memoryInfo.totalMem/1048576.0 + "");
-        addToDetailsList(sensorDetails, "Memory Threshold",  memoryInfo.threshold/1048576.0 + "");
-        addToDetailsList(sensorDetails, "Is Low Memory?", String.format(Locale.ENGLISH, "%b", memoryInfo.lowMemory));
-        addToDetailsList(sensorDetails, "Description Count", String.format(Locale.ENGLISH, "%d", memoryInfo.describeContents()));
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
+        addToDetailsList(
+                sensorDetails,
+                "Percent Memory Available",
+                decimalFormat.format((float) memoryInfo.availMem * 100/memoryInfo.totalMem) + " %"
+        );
+        addToDetailsList(sensorDetails, "Available Memory", formatSize(memoryInfo.availMem));
+        addToDetailsList(sensorDetails, "Total Memory (excluding system used memory)", formatSize(memoryInfo.totalMem));
+        addToDetailsList(sensorDetails, "Memory Threshold",  formatSize(memoryInfo.threshold));
+        addToDetailsList(
+                sensorDetails,
+                "Is Low Memory?",
+                String.format(Locale.ENGLISH, "%b", memoryInfo.lowMemory)
+        );
+        addToDetailsList(
+                sensorDetails,
+                "Description Count",
+                String.format(Locale.ENGLISH, "%d", memoryInfo.describeContents())
+        );
+    }
+
+    public String formatSize(double size) {
+
+        size = size/(1024.0*1024.0*1024);
+
+        return new DecimalFormat("#.##").format(size) + " GB";
     }
 }

@@ -4,7 +4,6 @@ package com.appbusters.robinkamboj.senseitall.view.detail_activity.information.s
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.StatFs;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -16,6 +15,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.feature_and_sensor.FeatureFragment;
 
 import java.io.File;
+import java.text.DecimalFormat;
 
 import butterknife.ButterKnife;
 
@@ -61,11 +61,12 @@ public class StorageFragment extends FeatureFragment implements StorageInterface
 
     @Override
     public void initializeBasicInformation() {
-        addToDetailsList(sensorDetails, "Free Internal Storage", getAvailableInternalMemorySize());
-        addToDetailsList(sensorDetails, "Total Internal Storage", getTotalInternalMemorySize());
+
+        addToDetailsList(sensorDetails, "Free Internal Storage", getFreeInternalMemorySize());
+        addToDetailsList(sensorDetails, "Total Internal Storage (excluding system used memory)", getTotalInternalMemorySize());
         addToDetailsList(sensorDetails, "Is SD Card Mounted", isSdCardOnDevice(getActivity()) + "");
-        addToDetailsList(sensorDetails, "Free External Storage", getAvailableExternalMemorySize());
-        addToDetailsList(sensorDetails, "Total External Storage", getTotalExternalMemorySize());
+        addToDetailsList(sensorDetails, "Free External Storage", getFreeExternalMemorySize());
+        addToDetailsList(sensorDetails, "Total External Storage (excluding card specific memory)", getTotalExternalMemorySize());
     }
 
     public static boolean isSdCardOnDevice(Context context) {
@@ -73,33 +74,22 @@ public class StorageFragment extends FeatureFragment implements StorageInterface
         return storages.length > 1 && storages[0] != null && storages[1] != null;
     }
 
-    public boolean externalMemoryAvailable() {
-        return android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
-    }
-
-    public String getAvailableInternalMemorySize() {
+    public String getFreeInternalMemorySize() {
         File path = Environment.getDataDirectory();
-        StatFs stat = new StatFs(path.getPath());
-        long blockSize = stat.getBlockSizeLong();
-        long availableBlocks = stat.getAvailableBlocksLong();
-        return formatSize(availableBlocks * blockSize);
+        return formatSize(path.getFreeSpace());
     }
 
     public String getTotalInternalMemorySize() {
         File path = Environment.getDataDirectory();
-        StatFs stat = new StatFs(path.getPath());
-        long blockSize = stat.getBlockSizeLong();
-        long totalBlocks = stat.getBlockCountLong();
-        return formatSize(totalBlocks * blockSize);
+        return formatSize(path.getTotalSpace());
     }
 
-    public String getAvailableExternalMemorySize() {
+    public String getFreeExternalMemorySize() {
         if (isSdCardOnDevice(getActivity())) {
-            File path = Environment.getExternalStorageDirectory();
-            StatFs stat = new StatFs(path.getPath());
-            long blockSize = stat.getBlockSizeLong();
-            long availableBlocks = stat.getAvailableBlocksLong();
-            return formatSize(availableBlocks * blockSize);
+            if(getActivity() == null) return null;
+            File[] storages = ContextCompat.getExternalFilesDirs(getActivity(), null);
+            File path = storages[1];
+            return formatSize(path.getFreeSpace());
         } else {
             return "no SD card detected";
         }
@@ -107,37 +97,19 @@ public class StorageFragment extends FeatureFragment implements StorageInterface
 
     public String getTotalExternalMemorySize() {
         if (isSdCardOnDevice(getActivity())) {
-            File path = Environment.getExternalStorageDirectory();
-            StatFs stat = new StatFs(path.getPath());
-            long blockSize = stat.getBlockSizeLong();
-            long totalBlocks = stat.getBlockCountLong();
-            return formatSize(totalBlocks * blockSize);
+            if(getActivity() == null) return null;
+            File[] storages = ContextCompat.getExternalFilesDirs(getActivity(), null);
+            File path = storages[1];
+            return formatSize(path.getTotalSpace());
         } else {
             return "no SD card detected";
         }
     }
 
-    public String formatSize(long size) {
-        String suffix = null;
+    public String formatSize(double size) {
 
-        if (size >= 1024) {
-            suffix = "KB";
-            size /= 1024;
-            if (size >= 1024) {
-                suffix = "MB";
-                size /= 1024;
-            }
-        }
+        size = size/(1024.0*1024.0*1024.0);
 
-        StringBuilder resultBuffer = new StringBuilder(Long.toString(size));
-
-        int commaOffset = resultBuffer.length() - 3;
-        while (commaOffset > 0) {
-            resultBuffer.insert(commaOffset, ',');
-            commaOffset -= 3;
-        }
-
-        if (suffix != null) resultBuffer.append(suffix);
-        return resultBuffer.toString();
+        return new DecimalFormat("#.##").format(size) + " GB";
     }
 }
