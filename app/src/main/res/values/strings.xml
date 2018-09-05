@@ -1735,6 +1735,144 @@ VR can simulate real workspaces for workplace occupational safety and health pur
         <item>https://1.bp.blogspot.com/-WBhr9cvV5T0/W2HOwDDRU1I/AAAAAAAAC5Y/VWpbP9pLkIY7GUHj33pVOas_FPeuNUD6gCK4BGAYYCw/s1600/vr5.jpg</item>
     </string-array>
 
+    <string-array name="face_detect_headers">
+        <item>Face Detection</item>
+        <item>Face Recognition</item>
+        <item>How Face Detection Works</item>
+        <item>Face Detection vs. Face Recognition</item>
+    </string-array>
+
+    <string-array name="face_detect_descriptions">
+        <item>Fortunately, faces have some easily recognisable features that cameras can lock on to; a pair of eyes, nose, and a mouth. By being able to detect a face in the scene, the camera can concentrate its autofocus on that person\’s face to ensure it is the primary subject in focus within the image. More sophisticated implementations can also link up to scene-recognition algorithms and optimise the exposure for the subject\’s face.\n\n
+
+Once a face has been detected, the system will track that face as best it can. If the person turns away, detection lock will be lost, though some camera manufacturers have enhanced the detection capability to maintain a lock even when the subject has turned to the extent that only one eye remains visible. Some face detection modes can lock onto several faces at once, in which case the face that is used as the primary subject of focus will usually be based on which is closest or most prominent, though sometimes you can override this by selecting a face manually. If several faces are detected at once, not all of them will necessarily be in focus.\n\n</item>
+        <item>Face recognition is an enhanced form of face detection. Instead of simply letting the camera recognise any face in the crowd, you can configure the camera to recognise a particular person\’s face and use this as the focal point. To do this, you simply take a portrait shot of the person you want the camera to recognise and save it in the recognition system\’s memory.\n\n
+            You can usually program in several identities at once. Some camera manufacturers are even starting to supply software that reads the embedded identity data saved in the image file. This could be a useful tool when searching images for a particular person who was recognised by the camera at the time the picture was taken.\n\n</item>
+        <item>While the process is somewhat complex, face detection algorithms often begin by searching for human eyes. Eyes constitute what is known as a valley region and are one of the easiest features to detect. Once eyes are detected, the algorithm might then attempt to detect facial regions including eyebrows, the mouth, nose, nostrils and the iris. Once the algorithm surmises that it has detected a facial region, it can then apply additional tests to validate whether it has, in fact, detected a face.\n\n</item>
+        <item>One of the most important applications of face detection, however, is facial recognition. Face recognition describes a biometric technology that goes way beyond recognizing when a human face is present. It actually attempts to establish whose face it is. The process works using a computer application that captures a digital image of an individual\’s face (sometimes taken from a video frame) and compares it to images in a database of stored records. While facial recognition isn\’t 100% accurate, it can very accurately determine when there is a strong chance that an person’s face matches someone in the database.\n\n
+
+There are lots of applications of face recognition. Face recognition is already being used to unlock phones and specific applications. Face recognition is also used for biometric surveillance. Banks, retail stores, stadiums, airports and other facilities use facial recognition to reduce crime and prevent violence.\n\n
+
+So in short, while all facial recognition systems use face detection, not all face detection systems have a facial recognition component.\n\n</item>
+    </string-array>
+
+    <string-array name="face_detect_images">
+        <item>https://1.bp.blogspot.com/-Qqz4YxGF4dE/W4-uhpiNkmI/AAAAAAAADU0/_qmqdrQR3ZA2dQEL5y_mbq6Av_-kUMgEQCK4BGAYYCw/s640/face1.png</item>
+        <item>https://2.bp.blogspot.com/-Lq5NfPrNQ28/W4-uhLLIyYI/AAAAAAAADUs/ncRi_9rsaqIwYLAibh1gSBiApbA3wZWrwCK4BGAYYCw/s640/recognition.jpg</item>
+        <item>https://2.bp.blogspot.com/-Ec73HD7UoGQ/W4-ugtVmCKI/AAAAAAAADUk/VsvaeZYTbOQdJXnuygi83U6WKJUYUDlYwCK4BGAYYCw/s640/face%2Bworking.jpeg</item>
+        <item>https://3.bp.blogspot.com/-TGZCkYOPEN0/W4-tw20On0I/AAAAAAAADTE/Q1XPapIeTLEhXqFBwrOeKFE6q0TntSKlwCK4BGAYYCw/s640/label%2B2.png</item>
+    </string-array>
+
+    <string-array name="barcode_reader_headers">
+        <item>What Is It?</item>
+        <item>Laser Scanners</item>
+        <item>CCD/LED Scanners</item>
+        <item>Camera Based Readers</item>
+        <item>Resolution</item>
+        <item>How It Works</item>
+    </string-array>
+
+    <string-array name="barcode_reader_descriptions">
+        <item>A bar code reader (or bar code scanner) is an electronic device that can read and output printed barcodes to a computer. Like a flatbed scanner, it consists of a light source, a lens and a light sensor translating optical impulses into electrical ones. Additionally, nearly all barcode readers contain decoder circuitry analyzing the bar code\'s image data provided by the sensor and sending the barcode\'s content to the scanner\'s output port.\n\n</item>
+        <item>Laser scanners work the same way as pen type readers except that they use a laser beam as the light source and typically employ either a reciprocating mirror or a rotating prism to scan the laser beam back and forth across the bar code. As with the pen type reader, a photo-diode is used to measure the intensity of the light reflected back from the bar code. In both pen readers and laser scanners, the light emitted by the reader is rapidly varied in brightness with a data pattern and the photo-diode receive circuitry is designed to detect only signals with the same modulated pattern.\n\n</item>
+        <item>CCD readers use an array of hundreds of tiny light sensors lined up in a row in the head of the reader. Each sensor measures the intensity of the light immediately in front of it. Each individual light sensor in the CCD reader is extremely small and because there are hundreds of sensors lined up in a row, a voltage pattern identical to the pattern in a bar code is generated in the reader by sequentially measuring the voltages across each sensor in the row. The important difference between a CCD reader and a pen or laser scanner is that the CCD reader is measuring emitted ambient light from the bar code whereas pen or laser scanners are measuring reflected light of a specific frequency originating from the scanner itself.\n\n</item>
+        <item>Two-dimensional imaging scanners are a newer type of bar code reader. They use a camera and image processing techniques to decode the bar code.\n\n
+
+Video camera readers use small video cameras with the same CCD technology as in a CCD bar code reader except that instead of having a single row of sensors, a video camera has hundreds of rows of sensors arranged in a two dimensional array so that they can generate an image.\n\n
+
+Large field-of-view readers use high resolution industrial cameras to capture multiple bar codes simultaneously. All the bar codes appearing in the photo are decoded instantly (ImageID patents and code creation tools) or by use of plugins (e.g. the Barcodepedia used a flash application and some web cam for querying a database), have been realized options for resolving the given tasks.\n\n</item>
+        <item>The scanner resolution is measured by the size of the dot of light emitted by the reader. If this dot of light is wider than any bar or space in the bar code, then it will overlap two elements (two spaces or two bars) and it may produce wrong output. On the other hand, if a too small dot of light is used, then it can misinterpret any spot on the bar code making the final output wrong.\n\n
+
+The most commonly used dimension is 13 thou (0.013 in or 0.33 mm), although some scanners can read codes with dimensions as small as 3 thou (0.003 in or 0.075 mm). Most manufacturers advertise bar code resolution in mil, which is interchangeable with thou. Smaller bar codes must be printed at high resolution to be read accurately.\n\n</item>
+        <item>A barcode scanner usually consists of three different parts including the illumination system, the sensor, and the decoder.\n\n
+
+In general, a barcode scanner \“scans\” the black and white elements of a barcode by illuminating the code with a red light, which is then converted into matching text. More specifically, the sensor in the barcode scanner detects the reflected light from the illumination system (the red light) and generates an analog signal that is sent to the decoder. The decoder interprets that signal, validates the barcode using the check digit, and converts it into text.\n\n
+
+This converted text is delivered by the scanner to a computer software system holding a database of the maker, cost, and quantity of all products sold. This video is a quick lesson in barcode scanners and highlights the basic differences between a Contact Scanner, Laser Scanner, and an Imager.\n\n</item>
+    </string-array>
+
+    <string-array name="barcode_reader_images">
+        <item>https://3.bp.blogspot.com/-8j2dhxpqtig/W4-uqgc3BQI/AAAAAAAADVE/V610XX1Z1A0NUn-4wU1DFChsQfNEcMGwgCK4BGAYYCw/s640/barcode%2B4.jpg</item>
+        <item>https://1.bp.blogspot.com/-daO7Zy9rdug/W4-uudFqC4I/AAAAAAAADVk/6yEmZl0IxdQnKm4X9OaDxh5-WcxsduPnwCK4BGAYYCw/s640/laser%2Bscanner.png</item>
+        <item>https://4.bp.blogspot.com/-6hdIwPQZKL4/W4-url5MhKI/AAAAAAAADVM/YxFo_qfqqzsAtQNlwAn4Et_DgHhm-Q6SgCK4BGAYYCw/s640/barcode%2Btwo.jpg</item>
+        <item>https://4.bp.blogspot.com/-VkRXUGbq3Cs/W4-uqTEdLGI/AAAAAAAADU8/FtRvM3EoR2MBQieq3oyrI8SPk5ZBLOokgCK4BGAYYCw/s640/barcode%2Bone.jpg</item>
+        <item>https://4.bp.blogspot.com/-mWP9tsd-DJI/W4-ur3YX_hI/AAAAAAAADVU/f9N-zic7wAswCCMOvQ4GUBOnGwWdhI3UQCK4BGAYYCw/s640/barcode%2B5.jpg</item>
+        <item>https://1.bp.blogspot.com/-O3iUQgYeUnk/W4-uujqVwjI/AAAAAAAADVs/U6vgLteUMD8ERPqFQn6ZLGI0QhKkmktcACK4BGAYYCw/s640/barcode%2B3.jpg</item>
+    </string-array>
+
+    <string-array name="text_scan_headers">
+        <item>OCR - What It Is</item>
+        <item>History</item>
+        <item>Applications</item>
+        <item>Types</item>
+    </string-array>
+
+    <string-array name="text_scan_descriptions">
+        <item>Optical character recognition (also optical character reader, OCR) is the mechanical or electronic conversion of images of typed, handwritten or printed text into machine-encoded text, whether from a scanned document, a photo of a document, a scene-photo (for example the text on signs and billboards in a landscape photo) or from subtitle text superimposed on an image (for example from a television broadcast).\n\n
+
+Widely used as a form of information entry from printed paper data records – whether passport documents, invoices, bank statements, computerised receipts, business cards, mail, printouts of static-data, or any suitable documentation – it is a common method of digitising printed texts so that they can be electronically edited, searched, stored more compactly, displayed on-line, and used in machine processes such as cognitive computing, machine translation, (extracted) text-to-speech, key data and text mining. OCR is a field of research in pattern recognition, artificial intelligence and computer vision.\n\n</item>
+        <item>Early optical character recognition may be traced to technologies involving telegraphy and creating reading devices for the blind. In 1914, Emanuel Goldberg developed a machine that read characters and converted them into standard telegraph code. Concurrently, Edmund Fournier d\'Albe developed the Optophone, a handheld scanner that when moved across a printed page, produced tones that corresponded to specific letters or characters.\n\n
+
+In the late 1920s and into the 1930s Emanuel Goldberg developed what he called a \"Statistical Machine\" for searching microfilm archives using an optical code recognition system. In 1931 he was granted USA Patent number 1,838,389 for the invention. The patent was acquired by IBM.\n\n
+
+With the advent of smart-phones and smartglasses, OCR can be used in internet connected mobile device applications that extract text captured using the device\'s camera. These devices that do not have OCR functionality built into the operating system will typically use an OCR API to extract the text from the image file captured and provided by the device. The OCR API returns the extracted text, along with information about the location of the detected text in the original image back to the device app for further processing (such as text-to-speech) or display.\n\n</item>
+        <item>Data entry for business documents, e.g. check, passport, invoice, bank statement and receipt\n\n
+Automatic number plate recognition\n\n
+In airports, for passport recognition and information extraction\n\n
+Automatic insurance documents key information extraction\n\n
+Extracting business card information into a contact list\n\n
+More quickly make textual versions of printed documents, e.g. book scanning for Project Gutenberg\n\n
+Make electronic images of printed documents searchable, e.g. Google Books\n\n
+Converting handwriting in real time to control a computer (pen computing)\n\n
+Defeating CAPTCHA anti-bot systems, though these are specifically designed to prevent OCR. The purpose can also be to test the robustness of CAPTCHA anti-bot systems.\n\n
+Assistive technology for blind and visually impaired users\n\n</item>
+        <item>Optical character recognition (OCR) – targets typewritten text, one glyph or character at a time.
+Optical word recognition – targets typewritten text, one word at a time (for languages that use a space as a word divider). (Usually just called \"OCR\".)\n\n
+Intelligent character recognition (ICR) – also targets handwritten printscript or cursive text one glyph or character at a time, usually involving machine learning.\n\n
+Intelligent word recognition (IWR) – also targets handwritten printscript or cursive text, one word at a time. This is especially useful for languages where glyphs are not separated in cursive script.\n\n
+OCR is generally an \"offline\" process, which analyses a static document. Handwriting movement analysis can be used as input to handwriting recognition. Instead of merely using the shapes of glyphs and words, this technique is able to capture motions, such as the order in which segments are drawn, the direction, and the pattern of putting the pen down and lifting it. This additional information can make the end-to-end process more accurate. This technology is also known as \"on-line character recognition\", \"dynamic character recognition\", \"real-time character recognition\", and \"intelligent character recognition\".\n\n</item>
+    </string-array>
+
+    <string-array name="text_scan_images">
+        <item>https://2.bp.blogspot.com/-vZ8X082fuMk/W4-uGPqcwQI/AAAAAAAADTo/5xN-oF0I8J0M4Q_UAQ4NL861LmrVSo4EACK4BGAYYCw/s640/ocr%2B2.png</item>
+        <item>https://3.bp.blogspot.com/-uvmZG4Acny0/W4-uHInhWGI/AAAAAAAADT0/j_mwCLKbffQXU740njuy53SyrpgU-0h0gCK4BGAYYCw/s640/ocr%2B3.jpg</item>
+        <item>https://2.bp.blogspot.com/-ib3p7EjDLyY/W4-uHQKnGOI/AAAAAAAADUE/Rr8MjuNpks0PW_KQGI2_u6yG8Et8dqX3ACK4BGAYYCw/s640/ocr%2Bone.jpg</item>
+        <item>https://2.bp.blogspot.com/-Sd41NOaEtrg/W4-uH6ylB-I/AAAAAAAADUM/St-1sZqmVbYORFrFJ_WDNTVRZNfa5s9JwCK4BGAYYCw/s640/ocr%2B5.jpg</item>
+        <item>https://4.bp.blogspot.com/-sSJGrCHoQkI/W4-uHIraXXI/AAAAAAAADUA/D4ufAXeYbMUNsPDh_trrxg5XPyPWZmKVgCK4BGAYYCw/s640/ocr%2B4.png</item>
+    </string-array>
+
+    <string-array name="label_generator_headers">
+        <item>Image Recognition</item>
+        <item>Applications</item>
+        <item>Growth</item>
+        <item>Working</item>
+    </string-array>
+
+    <string-array name="label_generator_descriptions">
+        <item>Image recognition, in the context of machine vision, is the ability of software to identify objects, places, people, writing and actions in images. Computers can use machine vision technologies in combination with a camera and artificial intelligence software to achieve image recognition.\n\n
+
+Image recognition is used to perform a large number of machine-based visual tasks, such as labeling the content of images with meta-tags, performing image content search and guiding autonomous robots, self-driving cars and accident avoidance systems.\n\n
+
+While human and animal brains recognize objects with ease, computers have difficulty with the task. Software for image recognition requires deep machine learning. Performance is best on convolutional neural net processors as the specific task otherwise requires massive amounts of power for its compute-intensive nature. Image recognition algorithms can function by use of comparative 3D models, appearances from different angles using edge detection or by components. Image recognition algorithms are often trained on millions of pre-labeled pictures with guided computer learning.\n\n</item>
+        <item>Current and future applications of image recognition include smart photo libraries, targeted advertising, the interactivity of media, accessibility for the visually impaired and enhanced research capabilities. Google, Facebook, Microsoft, Apple and Pinterest are among the many companies that are investing significant resources and research into image recognition and related applications. Privacy concerns over image recognition and similar technologies are controversial as these companies can pull a large volume of data from user photos uploaded to their social media platforms.\n\n</item>
+        <item>The image recognition market is estimated to grow from USD 15.95 Billion in 2016 to USD 38.92 Billion by 2021, at a CAGR of 19.5% between 2016 and 2021. Advancements in machine learning and use of high bandwidth data services is fueling the growth of this technology. Companies in different sectors such as e-commerce, automotive, healthcare, and gaming are rapidly adopting image recognition. According to the report by MarketsandMarkets, the image recognition market is divided into hardware, software, and services. The hardware segment dominated by smartphones and scanners can play a huge role in the growth of image recognition market. There is an increasing need for security applications and products with innovative technologies such as surveillance cameras and face recognition.\n\n
+
+Image recognition refers to technologies that identify places, logos, people, objects, buildings, and several other variables in images. Users are sharing vast amounts of data through apps, social networks, and websites. Additionally, mobile phones equipped with cameras are leading to the creation of limitless digital images and videos. The large volume of digital data is being used by companies to deliver better and smarter services to the people accessing it.\n\n
+
+Image recognition is a part of computer vision and a process to identify and detect an object or attribute in a digital video or image. Computer vision is a broader term which includes methods of gathering, processing and analyzing data from the real world. The data is high-dimensional and produces numerical or symbolic information in the form of decisions. Apart from image recognition, computer vision also includes event detection, object recognition, learning, image reconstruction and video tracking.\n\n</item>
+        <item>Facebook can now perform face recognize at 98% accuracy which is comparable to the ability of humans. Facebook can identify your friend\’s face with only a few tagged pictures. The efficacy of this technology depends on the ability to classify images. Classification is pattern matching with data. Images are data in the form of 2-dimensional matrices. In fact, image recognition is classifying data into one category out of many. One common and an important example is optical character recognition (OCR). OCR converts images of typed or handwritten text into machine-encoded text.\n\n
+
+The major steps in image recognition process are gather and organize data, build a predictive model and use it to recognize images.\n\n
+
+The human eye perceives an image as a set of signals which are processed by the visual cortex in the brain. This results in a vivid experience of a scene, associated with concepts and objects recorded in one\’s memory. Image recognition tries to mimic this process. Computer perceives an image as either a raster or a vector image. Raster images are a sequence of pixels with discrete numerical values for colors while vector images are a set of color-annotated polygons.\n\n</item>
+    </string-array>
+
+    <string-array name="label_generator_images">
+        <item>https://3.bp.blogspot.com/-LHEoYBSBasQ/W4-twlNDJHI/AAAAAAAADS4/7joXdqzp2tA2YU5zHKlGxPQUYVVIMxCBQCK4BGAYYCw/s640/label%2B1.png</item>
+        <item>https://2.bp.blogspot.com/-xHYPS3pj9Hg/W4-t21k5YcI/AAAAAAAADTY/tlH4W0ElOOgg72mOJhq85hwHBctBVXTAwCK4BGAYYCw/s640/label%2B4.jpeg</item>
+        <item>https://4.bp.blogspot.com/-gNrtP8xlBx0/W4-tw_TLSKI/AAAAAAAADTI/oh9WA45Twe4yS4Qy4O_Jg3nzHr-z2fAEACK4BGAYYCw/s640/label%2B3.png</item>
+        <item>https://3.bp.blogspot.com/-TGZCkYOPEN0/W4-tw20On0I/AAAAAAAADTE/Q1XPapIeTLEhXqFBwrOeKFE6q0TntSKlwCK4BGAYYCw/s640/label%2B2.png</item>
+    </string-array>
 
     <string-array name="fake_touch_headers">
         <item>Touchpad</item>
@@ -2820,7 +2958,7 @@ Adjust display to improve colour differentiation.</item>
         <item>https://3.bp.blogspot.com/-sKTqx7fShb0/W4-JgUlUYtI/AAAAAAAADPU/q_Yy5jsE1W8mrx7sUtOHj_shWZ8tlceCACK4BGAYYCw/s640/connectivity.jpg</item>
         <item>https://4.bp.blogspot.com/-8wlKKAk073U/W4-JhZUR1EI/AAAAAAAADP4/CPoJFaucFRMEcJJsRv6AnnE0bNb-lQCRQCK4BGAYYCw/s640/rt.png</item>
         <item>https://1.bp.blogspot.com/-UN0FP2SM1KY/W4-Jjog5RbI/AAAAAAAADQk/u-P2GXPo8OU8tOPOi_j2cTc5VRfXjg6AgCK4BGAYYCw/s640/media.png</item>
-        <item>https://3.bp.blogspot.com/-nXIMymA4NQI/W4-JiSG4KEI/AAAAAAAADQM/o4UpiVjNiDsXNyL1ydVsZAGzb3yOkpNgwCK4BGAYYCw/s640/ok%2Bgoogle.jpg</item>
+        <item tools:ignore="Typos">https://3.bp.blogspot.com/-nXIMymA4NQI/W4-JiSG4KEI/AAAAAAAADQM/o4UpiVjNiDsXNyL1ydVsZAGzb3yOkpNgwCK4BGAYYCw/s640/ok%2Bgoogle.jpg</item>
         <item>https://3.bp.blogspot.com/-w1_9U59laDo/W4-JgoZjFbI/AAAAAAAADPc/Xia0oH3YBIM_1JXXcwNh_HHNZ6_jvID2QCK4BGAYYCw/s640/tv.jpg</item>
         <item>https://3.bp.blogspot.com/-vIE2kdAYj_8/W4-Jjk4DELI/AAAAAAAADQg/UkyvF2XKP78ob_t0knGzuR2TUiHf-MYGACK4BGAYYCw/s640/accessibility.jpg</item>
     </string-array>

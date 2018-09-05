@@ -902,21 +902,29 @@ public class AppConstants {
                 STORAGE,
                 R.array.storage_descriptions
         );
-        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
-        mapAbout.put(
-                MOTION_DETECT,
-                R.array.storage_descriptions
-        );
         mapAbout.put(
                 FACE_DETECT,
-                R.array.storage_descriptions
+                R.array.face_detect_descriptions
         );
         mapAbout.put(
                 BARCODE_READER,
-                R.array.storage_descriptions
+                R.array.barcode_reader_descriptions
+        );
+        mapAbout.put(
+                VIRTUAL_REALITY,
+                R.array.vr_descriptions
+        );
+        mapAbout.put(
+                LABEL_GENERATOR,
+                R.array.label_generator_descriptions
         );
         mapAbout.put(
                 TEXT_SCAN,
+                R.array.text_scan_descriptions
+        );
+        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
+        mapAbout.put(
+                MOTION_DETECT,
                 R.array.storage_descriptions
         );
         mapAbout.put(
@@ -927,14 +935,7 @@ public class AppConstants {
                 AUGMENTED_REALITY,
                 R.array.storage_descriptions
         );
-        mapAbout.put(
-                VIRTUAL_REALITY,
-                R.array.storage_descriptions
-        );
-        mapAbout.put(
-                LABEL_GENERATOR,
-                R.array.storage_descriptions
-        );
+
 
         categories.add(new Category(
                 R.drawable.baseline_system_update_black_48,

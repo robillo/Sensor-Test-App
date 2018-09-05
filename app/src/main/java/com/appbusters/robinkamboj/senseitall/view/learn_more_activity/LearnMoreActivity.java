@@ -26,6 +26,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AV_OUTPUTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BACK_CAMERA;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BARCODE_READER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BAROMETER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BLUETOOTH;
@@ -33,6 +34,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUCH;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FINGERPRINT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLASH;
@@ -42,6 +44,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GSM_UMTS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.HEART_RATE_ECG;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFRARED;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.LABEL_GENERATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MICROPHONE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MIDI;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
@@ -67,9 +70,11 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ST
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_TEMPERATURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STORAGE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.USB_ACCESSORY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VR_MODE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WEB_VIEW;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
@@ -401,6 +406,36 @@ public class LearnMoreActivity extends AppCompatActivity  implements LearnMoreIn
                 headers = getResources().getStringArray(R.array.storage_headers);
                 descriptions = getResources().getStringArray(R.array.storage_descriptions);
                 images = getResources().getStringArray(R.array.storage_images);
+                break;
+            }
+            case FACE_DETECT: {
+                headers = getResources().getStringArray(R.array.face_detect_headers);
+                descriptions = getResources().getStringArray(R.array.face_detect_descriptions);
+                images = getResources().getStringArray(R.array.face_detect_images);
+                break;
+            }
+            case BARCODE_READER: {
+                headers = getResources().getStringArray(R.array.barcode_reader_headers);
+                descriptions = getResources().getStringArray(R.array.barcode_reader_descriptions);
+                images = getResources().getStringArray(R.array.barcode_reader_images);
+                break;
+            }
+            case TEXT_SCAN: {
+                headers = getResources().getStringArray(R.array.text_scan_headers);
+                descriptions = getResources().getStringArray(R.array.text_scan_descriptions);
+                images = getResources().getStringArray(R.array.text_scan_images);
+                break;
+            }
+            case VIRTUAL_REALITY: {
+                headers = getResources().getStringArray(R.array.vr_headers);
+                descriptions = getResources().getStringArray(R.array.vr_descriptions);
+                images = getResources().getStringArray(R.array.vr_images);
+                break;
+            }
+            case LABEL_GENERATOR: {
+                headers = getResources().getStringArray(R.array.label_generator_headers);
+                descriptions = getResources().getStringArray(R.array.label_generator_descriptions);
+                images = getResources().getStringArray(R.array.label_generator_images);
                 break;
             }
         }

@@ -10,11 +10,17 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
+import com.appbusters.robinkamboj.senseitall.view.learn_more_activity.LearnMoreActivity;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 
 abstract public class SoftwareFragment extends Fragment implements SoftwareInterface {
 
@@ -50,6 +56,25 @@ abstract public class SoftwareFragment extends Fragment implements SoftwareInter
                     AppConstants.mapAbout.get(((DetailActivity) getActivity()).intentData.getName())
             );
             about.setText(temp[0]);
+        }
+    }
+
+
+    @OnClick(R.id.learn_more)
+    public void setLearnMore() {
+        if(getActivity() != null) {
+            GenericData intentData = ((DetailActivity) getActivity()).intentData;
+            Intent intent = new Intent(getActivity(), LearnMoreActivity.class);
+
+            Bundle args = new Bundle();
+            args.putString(DATA_NAME, intentData.getName());
+            args.putInt(DRAWABLE_ID, intentData.getDrawableId());
+            args.putBoolean(IS_PRESENT, intentData.isPresent());
+            args.putInt(TYPE, intentData.getType());
+            intent.putExtras(args);
+
+            getActivity().startActivity(intent);
+            getActivity().overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
         }
     }
 
