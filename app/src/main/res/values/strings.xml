@@ -2641,17 +2641,17 @@ Variable text-to-speech speed: Variable text-to-speech speed increases productiv
     </string-array>
 
     <string-array name="nougat_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-IDJBPuR4Rng/W4-AH0ERJVI/AAAAAAAADLc/f_uLJso0HMUX0gHYdIYcN7iYk-VoZkNnwCK4BGAYYCw/s640/performance.png</item>
+        <item>https://1.bp.blogspot.com/-hWtg8b-6aiQ/W4-AIQ96B_I/AAAAAAAADLk/hylR7KJe0uctZg9J0fLboOqrp06ESUKAQCK4BGAYYCw/s640/battery.jpg</item>
+        <item>https://4.bp.blogspot.com/-XdLIAxjtBXQ/W4-AJuo4XFI/AAAAAAAADLs/8uyhHsSh8uwvYngDnpaN-gvvKvNvZm2UACK4BGAYYCw/s640/productivity.jpg</item>
+        <item>https://2.bp.blogspot.com/-4MjWxPTi98w/W4-AKZ1_nuI/AAAAAAAADL0/_XP90AkzI_49QmdR54UvpMLjuoUbuHBlgCK4BGAYYCw/s640/notifications.jpg</item>
+        <item>https://3.bp.blogspot.com/-gxSf0rslX3E/W4-ANBsh9rI/AAAAAAAADME/V-g4oeLsVz43z5GYzUBi-OI8DU8XCi5aACK4BGAYYCw/s640/usability.jpg</item>
+        <item>https://4.bp.blogspot.com/-ZpLhjVk9USY/W4-AO8rnuYI/AAAAAAAADMM/BLkxg1g9jRwbBlcj1WqCOZKrPyaHzy9AQCK4BGAYYCw/s640/empji.jpg</item>
+        <item>https://1.bp.blogspot.com/-bxdLYC7rqYA/W4-ARjHdN_I/AAAAAAAADMc/G9WahkpOPkwKt-ZCL3Z0HhuJZboxQ9zPwCK4BGAYYCw/s640/privacy.jpg</item>
+        <item>https://2.bp.blogspot.com/-SgUvAcG_1zY/W4-AQLNMYrI/AAAAAAAADMU/tr7KHtJVrU8D4wOp85F9s3EQFfio-WgcQCK4BGAYYCw/s640/device.jpg</item>
+        <item>https://3.bp.blogspot.com/-XOuoH9poFLE/W4-AVe9MBQI/AAAAAAAADM0/9B4CHg94PDsKPnzau5jGcqnMk46IgClBgCK4BGAYYCw/s640/international.png</item>
+        <item>https://4.bp.blogspot.com/-CEwvLcBLj4k/W4-AUfS9goI/AAAAAAAADMk/p-5JVDAuQl4_j6SGJms50ufNGfHWat6IACK4BGAYYCw/s640/accessibility.jpg</item>
+        <item>https://3.bp.blogspot.com/-HnDUmRieGHA/W4-AVOV5MkI/AAAAAAAADMs/u2ePNhItqnElOOqM2W09Tm5xmo_iCeCrwCK4BGAYYCw/s640/work.jpg</item>
     </string-array>
 
     <string-array name="marshmallow_headers">
@@ -2706,17 +2706,17 @@ Backup/restore of additional system settings such as your Sync settings, preferr
     </string-array>
 
     <string-array name="marshmallow_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://1.bp.blogspot.com/-aEGWqlP2MCU/W4-EKjbJXOI/AAAAAAAADNs/H01EDCnQhGU3_VbDnXSxpY4XoOUyWEu1wCK4BGAYYCw/s640/context.jpg</item>
+        <item>https://3.bp.blogspot.com/-YTI0uRIntL0/W4-EJgHDvAI/AAAAAAAADNc/v4tO3b31pRUtqmmSfIHo5U4x84JK3ckJACK4BGAYYCw/s640/battery.jpg</item>
+        <item>https://4.bp.blogspot.com/-tdWlDHzGtbk/W4-EQZN1i2I/AAAAAAAADN4/9CSwFeSLsmgAlRuge6WiA31yZquzWXQCACK4BGAYYCw/s640/privacy.jpg</item>
+        <item>https://1.bp.blogspot.com/-9wQe8Qb5thY/W4-EJEcLb1I/AAAAAAAADNU/i6cJATL27NAov2XQiNbih22GNtLx9Td4QCK4BGAYYCw/s640/art.jpg</item>
+        <item>https://1.bp.blogspot.com/-BWXab3i0mzg/W4-ERTMm_GI/AAAAAAAADOM/8zt4VCVdgtUok_6hnEHcxu-uZpwrbFxHACK4BGAYYCw/s640/productivity.jpg</item>
+        <item>https://3.bp.blogspot.com/-BGOag9mASZ4/W4-ERyBG0gI/AAAAAAAADOc/M6UYxnaaoPgh9W0g9NLz4_lQ-prXb-zgQCK4BGAYYCw/s640/usability.jpg</item>
+        <item>https://1.bp.blogspot.com/-PTyDhqSRQNU/W4-EKNWz1aI/AAAAAAAADNk/48ytLkE5_H0zFiv2v706Slmlq73gAzOrACK4BGAYYCw/s640/connectivity.jpg</item>
+        <item>https://1.bp.blogspot.com/-ZElGMMWXXGc/W4-ERV_aUmI/AAAAAAAADOE/lEafWNpWr_kKTPreNu4KnVZiTmrjLyfjwCK4BGAYYCw/s640/expandable.jpg</item>
+        <item>https://3.bp.blogspot.com/-MG0-VdoLms4/W4-EQiFXcQI/AAAAAAAADN8/p31MVz7ZGwM1oZcOLaZuAdYjgcYuAH_HQCK4BGAYYCw/s640/migration.jpg</item>
+        <item>https://3.bp.blogspot.com/-f9wEVHRk2vo/W4-ERvAPpmI/AAAAAAAADOU/P9Bwie8OMSI1PtoLPyGWEUDeOQMH6acSwCK4BGAYYCw/s640/media.jpg</item>
+        <item>https://2.bp.blogspot.com/-fNLHlK3dNv8/W4-ESqz2ySI/AAAAAAAADOk/lG1g8oU0ew8c2zz-7JaK772HtyMCCh7jgCK4BGAYYCw/s640/internationalization.jpg</item>
     </string-array>
 
     <string-array name="lollipop_headers">
@@ -2811,18 +2811,18 @@ Adjust display to improve colour differentiation.</item>
     </string-array>
 
     <string-array name="lollipop_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://2.bp.blogspot.com/-iD6exz3XxEs/W4-Jh0JJwHI/AAAAAAAADQE/j8a9OUO59aMrkjz7Eeg6YtGuewjrgLtlQCK4BGAYYCw/s640/material.jpg</item>
+        <item>https://2.bp.blogspot.com/-_d9mP2YIJUc/W4-JirZScKI/AAAAAAAADQU/V3-OZcwGsxIWLLDVJTKr_S5gpqHNhJoVACK4BGAYYCw/s640/notifications.jpg</item>
+        <item>https://3.bp.blogspot.com/-kAYh5w2GcDk/W4-JhnMHDUI/AAAAAAAADQA/gUuOcyx3rr4N5ygGsH6pO3QLaWJGMauIwCK4BGAYYCw/s640/lollipop.png</item>
+        <item>https://2.bp.blogspot.com/-vHTV0WtEAYs/W4-JgFKkE_I/AAAAAAAADPM/kVD2rdsI-i0xRfczsy4pnUVx2EiOMfSnACK4BGAYYCw/s640/security.jpg</item>
+        <item>https://3.bp.blogspot.com/-ZaM7Sea8ngI/W4-JhD3tsUI/AAAAAAAADPs/fMkooltsTFwLCaSROzqohnahaV2S-edrgCK4BGAYYCw/s640/device_sharing.jpg</item>
+        <item tools:ignore="TypographyDashes">https://2.bp.blogspot.com/--vNiwC1P44g/W4-Jg_fN-LI/AAAAAAAADPo/u7UHcc6aG_Mo-bqiYvHKJF2nT0yEQVcngCK4BGAYYCw/s640/quick%2Bsettings.jpg</item>
+        <item>https://3.bp.blogspot.com/-sKTqx7fShb0/W4-JgUlUYtI/AAAAAAAADPU/q_Yy5jsE1W8mrx7sUtOHj_shWZ8tlceCACK4BGAYYCw/s640/connectivity.jpg</item>
+        <item>https://4.bp.blogspot.com/-8wlKKAk073U/W4-JhZUR1EI/AAAAAAAADP4/CPoJFaucFRMEcJJsRv6AnnE0bNb-lQCRQCK4BGAYYCw/s640/rt.png</item>
+        <item>https://1.bp.blogspot.com/-UN0FP2SM1KY/W4-Jjog5RbI/AAAAAAAADQk/u-P2GXPo8OU8tOPOi_j2cTc5VRfXjg6AgCK4BGAYYCw/s640/media.png</item>
+        <item>https://3.bp.blogspot.com/-nXIMymA4NQI/W4-JiSG4KEI/AAAAAAAADQM/o4UpiVjNiDsXNyL1ydVsZAGzb3yOkpNgwCK4BGAYYCw/s640/ok%2Bgoogle.jpg</item>
+        <item>https://3.bp.blogspot.com/-w1_9U59laDo/W4-JgoZjFbI/AAAAAAAADPc/Xia0oH3YBIM_1JXXcwNh_HHNZ6_jvID2QCK4BGAYYCw/s640/tv.jpg</item>
+        <item>https://3.bp.blogspot.com/-vIE2kdAYj_8/W4-Jjk4DELI/AAAAAAAADQg/UkyvF2XKP78ob_t0knGzuR2TUiHf-MYGACK4BGAYYCw/s640/accessibility.jpg</item>
     </string-array>
 
     <string-array name="kitkat_headers">
@@ -2858,19 +2858,19 @@ Adjust display to improve colour differentiation.</item>
     </string-array>
 
     <string-array name="kitkat_images">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>https://4.bp.blogspot.com/-UR-kZw0sAnk/W4-c1R9BA1I/AAAAAAAADRA/y3kg_Klm0cUeP1ydX3qzGl9txV1vSiJAwCK4BGAYYCw/s640/bluetooth%2Bmap.jpg</item>
+        <item>https://3.bp.blogspot.com/-7_FXiJiNhSI/W4-c9Zuw4iI/AAAAAAAADSQ/t-6m8US0N4Ath9P8sIVSF6vM7EYIlPQwwCK4BGAYYCw/s640/chrome%2Bcast.jpg</item>
+        <item>https://1.bp.blogspot.com/-WMmkIHfwyxE/W4-c49xsttI/AAAAAAAADRI/Sjhfj8St4dMS7TC08PY63GzLPEdsdwUuQCK4BGAYYCw/s640/web%2Bview.jpeg</item>
+        <item>https://1.bp.blogspot.com/-588XADjZ8Hc/W4-c6SvWdeI/AAAAAAAADR0/5GiE1cobLWA8s9aYQ-L_KwFwVs4WHIYjgCK4BGAYYCw/s640/closed%2Bcaptioning.jpg</item>
+        <item>https://2.bp.blogspot.com/-PVN9BYMA1b8/W4-c6fCPZWI/AAAAAAAADRw/Yh3vAJL62JE7Zb1QrIS2eWOYDNhkrW8xgCK4BGAYYCw/s640/device%2Bmanagement.png</item>
+        <item>https://2.bp.blogspot.com/-wmKiEfLkOkk/W4-c5SZH2pI/AAAAAAAADRY/_SNCQZmkj3o43k30Q3tAogtFl-4iwQZ-ACK4BGAYYCw/s640/downloads%2Bapp.jpg</item>
+        <item>https://3.bp.blogspot.com/-fqBYSVKYucU/W4-c7adcR1I/AAAAAAAADSE/r4KfUFwUPDEDzPz5v6kGM_axrVr-GP-hQCK4BGAYYCw/s640/screen%2Bswitching.jpg</item>
+        <item>https://2.bp.blogspot.com/-FRpz03W1dv0/W4-c-M3oKOI/AAAAAAAADSY/M2xjYpUNhCw6XoTjyZ1WFP7_7DrL3UaxgCK4BGAYYCw/s640/email%2Bapp.png</item>
+        <item>https://3.bp.blogspot.com/-VY41HJR0N_w/W4-c6LyheXI/AAAAAAAADRo/D3_iIybVwQ43gYUqlgg6d8CAK3tGLlPHQCK4BGAYYCw/s640/full%2Bscreen%2Bwallpapers.jpg</item>
+        <item>https://2.bp.blogspot.com/-qfBQ1wSppXI/W4-c-4Tl1lI/AAAAAAAADSg/9-OrrBUgN-A368Nalp4KbZEkhi6xc19AQCK4BGAYYCw/s640/hdr%2Bplus.png</item>
+        <item>https://3.bp.blogspot.com/-ov_nbFAPqfk/W4-c6QX4h9I/AAAAAAAADR4/Otd6NeY7kBwyrXghs8iRgtJ6y2HO2YYHgCK4BGAYYCw/s640/irb.jpg</item>
+        <item>https://4.bp.blogspot.com/-VPMQhP9xvKg/W4-c7TUBYEI/AAAAAAAADSI/69FlUg_xR8cx4XOrw7WAOf4rqJswIwMaACK4BGAYYCw/s640/quick%2Bsettings.jpg</item>
+        <item>https://2.bp.blogspot.com/-fT4dfMf74h4/W4-c5P6cOgI/AAAAAAAADRQ/rgSzItnhwFg9f6iNmZG461eSGPr-XClqwCK4BGAYYCw/s640/step%2Bcounting.jpg</item>
     </string-array>
 
 </resources>

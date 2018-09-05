@@ -168,7 +168,7 @@ public abstract class AndroidFragment extends Fragment implements AndroidInterfa
         }
 
         for(int i=0; i<headers.length; i++) {
-            list.add(new LearnMoreItem(null, headers[i], descriptions[i]));
+            list.add(new LearnMoreItem(images[i], headers[i], descriptions[i]));
         }
     }
 
