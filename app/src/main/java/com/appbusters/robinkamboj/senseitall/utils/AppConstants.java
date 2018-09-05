@@ -29,6 +29,13 @@ public class AppConstants {
     public static final String SOFTWARE = "Software";
     public static final String ANDROID = "Android";
 
+    //storage constants
+    public static final String FREE_INTERNAL_STORAGE = "Free Internal Storage";
+    public static final String TOTAL_INTERNAL_STORAGE = "Total Internal Storage Excluding System-Used Storage";
+    public static final String IS_SD_CARD_MOUNTED = "Is SD Card Mounted?";
+    public static final String FREE_EXTERNAL_STORAGE = "Free External Storage";
+    public static final String TOTAL_EXTERNAL_STORAGE = "Total External Storage Excluding SD Card Specific Storage";
+
     //ram constants
     public static final String PERCENT_AVAILABLE_MEMORY = "Percent Memory Available";
     public static final String AVAILABLE_MEMORY = "Available Memory";

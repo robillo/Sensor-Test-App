@@ -6,4 +6,8 @@ public interface StorageInterface {
 
     void setup(View v);
 
+    void setInternalStorageProgress();
+
+    void setExternalStorageProgress();
+
 }

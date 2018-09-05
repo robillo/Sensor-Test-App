@@ -279,6 +279,8 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="no_image_selected_oops">Oops. Seems like no image was selected.</string>
     <string name="showing_results">Showing Results..</string>
     <string name="ram_used">Ram Used :</string>
+    <string name="internal_storage_used">Internal Storage Used :</string>
+    <string name="external_storage_used">External Storage Used :</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>
