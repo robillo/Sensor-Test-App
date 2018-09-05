@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.LearnMoreItem;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.TransitionOptions;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
@@ -43,6 +46,7 @@ public class LearnMoreAdapter extends RecyclerView.Adapter<LearnMoreAdapter.Lear
         holder.drawable.setPadding(0, 0, 0, 0);
         Glide.with(context)
                 .load(list.get(position).getDrawable())
+                .transition(DrawableTransitionOptions.withCrossFade(1000))
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.drawable);
         holder.content.setText(list.get(position).getContent());

@@ -2424,7 +2424,7 @@ If the CPU is a chef, the cache is their chopping board, RAM the kitchen cupboar
 
 The iPad mini 4 has 2GB RAM, and can perform real multi-tasking thanks to iOS 9. The iPad mini 3 with 1GB RAM cannot. This doesn\’t mean it would be impossible, of course, but that Apple thinks multi-tasking doesn\’t run well enough on a 1GB RAM device.\n\n
 
-This isn’t the most important kind of mobile multi-tasking, though. RAM is also what lets you flick between apps without having to start from scratch each time. Even if an app isn\’t actively doing anything in the background, RAM is used to create a saved state that the phone can zap back into as if you’d never left.\n\n
+This isn\’t the most important kind of mobile multi-tasking, though. RAM is also what lets you flick between apps without having to start from scratch each time. Even if an app isn\’t actively doing anything in the background, RAM is used to create a saved state that the phone can zap back into as if you\’d never left.\n\n
 
 We take all this for granted, but have RAM to thank.\n\n
         </item>
@@ -2433,7 +2433,7 @@ We take all this for granted, but have RAM to thank.\n\n
 Android and iOS do not run like Windows, though. With a desktop operating system it\’s still possible to open far too many apps, to the point that the computer collapses into a juddering heap. I do this all the time, ending up annoyed at my laptop before realising it\’s only running poorly because I have 70 browser instances open and 100 3MB images loaded on Photoshop. It\’s my fault.\n\n
 
 
-You can\’t really misuse mobile operating systems in the same way because memory management happens automatically, and is more aggressive. Where with Windows you’d have to start closing apps when you stretch your RAM, iOS and Android simply offload app data from system RAM like a digital PA. Some apps may then still retain some of their \‘state\’ data on the solid state storage, but at this point the app will have to reload fully when you return.\n\n
+You can\’t really misuse mobile operating systems in the same way because memory management happens automatically, and is more aggressive. Where with Windows yo’d have to start closing apps when you stretch your RAM, iOS and Android simply offload app data from system RAM like a digital PA. Some apps may then still retain some of their \‘state\’ data on the solid state storage, but at this point the app will have to reload fully when you return.\n\n
 
 This is why a phone with barely enough RAM to keep its system running properly is going to be crap at multi-tasking. Leave at app, return 30 seconds later and you\’ll have to wait just as long as you did when you first booted it up.\n\n
 </item>
@@ -2567,7 +2567,7 @@ This is why a phone with barely enough RAM to keep its system running properly i
         <item>More control over how apps run in the background for better overall system performance.</item>
         <item>Enables applications to render richer visual content with more vibrant colours and subtler gradients. Supports full colour management, which allows applications to render images in the format and quality they were intended.</item>
         <item>Applications no longer need to bundle custom fonts, which helps reduce their size.</item>
-        <item>Hostile downloader apps can't operate without permission; users now permit the installation of APKs per-source.</item>
+        <item>Hostile downloader apps can\'t operate without permission; users now permit the installation of APKs per-source.</item>
         <item>Compatible with all Mopria-certified printers, which make up 97% of printers sold worldwide.</item>
         <item>More granular and consistent control over which notifications can appear and how intrusive they are.</item>
         <item>Lets users hide notifications for a period of time, similar to inbox snoozing.</item>
@@ -2608,23 +2608,23 @@ This is why a phone with barely enough RAM to keep its system running properly i
         <item>JIT compiler: The new JIT compiler improves runtime device performance, reduces the amount of storage space required for apps and makes app and system updates much faster.
 VR mode: With VR mode, Android Nougat is ready to transport you to new worlds. Coming soon with Daydream and Daydream-ready phones.
 Vulkan™ API: Vulkan API is a real game changer with high-performance 3D graphics. See apps spring to life with sharper graphics and eye candy effects.</item>
-        <item>Doze: Doze is now dozier, with your device going into lower power usage when you’re on the move. That means your Android device will conserve battery even when it’s jostling around in your pocket.
-Data saver: Limit how much data your device uses with Data Saver. When Data Saver is turned on, apps in the background won't be able to access mobile data.</item>
+        <item>Doze: Doze is now dozier, with your device going into lower power usage when you\’re on the move. That means your Android device will conserve battery even when it\’s jostling around in your pocket.
+Data saver: Limit how much data your device uses with Data Saver. When Data Saver is turned on, apps in the background won\'t be able to access mobile data.</item>
         <item>Split-screen mode: Now you can multitask with ease. Run two apps side by side in split-screen mode – watch a movie while texting, or read a recipe with your timer open.
 Picture-in-picture mode: On Android TV, you can continue watching your current video while browsing or changing settings.
 Quick switch: Double tap the Overview button to switch between your two most recently used apps.</item>
-        <item>Bundled notifications: See what’s new at a glance with bundled notifications from individual apps. Simply tap to view each alert.
+        <item>Bundled notifications: See what\’s new at a glance with bundled notifications from individual apps. Simply tap to view each alert.
 Direct reply: Direct reply lets you quickly reply to a message, directly from within the notification shade. So, you no longer need to launch the app to send a quick response.
 Notification controls: When a notification pops up, just press and hold to toggle the settings. For instance, you can silence future alerts from an app in the notification itself.</item>
         <item>Customisable Quick Settings: Rearrange your Quick Setting tiles so you can get to what you want faster.
 Quick Settings bar: Quick Settings has been redesigned so that you can get faster access to top Quick Settings tiles directly in the notification shade.
 Improved Settings navigation: Find the right setting faster with an updated navigation menu in Settings.
 Settings suggestions: Within Settings, get suggestions for how to get even more out of your device.
-'Clear all' in Overview: Instantly close all of your apps running in the background by tapping 'clear all' in Overview.
-Emergency information: Emergency Information lets you add information such as name, blood type, allergies and an emergency contact so that emergency responders can view this information through your device's lock screen.
-Lockscreen wallpaper: You can now have different wallpapers on your device's homescreen and lockscreen.</item>
+\'Clear all\' in Overview: Instantly close all of your apps running in the background by tapping \'clear all\' in Overview.
+Emergency information: Emergency Information lets you add information such as name, blood type, allergies and an emergency contact so that emergency responders can view this information through your device\'s lock screen.
+Lockscreen wallpaper: You can now have different wallpapers on your device\'s homescreen and lockscreen.</item>
         <item>Unicode 9 emoji: Bring your words to life with all-new emoji, including redesigned human emoji with multiple skin tones.</item>
-        <item>Direct boot: When restarting your device, Direct Boot helps it start up faster and ensures that important communications still run. So before you even put in your password, you'll still get that important text message and hear your alarm clock ring.
+        <item>Direct boot: When restarting your device, Direct Boot helps it start up faster and ensures that important communications still run. So before you even put in your password, you\'ll still get that important text message and hear your alarm clock ring.
 Seamless software updates: On select, new devices running Android Nougat, OS updates can download in the background, so you can go on with your day while your device syncs with the latest OS.
 File-based encryption: Building on top of our security platform, Android Nougat introduces file-based encryption. By encrypting at the file level instead of the block level, Android can better isolate and protect files for individual users on your device.
 Scoped folder access: Apps can request access to specific folders that you can allow or deny access to (just like app runtime permissions). This is a reduced-scope version of the Storage permission for Apps that only need access to certain folders. It can also allow Apps to request direct access to removable media (on devices with that hardware).
@@ -2633,11 +2633,11 @@ Trusted face: Trusted face, a part of Smart Lock, makes unlocking even easier th
         <item>Multi-locale support: Select multiple locales in Settings to tailor experiences for you, such as showing search results in multiple languages and not offering to translate web pages in a language you already know.
 New languages supported: Coupled with allowing you to select multiple languages preferences, Android Nougat allows you to select from 100 new languages and 25 locales for commonly used languages such as English, Spanish, French and Arabic. This enables Apps to better support and understand your language preferences, even if your devices lacks official support for it.
 New language preferences: Sort your language preferences so that apps can pick the right keyboard &amp; text for you.</item>
-        <item>Accessibility settings in setup: it’s easier than ever before for you to discover and configure accessibility features on your new device. Set magnification gesture, font size, display size and TalkBack, straight out of the box.
+        <item>Accessibility settings in setup: it\’s easier than ever before for you to discover and configure accessibility features on your new device. Set magnification gesture, font size, display size and TalkBack, straight out of the box.
 Display size: Not only can you change the size of the text on your device, but the size of all the display elements like icons and images.
 Accessibility mono output: Accessibility mono output assists users with hearing loss in one ear by combining stereo left- and right-channel output to a single mono stream.
 Variable text-to-speech speed: Variable text-to-speech speed increases productivity of text-to-speech users by allowing setting wider range for speech speed and pitches.</item>
-        <item>Work mode: Work mode allows you to turn on and off your device's work apps and notifications for a better work-life balance.</item>
+        <item>Work mode: Work mode allows you to turn on and off your device\'s work apps and notifications for a better work-life balance.</item>
     </string-array>
 
     <string-array name="nougat_images">
@@ -2669,13 +2669,13 @@ Variable text-to-speech speed: Variable text-to-speech speed increases productiv
     </string-array>
 
     <string-array name="marshmallow_descriptions">
-        <item>Now on Tap: get assistance without having to leave what you’re doing—whether you’re in an app or on a website. Just touch and hold the home button.
+        <item>Now on Tap: get assistance without having to leave what you\’re doing—whether you\’re in an app or on a website. Just touch and hold the home button.
 Do more with your voice. Now you can have a dialogue with any of your apps that support the new voice interaction service. For example, if a user says “play some music on TuneIn,” TuneIn will respond by asking “What genre?”.
 Direct Share: a fast and easy way to share to the right person in the right app.</item>
         <item>Doze: when your device is at rest, Doze automatically puts it into a sleep state to increase your standby battery life.
 App Standby: no more battery drain from seldom used apps; App Standby limits their impact on battery life so your charge lasts longer.
 USB Type C support*: Quickly transfer power and data all through the same cable. Lightning fast charging gives you hours of power in just minutes.</item>
-        <item>On an Android Marshmallow device, apps designed for Android Marshmallow only ask for permission right when it’s needed. You can deny any permission and still continue to use the app.
+        <item>On an Android Marshmallow device, apps designed for Android Marshmallow only ask for permission right when it\’s needed. You can deny any permission and still continue to use the app.
 Advanced controls to turn permissions on or off for all your installed apps.
 Verified boot: when your Android device boots up, it will warn you if the firmware and Android operating system have been modified from the factory version.
 Use fingerprint sensors* to unlock your device, make purchases in Google Play, authenticate transactions in apps, and pay in stores.</item>
@@ -2690,11 +2690,11 @@ Easily toggle and configure Do Not Disturb from quick settings.
 If someone calls you twice within 15 minutes, you can choose to allow the call to ring through while Do Not Disturb is enabled.
 Use automatic rules to enable Do Not Disturb for as many custom time blocks as you like or around events on your calendar.
 Simplified volume controls allow you to manage notification, music, and alarm volumes easily from anywhere with the touch of your volume keys.
-Streamlined Settings let you manage an app’s settings all in one place, from battery and memory usage, to notifications and permissions controls.
+Streamlined Settings let you manage an app\’s settings all in one place, from battery and memory usage, to notifications and permissions controls.
 Google Now Launcher app list refreshed with search, fast alphabetic scrolling, and predictive App Suggestions.</item>
         <item>More power efficient Bluetooth Low Energy (“BLE”) scanning for nearby beacons and your accessories.
 Hotspot 2.0: Connect to compatible Wi-Fi networks seamlessly and securely.
-Bluetooth SAP: Make calls from your carphone using your phone’s SIM.
+Bluetooth SAP: Make calls from your carphone using your phone\’s SIM.
 Portable Wi-Fi hotspot now supports 5GHz frequency bands.</item>
         <item>Flex Storage: makes using SD cards or external storage devices as encrypted expanded storage for your apps and games on Android Marshmallow a whole lot easier.</item>
         <item>Easily transfer your accounts, apps and data to a new device.
@@ -2742,10 +2742,10 @@ Vivid new colours, typography and edge-to-edge imagery help to focus your attent
         <item>New ways to control when and how you receive messages – only get interrupted when you want to be.
 
 View and respond to messages directly from your lock screen. Includes the ability to hide sensitive content for these notifications.
-For fewer disruptions, turn on Priority mode via your device’s volume button so only certain people and notifications get through. Or schedule recurring downtime, such as from 10.00 p.m. until 8.00 a.m., when only Priority notifications can get through.
-With Lollipop, incoming phone calls won’t interrupt what you’re watching or playing. You can choose to answer the call or just keep doing what you’re doing.
-Control the notifications triggered by your apps; hide sensitive content and prioritise or turn off the app’s notifications entirely.
-More intelligent ranking of notifications based on who they’re from and the type of communication. See all your notifications in one place by tapping the top of the screen.</item>
+For fewer disruptions, turn on Priority mode via your device\’s volume button so only certain people and notifications get through. Or schedule recurring downtime, such as from 10.00 p.m. until 8.00 a.m., when only Priority notifications can get through.
+With Lollipop, incoming phone calls won\’t interrupt what you\’re watching or playing. You can choose to answer the call or just keep doing what you\’re doing.
+Control the notifications triggered by your apps; hide sensitive content and prioritise or turn off the app\’s notifications entirely.
+More intelligent ranking of notifications based on who they\’re from and the type of communication. See all your notifications in one place by tapping the top of the screen.</item>
         <item>Power for the long haul
 
 A battery saver feature that extends device use by up to 90 mins.
@@ -2847,7 +2847,7 @@ Adjust display to improve colour differentiation.</item>
         <item>Applications that embed web content now use Chrome to render web components accurately and quickly.</item>
         <item>Android now supports closed captioning and subtitles. To turn on closed captioning, go to Settings > Accessibility and turn on Captions.</item>
         <item>If you ever lose your device, you can find or wipe it with the Android Device Manager</item>
-        <item>The Downloads app has been redesigned, giving you new sorting options and list and grid views for all the files that you've downloaded.</item>
+        <item>The Downloads app has been redesigned, giving you new sorting options and list and grid views for all the files that you\'ve downloaded.</item>
         <item>If you love to customise your device and have installed one or more home screen replacements, you can switch between them easily in Settings > Home.</item>
         <item>The redesigned Email app has a fresh new look with nested folders, contact photos and better navigation.</item>
         <item>Your wallpaper now extends through the notification tray and system buttons. And when you change your wallpaper, you can preview just how it will look before you set it.*</item>
