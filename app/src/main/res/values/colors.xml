@@ -78,6 +78,8 @@
     <color name="ten_plus">#E65100</color>
     <color name="zero_plus">#D50000</color>
 
+    <color name="color_fragment_top_line">#30abe4</color>
+
     <array name="intensityColors">
         <item>#212121</item>
         <item>#424242</item>

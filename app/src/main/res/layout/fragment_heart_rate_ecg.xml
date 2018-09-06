@@ -21,7 +21,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="3sp"
-                android:background="@color/colorMajorDark"
+                android:background="@color/color_fragment_top_line"
                 tools:ignore="ContentDescription,SmallSp" />
 
             <include layout="@layout/layout_about_sensor" />

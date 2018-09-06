@@ -25,7 +25,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="?android:attr/actionBarSize"
+                    android:layout_marginTop="40sp"
                     android:id="@+id/list_screen"
                     android:background="@color/colorIntensity8">
 
@@ -97,17 +97,17 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="?android:attr/actionBarSize"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:background="@color/white">
 
                         <ImageView
-                            android:layout_width="?android:attr/actionBarSize"
-                            android:layout_height="?android:attr/actionBarSize"
+                            android:layout_width="40sp"
+                            android:layout_height="40sp"
                             android:background="@color/transparent"
                             android:src="@drawable/baseline_settings_black_48"
-                            android:padding="14sp"
-                            android:tint="@color/colorMajorDark"
+                            android:padding="8sp"
+                            android:tint="@color/colorMajorDarkMuchLighter"
                             tools:ignore="ContentDescription"
                             android:id="@+id/menu_settings"
                             android:visibility="invisible"/>
@@ -119,10 +119,11 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:textSize="28sp"
-                                android:textColor="@color/colorMajorDark"
+                                android:layout_gravity="center_vertical"
+                                android:textSize="22sp"
+                                android:textColor="@color/colorMajorDarkMuchLighter"
                                 tools:text="Diagnostic"
                                 android:id="@+id/app_header_text"/>
 
@@ -134,6 +135,7 @@
                                 android:layout_height="match_parent"
                                 android:hint="@string/search_hint"
                                 android:textSize="18sp"
+                                android:layout_gravity="center_vertical"
                                 android:textColor="@color/colorMajorDark"
                                 android:textColorHint="@color/red_shade_six"
                                 android:backgroundTint="@color/colorMajorDark"
@@ -144,12 +146,12 @@
                         </FrameLayout>
 
                         <ImageView
-                            android:layout_width="?android:attr/actionBarSize"
-                            android:layout_height="?android:attr/actionBarSize"
+                            android:layout_width="40sp"
+                            android:layout_height="40sp"
                             android:background="@color/transparent"
                             android:src="@drawable/baseline_search_black_48"
-                            android:padding="14sp"
-                            android:tint="@color/colorMajorDark"
+                            android:padding="8sp"
+                            android:tint="@color/colorMajorDarkMuchLighter"
                             tools:ignore="ContentDescription"
                             android:id="@+id/search"/>
 
