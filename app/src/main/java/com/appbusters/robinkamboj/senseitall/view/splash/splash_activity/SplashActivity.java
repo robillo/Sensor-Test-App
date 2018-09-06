@@ -82,7 +82,9 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                SplashActivity.this.startDashboardActivity();
+                //noinspection ConstantConditions
+                if(SplashActivity.this != null)
+                    SplashActivity.this.startDashboardActivity();
             }
         }, millis);
     }
@@ -95,7 +97,9 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView {
     @Override
     public void changeStatusBarColor() {
         Window window = getWindow();
+        if(window == null) return;
         View view = window.getDecorView();
+        if(view == null) return;
         int flags = view.getSystemUiVisibility();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         view.setSystemUiVisibility(flags);

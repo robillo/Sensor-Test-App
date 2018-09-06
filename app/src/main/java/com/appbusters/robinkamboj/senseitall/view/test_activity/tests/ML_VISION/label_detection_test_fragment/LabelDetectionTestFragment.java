@@ -92,7 +92,14 @@ public class LabelDetectionTestFragment extends MachineLearningFragment implemen
     @Override
     public String returnPercentageValue(String header, DecimalFormat decimalFormat, float probability) {
         if(probability < 0) probability = 0.00f;
-        else probability = Float.valueOf(decimalFormat.format(probability*100));
+        else {
+            try {
+                probability = Float.valueOf(decimalFormat.format(probability*100));
+            }
+            catch (NumberFormatException e) {
+                probability = 0;
+            }
+        }
 
         StringBuilder builder = new StringBuilder();
         String colorHex;

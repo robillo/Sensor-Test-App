@@ -59,8 +59,8 @@ public class DirectionsFragment extends Fragment implements DirectionsInterface 
 
     @Override
     public void setDataForSensor() {
-        testDirections.setText(AppConstants.sensorMapDirections.get(intentData.getName()));
-        testHint.setText(AppConstants.sensorMapHints.get(intentData.getName()));
+        testDirections.setText(AppConstants.sensorMapDirections.get(intentData.getName()).toLowerCase());
+        testHint.setText(AppConstants.sensorMapHints.get(intentData.getName()).toLowerCase());
     }
 
     @OnClick(R.id.start_test)

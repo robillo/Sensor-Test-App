@@ -18,16 +18,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/colorMajorDark"
-        app:cardCornerRadius="20sp"
-        android:layout_marginTop="30sp"
+        app:cardCornerRadius="15sp"
+        android:layout_marginTop="20sp"
         android:layout_marginLeft="10sp"
         android:layout_marginBottom="10sp"
+        app:cardElevation="0sp"
         tools:ignore="RtlHardcoded,RtlSymmetry">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="@string/directions"
             android:textColor="@color/white"
             android:paddingLeft="15sp"
@@ -42,10 +43,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textColor="@color/colorMajorDark"
         tools:text="@string/proximity_direction"
-        android:padding="10sp"
+        android:padding="13sp"
         android:id="@+id/test_direction"/>
 
     <FrameLayout
@@ -58,14 +59,14 @@
         <ImageView
             android:layout_width="5sp"
             android:layout_height="match_parent"
-            android:background="@color/red_shade_three"
+            android:background="@color/green_shade_three"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/red_shade_three"
+            android:textSize="16sp"
+            android:textColor="@color/green_shade_three"
             tools:text="@string/proximity_hint"
             android:paddingLeft="10sp"
             android:paddingRight="10sp"

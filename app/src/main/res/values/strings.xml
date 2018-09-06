@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Sense It All!</string>
     <string name="app_name_simple">SENSE IT ALL - Device Test</string>
+    <string name="app_name_first_half">SENSE IT ALL</string>
 
     <string-array name="lightPercentages">
         <item>0 to 10 %</item>
