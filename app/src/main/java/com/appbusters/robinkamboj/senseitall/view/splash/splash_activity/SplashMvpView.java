@@ -4,10 +4,6 @@ public interface SplashMvpView {
 
     void setup();
 
-    void animateStuff();
-
-    void startListActivity();
-
     void startDashboardActivity();
 
     void startCountDown(int millis);

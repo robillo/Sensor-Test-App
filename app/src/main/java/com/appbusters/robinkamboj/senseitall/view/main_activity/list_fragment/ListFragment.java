@@ -1,17 +1,26 @@
 package com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment;
 
+import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.hardware.ConsumerIrManager;
+import android.hardware.SensorManager;
+import android.hardware.camera2.CameraManager;
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -40,11 +49,14 @@ import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.IsPresen
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.content.Context.CONSUMER_IR_SERVICE;
+import static android.content.Context.VIBRATOR_SERVICE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -76,6 +88,13 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlM
  */
 public class ListFragment extends Fragment implements ListFragmentInterface,
         android.support.v4.app.LoaderManager.LoaderCallbacks<boolean[][]> {
+
+    private SensorManager sensorManager;
+    private Vibrator vibrator;
+    private ConsumerIrManager infrared;
+    private PackageManager featureManager;
+    private CameraManager cameraManager;
+    private boolean isFingerprintSupported;
 
     private InputMethodManager inputMethodManager;
     private List<GenericData> list;
@@ -118,9 +137,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @BindView(R.id.toolbar)
     LinearLayout toolbar;
-
-//    @BindView(R.id.card_permissions)
-//    CardView permissionsCard;
 
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
@@ -211,6 +227,26 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         informationNames = AppConstants.informationNames;
         softwareNames = AppConstants.softwareNames;
         androidNames = AppConstants.androidNames;
+
+        if(getActivity() == null) return;
+
+        Context context = getActivity();
+
+        sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+        infrared = (ConsumerIrManager) context.getSystemService(CONSUMER_IR_SERVICE);
+        featureManager = context.getPackageManager();
+        cameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            isFingerprintSupported = ActivityCompat
+                    .checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) ==
+                    PackageManager.PERMISSION_GRANTED &&
+                    Objects.requireNonNull(context.getSystemService(FingerprintManager.class))
+                            .isHardwareDetected();
+        } else {
+            isFingerprintSupported = FingerprintManagerCompat.from(context).isHardwareDetected();
+        }
     }
 
     @Override
@@ -697,9 +733,14 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     @NonNull
     @Override
     public Loader<boolean[][]> onCreateLoader(int id, @Nullable Bundle args) {
-        Context context = getActivity();
-        assert context != null;
+        //noinspection ConstantConditions
         return new IsPresentLoader(getActivity(),
+                sensorManager,
+                vibrator,
+                infrared,
+                featureManager,
+                cameraManager,
+                isFingerprintSupported,
                 AppConstants.diagnosticsNames,
                 AppConstants.sensorNames,
                 AppConstants.featureNames,

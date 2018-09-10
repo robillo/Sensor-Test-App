@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
@@ -7,8 +8,8 @@ android {
         applicationId "com.appbusters.robinkamboj.senseitall"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 39
-        versionName "10.1"
+        versionCode 40
+        versionName "10.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // Enabling multi dex support.
         multiDexEnabled true
@@ -70,5 +71,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
 
     testImplementation 'junit:junit:4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}

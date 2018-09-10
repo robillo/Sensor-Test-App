@@ -54,11 +54,13 @@ public class BasicInformationAdapter extends RecyclerView.Adapter<BasicInformati
             holder.key.setText(list.get(position).getKey());
         }
 
-        if(fromSensorName != null && fromSensorName.equals(AppConstants.CPU)) {
-            holder.value.setText(list.get(position).getValue());
-        }
-        else {
-            holder.value.setText(Html.fromHtml(list.get(position).getValue()));
+        if(list.get(position) != null && list.get(position).getValue() != null) {
+            if(fromSensorName != null && fromSensorName.equals(AppConstants.CPU)) {
+                holder.value.setText(list.get(position).getValue());
+            }
+            else {
+                holder.value.setText(Html.fromHtml(list.get(position).getValue()));
+            }
         }
     }
 

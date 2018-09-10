@@ -1,29 +1,20 @@
 package com.appbusters.robinkamboj.senseitall.view.splash.helper_classes;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.ConsumerIrManager;
 import android.hardware.SensorManager;
 import android.hardware.camera2.CameraManager;
-import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Vibrator;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 
 import java.util.List;
-import java.util.Objects;
 
-import static android.content.Context.CONSUMER_IR_SERVICE;
-import static android.content.Context.VIBRATOR_SERVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID_OS;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AUGMENTED_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BARCODE_READER;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
@@ -69,7 +60,13 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
             androidList;
 
     public IsPresentLoader(
-            @NonNull Context context,
+            Context context,
+            SensorManager sensorManager,
+            Vibrator vibrator,
+            ConsumerIrManager infrared,
+            PackageManager featureManager,
+            CameraManager cameraManager,
+            boolean isFingerPrintSupported,
             List<String> diagnosticList,
             List<String> sensorList,
             List<String> featureList,
@@ -78,11 +75,12 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
             List<String> androidList) {
         super(context);
 
-        sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
-        infrared = (ConsumerIrManager) context.getSystemService(CONSUMER_IR_SERVICE);
-        featureManager = context.getPackageManager();
-        cameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
+        this.sensorManager = sensorManager;
+        this.vibrator = vibrator;
+        this.infrared = infrared;
+        this.featureManager = featureManager;
+        this.cameraManager = cameraManager;
+        this.isFingerPrintSupported = isFingerPrintSupported;
 
         this.diagnosticList = diagnosticList;
         this.sensorList = sensorList;
@@ -90,16 +88,6 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
         this.informationList = informationList;
         this.softwareList = softwareList;
         this.androidList = androidList;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            isFingerPrintSupported = ActivityCompat
-                    .checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) ==
-                    PackageManager.PERMISSION_GRANTED &&
-                    Objects.requireNonNull(context.getSystemService(FingerprintManager.class))
-                            .isHardwareDetected();
-        } else {
-            isFingerPrintSupported = FingerprintManagerCompat.from(context).isHardwareDetected();
-        }
     }
 
     @Nullable
@@ -244,7 +232,7 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
         }
     }
 
-    private boolean isPresentAndroid(String element) {
+    private boolean isPresentAndroid(@SuppressWarnings("unused") String element) {
         //currently just showing features added in each android version
         //maybe will add tests later
 
