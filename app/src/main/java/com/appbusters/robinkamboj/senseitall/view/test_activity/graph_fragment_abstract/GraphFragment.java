@@ -4,6 +4,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.View;
@@ -29,6 +31,7 @@ public class GraphFragment extends Fragment implements GraphInterface {
     private LineGraphSeries<DataPoint> mSeriesX, mSeriesY, mSeriesZ;
     private double graph2LastXValue = 5d;
     protected DecimalFormat decimalFormat;
+    private Snackbar snackbar;
 
     protected Sensor sensor;
     protected SensorManager sensorManager;
@@ -39,6 +42,9 @@ public class GraphFragment extends Fragment implements GraphInterface {
     protected float valueX = 0;
     protected float valueY = 0;
     protected float valueZ = 0;
+
+    @BindView(R.id.coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
 
     @BindView(R.id.graph_view)
     GraphView graphView;
@@ -71,6 +77,11 @@ public class GraphFragment extends Fragment implements GraphInterface {
         graphView.getViewport().setXAxisBoundsManual(true);
         graphView.getViewport().setMinX(0);
         graphView.getViewport().setMaxX(40);
+
+        snackbar = Snackbar.make(coordinatorLayout, "error displaying value", 400);
+        View view = snackbar.getView();
+        TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
         initialize();
     }
@@ -118,21 +129,26 @@ public class GraphFragment extends Fragment implements GraphInterface {
                 mSeriesX.appendData(new DataPoint(graph2LastXValue, valueX), true, 40);
                 mSeriesY.appendData(new DataPoint(graph2LastXValue, valueY), true, 40);
                 mSeriesZ.appendData(new DataPoint(graph2LastXValue, valueZ), true, 40);
-                xValue.setText(
-                        Html.fromHtml(
-                                getString(R.string.x) + " " + decimalFormat.format(valueX) + returnUnits(sensorName)
-                        )
-                );
-                yValue.setText(
-                        Html.fromHtml(
-                                getString(R.string.y) + " " + decimalFormat.format(valueY) + returnUnits(sensorName)
-                        )
-                );
-                zValue.setText(
-                        Html.fromHtml(
-                                getString(R.string.z) + " " + decimalFormat.format(valueZ) + returnUnits(sensorName)
-                        )
-                );
+                try {
+                    xValue.setText(
+                            Html.fromHtml(
+                                    getString(R.string.x) + " " + decimalFormat.format(valueX) + returnUnits(sensorName)
+                            )
+                    );
+                    yValue.setText(
+                            Html.fromHtml(
+                                    getString(R.string.y) + " " + decimalFormat.format(valueY) + returnUnits(sensorName)
+                            )
+                    );
+                    zValue.setText(
+                            Html.fromHtml(
+                                    getString(R.string.z) + " " + decimalFormat.format(valueZ) + returnUnits(sensorName)
+                            )
+                    );
+                }
+                catch (Exception e) {
+                    if(!snackbar.isShown()) snackbar.show();
+                }
                 mHandler.postDelayed(this, 200);
             }
         };

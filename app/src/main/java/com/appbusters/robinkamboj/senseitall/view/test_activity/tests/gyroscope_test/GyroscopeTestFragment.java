@@ -8,19 +8,14 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.graph_fragment_abstract.GraphFragment;
 
 import java.text.DecimalFormat;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static android.content.Context.SENSOR_SERVICE;
 

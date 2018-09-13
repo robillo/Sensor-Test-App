@@ -17,8 +17,8 @@
 
         <com.github.anastr.speedviewlib.PointerSpeedometer
             android:id="@+id/pointer_speedometer"
-            android:layout_width="300sp"
-            android:layout_height="300sp"
+            android:layout_width="250sp"
+            android:layout_height="250sp"
             android:layout_gravity="center_horizontal"
             app:sv_unitTextSize="0sp"
             app:sv_withTremble="false"/>
@@ -26,12 +26,32 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:textSize="25sp"
-        android:text="@string/default_count"
-        android:textColor="@color/colorMajor"
-        android:gravity="center"
-        android:id="@+id/counter"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/count"
+        android:paddingBottom="10sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorMajor"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="10sp"
+        app:cardCornerRadius="3sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="30sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:padding="20sp"
+            android:text="@string/default_count"
+            android:textColor="@color/colorMajor"
+            android:id="@+id/counter"/>
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

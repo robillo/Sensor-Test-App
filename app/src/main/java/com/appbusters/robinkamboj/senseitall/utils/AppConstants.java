@@ -483,7 +483,7 @@ public class AppConstants {
         );
         sensorMapDirections.put(
                 SENSOR_ACCELEROMETER,
-                "Shake Your Mobile Phone To Switch Screen colors."
+                "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
         );
         sensorMapDirections.put(
                 SENSOR_LIGHT,
@@ -609,7 +609,7 @@ public class AppConstants {
         );
         sensorMapHints.put(
                 SENSOR_ACCELEROMETER,
-                "Naturally You Can Observe The Color Changes As You Walk Or Run."
+                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
         );
         sensorMapHints.put(
                 SENSOR_LIGHT,

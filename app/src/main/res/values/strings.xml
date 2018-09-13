@@ -205,8 +205,8 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="proximity_direction">Place Your Hand Above Proximity Sensor To Increment Counter.</string>
     <string name="proximity_hint">Proximity sensor is usually located at the top of a mobile screen.</string>
     <string name="start_test">START TEST</string>
-    <string name="count">COUNT =</string>
-    <string name="default_count">COUNT = 0</string>
+    <string name="count">number of objects detected</string>
+    <string name="default_count">0</string>
     <string name="shake_to_change_screen_color">SHAKE TO CHANGE SCREEN COLOR</string>
     <string name="current_reading">Current Reading:</string>
     <string name="maximum_reading">Maximum Reading:</string>

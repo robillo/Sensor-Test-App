@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.graph_fragment_abstract.GraphFragment;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -25,16 +27,7 @@ import static android.content.Context.SENSOR_SERVICE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AccelerometerTestFragment extends Fragment
-        implements AccelerometerTestInterface, SensorEventListener {
-
-    private int[] colorGen;
-
-    @BindView(R.id.background)
-    View background;
-
-    private long lastUpdate;
-    private SensorManager sensorManager;
+public class AccelerometerTestFragment extends GraphFragment implements AccelerometerTestInterface {
 
     public AccelerometerTestFragment() {
         // Required empty public constructor
@@ -50,54 +43,31 @@ public class AccelerometerTestFragment extends Fragment
     }
 
     @Override
-    public void setup(View v) {
-        ButterKnife.bind(this, v);
+    public void initialize() {
+        decimalFormat = new DecimalFormat("#.##");
 
-        colorGen = new int[] {
-                getResources().getColor(R.color.colorMajor),
-                getResources().getColor(R.color.colorMajorDark),
-                getResources().getColor(R.color.colorPrimaryLight),
-                getResources().getColor(R.color.colorPrimaryLightLight)};
+        if(getActivity() == null) return;
+        sensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
 
-        lastUpdate = System.currentTimeMillis();
-        if(getActivity() != null)
-            sensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
+        if(sensorManager == null) return;
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-        if(sensorManager != null)
-        sensorManager.registerListener(this,
-                sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-                SensorManager.SENSOR_DELAY_NORMAL);
-        else {
-            Toast.makeText(getActivity(), "Unable to load sensor", Toast.LENGTH_SHORT).show();
-            getActivity().onBackPressed();
-        }
-    }
+        sensorEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                if(event != null) {
+                    valueX = event.values[0];
+                    valueY = event.values[1];
+                    valueZ = event.values[2];
+                }
+            }
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
-            getAccelerometer(event);
-    }
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            }
+        };
 
-    }
-
-    private void getAccelerometer(SensorEvent event) {
-        float[] values = event.values;
-        float x = values[0];
-        float y = values[1];
-        float z = values[2];
-        Random r = new Random();
-        float accelerationSquareRoot = (x * x + y * y + z * z)
-                / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
-        long actualTime = event.timestamp;
-        if (accelerationSquareRoot >= 2) {
-            if (actualTime - lastUpdate < 200) return;
-
-            lastUpdate = actualTime;
-            background.setBackgroundColor(colorGen[Math.abs(r.nextInt())%colorGen.length]);
-        }
+        sensorManager.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
     }
 }

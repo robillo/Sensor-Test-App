@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.github.anastr.speedviewlib.PointerSpeedometer;
 
+import java.util.Locale;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -28,7 +30,6 @@ public class ProximityTestFragment extends Fragment implements ProximityTestInte
 
     private SensorManager manager;
     private int counter = 0;
-    private static String countConstant;
 
     @BindView(R.id.pointer_speedometer)
     PointerSpeedometer speedometer;
@@ -54,7 +55,6 @@ public class ProximityTestFragment extends Fragment implements ProximityTestInte
     public void setup(View v) {
         ButterKnife.bind(this, v);
 
-        countConstant = getString(R.string.count);
         loadSensor();
     }
 
@@ -81,13 +81,11 @@ public class ProximityTestFragment extends Fragment implements ProximityTestInte
                 float currentReading = sensorEvent.values[0];
 
                 if(currentReading==0||currentReading==3){
-                    speedometer.speedPercentTo(100, 500);
-                    counter += 1;
-                    String temp = countConstant + " " + counter;
-                    counterText.setText(temp);
+                    speedometer.speedPercentTo(100, 200);
+                    counterText.setText(String.format(Locale.ENGLISH, "%d", ++counter));
                 }
                 else {
-                    speedometer.speedPercentTo(0, 500);
+                    speedometer.speedPercentTo(0, 200);
                 }
             }
         }
