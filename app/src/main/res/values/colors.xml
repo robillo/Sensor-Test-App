@@ -67,6 +67,10 @@
     <color name="colorAlmostWhite">#fbfbfb</color>
     <color name="white_tx">#bbfbfbfb</color>
 
+    <color name="custom_holo_red">#78cc0000</color>
+    <color name="custom_holo_green">#78669900</color>
+    <color name="custom_holo_blue">#780099cc</color>
+
     <color name="ninety_plus">#1B5E20</color>
     <color name="eighty_plus">#43A047</color>
     <color name="seventy_plus">#81C784</color>

@@ -49,6 +49,9 @@ public class GraphFragment extends Fragment implements GraphInterface {
     @BindView(R.id.graph_view)
     GraphView graphView;
 
+    @BindView(R.id.units)
+    TextView units;
+
     @BindView(R.id.x_val)
     TextView xValue;
 
@@ -83,6 +86,8 @@ public class GraphFragment extends Fragment implements GraphInterface {
         TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
+        units.setText(Html.fromHtml(String.format("%s %s", getString(R.string.units), returnUnits(sensorName))));
+
         initialize();
     }
 
@@ -94,14 +99,13 @@ public class GraphFragment extends Fragment implements GraphInterface {
     @Override
     public String returnUnits(String sensor) {
         switch (sensor) {
+            case AppConstants.SENSOR_LINEAR_ACCELERATION:
+            case AppConstants.SENSOR_ACCELEROMETER:
             case AppConstants.SENSOR_GRAVITY: {
                 return " m/s<sup>2</sup>";
             }
             case AppConstants.SENSOR_GYROSCOPE: {
                 return " rad/s";
-            }
-            case AppConstants.SENSOR_LINEAR_ACCELERATION: {
-                return " m/s<sup>2</sup>";
             }
             case AppConstants.SENSOR_MAGNETIC_FIELD: {
                 return " uT";
@@ -110,7 +114,7 @@ public class GraphFragment extends Fragment implements GraphInterface {
                 return " Magnitude x sin(Angle)";
             }
             default: {
-                return "";
+                return "nil";
             }
         }
     }
@@ -132,17 +136,17 @@ public class GraphFragment extends Fragment implements GraphInterface {
                 try {
                     xValue.setText(
                             Html.fromHtml(
-                                    getString(R.string.x) + " " + decimalFormat.format(valueX) + returnUnits(sensorName)
+                                    getString(R.string.x) + " " + decimalFormat.format(valueX)
                             )
                     );
                     yValue.setText(
                             Html.fromHtml(
-                                    getString(R.string.y) + " " + decimalFormat.format(valueY) + returnUnits(sensorName)
+                                    getString(R.string.y) + " " + decimalFormat.format(valueY)
                             )
                     );
                     zValue.setText(
                             Html.fromHtml(
-                                    getString(R.string.z) + " " + decimalFormat.format(valueZ) + returnUnits(sensorName)
+                                    getString(R.string.z) + " " + decimalFormat.format(valueZ)
                             )
                     );
                 }
