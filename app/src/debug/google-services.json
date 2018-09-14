@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "94411751567",
+    "firebase_url": "https://sense-it-all-debug-f46d9.firebaseio.com",
+    "project_id": "sense-it-all-debug-f46d9",
+    "storage_bucket": "sense-it-all-debug-f46d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94411751567:android:66039e5e113b3685",
+        "android_client_info": {
+          "package_name": "com.appbusters.robinkamboj.senseitall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94411751567-moi897t0vcpkgjsnkp27d3m1q70jk953.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsr53gfATPSUTggaTfoalINQMHLRP1kyg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

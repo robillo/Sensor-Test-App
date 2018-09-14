@@ -8,6 +8,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
+        resValue "string", "app_name", "Sense It All"
         applicationId "com.appbusters.robinkamboj.senseitall"
         minSdkVersion 21
         targetSdkVersion 27
@@ -22,6 +23,10 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            resValue "string", "app_name", "SIA DEBUG"
+            testCoverageEnabled = "true"
         }
     }
 }
