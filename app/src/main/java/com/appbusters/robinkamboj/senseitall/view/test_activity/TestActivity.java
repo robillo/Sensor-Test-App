@@ -1,7 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -17,7 +16,6 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.BottomSheetFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.barcode_detection_test_fragment.BarcodeReaderTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.dialog.MachineLearningDialogFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.face_detection_test_fragment.FaceDetectionTestFragment;
@@ -48,7 +46,6 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.step_counter_test_fragment.StepCounterTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.step_detector_test_fragment.StepDetectorTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.activity.VirtualRealityTestActivity;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.fragment.VrTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.wifi_test_fragment.WifiTestFragment;
 
@@ -96,7 +93,6 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
     public GenericData intentData = new GenericData();
     public String recyclerName;
-    private BottomSheetFragment bottomSheetFragment;
     private MachineLearningDialogFragment dialogFragment;
 
     @BindView(R.id.test_name)

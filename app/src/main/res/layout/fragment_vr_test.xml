@@ -10,18 +10,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
-        app:cardElevation="10sp"
-        app:cardCornerRadius="20sp"
-        app:cardBackgroundColor="@color/green_shade_three"
+        app:cardElevation="0sp"
+        app:cardCornerRadius="28sp"
+        app:cardBackgroundColor="@color/primary_new_two"
         android:layout_gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20sp"
-            android:text="START TEST"
+            android:paddingLeft="30sp"
+            android:paddingRight="30sp"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp"
+            android:text="@string/open_vr_sample_tests"
             android:background="?android:attr/selectableItemBackground"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textColor="@color/white"
             android:id="@+id/start_test"/>
 

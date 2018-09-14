@@ -148,8 +148,6 @@
         <activity
             android:name=".view.dashboard_activity.DashboardActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.test_activity.tests.virtual_reality_test_activity.activity.VirtualRealityTestActivity"
-            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

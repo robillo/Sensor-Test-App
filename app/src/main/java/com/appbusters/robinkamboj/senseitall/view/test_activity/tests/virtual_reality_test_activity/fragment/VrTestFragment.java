@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.fragment;
 
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.activity.VirtualRealityTestActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,7 +44,8 @@ public class VrTestFragment extends Fragment {
 
     @OnClick(R.id.start_test)
     public void setStartTest() {
-        if(getActivity() == null) return;
-        startActivity(new Intent(getActivity(), VirtualRealityTestActivity.class));
+        //calling an activity using <intent-filter> action name
+        Intent intent = new Intent("com.robillo.virtualrealitysample_senseitall.VR_TESTS");
+        startActivity(intent);
     }
 }

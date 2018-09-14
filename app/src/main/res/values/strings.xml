@@ -290,6 +290,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="since_last_device_reboot">since last device reboot</string>
     <string name="total_number_of_steps_detected">TOTAL NUMBER OF STEPS DETECTED</string>
     <string name="total_distance_covered">TOTAL DISTANCE COVERED</string>
+    <string name="open_vr_sample_tests">OPEN VR SAMPLE TESTS</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>
