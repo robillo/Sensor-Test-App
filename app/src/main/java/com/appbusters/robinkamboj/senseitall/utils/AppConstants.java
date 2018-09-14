@@ -338,20 +338,20 @@ public class AppConstants {
         isTestMap.put(SENSOR_STEP_DETECTOR, true);
         isTestMap.put(SENSOR_STEP_COUNTER, true);
 
-        sensorNames.add(SENSOR_ACCELEROMETER);  //d
+        sensorNames.add(SENSOR_STEP_DETECTOR);  //d
+        sensorNames.add(SENSOR_STEP_COUNTER);  //d
         sensorNames.add(SENSOR_LIGHT);  //d
         sensorNames.add(SENSOR_PROXIMITY);  //d
-        sensorNames.add(SENSOR_TEMPERATURE);
-        sensorNames.add(SENSOR_PRESSURE);  //d
-        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
+        sensorNames.add(SENSOR_ACCELEROMETER);  //d
         sensorNames.add(SENSOR_GYROSCOPE);  //d
         sensorNames.add(SENSOR_GRAVITY);  //d
         sensorNames.add(SENSOR_LINEAR_ACCELERATION);  //d
         sensorNames.add(SENSOR_ROTATION_VECTOR);  //d
         sensorNames.add(SENSOR_MAGNETIC_FIELD);  //d
+        sensorNames.add(SENSOR_PRESSURE);  //d
         sensorNames.add(SENSOR_HEART_RATE);
-        sensorNames.add(SENSOR_STEP_DETECTOR);
-        sensorNames.add(SENSOR_STEP_COUNTER);
+        sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
+        sensorNames.add(SENSOR_TEMPERATURE);
 
 //        softwareNames.add(MOTION_DETECT);
         softwareNames.add(FACE_DETECT);
