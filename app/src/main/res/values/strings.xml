@@ -287,6 +287,9 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="number_of_steps_taken">number of steps taken</string>
     <string name="walk_about_15_steps">walk about 15 steps to observe activity</string>
     <string name="recommended_counter">we recommend keeping the phone at waist-level</string>
+    <string name="since_last_device_reboot">since last device reboot</string>
+    <string name="total_number_of_steps_detected">TOTAL NUMBER OF STEPS DETECTED</string>
+    <string name="total_distance_covered">TOTAL DISTANCE COVERED</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

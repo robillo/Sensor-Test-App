@@ -5,4 +5,5 @@ import android.view.View
 interface StepDetectorInterface {
 
     fun setup(v: View)
+    fun getDistanceRun(steps: Long): Float
 }
