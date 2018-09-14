@@ -36,7 +36,7 @@ dependencies {
 
     //butterknife
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
-    kapt "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
 
     //android dependencies
     implementation "com.android.support:support-vector-drawable:$rootProject.ext.supportLibraryVersion"
