@@ -128,29 +128,37 @@ public class GraphFragment extends Fragment implements GraphInterface {
         mTimer = new Runnable() {
             @Override
             public void run() {
-                graph2LastXValue += 1d;
-                //noinspection SuspiciousNameCombination
-                mSeriesX.appendData(new DataPoint(graph2LastXValue, valueX), true, 40);
-                mSeriesY.appendData(new DataPoint(graph2LastXValue, valueY), true, 40);
-                mSeriesZ.appendData(new DataPoint(graph2LastXValue, valueZ), true, 40);
                 try {
-                    xValue.setText(
-                            Html.fromHtml(
-                                    getString(R.string.x) + " " + decimalFormat.format(valueX)
-                            )
-                    );
-                    yValue.setText(
-                            Html.fromHtml(
-                                    getString(R.string.y) + " " + decimalFormat.format(valueY)
-                            )
-                    );
-                    zValue.setText(
-                            Html.fromHtml(
-                                    getString(R.string.z) + " " + decimalFormat.format(valueZ)
-                            )
-                    );
-                }
-                catch (Exception e) {
+                    graph2LastXValue += 1d;
+                    //noinspection SuspiciousNameCombination
+                    mSeriesX.appendData(new DataPoint(graph2LastXValue, valueX), true, 40);
+                    mSeriesY.appendData(new DataPoint(graph2LastXValue, valueY), true, 40);
+                    mSeriesZ.appendData(new DataPoint(graph2LastXValue, valueZ), true, 40);
+                    try {
+                        xValue.setText(
+                                Html.fromHtml(
+                                        getString(R.string.x) + " " + decimalFormat.format(valueX)
+                                )
+                        );
+                        yValue.setText(
+                                Html.fromHtml(
+                                        getString(R.string.y) + " " + decimalFormat.format(valueY)
+                                )
+                        );
+                        zValue.setText(
+                                Html.fromHtml(
+                                        getString(R.string.z) + " " + decimalFormat.format(valueZ)
+                                )
+                        );
+                    }
+                    catch (Exception e) {
+                        if(!snackbar.isShown()) snackbar.show();
+                    }
+                } catch (Exception ignored) {
+                    snackbar = Snackbar.make(coordinatorLayout, "seems like some error has occurred", 400);
+                    View view = snackbar.getView();
+                    TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
+                    textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                     if(!snackbar.isShown()) snackbar.show();
                 }
                 mHandler.postDelayed(this, 200);

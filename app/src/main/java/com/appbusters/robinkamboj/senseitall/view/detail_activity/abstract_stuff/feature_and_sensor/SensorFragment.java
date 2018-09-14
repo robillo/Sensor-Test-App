@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.hardware.Sensor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -102,7 +101,7 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
         initializeSensor();
         if(sensor == null) {
             Toast.makeText(getActivity(), "Failed to load sensor.", Toast.LENGTH_SHORT).show();
-            if(getActivity() != null) getActivity().onBackPressed();
+            setGoBack();
         }
         else {
             showSensorDetails();
@@ -261,7 +260,11 @@ public abstract class SensorFragment extends Fragment implements SensorInterface
 
     @OnClick(R.id.go_back)
     public void setGoBack() {
-        if(getActivity() != null) getActivity().onBackPressed();
+        try {
+            if(getActivity() != null) getActivity().onBackPressed();
+        } catch (Exception ignored) {
+
+        }
     }
 
     @OnClick(R.id.go_to_test)

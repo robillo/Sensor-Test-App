@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +29,9 @@ public class BatteryTestFragment extends Fragment implements BatteryTestInterfac
 
     @BindView(R.id.status_battery)
     TextView statusBatteryText;
+
+    @BindView(R.id.coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
 
     public BatteryTestFragment() {
         // Required empty public constructor
@@ -54,7 +59,16 @@ public class BatteryTestFragment extends Fragment implements BatteryTestInterfac
         BatteryReceiver receiver = new BatteryReceiver(this);
         IntentFilter intentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 
-        if(getActivity() != null)
-            getActivity().registerReceiver(receiver, intentFilter);
+        if(getActivity() != null) {
+            try {
+                getActivity().registerReceiver(receiver, intentFilter);
+            }
+            catch (Exception e) {
+                Snackbar snackbar = Snackbar.make(coordinatorLayout, "some error has occurred", 400);
+                View view = snackbar.getView();
+                TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
+                textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            }
+        }
     }
 }

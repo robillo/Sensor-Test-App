@@ -45,6 +45,8 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.rotation_v
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.screen_test_fragment.ScreenTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.speaker_volume_test_fragment.SoundTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.text_scan_test_fragment.TextScanTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.step_counter_test_fragment.StepCounterTestFragment;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.step_detector_test_fragment.StepDetectorTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.activity.VirtualRealityTestActivity;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.virtual_reality_test_activity.fragment.VrTestFragment;
@@ -81,6 +83,8 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_MA
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PRESSURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_PROXIMITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ROTATION_VECTOR;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_COUNTER;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_STEP_DETECTOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
@@ -398,6 +402,22 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 transaction.add(
                         R.id.container,
                         new VrTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SENSOR_STEP_COUNTER: {
+                transaction.add(
+                        R.id.container,
+                        new StepCounterTestFragment(),
+                        getString(R.string.tag_test_fragment)
+                ).commit();
+                break;
+            }
+            case SENSOR_STEP_DETECTOR: {
+                transaction.add(
+                        R.id.container,
+                        new StepDetectorTestFragment(),
                         getString(R.string.tag_test_fragment)
                 ).commit();
                 break;

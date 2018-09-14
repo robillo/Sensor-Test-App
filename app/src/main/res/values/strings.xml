@@ -283,6 +283,10 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="internal_storage_used">Internal Storage Used :</string>
     <string name="external_storage_used">External Storage Used :</string>
     <string name="units">units:</string>
+    <string name="distance_covered_in_kilometers">distance covered in kilometers</string>
+    <string name="number_of_steps_taken">number of steps taken</string>
+    <string name="walk_about_15_steps">walk about 15 steps to observe activity</string>
+    <string name="recommended_counter">we recommend keeping the phone at waist-level</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

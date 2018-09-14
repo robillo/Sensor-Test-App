@@ -1,49 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
+    android:id="@+id/coordinator_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.test_activity.tests.fingerprint_test_fragment.FingerprintTestFragment">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0sp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
 
-        <ImageView
-            android:layout_width="200sp"
-            android:layout_height="200sp"
-            android:layout_gravity="center"
-            tools:src="@drawable/fingerprint"
-            android:contentDescription="@string/fingerprint_status"
-            android:tint="@color/colorMajorDark"
-            android:id="@+id/fingerprint_image"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="1">
 
-    </FrameLayout>
+            <ImageView
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_gravity="center"
+                tools:src="@drawable/fingerprint"
+                android:contentDescription="@string/fingerprint_status"
+                android:tint="@color/colorMajorDark"
+                android:id="@+id/fingerprint_image"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:textColor="@color/colorMajorDark"
-        android:textSize="15sp"
-        android:gravity="center"
-        android:layout_gravity="bottom"
-        android:id="@+id/fingerprint_text_status"/>
+        </FrameLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/reset_button"
-        android:text="@string/reset"
-        android:textColor="@color/white"
-        android:padding="12sp"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:gravity="center"
-        android:background="@color/red_shade_three"
-        tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:textColor="@color/colorMajorDark"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:id="@+id/fingerprint_text_status"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:id="@+id/reset_button"
+            android:text="@string/reset"
+            android:textColor="@color/white"
+            android:padding="12sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:gravity="center"
+            android:background="@color/red_shade_three"
+            tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

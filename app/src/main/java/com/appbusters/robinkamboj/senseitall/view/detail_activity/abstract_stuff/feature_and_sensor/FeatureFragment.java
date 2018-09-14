@@ -1,7 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.feature_and_sensor;
 
 import android.content.Intent;
-import android.hardware.Sensor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;

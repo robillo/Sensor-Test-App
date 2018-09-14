@@ -323,8 +323,6 @@ public class AppConstants {
         isTestMap.put(SENSOR_ROTATION_VECTOR, true);
         isTestMap.put(SENSOR_MAGNETIC_FIELD, true);
         isTestMap.put(SENSOR_HEART_RATE, false);
-        isTestMap.put(SENSOR_STEP_DETECTOR, false);
-        isTestMap.put(SENSOR_STEP_COUNTER, false);
         isTestMap.put(SENSOR_MOTION_DETECTOR, false);
         isTestMap.put(SENSOR_STATIONARY_DETECTOR, false);
         isTestMap.put(STORAGE, false);
@@ -337,6 +335,8 @@ public class AppConstants {
         isTestMap.put(AUGMENTED_REALITY, true);
         isTestMap.put(VIRTUAL_REALITY, true);
         isTestMap.put(LABEL_GENERATOR, true);
+        isTestMap.put(SENSOR_STEP_DETECTOR, true);
+        isTestMap.put(SENSOR_STEP_COUNTER, true);
 
         sensorNames.add(SENSOR_ACCELEROMETER);  //d
         sensorNames.add(SENSOR_LIGHT);  //d
@@ -589,6 +589,14 @@ public class AppConstants {
                 TEXT_SCAN,
                 "Capture / Upload an image to detect text."
         );
+        sensorMapDirections.put(
+                SENSOR_STEP_COUNTER,
+                "Start walking to track your progress as number of steps you take."
+        );
+        sensorMapDirections.put(
+                SENSOR_STEP_DETECTOR,
+                "Start walking to validate if your device detects a step or not."
+        );
         //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
         sensorMapDirections.put(
                 MOTION_DETECT,
@@ -714,6 +722,14 @@ public class AppConstants {
         sensorMapHints.put(
                 LABEL_GENERATOR,
                 "MAKE SURE to set the orientation of the selected image correctly."
+        );
+        sensorMapHints.put(
+                SENSOR_STEP_DETECTOR,
+                "It is recommended to keep the phone at the waist level or in a pocket as you walk."
+        );
+        sensorMapHints.put(
+                SENSOR_STEP_COUNTER,
+                "It is recommended to keep the phone at the waist level or in a pocket as you walk."
         );
         //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
         sensorMapHints.put(

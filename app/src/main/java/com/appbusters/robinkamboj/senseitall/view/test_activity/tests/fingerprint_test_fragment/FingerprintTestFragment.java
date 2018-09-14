@@ -12,6 +12,8 @@ import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -58,6 +60,9 @@ public class FingerprintTestFragment extends Fragment implements FingerprintTest
     private KeyStore keyStore;
     private static final String KEY_NAME = "example_key";
     private Cipher cipher;
+
+    @BindView(R.id.coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
 
     @BindView(R.id.reset_button)
     TextView resetButton;
@@ -158,9 +163,11 @@ public class FingerprintTestFragment extends Fragment implements FingerprintTest
             keyGenerator = KeyGenerator.getInstance(
                     KeyProperties.KEY_ALGORITHM_AES,
                     "AndroidKeyStore");
-        } catch (NoSuchAlgorithmException |
-                NoSuchProviderException e) {
-            Toast.makeText(getActivity(), "Oops. An Exception Occurred!", Toast.LENGTH_SHORT).show();
+        } catch (NoSuchAlgorithmException | NoSuchProviderException e) {
+            Snackbar snackbar = Snackbar.make(coordinatorLayout, "fingerprint provider exception", 400);
+            View view = snackbar.getView();
+            TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             return;
         }
 

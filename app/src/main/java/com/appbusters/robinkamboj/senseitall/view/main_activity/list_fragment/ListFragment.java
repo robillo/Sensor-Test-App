@@ -259,7 +259,11 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void changeStatusBarColor() {
         if(getActivity() != null) {
             Window window = getActivity().getWindow();
+            if(window == null) return;
+
             View view = window.getDecorView();
+            if(view == null) return;
+
             int flags = view.getSystemUiVisibility();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
             view.setSystemUiVisibility(flags);
@@ -621,12 +625,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         }
     }
 
-//    @OnClick(R.id.card_permissions)
-//    public void askPermissions() {
-//        if(getActivity() != null)
-//            ((MainActivity) getActivity()).setRequestFragment();
-//    }
-
     @OnClick(R.id.image_five_stars)
     public void giveImageFiveStars() {
         giveFiveStars();
@@ -641,7 +639,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         try {startActivity(goToMarket);}
         catch (ActivityNotFoundException e) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + getActivity().getPackageName())));
+            startActivity(
+                    new Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + getActivity().getPackageName())
+                    )
+            );
         }
     }
 
