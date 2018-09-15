@@ -12,8 +12,8 @@ android {
         applicationId "com.appbusters.robinkamboj.senseitall"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 45
-        versionName "11.0"
+        versionCode 46
+        versionName "12.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // Enabling multi dex support.
         multiDexEnabled true
