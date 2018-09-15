@@ -100,6 +100,7 @@
     <color name="primary_new">#6540f9</color>
     <color name="primary_new_gradient">#7957ff</color>
     <color name="primary_new_light">#947bf7</color>
+    <color name="primary_new_light_light">#c2b5f4</color>
 
     <color name="primary_new_two">#6ea4f5</color>
     <color name="primary_new_two_gradient">#79acf9</color>

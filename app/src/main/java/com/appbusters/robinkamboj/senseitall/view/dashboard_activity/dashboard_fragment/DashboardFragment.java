@@ -45,7 +45,7 @@ public class DashboardFragment extends Fragment implements DashboardInterface {
 
         if(getActivity() == null) return;
         DashboardAdapter adapter = new DashboardAdapter(AppConstants.categories, getActivity());
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
     }
 }

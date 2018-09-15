@@ -4,8 +4,6 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:layout_width="200sp"
-    android:orientation="vertical"
     android:layout_margin="5sp"
     app:cardCornerRadius="5sp">
 
@@ -13,23 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5sp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:background="@drawable/card_background"
         android:id="@+id/parent_card">
 
         <FrameLayout
-            android:layout_width="60sp"
-            android:layout_height="60sp"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="65sp"
+            android:layout_height="65sp"
+            android:layout_gravity="center_vertical"
             android:layout_margin="5sp"
             android:padding="5sp">
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="25sp"
+                app:cardCornerRadius="26sp"
                 app:cardElevation="0sp"
-                app:cardBackgroundColor="@color/colorPrimaryLightLight">
+                app:cardBackgroundColor="@color/colorMajorDarkMuchLighter">
 
             </android.support.v7.widget.CardView>
 
@@ -38,31 +36,56 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/baseline_verified_user_black_48"
                 android:padding="10sp"
-                android:tint="@color/colorMajorDark"
+                android:tint="@color/white"
                 tools:ignore="ContentDescription"
                 android:id="@+id/image"/>
 
         </FrameLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:textColor="@color/colorMajorDark"
-            android:textSize="20sp"
-            android:text="DIAGNOSTIC"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/name"/>
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorMajorDarkMuchLighter"
-            android:textSize="16sp"
-            android:layout_margin="5sp"
-            android:text="26 Items"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/count_description"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="3sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="5sp"
+                android:textColor="@color/colorMajorDark"
+                android:textSize="20sp"
+                android:text="DIAGNOSTIC"
+                android:id="@+id/name"
+                tools:ignore="RtlHardcoded" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="0sp"
+                android:layout_marginBottom="5sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="5sp"
+                app:cardCornerRadius="10sp"
+                app:cardBackgroundColor="@color/colorMajorDarkMuchLighter">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:paddingTop="3sp"
+                    android:paddingBottom="3sp"
+                    android:paddingLeft="8sp"
+                    android:paddingRight="8sp"
+                    android:text="26 Items"
+                    android:id="@+id/count_description"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
     </LinearLayout>
 

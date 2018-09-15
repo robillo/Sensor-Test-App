@@ -23,12 +23,6 @@ public class AppConstants {
     public static final int INFO_RECYCLER_COUNT = 4;
     public static final int FLING_VELOCITY = 3000;
 
-    //redundant
-    public static final String RATE_APP = "Rate App";
-    public static final String INFORMATION = "Information";
-    public static final String SOFTWARE = "Software";
-    public static final String ANDROID = "Android";
-
     //storage constants
     public static final String FREE_INTERNAL_STORAGE = "Free Internal Storage";
     public static final String TOTAL_INTERNAL_STORAGE = "Total Internal Storage Excluding System-Used Storage";
@@ -59,8 +53,12 @@ public class AppConstants {
     public static final int TYPE_RATE = 6;
 
     public static final String DIAGNOSTIC = "Diagnostic";                       //data type names
-    public static final String SENSOR = "Sensor";
-    public static final String FEATURE = "Feature";
+    public static final String SENSOR = "Electronic Sensors";
+    public static final String FEATURE = "Everyday Features";
+    public static final String RATE_APP = "Rate App";                           //redundant
+    public static final String INFORMATION = "Device Details";
+    public static final String SOFTWARE = "Modern Features";
+    public static final String ANDROID = "Android Properties";
 
     public static final String UNKNOWN = "unknown";                             //random constants
 
@@ -272,12 +270,12 @@ public class AppConstants {
         featureNames.add(FAKE_TOUCH);
         featureNames.add(MIDI);
 
-        informationNames.add(STORAGE);
-        informationNames.add(RAM);
         informationNames.add(GSM_UMTS);
-        informationNames.add(RADIO);
         informationNames.add(ANDROID_OS);
         informationNames.add(CPU);
+        informationNames.add(STORAGE);
+        informationNames.add(RAM);
+        informationNames.add(RADIO);
         informationNames.add(FAKE_TOUCH);
 
         androidNames.add(PIE);
@@ -972,31 +970,31 @@ public class AppConstants {
         categories.add(new Category(
                 R.drawable.baseline_mobile_friendly_black_48,
                 SENSOR,
-                sensorNames.size() + " Sensors")
+                sensorNames.size() + " ITEMS")
         );
 
         categories.add(new Category(
                 R.drawable.baseline_battery_charging_full_black_48,
                 FEATURE,
-                featureNames.size() + " Features")
+                featureNames.size() + " ITEMS")
         );
 
         categories.add(new Category(
                 R.drawable.baseline_system_update_black_48,
                 SOFTWARE,
-                softwareNames.size() + " Capabilities")
+                " " + softwareNames.size() + "   ITEMS")
         );
 
         categories.add(new Category(
                 R.drawable.baseline_info_black_48,
                 INFORMATION,
-                informationNames.size() + " Device Details")
+                " " + informationNames.size() + "  ITEMS")
         );
 
         categories.add(new Category(
                 R.drawable.baseline_android_black_48,
                 ANDROID,
-                androidNames.size() + " Android Versions")
+                " " + androidNames.size() + "  ITEMS")
         );
 
 //        categories.add(new Category(

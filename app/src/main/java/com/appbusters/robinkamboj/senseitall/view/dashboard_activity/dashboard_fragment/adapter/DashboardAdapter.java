@@ -47,7 +47,14 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     @Override
     public DashboardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
-        return new DashboardHolder(LayoutInflater.from(context).inflate(R.layout.row_dashboard, parent, false));
+        return new DashboardHolder(
+                LayoutInflater.from(context)
+                        .inflate(
+                                R.layout.row_dashboard,
+                                parent,
+                                false
+                        )
+        );
     }
 
     @Override
