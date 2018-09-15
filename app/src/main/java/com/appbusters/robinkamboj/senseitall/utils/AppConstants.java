@@ -66,9 +66,9 @@ public class AppConstants {
 
     public static final int LOADER_ID = 1;                                      //loader id
 
-    public static final String PRESENT_SENSORS = "PRESENT SENSORS";             //intent extra
-    public static final String PRESENT_FEATURES = "PRESENT FEATURES";
-    public static final String PRESENT_DIAGNOSTICS = "PRESENT DIAGNOSTICS";
+//    public static final String PRESENT_SENSORS = "PRESENT SENSORS";             //intent extra
+//    public static final String PRESENT_FEATURES = "PRESENT FEATURES";
+//    public static final String PRESENT_DIAGNOSTICS = "PRESENT DIAGNOSTICS";
 
     public static final String SHOWING_DEVICE_TESTS = "DEVICE TESTS";   //HEADERS
     public static final String SHOWING_SENSORS_LIST = "SENSORS LIST";
@@ -338,10 +338,7 @@ public class AppConstants {
         isTestMap.put(SENSOR_STEP_DETECTOR, true);
         isTestMap.put(SENSOR_STEP_COUNTER, true);
 
-        sensorNames.add(SENSOR_STEP_DETECTOR);  //d
-        sensorNames.add(SENSOR_STEP_COUNTER);  //d
         sensorNames.add(SENSOR_LIGHT);  //d
-        sensorNames.add(SENSOR_PROXIMITY);  //d
         sensorNames.add(SENSOR_ACCELEROMETER);  //d
         sensorNames.add(SENSOR_GYROSCOPE);  //d
         sensorNames.add(SENSOR_GRAVITY);  //d
@@ -349,6 +346,9 @@ public class AppConstants {
         sensorNames.add(SENSOR_ROTATION_VECTOR);  //d
         sensorNames.add(SENSOR_MAGNETIC_FIELD);  //d
         sensorNames.add(SENSOR_PRESSURE);  //d
+        sensorNames.add(SENSOR_PROXIMITY);  //d
+        sensorNames.add(SENSOR_STEP_DETECTOR);  //d
+        sensorNames.add(SENSOR_STEP_COUNTER);  //d
         sensorNames.add(SENSOR_HEART_RATE);
         sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
         sensorNames.add(SENSOR_TEMPERATURE);
@@ -999,11 +999,11 @@ public class AppConstants {
                 androidNames.size() + " Android Versions")
         );
 
-        categories.add(new Category(
-                R.drawable.baseline_verified_user_black_48,
-                RATE_APP,
-                "Give Feedback")
-        );
+//        categories.add(new Category(
+//                R.drawable.baseline_verified_user_black_48,
+//                RATE_APP,
+//                "Give Feedback")
+//        );
 
 //        categories.add(new Category(
 //                R.drawable.baseline_device_unknown_black_48,
