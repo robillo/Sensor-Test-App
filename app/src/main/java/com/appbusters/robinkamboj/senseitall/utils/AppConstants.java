@@ -983,19 +983,19 @@ public class AppConstants {
         categories.add(new Category(
                 R.drawable.baseline_system_update_black_48,
                 SOFTWARE,
-                " " + softwareNames.size() + "   ITEMS")
+                "0" + softwareNames.size() + " ITEMS")
         );
 
         categories.add(new Category(
                 R.drawable.baseline_info_black_48,
                 INFORMATION,
-                " " + informationNames.size() + "  ITEMS")
+                "0" + informationNames.size() + " ITEMS")
         );
 
         categories.add(new Category(
                 R.drawable.baseline_android_black_48,
                 ANDROID,
-                " " + androidNames.size() + "  ITEMS")
+                "0" + androidNames.size() + " ITEMS")
         );
 
 //        categories.add(new Category(
