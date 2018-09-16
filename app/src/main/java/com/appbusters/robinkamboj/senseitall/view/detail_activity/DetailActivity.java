@@ -1,19 +1,25 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -78,6 +84,7 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.motio
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.text_detect.TextScanFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.virtual_reality.VirtualRealityFragment;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.location.LocationSettingsStates;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -125,6 +132,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.PIE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RADIO;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RAM;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RECYCLER_NAME;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.REQUEST_CHECK_SETTINGS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_ACCELEROMETER;
@@ -283,7 +291,7 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
                 break;
             }
             case GPS_LOCATION: {
-                transaction.add(R.id.container, new GpsFragment()).commit();
+                transaction.add(R.id.container, new GpsFragment(), getString(R.string.tag_gps_fragment)).commit();
                 break;
             }
             case FLASH: {
@@ -512,6 +520,33 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        final LocationSettingsStates states = LocationSettingsStates.fromIntent(intent);
+        switch (requestCode) {
+            case REQUEST_CHECK_SETTINGS:
+                switch (resultCode) {
+                    case Activity.RESULT_OK:
+                        // All required changes were successfully made
+                        GpsFragment fragment = (GpsFragment)
+                                getSupportFragmentManager()
+                                        .findFragmentByTag(getString(R.string.tag_gps_fragment));
+                        if(fragment != null) {
+                            fragment.isLocationServicesGranted = true;
+                            fragment.performAfterLocationSuccess(fragment.mLocationRequest, fragment.builder);
+                        }
+                        break;
+                    case Activity.RESULT_CANCELED:
+                        // The user was asked to change settings, but chose not to
+                        Toast.makeText(this, "location services request cancelled", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+        }
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity.features.gps_location;
 
-
 import android.annotation.SuppressLint;
+import android.content.IntentSender;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,26 +18,36 @@ import android.widget.Toast;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.abstract_stuff.feature_and_sensor.FeatureFragment;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.REQUEST_CHECK_SETTINGS;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GpsFragment  extends FeatureFragment
+public class GpsFragment extends FeatureFragment
         implements GpsInterface,
         OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -47,6 +57,8 @@ public class GpsFragment  extends FeatureFragment
     private SupportMapFragment mapFragment;
     private GoogleApiClient googleApiClient;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    public LocationRequest mLocationRequest;
+    public LocationSettingsRequest.Builder builder;
 
     public GpsFragment() {
         // Required empty public constructor
@@ -74,16 +86,14 @@ public class GpsFragment  extends FeatureFragment
 
     @Override
     public void initializeSensor() {
-        Toast.makeText(getActivity(), "Please Wait While The Data Loads Over The Internet", Toast.LENGTH_LONG).show();
-
-        if(getActivity() != null)
+        if (getActivity() != null)
             googleApiClient = new GoogleApiClient.Builder(getActivity())
                     .addApi(LocationServices.API)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .build();
 
-        if(getActivity() != null) {
+        if (getActivity() != null) {
 
             mapFragment = new SupportMapFragment();
 
@@ -94,7 +104,7 @@ public class GpsFragment  extends FeatureFragment
             fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
         }
 
-        if(fusedLocationProviderClient != null)
+        if (fusedLocationProviderClient != null)
             checkLocationAndAddToMap();
     }
 
@@ -143,23 +153,73 @@ public class GpsFragment  extends FeatureFragment
     @SuppressWarnings("FieldCanBeLocal")
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
 
-    @SuppressLint("MissingPermission")
     private void checkLocationAndAddToMap() {
         //Fetching the last known location using the Fus
 
         // Create the location request to start receiving updates
-        LocationRequest mLocationRequest = new LocationRequest();
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        mLocationRequest.setInterval(UPDATE_INTERVAL);
-        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+        mLocationRequest = new LocationRequest()
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setInterval(UPDATE_INTERVAL)
+                .setFastestInterval(FASTEST_INTERVAL);
 
         // Create LocationSettingsRequest object using location request
-        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
-        builder.addLocationRequest(mLocationRequest);
+        builder = new LocationSettingsRequest.Builder()
+                .addLocationRequest(mLocationRequest)
+                .setAlwaysShow(true); //this is the key ingredient
+
+        if(getActivity() == null) return;
+
+        Task<LocationSettingsResponse> result =
+                LocationServices.getSettingsClient(getActivity()).checkLocationSettings(builder.build());
+
+        result.addOnCompleteListener(new OnCompleteListener<LocationSettingsResponse>() {
+            @Override
+            public void onComplete(@NonNull Task<LocationSettingsResponse> task) {
+                try {
+                    LocationSettingsResponse response = task.getResult(ApiException.class);
+                    // All location settings are satisfied. The client can initialize location
+                    // requests here.
+                } catch (ApiException exception) {
+                    switch (exception.getStatusCode()) {
+                        case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+                            // Location settings are not satisfied. But could be fixed by showing the
+                            // user a dialog.
+                            try {
+                                // Cast to a resolvable exception.
+                                ResolvableApiException resolvable = (ResolvableApiException) exception;
+                                // Show the dialog by calling startResolutionForResult(),
+                                // and check the result in onActivityResult().
+                                resolvable.startResolutionForResult(
+                                        getActivity(),
+                                        REQUEST_CHECK_SETTINGS);
+                            } catch (IntentSender.SendIntentException | ClassCastException e) {
+                                // Ignore the error.
+                            }
+                            break;
+                        case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+                            // Location settings are not satisfied. However, we have no way to fix the
+                            // settings so we won't show the dialog.
+                            break;
+                    }
+                }
+            }
+        }).addOnSuccessListener(new OnSuccessListener<LocationSettingsResponse>() {
+            @Override
+            public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
+                isLocationServicesGranted = true;
+                performAfterLocationSuccess(mLocationRequest, builder);
+            }
+        });
+    }
+
+    @SuppressLint("MissingPermission")
+    @Override
+    public void performAfterLocationSuccess(LocationRequest mLocationRequest, LocationSettingsRequest.Builder builder) {
+
         LocationSettingsRequest locationSettingsRequest = builder.build();
 
         // Check whether location settings are satisfied
-        if(getActivity() == null) return;
+        if (getActivity() == null) return;
 
         SettingsClient settingsClient = LocationServices.getSettingsClient(getActivity());
         settingsClient.checkLocationSettings(locationSettingsRequest);
@@ -169,8 +229,8 @@ public class GpsFragment  extends FeatureFragment
             public void onLocationResult(LocationResult locationResult) {
                 super.onLocationResult(locationResult);
                 Location location = locationResult.getLastLocation();
-                if(location != null) {
-                    if(mMap != null) {
+                if (location != null) {
+                    if (mMap != null) {
                         sensorDetails = new ArrayList<>();
                         addToDetailsList(sensorDetails, "Latitude", String.valueOf(location.getLatitude()));
                         addToDetailsList(sensorDetails, "Longitude", String.valueOf(location.getLongitude()));
@@ -189,8 +249,7 @@ public class GpsFragment  extends FeatureFragment
                         fusedLocationProviderClient.removeLocationUpdates(this);
 
                     }
-                }
-                else
+                } else
                     Log.e("tag", "location null");
             }
         }, Looper.myLooper());

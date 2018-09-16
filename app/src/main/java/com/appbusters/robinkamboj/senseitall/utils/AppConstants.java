@@ -17,6 +17,7 @@ public class AppConstants {
     public static final int REQUEST_CODE = 100;
     public static final int REQUEST_CODE_PICK_IMAGE = 101;
     public static final int REQUEST_CODE_CAPTURE_IMAGE = 102;
+    public static final int REQUEST_CHECK_SETTINGS = 103;
     public static final String CHOOSER_INTENT_TITLE = "Select Image";
     public static final String IMAGE_CONTENT_TYPE = "image/*";
     public static final String CATEGORY = "CATEGORY";

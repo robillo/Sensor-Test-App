@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
@@ -27,12 +29,14 @@ import butterknife.OnClick;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DATA_NAME;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAWABLE_ID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FLING_VELOCITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.GPS_LOCATION;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFO_RECYCLER_COUNT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.IS_PRESENT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 
 public abstract class FeatureFragment extends Fragment implements SensorInterface  {
 
+    public boolean isLocationServicesGranted;
     private GenericData intentData;
     public boolean isViewingMore = false;
     public BasicInformationAdapter adapter;
@@ -128,22 +132,38 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
     @OnClick(R.id.go_to_test)
     public void setGoToTest() {
         if(getActivity() != null) {
-            Intent intent = new Intent(getActivity(), TestActivity.class);
-            GenericData intentData = ((DetailActivity) getActivity()).intentData;
-            String recyclerName = ((DetailActivity) getActivity()).recyclerName;
-            Bundle args = new Bundle();
-
-            args.putString(AppConstants.DATA_NAME, intentData.getName());
-            args.putString(AppConstants.RECYCLER_NAME, recyclerName);
-            args.putInt(AppConstants.DRAWABLE_ID, intentData.getDrawableId());
-            args.putBoolean(AppConstants.IS_PRESENT, intentData.isPresent());
-            args.putInt(AppConstants.TYPE, intentData.getType());
-
-            intent.putExtras(args);
-
-            getActivity().startActivity(intent);
-            getActivity().overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
+            if(intentData.getName().equals(GPS_LOCATION)) {
+                if(isLocationServicesGranted) {
+                    startTestActivity();
+                }
+                else {
+                    Toast.makeText(getActivity(), "please turn on location services first", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else {
+                startTestActivity();
+            }
         }
+    }
+
+    void startTestActivity() {
+        if(getActivity() == null) return;
+
+        Intent intent = new Intent(getActivity(), TestActivity.class);
+        GenericData intentData = ((DetailActivity) getActivity()).intentData;
+        String recyclerName = ((DetailActivity) getActivity()).recyclerName;
+        Bundle args = new Bundle();
+
+        args.putString(AppConstants.DATA_NAME, intentData.getName());
+        args.putString(AppConstants.RECYCLER_NAME, recyclerName);
+        args.putInt(AppConstants.DRAWABLE_ID, intentData.getDrawableId());
+        args.putBoolean(AppConstants.IS_PRESENT, intentData.isPresent());
+        args.putInt(AppConstants.TYPE, intentData.getType());
+
+        intent.putExtras(args);
+
+        getActivity().startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
     }
 
     @OnClick(R.id.learn_more)
