@@ -78,12 +78,10 @@ public class BluetoothFragment extends FeatureFragment implements BluetoothInter
     @Override
     public void onResume() {
         super.onResume();
-        if(bluetoothAdapter != null && !bluetoothAdapter.isEnabled()) bluetoothAdapter.enable();
     }
 
     @Override
     public void onPause() {
-        if(bluetoothAdapter != null && bluetoothAdapter.isEnabled()) bluetoothAdapter.disable();
         super.onPause();
     }
 }

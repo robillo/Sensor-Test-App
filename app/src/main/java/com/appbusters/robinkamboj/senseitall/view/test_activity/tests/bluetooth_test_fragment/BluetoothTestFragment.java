@@ -6,11 +6,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +34,7 @@ import butterknife.ButterKnife;
  */
 public class BluetoothTestFragment extends Fragment implements BluetoothTestInterface {
 
+    private BluetoothAdapter bluetoothAdapter;
     private List<BluetoothScanInfo> bluetoothScanInfoItems = new ArrayList<>();
 
     @BindView(R.id.bluetooth_state_text)
@@ -60,21 +63,27 @@ public class BluetoothTestFragment extends Fragment implements BluetoothTestInte
 
         initialize();
 
-        setAdapter();
+        startListening();
     }
 
     @Override
     public void initialize() {
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if(!bluetoothAdapter.isEnabled()) bluetoothAdapter.enable();
-        Set<BluetoothDevice> bluetoothDevices = bluetoothAdapter.getBondedDevices();
-        for(BluetoothDevice device : bluetoothDevices) {
-            bluetoothScanInfoItems.add(new BluetoothScanInfo(device.getName(), device.getAddress()));
-        }
+        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        bluetoothAdapter.enable();
     }
 
     @Override
     public void setAdapter() {
+        if(bluetoothAdapter == null) return;
+
+        Set<BluetoothDevice> bluetoothDevices = bluetoothAdapter.getBondedDevices();
+
+        if(bluetoothScanInfoItems == null) return;
+
+        for(BluetoothDevice device : bluetoothDevices) {
+            bluetoothScanInfoItems.add(new BluetoothScanInfo(device.getName(), device.getAddress()));
+        }
+
         if(getActivity() == null) return;
 
         if(bluetoothScanInfoItems.size() == 0) {
@@ -83,8 +92,28 @@ public class BluetoothTestFragment extends Fragment implements BluetoothTestInte
         }
 
         BluetoothScanAdapter adapter = new BluetoothScanAdapter(getActivity(), bluetoothScanInfoItems);
+
+        if(recyclerView == null) return;
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onDestroy() {
+        if(bluetoothAdapter != null) bluetoothAdapter.disable();
+        super.onDestroy();
+    }
+
+    @Override
+    public void startListening() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setAdapter();
+            }
+        }, 1000);
     }
 
     class BluetoothScanAdapter extends RecyclerView.Adapter<BluetoothScanAdapter.BluetoothScanHolder> {
@@ -102,17 +131,15 @@ public class BluetoothTestFragment extends Fragment implements BluetoothTestInte
         public BluetoothScanHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             context = parent.getContext();
             return new BluetoothScanHolder(
-                    LayoutInflater.from(context).inflate(R.layout.layout_view_wifi, parent, false)
+                    LayoutInflater.from(context).inflate(R.layout.row_bluetooth, parent, false)
             );
         }
 
         @SuppressLint("SetTextI18n")
         @Override
         public void onBindViewHolder(@NonNull BluetoothScanHolder holder, int position) {
-            if(holder.lvAdd != null && holder.lvName != null) {
-                holder.lvName.setText(list.get(position).getName());
-                holder.lvAdd.setText(list.get(position).getAddress());
-            }
+            holder.lvName.setText("Name: " + list.get(position).getName());
+            holder.lvAdd.setText("Address: " + list.get(position).getAddress());
         }
 
         @Override
@@ -122,11 +149,9 @@ public class BluetoothTestFragment extends Fragment implements BluetoothTestInte
 
         class BluetoothScanHolder extends RecyclerView.ViewHolder {
 
-            @Nullable
             @BindView(R.id.lvName)
             TextView lvName;
 
-            @Nullable
             @BindView(R.id.lvAdd)
             TextView lvAdd;
 

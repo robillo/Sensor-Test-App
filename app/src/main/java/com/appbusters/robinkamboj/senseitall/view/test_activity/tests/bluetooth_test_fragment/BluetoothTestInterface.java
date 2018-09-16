@@ -10,4 +10,6 @@ public interface BluetoothTestInterface {
 
     void setAdapter();
 
+    void startListening();
+
 }

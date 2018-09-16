@@ -1,6 +1,5 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity;
 
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
@@ -10,7 +9,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -93,7 +91,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
 
 public class TestActivity extends AppCompatActivity implements TestInterface {
 
-    private BluetoothAdapter bluetoothAdapter;
     public GenericData intentData = new GenericData();
     public String recyclerName;
     private MachineLearningDialogFragment dialogFragment;
@@ -143,16 +140,7 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
         setStatusBarColor();
 
-        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
         initializeIntentData();
-
-        switch (intentData.getName()) {
-            case BLUETOOTH: {
-                if(!bluetoothAdapter.isEnabled()) bluetoothAdapter.enable();
-                break;
-            }
-        }
 
         setDirectionsFragment();
     }
@@ -442,8 +430,6 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
 
     @Override
     public void onBackPressed() {
-        if(bluetoothAdapter.isEnabled()) bluetoothAdapter.disable();
-
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
     }
