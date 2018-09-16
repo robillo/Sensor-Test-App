@@ -247,9 +247,6 @@ public class AppConstants {
 
         featureNames.add(BACK_CAMERA);  //d
         featureNames.add(FRONT_CAMERA);  //d
-        featureNames.add(GPS_LOCATION);  //d
-//        featureNames.add(WIFI);  //d
-//        featureNames.add(BLUETOOTH);  //d
         featureNames.add(GSM_UMTS);
         featureNames.add(COMPASS);  //d
         featureNames.add(RADIO);
@@ -263,6 +260,9 @@ public class AppConstants {
         featureNames.add(FLASH);  //d
         featureNames.add(MULTI_TOUCH);  //d
         featureNames.add(FINGERPRINT);  //d
+        featureNames.add(WIFI);  //d
+        featureNames.add(BLUETOOTH);  //d
+        featureNames.add(GPS_LOCATION);  //d
         featureNames.add(NFC);
         featureNames.add(MICROPHONE);
         featureNames.add(USB_ACCESSORY);

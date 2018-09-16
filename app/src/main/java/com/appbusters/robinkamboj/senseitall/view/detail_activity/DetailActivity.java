@@ -1,7 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.graphics.PorterDuff;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.FragmentTransaction;
@@ -162,6 +164,8 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI_DIRE
 
 public class DetailActivity extends AppCompatActivity implements DetailActivityInterface {
 
+    @SuppressWarnings("FieldCanBeLocal")
+    private WifiManager wifiManager;
     public GenericData intentData = new GenericData();
     public String recyclerName;
 
@@ -191,6 +195,16 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
         ButterKnife.bind(this);
         changeStatusBarColor();
         initializeIntentData();
+
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+
+        switch (intentData.getName()) {
+            case WIFI: {
+                if(!wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
+                break;
+            }
+        }
+
         setFragmentForSensor(intentData.getName());
     }
 
@@ -507,5 +521,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
         }
         catch (IllegalStateException ignored) {}
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
