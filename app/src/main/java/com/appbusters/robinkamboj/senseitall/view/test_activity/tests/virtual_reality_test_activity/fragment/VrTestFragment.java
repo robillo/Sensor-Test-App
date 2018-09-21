@@ -30,6 +30,8 @@ import butterknife.OnClick;
 @SuppressWarnings("FieldCanBeLocal")
 public class VrTestFragment extends Fragment {
 
+    private Intent intent;
+    private Intent fallbackIntent;
     private boolean isVrAppInstalled;
 
     private final String vr_package_name = "com.robillo.virtualrealitysample_senseitall";
@@ -49,7 +51,28 @@ public class VrTestFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_vr_test, container, false);
         ButterKnife.bind(this, v);
+
+        fallbackIntent = new Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=" + vr_package_name)
+        );
+
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        isVrAppInstalled = appInstalledOrNot(vr_package_name);
+
+        if(isVrAppInstalled)
+            intent = new Intent(vr_intent_filter);
+        else
+            intent = new Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=" + vr_package_name)
+            );
     }
 
     @OnClick(R.id.start_test)
@@ -57,25 +80,14 @@ public class VrTestFragment extends Fragment {
         isVrAppInstalled = appInstalledOrNot(vr_package_name);
         if(isVrAppInstalled) {
             //calling an activity using <intent-filter> action name
-            Intent intent = new Intent(vr_intent_filter);
             startActivity(intent);
         }
         else {
             Toast.makeText(getActivity(), "installing vr samples", Toast.LENGTH_SHORT).show();
             try {
-                startActivity(
-                        new Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("market://details?id=" + vr_package_name)
-                        )
-                );
+                startActivity(intent);
             } catch (android.content.ActivityNotFoundException e) {
-                startActivity(
-                        new Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("https://play.google.com/store/apps/details?id=" + vr_package_name)
-                        )
-                );
+                startActivity(fallbackIntent);
             }
         }
     }

@@ -1,6 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.test_activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -13,13 +16,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.barcode_detection_test_fragment.BarcodeReaderTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.dialog.MachineLearningDialogFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.face_detection_test_fragment.FaceDetectionTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.label_detection_test_fragment.LabelDetectionTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.accelerometer_test_fragment.AccelerometerTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.back_camera_test_fragment.BackCamTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.battery_test_fragment.BatteryTestFragment;
@@ -42,7 +42,6 @@ import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.proximity_
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.rotation_vector_test.RotationTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.screen_test_fragment.ScreenTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.speaker_volume_test_fragment.SoundTestFragment;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.ML_VISION.text_scan_test_fragment.TextScanTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.step_counter_test_fragment.StepCounterTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.step_detector_test_fragment.StepDetectorTestFragment;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.vibrator_test_fragment.VibratorTestFragment;
@@ -88,12 +87,16 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.barcode_scan_intent_filter;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.face_detect_intent_filter;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.image_label_intent_filter;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ml_package_name;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.text_scan_intent_filter;
 
 public class TestActivity extends AppCompatActivity implements TestInterface {
 
     public GenericData intentData = new GenericData();
     public String recyclerName;
-    private MachineLearningDialogFragment dialogFragment;
 
     @BindView(R.id.test_name)
     TextView testName;
@@ -167,8 +170,78 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
         transaction.commit();
     }
 
+    private void handleIntentFilters(String filter_name) {
+
+        Intent intent, fallbackIntent;
+
+        fallbackIntent = new Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=" + ml_package_name)
+        );
+
+        boolean isVrAppInstalled = appInstalledOrNot(ml_package_name);
+
+        if(isVrAppInstalled)
+            intent = new Intent(filter_name);
+        else
+            intent = new Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=" + ml_package_name)
+            );
+
+        if(isVrAppInstalled) {
+            //calling an activity using <intent-filter> action name
+            startActivity(intent);
+            overridePendingTransition(
+                    R.anim.slide_in_right_activity,
+                    R.anim.slide_out_left_activity
+            );
+        }
+        else {
+            Toast.makeText(this, "installing vr samples", Toast.LENGTH_SHORT).show();
+            try {
+                startActivity(intent);
+            } catch (android.content.ActivityNotFoundException e) {
+                startActivity(fallbackIntent);
+            }
+        }
+    }
+
+    private boolean appInstalledOrNot(String uri) {
+        PackageManager pm = getPackageManager();
+        try {
+            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            return true;
+        }
+        catch (PackageManager.NameNotFoundException ignored) {
+
+        }
+
+        return false;
+    }
+
     @Override
     public void setTestFragment() {
+
+        switch (recyclerName) {
+            case FACE_DETECT: {
+                handleIntentFilters(face_detect_intent_filter);
+                return;
+            }
+            case LABEL_GENERATOR: {
+                handleIntentFilters(image_label_intent_filter);
+                return;
+            }
+            case TEXT_SCAN: {
+                handleIntentFilters(text_scan_intent_filter);
+                return;
+            }
+            case BARCODE_READER: {
+                handleIntentFilters(barcode_scan_intent_filter);
+                return;
+            }
+        }
+
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_directions_fragment));
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -364,38 +437,6 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
                 ).commit();
                 break;
             }
-            case TEXT_SCAN: {
-                transaction.add(
-                        R.id.container,
-                        new TextScanTestFragment(),
-                        getString(R.string.tag_test_fragment)
-                ).commit();
-                break;
-            }
-            case LABEL_GENERATOR: {
-                transaction.add(
-                        R.id.container,
-                        new LabelDetectionTestFragment(),
-                        getString(R.string.tag_test_fragment)
-                ).commit();
-                break;
-            }
-            case BARCODE_READER: {
-                transaction.add(
-                        R.id.container,
-                        new BarcodeReaderTestFragment(),
-                        getString(R.string.tag_test_fragment)
-                ).commit();
-                break;
-            }
-            case FACE_DETECT: {
-                transaction.add(
-                        R.id.container,
-                        new FaceDetectionTestFragment(),
-                        getString(R.string.tag_test_fragment)
-                ).commit();
-                break;
-            }
             case VIRTUAL_REALITY: {
                 transaction.add(
                         R.id.container,
@@ -434,18 +475,4 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
         overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity);
     }
 
-    public void showBottomSheetResults() {
-        if(dialogFragment == null) {
-            dialogFragment = new MachineLearningDialogFragment();
-            dialogFragment.setRetainInstance(true);
-        }
-        dialogFragment.show(getSupportFragmentManager(), getString(R.string.tag_bottom_sheet));
-    }
-
-    public void setResultsToBottomSheet(String header, String text) {
-
-        if(dialogFragment == null) return;
-        dialogFragment.setHeader(header);
-        dialogFragment.setResults(text);
-    }
 }
