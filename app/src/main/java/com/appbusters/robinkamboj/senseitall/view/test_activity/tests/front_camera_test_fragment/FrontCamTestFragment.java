@@ -89,12 +89,11 @@ public class FrontCamTestFragment extends Fragment implements FrontCamTestInterf
     private void openCamera() {
         try {
             if(getActivity() != null)
-                if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.CAMERA)
-                        == PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     cameraManager.openCamera(cameraId, callback, backgroundHandler);
                 }
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
+        } catch (CameraAccessException | IllegalArgumentException ignored) {
+
         }
     }
 
@@ -107,24 +106,24 @@ public class FrontCamTestFragment extends Fragment implements FrontCamTestInterf
     private void setUpCamera() {
         try {
             for (String cameraId : cameraManager.getCameraIdList()) {
-                CameraCharacteristics cameraCharacteristics =
-                        cameraManager.getCameraCharacteristics(cameraId);
-                //noinspection ConstantConditions
-                if (cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) != null &&
-                        cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) ==
-                        cameraFacing) {
-                    StreamConfigurationMap streamConfigurationMap = cameraCharacteristics.get(
-                            CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-                    if (streamConfigurationMap != null)
-                        previewSize = chooseOptimalSize(
-                                streamConfigurationMap.getOutputSizes(SurfaceTexture.class),
-                                width,
-                                height);
-                    this.cameraId = cameraId;
+                if(cameraId != null) {
+                    CameraCharacteristics cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId);
+                    //noinspection ConstantConditions
+                    if (cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) != null && cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) ==
+                                    cameraFacing) {
+                        StreamConfigurationMap streamConfigurationMap = cameraCharacteristics.get(
+                                CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+                        if (streamConfigurationMap != null)
+                            previewSize = chooseOptimalSize(
+                                    streamConfigurationMap.getOutputSizes(SurfaceTexture.class),
+                                    width,
+                                    height);
+                        this.cameraId = cameraId;
+                    }
                 }
             }
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
+        } catch (CameraAccessException | IllegalArgumentException ignored) {
+
         }
     }
 
@@ -154,20 +153,24 @@ public class FrontCamTestFragment extends Fragment implements FrontCamTestInterf
     CameraDevice.StateCallback callback = new CameraDevice.StateCallback() {
         @Override
         public void onOpened(@NonNull CameraDevice camera) {
-            FrontCamTestFragment.this.cameraDevice = camera;
+            cameraDevice = camera;
             createPreviewSession();
         }
 
         @Override
         public void onDisconnected(@NonNull CameraDevice camera) {
-            cameraDevice.close();
-            FrontCamTestFragment.this.cameraDevice = null;
+            if(cameraDevice != null) {
+                cameraDevice.close();
+                cameraDevice = null;
+            }
         }
 
         @Override
         public void onError(@NonNull CameraDevice camera, int error) {
-            cameraDevice.close();
-            FrontCamTestFragment.this.cameraDevice = null;
+            if(cameraDevice != null) {
+                cameraDevice.close();
+                cameraDevice = null;
+            }
         }
     };
 

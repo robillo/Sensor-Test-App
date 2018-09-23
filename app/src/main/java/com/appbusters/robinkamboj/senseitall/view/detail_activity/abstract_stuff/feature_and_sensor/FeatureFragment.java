@@ -132,7 +132,7 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
     @OnClick(R.id.go_to_test)
     public void setGoToTest() {
         if(getActivity() != null) {
-            if(intentData.getName().equals(GPS_LOCATION)) {
+            if(intentData != null && intentData.getName().equals(GPS_LOCATION)) {
                 if(isLocationServicesGranted) {
                     startTestActivity();
                 }
@@ -154,6 +154,11 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
         String recyclerName = ((DetailActivity) getActivity()).recyclerName;
         Bundle args = new Bundle();
 
+        if(intentData == null) {
+            Toast.makeText(getActivity(), "some error occurred", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         args.putString(AppConstants.DATA_NAME, intentData.getName());
         args.putString(AppConstants.RECYCLER_NAME, recyclerName);
         args.putInt(AppConstants.DRAWABLE_ID, intentData.getDrawableId());
@@ -173,10 +178,14 @@ public abstract class FeatureFragment extends Fragment implements SensorInterfac
             Intent intent = new Intent(getActivity(), LearnMoreActivity.class);
 
             Bundle args = new Bundle();
-            args.putString(DATA_NAME, intentData.getName());
-            args.putInt(DRAWABLE_ID, intentData.getDrawableId());
-            args.putBoolean(IS_PRESENT, intentData.isPresent());
-            args.putInt(TYPE, intentData.getType());
+
+            if(intentData != null) {
+                args.putString(DATA_NAME, intentData.getName());
+                args.putInt(DRAWABLE_ID, intentData.getDrawableId());
+                args.putBoolean(IS_PRESENT, intentData.isPresent());
+                args.putInt(TYPE, intentData.getType());
+            }
+
             intent.putExtras(args);
 
             getActivity().startActivity(intent);

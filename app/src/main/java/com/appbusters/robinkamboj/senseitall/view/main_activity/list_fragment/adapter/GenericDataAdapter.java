@@ -106,7 +106,7 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
                 else {
                     Toast.makeText(
                             context,
-                            context.getString(R.string.sorry) + list.get(pos).getName() + context.getString(R.string.not_present),
+                            String.format("%s %s %s", context.getString(R.string.sorry), list.get(pos).getName(), context.getString(R.string.not_present)),
                             Toast.LENGTH_SHORT)
                             .show();
                 }

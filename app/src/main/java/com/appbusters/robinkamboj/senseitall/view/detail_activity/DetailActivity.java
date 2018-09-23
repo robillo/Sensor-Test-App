@@ -172,8 +172,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.WIFI_DIRE
 
 public class DetailActivity extends AppCompatActivity implements DetailActivityInterface {
 
-    @SuppressWarnings("FieldCanBeLocal")
-    private WifiManager wifiManager;
     public GenericData intentData = new GenericData();
     public String recyclerName;
 
@@ -204,11 +202,11 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
         changeStatusBarColor();
         initializeIntentData();
 
-        wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
 
         switch (intentData.getName()) {
             case WIFI: {
-                if(!wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
+                if(wifiManager != null && !wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
                 break;
             }
         }
