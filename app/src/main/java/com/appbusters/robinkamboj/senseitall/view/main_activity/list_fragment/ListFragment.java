@@ -1,16 +1,13 @@
 package com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment;
 
 import android.Manifest;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.hardware.ConsumerIrManager;
 import android.hardware.SensorManager;
 import android.hardware.camera2.CameraManager;
 import android.hardware.fingerprint.FingerprintManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -479,39 +476,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                     dataPresent[i],
                     type));
         }
-    }
-
-    @OnClick(R.id.image_five_stars)
-    public void giveImageFiveStars() {
-        giveFiveStars();
-    }
-
-    @OnClick(R.id.give_five_stars)
-    public void giveFiveStars() {
-        if(getActivity() == null) return;
-
-        Uri uri = Uri.parse("market://details?id=" + getActivity().getPackageName());
-        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-        try {startActivity(goToMarket);}
-        catch (ActivityNotFoundException e) {
-            startActivity(
-                    new Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=" + getActivity().getPackageName())
-                    )
-            );
-        }
-    }
-
-    @OnClick(R.id.give_feedback)
-    public void giveFeedback() {
-        Intent Email = new Intent(Intent.ACTION_SEND);
-        Email.setType("text/email");
-        Email.putExtra(Intent.EXTRA_EMAIL, new String[] { "store.robinkamboj@gmail.com" });
-        Email.putExtra(Intent.EXTRA_SUBJECT, "Feedback For Sense It All! - Device Test");
-        Email.putExtra(Intent.EXTRA_TEXT, "Hi Robin," + "\n");
-        startActivity(Intent.createChooser(Email, "Send Feedback:"));
     }
 
     @OnClick(R.id.search)

@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.dashboard_fragment.adapter;
+package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter;
 
 import android.content.Context;
 

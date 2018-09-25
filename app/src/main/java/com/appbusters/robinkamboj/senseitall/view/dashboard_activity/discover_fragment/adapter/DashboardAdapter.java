@@ -1,11 +1,10 @@
-package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.dashboard_fragment.adapter;
+package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,14 +22,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FEATURE;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFORMATION;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_APP;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOFTWARE;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardHolder>
     implements DashboardAdapterInterface{

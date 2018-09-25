@@ -6,6 +6,14 @@ public interface DashboardInterface {
 
     void changeStatusBarColor();
 
-    void setDashboardFragment();
+    void setDiscoverFragment();
+
+    void setPersonalizedFragment();
+
+    void setToolsFragment();
+
+    void setClickListeners();
+
+    void setColorFilterToIcons(String header);
 
 }

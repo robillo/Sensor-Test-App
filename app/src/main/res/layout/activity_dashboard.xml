@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".view.dashboard_activity.DashboardActivity">
 
     <LinearLayout
@@ -11,27 +12,84 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/colorTextOne"
+                android:id="@+id/search"
+                android:visibility="invisible"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                tools:text="DISCOVER"
+                android:textColor="@color/colorTextTwo"
+                tools:ignore="MissingPrefix"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:id="@+id/header_text"/>
+
+            <ImageView
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:tint="@color/colorTextOne"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/add"
+                android:visibility="invisible"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0sp"
             android:layout_weight="1"
-            android:id="@+id/fragment_container">
+            android:id="@+id/container">
 
         </FrameLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="3sp"
-            android:background="@color/colorMajorDarkMuchLighter"
-            tools:ignore="ContentDescription,SmallSp"
-            android:visibility="gone"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50sp"
-            android:orientation="horizontal"
-            android:background="@color/white"
-            android:visibility="gone">
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_height="30sp"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/colorTextFour"
+                android:src="@drawable/baseline_toys_black_48"
+                android:layout_weight="1"
+                android:id="@+id/tools"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_height="30sp"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/colorTextFour"
+                android:src="@drawable/baseline_whatshot_black_48"
+                android:layout_weight="1"
+                android:id="@+id/discover"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_height="30sp"
+                android:tint="@color/colorTextFour"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_person_black_48"
+                android:layout_weight="1"
+                android:id="@+id/profile"
+                tools:ignore="ContentDescription" />
 
         </LinearLayout>
 

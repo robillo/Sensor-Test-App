@@ -187,6 +187,9 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="tag_directions_fragment">DIRECTIONS FRAGMENT</string>
     <string name="tag_test_fragment">TEST FRAGMENT</string>
     <string name="tag_gps_fragment">GPS FRAGMENT</string>
+    <string name="tag_tools_fragment">TOOLS FRAGMENT</string>
+    <string name="tag_discover_fragment">DISCOVER FRAGMENT</string>
+    <string name="tag_profile_fragment">PROFILE FRAGMENT</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

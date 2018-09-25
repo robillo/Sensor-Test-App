@@ -23,6 +23,10 @@ public class AppConstants {
     public static final String text_scan_intent_filter = "com.assistiveapps.machinelearningtests.tests.text_scan";
     public static final String barcode_scan_intent_filter = "com.assistiveapps.machinelearningtests.tests.barcode_scan";
 
+    public static final String HEADER_DISCOVER = "DISCOVER";
+    public static final String HEADER_PERSONALIZED = "PROFILE";
+    public static final String HEADER_TOOLS = "TOOLS";
+
     public static final int REQUEST_CODE = 100;
     public static final int REQUEST_CODE_PICK_IMAGE = 101;
     public static final int REQUEST_CODE_CAPTURE_IMAGE = 102;
