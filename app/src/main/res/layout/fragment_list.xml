@@ -12,160 +12,150 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/layout_switcher">
-
-            <include layout="@layout/layout_rate"
-                tools:visibility="gone"/>
+            android:layout_height="match_parent">
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="40sp"
+                android:id="@+id/list_screen"
+                android:background="@color/colorIntensity8">
 
-                <FrameLayout
+                <!--<android.support.v7.widget.CardView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="bottom"-->
+                <!--app:cardBackgroundColor="@color/colorMajorDark"-->
+                <!--android:id="@+id/card_permissions">-->
+
+                <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="15sp"-->
+                <!--android:paddingLeft="10sp"-->
+                <!--android:paddingRight="10sp"-->
+                <!--android:paddingTop="5sp"-->
+                <!--android:paddingBottom="5sp"-->
+                <!--android:text="@string/please_give_permissions"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--tools:ignore="RtlHardcoded,RtlSymmetry"-->
+                <!--android:clickable="false"/>-->
+
+                <!--</android.support.v7.widget.CardView>-->
+
+                <android.support.v4.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="40sp"
-                    android:id="@+id/list_screen"
-                    android:background="@color/colorIntensity8">
-
-                    <!--<android.support.v7.widget.CardView-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_gravity="bottom"-->
-                        <!--app:cardBackgroundColor="@color/colorMajorDark"-->
-                        <!--android:id="@+id/card_permissions">-->
-
-                        <!--<TextView-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:textColor="@color/white"-->
-                            <!--android:textSize="15sp"-->
-                            <!--android:paddingLeft="10sp"-->
-                            <!--android:paddingRight="10sp"-->
-                            <!--android:paddingTop="5sp"-->
-                            <!--android:paddingBottom="5sp"-->
-                            <!--android:text="@string/please_give_permissions"-->
-                            <!--android:gravity="center_horizontal"-->
-                            <!--tools:ignore="RtlHardcoded,RtlSymmetry"-->
-                            <!--android:clickable="false"/>-->
-
-                    <!--</android.support.v7.widget.CardView>-->
-
-                    <android.support.v4.widget.NestedScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:descendantFocusability="blocksDescendants">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="5sp"
-                                tools:ignore="ContentDescription,SmallSp" />
-
-                            <android.support.v7.widget.RecyclerView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:id="@+id/recycler"
-                                android:layout_marginLeft="5sp"
-                                android:layout_marginRight="5sp"
-                                android:nestedScrollingEnabled="false">
-
-                            </android.support.v7.widget.RecyclerView>
-
-                        </LinearLayout>
-
-                    </android.support.v4.widget.NestedScrollView>
-
-                </FrameLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/toolbar">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="1sp"
-                        android:background="@color/colorTextFour"
-                        tools:ignore="ContentDescription,SmallSp" />
+                    android:descendantFocusability="blocksDescendants">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/white">
+                        android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="40sp"
-                            android:layout_height="40sp"
-                            android:background="@color/transparent"
-                            android:src="@drawable/baseline_settings_black_48"
-                            android:padding="8sp"
-                            android:tint="@color/colorMajorDarkMuchLighter"
-                            tools:ignore="ContentDescription"
-                            android:id="@+id/menu_settings"
-                            android:visibility="invisible"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="5sp"
+                            tools:ignore="ContentDescription,SmallSp" />
 
-                        <FrameLayout
-                            android:layout_width="0sp"
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1">
+                            android:id="@+id/recycler"
+                            android:layout_marginLeft="5sp"
+                            android:layout_marginRight="5sp"
+                            android:nestedScrollingEnabled="false">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:layout_gravity="center_vertical"
-                                android:textSize="22sp"
-                                android:textColor="@color/colorMajorDarkMuchLighter"
-                                tools:text="Diagnostic"
-                                android:id="@+id/app_header_text"/>
-
-                            <!--fontPath="fonts/one.ttf"-->
-                            <!--tools:ignore="MissingPrefix"-->
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:hint="@string/search_hint"
-                                android:textSize="18sp"
-                                android:layout_gravity="center_vertical"
-                                android:textColor="@color/colorMajorDark"
-                                android:textColorHint="@color/red_shade_six"
-                                android:backgroundTint="@color/colorMajorDark"
-                                android:id="@+id/edit_text_search"
-                                android:inputType="textAutoComplete"
-                                android:visibility="gone"/>
-
-                        </FrameLayout>
-
-                        <ImageView
-                            android:layout_width="40sp"
-                            android:layout_height="40sp"
-                            android:background="@color/transparent"
-                            android:src="@drawable/baseline_search_black_48"
-                            android:padding="8sp"
-                            android:tint="@color/colorMajorDarkMuchLighter"
-                            tools:ignore="ContentDescription"
-                            android:id="@+id/search"/>
+                        </android.support.v7.widget.RecyclerView>
 
                     </LinearLayout>
 
+                </android.support.v4.widget.NestedScrollView>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/toolbar">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorTextFour"
+                    tools:ignore="ContentDescription,SmallSp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/white">
+
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="1sp"
-                        android:background="@color/colorTextThree"
-                        tools:ignore="ContentDescription,SmallSp" />
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:background="@color/transparent"
+                        android:src="@drawable/baseline_settings_black_48"
+                        android:padding="8sp"
+                        android:tint="@color/colorMajorDarkMuchLighter"
+                        tools:ignore="ContentDescription"
+                        android:id="@+id/menu_settings"
+                        android:visibility="invisible"/>
+
+                    <FrameLayout
+                        android:layout_width="0sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="22sp"
+                            android:textColor="@color/colorMajorDarkMuchLighter"
+                            tools:text="Diagnostic"
+                            android:id="@+id/app_header_text"/>
+
+                        <!--fontPath="fonts/one.ttf"-->
+                        <!--tools:ignore="MissingPrefix"-->
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/search_hint"
+                            android:textSize="18sp"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/colorMajorDark"
+                            android:textColorHint="@color/red_shade_six"
+                            android:backgroundTint="@color/colorMajorDark"
+                            android:id="@+id/edit_text_search"
+                            android:inputType="textAutoComplete"
+                            android:visibility="gone"/>
+
+                    </FrameLayout>
+
+                    <ImageView
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:background="@color/transparent"
+                        android:src="@drawable/baseline_search_black_48"
+                        android:padding="8sp"
+                        android:tint="@color/colorMajorDarkMuchLighter"
+                        tools:ignore="ContentDescription"
+                        android:id="@+id/search"/>
 
                 </LinearLayout>
 
-            </FrameLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorTextThree"
+                    tools:ignore="ContentDescription,SmallSp" />
+
+            </LinearLayout>
 
         </FrameLayout>
 

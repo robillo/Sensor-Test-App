@@ -64,8 +64,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DIAGNOSTIC;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FEATURE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.INFORMATION;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_APP;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.RATE_YOUR_EXPERIENCE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_ANDROID_FEATURE_LIST;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SHOWING_DEVICE_TESTS;
@@ -78,7 +76,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDR
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_INFORMATION;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_RATE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SOFTWARE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlMap;
@@ -128,9 +125,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @BindView(R.id.menu_settings)
     ImageView settingsMenuImage;
-
-    @BindView(R.id.rate_experience_screen)
-    LinearLayout rateExperienceScreen;
 
     @BindView(R.id.list_screen)
     FrameLayout listScreen;
@@ -211,11 +205,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 setShowAndroidFeatures();
                 break;
             }
-            case RATE_APP: {
-                headerTextString = RATE_YOUR_EXPERIENCE;
-                setRateExperience();
-                break;
-            }
         }
     }
 
@@ -275,152 +264,59 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void setShowTests() {
         if(headerTextString.equals(SHOWING_DEVICE_TESTS)) return;
         setHeaderTextAndRv();
-
-        if(listScreen.getVisibility() == GONE) {
-            listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(GONE);
-        }
     }
 
     public void setShowSensors() {
         if(headerTextString.equals(SHOWING_SENSORS_LIST)) return;
         setHeaderTextAndRv();
-
-        if(listScreen.getVisibility() == GONE) {
-            listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(GONE);
-        }
     }
 
     public void setShowFeatures() {
         if(headerTextString.equals(SHOWING_FEATURES_LIST)) return;
         setHeaderTextAndRv();
-
-        if(listScreen.getVisibility() == GONE) {
-            listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(GONE);
-        }
     }
 
     private void setShowAndroidFeatures() {
         if(headerTextString.equals(SHOWING_ANDROID_FEATURE_LIST)) return;
         setHeaderTextAndRv();
-
-        if(listScreen.getVisibility() == GONE) {
-            listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(GONE);
-        }
     }
 
     private void setShowSoftware() {
         if(headerTextString.equals(SHOWING_SOFTWARE_LIST)) return;
         setHeaderTextAndRv();
-
-        if(listScreen.getVisibility() == GONE) {
-            listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(GONE);
-        }
     }
 
     private void setShowInformation() {
         if(headerTextString.equals(SHOWING_INFORMATION_LIST)) return;
         setHeaderTextAndRv();
-
-        if(listScreen.getVisibility() == GONE) {
-            listScreen.setVisibility(VISIBLE);
-            rateExperienceScreen.setVisibility(GONE);
-        }
-    }
-
-    public void setRateExperience() {
-        if(headerTextString.equals(RATE_YOUR_EXPERIENCE)) return;
-        setHeaderTextAndRv();
-
-        if(rateExperienceScreen.getVisibility() == GONE) {
-            listScreen.setVisibility(GONE);
-            rateExperienceScreen.setVisibility(VISIBLE);
-        }
     }
 
     @Override
     public void setHeaderTextAndRv() {
-        togglePermissionCardVisibility();
-
-        Animation fadeIn = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_right_activity);
-        fadeIn.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                if(toolbar.getVisibility() == VISIBLE) toolbar.setVisibility(GONE);
-                rateExperienceScreen.setVisibility(VISIBLE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        fadeIn.setDuration(100);
 
         switch (headerTextString) {
-            case SHOWING_DEVICE_TESTS: {
-                turnOnHighlight(TYPE_DIAGNOSTICS);
+            case SHOWING_DEVICE_TESTS:
                 fillGenericDataForSelected(TYPE_DIAGNOSTICS);
-                resetSearchText();
                 break;
-            }
-            case SHOWING_SENSORS_LIST: {
-                turnOnHighlight(TYPE_SENSORS);
+            case SHOWING_SENSORS_LIST:
                 fillGenericDataForSelected(TYPE_SENSORS);
-                resetSearchText();
                 break;
-            }
-            case SHOWING_FEATURES_LIST: {
-                turnOnHighlight(TYPE_FEATURES);
+            case SHOWING_FEATURES_LIST:
                 fillGenericDataForSelected(TYPE_FEATURES);
-                resetSearchText();
                 break;
-            }
-            case SHOWING_INFORMATION_LIST: {
-                turnOnHighlight(TYPE_INFORMATION);
+            case SHOWING_INFORMATION_LIST:
                 fillGenericDataForSelected(TYPE_INFORMATION);
-                resetSearchText();
                 break;
-            }
-            case SHOWING_SOFTWARE_LIST: {
-                turnOnHighlight(TYPE_SOFTWARE);
+            case SHOWING_SOFTWARE_LIST:
                 fillGenericDataForSelected(TYPE_SOFTWARE);
-                resetSearchText();
                 break;
-            }
-            case SHOWING_ANDROID_FEATURE_LIST: {
-                turnOnHighlight(TYPE_ANDROID);
+            case SHOWING_ANDROID_FEATURE_LIST:
                 fillGenericDataForSelected(TYPE_ANDROID);
-                resetSearchText();
                 break;
-            }
-            case RATE_YOUR_EXPERIENCE: {
-                turnOnHighlight(TYPE_RATE);
-                if(rateExperienceScreen.getVisibility() == GONE) {
-                    listScreen.setVisibility(GONE);
-                    rateExperienceScreen.startAnimation(fadeIn);
-                    if(isSearching) setSearch();
-                }
-                break;
-            }
         }
 
+        resetSearchText();
         initializeAdapter();
-    }
-
-    @Override
-    public void turnOnHighlight(int type) {
-        toggleToolbarVisibility(type);
     }
 
     @Override
@@ -429,18 +325,15 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         permissionsItems = new ArrayList<>();
         int rejectedCount = 0;
 
-        if(getActivity() != null)
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            for(String p : permissionNames) {
-                boolean b = getActivity().checkSelfPermission(p) == PERMISSION_GRANTED;
-                permissionsItems.add(new PermissionsItem(p, b));
-                if(!b) rejectedCount++;
+        if(getActivity() != null) {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                for(String p : permissionNames) {
+                    boolean b = getActivity().checkSelfPermission(p) == PERMISSION_GRANTED;
+                    permissionsItems.add(new PermissionsItem(p, b));
+                    if(!b) rejectedCount++;
+                }
             }
-
-//        if(rejectedCount == 0)
-//            permissionsCard.setVisibility(GONE);
-//        else
-//            permissionsCard.setVisibility(VISIBLE);
+        }
 
         return rejectedCount;
     }
@@ -454,41 +347,8 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     }
 
     @Override
-    public void togglePermissionCardVisibility() {
-//        if(headerTextString.equals(RATE_YOUR_EXPERIENCE))
-//            permissionsCard.setVisibility(GONE);
-//        else {
-//            if(rejectedCount > 0) permissionsCard.setVisibility(VISIBLE);
-//            else permissionsCard.setVisibility(GONE);
-//        }
-    }
-
-    @Override
     public List<PermissionsItem> getPermissionItemsList() {
         return permissionsItems;
-    }
-
-    @Override
-    public void toggleToolbarVisibility(int type) {
-        switch (type) {
-            case TYPE_DIAGNOSTICS:
-            case TYPE_FEATURES:
-            case TYPE_SENSORS:
-            case TYPE_INFORMATION:
-            case TYPE_SOFTWARE:
-            case TYPE_ANDROID: {
-                recyclerView.setVisibility(VISIBLE);
-                if(toolbar.getVisibility() == GONE) {
-                    toolbar.setVisibility(VISIBLE);
-                }
-                break;
-            }
-            case TYPE_RATE: {
-                recyclerView.setVisibility(GONE);
-                toolbar.setVisibility(GONE);
-                break;
-            }
-        }
     }
 
     @Override
@@ -608,10 +468,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             case TYPE_ANDROID: {
                 dataNames = androidNames;
                 dataPresent = androidsPresent;
-                break;
-            }
-            case TYPE_RATE: {
-
                 break;
             }
         }

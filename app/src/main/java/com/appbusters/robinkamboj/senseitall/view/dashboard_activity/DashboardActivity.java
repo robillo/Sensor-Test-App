@@ -3,8 +3,6 @@ package com.appbusters.robinkamboj.senseitall.view.dashboard_activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +11,6 @@ import android.view.WindowManager;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.dashboard_fragment.DashboardFragment;
-import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.ListFragment;
 
 import butterknife.ButterKnife;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;

@@ -18,17 +18,11 @@ public interface ListFragmentInterface {
 
     void setHeaderTextAndRv();
 
-    void turnOnHighlight(int type);
-
     int checkIfAllPermissionsGiven();
 
     void checkForPresentSensors();
 
-    void togglePermissionCardVisibility();
-
     List<PermissionsItem> getPermissionItemsList();
-
-    void toggleToolbarVisibility(int type);
 
     void setEditTextSearchListener();
 

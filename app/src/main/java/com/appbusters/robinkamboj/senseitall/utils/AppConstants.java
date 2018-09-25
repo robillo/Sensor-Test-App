@@ -60,13 +60,13 @@ public class AppConstants {
     public static final int TYPE_INFORMATION = 3;
     public static final int TYPE_SOFTWARE = 4;
     public static final int TYPE_ANDROID = 5;
-    public static final int TYPE_RATE = 6;
+//    public static final int TYPE_RATE = 6;
 
     public static final String DIAGNOSTIC = "Diagnostic";                       //data type names
     public static final String SENSOR = "Electronic Sensors";
     public static final String FEATURE = "Everyday Features";
-    public static final String RATE_APP = "Rate App";                           //redundant
-    public static final String INFORMATION = "Device Details";
+//    public static final String RATE_APP = "Rate App";
+    public static final String INFORMATION = "Device Details";                 //redundant
     public static final String SOFTWARE = "Modern Features";
     public static final String ANDROID = "Android Properties";
 
@@ -84,7 +84,7 @@ public class AppConstants {
     public static final String SHOWING_INFORMATION_LIST = "INFORMATION LIST";
     public static final String SHOWING_SOFTWARE_LIST = "SOFTWARE LIST";
     public static final String SHOWING_ANDROID_FEATURE_LIST = "SOFTWARE FEATURES LIST";
-    public static final String RATE_YOUR_EXPERIENCE = "RATE YOUR EXPERIENCE";
+//    public static final String RATE_YOUR_EXPERIENCE = "RATE YOUR EXPERIENCE";
 
     public static final String PREF_FILE_NAME = "SIA";                          //PREFERENCES
     public static final String KEY_HEADER_TEXT = "HEADER TEXT";
