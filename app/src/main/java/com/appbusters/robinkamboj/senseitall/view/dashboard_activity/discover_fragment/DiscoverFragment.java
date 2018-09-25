@@ -44,7 +44,13 @@ public class DiscoverFragment extends Fragment implements DiscoverInterface {
 
         if(getActivity() == null) return;
         DashboardAdapter adapter = new DashboardAdapter(AppConstants.categories, getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(
+                new LinearLayoutManager(
+                        getActivity(),
+                        LinearLayoutManager.HORIZONTAL,
+                        false
+                )
+        );
         recyclerView.setAdapter(adapter);
     }
 }
