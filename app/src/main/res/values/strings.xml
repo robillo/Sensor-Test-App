@@ -297,6 +297,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="open_vr_sample_tests">OPEN VR SAMPLE TESTS</string>
     <string name="popular_tools">Popular Tools</string>
     <string name="popular_tests">Popular Tests</string>
+    <string name="all_categories">All Categories</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

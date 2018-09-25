@@ -11,4 +11,5 @@ public interface DiscoverInterface {
     void setToolsAdapter();
 
     void setViewPagerNewlyAdded();
+
 }

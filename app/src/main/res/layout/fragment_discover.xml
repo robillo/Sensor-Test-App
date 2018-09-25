@@ -13,6 +13,18 @@
         android:layout_weight="1.5"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:textColor="@color/colorBlackShade"
+            tools:ignore="RtlHardcoded,RtlSymmetry"
+            android:text="@string/all_categories"/>
+
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
@@ -21,18 +33,25 @@
             android:layout_gravity="bottom"
             android:clipToPadding="false"
             android:overScrollMode="never"
-            android:paddingBottom="30dp"
+            android:paddingBottom="20sp"
             android:paddingEnd="20sp"
             android:paddingLeft="20sp"
             android:paddingRight="20sp"
             android:paddingStart="20sp"
             tools:ignore="NestedWeights" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize">
-
-        </LinearLayout>
+        <com.rd.PageIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10sp"
+            android:id="@+id/page_indicator"
+            android:layout_gravity="center_horizontal"
+            app:piv_animationType="worm"
+            app:piv_dynamicCount="true"
+            app:piv_interactiveAnimation="true"
+            app:piv_selectedColor="#13A2F5"
+            app:piv_unselectedColor="@color/colorTextThree"
+            app:piv_viewPager="@id/viewPager"/>
 
     </LinearLayout>
 

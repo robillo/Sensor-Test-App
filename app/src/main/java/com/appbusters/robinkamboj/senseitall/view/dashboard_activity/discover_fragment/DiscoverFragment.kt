@@ -4,6 +4,7 @@ package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_f
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.view.ViewPager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -20,12 +21,13 @@ import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fr
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.ShadowTransformer
 import android.widget.CompoundButton
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CustPagerTransformer
+import kotlinx.android.synthetic.main.fragment_discover.*
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnCheckedChangeListener {
+class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
     lateinit var mCardAdapter: CardPagerAdapter
     lateinit var mCardShadowTransformer: ShadowTransformer
@@ -89,6 +91,8 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
         lv.viewPager.setAdapter(mCardAdapter)
         lv.viewPager.setPageTransformer(false, CustPagerTransformer(activity))
         lv.viewPager.setOffscreenPageLimit(3)
+
+        lv.page_indicator.count = lv.viewPager.childCount
     }
 
     override fun onCheckedChanged(compoundButton: CompoundButton, b: Boolean) {
@@ -98,5 +102,18 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
 
     fun dpToPixels(dp: Int, context: Context): Float {
         return dp * context.getResources().getDisplayMetrics().density
+    }
+
+
+    override fun onPageScrollStateChanged(state: Int) {
+
+    }
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+    }
+
+    override fun onPageSelected(position: Int) {
+        lv.page_indicator.selection = position
     }
 }
