@@ -16,7 +16,8 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="1"
             android:layout_gravity="bottom"
             android:clipToPadding="false"
             android:overScrollMode="never"
@@ -24,7 +25,14 @@
             android:paddingEnd="20sp"
             android:paddingLeft="20sp"
             android:paddingRight="20sp"
-            android:paddingStart="20sp" />
+            android:paddingStart="20sp"
+            tools:ignore="NestedWeights" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize">
+
+        </LinearLayout>
 
     </LinearLayout>
 

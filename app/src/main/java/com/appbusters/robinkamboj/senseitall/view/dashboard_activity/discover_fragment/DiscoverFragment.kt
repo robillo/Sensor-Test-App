@@ -16,13 +16,11 @@ import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fr
 import com.appbusters.robinkamboj.senseitall.utils.StartSnapHelper
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CardPagerAdapter
 import kotlinx.android.synthetic.main.fragment_discover.view.*
-import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CardItem
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CardFragmentPagerAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.ShadowTransformer
-import kotlinx.android.synthetic.main.fragment_discover.*
 import android.widget.CompoundButton
-
-
+import com.appbusters.robinkamboj.senseitall.model.recycler.Category
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CustPagerTransformer
 
 
 /**
@@ -30,7 +28,6 @@ import android.widget.CompoundButton
  */
 class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnCheckedChangeListener {
 
-    private var mShowingFragments = false
     lateinit var mCardAdapter: CardPagerAdapter
     lateinit var mCardShadowTransformer: ShadowTransformer
     lateinit var mFragmentCardAdapter: CardFragmentPagerAdapter
@@ -68,10 +65,9 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
 
     override fun setViewPagerNewlyAdded() {
         mCardAdapter = CardPagerAdapter()
-        mCardAdapter.addCardItem(CardItem(R.string.title_home, R.string.title_dashboard))
-        mCardAdapter.addCardItem(CardItem(R.string.title_dashboard, R.string.title_home))
-        mCardAdapter.addCardItem(CardItem(R.string.title_home, R.string.title_dashboard))
-        mCardAdapter.addCardItem(CardItem(R.string.title_dashboard, R.string.title_home))
+
+        mCardAdapter.addCardItems(AppConstants.categories)
+
         mFragmentCardAdapter = CardFragmentPagerAdapter(activity!!.supportFragmentManager,
                 dpToPixels(2, activity!!.baseContext))
 
@@ -79,7 +75,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
         mFragmentCardShadowTransformer = ShadowTransformer(lv.viewPager, mFragmentCardAdapter)
 
         lv.viewPager.setAdapter(mCardAdapter)
-        lv.viewPager.setPageTransformer(false, mCardShadowTransformer)
+        lv.viewPager.setPageTransformer(false, CustPagerTransformer(activity))
         lv.viewPager.setOffscreenPageLimit(3)
     }
 
