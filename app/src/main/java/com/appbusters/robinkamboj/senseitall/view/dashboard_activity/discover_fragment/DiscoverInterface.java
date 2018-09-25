@@ -8,5 +8,7 @@ public interface DiscoverInterface {
 
     void setCategoriesAdapter();
 
+    void setToolsAdapter();
+
     void setViewPagerNewlyAdded();
 }

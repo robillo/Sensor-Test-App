@@ -1,5 +1,8 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,16 +87,32 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         mViews.set(position, null);
     }
 
-    private void bind(Category item, View view) {
-
+    private void bind(final Category item, final View view) {
         LinearLayout parentCard = view.findViewById(R.id.parent_card);
         ImageView drawableImage = view.findViewById(R.id.image);
         TextView name = view.findViewById(R.id.name);
         TextView countDescription = view.findViewById(R.id.count_description);
+
+        parentCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startCorrespondingActivity(view.getContext(), item.getName());
+            }
+        });
 
         drawableImage.setImageResource(item.getDrawable());
         name.setText(item.getName());
         countDescription.setText(item.getCountDescription());
     }
 
+    private void startCorrespondingActivity(Context context, String name) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra(AppConstants.CATEGORY, name);
+        context.startActivity(intent);
+        ((Activity) context)
+                .overridePendingTransition(
+                        R.anim.slide_in_right_activity,
+                        R.anim.slide_out_left_activity
+                );
+    }
 }

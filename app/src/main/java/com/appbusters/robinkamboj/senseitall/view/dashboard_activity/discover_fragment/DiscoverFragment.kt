@@ -11,7 +11,7 @@ import android.view.ViewGroup
 
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants
-import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.DashboardAdapter
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tests.PopTestsAdapter
 
 import com.appbusters.robinkamboj.senseitall.utils.StartSnapHelper
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CardPagerAdapter
@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_discover.view.*
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CardFragmentPagerAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.ShadowTransformer
 import android.widget.CompoundButton
-import com.appbusters.robinkamboj.senseitall.model.recycler.Category
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CustPagerTransformer
 
 
@@ -46,13 +45,26 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
     override fun setup(v: View) {
         lv = v
 
+        setToolsAdapter()
         setCategoriesAdapter()
         setViewPagerNewlyAdded()
+    }
 
+
+    override fun setToolsAdapter() {
+        val adapter = PopTestsAdapter(AppConstants.categories, activity)
+        lv.tools_rv.layoutManager = LinearLayoutManager(
+                activity,
+                LinearLayoutManager.HORIZONTAL,
+                false
+        )
+        lv.tools_rv.adapter = adapter
+        lv.tools_rv.onFlingListener = null
+        StartSnapHelper().attachToRecyclerView(lv.tools_rv)
     }
 
     override fun setCategoriesAdapter() {
-        val adapter = DashboardAdapter(AppConstants.categories, activity)
+        val adapter = PopTestsAdapter(AppConstants.popularTests, activity)
         lv.categories_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.HORIZONTAL,

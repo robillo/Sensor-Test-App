@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter;
+package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tests;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,13 +23,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardHolder>
-    implements DashboardAdapterInterface{
+public class PopTestsAdapter extends RecyclerView.Adapter<PopTestsAdapter.DashboardHolder>
+    implements PopTestsInterface {
 
     private List<Category> list;
     private Context context;
 
-    public DashboardAdapter(List<Category> list, Context context) {
+    public PopTestsAdapter(List<Category> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -41,17 +41,17 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         return new DashboardHolder(
                 LayoutInflater.from(context)
                         .inflate(
-                                R.layout.row_dashboard,
+                                R.layout.row_popular_tests,
                                 parent,
                                 false
                         )
         );
     }
 
+    @SuppressWarnings("UnnecessaryLocalVariable")
     @Override
     public void onBindViewHolder(@NonNull DashboardHolder holder, int position) {
         holder.name.setText(list.get(position).getName());
-        holder.countDescription.setText(list.get(position).getCountDescription());
         holder.drawableImage.setImageDrawable(ContextCompat.getDrawable(context, list.get(position).getDrawable()));
 
         final int pos = position;
@@ -59,7 +59,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         holder.parentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startCorrespondingActivity(context, list.get(pos).getName());
+
             }
         });
     }
@@ -71,14 +71,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     @Override
     public void startCorrespondingActivity(Context context, String name) {
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra(AppConstants.CATEGORY, name);
-        context.startActivity(intent);
-        ((Activity) context)
-                .overridePendingTransition(
-                        R.anim.slide_in_right_activity,
-                        R.anim.slide_out_left_activity
-                );
+
     }
 
     class DashboardHolder extends RecyclerView.ViewHolder {
@@ -91,9 +84,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
         @BindView(R.id.name)
         TextView name;
-
-        @BindView(R.id.count_description)
-        TextView countDescription;
 
         DashboardHolder(View itemView) {
             super(itemView);

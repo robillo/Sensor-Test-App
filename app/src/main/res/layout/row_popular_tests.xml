@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="7sp"
+    app:cardCornerRadius="5sp"
+    tools:ignore="RtlHardcoded"
+    android:id="@+id/card_view">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="5sp"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:paddingRight="20sp"
+        android:orientation="horizontal"
+        android:id="@+id/parent_card">
+
+        <FrameLayout
+            android:layout_width="65sp"
+            android:layout_height="65sp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5sp"
+            android:padding="5sp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="26sp"
+                app:cardElevation="0sp"
+                app:cardBackgroundColor="@color/white">
+
+            </android.support.v7.widget.CardView>
+
+            <ImageView
+                android:layout_width="65sp"
+                android:layout_height="65sp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5sp"
+                android:padding="15sp"
+                android:src="@drawable/baseline_rotate_right_black_48"
+                android:tint="@color/colorMajorDarkMuchLighter"
+                tools:ignore="ContentDescription"
+                android:id="@+id/image"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="3sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="5sp"
+                android:textColor="@color/colorMajorDarkMuchLighter"
+                android:textSize="20sp"
+                android:text="Rotation Vector"
+                android:id="@+id/name"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -48,6 +48,25 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:textColor="@color/colorTextTwo"
+            tools:ignore="RtlHardcoded,RtlSymmetry"
+            android:text="@string/popular_tools"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tools_rv">
+
+        </android.support.v7.widget.RecyclerView>
+
     </LinearLayout>
 
     <ImageView
@@ -72,7 +91,7 @@
             android:paddingBottom="10sp"
             android:textColor="@color/colorTextTwo"
             tools:ignore="RtlHardcoded,RtlSymmetry"
-            android:text="Categories"/>
+            android:text="@string/popular_tests"/>
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"

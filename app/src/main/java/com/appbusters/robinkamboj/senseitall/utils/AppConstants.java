@@ -207,6 +207,7 @@ public class AppConstants {
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
 
     public static List<Category> categories = new ArrayList<>();
+    public static List<Category> popularTests = new ArrayList<>();
 
     public static List<String> diagnosticsNames = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
@@ -1011,16 +1012,40 @@ public class AppConstants {
                 "0" + androidNames.size() + " ITEMS")
         );
 
-//        categories.add(new Category(
-//                R.drawable.baseline_verified_user_black_48,
-//                RATE_APP,
-//                "Give Feedback")
-//        );
-
-//        categories.add(new Category(
-//                R.drawable.baseline_device_unknown_black_48,
-//                DIAGNOSTIC,
-//                diagnosticsNames.size() + " Diagnostics")
-//        );
+        popularTests.add(new Category(
+                imageUrlMap.get(SENSOR_PROXIMITY),
+                SENSOR_PROXIMITY,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(SCREEN),
+                SCREEN,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(MULTI_TOUCH),
+                MULTI_TOUCH,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(SENSOR_ACCELEROMETER),
+                SENSOR_ACCELEROMETER,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(SOUND),
+                SOUND,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(FINGERPRINT),
+                FINGERPRINT,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(COMPASS),
+                COMPASS,
+                ""
+        ));
     }
 }
