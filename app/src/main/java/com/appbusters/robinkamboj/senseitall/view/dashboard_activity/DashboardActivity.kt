@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.DiscoverFragment
@@ -24,6 +25,7 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
     override fun setColorFilterToIcons(header: String) {
 
         header_text.text = header
+        header_text.startAnimation(AnimationUtils.loadAnimation(this, R.anim.top_down))
 
         when (header) {
             HEADER_TOOLS -> {
