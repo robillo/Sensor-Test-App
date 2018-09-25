@@ -53,7 +53,7 @@ class StepDetectorTestFragment : Fragment(), StepDetectorInterface, SensorEventL
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+        // Inflate the lv for this fragment
         val v = inflater.inflate(R.layout.fragment_step_detector_test, container, false)
         setup(v)
         return v

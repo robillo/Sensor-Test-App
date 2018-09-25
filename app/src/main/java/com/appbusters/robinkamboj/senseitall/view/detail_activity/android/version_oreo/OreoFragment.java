@@ -23,7 +23,7 @@ public class OreoFragment extends AndroidFragment implements OreoInterface {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the lv for this fragment
         View v = inflater.inflate(R.layout.fragment_oreo, container, false);
         setupView(v);
         return v;

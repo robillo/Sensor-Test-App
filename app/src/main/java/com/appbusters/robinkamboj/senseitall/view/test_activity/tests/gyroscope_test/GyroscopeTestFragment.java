@@ -32,7 +32,7 @@ public class GyroscopeTestFragment extends GraphFragment implements GyroscopeTes
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the lv for this fragment
         View v = inflater.inflate(R.layout.fragment_gyroscope_test, container, false);
         setup(v);
         return v;

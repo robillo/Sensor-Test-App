@@ -13,6 +13,19 @@
         android:layout_weight="1.5"
         android:orientation="vertical">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="30dp"
+            android:paddingEnd="20sp"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
+            android:paddingStart="20sp" />
+
     </LinearLayout>
 
     <ImageView
@@ -56,7 +69,7 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/recycler">
+            android:id="@+id/categories_rv">
 
         </android.support.v7.widget.RecyclerView>
 

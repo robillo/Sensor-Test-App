@@ -25,7 +25,7 @@ public class FaceEmojiFragment extends SoftwareFragment implements FaceEmojiInte
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the lv for this fragment
         View v = inflater.inflate(R.layout.fragment_face_emoji, container, false);
         setup(v);
         return v;

@@ -12,6 +12,6 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <!--<include layout="@layout/layout_web_view"/>-->
+    <!--<include lv="@lv/layout_web_view"/>-->
 
 </FrameLayout>

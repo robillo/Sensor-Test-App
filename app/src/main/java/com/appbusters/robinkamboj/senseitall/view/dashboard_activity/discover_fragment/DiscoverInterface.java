@@ -6,4 +6,7 @@ public interface DiscoverInterface {
 
     void setup(View v);
 
+    void setCategoriesAdapter();
+
+    void setViewPagerNewlyAdded();
 }

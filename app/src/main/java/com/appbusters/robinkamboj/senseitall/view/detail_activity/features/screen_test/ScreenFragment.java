@@ -29,7 +29,7 @@ public class ScreenFragment extends FeatureFragment implements ScreenInterface {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the lv for this fragment
         View v = inflater.inflate(R.layout.fragment_screen, container, false);
         setup(v);
         return v;

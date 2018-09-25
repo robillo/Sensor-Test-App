@@ -33,7 +33,7 @@ public class MagneticFieldTestFragment extends GraphFragment implements Magnetic
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the lv for this fragment
         View v = inflater.inflate(R.layout.fragment_magnetic_field_test, container, false);
         setup(v);
         return v;
