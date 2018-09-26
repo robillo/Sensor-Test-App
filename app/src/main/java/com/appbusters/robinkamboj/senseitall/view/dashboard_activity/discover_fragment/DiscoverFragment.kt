@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_discover.view.*
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CardFragmentPagerAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.ShadowTransformer
 import android.widget.CompoundButton
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tools.PopToolsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CustPagerTransformer
 import kotlinx.android.synthetic.main.fragment_discover.*
 
@@ -54,7 +55,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
 
 
     override fun setToolsAdapter() {
-        val adapter = PopTestsAdapter(AppConstants.categories, activity)
+        val adapter = PopToolsAdapter(AppConstants.categories, activity)
         lv.tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.HORIZONTAL,

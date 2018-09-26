@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="7sp"
-    app:cardCornerRadius="5sp"
+    android:layout_marginLeft="10sp"
+    android:layout_marginTop="10sp"
+    android:layout_marginBottom="10sp"
+    app:cardCornerRadius="10sp"
     tools:ignore="RtlHardcoded"
-    android:id="@+id/card_view"
-    app:cardBackgroundColor="@color/colorPrimaryLightTxMore">
+    android:id="@+id/card_view">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,34 +19,19 @@
         android:paddingBottom="5sp"
         android:paddingRight="20sp"
         android:orientation="horizontal"
-        android:id="@+id/parent_card">
+        android:id="@+id/parent_card"
+        android:background="@drawable/oval_tools_bg">
 
-        <FrameLayout
+        <ImageView
             android:layout_width="65sp"
             android:layout_height="65sp"
             android:layout_gravity="center_vertical"
             android:layout_margin="5sp"
-            android:padding="5sp">
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="26sp"
-                app:cardElevation="0sp"
-                app:cardBackgroundColor="@color/white">
-
-            </android.support.v7.widget.CardView>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/baseline_rotate_right_black_48"
-                android:padding="10sp"
-                android:tint="@color/colorMajorDarkMuchLighter"
-                tools:ignore="ContentDescription"
-                android:id="@+id/image"/>
-
-        </FrameLayout>
+            android:padding="15sp"
+            android:src="@drawable/baseline_rotate_right_black_48"
+            android:tint="@color/white"
+            tools:ignore="ContentDescription"
+            android:id="@+id/image"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,22 +46,11 @@
                 android:layout_marginBottom="3sp"
                 android:layout_marginLeft="15sp"
                 android:layout_marginRight="5sp"
-                android:textColor="@color/colorMajorDarkMuchLighter"
+                android:textColor="@color/white"
                 android:textSize="20sp"
-                android:text="Rotation Vector"
+                tools:text="Rotation Vector"
                 android:id="@+id/name"
                 tools:ignore="RtlHardcoded" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorMajorDarkMuchLighter"
-                android:textSize="12sp"
-                android:layout_marginBottom="5sp"
-                android:layout_marginLeft="15sp"
-                android:layout_marginRight="5sp"
-                android:text="26 Items"
-                android:id="@+id/count_description"/>
 
         </LinearLayout>
 

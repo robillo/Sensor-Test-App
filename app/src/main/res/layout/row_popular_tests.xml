@@ -64,7 +64,7 @@
                 android:layout_marginRight="5sp"
                 android:textColor="@color/colorMajorDarkMuchLighter"
                 android:textSize="20sp"
-                android:text="Rotation Vector"
+                tools:text="Rotation Vector"
                 android:id="@+id/name"
                 tools:ignore="RtlHardcoded" />
 
