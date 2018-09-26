@@ -112,6 +112,12 @@ public class AppConstants {
 
     public static final String CALENDAR = "Calendar";                           //tool names
     public static final String WEATHER = "Weather";
+    public static final String REMINDER = "Set Reminder";
+    public static final String SET_ALARM = "Set Alarm";
+    public static final String INTERNET_SPEED = "Internet Speed";
+    public static final String VOLUME_CONTROL = "Volume Control";
+    public static final String TAKE_NOTE = "Take Note";
+    public static final String QUICK_SETTINGS = "Quick Settings";
 
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
@@ -290,6 +296,15 @@ public class AppConstants {
         featureNames.add(FAKE_TOUCH);
         featureNames.add(MIDI);
 
+        toolsNames.add(SET_ALARM);
+        toolsNames.add(INTERNET_SPEED);
+        toolsNames.add(TAKE_NOTE);
+        toolsNames.add(VOLUME_CONTROL);
+        toolsNames.add(WEATHER);
+        toolsNames.add(CALENDAR);
+        toolsNames.add(REMINDER);
+        toolsNames.add(QUICK_SETTINGS);
+
         informationNames.add(GSM_UMTS);
         informationNames.add(ANDROID_OS);
         informationNames.add(CPU);
@@ -443,6 +458,12 @@ public class AppConstants {
         imageUrlMap.put(LABEL_GENERATOR, R.drawable.baseline_speaker_notes_black_48);
         imageUrlMap.put(CALENDAR, R.drawable.baseline_today_black_48);
         imageUrlMap.put(WEATHER, R.drawable.baseline_wb_cloudy_black_48);
+        imageUrlMap.put(REMINDER, R.drawable.baseline_note_black_48);
+        imageUrlMap.put(SET_ALARM, R.drawable.baseline_alarm_black_48);
+        imageUrlMap.put(INTERNET_SPEED, R.drawable.baseline_trending_up_black_48);
+        imageUrlMap.put(VOLUME_CONTROL, R.drawable.baseline_speaker_phone_black_48);
+        imageUrlMap.put(TAKE_NOTE, R.drawable.baseline_note_add_black_48);
+        imageUrlMap.put(QUICK_SETTINGS, R.drawable.baseline_settings_black_48);
 
 //        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
 //        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
@@ -1070,14 +1091,40 @@ public class AppConstants {
                 ""
         ));
 
+
+        popularTools.add(new Category(
+                imageUrlMap.get(SET_ALARM),
+                SET_ALARM,
+                ""
+        ));
+        popularTools.add(new Category(
+                imageUrlMap.get(INTERNET_SPEED),
+                INTERNET_SPEED,
+                ""
+        ));
+        popularTools.add(new Category(
+                imageUrlMap.get(TAKE_NOTE),
+                TAKE_NOTE,
+                ""
+        ));
+        popularTools.add(new Category(
+                imageUrlMap.get(VOLUME_CONTROL),
+                VOLUME_CONTROL,
+                ""
+        ));
+        popularTools.add(new Category(
+                imageUrlMap.get(WEATHER),
+                WEATHER,
+                ""
+        ));
         popularTools.add(new Category(
                 imageUrlMap.get(CALENDAR),
                 CALENDAR,
                 ""
         ));
         popularTools.add(new Category(
-                imageUrlMap.get(WEATHER),
-                WEATHER,
+                imageUrlMap.get(REMINDER),
+                REMINDER,
                 ""
         ));
     }
