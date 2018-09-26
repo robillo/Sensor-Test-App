@@ -1,8 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tests;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -15,13 +13,18 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.BATTERY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.MULTI_TOUCH;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SCREEN;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SENSOR_GRAVITY;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOUND;
 
 public class PopTestsAdapter extends RecyclerView.Adapter<PopTestsAdapter.DashboardHolder>
     implements PopTestsInterface {
@@ -51,7 +54,7 @@ public class PopTestsAdapter extends RecyclerView.Adapter<PopTestsAdapter.Dashbo
     @SuppressWarnings("UnnecessaryLocalVariable")
     @Override
     public void onBindViewHolder(@NonNull DashboardHolder holder, int position) {
-        holder.name.setText(list.get(position).getName());
+        holder.name.setText(getName(list.get(position).getName()));
         holder.drawableImage.setImageDrawable(ContextCompat.getDrawable(context, list.get(position).getDrawable()));
 
         final int pos = position;
@@ -62,6 +65,19 @@ public class PopTestsAdapter extends RecyclerView.Adapter<PopTestsAdapter.Dashbo
 
             }
         });
+    }
+
+    private String getName(String name) {
+        switch (name) {
+            case SOUND:
+            case SCREEN:
+            case COMPASS:
+            case BATTERY:
+            case MULTI_TOUCH: {
+                return String.format("%s %s", name, "Test");
+            }
+        }
+        return name;
     }
 
     @Override

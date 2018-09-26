@@ -1018,11 +1018,6 @@ public class AppConstants {
                 ""
         ));
         popularTests.add(new Category(
-                imageUrlMap.get(SCREEN),
-                SCREEN,
-                ""
-        ));
-        popularTests.add(new Category(
                 imageUrlMap.get(MULTI_TOUCH),
                 MULTI_TOUCH,
                 ""
@@ -1033,8 +1028,13 @@ public class AppConstants {
                 ""
         ));
         popularTests.add(new Category(
-                imageUrlMap.get(SOUND),
-                SOUND,
+                imageUrlMap.get(LABEL_GENERATOR),
+                LABEL_GENERATOR,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(VIRTUAL_REALITY),
+                VIRTUAL_REALITY,
                 ""
         ));
         popularTests.add(new Category(
@@ -1043,8 +1043,23 @@ public class AppConstants {
                 ""
         ));
         popularTests.add(new Category(
+                imageUrlMap.get(BATTERY),
+                BATTERY,
+                ""
+        ));
+        popularTests.add(new Category(
                 imageUrlMap.get(COMPASS),
                 COMPASS,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(SCREEN),
+                SCREEN,
+                ""
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(SOUND),
+                SOUND,
                 ""
         ));
     }
