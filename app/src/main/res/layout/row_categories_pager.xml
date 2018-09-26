@@ -20,16 +20,17 @@
         android:id="@+id/parent_card">
 
         <FrameLayout
-            android:layout_width="65sp"
-            android:layout_height="65sp"
+            android:layout_width="75sp"
+            android:layout_height="75sp"
             android:layout_gravity="center_vertical"
-            android:layout_margin="5sp"
+            android:layout_marginLeft="25sp"
+            android:layout_marginRight="5sp"
             android:padding="5sp">
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="26sp"
+                app:cardCornerRadius="32sp"
                 app:cardElevation="0sp"
                 app:cardBackgroundColor="@color/white">
 
@@ -39,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/baseline_verified_user_black_48"
-                android:padding="10sp"
+                android:padding="15sp"
                 android:tint="@color/colorMajorDarkMuchLighter"
                 tools:ignore="ContentDescription"
                 android:id="@+id/image"/>
@@ -60,19 +61,19 @@
                 android:layout_marginLeft="15sp"
                 android:layout_marginRight="5sp"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:text="DIAGNOSTIC"
+                android:textSize="22sp"
+                tools:text="Electronic Sensors"
                 android:id="@+id/name"
-                tools:ignore="RtlHardcoded" />
+                tools:ignore="RtlHardcoded"/>
 
             <android.support.v7.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:elevation="0sp"
-                android:layout_marginBottom="5sp"
                 android:layout_marginLeft="15sp"
-                android:layout_marginRight="5sp"
-                app:cardCornerRadius="10sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
+                app:cardCornerRadius="13sp"
                 app:cardBackgroundColor="@color/white">
 
                 <TextView
@@ -80,11 +81,11 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorMajorDarkMuchLighter"
                     android:textSize="12sp"
-                    android:paddingTop="3sp"
-                    android:paddingBottom="3sp"
-                    android:paddingLeft="8sp"
-                    android:paddingRight="8sp"
-                    android:text="26 Items"
+                    android:paddingLeft="10sp"
+                    android:paddingRight="10sp"
+                    android:paddingBottom="5sp"
+                    android:paddingTop="5sp"
+                    tools:text="26 Items"
                     android:id="@+id/count_description"/>
 
             </android.support.v7.widget.CardView>
