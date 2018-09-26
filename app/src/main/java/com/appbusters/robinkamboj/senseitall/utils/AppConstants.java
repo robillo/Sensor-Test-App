@@ -110,6 +110,9 @@ public class AppConstants {
     public static final String SENSOR_MAGNETIC_FIELD = "Magnetic Field";
     public static final String SENSOR_HEART_RATE = "Heart Rate Sensor";
 
+    public static final String CALENDAR = "Calendar";                           //tool names
+    public static final String WEATHER = "Weather";
+
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
     public static final String GPS_LOCATION = "GPS Location";
@@ -208,6 +211,7 @@ public class AppConstants {
 
     public static List<Category> categories = new ArrayList<>();
     public static List<Category> popularTests = new ArrayList<>();
+    public static List<Category> popularTools = new ArrayList<>();
 
     public static List<String> diagnosticsNames = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
@@ -215,6 +219,7 @@ public class AppConstants {
     public static List<String> informationNames = new ArrayList<>();
     public static List<String> softwareNames = new ArrayList<>();
     public static List<String> androidNames = new ArrayList<>();
+    public static List<String> toolsNames = new ArrayList<>();
 
     public static HashMap<String, Boolean> isTestMap = new HashMap<>();
 
@@ -436,6 +441,8 @@ public class AppConstants {
         imageUrlMap.put(BARCODE_READER, R.drawable.barcode);
         imageUrlMap.put(TEXT_SCAN, R.drawable.baseline_text_format_black_48);
         imageUrlMap.put(LABEL_GENERATOR, R.drawable.baseline_speaker_notes_black_48);
+        imageUrlMap.put(CALENDAR, R.drawable.baseline_today_black_48);
+        imageUrlMap.put(WEATHER, R.drawable.baseline_wb_cloudy_black_48);
 
 //        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
 //        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
@@ -1060,6 +1067,17 @@ public class AppConstants {
         popularTests.add(new Category(
                 imageUrlMap.get(SOUND),
                 SOUND,
+                ""
+        ));
+
+        popularTools.add(new Category(
+                imageUrlMap.get(CALENDAR),
+                CALENDAR,
+                ""
+        ));
+        popularTools.add(new Category(
+                imageUrlMap.get(WEATHER),
+                WEATHER,
                 ""
         ));
     }

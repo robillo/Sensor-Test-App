@@ -55,7 +55,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
 
 
     override fun setToolsAdapter() {
-        val adapter = PopToolsAdapter(AppConstants.categories, activity)
+        val adapter = PopToolsAdapter(AppConstants.popularTools, activity)
         lv.tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.HORIZONTAL,
