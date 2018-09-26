@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.os.Build;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo;
 import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
 
 import java.util.ArrayList;
@@ -119,6 +120,16 @@ public class AppConstants {
     public static final String TAKE_NOTE = "Take Note";
     public static final String QUICK_SETTINGS = "Quick Settings";
 
+    public static final String WIFI_QUICK = "Wifi";                           //quick setting names
+    public static final String BLUETOOTH_QUICK = "Bluetooth";
+    public static final String BRIGHTNESS_QUICK = "Brightness";
+    public static final String VOLUME_QUICK = "Volume";
+    public static final String HOTSPOT_QUICK = "Hotspot";
+    public static final String FLASHLIGHT_QUICK = "Flashlight";
+    public static final String LOCATION_QUICK = "Location";
+    public static final String AIRPLANE_QUICK = "Airplane Mode";
+    public static final String AUTOROTATE_QUICK = "Auto Rotate";
+
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
     public static final String GPS_LOCATION = "GPS Location";
@@ -226,6 +237,7 @@ public class AppConstants {
     public static List<String> softwareNames = new ArrayList<>();
     public static List<String> androidNames = new ArrayList<>();
     public static List<String> toolsNames = new ArrayList<>();
+    public static List<String> quickSettingNames = new ArrayList<>();
 
     public static HashMap<String, Boolean> isTestMap = new HashMap<>();
 
@@ -235,9 +247,52 @@ public class AppConstants {
     public static HashMap<String, String> sensorMapDirections = new HashMap<>();
     public static HashMap<String, String> sensorMapHints = new HashMap<>();
     public static HashMap<String, Integer> mapAbout = new HashMap<>();
+    public static HashMap<String, Integer> onMapImage = new HashMap<>();
+    public static HashMap<String, Integer> offMapImage = new HashMap<>();
+    public static List<TinyInfo> quickSettings = new ArrayList<>();
 //    public static HashMap<String, String> versionMapUri = new HashMap<>();
 
     static {
+
+        quickSettingNames.add(WIFI_QUICK);
+        quickSettingNames.add(BLUETOOTH_QUICK);
+        quickSettingNames.add(BRIGHTNESS_QUICK);
+        quickSettingNames.add(VOLUME_QUICK);
+        quickSettingNames.add(HOTSPOT_QUICK);
+        quickSettingNames.add(FLASHLIGHT_QUICK);
+        quickSettingNames.add(LOCATION_QUICK);
+        quickSettingNames.add(AIRPLANE_QUICK);
+        quickSettingNames.add(AUTOROTATE_QUICK);
+
+        offMapImage.put(WIFI_QUICK, R.drawable.baseline_wifi_off_black_48);
+        offMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_disabled_black_48);
+        offMapImage.put(BRIGHTNESS_QUICK, R.drawable.baseline_brightness_low_black_48);
+        offMapImage.put(VOLUME_QUICK, R.drawable.baseline_volume_off_black_48);
+        offMapImage.put(HOTSPOT_QUICK, R.drawable.baseline_portable_wifi_off_black_48);
+        offMapImage.put(FLASHLIGHT_QUICK, R.drawable.baseline_flash_off_black_48);
+        offMapImage.put(LOCATION_QUICK, R.drawable.baseline_location_off_black_48);
+        offMapImage.put(AIRPLANE_QUICK, R.drawable.baseline_airplanemode_inactive_black_48);
+        offMapImage.put(AUTOROTATE_QUICK, R.drawable.baseline_screen_lock_rotation_black_48);
+
+        onMapImage.put(WIFI_QUICK, R.drawable.baseline_network_wifi_black_48);
+        onMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_black_48);
+        onMapImage.put(BRIGHTNESS_QUICK, R.drawable.baseline_brightness_high_black_48);
+        onMapImage.put(VOLUME_QUICK, R.drawable.baseline_volume_up_black_48);
+        onMapImage.put(HOTSPOT_QUICK, R.drawable.baseline_wifi_tethering_black_48);
+        onMapImage.put(FLASHLIGHT_QUICK, R.drawable.baseline_flash_on_black_48);
+        onMapImage.put(LOCATION_QUICK, R.drawable.baseline_location_on_black_48);
+        onMapImage.put(AIRPLANE_QUICK, R.drawable.baseline_airplanemode_active_black_48);
+        onMapImage.put(AUTOROTATE_QUICK, R.drawable.baseline_screen_rotation_black_48);
+
+        quickSettings.add(new TinyInfo(WIFI_QUICK, onMapImage.get(WIFI_QUICK), offMapImage.get(WIFI_QUICK)));
+        quickSettings.add(new TinyInfo(BLUETOOTH_QUICK, onMapImage.get(BLUETOOTH_QUICK), offMapImage.get(BLUETOOTH_QUICK)));
+        quickSettings.add(new TinyInfo(BRIGHTNESS_QUICK, onMapImage.get(BRIGHTNESS_QUICK), offMapImage.get(BRIGHTNESS_QUICK)));
+        quickSettings.add(new TinyInfo(VOLUME_QUICK, onMapImage.get(VOLUME_QUICK), offMapImage.get(VOLUME_QUICK)));
+        quickSettings.add(new TinyInfo(HOTSPOT_QUICK, onMapImage.get(HOTSPOT_QUICK), offMapImage.get(HOTSPOT_QUICK)));
+        quickSettings.add(new TinyInfo(FLASHLIGHT_QUICK, onMapImage.get(FLASHLIGHT_QUICK), offMapImage.get(FLASHLIGHT_QUICK)));
+        quickSettings.add(new TinyInfo(LOCATION_QUICK, onMapImage.get(LOCATION_QUICK), offMapImage.get(LOCATION_QUICK)));
+        quickSettings.add(new TinyInfo(AIRPLANE_QUICK, onMapImage.get(AIRPLANE_QUICK), offMapImage.get(AIRPLANE_QUICK)));
+        quickSettings.add(new TinyInfo(AUTOROTATE_QUICK, onMapImage.get(AUTOROTATE_QUICK), offMapImage.get(AUTOROTATE_QUICK)));
 
         dangerousPermissions.add(Manifest.permission.CAMERA);
         dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);

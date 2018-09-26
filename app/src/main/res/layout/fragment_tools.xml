@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.dashboard_activity.tools_fragment.ToolsFragment">
 
-    <!-- TODO: Update blank fragment lv -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="15sp"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:textColor="@color/colorTextTwo"
+        tools:ignore="RtlHardcoded,RtlSymmetry"
+        android:text="@string/quick_toggle_settings"/>
 
-</FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/quick_settings_rv">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

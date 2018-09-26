@@ -298,6 +298,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="popular_tools">Popular Tools</string>
     <string name="popular_tests">Popular Tests</string>
     <string name="all_categories">All Categories</string>
+    <string name="quick_toggle_settings">Quick Toggle Settings</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>
