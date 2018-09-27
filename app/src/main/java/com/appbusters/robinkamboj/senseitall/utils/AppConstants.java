@@ -129,6 +129,16 @@ public class AppConstants {
     public static final String LOCATION_QUICK = "Location";
     public static final String AIRPLANE_QUICK = "Airplane Mode";
     public static final String AUTOROTATE_QUICK = "Auto Rotate";
+    public static final String CROP_IMAGE = "Crop";
+    public static final String SQUARE_IMAGE = "Square";
+    public static final String IMAGE_FILTERS = "Filters";
+    public static final String EDIT_IMAGE = "Edit Image";
+    public static final String CHECKLIST = "Checklist";
+    public static final String RECORD_AUDIO = "Record Audio";
+    public static final String CALCULATOR = "Calculator";
+    public static final String SOUND_LEVEL = "Sound Level";
+    public static final String STOP_WATCH = "Stopwatch";
+    public static final String TIMER = "Timer";
 
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
@@ -359,6 +369,16 @@ public class AppConstants {
         toolsNames.add(CALENDAR);
         toolsNames.add(REMINDER);
         toolsNames.add(QUICK_SETTINGS);
+        toolsNames.add(CROP_IMAGE);
+        toolsNames.add(SQUARE_IMAGE);
+        toolsNames.add(IMAGE_FILTERS);
+        toolsNames.add(EDIT_IMAGE);
+        toolsNames.add(CHECKLIST);
+        toolsNames.add(RECORD_AUDIO);
+        toolsNames.add(CALCULATOR);
+        toolsNames.add(SOUND_LEVEL);
+        toolsNames.add(STOP_WATCH);
+        toolsNames.add(TIMER);
 
         informationNames.add(GSM_UMTS);
         informationNames.add(ANDROID_OS);
@@ -519,6 +539,16 @@ public class AppConstants {
         imageUrlMap.put(VOLUME_CONTROL, R.drawable.baseline_speaker_phone_black_48);
         imageUrlMap.put(TAKE_NOTE, R.drawable.baseline_note_add_black_48);
         imageUrlMap.put(QUICK_SETTINGS, R.drawable.baseline_settings_black_48);
+        imageUrlMap.put(CROP_IMAGE, R.drawable.baseline_crop_black_48);
+        imageUrlMap.put(SQUARE_IMAGE, R.drawable.baseline_crop_square_black_48);
+        imageUrlMap.put(IMAGE_FILTERS, R.drawable.baseline_local_florist_black_48);
+        imageUrlMap.put(EDIT_IMAGE, R.drawable.baseline_tune_black_48);
+        imageUrlMap.put(CHECKLIST, R.drawable.baseline_spellcheck_black_48);
+        imageUrlMap.put(RECORD_AUDIO, R.drawable.baseline_record_voice_over_black_48);
+        imageUrlMap.put(CALCULATOR, R.drawable.baseline_exposure_plus_1_black_48);
+        imageUrlMap.put(SOUND_LEVEL, R.drawable.baseline_volume_up_black_48);
+        imageUrlMap.put(STOP_WATCH, R.drawable.baseline_watch_later_black_48);
+        imageUrlMap.put(TIMER, R.drawable.baseline_watch_later_black_48);
 
 //        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
 //        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
