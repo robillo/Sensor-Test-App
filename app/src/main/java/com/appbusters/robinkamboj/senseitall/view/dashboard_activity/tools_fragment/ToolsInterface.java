@@ -8,6 +8,10 @@ public interface ToolsInterface {
 
     void setup(View v);
 
+    void setImageToolsAdapter();
+
+    void setEverydayToolsAdapter();
+
     void setQuickSettingsRecycler();
 
     void checkQuickSettingsStatus();

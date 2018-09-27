@@ -119,6 +119,16 @@ public class AppConstants {
     public static final String VOLUME_CONTROL = "Volume Control";
     public static final String TAKE_NOTE = "Take Note";
     public static final String QUICK_SETTINGS = "Quick Settings";
+    public static final String CROP_IMAGE = "Crop";
+    public static final String SQUARE_IMAGE = "Square";
+    public static final String IMAGE_FILTERS = "Filters";
+    public static final String EDIT_IMAGE = "Edit";
+    public static final String CHECKLIST = "Checklist";
+    public static final String RECORD_AUDIO = "Record Audio";
+    public static final String CALCULATOR = "Calculator";
+    public static final String SOUND_LEVEL = "Sound Level";
+    public static final String STOP_WATCH = "Stopwatch";
+    public static final String TIMER = "Timer";
 
     public static final String WIFI_QUICK = "Wifi";                           //quick setting names
     public static final String BLUETOOTH_QUICK = "Bluetooth";
@@ -129,16 +139,6 @@ public class AppConstants {
     public static final String LOCATION_QUICK = "Location";
     public static final String AIRPLANE_QUICK = "Airplane Mode";
     public static final String AUTOROTATE_QUICK = "Auto Rotate";
-    public static final String CROP_IMAGE = "Crop";
-    public static final String SQUARE_IMAGE = "Square";
-    public static final String IMAGE_FILTERS = "Filters";
-    public static final String EDIT_IMAGE = "Edit Image";
-    public static final String CHECKLIST = "Checklist";
-    public static final String RECORD_AUDIO = "Record Audio";
-    public static final String CALCULATOR = "Calculator";
-    public static final String SOUND_LEVEL = "Sound Level";
-    public static final String STOP_WATCH = "Stopwatch";
-    public static final String TIMER = "Timer";
 
     public static final String BACK_CAMERA = "Back Camera";                     //features
     public static final String FRONT_CAMERA = "Front Camera";
@@ -248,6 +248,8 @@ public class AppConstants {
     public static List<String> androidNames = new ArrayList<>();
     public static List<String> toolsNames = new ArrayList<>();
     public static List<String> quickSettingNames = new ArrayList<>();
+    public static List<String> imageTools = new ArrayList<>();
+    public static List<String> everydayTools = new ArrayList<>();
 
     public static HashMap<String, Boolean> isTestMap = new HashMap<>();
 
@@ -379,6 +381,25 @@ public class AppConstants {
         toolsNames.add(SOUND_LEVEL);
         toolsNames.add(STOP_WATCH);
         toolsNames.add(TIMER);
+
+        imageTools.add(SQUARE_IMAGE);
+        imageTools.add(CROP_IMAGE);
+        imageTools.add(IMAGE_FILTERS);
+        imageTools.add(EDIT_IMAGE);
+
+        everydayTools.add(INTERNET_SPEED);
+        everydayTools.add(SET_ALARM);
+        everydayTools.add(TAKE_NOTE);
+        everydayTools.add(VOLUME_CONTROL);
+        everydayTools.add(CALCULATOR);
+        everydayTools.add(RECORD_AUDIO);
+        everydayTools.add(STOP_WATCH);
+        everydayTools.add(REMINDER);
+        everydayTools.add(CALENDAR);
+        everydayTools.add(CHECKLIST);
+        everydayTools.add(WEATHER);
+        everydayTools.add(SOUND_LEVEL);
+        everydayTools.add(TIMER);
 
         informationNames.add(GSM_UMTS);
         informationNames.add(ANDROID_OS);

@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothAdapter
 import android.content.Context
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraManager
+import android.media.Image
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
@@ -12,16 +13,20 @@ import android.provider.Settings
 import android.provider.Settings.Global.AIRPLANE_MODE_ON
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo
+import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.utils.StartSnapHelper
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.image_tools.ImageToolsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings.QuickSettingsAdapter
+import kotlinx.android.synthetic.main.fragment_discover.view.*
 import kotlinx.android.synthetic.main.fragment_tools.view.*
 
 
@@ -31,8 +36,12 @@ import kotlinx.android.synthetic.main.fragment_tools.view.*
  */
 class ToolsFragment : Fragment(), ToolsInterface {
 
+    var everyday_tools_list: MutableList<ToolsItem> = ArrayList()
+    var image_tools_list: MutableList<ToolsItem> = ArrayList()
     lateinit var list: MutableList<TinyInfo>
     lateinit var quickAdapter: QuickSettingsAdapter
+    lateinit var imageToolsAdapter: ImageToolsAdapter
+    lateinit var everydayToolsAdapter: ImageToolsAdapter
     lateinit var lv : View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -45,8 +54,42 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
     override fun setup(v: View) {
         lv = v
+        setImageToolsAdapter()
+        setEverydayToolsAdapter()
         setQuickSettingsRecycler()
         checkQuickSettingsStatus()
+    }
+
+    override fun setImageToolsAdapter() {
+        val list : List<String> = AppConstants.imageTools
+        list.forEach {
+            image_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap.get(it)))
+        }
+        imageToolsAdapter = ImageToolsAdapter(image_tools_list, activity)
+        lv.image_tools_rv.layoutManager = LinearLayoutManager(
+                activity,
+                LinearLayoutManager.HORIZONTAL,
+                false
+        )
+        lv.image_tools_rv.adapter = imageToolsAdapter
+        lv.image_tools_rv.onFlingListener = null
+        StartSnapHelper().attachToRecyclerView(lv.image_tools_rv)
+    }
+
+    override fun setEverydayToolsAdapter() {
+        val list : List<String> = AppConstants.everydayTools
+        list.forEach {
+            everyday_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap.get(it)))
+        }
+        everydayToolsAdapter = ImageToolsAdapter(everyday_tools_list, activity)
+        lv.everyday_tools_rv.layoutManager = LinearLayoutManager(
+                activity,
+                LinearLayoutManager.HORIZONTAL,
+                false
+        )
+        lv.everyday_tools_rv.adapter = everydayToolsAdapter
+        lv.everyday_tools_rv.onFlingListener = null
+        StartSnapHelper().attachToRecyclerView(lv.everyday_tools_rv)
     }
 
     override fun setQuickSettingsRecycler() {
