@@ -247,12 +247,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
             Window window = getActivity().getWindow();
             if(window == null) return;
 
-            View view = window.getDecorView();
-            if(view == null) return;
-
-            int flags = view.getSystemUiVisibility();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-            view.setSystemUiVisibility(flags);
+            window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.colorMajorDarkLighter));
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         }

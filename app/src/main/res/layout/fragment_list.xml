@@ -21,29 +21,6 @@
                 android:id="@+id/list_screen"
                 android:background="@color/colorIntensity8">
 
-                <!--<android.support.v7.widget.CardView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="bottom"-->
-                <!--app:cardBackgroundColor="@color/colorMajorDark"-->
-                <!--android:id="@+id/card_permissions">-->
-
-                <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:textColor="@color/white"-->
-                <!--android:textSize="15sp"-->
-                <!--android:paddingLeft="10sp"-->
-                <!--android:paddingRight="10sp"-->
-                <!--android:paddingTop="5sp"-->
-                <!--android:paddingBottom="5sp"-->
-                <!--android:text="@string/please_give_permissions"-->
-                <!--android:gravity="center_horizontal"-->
-                <!--tools:ignore="RtlHardcoded,RtlSymmetry"-->
-                <!--android:clickable="false"/>-->
-
-                <!--</android.support.v7.widget.CardView>-->
-
                 <android.support.v4.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -81,17 +58,17 @@
                 android:orientation="vertical"
                 android:id="@+id/toolbar">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1sp"
-                    android:background="@color/colorTextFour"
-                    tools:ignore="ContentDescription,SmallSp" />
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1sp"-->
+                    <!--android:background="@color/colorTextFour"-->
+                    <!--tools:ignore="ContentDescription,SmallSp" />-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="@color/white">
+                    android:background="@color/colorMajorDarkMuchLighter">
 
                     <ImageView
                         android:layout_width="40sp"
@@ -99,7 +76,7 @@
                         android:background="@color/transparent"
                         android:src="@drawable/baseline_settings_black_48"
                         android:padding="8sp"
-                        android:tint="@color/colorMajorDarkMuchLighter"
+                        android:tint="@color/white"
                         tools:ignore="ContentDescription"
                         android:id="@+id/menu_settings"
                         android:visibility="invisible"/>
@@ -115,9 +92,10 @@
                             android:gravity="center"
                             android:layout_gravity="center_vertical"
                             android:textSize="22sp"
-                            android:textColor="@color/colorMajorDarkMuchLighter"
+                            android:textColor="@color/white"
                             tools:text="Diagnostic"
-                            android:id="@+id/app_header_text"/>
+                            android:id="@+id/app_header_text"
+                            tools:visibility="gone"/>
 
                         <!--fontPath="fonts/one.ttf"-->
                         <!--tools:ignore="MissingPrefix"-->
@@ -128,12 +106,13 @@
                             android:hint="@string/search_hint"
                             android:textSize="18sp"
                             android:layout_gravity="center_vertical"
-                            android:textColor="@color/colorMajorDark"
-                            android:textColorHint="@color/red_shade_six"
-                            android:backgroundTint="@color/colorMajorDark"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/red_shade_five"
+                            android:backgroundTint="@color/white"
                             android:id="@+id/edit_text_search"
                             android:inputType="textAutoComplete"
-                            android:visibility="gone"/>
+                            android:visibility="gone"
+                            tools:visibility="visible"/>
 
                     </FrameLayout>
 
@@ -143,7 +122,7 @@
                         android:background="@color/transparent"
                         android:src="@drawable/baseline_search_black_48"
                         android:padding="8sp"
-                        android:tint="@color/colorMajorDarkMuchLighter"
+                        android:tint="@color/white"
                         tools:ignore="ContentDescription"
                         android:id="@+id/search"/>
 
