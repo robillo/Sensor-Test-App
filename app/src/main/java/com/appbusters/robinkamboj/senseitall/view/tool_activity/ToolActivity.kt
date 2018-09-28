@@ -8,6 +8,7 @@ import android.view.View
 import android.view.WindowManager
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import kotlinx.android.synthetic.main.activity_tool.*
 
 class ToolActivity : AppCompatActivity(), ToolsInterface {
@@ -36,13 +37,48 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
 
     override fun setDataForIntent() {
         val args: Intent = intent!!
-        toolName = args.getStringExtra(AppConstants.DATA_NAME)
-        toolDrawable = args.getIntExtra(AppConstants.DRAWABLE_ID, R.drawable.baseline_clear_black_48)
+        toolName = args.getStringExtra(DATA_NAME)
+        toolDrawable = args.getIntExtra(DRAWABLE_ID, R.drawable.baseline_clear_black_48)
         tool_name.text = toolName.toUpperCase()
     }
 
     override fun setCorrespondingFragment() {
-
+        when(toolName) {
+            SQUARE_IMAGE -> {
+            }
+            CROP_IMAGE -> {
+            }
+            IMAGE_FILTERS -> {
+            }
+            EDIT_IMAGE -> {
+            }
+            INTERNET_SPEED -> {
+            }
+            SET_ALARM -> {
+            }
+            TAKE_NOTE -> {
+            }
+            VOLUME_CONTROL -> {
+            }
+            CALCULATOR -> {
+            }
+            RECORD_AUDIO -> {
+            }
+            STOP_WATCH -> {
+            }
+            REMINDER -> {
+            }
+            CALENDAR -> {
+            }
+            CHECKLIST -> {
+            }
+            WEATHER -> {
+            }
+            SOUND_LEVEL -> {
+            }
+            TIMER -> {
+            }
+        }
     }
 
     override fun onBackPressed() {
