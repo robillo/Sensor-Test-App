@@ -1,6 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tests;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
+import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
+import com.appbusters.robinkamboj.senseitall.view.test_activity.helper.IsPresentHelper;
 
 import java.util.List;
 
@@ -31,10 +39,12 @@ public class PopTestsAdapter extends RecyclerView.Adapter<PopTestsAdapter.Dashbo
 
     private List<Category> list;
     private Context context;
+    private IsPresentHelper isPresent;
 
     public PopTestsAdapter(List<Category> list, Context context) {
         this.list = list;
         this.context = context;
+        isPresent = new IsPresentHelper(context);
     }
 
     @NonNull
@@ -62,9 +72,33 @@ public class PopTestsAdapter extends RecyclerView.Adapter<PopTestsAdapter.Dashbo
         holder.parentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startTest(list.get(pos), context);
             }
         });
+    }
+
+    private void startTest(Category category, Context context) {
+        GenericData intentData =
+                new GenericData(
+                        category.getName(),
+                        category.getDrawable(),
+                        isPresent.isPresent(category.getName()),
+                        category.getType()
+                );
+
+        Bundle args = new Bundle();
+
+        args.putString(AppConstants.DATA_NAME, intentData.getName());
+        args.putString(AppConstants.RECYCLER_NAME, intentData.getName());
+        args.putInt(AppConstants.DRAWABLE_ID, intentData.getDrawableId());
+        args.putBoolean(AppConstants.IS_PRESENT, intentData.isPresent());
+        args.putInt(AppConstants.TYPE, intentData.getType());
+
+        Intent intent = new Intent(context, TestActivity.class);
+        intent.putExtras(args);
+
+        context.startActivity(intent);
+        ((Activity) context).overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
     }
 
     private String getName(String name) {

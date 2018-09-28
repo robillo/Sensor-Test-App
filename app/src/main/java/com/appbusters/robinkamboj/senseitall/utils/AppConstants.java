@@ -1146,55 +1146,62 @@ public class AppConstants {
                 "0" + androidNames.size() + " ITEMS")
         );
 
+//        public static final int TYPE_DIAGNOSTICS = 0;                               //data types
+//        public static final int TYPE_SENSORS = 1;
+//        public static final int TYPE_FEATURES = 2;
+//        public static final int TYPE_INFORMATION = 3;
+//        public static final int TYPE_SOFTWARE = 4;
+//        public static final int TYPE_ANDROID = 5;
+
         popularTests.add(new Category(
                 imageUrlMap.get(SENSOR_PROXIMITY),
                 SENSOR_PROXIMITY,
-                ""
+                "", 1
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(MULTI_TOUCH),
                 MULTI_TOUCH,
-                ""
+                "", 2
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(SENSOR_ACCELEROMETER),
                 SENSOR_ACCELEROMETER,
-                ""
+                "", 1
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(LABEL_GENERATOR),
                 LABEL_GENERATOR,
-                ""
+                "", 4
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(VIRTUAL_REALITY),
                 VIRTUAL_REALITY,
-                ""
+                "", 4
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(FINGERPRINT),
                 FINGERPRINT,
-                ""
+                "", 2
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(BATTERY),
                 BATTERY,
-                ""
+                "", 2
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(COMPASS),
                 COMPASS,
-                ""
+                "", 2
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(SCREEN),
                 SCREEN,
-                ""
+                "", 2
         ));
         popularTests.add(new Category(
                 imageUrlMap.get(SOUND),
                 SOUND,
-                ""
+                "", 2
         ));
 
 

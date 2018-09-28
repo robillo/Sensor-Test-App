@@ -1,14 +1,13 @@
 package com.appbusters.robinkamboj.senseitall.model.recycler;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class ToolsItem {
 
     private String name;
     private int drawable;
 
-    public ToolsItem(@NotNull String name, @Nullable Integer drawable) {
+    public ToolsItem(@NotNull String name, int drawable) {
         this.name = name;
         this.drawable = drawable;
     }
