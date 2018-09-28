@@ -1,10 +1,12 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.image_tools;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem;
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.ToolActivity;
 
 import java.util.List;
 
@@ -42,6 +46,24 @@ public class ImageToolsAdapter extends RecyclerView.Adapter<ImageToolsAdapter.Im
     public void onBindViewHolder(@NonNull ImageToolsHolder holder, int position) {
         holder.name.setText(list.get(position).getName());
         holder.drawableImage.setImageDrawable(ContextCompat.getDrawable(context, list.get(position).getDrawable()));
+
+        final int pos = position;
+
+        holder.parentCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ToolActivity.class);
+
+                Bundle args = new Bundle();
+                args.putString(AppConstants.DATA_NAME, list.get(pos).getName());
+                args.putInt(AppConstants.DRAWABLE_ID, list.get(pos).getDrawable());
+                intent.putExtras(args);
+
+                context.startActivity(intent);
+                ((Activity) context)
+                        .overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
+            }
+        });
     }
 
     @Override

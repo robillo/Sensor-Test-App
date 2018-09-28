@@ -17,7 +17,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="40sp"
+                android:layout_marginTop="50sp"
                 android:id="@+id/list_screen"
                 android:background="@color/colorIntensity8">
 
@@ -68,7 +68,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="@color/colorMajorDarkMuchLighter">
+                    android:background="@color/colorMajorDarkMuchLighter"
+                    android:paddingTop="5sp"
+                    android:paddingBottom="5sp">
 
                     <ImageView
                         android:layout_width="40sp"
