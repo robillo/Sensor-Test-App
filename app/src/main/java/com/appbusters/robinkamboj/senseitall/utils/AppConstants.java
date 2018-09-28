@@ -1169,6 +1169,16 @@ public class AppConstants {
                 "", 1
         ));
         popularTests.add(new Category(
+                imageUrlMap.get(SCREEN),
+                SCREEN,
+                "", 2
+        ));
+        popularTests.add(new Category(
+                imageUrlMap.get(SOUND),
+                SOUND,
+                "", 2
+        ));
+        popularTests.add(new Category(
                 imageUrlMap.get(LABEL_GENERATOR),
                 LABEL_GENERATOR,
                 "", 4
@@ -1191,16 +1201,6 @@ public class AppConstants {
         popularTests.add(new Category(
                 imageUrlMap.get(COMPASS),
                 COMPASS,
-                "", 2
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(SCREEN),
-                SCREEN,
-                "", 2
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(SOUND),
-                SOUND,
                 "", 2
         ));
 

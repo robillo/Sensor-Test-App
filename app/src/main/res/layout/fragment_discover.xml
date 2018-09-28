@@ -82,7 +82,7 @@
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/tools_rv">
 
         </android.support.v7.widget.RecyclerView>
@@ -115,11 +115,17 @@
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/categories_rv">
 
         </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorTextFive"
+        tools:ignore="ContentDescription,SmallSp"/>
 
 </LinearLayout>

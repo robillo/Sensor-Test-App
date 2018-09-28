@@ -53,7 +53,8 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/image_tools_rv">
+        android:id="@+id/image_tools_rv"
+        android:layout_marginBottom="30sp">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -78,7 +79,8 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/everyday_tools_rv">
+        android:id="@+id/everyday_tools_rv"
+        android:layout_marginBottom="30sp">
 
     </android.support.v7.widget.RecyclerView>
 
