@@ -98,6 +98,7 @@
     </array>
 
     <color name="primary_new">#6540f9</color>
+    <color name="primary_new_blue">#0194d7</color>
     <color name="primary_new_gradient">#7957ff</color>
     <color name="primary_new_light">#947bf7</color>
     <color name="primary_new_light_light">#c2b5f4</color>

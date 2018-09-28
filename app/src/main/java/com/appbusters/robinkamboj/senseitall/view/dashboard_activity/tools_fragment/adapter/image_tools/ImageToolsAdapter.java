@@ -29,17 +29,32 @@ public class ImageToolsAdapter extends RecyclerView.Adapter<ImageToolsAdapter.Im
     private List<ToolsItem> list;
     private Context context;
 
+    //0 for blue
+    //1 for purple
+    private int color = 0;
+
     public ImageToolsAdapter(List<ToolsItem> list, Context context) {
         this.list = list;
         this.context = context;
     }
 
+    public ImageToolsAdapter(List<ToolsItem> list, Context context, int color) {
+        this.list = list;
+        this.context = context;
+        this.color = color;
+    }
+
     @NonNull
     @Override
     public ImageToolsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ImageToolsHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.row_image_tools, parent, false)
-        );
+        if(color == 0)
+            return new ImageToolsHolder(
+                    LayoutInflater.from(parent.getContext()).inflate(R.layout.row_image_tools, parent, false)
+            );
+        else
+            return new ImageToolsHolder(
+                    LayoutInflater.from(parent.getContext()).inflate(R.layout.row_popular_tests, parent, false)
+            );
     }
 
     @Override

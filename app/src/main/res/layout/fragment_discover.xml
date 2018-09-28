@@ -122,10 +122,4 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="@color/colorTextFive"
-        tools:ignore="ContentDescription,SmallSp"/>
-
 </LinearLayout>

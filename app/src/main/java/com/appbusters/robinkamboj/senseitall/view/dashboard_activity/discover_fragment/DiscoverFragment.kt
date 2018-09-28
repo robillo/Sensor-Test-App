@@ -20,9 +20,11 @@ import kotlinx.android.synthetic.main.fragment_discover.view.*
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CardFragmentPagerAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.ShadowTransformer
 import android.widget.CompoundButton
+import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tools.PopToolsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CustPagerTransformer
-import kotlinx.android.synthetic.main.fragment_discover.*
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.image_tools.ImageToolsAdapter
+import kotlinx.android.synthetic.main.fragment_tools.view.*
 
 
 /**
@@ -31,9 +33,12 @@ import kotlinx.android.synthetic.main.fragment_discover.*
 class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
     lateinit var mCardAdapter: CardPagerAdapter
+    lateinit var popToolsAdapter: ImageToolsAdapter
     lateinit var mCardShadowTransformer: ShadowTransformer
     lateinit var mFragmentCardAdapter: CardFragmentPagerAdapter
     lateinit var mFragmentCardShadowTransformer: ShadowTransformer
+
+    var pop_tools_list: MutableList<ToolsItem> = ArrayList()
 
     lateinit var lv: View
 
@@ -55,13 +60,17 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
 
 
     override fun setToolsAdapter() {
-        val adapter = PopToolsAdapter(AppConstants.popularTools, activity)
+        val list : List<String> = AppConstants.popTools
+        list.forEach {
+            pop_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap.get(it)))
+        }
+        popToolsAdapter = ImageToolsAdapter(pop_tools_list, activity, 1)
         lv.tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.HORIZONTAL,
                 false
         )
-        lv.tools_rv.adapter = adapter
+        lv.tools_rv.adapter = popToolsAdapter
         lv.tools_rv.onFlingListener = null
         StartSnapHelper().attachToRecyclerView(lv.tools_rv)
     }

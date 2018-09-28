@@ -249,6 +249,7 @@ public class AppConstants {
     public static List<String> toolsNames = new ArrayList<>();
     public static List<String> quickSettingNames = new ArrayList<>();
     public static List<String> imageTools = new ArrayList<>();
+    public static List<String> popTools = new ArrayList<>();
     public static List<String> everydayTools = new ArrayList<>();
 
     public static HashMap<String, Boolean> isTestMap = new HashMap<>();
@@ -381,6 +382,14 @@ public class AppConstants {
         toolsNames.add(SOUND_LEVEL);
         toolsNames.add(STOP_WATCH);
         toolsNames.add(TIMER);
+
+        popTools.add(SET_ALARM);
+        popTools.add(INTERNET_SPEED);
+        popTools.add(TAKE_NOTE);
+        popTools.add(VOLUME_CONTROL);
+        popTools.add(WEATHER);
+        popTools.add(CALENDAR);
+        popTools.add(REMINDER);
 
         imageTools.add(SQUARE_IMAGE);
         imageTools.add(CROP_IMAGE);

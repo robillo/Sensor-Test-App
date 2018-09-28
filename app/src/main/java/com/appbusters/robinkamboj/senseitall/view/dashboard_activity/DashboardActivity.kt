@@ -29,13 +29,13 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
 
         when (header) {
             HEADER_TOOLS -> {
-                tools.setColorFilter(ContextCompat.getColor(this, R.color.colorTextOne))
+                tools.setColorFilter(ContextCompat.getColor(this, R.color.primary_new))
                 discover.setColorFilter(ContextCompat.getColor(this, R.color.colorTextFour))
                 profile.setColorFilter(ContextCompat.getColor(this, R.color.colorTextFour))
             }
             HEADER_DISCOVER -> {
                 tools.setColorFilter(ContextCompat.getColor(this, R.color.colorTextFour))
-                discover.setColorFilter(ContextCompat.getColor(this, R.color.colorTextOne))
+                discover.setColorFilter(ContextCompat.getColor(this, R.color.primary_new))
                 profile.setColorFilter(ContextCompat.getColor(this, R.color.colorTextFour))
             }
             HEADER_PERSONALIZED -> {
