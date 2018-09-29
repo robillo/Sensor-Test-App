@@ -41,7 +41,8 @@
                         android:textSize="40sp"
                         android:padding="10sp"
                         android:gravity="center_horizontal"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"
+                        android:id="@+id/hours_main"/>
 
                     <TextView
                         android:layout_width="0sp"
@@ -61,7 +62,8 @@
                         android:textSize="40sp"
                         android:padding="10sp"
                         android:gravity="center_horizontal"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"
+                        android:id="@+id/mins_main"/>
 
                     <TextView
                         android:layout_width="0sp"
@@ -81,7 +83,8 @@
                         android:textSize="40sp"
                         android:padding="10sp"
                         android:gravity="center_horizontal"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"
+                        android:id="@+id/secs_main"/>
 
                     <TextView
                         android:layout_width="0sp"
@@ -168,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/colorTextOne"
-                android:text="Play"
+                android:text="Start"
                 android:textSize="18sp"
                 android:padding="5sp"
                 android:gravity="center_horizontal"
@@ -179,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/colorTextOne"
-                android:text="Pause"
+                android:text="Stop"
                 android:textSize="18sp"
                 android:padding="5sp"
                 android:gravity="center_horizontal"

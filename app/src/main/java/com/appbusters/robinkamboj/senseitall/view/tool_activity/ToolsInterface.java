@@ -8,4 +8,6 @@ public interface ToolsInterface {
 
     void setStatusBarColor();
 
+    void setTimerForTimer(int hours, int mins, int secs);
+
 }

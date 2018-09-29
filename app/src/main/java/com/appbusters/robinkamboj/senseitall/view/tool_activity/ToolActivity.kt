@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import com.appbusters.robinkamboj.senseitall.R
@@ -118,5 +119,12 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
     override fun onBackPressed() {
         super.onBackPressed()
         overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity)
+    }
+
+    override fun setTimerForTimer(hours: Int, mins: Int, secs: Int) {
+        val fragment: TimerFragment =
+                supportFragmentManager
+                        .findFragmentByTag(getString(R.string.tag_timer_fragment)) as TimerFragment
+        fragment.setInputForTimer(hours, mins, secs)
     }
 }

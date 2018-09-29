@@ -10,4 +10,12 @@ public interface TimerInterface {
 
     void updateIconTints(int index);
 
+    void takeInputForTimer();
+
+    void setInputForTimer(int hours, int mins, int secs);
+
+    void updateMainTextsForTime(int hh, int mm, int ss);
+
+    String formatTimeToDisplay(int val);
+
 }

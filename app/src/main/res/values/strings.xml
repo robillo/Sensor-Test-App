@@ -193,6 +193,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="tag_volume_control_fragment">VOLUME CONTROL FRAGMENT</string>
     <string name="tag_sound_level_fragment">SOUND LEVEL FRAGMENT</string>
     <string name="tag_timer_fragment">TIMER FRAGMENT</string>
+    <string name="tag_timer_sheet">TIMER SHEET</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -309,6 +310,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="ring_volume">Ring Volume</string>
     <string name="call_volume">Call Volume</string>
     <string name="sound_level">Sound Level Percent</string>
+    <string name="set_new_timer">SET NEW TIMER</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>
