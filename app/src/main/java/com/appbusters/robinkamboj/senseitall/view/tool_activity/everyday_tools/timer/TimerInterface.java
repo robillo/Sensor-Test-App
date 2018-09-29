@@ -4,4 +4,10 @@ public interface TimerInterface {
 
     void setup();
 
+    void showCoordinator(String text);
+
+    void setClickListeners();
+
+    void updateIconTints(int index);
+
 }
