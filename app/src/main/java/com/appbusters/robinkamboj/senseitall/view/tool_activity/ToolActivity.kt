@@ -10,6 +10,7 @@ import android.view.WindowManager
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tool.*
@@ -99,6 +100,13 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
             TIMER -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                TimerFragment(),
+                                getString(R.string.tag_timer_fragment)
+                        )
+                        .commit()
             }
         }
     }

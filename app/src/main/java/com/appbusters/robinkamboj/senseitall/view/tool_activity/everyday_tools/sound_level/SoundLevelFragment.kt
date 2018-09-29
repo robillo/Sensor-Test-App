@@ -24,7 +24,7 @@ import java.text.DecimalFormat
  */
 class SoundLevelFragment : Fragment(), SoundLevelInterface {
 
-    private var decimalFormat = DecimalFormat("#.0")
+    private var decimalFormat = DecimalFormat("0.0")
     private var mHandler = Handler()
     lateinit var mTimer: Runnable
     lateinit var recorder: MediaRecorder
