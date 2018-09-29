@@ -190,7 +190,8 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="tag_tools_fragment">TOOLS FRAGMENT</string>
     <string name="tag_discover_fragment">DISCOVER FRAGMENT</string>
     <string name="tag_profile_fragment">PROFILE FRAGMENT</string>
-    <string name="tag__volume_control_fragment">VOLUME CONTROL FRAGMENT</string>
+    <string name="tag_volume_control_fragment">VOLUME CONTROL FRAGMENT</string>
+    <string name="tag_sound_level_fragment">SOUND LEVEL FRAGMENT</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -306,6 +307,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="alarm_volume">Alarm Volume</string>
     <string name="ring_volume">Ring Volume</string>
     <string name="call_volume">Call Volume</string>
+    <string name="sound_level">Sound Level Percent</string>
 
     <string-array name="dummy_headers">
         <item>SAR AND YOUR BODY</item>

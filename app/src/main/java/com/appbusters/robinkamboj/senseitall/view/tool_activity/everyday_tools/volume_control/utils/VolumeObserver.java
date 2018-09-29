@@ -35,7 +35,7 @@ public class VolumeObserver extends ContentObserver {
                 if(manager != null) {
                     fragment
                             = (VolumeControlFragment) manager.findFragmentByTag(
-                                    context.getString(R.string.tag__volume_control_fragment)
+                                    context.getString(R.string.tag_volume_control_fragment)
                     );
                 }
 

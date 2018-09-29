@@ -9,6 +9,7 @@ import android.view.View
 import android.view.WindowManager
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tool.*
@@ -70,7 +71,7 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .add(
                                 R.id.container,
                                 VolumeControlFragment(),
-                                getString(R.string.tag__volume_control_fragment)
+                                getString(R.string.tag_volume_control_fragment)
                         )
                         .commit()
             }
@@ -89,6 +90,13 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
             WEATHER -> {
             }
             SOUND_LEVEL -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                SoundLevelFragment(),
+                                getString(R.string.tag_volume_control_fragment)
+                        )
+                        .commit()
             }
             TIMER -> {
             }
