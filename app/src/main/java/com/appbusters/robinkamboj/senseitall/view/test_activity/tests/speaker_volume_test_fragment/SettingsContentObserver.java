@@ -29,8 +29,6 @@ public class SettingsContentObserver extends ContentObserver {
 
     @Override
     public void onChange(boolean selfChange) {
-        int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        Log.e("tag", "Settings change detected volume " + currentVolume);
         TestActivity testActivity = (TestActivity) activityContext;
         if(testActivity != null) {
             SoundTestFragment fragment = (

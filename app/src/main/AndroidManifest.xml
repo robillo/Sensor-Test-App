@@ -147,7 +147,8 @@
         <activity
             android:name=".view.dashboard_activity.DashboardActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.tool_activity.ToolActivity"/>
+        <activity android:name=".view.tool_activity.ToolActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

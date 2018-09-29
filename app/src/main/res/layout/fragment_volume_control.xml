@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.tool_activity.everyday_tools.volume_control.VolumeControlFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp">
+
+        <com.sdsmdg.harjot.crollerTest.Croller
+            android:id="@+id/media_volume"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5sp"
+            app:label=""
+            app:back_circle_color="@color/primary_new_light_light_light"
+            app:indicator_color="@color/white"
+            app:indicator_width="10"
+            app:is_continuous="false"
+            app:main_circle_color="@color/primary_new"
+            app:max="100"
+            app:progress="50"
+            app:progress_primary_color="@color/primary_new"
+            app:progress_secondary_color="@color/colorTextFive"
+            app:start_offset="45"
+            tools:ignore="NestedWeights"
+            app:progress_primary_circle_size="10"
+            app:progress_secondary_circle_size="10"/>
+
+        <LinearLayout
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/media_volume"
+                android:paddingLeft="10sp"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/primary_new"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="84%"
+                android:padding="10sp"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/primary_new_light"
+                tools:ignore="RtlHardcoded,RtlSymmetry"
+                android:id="@+id/media_percent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp">
+
+        <com.sdsmdg.harjot.crollerTest.Croller
+            android:id="@+id/call_volume"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5sp"
+            app:label=""
+            app:back_circle_color="@color/primary_new_light_light_light"
+            app:indicator_color="@color/white"
+            app:indicator_width="10"
+            app:is_continuous="false"
+            app:main_circle_color="@color/primary_new"
+            app:max="100"
+            app:progress="50"
+            app:progress_primary_color="@color/primary_new"
+            app:progress_secondary_color="@color/colorTextFive"
+            app:start_offset="45"
+            tools:ignore="NestedWeights"
+            app:progress_primary_circle_size="10"
+            app:progress_secondary_circle_size="10"/>
+
+        <LinearLayout
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/call_volume"
+                android:paddingLeft="10sp"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/primary_new"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="84%"
+                android:padding="10sp"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/primary_new_light"
+                tools:ignore="RtlHardcoded,RtlSymmetry"
+                android:id="@+id/call_percent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp">
+
+        <com.sdsmdg.harjot.crollerTest.Croller
+            android:id="@+id/ring_volume"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5sp"
+            app:label=""
+            app:back_circle_color="@color/primary_new_light_light_light"
+            app:indicator_color="@color/white"
+            app:indicator_width="10"
+            app:is_continuous="false"
+            app:main_circle_color="@color/primary_new"
+            app:max="100"
+            app:progress="50"
+            app:progress_primary_color="@color/primary_new"
+            app:progress_secondary_color="@color/colorTextFive"
+            app:start_offset="45"
+            tools:ignore="NestedWeights"
+            app:progress_primary_circle_size="10"
+            app:progress_secondary_circle_size="10"/>
+
+        <LinearLayout
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ring_volume"
+                android:paddingLeft="10sp"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/primary_new"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="84%"
+                android:padding="10sp"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/primary_new_light"
+                tools:ignore="RtlHardcoded,RtlSymmetry"
+                android:id="@+id/ring_percent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp">
+
+        <com.sdsmdg.harjot.crollerTest.Croller
+            android:id="@+id/alarm_volume"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5sp"
+            app:label=""
+            app:back_circle_color="@color/primary_new_light_light_light"
+            app:indicator_color="@color/white"
+            app:indicator_width="10"
+            app:is_continuous="false"
+            app:main_circle_color="@color/primary_new"
+            app:max="100"
+            app:progress="50"
+            app:progress_primary_color="@color/primary_new"
+            app:progress_secondary_color="@color/colorTextFive"
+            app:start_offset="45"
+            tools:ignore="NestedWeights"
+            app:progress_primary_circle_size="10"
+            app:progress_secondary_circle_size="10"/>
+
+        <LinearLayout
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/alarm_volume"
+                android:paddingLeft="10sp"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/primary_new"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="84%"
+                android:padding="10sp"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/primary_new_light"
+                tools:ignore="RtlHardcoded,RtlSymmetry"
+                android:id="@+id/alarm_percent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

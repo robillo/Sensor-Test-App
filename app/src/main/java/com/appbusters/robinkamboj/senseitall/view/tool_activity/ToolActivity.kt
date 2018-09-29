@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.tool_activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
@@ -7,8 +8,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.appbusters.robinkamboj.senseitall.R
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tool.*
 
 class ToolActivity : AppCompatActivity(), ToolsInterface {
@@ -22,6 +24,7 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
 
         setStatusBarColor()
         setDataForIntent()
+        setCorrespondingFragment()
     }
 
     override fun setStatusBarColor() {
@@ -43,6 +46,10 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
     }
 
     override fun setCorrespondingFragment() {
+
+        var fragmentManager = supportFragmentManager
+        val transaction = supportFragmentManager.beginTransaction()
+
         when(toolName) {
             SQUARE_IMAGE -> {
             }
@@ -59,6 +66,13 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
             TAKE_NOTE -> {
             }
             VOLUME_CONTROL -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                VolumeControlFragment(),
+                                getString(R.string.tag__volume_control_fragment)
+                        )
+                        .commit()
             }
             CALCULATOR -> {
             }
@@ -79,6 +93,10 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
             TIMER -> {
             }
         }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
 
     override fun onBackPressed() {

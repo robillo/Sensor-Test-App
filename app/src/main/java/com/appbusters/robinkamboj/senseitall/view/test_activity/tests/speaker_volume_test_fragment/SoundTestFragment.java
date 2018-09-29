@@ -160,6 +160,4 @@ public class SoundTestFragment extends Fragment implements SoundTestInterface, M
         if(mediaPlayer != null) mediaPlayer.pause();
         if(getActivity() != null) play_pause.setText(getActivity().getString(R.string.play));
     }
-
-
 }
