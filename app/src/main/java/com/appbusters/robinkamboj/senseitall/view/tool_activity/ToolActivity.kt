@@ -15,6 +15,9 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.t
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tool.*
+import com.roomorama.caldroid.CaldroidFragment
+import java.util.*
+
 
 class ToolActivity : AppCompatActivity(), ToolsInterface {
 
@@ -86,6 +89,20 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
             REMINDER -> {
             }
             CALENDAR -> {
+                val caldroidFragment = CaldroidFragment()
+                val args = Bundle()
+                val cal = Calendar.getInstance()
+                args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1)
+                args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR))
+                caldroidFragment.arguments = args
+
+                transaction
+                        .add(
+                                R.id.container,
+                                caldroidFragment,
+                                getString(R.string.tag_calendar_fragment)
+                        )
+                        .commit()
             }
             CHECKLIST -> {
             }
