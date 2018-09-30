@@ -4,6 +4,8 @@ public interface TimerInputInterface {
 
     void setup();
 
+    void setWarning(String text);
+
     void setClickListeners();
 
     void showCoordinator(String text);

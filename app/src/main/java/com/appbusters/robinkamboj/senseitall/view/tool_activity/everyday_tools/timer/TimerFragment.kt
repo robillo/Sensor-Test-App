@@ -92,9 +92,8 @@ class TimerFragment : Fragment(), TimerInterface {
     }
 
     override fun setInputForTimer(hours: Int, mins: Int, secs: Int) {
-
+        isAlreadySet = true
         timerSheet.dismiss()
-
         showCoordinator("a new timer has been set")
 
         this.hours = hours
