@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.
 
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
@@ -24,10 +25,15 @@ import kotlin.math.min
 class TimerFragment : Fragment(), TimerInterface {
 
     private var isAlreadySet: Boolean = false
+    private var isAlreadyPlaying: Boolean = false
     private var hours: Int = 0
     private var mins: Int = 0
     private var secs: Int = 0
+    private var hoursTick: Int = 0
+    private var minsTick: Int = 0
+    private var secsTick: Int = 0
     lateinit var lv: View
+    lateinit var countDownTimer: CountDownTimer
     lateinit var timerSheet: TimerInputSheet
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -51,26 +57,59 @@ class TimerFragment : Fragment(), TimerInterface {
         snackbar.show()
     }
 
+    override fun startTimer() {
+        isAlreadyPlaying = true
+        countDownTimer.start()
+    }
+
+    override fun stopTimer() {
+        isAlreadyPlaying = false
+        countDownTimer.cancel()
+    }
+
+    override fun resetTimer() {
+        hoursTick = hours
+        minsTick = mins
+        secsTick = secs
+        stopTimer()
+        updateMainTextsForTime(hoursTick, minsTick, secsTick)
+    }
+
     override fun setClickListeners() {
         lv.play.setOnClickListener {
-            if(hours == 0 && mins == 0 && secs == 0) {
+            if(!isAlreadySet) {
                 showCoordinator("please set the timer first")
                 return@setOnClickListener
             }
+            if(isAlreadyPlaying) {
+                showCoordinator("timer already running")
+                return@setOnClickListener
+            }
+            startTimer()
             updateIconTints(0)
         }
         lv.pause.setOnClickListener {
-            if(hours == 0 && mins == 0 && secs == 0) {
+            if(!isAlreadySet) {
                 showCoordinator("please set the timer first")
                 return@setOnClickListener
             }
+            if(!isAlreadyPlaying) {
+                showCoordinator("timer is not running")
+                return@setOnClickListener
+            }
+            stopTimer()
             updateIconTints(1)
         }
         lv.reset.setOnClickListener {
-            if(hours == 0 && mins == 0 && secs == 0) {
+            if(!isAlreadySet) {
                 showCoordinator("please set the timer first")
                 return@setOnClickListener
             }
+            if(isAlreadyPlaying) {
+                showCoordinator("please stop the timer first")
+                return@setOnClickListener
+            }
+            resetTimer()
             updateIconTints(2)
         }
         lv.set_timer.setOnClickListener { _ ->
@@ -99,7 +138,39 @@ class TimerFragment : Fragment(), TimerInterface {
         this.hours = hours
         this.mins = mins
         this.secs = secs
-        updateMainTextsForTime(hours, mins, secs)
+
+        this.hoursTick = hours
+        this.minsTick = mins
+        this.secsTick = secs
+
+        updateMainTextsForTime(hoursTick, minsTick, secsTick)
+        countDownTimer = object : CountDownTimer(timeInMillis(hoursTick, minsTick, secsTick), 1000) {
+            override fun onFinish() {
+                stopTimer()
+                showCoordinator("timer complete")
+            }
+
+            override fun onTick(millisUntilFinished: Long) {
+                refreshMainTextsForTick()
+            }
+        }
+    }
+
+    override fun refreshMainTextsForTick() {
+        secsTick -= secsTick
+        if(secsTick == 0) {
+            secsTick = 59
+            minsTick -= minsTick
+        }
+        if(minsTick == 0) {
+            minsTick == 59
+            hoursTick -= hoursTick
+        }
+        updateMainTextsForTime(hoursTick, minsTick, secsTick)
+    }
+
+    override fun timeInMillis(hh: Int, mm: Int, ss: Int): Long {
+        return ((hh*60*60 + mm*60 + ss)*1000).toLong()
     }
 
     override fun updateMainTextsForTime(hh: Int, mm: Int, ss: Int) {
@@ -116,19 +187,19 @@ class TimerFragment : Fragment(), TimerInterface {
     override fun updateIconTints(index: Int) {
         when(index) {
             0 -> {
+                lv.play.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextFour))
+                lv.pause.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextOne))
+                lv.reset.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextOne))
+            }
+            1 -> {
+                lv.play.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextOne))
+                lv.pause.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextFour))
+                lv.reset.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextOne))
+            }
+            2 -> {
                 lv.play.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextOne))
                 lv.pause.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextFour))
                 lv.reset.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextFour))
-            }
-            1 -> {
-                lv.play.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextFour))
-                lv.pause.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextOne))
-                lv.reset.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextFour))
-            }
-            2 -> {
-                lv.play.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextFour))
-                lv.pause.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextFour))
-                lv.reset.setColorFilter(ContextCompat.getColor(context!!, R.color.colorTextOne))
             }
         }
     }
