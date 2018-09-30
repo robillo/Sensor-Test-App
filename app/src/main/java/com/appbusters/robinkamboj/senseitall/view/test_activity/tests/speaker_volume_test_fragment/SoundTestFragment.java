@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +63,7 @@ public class SoundTestFragment extends Fragment implements SoundTestInterface, M
         if(getActivity() == null) return;
 
         audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
-        contentObserver = new SettingsContentObserver(getActivity(), new Handler(), audioManager);
+        contentObserver = new SettingsContentObserver(getActivity(), new Handler());
 
         croller.setOnProgressChangedListener(new Croller.onProgressChangedListener() {
             @Override

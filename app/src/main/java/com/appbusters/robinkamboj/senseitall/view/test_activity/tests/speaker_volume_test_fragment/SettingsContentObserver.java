@@ -9,16 +9,12 @@ import android.util.Log;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 
-import junit.framework.Test;
-
 public class SettingsContentObserver extends ContentObserver {
 
-    private AudioManager audioManager;
     private Context activityContext;
 
-    SettingsContentObserver(Context activityContext, Handler handler, AudioManager audioManager) {
+    SettingsContentObserver(Context activityContext, Handler handler) {
         super(handler);
-        this.audioManager = audioManager;
         this.activityContext = activityContext;
     }
 

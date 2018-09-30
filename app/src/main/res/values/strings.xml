@@ -193,6 +193,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="tag_volume_control_fragment">VOLUME CONTROL FRAGMENT</string>
     <string name="tag_internet_speed_fragment">INTERNET SPEED FRAGMENT</string>
     <string name="tag_sound_level_fragment">SOUND LEVEL FRAGMENT</string>
+    <string name="tag_calculator_fragment">CALCULATOR FRAGMENT</string>
     <string name="tag_calendar_fragment">CALENDAR SHEET</string>
     <string name="tag_timer_fragment">TIMER FRAGMENT</string>
     <string name="tag_timer_sheet">TIMER SHEET</string>
@@ -2409,9 +2410,9 @@ Since 2006, UMTS networks in many countries have been or are in the process of b
 
 In February 1987 Europe produced the very first agreed GSM Technical Specification. Ministers from the four big EU countries cemented their political support for GSM with the Bonn Declaration on Global Information Networks in May and the GSM MoU was tabled for signature in September. The MoU drew in mobile operators from across Europe to pledge to invest in new GSM networks to an ambitious common date.\n\n
 
-In this short 38-week period the whole of Europe (countries and industries) had been brought behind GSM in a rare unity and speed guided by four public officials: Armin Silberhorn (Germany), Stephen Temple (UK), Philippe Dupuis (France), and Renzo Failli (Italy). In 1989 the Groupe Spécial Mobile committee was transferred from CEPT to the European Telecommunications Standards Institute (ETSI).\n\n
+In this short 38-week period the whole of Europe (countries and industries) had been brought behind GSM in a rare unity and speed guided by four public officials: Armin Silberhorn (Germany), Stephen Temple (UK), Philippe Dupuis (France), and Renzo Failli (Italy). In 1989 the Groupe Special Mobile committee was transferred from CEPT to the European Telecommunications Standards Institute (ETSI).\n\n
 
-In parallel France and Germany signed a joint development agreement in 1984 and were joined by Italy and the UK in 1986. In 1986, the European Commission proposed reserving the 900 MHz spectrum band for GSM. The former Finnish prime minister Harri Holkeri made the world's first GSM call on July 1, 1991, calling Kaarina Suonio (mayor of the city of Tampere) using a network built by Telenokia and Siemens and operated by Radiolinja. The following year saw the sending of the first short messaging service (SMS or \"text message\") message, and Vodafone UK and Telecom Finland signed the first international roaming agreement.\n\n</item>
+In parallel France and Germany signed a joint development agreement in 1984 and were joined by Italy and the UK in 1986. In 1986, the European Commission proposed reserving the 900 MHz spectrum band for GSM. The former Finnish prime minister Harri Holkeri made the world\'s first GSM call on July 1, 1991, calling Kaarina Suonio (mayor of the city of Tampere) using a network built by Telenokia and Siemens and operated by Radiolinja. The following year saw the sending of the first short messaging service (SMS or \"text message\") message, and Vodafone UK and Telecom Finland signed the first international roaming agreement.\n\n</item>
     </string-array>
 
     <string-array name="gsm_umts_images">
