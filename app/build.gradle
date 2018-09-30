@@ -61,6 +61,7 @@ dependencies {
     implementation 'com.github.anastr:speedviewlib:1.2.0'
     implementation 'com.github.antwankakki:FabricView:latest'
     implementation 'com.roomorama:caldroid:3.0.1'
+    implementation 'fr.bmartel:jspeedtest:1.32.1'
 
     implementation 'com.jjoe64:graphview:4.2.2'
     implementation 'com.sdsmdg.harjot:croller:1.0.7'

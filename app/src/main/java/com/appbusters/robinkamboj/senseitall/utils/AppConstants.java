@@ -112,7 +112,7 @@ public class AppConstants {
     public static final String SENSOR_HEART_RATE = "Heart Rate Sensor";
 
     public static final String CALENDAR = "Calendar";                           //tool names
-    public static final String WEATHER = "Weather";
+//    public static final String WEATHER = "Weather";
     public static final String REMINDER = "Set Reminder";
     public static final String SET_ALARM = "Set Alarm";
     public static final String INTERNET_SPEED = "Internet Speed";
@@ -368,7 +368,7 @@ public class AppConstants {
         toolsNames.add(INTERNET_SPEED);
         toolsNames.add(TAKE_NOTE);
         toolsNames.add(VOLUME_CONTROL);
-        toolsNames.add(WEATHER);
+//        toolsNames.add(WEATHER);
         toolsNames.add(CALENDAR);
         toolsNames.add(REMINDER);
         toolsNames.add(QUICK_SETTINGS);
@@ -387,7 +387,7 @@ public class AppConstants {
         popTools.add(INTERNET_SPEED);
         popTools.add(TAKE_NOTE);
         popTools.add(VOLUME_CONTROL);
-        popTools.add(WEATHER);
+//        popTools.add(WEATHER);
         popTools.add(CALENDAR);
         popTools.add(REMINDER);
 
@@ -399,14 +399,14 @@ public class AppConstants {
         everydayTools.add(INTERNET_SPEED);
         everydayTools.add(SET_ALARM);
         everydayTools.add(TAKE_NOTE);
-        everydayTools.add(VOLUME_CONTROL);
         everydayTools.add(CALCULATOR);
         everydayTools.add(RECORD_AUDIO);
         everydayTools.add(STOP_WATCH);
         everydayTools.add(REMINDER);
-        everydayTools.add(CALENDAR);
         everydayTools.add(CHECKLIST);
-        everydayTools.add(WEATHER);
+//        everydayTools.add(WEATHER);
+        everydayTools.add(CALENDAR);
+        everydayTools.add(VOLUME_CONTROL);
         everydayTools.add(SOUND_LEVEL);
         everydayTools.add(TIMER);
 
@@ -562,7 +562,7 @@ public class AppConstants {
         imageUrlMap.put(TEXT_SCAN, R.drawable.baseline_text_format_black_48);
         imageUrlMap.put(LABEL_GENERATOR, R.drawable.baseline_speaker_notes_black_48);
         imageUrlMap.put(CALENDAR, R.drawable.baseline_today_black_48);
-        imageUrlMap.put(WEATHER, R.drawable.baseline_wb_cloudy_black_48);
+//        imageUrlMap.put(WEATHER, R.drawable.baseline_wb_cloudy_black_48);
         imageUrlMap.put(REMINDER, R.drawable.baseline_note_black_48);
         imageUrlMap.put(SET_ALARM, R.drawable.baseline_alarm_black_48);
         imageUrlMap.put(INTERNET_SPEED, R.drawable.baseline_trending_up_black_48);
@@ -1234,11 +1234,11 @@ public class AppConstants {
                 VOLUME_CONTROL,
                 ""
         ));
-        popularTools.add(new Category(
-                imageUrlMap.get(WEATHER),
-                WEATHER,
-                ""
-        ));
+//        popularTools.add(new Category(
+//                imageUrlMap.get(WEATHER),
+//                WEATHER,
+//                ""
+//        ));
         popularTools.add(new Category(
                 imageUrlMap.get(CALENDAR),
                 CALENDAR,

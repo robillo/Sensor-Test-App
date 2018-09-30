@@ -10,6 +10,7 @@ import android.view.View
 import android.view.WindowManager
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.internet_speed.InternetSpeedFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
@@ -53,7 +54,6 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
 
     override fun setCorrespondingFragment() {
 
-        var fragmentManager = supportFragmentManager
         val transaction = supportFragmentManager.beginTransaction()
 
         when(toolName) {
@@ -66,6 +66,13 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
             EDIT_IMAGE -> {
             }
             INTERNET_SPEED -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                InternetSpeedFragment(),
+                                getString(R.string.tag_internet_speed_fragment)
+                        )
+                        .commit()
             }
             SET_ALARM -> {
             }
@@ -106,8 +113,6 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
             }
             CHECKLIST -> {
             }
-            WEATHER -> {
-            }
             SOUND_LEVEL -> {
                 transaction
                         .add(
@@ -126,6 +131,8 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         )
                         .commit()
             }
+//            WEATHER -> {
+//            }
         }
     }
 
