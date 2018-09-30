@@ -75,6 +75,11 @@ class TimerFragment : Fragment(), TimerInterface {
         updateMainTextsForTime(hoursTick, minsTick, secsTick)
     }
 
+    override fun onDestroy() {
+        countDownTimer.cancel()
+        super.onDestroy()
+    }
+
     override fun setClickListeners() {
         lv.play.setOnClickListener {
             if(!isAlreadySet) {
@@ -154,17 +159,19 @@ class TimerFragment : Fragment(), TimerInterface {
                 refreshMainTextsForTick()
             }
         }
+
+        updateIconTints(2)
     }
 
     override fun refreshMainTextsForTick() {
-        secsTick -= secsTick
-        if(secsTick == 0) {
+        secsTick--
+        if(secsTick == -1) {
             secsTick = 59
-            minsTick -= minsTick
+            minsTick--
         }
         if(minsTick == 0) {
             minsTick == 59
-            hoursTick -= hoursTick
+            hoursTick--
         }
         updateMainTextsForTime(hoursTick, minsTick, secsTick)
     }
