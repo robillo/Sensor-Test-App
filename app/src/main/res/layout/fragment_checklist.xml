@@ -1,14 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorTextFour"
+    android:focusable="true" android:focusableInTouchMode="true"
     tools:context=".view.tool_activity.everyday_tools.checklist.ChecklistFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        app:cardElevation="5sp">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="TYPE HERE TO ADD ITEM"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    tools:ignore="Autofill,HardcodedText"
+                    android:id="@+id/new_item_text" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                android:layout_weight="1">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="22sp"
+                    app:cardBackgroundColor="@color/primary_new">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:paddingLeft="20sp"
+                        android:paddingRight="20sp"
+                        android:paddingBottom="10sp"
+                        android:paddingTop="10sp"
+                        android:textColor="@color/white"
+                        android:text="ADD ITEM TO LIST"
+                        tools:ignore="HardcodedText"
+                        android:id="@+id/add_item"/>
+
+                </android.support.v7.widget.CardView>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="4"
+        android:layout_margin="20sp"
+        app:cardElevation="10sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="YOUR CHECKLIST ITEMS"
+                android:textColor="@color/primary_new"
+                android:gravity="center_horizontal"
+                android:textSize="18sp"
+                android:padding="8sp"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@drawable/line_bg"
+                android:layout_marginRight="30sp"
+                android:layout_marginLeft="30sp"
+                tools:ignore="ContentDescription,SmallSp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/check_recycler">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -11,6 +11,7 @@ import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog.newInstance
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.ChecklistFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.internet_speed.InternetSpeedFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
@@ -121,6 +122,17 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
             CHECKLIST -> {
+
+                getWindow()
+                        .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+
+                transaction
+                        .add(
+                                R.id.container,
+                                ChecklistFragment(),
+                                getString(R.string.tag_checklist_fragment)
+                        )
+                        .commit()
             }
             SOUND_LEVEL -> {
                 transaction
@@ -141,6 +153,7 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
 //            WEATHER -> {
+//
 //            }
         }
     }

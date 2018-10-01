@@ -399,12 +399,12 @@ public class AppConstants {
         everydayTools.add(INTERNET_SPEED);
         everydayTools.add(SET_ALARM);
         everydayTools.add(TAKE_NOTE);
-        everydayTools.add(CALCULATOR);
         everydayTools.add(RECORD_AUDIO);
         everydayTools.add(STOP_WATCH);
         everydayTools.add(REMINDER);
         everydayTools.add(CHECKLIST);
 //        everydayTools.add(WEATHER);
+        everydayTools.add(CALCULATOR);
         everydayTools.add(CALENDAR);
         everydayTools.add(VOLUME_CONTROL);
         everydayTools.add(SOUND_LEVEL);

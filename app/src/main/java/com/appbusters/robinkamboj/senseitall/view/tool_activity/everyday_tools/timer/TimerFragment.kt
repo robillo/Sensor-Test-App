@@ -1,3 +1,5 @@
+@file:Suppress("UNNECESSARY_SAFE_CALL")
+
 package com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer
 
 
@@ -76,7 +78,7 @@ class TimerFragment : Fragment(), TimerInterface {
     }
 
     override fun onDestroy() {
-        countDownTimer.cancel()
+        countDownTimer?.cancel()
         super.onDestroy()
     }
 

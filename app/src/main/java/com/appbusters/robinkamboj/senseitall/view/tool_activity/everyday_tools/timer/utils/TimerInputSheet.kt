@@ -68,7 +68,6 @@ class TimerInputSheet : BottomSheetDialogFragment(), TimerInputInterface {
             }
         })
         lv.minutes_text.addTextChangedListener(object : TextWatcher {
-
             override fun afterTextChanged(s: Editable) {
 
             }
