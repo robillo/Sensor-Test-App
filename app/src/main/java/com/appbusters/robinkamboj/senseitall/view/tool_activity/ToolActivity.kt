@@ -9,15 +9,16 @@ import android.view.View
 import android.view.WindowManager
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
-import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.CalculatorFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog.newInstance
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.internet_speed.InternetSpeedFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
-import com.nmaltais.calcdialog.CalcDialog
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tool.*
 import com.roomorama.caldroid.CaldroidFragment
+import java.math.BigDecimal
 import java.util.*
 
 
@@ -89,15 +90,11 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
             CALCULATOR -> {
-//                transaction
-//                        .add(
-//                                R.id.container,
-//                                CalculatorFragment(),
-//                                getString(R.string.tag_calculator_fragment)
-//                        )
-//                        .commit()
+//                transaction.add(
+//                                R.id.container, CalculatorFragment(), getString(R.string.tag_calculator_fragment)
+//                        ).commit()
 
-                val calcDialog: CalcDialog = CalcDialog.newInstance(0)
+                val calcDialog: CustomCalcDialog = newInstance(0)
                 calcDialog.setValue(null)
                 calcDialog.show(supportFragmentManager, getString(R.string.tag_calculator_fragment))
             }

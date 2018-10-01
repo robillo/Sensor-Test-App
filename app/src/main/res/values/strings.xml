@@ -2415,6 +2415,19 @@ In this short 38-week period the whole of Europe (countries and industries) had 
 In parallel France and Germany signed a joint development agreement in 1984 and were joined by Italy and the UK in 1986. In 1986, the European Commission proposed reserving the 900 MHz spectrum band for GSM. The former Finnish prime minister Harri Holkeri made the world\'s first GSM call on July 1, 1991, calling Kaarina Suonio (mayor of the city of Tampere) using a network built by Telenokia and Siemens and operated by Radiolinja. The following year saw the sending of the first short messaging service (SMS or \"text message\") message, and Vodafone UK and Telecom Finland signed the first international roaming agreement.\n\n</item>
     </string-array>
 
+    <string name="calc_dialog_clear">Clear</string>
+    <string name="calc_dialog_cancel">Cancel</string>
+    <string name="calc_dialog_ok">OK</string>
+
+    <string name="calc_answer">Ans</string>
+
+    <string-array name="calc_dialog_errors">
+        <item>Division by zero</item>
+        <item>Out of bounds</item>
+        <item>Result must be positive</item>
+        <item>Result must be negative</item>
+    </string-array>
+
     <string-array name="gsm_umts_images">
         <item>https://3.bp.blogspot.com/-gE0cFR8aF0A/W2HDZy908lI/AAAAAAAAC4U/mvklzVN7rfoEMdrJ-G-pvZVO8OdCqPe3QCK4BGAYYCw/s1600/sim1.jpg</item>
         <item>https://2.bp.blogspot.com/-KCoxpeRqI-k/W2HDa03r-eI/AAAAAAAAC4k/ldDAlupBHXMP07DijLo-CEitBKVkMSjZwCK4BGAYYCw/s1600/sim2.jpg</item>

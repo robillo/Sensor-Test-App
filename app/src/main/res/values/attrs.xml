@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="calcDialogStyle" format="reference"/>
+
+    <declare-styleable name="CalcDialog">
+        <attr name="calcDialogMaxWidth" format="dimension"/>
+        <attr name="calcDialogMaxHeight" format="dimension"/>
+        <attr name="calcButtonTextClear" format="string"/>
+        <attr name="calcButtonTextCancel" format="string"/>
+        <attr name="calcButtonTextOk" format="string"/>
+        <attr name="calcButtonTexts" format="reference"/>
+        <attr name="calcBackgroundColor" format="color|reference"/>
+        <attr name="calcHeaderHeight" format="dimension"/>
+        <attr name="calcValueStyle" format="reference"/>
+        <attr name="calcNumberBtnStyle" format="reference"/>
+        <attr name="calcNumberBtnColor" format="color|reference"/>
+        <attr name="calcOperationBtnStyle" format="reference"/>
+        <attr name="calcOperationBtnColor" format="color|reference"/>
+        <attr name="calcAnswerBtnStyle" format="reference"/>
+        <attr name="calcEraseBtnStyle" format="reference"/>
+        <attr name="calcDialogSepColor" format="color|reference"/>
+        <attr name="calcDialogButtonStyle" format="reference"/>
+        <attr name="calcErrors" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="CalcEraseButton" tools:ignore="MissingDefaultResource">
+        <attr name="calcEraseBtnHoldDelay" format="integer"/>
+        <attr name="calcEraseBtnHoldSpeed" format="integer"/>
+        <attr name="calcEraseAllOnHold" format="boolean"/>
+    </declare-styleable>
+
+</resources>
