@@ -20,9 +20,7 @@
             app:zigzagElevation="8dp"
             app:zigzagHeight="10dp"
             app:zigzagShadowAlpha="0.9"
-            app:zigzagSides="bottom"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp">
+            app:zigzagSides="bottom">
 
             <TextView
                 android:layout_width="match_parent"
