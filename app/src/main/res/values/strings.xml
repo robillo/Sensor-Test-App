@@ -190,6 +190,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="tag_tools_fragment">TOOLS FRAGMENT</string>
     <string name="tag_discover_fragment">DISCOVER FRAGMENT</string>
     <string name="tag_profile_fragment">PROFILE FRAGMENT</string>
+    <string name="tag_note_fragment">NOTE FRAGMENT</string>
     <string name="tag_volume_control_fragment">VOLUME CONTROL FRAGMENT</string>
     <string name="tag_internet_speed_fragment">INTERNET SPEED FRAGMENT</string>
     <string name="tag_sound_level_fragment">SOUND LEVEL FRAGMENT</string>

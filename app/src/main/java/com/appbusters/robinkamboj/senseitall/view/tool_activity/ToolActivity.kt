@@ -14,6 +14,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.c
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.ChecklistFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.internet_speed.InternetSpeedFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.NoteFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
@@ -80,6 +81,13 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
             SET_ALARM -> {
             }
             TAKE_NOTE -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                NoteFragment(),
+                                getString(R.string.tag_note_fragment)
+                        )
+                        .commit()
             }
             VOLUME_CONTROL -> {
                 transaction

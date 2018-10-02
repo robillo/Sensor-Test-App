@@ -105,6 +105,7 @@
     <color name="primary_new_light_light_light">#a3c2b5f4</color>
 
     <color name="primary_new_two">#6ea4f5</color>
+    <color name="primary_new_two_dark">#638aec</color>
     <color name="primary_new_two_gradient">#79acf9</color>
 
     <color name="primary_new_two_lightest">#ebeff5</color>
