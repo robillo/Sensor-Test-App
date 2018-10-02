@@ -9,6 +9,7 @@ import android.view.View
 import android.view.WindowManager
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.AlarmFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog.newInstance
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.ChecklistFragment
@@ -79,6 +80,13 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
             SET_ALARM -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                AlarmFragment(),
+                                getString(R.string.tag_alarm_fragment)
+                        )
+                        .commit()
             }
             TAKE_NOTE -> {
                 transaction

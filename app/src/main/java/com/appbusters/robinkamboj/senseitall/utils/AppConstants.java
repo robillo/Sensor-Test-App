@@ -112,7 +112,7 @@ public class AppConstants {
     public static final String SENSOR_HEART_RATE = "Heart Rate Sensor";
 
     public static final String CALENDAR = "Calendar";                           //tool names
-//    public static final String WEATHER = "Weather";
+    public static final String WEATHER = "Weather";
     public static final String REMINDER = "Set Reminder";
     public static final String SET_ALARM = "Set Alarm";
     public static final String INTERNET_SPEED = "Internet Speed";
@@ -377,7 +377,7 @@ public class AppConstants {
         toolsNames.add(IMAGE_FILTERS);
         toolsNames.add(EDIT_IMAGE);
         toolsNames.add(CHECKLIST);
-        toolsNames.add(RECORD_AUDIO);
+//        toolsNames.add(RECORD_AUDIO);
         toolsNames.add(CALCULATOR);
         toolsNames.add(SOUND_LEVEL);
         toolsNames.add(STOP_WATCH);
@@ -399,7 +399,7 @@ public class AppConstants {
         everydayTools.add(INTERNET_SPEED);
         everydayTools.add(SET_ALARM);
         everydayTools.add(TAKE_NOTE);
-        everydayTools.add(RECORD_AUDIO);
+//        everydayTools.add(RECORD_AUDIO);
         everydayTools.add(STOP_WATCH);
         everydayTools.add(REMINDER);
         everydayTools.add(CHECKLIST);
@@ -562,7 +562,7 @@ public class AppConstants {
         imageUrlMap.put(TEXT_SCAN, R.drawable.baseline_text_format_black_48);
         imageUrlMap.put(LABEL_GENERATOR, R.drawable.baseline_speaker_notes_black_48);
         imageUrlMap.put(CALENDAR, R.drawable.baseline_today_black_48);
-//        imageUrlMap.put(WEATHER, R.drawable.baseline_wb_cloudy_black_48);
+        imageUrlMap.put(WEATHER, R.drawable.baseline_wb_cloudy_black_48);
         imageUrlMap.put(REMINDER, R.drawable.baseline_note_black_48);
         imageUrlMap.put(SET_ALARM, R.drawable.baseline_alarm_black_48);
         imageUrlMap.put(INTERNET_SPEED, R.drawable.baseline_trending_up_black_48);
