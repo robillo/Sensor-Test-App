@@ -2424,6 +2424,7 @@ In parallel France and Germany signed a joint development agreement in 1984 and 
     <string name="calc_dialog_ok">OK</string>
 
     <string name="calc_answer">Ans</string>
+    <string name="start">START</string>
 
     <string-array name="calc_dialog_errors">
         <item>Division by zero</item>

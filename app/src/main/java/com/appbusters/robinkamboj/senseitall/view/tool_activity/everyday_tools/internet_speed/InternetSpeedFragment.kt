@@ -14,10 +14,9 @@ import fr.bmartel.speedtest.SpeedTestReport
 import fr.bmartel.speedtest.model.SpeedTestError
 import fr.bmartel.speedtest.inter.ISpeedTestListener
 import android.os.AsyncTask
-
-
-
-
+import kotlinx.android.synthetic.main.include_result.view.*
+import kotlinx.android.synthetic.main.include_speed.view.*
+import kotlinx.android.synthetic.main.include_start.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -25,50 +24,70 @@ import android.os.AsyncTask
  */
 class InternetSpeedFragment : Fragment(), InternetSpeedInterface {
 
-    lateinit var lv: View
+    lateinit var v: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        lv =  inflater.inflate(R.layout.fragment_internet_speed, container, false)
+        v =  inflater.inflate(R.layout.fragment_internet_speed, container, false)
         setup()
-        return lv
+        return v
     }
 
     override fun setup() {
-        SpeedTestTask().execute()
+        setClickListeners()
+
     }
 
-    inner class SpeedTestTask : AsyncTask<Void, Void, String>() {
-
-        override fun doInBackground(vararg params: Void): String? {
-
-            val speedTestSocket = SpeedTestSocket()
-
-            // add a listener to wait for speedtest completion and progress
-            speedTestSocket.addSpeedTestListener(object : ISpeedTestListener {
-
-                override fun onCompletion(report: SpeedTestReport) {
-                    // called when download/upload is finished
-                    Log.e("speedtest", "[COMPLETED] rate in octet/s : " + report.transferRateOctet)
-                    Log.e("speedtest", "[COMPLETED] rate in bit/s   : " + report.transferRateBit)
-                }
-
-                override fun onError(speedTestError: SpeedTestError, errorMessage: String) {
-                    // called when a download/upload error occur
-                }
-
-                override fun onProgress(percent: Float, report: SpeedTestReport) {
-                    // called to notify download/upload progress
-                    Log.e("speedtest", "[PROGRESS] progress : $percent%")
-                    Log.e("speedtest", "[PROGRESS] rate in octet/s : " + report.transferRateOctet)
-                    Log.e("speedtest", "[PROGRESS] rate in bit/s   : " + report.transferRateBit)
-                }
-            })
-
-            speedTestSocket.startDownload("http://ipv4.ikoula.testdebit.info/1M.iso")
-
-            return null
+    override fun setClickListeners() {
+        v.start.setOnClickListener {
+            v.speed_layout.visibility = View.VISIBLE
+            startDownloadTest()
         }
     }
+
+    override fun startDownloadTest() {
+        //do download test computation
+        startUploadTest()
+    }
+
+    override fun startUploadTest() {
+        //do upload computation
+        v.result_layout.visibility = View.VISIBLE
+    }
+
+//        SpeedTestTask().execute()
+//
+//    inner class SpeedTestTask : AsyncTask<Void, Void, String>() {
+//
+//        override fun doInBackground(vararg params: Void): String? {
+//
+//            val speedTestSocket = SpeedTestSocket()
+//
+//            // add a listener to wait for speedtest completion and progress
+//            speedTestSocket.addSpeedTestListener(object : ISpeedTestListener {
+//
+//                override fun onCompletion(report: SpeedTestReport) {
+//                    // called when download/upload is finished
+//                    Log.e("speedtest", "[COMPLETED] rate in octet/s : " + report.transferRateOctet)
+//                    Log.e("speedtest", "[COMPLETED] rate in bit/s   : " + report.transferRateBit)
+//                }
+//
+//                override fun onError(speedTestError: SpeedTestError, errorMessage: String) {
+//                    // called when a download/upload error occur
+//                }
+//
+//                override fun onProgress(percent: Float, report: SpeedTestReport) {
+//                    // called to notify download/upload progress
+//                    Log.e("speedtest", "[PROGRESS] progress : $percent%")
+//                    Log.e("speedtest", "[PROGRESS] rate in octet/s : " + report.transferRateOctet)
+//                    Log.e("speedtest", "[PROGRESS] rate in bit/s   : " + report.transferRateBit)
+//                }
+//            })
+//
+//            speedTestSocket.startDownload("http://ipv4.ikoula.testdebit.info/1M.iso")
+//
+//            return null
+//        }
+//    }
 }

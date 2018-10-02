@@ -4,4 +4,10 @@ public interface InternetSpeedInterface {
 
     void setup();
 
+    void setClickListeners();
+
+    void startDownloadTest();
+
+    void startUploadTest();
+
 }
