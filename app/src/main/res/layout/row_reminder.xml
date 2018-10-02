@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:paddingLeft="5sp"
+            android:paddingRight="5sp"
+            android:text="BANGALORE LEARNINGS"
+            android:textColor="@color/primary_new_light"
+            android:textSize="15sp"
+            android:gravity="center"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFive"
+            tools:ignore="ContentDescription,SmallSp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTextOne"
+            android:padding="20sp"
+            android:text="@string/about_proximity"
+            android:textSize="15sp"
+            android:maxLines="8" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFive"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:paddingLeft="5sp"
+            android:paddingRight="5sp"
+            android:text="TO BE REMINDED ON"
+            android:textColor="@color/primary_new_light"
+            android:textSize="15sp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/colorTextTwo"
+                android:paddingLeft="20sp"
+                android:paddingTop="5sp"
+                android:paddingBottom="10sp"
+                android:text="2 October, 2018"
+                android:textSize="15sp"
+                android:gravity="start"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextTwo"
+                android:paddingRight="20sp"
+                android:paddingTop="5sp"
+                android:paddingBottom="10sp"
+                android:text="05:06 PM"
+                android:textSize="15sp"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFive"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_delete_black_48"
+                android:tint="@color/red_shade_four"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="10sp"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="1sp"
+                android:layout_height="match_parent"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription,SmallSp" />
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_edit_black_48"
+                android:tint="@color/primary_new_two_dark"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="10sp"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

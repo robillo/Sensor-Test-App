@@ -14,6 +14,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.c
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog.newInstance
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.ChecklistFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.internet_speed.InternetSpeedFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.reminder.ReminderFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.NoteFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
@@ -107,19 +108,23 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
             CALCULATOR -> {
-//                transaction.add(
-//                                R.id.container, CalculatorFragment(), getString(R.string.tag_calculator_fragment)
-//                        ).commit()
-
                 val calcDialog: CustomCalcDialog = newInstance(0)
                 calcDialog.setValue(null)
                 calcDialog.show(supportFragmentManager, getString(R.string.tag_calculator_fragment))
             }
-            RECORD_AUDIO -> {
-            }
+//            RECORD_AUDIO -> {
+//
+//            }
             STOP_WATCH -> {
             }
             REMINDER -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                ReminderFragment(),
+                                getString(R.string.tag_reminder_fragment)
+                        )
+                        .commit()
             }
             CALENDAR -> {
                 val caldroidFragment = CaldroidFragment()
@@ -138,10 +143,7 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
             CHECKLIST -> {
-
-                getWindow()
-                        .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
-
+                window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
                 transaction
                         .add(
                                 R.id.container,

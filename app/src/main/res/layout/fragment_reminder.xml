@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".view.tool_activity.everyday_tools.reminder.ReminderFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ir.beigirad.zigzagview.ZigzagView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:zigzagBackgroundColor="@color/colorTextOne"
+            app:zigzagElevation="8dp"
+            app:zigzagHeight="10dp"
+            app:zigzagShadowAlpha="0.9"
+            app:zigzagSides="bottom"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10sp"
+                android:text="PENDING REMINDERS"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:gravity="center"/>
+
+        </ir.beigirad.zigzagview.ZigzagView>
+
+        <include layout="@layout/row_reminder"/>
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/red_shade_four"
+        android:textSize="20sp"
+        android:padding="15sp"
+        android:textColor="@color/white"
+        android:text="NEW REMINDER"
+        android:gravity="center"/>
 
-</FrameLayout>
+</LinearLayout>
