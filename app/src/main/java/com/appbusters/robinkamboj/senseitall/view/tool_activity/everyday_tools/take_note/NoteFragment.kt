@@ -18,6 +18,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.t
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NoteDatabase
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NotePresenter
 import kotlinx.android.synthetic.main.fragment_note.view.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -48,12 +49,12 @@ class NoteFragment : Fragment(), NoteInterface {
     }
 
     override fun saveNoteToDb(heading: String, description: String) {
+
         notePresenter.insertNotes(
                 Note(
                         heading,
                         description,
-                        Date().toString(),
-                        Calendar.getInstance().time.toString()
+                        Date().toString()
                 )
         )
     }
@@ -66,6 +67,11 @@ class NoteFragment : Fragment(), NoteInterface {
 
     override fun initialize() {
         v.recycler.layoutManager = LinearLayoutManager(activity)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        displayAllNotes()
     }
 
     override fun displayAllNotes() {

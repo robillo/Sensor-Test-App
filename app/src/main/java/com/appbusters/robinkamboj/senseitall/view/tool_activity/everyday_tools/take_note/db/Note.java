@@ -3,17 +3,16 @@ package com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "note")
 public class Note {
 
     public Note() {
     }
 
-    public Note(String heading, String description, String date, String time) {
+    public Note(String heading, String description, String date) {
         this.heading = heading;
         this.description = description;
         this.date = date;
-        this.time = time;
     }
 
     @PrimaryKey(autoGenerate = true)
@@ -21,7 +20,6 @@ public class Note {
     private String heading;
     private String description;
     private String date;
-    private String time;
 
     public int getId() {
         return id;
@@ -55,11 +53,4 @@ public class Note {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
 }

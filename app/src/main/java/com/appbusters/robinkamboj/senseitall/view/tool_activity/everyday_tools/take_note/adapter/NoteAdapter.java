@@ -6,11 +6,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.Note;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
 
@@ -29,8 +33,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NoteHolder noteHolder, int i) {
-
+    public void onBindViewHolder(@NonNull NoteHolder noteHolder, int position) {
+        noteHolder.headerText.setText(list.get(position).getHeading());
+        noteHolder.descriptionText.setText(list.get(position).getDescription());
+        noteHolder.dateText.setText(list.get(position).getDate());
     }
 
     @Override
@@ -40,8 +46,18 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
 
     class NoteHolder extends RecyclerView.ViewHolder {
 
+        @BindView(R.id.header_text)
+        TextView headerText;
+
+        @BindView(R.id.description_text)
+        TextView descriptionText;
+
+        @BindView(R.id.date_text)
+        TextView dateText;
+
         NoteHolder(@NonNull View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

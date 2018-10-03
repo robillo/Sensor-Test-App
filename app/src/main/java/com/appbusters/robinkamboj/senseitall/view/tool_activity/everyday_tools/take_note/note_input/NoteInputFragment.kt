@@ -41,13 +41,13 @@ class NoteInputFragment : Fragment(), NoteInputInterface {
 
             if(head.isNotEmpty() && desc.isNotEmpty()) {
                 toolActivity.saveNoteItem(head, desc)
+                toolActivity.showCoordinator("note saved successfully")
+                toolActivity.onBackPressed()
                 return@setOnClickListener
             }
             else {
-                toolActivity.showCoordinator("")
+                toolActivity.showCoordinator("please input both parameters")
             }
-
-            toolActivity.onBackPressed()
         }
     }
 

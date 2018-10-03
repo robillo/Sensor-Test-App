@@ -19,10 +19,10 @@ public interface NoteDao {
     @Delete
     void deleteNotes(Note... Note);
 
-    @Query("DELETE FROM Note WHERE id = :id")
+    @Query("DELETE FROM note WHERE id = :id")
     void deleteNotesById(int... id);
 
-    @Query("SELECT * FROM Note")
+    @Query("SELECT * FROM note")
     LiveData<List<Note>> getAllNotes();
 
 }

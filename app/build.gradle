@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
     defaultConfig {
         resValue "string", "app_name", "Sense It All"
         applicationId "com.appbusters.robinkamboj.senseitall"
@@ -65,6 +65,7 @@ dependencies {
 
     implementation "android.arch.persistence.room:runtime:1.1.1"
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    kapt "android.arch.persistence.room:compiler:1.1.1"
 
     implementation 'com.jjoe64:graphview:4.2.2'
     implementation 'com.sdsmdg.harjot:croller:1.0.7'

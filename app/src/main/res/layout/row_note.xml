@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ir.beigirad.zigzagview.ZigzagView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:zigzagBackgroundColor="@color/white"
-    app:zigzagElevation="8dp"
-    app:zigzagHeight="10dp"
-    app:zigzagShadowAlpha="0.9"
-    app:zigzagSides="top|bottom"
-    android:layout_marginLeft="10sp"
-    android:layout_marginRight="10sp"
+    android:layout_marginLeft="20sp"
+    android:layout_marginRight="20sp"
+    android:layout_marginTop="10sp"
+    android:layout_marginBottom="10sp"
+    app:cardElevation="5sp"
     tools:context=".view.tool_activity.everyday_tools.take_note.NoteFragment">
 
     <LinearLayout
@@ -28,7 +26,9 @@
             android:text="BANGALORE LEARNINGS"
             android:textColor="@color/primary_new_light"
             android:textSize="18sp"
-            android:gravity="center"/>
+            android:gravity="center"
+            tools:ignore="HardcodedText"
+            android:id="@+id/header_text"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -36,36 +36,19 @@
             android:background="@color/colorTextFive"
             tools:ignore="ContentDescription,SmallSp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/colorTextTwo"
-                android:paddingLeft="20sp"
-                android:paddingTop="15sp"
-                android:paddingBottom="5sp"
-                android:text="2 October, 2018"
-                android:textSize="15sp"
-                android:gravity="start"
-                tools:ignore="RtlHardcoded,RtlSymmetry" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorTextTwo"
-                android:paddingRight="20sp"
-                android:paddingTop="15sp"
-                android:paddingBottom="5sp"
-                android:text="05:06 PM"
-                android:textSize="15sp"
-                tools:ignore="RtlHardcoded,RtlSymmetry" />
-
-        </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/colorTextTwo"
+            android:paddingLeft="20sp"
+            android:paddingTop="15sp"
+            android:paddingBottom="5sp"
+            android:text="2 October, 2018       05:06 PM"
+            android:lines="1"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"
+            android:id="@+id/date_text"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,8 +56,9 @@
             android:textColor="@color/colorTextOne"
             android:padding="20sp"
             android:text="@string/about_proximity"
-            android:textSize="15sp"
-            android:maxLines="8" />
+            android:textSize="16sp"
+            android:maxLines="8"
+            android:id="@+id/description_text"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -117,4 +101,4 @@
 
     </LinearLayout>
 
-</ir.beigirad.zigzagview.ZigzagView>
+</android.support.v7.widget.CardView>

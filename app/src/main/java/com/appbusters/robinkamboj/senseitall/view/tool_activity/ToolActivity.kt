@@ -189,7 +189,7 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
 
     override fun saveNoteItem(heading: String, description: String) {
         val fragment: NoteFragment? =
-                supportFragmentManager.findFragmentByTag(getString(R.string.tag_note_input_fragment))
+                supportFragmentManager.findFragmentByTag(getString(R.string.tag_note_fragment))
                         as NoteFragment
 
         if(fragment != null) {
