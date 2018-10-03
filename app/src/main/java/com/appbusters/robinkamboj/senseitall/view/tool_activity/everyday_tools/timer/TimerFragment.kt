@@ -78,7 +78,10 @@ class TimerFragment : Fragment(), TimerInterface {
     }
 
     override fun onDestroy() {
-        countDownTimer?.cancel()
+        try {
+            countDownTimer?.cancel()
+        }
+        catch(ignored: Exception) {}
         super.onDestroy()
     }
 

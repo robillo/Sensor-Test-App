@@ -368,7 +368,7 @@ public class AppConstants {
         toolsNames.add(INTERNET_SPEED);
         toolsNames.add(TAKE_NOTE);
         toolsNames.add(VOLUME_CONTROL);
-//        toolsNames.add(WEATHER);
+        toolsNames.add(WEATHER);
         toolsNames.add(CALENDAR);
         toolsNames.add(REMINDER);
         toolsNames.add(QUICK_SETTINGS);
@@ -377,33 +377,33 @@ public class AppConstants {
         toolsNames.add(IMAGE_FILTERS);
         toolsNames.add(EDIT_IMAGE);
         toolsNames.add(CHECKLIST);
-//        toolsNames.add(RECORD_AUDIO);
+        toolsNames.add(RECORD_AUDIO);
         toolsNames.add(CALCULATOR);
         toolsNames.add(SOUND_LEVEL);
         toolsNames.add(STOP_WATCH);
         toolsNames.add(TIMER);
 
-        popTools.add(SET_ALARM);
+//        popTools.add(SET_ALARM);
+//        popTools.add(WEATHER);
+//        popTools.add(REMINDER);
+        popTools.add(VOLUME_CONTROL);
         popTools.add(INTERNET_SPEED);
         popTools.add(TAKE_NOTE);
-        popTools.add(VOLUME_CONTROL);
-//        popTools.add(WEATHER);
         popTools.add(CALENDAR);
-        popTools.add(REMINDER);
 
         imageTools.add(SQUARE_IMAGE);
         imageTools.add(CROP_IMAGE);
         imageTools.add(IMAGE_FILTERS);
         imageTools.add(EDIT_IMAGE);
 
-        everydayTools.add(INTERNET_SPEED);
-        everydayTools.add(SET_ALARM);
-        everydayTools.add(TAKE_NOTE);
+//        everydayTools.add(SET_ALARM);
 //        everydayTools.add(RECORD_AUDIO);
-        everydayTools.add(STOP_WATCH);
-        everydayTools.add(REMINDER);
-        everydayTools.add(CHECKLIST);
+//        everydayTools.add(STOP_WATCH);
+//        everydayTools.add(REMINDER);
 //        everydayTools.add(WEATHER);
+        everydayTools.add(INTERNET_SPEED);
+        everydayTools.add(TAKE_NOTE);
+        everydayTools.add(CHECKLIST);
         everydayTools.add(CALCULATOR);
         everydayTools.add(CALENDAR);
         everydayTools.add(VOLUME_CONTROL);
