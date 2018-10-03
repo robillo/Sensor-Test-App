@@ -1,13 +1,25 @@
 package com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note
 
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.appbusters.robinkamboj.senseitall.R
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.adapter.AlarmAdapter
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmDatabase
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmPresenter
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.adapter.NoteAdapter
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.Note
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NoteDao
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NoteDatabase
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NotePresenter
+import kotlinx.android.synthetic.main.fragment_note.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -15,7 +27,11 @@ import com.appbusters.robinkamboj.senseitall.R
  */
 class NoteFragment : Fragment(), NoteInterface {
 
-    lateinit var v: View
+    private lateinit var v: View
+    private lateinit var noteDatabase: NoteDatabase
+    private lateinit var noteDao: NoteDao
+    private lateinit var notePresenter: NotePresenter
+    private lateinit var noteData: LiveData<MutableList<Note>>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -26,6 +42,33 @@ class NoteFragment : Fragment(), NoteInterface {
     }
 
     override fun setup() {
+        getDbInstances()
+        initialize()
+        displayAllNotes()
+        setClickListeners()
+    }
 
+    override fun getDbInstances() {
+        noteDatabase = NoteDatabase.getDatabaseInstance(context)
+        noteDao = noteDatabase.noteDao
+        notePresenter = NotePresenter(noteDao)
+    }
+
+    override fun initialize() {
+        v.recycler.layoutManager = LinearLayoutManager(activity)
+    }
+
+    override fun displayAllNotes() {
+        noteData = notePresenter.allNotes
+
+        noteData.observe(this, Observer {
+            v.recycler.adapter = NoteAdapter(it, activity)
+        })
+    }
+
+    override fun setClickListeners() {
+        v.add_note.setOnClickListener {
+
+        }
     }
 }

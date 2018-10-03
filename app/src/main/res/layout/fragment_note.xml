@@ -29,14 +29,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:text="YOUR NOTES"
+                android:text="@string/your_notes"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:gravity="center"/>
 
         </ir.beigirad.zigzagview.ZigzagView>
 
-        <include layout="@layout/row_note"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recycler">
+
+        </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 
@@ -47,7 +52,8 @@
         android:textSize="20sp"
         android:padding="15sp"
         android:textColor="@color/white"
-        android:text="NEW NOTE"
-        android:gravity="center"/>
+        android:text="@string/add_note"
+        android:gravity="center"
+        android:id="@+id/add_note"/>
 
 </LinearLayout>
