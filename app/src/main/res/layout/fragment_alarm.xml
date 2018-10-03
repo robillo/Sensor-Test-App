@@ -26,14 +26,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:text="YOUR ALARMS"
+                android:text="@string/your_alarms"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:gravity="center"/>
 
         </ir.beigirad.zigzagview.ZigzagView>
 
-        <include layout="@layout/row_alarm"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recycler">
+
+        </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 

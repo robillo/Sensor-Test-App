@@ -4,4 +4,10 @@ public interface AlarmInterface {
 
     void setup();
 
+    void getDbInstances();
+
+    void initialize();
+
+    void displayAllAlarms();
+
 }
