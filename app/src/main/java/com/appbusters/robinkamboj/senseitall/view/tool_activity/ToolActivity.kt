@@ -5,8 +5,11 @@ import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.view.View
 import android.view.WindowManager
+import android.widget.TextView
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.AlarmFragment
@@ -17,12 +20,12 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.i
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.reminder.ReminderFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.NoteFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.note_input.NoteInputFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tool.*
 import com.roomorama.caldroid.CaldroidFragment
-import java.math.BigDecimal
 import java.util.*
 
 
@@ -90,6 +93,7 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
             TAKE_NOTE -> {
+                window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
                 transaction
                         .add(
                                 R.id.container,
@@ -176,11 +180,36 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
         }
     }
 
+    override fun setNoteInputFragment() {
+        val transaction = supportFragmentManager.beginTransaction()
+
+        transaction.add(R.id.container, NoteInputFragment(), getString(R.string.tag_note_input_fragment))
+                .commit()
+    }
+
+    override fun saveNoteItem(heading: String, description: String) {
+        val fragment: NoteFragment? =
+                supportFragmentManager.findFragmentByTag(getString(R.string.tag_note_input_fragment))
+                        as NoteFragment
+
+        if(fragment != null) {
+            fragment.saveNoteToDb(heading, description)
+        }
+    }
+
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
 
     override fun onBackPressed() {
+
+        val fragment: Fragment? = supportFragmentManager.findFragmentByTag(getString(R.string.tag_note_input_fragment))
+
+        if(fragment != null) {
+            supportFragmentManager.beginTransaction().remove(fragment).commit()
+            return
+        }
+
         super.onBackPressed()
         overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity)
     }
@@ -190,5 +219,13 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                 supportFragmentManager
                         .findFragmentByTag(getString(R.string.tag_timer_fragment)) as TimerFragment
         fragment.setInputForTimer(hours, mins, secs)
+    }
+
+    override fun showCoordinator(text: String) {
+        val snackbar = Snackbar.make(coordinator_layout, text, 1000)
+        val view = snackbar.getView()
+        val textView = view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        snackbar.show()
     }
 }

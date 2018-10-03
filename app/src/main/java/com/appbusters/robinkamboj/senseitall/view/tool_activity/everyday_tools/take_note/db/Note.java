@@ -9,8 +9,15 @@ public class Note {
     public Note() {
     }
 
+    public Note(String heading, String description, String date, String time) {
+        this.heading = heading;
+        this.description = description;
+        this.date = date;
+        this.time = time;
+    }
+
     @PrimaryKey(autoGenerate = true)
-    private Integer id;
+    private int id = 0;
     private String heading;
     private String description;
     private String date;

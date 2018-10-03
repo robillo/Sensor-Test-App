@@ -121,12 +121,11 @@ class TimerFragment : Fragment(), TimerInterface {
         }
         lv.set_timer.setOnClickListener { _ ->
             if(isAlreadySet) {
-                val snackbar =
-                        Snackbar.make(
-                                lv.coordinator,
-                                "Do you want to delete the current timer to set a new one.",
-                                Snackbar.LENGTH_LONG
-                        ).setAction("Yes") { takeInputForTimer() }.show()
+                Snackbar.make(
+                        lv.coordinator,
+                        "Do you want to delete the current timer to set a new one.",
+                        Snackbar.LENGTH_LONG
+                ).setAction("Yes") { takeInputForTimer() }.show()
             }
             else takeInputForTimer()
         }

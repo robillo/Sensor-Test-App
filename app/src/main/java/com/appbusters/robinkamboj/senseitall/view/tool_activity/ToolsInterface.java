@@ -10,4 +10,10 @@ public interface ToolsInterface {
 
     void setTimerForTimer(int hours, int mins, int secs);
 
+    void setNoteInputFragment();
+
+    void saveNoteItem(String heading, String description);
+
+    void showCoordinator(String text);
+
 }

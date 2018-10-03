@@ -11,4 +11,7 @@ public interface NoteInterface {
     void displayAllNotes();
 
     void setClickListeners();
+
+    void saveNoteToDb(String heading, String description);
+
 }

@@ -50,7 +50,9 @@ public class NotePresenter {
 
         @Override
         protected Void doInBackground(Integer... integers) {
-            dao.deleteNotesById(integers);
+            for(Integer i : integers) {
+                dao.deleteNotesById(i);
+            }
             return null;
         }
     }

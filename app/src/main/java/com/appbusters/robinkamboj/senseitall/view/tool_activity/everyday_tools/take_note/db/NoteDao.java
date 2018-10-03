@@ -6,8 +6,6 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.Note;
-
 import java.util.List;
 
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
@@ -22,7 +20,7 @@ public interface NoteDao {
     void deleteNotes(Note... Note);
 
     @Query("DELETE FROM Note WHERE id = :id")
-    void deleteNotesById(Integer... id);
+    void deleteNotesById(int... id);
 
     @Query("SELECT * FROM Note")
     LiveData<List<Note>> getAllNotes();

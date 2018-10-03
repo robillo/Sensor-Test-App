@@ -17,7 +17,6 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.a
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmDao
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmDatabase
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmPresenter
-import kotlinx.android.synthetic.main.fragment_alarm.*
 import kotlinx.android.synthetic.main.fragment_alarm.view.*
 import java.util.*
 

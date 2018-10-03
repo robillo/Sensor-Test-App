@@ -11,15 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.appbusters.robinkamboj.senseitall.R
-import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.adapter.AlarmAdapter
-import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmDatabase
-import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmPresenter
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.ToolActivity
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.adapter.NoteAdapter
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.Note
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NoteDao
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NoteDatabase
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NotePresenter
 import kotlinx.android.synthetic.main.fragment_note.view.*
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -48,6 +47,17 @@ class NoteFragment : Fragment(), NoteInterface {
         setClickListeners()
     }
 
+    override fun saveNoteToDb(heading: String, description: String) {
+        notePresenter.insertNotes(
+                Note(
+                        heading,
+                        description,
+                        Date().toString(),
+                        Calendar.getInstance().time.toString()
+                )
+        )
+    }
+
     override fun getDbInstances() {
         noteDatabase = NoteDatabase.getDatabaseInstance(context)
         noteDao = noteDatabase.noteDao
@@ -68,7 +78,8 @@ class NoteFragment : Fragment(), NoteInterface {
 
     override fun setClickListeners() {
         v.add_note.setOnClickListener {
-
+            val toolActivity = activity as ToolActivity
+            toolActivity.setNoteInputFragment()
         }
     }
 }
