@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.agsw.FabricView.FabricView;
 import com.appbusters.robinkamboj.senseitall.R;
+import com.rm.freedrawview.FreeDrawView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,8 +19,8 @@ import butterknife.ButterKnife;
  */
 public class ScreenTestFragment extends Fragment implements ScreenTestInterface {
 
-    @BindView(R.id.fabric_view)
-    FabricView fabricView;
+    @BindView(R.id.free_draw)
+    FreeDrawView freeDrawView;
 
     public ScreenTestFragment() {
         // Required empty public constructor
@@ -40,6 +40,5 @@ public class ScreenTestFragment extends Fragment implements ScreenTestInterface 
     public void setup(View v) {
         ButterKnife.bind(this, v);
 
-        fabricView.setBackgroundMode(FabricView.BACKGROUND_STYLE_GRAPH_PAPER);
     }
 }
