@@ -8,6 +8,10 @@ public interface AlarmInterface {
 
     void initialize();
 
+    void showTimePicker();
+
     void displayAllAlarms();
+
+    void setClickListeners();
 
 }
