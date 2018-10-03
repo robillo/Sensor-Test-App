@@ -16,6 +16,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.a
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmDatabase
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.db.AlarmPresenter
 import kotlinx.android.synthetic.main.fragment_alarm.*
+import kotlinx.android.synthetic.main.fragment_alarm.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -23,12 +24,11 @@ import kotlinx.android.synthetic.main.fragment_alarm.*
  */
 class AlarmFragment : Fragment(), AlarmInterface {
 
-    lateinit var v: View
-    lateinit var alarmDatabase: AlarmDatabase
-    lateinit var alarmDao: AlarmDao
-    lateinit var alarmPresenter: AlarmPresenter
-    lateinit var adapter: AlarmAdapter
-    lateinit var alarmData: LiveData<MutableList<Alarm>>
+    private lateinit var v: View
+    private lateinit var alarmDatabase: AlarmDatabase
+    private lateinit var alarmDao: AlarmDao
+    private lateinit var alarmPresenter: AlarmPresenter
+    private lateinit var alarmData: LiveData<MutableList<Alarm>>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -45,7 +45,7 @@ class AlarmFragment : Fragment(), AlarmInterface {
     }
 
     override fun initialize() {
-        recycler.layoutManager = LinearLayoutManager(activity)
+        v.recycler.layoutManager = LinearLayoutManager(activity)
     }
 
     override fun getDbInstances() {
@@ -58,7 +58,7 @@ class AlarmFragment : Fragment(), AlarmInterface {
         alarmData = alarmPresenter.allAlarms
 
         alarmData.observe(this, Observer {
-            recycler.adapter = AlarmAdapter(it, activity)
+            v.recycler.adapter = AlarmAdapter(it, activity)
         })
     }
 
