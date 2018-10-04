@@ -12,6 +12,8 @@ public interface NoteInterface {
 
     void setClickListeners();
 
+    void deleteNoteById(Integer noteId);
+
     void saveNoteToDb(String heading, String description);
 
 }

@@ -28,6 +28,9 @@ public class AppConstants {
     public static final String HEADER_PERSONALIZED = "PROFILE";
     public static final String HEADER_TOOLS = "TOOLS";
 
+    public static final String ARG_HEADING_NOTE = "HEADING_NOTE_ARG";
+    public static final String ARG_DESCRIPTION_NOTE = "DESCRIPTION_NOTE_ARG";
+
     public static final int REQUEST_CODE = 100;
     public static final int REQUEST_CODE_PICK_IMAGE = 101;
     public static final int REQUEST_CODE_CAPTURE_IMAGE = 102;

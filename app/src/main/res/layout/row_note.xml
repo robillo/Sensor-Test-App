@@ -79,7 +79,8 @@
                 android:tint="@color/red_shade_four"
                 android:background="?android:attr/selectableItemBackground"
                 android:padding="10sp"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                android:id="@+id/delete_note"/>
 
             <ImageView
                 android:layout_width="1sp"
@@ -95,7 +96,8 @@
                 android:tint="@color/primary_new_two_dark"
                 android:background="?android:attr/selectableItemBackground"
                 android:padding="10sp"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                android:id="@+id/edit_note"/>
 
         </LinearLayout>
 

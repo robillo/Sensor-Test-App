@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
@@ -37,6 +38,20 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         noteHolder.headerText.setText(list.get(position).getHeading());
         noteHolder.descriptionText.setText(list.get(position).getDescription());
         noteHolder.dateText.setText(list.get(position).getDate());
+
+        final int pos = position;
+        noteHolder.editNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        noteHolder.deleteNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -45,6 +60,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
     }
 
     class NoteHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.edit_note)
+        ImageView editNote;
+
+        @BindView(R.id.delete_note)
+        ImageView deleteNote;
 
         @BindView(R.id.header_text)
         TextView headerText;

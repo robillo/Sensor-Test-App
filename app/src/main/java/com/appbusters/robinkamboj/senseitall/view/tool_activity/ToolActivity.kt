@@ -11,6 +11,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import com.appbusters.robinkamboj.senseitall.R
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.alarm.AlarmFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog
@@ -20,6 +21,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.i
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.reminder.ReminderFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.NoteFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.Note
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.note_input.NoteInputFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
@@ -180,10 +182,18 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
         }
     }
 
-    override fun setNoteInputFragment() {
+    override fun setNoteInputFragment(header: String, description: String) {
         val transaction = supportFragmentManager.beginTransaction()
 
-        transaction.add(R.id.container, NoteInputFragment(), getString(R.string.tag_note_input_fragment))
+        var noteFragment = NoteInputFragment()
+
+        var args: Bundle = Bundle()
+        args.putString(AppConstants.ARG_HEADING_NOTE, header)
+        args.putString(AppConstants.ARG_HEADING_NOTE, description)
+
+        noteFragment.arguments = args
+
+        transaction.add(R.id.container, noteFragment, getString(R.string.tag_note_input_fragment))
                 .commit()
     }
 
@@ -219,6 +229,20 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                 supportFragmentManager
                         .findFragmentByTag(getString(R.string.tag_timer_fragment)) as TimerFragment
         fragment.setInputForTimer(hours, mins, secs)
+    }
+
+    override fun editNote(header: String, description: String) {
+        setNoteInputFragment(header, description)
+    }
+
+    override fun deleteNoteById(noteId: Int) {
+        val fragment: NoteFragment? =
+                supportFragmentManager.findFragmentByTag(getString(R.string.tag_note_fragment))
+                        as NoteFragment
+
+        if(fragment != null) {
+            fragment.deleteNoteById(noteId);
+        }
     }
 
     override fun showCoordinator(text: String) {

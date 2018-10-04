@@ -18,7 +18,6 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.t
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NoteDatabase
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NotePresenter
 import kotlinx.android.synthetic.main.fragment_note.view.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -69,6 +68,10 @@ class NoteFragment : Fragment(), NoteInterface {
         v.recycler.layoutManager = LinearLayoutManager(activity)
     }
 
+    override fun deleteNoteById(noteId: Int) {
+        noteDao.deleteNotesById(noteId)
+    }
+
     override fun onResume() {
         super.onResume()
         displayAllNotes()
@@ -85,7 +88,7 @@ class NoteFragment : Fragment(), NoteInterface {
     override fun setClickListeners() {
         v.add_note.setOnClickListener {
             val toolActivity = activity as ToolActivity
-            toolActivity.setNoteInputFragment()
+            toolActivity.setNoteInputFragment("", "")
         }
     }
 }
