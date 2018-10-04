@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.ToolActivity;
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.Note;
 
 import java.util.List;
@@ -43,13 +44,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         noteHolder.editNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ((ToolActivity) context).editNote(list.get(pos).getHeading(), list.get(pos).getDescription());
             }
         });
         noteHolder.deleteNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ((ToolActivity) context).deleteNoteById(list.get(pos).getId());
             }
         });
     }
