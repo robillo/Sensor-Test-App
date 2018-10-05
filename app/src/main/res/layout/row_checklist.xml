@@ -1,11 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="10sp"
     app:cardElevation="5sp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextOne"
+                tools:text="Remember to do this and that on whatever day"
+                android:padding="10sp"
+                tools:ignore="RtlHardcoded"
+                android:id="@+id/item_text"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFive"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/red_shade_four"
+                tools:text="REMOVE ITEM"
+                android:paddingLeft="10sp"
+                android:paddingRight="5sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                tools:ignore="RtlHardcoded"
+                android:id="@+id/remove_item"/>
+
+            <ImageView
+                android:layout_width="1sp"
+                android:layout_height="match_parent"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/green_shade_four"
+                tools:text="MARK AS DONE"
+                android:paddingLeft="10sp"
+                android:paddingRight="5sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                tools:ignore="RtlHardcoded"
+                android:id="@+id/mark_as_done"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>
