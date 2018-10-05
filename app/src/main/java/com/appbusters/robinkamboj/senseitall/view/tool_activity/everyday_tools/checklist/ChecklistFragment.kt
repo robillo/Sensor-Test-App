@@ -22,8 +22,6 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.c
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.db.CheckDao
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.db.CheckDatabase
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.db.CheckPresenter
-import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.adapter.NoteAdapter
-import kotlinx.android.synthetic.main.fragment_note.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -96,6 +94,14 @@ class ChecklistFragment : Fragment(), ChecklistInterface {
                 v.new_item_text.setText("")
             }
         }
+    }
+
+    override fun markAsDoneById(isDone: Boolean, id: Int) {
+        checkPresenter.updateIsDoneById(isDone, id)
+    }
+
+    override fun deleteCheckById(id: Int) {
+        checkPresenter.deleteSingleItemById(id)
     }
 
     override fun addItemToDb(check: Check) {

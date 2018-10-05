@@ -24,4 +24,8 @@ public interface ToolsInterface {
 
     void saveEditedNote(String heading, String description, Integer id);
 
+    void markCheckAsDoneById(boolean isDone, int id);
+
+    void deleteCheckById(int id);
+
 }

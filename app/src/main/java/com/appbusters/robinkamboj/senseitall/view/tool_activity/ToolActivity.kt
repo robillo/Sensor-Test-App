@@ -17,6 +17,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.a
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog.newInstance
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.ChecklistFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.db.Check
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.internet_speed.InternetSpeedFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.reminder.ReminderFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
@@ -266,6 +267,22 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         as NoteFragment
 
         if(fragment != null) fragment.deleteNoteById(noteId)
+    }
+
+    override fun markCheckAsDoneById(isDone: Boolean, id: Int) {
+        val fragment: ChecklistFragment? =
+                supportFragmentManager.findFragmentByTag(getString(R.string.tag_checklist_fragment))
+                        as ChecklistFragment
+
+        if(fragment != null) fragment.markAsDoneById(isDone, id)
+    }
+
+    override fun deleteCheckById(id: Int) {
+        val fragment: ChecklistFragment? =
+                supportFragmentManager.findFragmentByTag(getString(R.string.tag_checklist_fragment))
+                        as ChecklistFragment
+
+        if(fragment != null) fragment.deleteCheckById(id)
     }
 
     override fun showCoordinator(text: String) {

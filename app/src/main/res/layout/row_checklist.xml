@@ -54,7 +54,7 @@
                 android:paddingTop="10sp"
                 android:paddingBottom="10sp"
                 tools:ignore="RtlHardcoded"
-                android:id="@+id/remove_item"/>
+                android:id="@+id/delete_check"/>
 
             <ImageView
                 android:layout_width="1sp"

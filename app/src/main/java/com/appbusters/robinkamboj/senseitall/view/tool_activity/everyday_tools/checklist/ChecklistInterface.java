@@ -18,4 +18,8 @@ public interface ChecklistInterface {
 
     void addItemToDb(Check check);
 
+    void markAsDoneById(boolean isDone, int id);
+
+    void deleteCheckById(int id);
+
 }
