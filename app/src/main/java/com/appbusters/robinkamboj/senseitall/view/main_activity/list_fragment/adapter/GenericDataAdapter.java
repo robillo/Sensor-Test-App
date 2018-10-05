@@ -93,7 +93,7 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
             public void onClick(View v) {
                 if(list.get(pos).isPresent()) {
 
-                    if(isPermissionGranted(context, list.get(pos).getName(), list.get(pos).getType())) {
+                    if(isPermissionGranted(context, list.get(pos).getName())) {
                         context.startActivity(returnDetailActivityIntent(context, list.get(pos)));
                         ((Activity) context)
                                 .overridePendingTransition(
@@ -120,7 +120,7 @@ public class GenericDataAdapter extends RecyclerView.Adapter<GenericDataAdapter.
     }
 
     @Override
-    public boolean isPermissionGranted(Context context, String sensorName, int sensorType) {
+    public boolean isPermissionGranted(Context context, String sensorName) {
 
         boolean isGiven = true;
         switch (sensorName) {

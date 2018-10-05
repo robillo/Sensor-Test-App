@@ -1,6 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tools;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +16,9 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.helper_classes.CheckIfPresent;
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.ToolActivity;
 
 import java.util.List;
 
@@ -23,10 +29,12 @@ public class PopToolsAdapter extends RecyclerView.Adapter<PopToolsAdapter.PopToo
 
     private List<Category> list;
     private Context context;
+    private CheckIfPresent checkIfPresent;
 
     public PopToolsAdapter(List<Category> list, Context context) {
         this.list = list;
         this.context = context;
+        checkIfPresent = new CheckIfPresent(context);
     }
 
     @NonNull
@@ -45,7 +53,18 @@ public class PopToolsAdapter extends RecyclerView.Adapter<PopToolsAdapter.PopToo
         holder.parentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(checkIfPresent.returnPresence(list.get(pos).getName())) {
+                    Intent intent = new Intent(context, ToolActivity.class);
 
+                    Bundle args = new Bundle();
+                    args.putString(AppConstants.DATA_NAME, list.get(pos).getName());
+                    args.putInt(AppConstants.DRAWABLE_ID, list.get(pos).getDrawable());
+                    intent.putExtras(args);
+
+                    context.startActivity(intent);
+                    ((Activity) context)
+                            .overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
+                }
             }
         });
     }

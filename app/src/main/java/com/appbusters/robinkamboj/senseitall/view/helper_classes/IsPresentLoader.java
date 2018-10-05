@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.splash.helper_classes;
+package com.appbusters.robinkamboj.senseitall.view.helper_classes;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -7,7 +7,6 @@ import android.hardware.SensorManager;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Vibrator;
-import android.support.annotation.Nullable;
 import android.support.v4.content.AsyncTaskLoader;
 
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
@@ -90,7 +89,6 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
         this.androidList = androidList;
     }
 
-    @Nullable
     @Override
     public boolean[][] loadInBackground() {
 
@@ -185,7 +183,7 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
             case SOUND:
                 return true;
             case RADIO:
-                return Build.getRadioVersion() != null || Build.getRadioVersion().equals(AppConstants.UNKNOWN);
+                return Build.getRadioVersion() != null;
             case VIBRATOR:
                 return vibrator != null && vibrator.hasVibrator();
             case INFRARED:
@@ -235,7 +233,7 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
     private boolean isPresentAndroid(@SuppressWarnings("unused") String element) {
         //currently just showing features added in each android version
         //maybe will add tests later
-
+        return true;
 //        switch (Build.VERSION.SDK_INT) {
 //            case Build.VERSION_CODES.O_MR1:
 //            case Build.VERSION_CODES.O: {
@@ -258,6 +256,5 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
 //                break;
 //            }
 //        }
-        return true;
     }
 }

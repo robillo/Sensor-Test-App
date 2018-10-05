@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.db;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "check")
@@ -8,6 +9,7 @@ public class Check {
 
     public Check() {}
 
+    @Ignore
     public Check(String check_text, Boolean isDone) {
         this.check_text = check_text;
         this.isDone = isDone;

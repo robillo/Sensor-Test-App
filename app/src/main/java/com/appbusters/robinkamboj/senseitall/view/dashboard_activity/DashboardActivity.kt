@@ -2,25 +2,35 @@ package com.appbusters.robinkamboj.senseitall.view.dashboard_activity
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
+import android.widget.TextView
 
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.DiscoverFragment
 
 import butterknife.ButterKnife
+import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.profile_fragment.ProfileFragment
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.ToolsFragment
+import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.ListFragment
+import com.appbusters.robinkamboj.senseitall.view.main_activity.request_permissons_fragment.RequestFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_dashboard.*
+import java.util.ArrayList
 
 class DashboardActivity : AppCompatActivity(), DashboardInterface {
+
+    lateinit var permissionsItems: MutableList<PermissionsItem>
 
     override fun setColorFilterToIcons(header: String) {
 
@@ -128,7 +138,64 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
 
+    override fun showSnackBar(text: String) {
+        val snackbar = Snackbar.make(coordinator, text, 600)
+        val view = snackbar.view
+        val textView = view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        snackbar.show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshPermissionsRecycler()
+    }
+
+    private fun refreshPermissionsRecycler() {
+        val rFragment = supportFragmentManager.findFragmentByTag(getString(R.string.tag_request_fragment)) as RequestFragment?
+
+        if (rFragment == null) return
+
+        val rejectedCount = checkIfAllPermissionsGiven()
+        rFragment.showRecycler(permissionsItems)
+        rFragment.updatePendingCount(rejectedCount)
+    }
+
+    public fun setRequestFragment() {
+        val TAG = getString(R.string.tag_request_fragment)
+        if (supportFragmentManager.findFragmentByTag(TAG) != null) return
+        val fragment = RequestFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity)
+        transaction.add(R.id.container, fragment, TAG)
+        transaction.commit()
+    }
+
+    private fun checkIfAllPermissionsGiven(): Int {
+        val permissionNames = AppConstants.dangerousPermissions
+        permissionsItems = ArrayList<PermissionsItem>()
+        var rejectedCount = 0
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            for (p in permissionNames) {
+                val b = checkSelfPermission(p) == PERMISSION_GRANTED
+                permissionsItems.add(PermissionsItem(p, b))
+                if (!b) rejectedCount++
+            }
+        }
+
+        return rejectedCount
+    }
+
     override fun onBackPressed() {
+
+        val fragment: RequestFragment? = supportFragmentManager.findFragmentByTag(getString(R.string.tag_request_fragment)) as RequestFragment
+
+        if(fragment != null) {
+            val transaction =  supportFragmentManager.beginTransaction().remove(fragment).commit()
+            return
+        }
+
         val homeIntent = Intent(Intent.ACTION_MAIN)
         homeIntent.addCategory(Intent.CATEGORY_HOME)
         homeIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK

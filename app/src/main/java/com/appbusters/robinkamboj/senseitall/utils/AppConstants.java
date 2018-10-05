@@ -116,12 +116,12 @@ public class AppConstants {
     public static final String SENSOR_HEART_RATE = "Heart Rate Sensor";
 
     public static final String CALENDAR = "Calendar";                           //tool names
-    public static final String WEATHER = "Weather";
-    public static final String REMINDER = "Set Reminder";
-    public static final String SET_ALARM = "Set Alarm";
-    public static final String INTERNET_SPEED = "Internet Speed";
-    public static final String VOLUME_CONTROL = "Volume Control";
-    public static final String TAKE_NOTE = "Take Note";
+    public static final String WEATHER = "Weather"; //-
+    public static final String REMINDER = "Set Reminder"; //-
+    public static final String SET_ALARM = "Set Alarm"; //-
+    public static final String INTERNET_SPEED = "Internet Speed"; //-
+    public static final String VOLUME_CONTROL = "Volume Control"; //-
+    public static final String TAKE_NOTE = "Take Note"; //-
     public static final String QUICK_SETTINGS = "Quick Settings";
     public static final String CROP_IMAGE = "Crop";
     public static final String SQUARE_IMAGE = "Square";
@@ -617,25 +617,6 @@ public class AppConstants {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             packageManagerPaths.put(VR_MODE, PackageManager.FEATURE_VR_MODE);
         //RADIO, BATTERY, CPU, SOUND, VIBRATOR, INFRARED, ANDROID OS
-
-        sensorManagerInts.put(SENSOR_ACCELEROMETER, Sensor.TYPE_ACCELEROMETER);
-        sensorManagerInts.put(SENSOR_LIGHT, Sensor.TYPE_LIGHT);
-        sensorManagerInts.put(SENSOR_PROXIMITY, Sensor.TYPE_PROXIMITY);
-        sensorManagerInts.put(SENSOR_TEMPERATURE, Sensor.TYPE_AMBIENT_TEMPERATURE);
-        sensorManagerInts.put(SENSOR_PRESSURE, Sensor.TYPE_PRESSURE);
-        sensorManagerInts.put(SENSOR_RELATIVE_HUMIDITY, Sensor.TYPE_RELATIVE_HUMIDITY);
-        sensorManagerInts.put(SENSOR_GYROSCOPE, Sensor.TYPE_GYROSCOPE);
-        sensorManagerInts.put(SENSOR_GRAVITY, Sensor.TYPE_GRAVITY);
-        sensorManagerInts.put(SENSOR_LINEAR_ACCELERATION, Sensor.TYPE_LINEAR_ACCELERATION);
-        sensorManagerInts.put(SENSOR_ROTATION_VECTOR, Sensor.TYPE_ROTATION_VECTOR);
-        sensorManagerInts.put(SENSOR_MAGNETIC_FIELD, Sensor.TYPE_MAGNETIC_FIELD);
-        sensorManagerInts.put(SENSOR_HEART_RATE, Sensor.TYPE_HEART_RATE);
-        sensorManagerInts.put(SENSOR_STEP_DETECTOR, Sensor.TYPE_STEP_DETECTOR);
-        sensorManagerInts.put(SENSOR_STEP_COUNTER, Sensor.TYPE_STEP_COUNTER);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            sensorManagerInts.put(SENSOR_MOTION_DETECTOR, Sensor.TYPE_MOTION_DETECT);
-            sensorManagerInts.put(SENSOR_STATIONARY_DETECTOR, Sensor.TYPE_STATIONARY_DETECT);
-        }
 
         sensorMapDirections.put(
                 SENSOR_PROXIMITY,
@@ -1253,5 +1234,25 @@ public class AppConstants {
                 REMINDER,
                 ""
         ));
+
+        //required
+        sensorManagerInts.put(SENSOR_ACCELEROMETER, Sensor.TYPE_ACCELEROMETER);
+        sensorManagerInts.put(SENSOR_LIGHT, Sensor.TYPE_LIGHT);
+        sensorManagerInts.put(SENSOR_PROXIMITY, Sensor.TYPE_PROXIMITY);
+        sensorManagerInts.put(SENSOR_TEMPERATURE, Sensor.TYPE_AMBIENT_TEMPERATURE);
+        sensorManagerInts.put(SENSOR_PRESSURE, Sensor.TYPE_PRESSURE);
+        sensorManagerInts.put(SENSOR_RELATIVE_HUMIDITY, Sensor.TYPE_RELATIVE_HUMIDITY);
+        sensorManagerInts.put(SENSOR_GYROSCOPE, Sensor.TYPE_GYROSCOPE);
+        sensorManagerInts.put(SENSOR_GRAVITY, Sensor.TYPE_GRAVITY);
+        sensorManagerInts.put(SENSOR_LINEAR_ACCELERATION, Sensor.TYPE_LINEAR_ACCELERATION);
+        sensorManagerInts.put(SENSOR_ROTATION_VECTOR, Sensor.TYPE_ROTATION_VECTOR);
+        sensorManagerInts.put(SENSOR_MAGNETIC_FIELD, Sensor.TYPE_MAGNETIC_FIELD);
+        sensorManagerInts.put(SENSOR_HEART_RATE, Sensor.TYPE_HEART_RATE);
+        sensorManagerInts.put(SENSOR_STEP_DETECTOR, Sensor.TYPE_STEP_DETECTOR);
+        sensorManagerInts.put(SENSOR_STEP_COUNTER, Sensor.TYPE_STEP_COUNTER);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            sensorManagerInts.put(SENSOR_MOTION_DETECTOR, Sensor.TYPE_MOTION_DETECT);
+            sensorManagerInts.put(SENSOR_STATIONARY_DETECTOR, Sensor.TYPE_STATIONARY_DETECT);
+        }
     }
 }

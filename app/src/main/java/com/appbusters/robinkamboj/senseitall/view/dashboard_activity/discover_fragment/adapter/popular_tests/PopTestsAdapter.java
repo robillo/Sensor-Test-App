@@ -19,6 +19,8 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.DashboardActivity;
+import com.appbusters.robinkamboj.senseitall.view.helper_classes.CheckIfPresent;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.helper.IsPresentHelper;
 
@@ -40,11 +42,13 @@ public class PopTestsAdapter extends RecyclerView.Adapter<PopTestsAdapter.Dashbo
     private List<Category> list;
     private Context context;
     private IsPresentHelper isPresent;
+    private CheckIfPresent checkIfPresent;
 
     public PopTestsAdapter(List<Category> list, Context context) {
         this.list = list;
         this.context = context;
         isPresent = new IsPresentHelper(context);
+        checkIfPresent = new CheckIfPresent(context);
     }
 
     @NonNull
@@ -72,7 +76,9 @@ public class PopTestsAdapter extends RecyclerView.Adapter<PopTestsAdapter.Dashbo
         holder.parentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startTest(list.get(pos), context);
+                if(checkIfPresent.returnPresence(list.get(pos).getName())) {
+                    startTest(list.get(pos), context);
+                }
             }
         });
     }

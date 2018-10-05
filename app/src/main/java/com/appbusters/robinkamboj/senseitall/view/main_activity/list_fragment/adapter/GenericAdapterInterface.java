@@ -11,7 +11,7 @@ public interface GenericAdapterInterface {
 
     Intent returnDetailActivityIntent(Context context, GenericData data);
 
-    boolean isPermissionGranted(Context context, String sensorName, int sensorType);
+    boolean isPermissionGranted(Context context, String sensorName);
 
     void filterList(List<GenericData> newList);
 

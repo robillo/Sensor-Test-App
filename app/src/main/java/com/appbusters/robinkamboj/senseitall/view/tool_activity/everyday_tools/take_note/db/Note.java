@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "note")
@@ -9,6 +10,7 @@ public class Note {
     public Note() {
     }
 
+    @Ignore
     public Note(String heading, String description, String date) {
         this.heading = heading;
         this.description = description;

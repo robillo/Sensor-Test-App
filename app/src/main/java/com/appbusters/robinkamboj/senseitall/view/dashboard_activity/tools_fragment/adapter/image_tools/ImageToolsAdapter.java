@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.helper_classes.CheckIfPresent;
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.ToolActivity;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class ImageToolsAdapter extends RecyclerView.Adapter<ImageToolsAdapter.Im
 
     private List<ToolsItem> list;
     private Context context;
+    private CheckIfPresent checkIfPresent;
 
     //0 for blue
     //1 for purple
@@ -36,12 +38,14 @@ public class ImageToolsAdapter extends RecyclerView.Adapter<ImageToolsAdapter.Im
     public ImageToolsAdapter(List<ToolsItem> list, Context context) {
         this.list = list;
         this.context = context;
+        checkIfPresent = new CheckIfPresent(context);
     }
 
     public ImageToolsAdapter(List<ToolsItem> list, Context context, int color) {
         this.list = list;
         this.context = context;
         this.color = color;
+        checkIfPresent = new CheckIfPresent(context);
     }
 
     @NonNull
@@ -67,16 +71,18 @@ public class ImageToolsAdapter extends RecyclerView.Adapter<ImageToolsAdapter.Im
         holder.parentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ToolActivity.class);
+                if(checkIfPresent.returnPresence(list.get(pos).getName())) {
+                    Intent intent = new Intent(context, ToolActivity.class);
 
-                Bundle args = new Bundle();
-                args.putString(AppConstants.DATA_NAME, list.get(pos).getName());
-                args.putInt(AppConstants.DRAWABLE_ID, list.get(pos).getDrawable());
-                intent.putExtras(args);
+                    Bundle args = new Bundle();
+                    args.putString(AppConstants.DATA_NAME, list.get(pos).getName());
+                    args.putInt(AppConstants.DRAWABLE_ID, list.get(pos).getDrawable());
+                    intent.putExtras(args);
 
-                context.startActivity(intent);
-                ((Activity) context)
-                        .overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
+                    context.startActivity(intent);
+                    ((Activity) context)
+                            .overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity);
+                }
             }
         });
     }

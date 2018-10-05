@@ -42,7 +42,7 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.adapter.GenericDataAdapter;
-import com.appbusters.robinkamboj.senseitall.view.splash.helper_classes.IsPresentLoader;
+import com.appbusters.robinkamboj.senseitall.view.helper_classes.IsPresentLoader;
 
 import java.util.ArrayList;
 import java.util.List;

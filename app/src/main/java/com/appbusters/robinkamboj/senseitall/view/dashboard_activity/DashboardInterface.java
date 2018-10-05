@@ -14,6 +14,8 @@ public interface DashboardInterface {
 
     void setClickListeners();
 
+    void showSnackBar(String text);
+
     void setColorFilterToIcons(String header);
 
 }
