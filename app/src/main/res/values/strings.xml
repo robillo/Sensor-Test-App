@@ -2430,6 +2430,7 @@ In parallel France and Germany signed a joint development agreement in 1984 and 
     <string name="new_alarm">ADD ALARM</string>
     <string name="add_note">ADD NOTE</string>
     <string name="your_notes">YOUR NOTES</string>
+    <string name="save_edited_note">SAVE EDITED NOTE</string>
 
     <string-array name="calc_dialog_errors">
         <item>Division by zero</item>

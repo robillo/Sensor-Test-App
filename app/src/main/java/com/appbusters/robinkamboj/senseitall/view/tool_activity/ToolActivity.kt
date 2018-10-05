@@ -21,7 +21,6 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.i
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.reminder.ReminderFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.NoteFragment
-import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.Note
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.note_input.NoteInputFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
@@ -182,18 +181,26 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
         }
     }
 
-    override fun setNoteInputFragment(header: String, description: String) {
+    override fun setNoteInputFragment(header: String, description: String, noteId: Int) {
         val transaction = supportFragmentManager.beginTransaction()
 
-        var noteFragment = NoteInputFragment()
+        val noteInputFragment = NoteInputFragment()
 
-        var args: Bundle = Bundle()
+        val args = Bundle()
         args.putString(AppConstants.ARG_HEADING_NOTE, header)
-        args.putString(AppConstants.ARG_HEADING_NOTE, description)
+        args.putString(AppConstants.ARG_DESCRIPTION_NOTE, description)
+        args.putInt(AppConstants.ARG_ID_NOTE, noteId)
 
-        noteFragment.arguments = args
+        noteInputFragment.arguments = args
 
-        transaction.add(R.id.container, noteFragment, getString(R.string.tag_note_input_fragment))
+        transaction
+                .setCustomAnimations(
+                        R.anim.slide_in_right_activity,
+                        R.anim.slide_out_right_activity,
+                        R.anim.slide_out_right_activity,
+                        R.anim.slide_in_right_activity
+                )
+                .add(R.id.container, noteInputFragment, getString(R.string.tag_note_input_fragment))
                 .commit()
     }
 
@@ -207,6 +214,16 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
         }
     }
 
+    override fun saveEditedNote(heading: String, description: String, noteId: Int) {
+        val fragment: NoteFragment? =
+                supportFragmentManager.findFragmentByTag(getString(R.string.tag_note_fragment))
+                        as NoteFragment
+
+        if(fragment != null) {
+            fragment.saveEditedNote(heading, description, noteId)
+        }
+    }
+
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
@@ -216,7 +233,15 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
         val fragment: Fragment? = supportFragmentManager.findFragmentByTag(getString(R.string.tag_note_input_fragment))
 
         if(fragment != null) {
-            supportFragmentManager.beginTransaction().remove(fragment).commit()
+            supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(
+                            R.anim.slide_in_right_activity,
+                            R.anim.slide_out_right_activity,
+                            R.anim.slide_out_right_activity,
+                            R.anim.slide_in_right_activity
+                    )
+                    .remove(fragment)
+                    .commit()
             return
         }
 
@@ -231,8 +256,8 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
         fragment.setInputForTimer(hours, mins, secs)
     }
 
-    override fun editNote(header: String, description: String) {
-        setNoteInputFragment(header, description)
+    override fun editNote(header: String, description: String, noteId: Int) {
+        setNoteInputFragment(header, description, noteId)
     }
 
     override fun deleteNoteById(noteId: Int) {
@@ -240,14 +265,12 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                 supportFragmentManager.findFragmentByTag(getString(R.string.tag_note_fragment))
                         as NoteFragment
 
-        if(fragment != null) {
-            fragment.deleteNoteById(noteId);
-        }
+        if(fragment != null) fragment.deleteNoteById(noteId)
     }
 
     override fun showCoordinator(text: String) {
         val snackbar = Snackbar.make(coordinator_layout, text, 1000)
-        val view = snackbar.getView()
+        val view = snackbar.view
         val textView = view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
         textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
         snackbar.show()

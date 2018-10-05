@@ -12,14 +12,16 @@ public interface ToolsInterface {
 
     void setTimerForTimer(int hours, int mins, int secs);
 
-    void setNoteInputFragment(String heading, String description);
+    void setNoteInputFragment(String heading, String description, int noteId);
 
     void saveNoteItem(String heading, String description);
 
     void showCoordinator(String text);
 
-    void editNote(String heading, String description);
+    void editNote(String heading, String description, int noteId);
 
     void deleteNoteById(Integer noteId);
+
+    void saveEditedNote(String heading, String description, Integer id);
 
 }

@@ -48,13 +48,21 @@ class NoteFragment : Fragment(), NoteInterface {
     }
 
     override fun saveNoteToDb(heading: String, description: String) {
-
         notePresenter.insertNotes(
                 Note(
                         heading,
                         description,
                         Date().toString()
                 )
+        )
+    }
+
+    override fun saveEditedNote(heading: String, description: String, noteId: Int) {
+        notePresenter.updateNoteById(
+                heading,
+                description,
+                Date().toString(),
+                noteId
         )
     }
 
@@ -69,7 +77,7 @@ class NoteFragment : Fragment(), NoteInterface {
     }
 
     override fun deleteNoteById(noteId: Int) {
-        noteDao.deleteNotesById(noteId)
+        notePresenter.deleteSingleItemById(noteId)
     }
 
     override fun onResume() {
@@ -88,7 +96,7 @@ class NoteFragment : Fragment(), NoteInterface {
     override fun setClickListeners() {
         v.add_note.setOnClickListener {
             val toolActivity = activity as ToolActivity
-            toolActivity.setNoteInputFragment("", "")
+            toolActivity.setNoteInputFragment("", "", -1)
         }
     }
 }

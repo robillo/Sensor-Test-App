@@ -6,4 +6,6 @@ public interface NoteInputInterface {
 
     void setClickListeners();
 
+    void getArgumentStrings();
+
 }

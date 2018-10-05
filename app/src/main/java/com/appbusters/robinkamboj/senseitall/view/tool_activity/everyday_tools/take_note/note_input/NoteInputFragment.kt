@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.appbusters.robinkamboj.senseitall.R
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.ToolActivity
+import kotlinx.android.synthetic.main.fragment_note_input.*
 import kotlinx.android.synthetic.main.fragment_note_input.view.*
 
 /**
@@ -18,6 +20,8 @@ import kotlinx.android.synthetic.main.fragment_note_input.view.*
 class NoteInputFragment : Fragment(), NoteInputInterface {
 
     lateinit var v: View
+    var isEdit: Boolean = false
+    var noteId: Int? = -1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -27,7 +31,22 @@ class NoteInputFragment : Fragment(), NoteInputInterface {
         return v
     }
 
+    override fun getArgumentStrings() {
+        val head: String? = arguments?.getString(AppConstants.ARG_HEADING_NOTE)
+        val desc: String? = arguments?.getString(AppConstants.ARG_DESCRIPTION_NOTE)
+        noteId = arguments?.getInt(AppConstants.ARG_ID_NOTE)
+
+        if(head != null && desc != null && noteId != -1) {
+            isEdit = true
+            v.add_note.text = getString(R.string.save_edited_note)
+        }
+
+        if(head != null) v.heading_text.setText(head)
+        if(desc != null) v.description_text.setText(desc)
+    }
+
     override fun setup() {
+        getArgumentStrings()
         setClickListeners()
     }
 
@@ -40,10 +59,19 @@ class NoteInputFragment : Fragment(), NoteInputInterface {
             val desc = v.description_text.text.toString()
 
             if(head.isNotEmpty() && desc.isNotEmpty()) {
-                toolActivity.saveNoteItem(head, desc)
-                toolActivity.showCoordinator("note saved successfully")
-                toolActivity.onBackPressed()
-                return@setOnClickListener
+
+                if(isEdit) {
+                    toolActivity.saveEditedNote(head, desc, noteId!!)
+                    toolActivity.showCoordinator("note edited successfully")
+                    toolActivity.onBackPressed()
+                    return@setOnClickListener
+                }
+                else {
+                    toolActivity.saveNoteItem(head, desc)
+                    toolActivity.showCoordinator("note saved successfully")
+                    toolActivity.onBackPressed()
+                    return@setOnClickListener
+                }
             }
             else {
                 toolActivity.showCoordinator("please input both parameters")

@@ -16,4 +16,6 @@ public interface NoteInterface {
 
     void saveNoteToDb(String heading, String description);
 
+    void saveEditedNote(String heading, String description, Integer noteId);
+
 }

@@ -44,7 +44,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         noteHolder.editNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ToolActivity) context).editNote(list.get(pos).getHeading(), list.get(pos).getDescription());
+                ((ToolActivity) context).editNote(
+                        list.get(pos).getHeading(),
+                        list.get(pos).getDescription(),
+                        list.get(pos).getId()
+                );
             }
         });
         noteHolder.deleteNote.setOnClickListener(new View.OnClickListener() {

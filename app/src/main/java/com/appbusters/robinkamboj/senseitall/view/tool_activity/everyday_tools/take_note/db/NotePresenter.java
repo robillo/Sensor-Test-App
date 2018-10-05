@@ -17,6 +17,10 @@ public class NotePresenter {
         return dao.getAllNotes();
     }
 
+    public void updateNoteById(String heading, String description, String date, int noteId) {
+        new NotePresenter.updateNotesTask(dao).execute(heading, description, date, String.valueOf(noteId));
+    }
+
     public void insertNotes(Note... Notes) {
         new NotePresenter.insertNotesTask(dao).execute(Notes);
     }
@@ -27,6 +31,19 @@ public class NotePresenter {
 
     public void deleteNotes(Note... Note) {
         new NotePresenter.deleteNotesTask(dao).execute(Note);
+    }
+
+    private static class updateNotesTask extends AsyncTask<String, Void, Void> {
+
+        private NoteDao dao;
+
+        updateNotesTask(NoteDao dao) { this.dao = dao; }
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            dao.updateNoteById(strings[0], strings[1], strings[2], Integer.valueOf(strings[3]));
+            return null;
+        }
     }
 
     private static class insertNotesTask extends AsyncTask<Note, Void, Void> {
