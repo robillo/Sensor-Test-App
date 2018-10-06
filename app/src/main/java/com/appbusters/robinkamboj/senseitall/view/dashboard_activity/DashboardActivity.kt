@@ -151,7 +151,7 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
         refreshPermissionsRecycler()
     }
 
-    private fun refreshPermissionsRecycler() {
+    public fun refreshPermissionsRecycler() {
         val rFragment = supportFragmentManager.findFragmentByTag(getString(R.string.tag_request_fragment)) as RequestFragment?
 
         if (rFragment == null) return
@@ -162,9 +162,14 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
     }
 
     public fun setRequestFragment() {
+
+        val args: Bundle = Bundle()
+        args.putInt(AppConstants.FROM_ARG_IN_REQUEST, RequestFragment.FROM_DASHBOARD)
+
         val TAG = getString(R.string.tag_request_fragment)
         if (supportFragmentManager.findFragmentByTag(TAG) != null) return
         val fragment = RequestFragment()
+        fragment.arguments = args
         val transaction = supportFragmentManager.beginTransaction()
         transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity)
         transaction.add(R.id.container, fragment, TAG)

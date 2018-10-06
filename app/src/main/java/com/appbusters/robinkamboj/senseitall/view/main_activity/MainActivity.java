@@ -58,9 +58,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     public void setRequestFragment() {
+        Bundle args = new Bundle();
+        args.putInt(AppConstants.FROM_ARG_IN_REQUEST, RequestFragment.FROM_MAIN);
+
         String TAG = getString(R.string.tag_request_fragment);
         if(getSupportFragmentManager().findFragmentByTag(TAG) != null) return;
         RequestFragment fragment = new RequestFragment();
+        fragment.setArguments(args);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity);
         transaction.add(R.id.container, fragment, TAG);

@@ -20,6 +20,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.PermissionsItem;
 import com.appbusters.robinkamboj.senseitall.preferences.AppPreferencesHelper;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.DashboardActivity;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity;
 import com.appbusters.robinkamboj.senseitall.view.main_activity.request_permissons_fragment.adapter.RequestAdapter;
 
@@ -34,6 +35,10 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class RequestFragment extends Fragment implements RequestFragmentInterface {
+
+    public static final int FROM_DASHBOARD = 0;
+    public static final int FROM_MAIN = 1;
+    private int FROM_ARG;
 
     List<PermissionsItem> permissionsItems;
 
@@ -68,7 +73,16 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
         ButterKnife.bind(this, v);
 
         if(getActivity() == null) return;
-        ((MainActivity) getActivity()).refreshPermissionsRecycler();
+        if(getArguments() == null) return;
+
+        FROM_ARG = getArguments().getInt(AppConstants.FROM_ARG_IN_REQUEST);
+
+        if(FROM_ARG == FROM_DASHBOARD) {
+            ((DashboardActivity) getActivity()).refreshPermissionsRecycler();
+        }
+        else {
+            ((MainActivity) getActivity()).refreshPermissionsRecycler();
+        }
     }
 
     @Override
