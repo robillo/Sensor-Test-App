@@ -35,6 +35,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CHECKLIST
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.COMPASS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CPU;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.CROP_IMAGE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.DRAW_NOTE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.EDIT_IMAGE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FACE_DETECT;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.FAKE_TOUCH;
@@ -133,6 +134,7 @@ public class CheckIfPresent {
             case SQUARE_IMAGE:
             case CROP_IMAGE:
             case IMAGE_FILTERS:
+            case DRAW_NOTE:
             case EDIT_IMAGE: {
                 if(isPermissionGranted(SQUARE_IMAGE)) {
                     return true;

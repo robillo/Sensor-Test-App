@@ -124,16 +124,17 @@ public class AppConstants {
     public static final String VOLUME_CONTROL = "Volume Control"; //-
     public static final String TAKE_NOTE = "Take Note"; //-
     public static final String QUICK_SETTINGS = "Quick Settings";
-    public static final String CROP_IMAGE = "Crop";
-    public static final String SQUARE_IMAGE = "Square";
-    public static final String IMAGE_FILTERS = "Filters";
-    public static final String EDIT_IMAGE = "Edit";
     public static final String CHECKLIST = "Checklist";
     public static final String RECORD_AUDIO = "Record Audio";
     public static final String CALCULATOR = "Calculator";
     public static final String SOUND_LEVEL = "Sound Level";
     public static final String STOP_WATCH = "Stopwatch";
     public static final String TIMER = "Timer";
+    public static final String CROP_IMAGE = "Image Crop";
+    public static final String IMAGE_FILTERS = "Image Filters";
+    public static final String DRAW_NOTE = "Draw Note";
+    public static final String SQUARE_IMAGE = "Square Image";
+    public static final String EDIT_IMAGE = "Edit Image";
 
     public static final String WIFI_QUICK = "Wifi";                           //quick setting names
     public static final String BLUETOOTH_QUICK = "Bluetooth";
@@ -351,8 +352,9 @@ public class AppConstants {
         toolsNames.add(REMINDER);
         toolsNames.add(QUICK_SETTINGS);
         toolsNames.add(CROP_IMAGE);
-        toolsNames.add(SQUARE_IMAGE);
         toolsNames.add(IMAGE_FILTERS);
+        toolsNames.add(DRAW_NOTE);
+        toolsNames.add(SQUARE_IMAGE);
         toolsNames.add(EDIT_IMAGE);
         toolsNames.add(CHECKLIST);
         toolsNames.add(RECORD_AUDIO);
@@ -373,6 +375,7 @@ public class AppConstants {
 
         imageTools.add(CROP_IMAGE);
         imageTools.add(IMAGE_FILTERS);
+        imageTools.add(DRAW_NOTE);
 //        imageTools.add(SQUARE_IMAGE);
 //        imageTools.add(EDIT_IMAGE);
 
@@ -559,6 +562,7 @@ public class AppConstants {
         imageUrlMap.put(SOUND_LEVEL, R.drawable.baseline_volume_up_black_48);
         imageUrlMap.put(STOP_WATCH, R.drawable.baseline_watch_later_black_48);
         imageUrlMap.put(TIMER, R.drawable.baseline_watch_later_black_48);
+        imageUrlMap.put(DRAW_NOTE, R.drawable.baseline_edit_black_48);
 
 //        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
 //        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
@@ -1084,7 +1088,6 @@ public class AppConstants {
                 AUGMENTED_REALITY,
                 R.array.storage_descriptions
         );
-
 
         categories.add(new Category(
                 R.drawable.baseline_mobile_friendly_black_48,

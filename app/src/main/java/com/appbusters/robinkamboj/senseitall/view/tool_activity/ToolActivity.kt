@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
@@ -26,6 +27,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.t
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.crop.CropFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.draw.DrawFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.filter.FilterFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tool.*
@@ -70,6 +72,15 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
         val transaction = supportFragmentManager.beginTransaction()
 
         when(toolName) {
+            DRAW_NOTE -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                DrawFragment(),
+                                getString(R.string.tag_draw_fragment)
+                        )
+                        .commit()
+            }
             SQUARE_IMAGE -> {
             }
             CROP_IMAGE -> {

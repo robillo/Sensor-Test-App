@@ -64,6 +64,7 @@ dependencies {
     implementation 'com.github.beigirad:ZigzagView:1.0.6'
     implementation 'com.isseiaoki:simplecropview:1.1.7'
     implementation 'jp.wasabeef:glide-transformations:3.3.0'
+    implementation 'com.github.divyanshub024:AndroidDraw:v0.1'
     implementation 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
 
     implementation "android.arch.persistence.room:runtime:1.1.1"
