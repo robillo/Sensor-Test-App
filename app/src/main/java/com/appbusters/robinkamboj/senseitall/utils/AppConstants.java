@@ -406,7 +406,7 @@ public class AppConstants {
 //        everydayTools.add(STOP_WATCH);
 //        everydayTools.add(REMINDER);
 //        everydayTools.add(WEATHER);
-        everydayTools.add(INTERNET_SPEED);
+//        everydayTools.add(INTERNET_SPEED);
         everydayTools.add(TAKE_NOTE);
         everydayTools.add(CHECKLIST);
         everydayTools.add(CALCULATOR);

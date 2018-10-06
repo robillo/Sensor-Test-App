@@ -48,7 +48,7 @@
                 android:gravity="center"
                 android:textSize="12sp"
                 android:textColor="@color/red_shade_four"
-                tools:text="REMOVE ITEM"
+                android:text="REMOVE ITEM"
                 android:paddingLeft="10sp"
                 android:paddingRight="5sp"
                 android:paddingTop="10sp"

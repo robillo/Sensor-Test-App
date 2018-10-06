@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -16,6 +17,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.c
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class CheckAdapter extends RecyclerView.Adapter<CheckAdapter.CheckHolder> {
 
@@ -33,6 +35,7 @@ public class CheckAdapter extends RecyclerView.Adapter<CheckAdapter.CheckHolder>
         return new CheckHolder(LayoutInflater.from(context).inflate(R.layout.row_checklist, viewGroup, false));
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull final CheckHolder holder, final int position) {
 
@@ -42,12 +45,12 @@ public class CheckAdapter extends RecyclerView.Adapter<CheckAdapter.CheckHolder>
         holder.itemText.setText(list.get(position).getCheck_text());
 
         if(list.get(position).getDone()) {
-            holder.markCheckAsDone.setText("MARK AS DONE");
-            holder.markCheckAsDone.setTextColor(ContextCompat.getColor(context, R.color.green_shade_four));
-        }
-        else {
             holder.markCheckAsDone.setText("MARK AS NOT DONE");
             holder.markCheckAsDone.setTextColor(ContextCompat.getColor(context, R.color.red_shade_four));
+        }
+        else {
+            holder.markCheckAsDone.setText("MARK AS DONE");
+            holder.markCheckAsDone.setTextColor(ContextCompat.getColor(context, R.color.green_shade_four));
         }
 
         holder.markCheckAsDone.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +96,7 @@ public class CheckAdapter extends RecyclerView.Adapter<CheckAdapter.CheckHolder>
 
         CheckHolder(@NonNull View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

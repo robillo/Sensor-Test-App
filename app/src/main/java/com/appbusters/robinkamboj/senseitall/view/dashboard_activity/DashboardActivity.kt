@@ -139,7 +139,7 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
     }
 
     override fun showSnackBar(text: String) {
-        val snackbar = Snackbar.make(coordinator, text, 600)
+        val snackbar = Snackbar.make(coordinator, text, 2000)
         val view = snackbar.view
         val textView = view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
         textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
@@ -151,19 +151,17 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
         refreshPermissionsRecycler()
     }
 
-    public fun refreshPermissionsRecycler() {
-        val rFragment = supportFragmentManager.findFragmentByTag(getString(R.string.tag_request_fragment)) as RequestFragment?
-
-        if (rFragment == null) return
+    fun refreshPermissionsRecycler() {
+        val rFragment = supportFragmentManager.findFragmentByTag(getString(R.string.tag_request_fragment)) as RequestFragment? ?: return
 
         val rejectedCount = checkIfAllPermissionsGiven()
         rFragment.showRecycler(permissionsItems)
         rFragment.updatePendingCount(rejectedCount)
     }
 
-    public fun setRequestFragment() {
+    fun setRequestFragment() {
 
-        val args: Bundle = Bundle()
+        val args = Bundle()
         args.putInt(AppConstants.FROM_ARG_IN_REQUEST, RequestFragment.FROM_DASHBOARD)
 
         val TAG = getString(R.string.tag_request_fragment)
@@ -178,7 +176,7 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
 
     private fun checkIfAllPermissionsGiven(): Int {
         val permissionNames = AppConstants.dangerousPermissions
-        permissionsItems = ArrayList<PermissionsItem>()
+        permissionsItems = ArrayList()
         var rejectedCount = 0
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -197,7 +195,10 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
         val fragment: RequestFragment? = supportFragmentManager.findFragmentByTag(getString(R.string.tag_request_fragment)) as RequestFragment
 
         if(fragment != null) {
-            val transaction =  supportFragmentManager.beginTransaction().remove(fragment).commit()
+            val transaction =  supportFragmentManager.beginTransaction()
+            transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity)
+                    .remove(fragment)
+                    .commit()
             return
         }
 
