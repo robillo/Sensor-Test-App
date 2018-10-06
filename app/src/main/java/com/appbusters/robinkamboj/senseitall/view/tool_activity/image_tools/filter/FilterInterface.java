@@ -1,6 +1,6 @@
-package com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.crop;
+package com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.filter;
 
-public interface CropInterface {
+public interface FilterInterface {
 
     void setup();
 
@@ -15,5 +15,7 @@ public interface CropInterface {
     void setClickListeners();
 
     void setEnabledTint();
+
+    void setFilterAdapter();
 
 }

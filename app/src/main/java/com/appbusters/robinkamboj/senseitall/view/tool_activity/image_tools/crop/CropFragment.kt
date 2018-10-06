@@ -66,11 +66,6 @@ class CropFragment : Fragment(), CropInterface {
         v.rotate_left.setColorFilter(color)
         v.rotate_right.setColorFilter(color)
         v.save_to_gallery.setColorFilter(color)
-        v.one_one.setTextColor(color)
-        v.four_three.setTextColor(color)
-        v.original_ratio.setTextColor(color)
-        v.fit_image.setTextColor(color)
-        v.sixteen_nine.setTextColor(color)
     }
 
     override fun setup() {

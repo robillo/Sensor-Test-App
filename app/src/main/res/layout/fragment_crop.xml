@@ -47,7 +47,8 @@
                 android:gravity="center"
                 android:textColor="@color/primary_new"
                 android:textSize="18sp"
-                android:id="@+id/one_one"/>
+                android:id="@+id/one_one"
+                tools:ignore="HardcodedText" />
 
             <ImageView
                 android:layout_width="1sp"
@@ -63,7 +64,8 @@
                 android:gravity="center"
                 android:textColor="@color/primary_new"
                 android:textSize="18sp"
-                android:id="@+id/four_three"/>
+                android:id="@+id/four_three"
+                tools:ignore="HardcodedText" />
 
             <ImageView
                 android:layout_width="1sp"
@@ -79,7 +81,8 @@
                 android:gravity="center"
                 android:textColor="@color/primary_new"
                 android:textSize="18sp"
-                android:id="@+id/original_ratio"/>
+                android:id="@+id/original_ratio"
+                tools:ignore="HardcodedText" />
 
             <ImageView
                 android:layout_width="1sp"
@@ -95,7 +98,8 @@
                 android:gravity="center"
                 android:textColor="@color/primary_new"
                 android:textSize="18sp"
-                android:id="@+id/fit_image"/>
+                android:id="@+id/fit_image"
+                tools:ignore="HardcodedText" />
 
             <ImageView
                 android:layout_width="1sp"
@@ -111,7 +115,8 @@
                 android:gravity="center"
                 android:textColor="@color/primary_new"
                 android:textSize="18sp"
-                android:id="@+id/sixteen_nine"/>
+                android:id="@+id/sixteen_nine"
+                tools:ignore="HardcodedText" />
 
         </LinearLayout>
 

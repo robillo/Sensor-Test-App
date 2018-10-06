@@ -242,10 +242,6 @@ public class AppConstants {
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
 
     public static List<Category> categories = new ArrayList<>();
-    public static List<Category> popularTests = new ArrayList<>();
-    public static List<Category> popularTools = new ArrayList<>();
-
-    public static List<String> diagnosticsNames = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
     public static List<String> informationNames = new ArrayList<>();
@@ -374,9 +370,9 @@ public class AppConstants {
         popTools.add(CALENDAR);
         popTools.add(SOUND_LEVEL);
 
-        imageTools.add(SQUARE_IMAGE);
         imageTools.add(CROP_IMAGE);
         imageTools.add(IMAGE_FILTERS);
+        imageTools.add(SQUARE_IMAGE);
         imageTools.add(EDIT_IMAGE);
 
 //        everydayTools.add(SET_ALARM);
@@ -385,13 +381,13 @@ public class AppConstants {
 //        everydayTools.add(REMINDER);
 //        everydayTools.add(WEATHER);
 //        everydayTools.add(INTERNET_SPEED);
-        everydayTools.add(TAKE_NOTE);
-        everydayTools.add(CHECKLIST);
+//        everydayTools.add(CHECKLIST);
         everydayTools.add(CALCULATOR);
         everydayTools.add(CALENDAR);
         everydayTools.add(VOLUME_CONTROL);
         everydayTools.add(SOUND_LEVEL);
         everydayTools.add(TIMER);
+        everydayTools.add(TAKE_NOTE);
 
         informationNames.add(GSM_UMTS);
         informationNames.add(ANDROID_OS);

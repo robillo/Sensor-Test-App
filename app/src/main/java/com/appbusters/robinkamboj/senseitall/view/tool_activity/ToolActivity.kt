@@ -26,6 +26,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.t
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.timer.TimerFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.volume_control.VolumeControlFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.crop.CropFragment
+import com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.filter.FilterFragment
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tool.*
 import com.roomorama.caldroid.CaldroidFragment
@@ -81,6 +82,13 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                         .commit()
             }
             IMAGE_FILTERS -> {
+                transaction
+                        .add(
+                                R.id.container,
+                                FilterFragment(),
+                                getString(R.string.tag_filter_fragment)
+                        )
+                        .commit()
             }
             EDIT_IMAGE -> {
             }

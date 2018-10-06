@@ -1,14 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/coordinator"
     tools:context=".view.tool_activity.image_tools.filter.FilterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:context=".view.tool_activity.image_tools.crop.CropFragment">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="1"
+            android:background="@color/colorBlack"
+            android:id="@+id/filter_image_view">
+
+        </ImageView>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            android:id="@+id/recycler"
+            android:background="@color/colorBlack">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFour"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_rotate_left_black_48"
+                android:tint="@color/primary_new"
+                tools:ignore="ContentDescription"
+                android:id="@+id/rotate_left"/>
+
+            <ImageView
+                android:layout_width="1sp"
+                android:layout_height="match_parent"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_rotate_right_black_48"
+                android:tint="@color/primary_new"
+                tools:ignore="ContentDescription"
+                android:id="@+id/rotate_right"/>
+
+            <ImageView
+                android:layout_width="1sp"
+                android:layout_height="match_parent"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_save_black_48"
+                android:tint="@color/primary_new"
+                tools:ignore="ContentDescription"
+                android:id="@+id/save_to_gallery"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFour"
+            tools:ignore="ContentDescription,SmallSp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_photo_library_black_48"
+                android:tint="@color/primary_new"
+                tools:ignore="ContentDescription"
+                android:id="@+id/select_image_from_gallery"/>
+
+            <ImageView
+                android:layout_width="1sp"
+                android:layout_height="match_parent"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_photo_camera_black_48"
+                android:tint="@color/primary_new"
+                tools:ignore="ContentDescription"
+                android:id="@+id/capture_image"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

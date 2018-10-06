@@ -200,6 +200,7 @@ The tests for the above sensors provided in the app will could be used for fun, 
     <string name="tag_calendar_fragment">CALENDAR SHEET</string>
     <string name="tag_checklist_fragment">CHECKLIST SHEET</string>
     <string name="tag_crop_fragment">CROP FRAGMENT</string>
+    <string name="tag_filter_fragment">FILTER FRAGMENT</string>
     <string name="tag_timer_fragment">TIMER FRAGMENT</string>
     <string name="tag_note_input_fragment">NOTE INPUT FRAGMENT</string>
     <string name="tag_timer_sheet">TIMER SHEET</string>
