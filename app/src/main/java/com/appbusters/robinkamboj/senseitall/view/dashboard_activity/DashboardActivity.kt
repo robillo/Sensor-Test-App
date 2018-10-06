@@ -7,6 +7,7 @@ import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.WindowManager
@@ -192,9 +193,10 @@ class DashboardActivity : AppCompatActivity(), DashboardInterface {
 
     override fun onBackPressed() {
 
-        val fragment: RequestFragment? = supportFragmentManager.findFragmentByTag(getString(R.string.tag_request_fragment)) as RequestFragment
+        var fragment: Fragment? = supportFragmentManager.findFragmentByTag(getString(R.string.tag_request_fragment))
 
         if(fragment != null) {
+            fragment = fragment as RequestFragment
             val transaction =  supportFragmentManager.beginTransaction()
             transaction.setCustomAnimations(R.anim.slide_in_bottom_activity, R.anim.slide_out_right_activity)
                     .remove(fragment)

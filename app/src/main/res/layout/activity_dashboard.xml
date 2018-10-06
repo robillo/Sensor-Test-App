@@ -60,7 +60,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1sp"
-            android:background="@drawable/line_bg"
+            android:background="@color/colorTextThree"
             tools:ignore="ContentDescription,SmallSp" />
 
         <LinearLayout

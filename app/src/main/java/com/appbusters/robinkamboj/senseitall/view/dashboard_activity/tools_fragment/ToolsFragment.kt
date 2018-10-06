@@ -114,13 +114,13 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun checkEachQuickSetting(info: String) {
         when (info) {
             WIFI_QUICK -> {
-                val wifiManager =
-                        activity?.getApplicationContext()?.getSystemService(Context.WIFI_SERVICE) as WifiManager
-                if(wifiManager.isWifiEnabled) quickAdapter.updateItemState(info, true)
+//                val wifiManager =
+//                        activity?.getApplicationContext()?.getSystemService(Context.WIFI_SERVICE) as WifiManager
+//                if(wifiManager.isWifiEnabled) quickAdapter.updateItemState(info, true)
 
             }
             BLUETOOTH_QUICK -> {
-                if(BluetoothAdapter.getDefaultAdapter().isEnabled) quickAdapter.updateItemState(info, true)
+//                if(BluetoothAdapter.getDefaultAdapter().isEnabled) quickAdapter.updateItemState(info, true)
             }
             BRIGHTNESS_QUICK -> {
 
@@ -138,16 +138,16 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
             }
             AIRPLANE_QUICK -> {
-                if(Settings.System.getInt(context?.getContentResolver(),
-                                AIRPLANE_MODE_ON, 0) != 0) {
-                    quickAdapter.updateItemState(info, true)
-                }
+//                if(Settings.System.getInt(context?.getContentResolver(),
+//                                AIRPLANE_MODE_ON, 0) != 0) {
+//                    quickAdapter.updateItemState(info, true)
+//                }
             }
             AUTOROTATE_QUICK -> {
-                if(android.provider.Settings.System.getInt(activity?.contentResolver,
-                                Settings.System.ACCELEROMETER_ROTATION, 0) == 1){
-                    quickAdapter.updateItemState(info, true)
-                }
+//                if(android.provider.Settings.System.getInt(activity?.contentResolver,
+//                                Settings.System.ACCELEROMETER_ROTATION, 0) == 1){
+//                    quickAdapter.updateItemState(info, true)
+//                }
             }
         }
     }

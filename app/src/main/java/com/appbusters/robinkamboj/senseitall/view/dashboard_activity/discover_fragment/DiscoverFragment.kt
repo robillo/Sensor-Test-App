@@ -20,7 +20,9 @@ import kotlinx.android.synthetic.main.fragment_discover.view.*
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CardFragmentPagerAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.ShadowTransformer
 import android.widget.CompoundButton
+import com.appbusters.robinkamboj.senseitall.model.recycler.Category
 import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tools.PopToolsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CustPagerTransformer
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.image_tools.ImageToolsAdapter
@@ -39,6 +41,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
     lateinit var mFragmentCardShadowTransformer: ShadowTransformer
 
     var pop_tools_list: MutableList<ToolsItem> = ArrayList()
+    var pop_tests_list: MutableList<Category> = ArrayList()
 
     lateinit var lv: View
 
@@ -76,7 +79,17 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
     }
 
     override fun setCategoriesAdapter() {
-        val adapter = PopTestsAdapter(AppConstants.popularTests, activity)
+        val list : List<String> = AppConstants.popTests
+        list.forEach {
+            var type = 1
+            when(it) {
+                SENSOR_PROXIMITY, SENSOR_ACCELEROMETER -> type = 1
+                MULTI_TOUCH, SCREEN, SOUND, FINGERPRINT, BATTERY, COMPASS -> type = 2
+                LABEL_GENERATOR, VIRTUAL_REALITY -> type = 4
+            }
+            pop_tests_list.add(Category(AppConstants.imageUrlMap.get(it)!!, it, "", type))
+        }
+        val adapter = PopTestsAdapter(pop_tests_list, activity)
         lv.categories_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.HORIZONTAL,

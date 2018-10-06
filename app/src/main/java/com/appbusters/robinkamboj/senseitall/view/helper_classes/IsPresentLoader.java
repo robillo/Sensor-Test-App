@@ -32,8 +32,6 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.STORAGE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TEXT_SCAN;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.featureNames;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.sensorNames;
 
 public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
 
@@ -46,13 +44,11 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
 
     private boolean[] sensorsPresent,
             featuresPresent,
-            diagnosticPresent,
             informationPresent,
             softwarePresent,
             androidsPresent;
 
-    private List<String> diagnosticList,
-            sensorList,
+    private List<String> sensorList,
             featureList,
             informationList,
             softwareList,
@@ -66,7 +62,6 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
             PackageManager featureManager,
             CameraManager cameraManager,
             boolean isFingerPrintSupported,
-            List<String> diagnosticList,
             List<String> sensorList,
             List<String> featureList,
             List<String> informationList,
@@ -81,7 +76,6 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
         this.cameraManager = cameraManager;
         this.isFingerPrintSupported = isFingerPrintSupported;
 
-        this.diagnosticList = diagnosticList;
         this.sensorList = sensorList;
         this.featureList = featureList;
         this.informationList = informationList;
@@ -91,30 +85,19 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
 
     @Override
     public boolean[][] loadInBackground() {
-
-        diagnosticPresent = returnPresentDiagnostic(diagnosticList);
         sensorsPresent = returnPresentSensors(sensorList);
         featuresPresent = returnPresentFeatures(featureList);
         informationPresent = returnPresentInformation(informationList);
         softwarePresent = returnPresentSoftware(softwareList);
         androidsPresent = returnPresentAndroid(androidList);
 
-        boolean[][] isPresent = new boolean[6][];
+        boolean[][] isPresent = new boolean[5][];
         isPresent[0] = sensorsPresent;
         isPresent[1] = featuresPresent;
-        isPresent[2] = diagnosticPresent;
-        isPresent[3] = informationPresent;
-        isPresent[4] = softwarePresent;
-        isPresent[5] = androidsPresent;
+        isPresent[2] = informationPresent;
+        isPresent[3] = softwarePresent;
+        isPresent[4] = androidsPresent;
         return isPresent;
-    }
-
-    private boolean[] returnPresentDiagnostic(List<String> elementList) {
-        diagnosticPresent = new boolean[elementList.size()];
-        for(int i=0; i<elementList.size(); i++) {
-            diagnosticPresent[i] = isPresentDiagnostic(elementList.get(i));
-        }
-        return diagnosticPresent;
     }
 
     private boolean[] returnPresentSensors(List<String> elementList) {
@@ -155,18 +138,6 @@ public class IsPresentLoader extends AsyncTaskLoader<boolean[][]> {
             androidsPresent[i] = isPresentAndroid(elementList.get(i));
         }
         return androidsPresent;
-    }
-
-    private boolean isPresentDiagnostic(String element) {
-        for(int i=0; i<featureNames.size(); i++) {
-            if(featureNames.get(i).equals(element))
-                return isPresentFeature(element);
-        }
-        for(int i=0; i<sensorNames.size(); i++) {
-            if(sensorNames.get(i).equals(element))
-                return isPresentSensor(element);
-        }
-        return false;
     }
 
     private boolean isPresentSensor(String element) {

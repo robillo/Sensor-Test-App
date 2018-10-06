@@ -97,14 +97,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     private GenericDataAdapter adapter = null;
     private String headerTextString;
 
-    private List<String> diagnosticsNames;
     private List<String> sensorNames;
     private List<String> featureNames;
     private List<String> informationNames;
     private List<String> softwareNames;
     private List<String> androidNames;
 
-    private boolean[] diagnosticsPresent;
     private boolean[] sensorsPresent;
     private boolean[] featuresPresent;
     private boolean[] informationsPresent;
@@ -207,7 +205,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
 
     @Override
     public void inflateData() {
-        diagnosticsNames = AppConstants.diagnosticsNames;
         sensorNames = AppConstants.sensorNames;
         featureNames = AppConstants.featureNames;
         informationNames = AppConstants.informationNames;
@@ -432,11 +429,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         List<String> dataNames = new ArrayList<>();
         boolean[] dataPresent = new boolean[dataNames.size()];
         switch (type) {
-            case TYPE_DIAGNOSTICS: {
-                dataNames = diagnosticsNames;
-                dataPresent = diagnosticsPresent;
-                break;
-            }
             case TYPE_SENSORS: {
                 dataNames = sensorNames;
                 dataPresent = sensorsPresent;
@@ -559,7 +551,6 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 featureManager,
                 cameraManager,
                 isFingerprintSupported,
-                AppConstants.diagnosticsNames,
                 AppConstants.sensorNames,
                 AppConstants.featureNames,
                 AppConstants.informationNames,
@@ -571,11 +562,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void onLoadFinished(@NonNull Loader<boolean[][]> loader, boolean[][] isPresent) {
         this.sensorsPresent = isPresent[0];
         this.featuresPresent = isPresent[1];
-        this.diagnosticsPresent = isPresent[2];
-
-        this.informationsPresent = isPresent[3];
-        this.softwaresPresent = isPresent[4];
-        this.androidsPresent = isPresent[5];
+        this.informationsPresent = isPresent[2];
+        this.softwaresPresent = isPresent[3];
+        this.androidsPresent = isPresent[4];
 
         setHeaderTextAndRv();
     }

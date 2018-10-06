@@ -255,6 +255,7 @@ public class AppConstants {
     public static List<String> quickSettingNames = new ArrayList<>();
     public static List<String> imageTools = new ArrayList<>();
     public static List<String> popTools = new ArrayList<>();
+    public static List<String> popTests = new ArrayList<>();
     public static List<String> everydayTools = new ArrayList<>();
 
     public static HashMap<String, Boolean> isTestMap = new HashMap<>();
@@ -320,30 +321,6 @@ public class AppConstants {
         dangerousPermissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
 //        dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        diagnosticsNames.add(SENSOR_ACCELEROMETER);
-        diagnosticsNames.add(SENSOR_LIGHT);
-        diagnosticsNames.add(SENSOR_PROXIMITY);
-        diagnosticsNames.add(SENSOR_PRESSURE);
-        diagnosticsNames.add(SENSOR_GYROSCOPE);
-        diagnosticsNames.add(SENSOR_GRAVITY);
-        diagnosticsNames.add(SENSOR_LINEAR_ACCELERATION);
-        diagnosticsNames.add(SENSOR_ROTATION_VECTOR);
-        diagnosticsNames.add(SENSOR_MAGNETIC_FIELD);
-        diagnosticsNames.add(BACK_CAMERA);
-        diagnosticsNames.add(FRONT_CAMERA);
-        diagnosticsNames.add(GPS_LOCATION);
-//        diagnosticsNames.add(WIFI);
-//        diagnosticsNames.add(BLUETOOTH);
-        diagnosticsNames.add(COMPASS);
-        diagnosticsNames.add(SCREEN);
-        diagnosticsNames.add(BATTERY);
-        diagnosticsNames.add(SOUND);
-        diagnosticsNames.add(VIBRATOR);
-        diagnosticsNames.add(AV_OUTPUTS);
-        diagnosticsNames.add(FLASH);
-        diagnosticsNames.add(MULTI_TOUCH);
-        diagnosticsNames.add(FINGERPRINT);
-
         featureNames.add(BACK_CAMERA);  //d
         featureNames.add(FRONT_CAMERA);  //d
         featureNames.add(GSM_UMTS);
@@ -391,10 +368,11 @@ public class AppConstants {
 //        popTools.add(SET_ALARM);
 //        popTools.add(WEATHER);
 //        popTools.add(REMINDER);
+        popTools.add(CROP_IMAGE);
         popTools.add(VOLUME_CONTROL);
-        popTools.add(INTERNET_SPEED);
         popTools.add(TAKE_NOTE);
         popTools.add(CALENDAR);
+        popTools.add(SOUND_LEVEL);
 
         imageTools.add(SQUARE_IMAGE);
         imageTools.add(CROP_IMAGE);
@@ -1141,100 +1119,16 @@ public class AppConstants {
                 "0" + androidNames.size() + " ITEMS")
         );
 
-//        public static final int TYPE_DIAGNOSTICS = 0;                               //data types
-//        public static final int TYPE_SENSORS = 1;
-//        public static final int TYPE_FEATURES = 2;
-//        public static final int TYPE_INFORMATION = 3;
-//        public static final int TYPE_SOFTWARE = 4;
-//        public static final int TYPE_ANDROID = 5;
-
-        popularTests.add(new Category(
-                imageUrlMap.get(SENSOR_PROXIMITY),
-                SENSOR_PROXIMITY,
-                "", 1
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(MULTI_TOUCH),
-                MULTI_TOUCH,
-                "", 2
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(SENSOR_ACCELEROMETER),
-                SENSOR_ACCELEROMETER,
-                "", 1
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(SCREEN),
-                SCREEN,
-                "", 2
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(SOUND),
-                SOUND,
-                "", 2
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(LABEL_GENERATOR),
-                LABEL_GENERATOR,
-                "", 4
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(VIRTUAL_REALITY),
-                VIRTUAL_REALITY,
-                "", 4
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(FINGERPRINT),
-                FINGERPRINT,
-                "", 2
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(BATTERY),
-                BATTERY,
-                "", 2
-        ));
-        popularTests.add(new Category(
-                imageUrlMap.get(COMPASS),
-                COMPASS,
-                "", 2
-        ));
-
-
-        popularTools.add(new Category(
-                imageUrlMap.get(SET_ALARM),
-                SET_ALARM,
-                ""
-        ));
-        popularTools.add(new Category(
-                imageUrlMap.get(INTERNET_SPEED),
-                INTERNET_SPEED,
-                ""
-        ));
-        popularTools.add(new Category(
-                imageUrlMap.get(TAKE_NOTE),
-                TAKE_NOTE,
-                ""
-        ));
-        popularTools.add(new Category(
-                imageUrlMap.get(VOLUME_CONTROL),
-                VOLUME_CONTROL,
-                ""
-        ));
-//        popularTools.add(new Category(
-//                imageUrlMap.get(WEATHER),
-//                WEATHER,
-//                ""
-//        ));
-        popularTools.add(new Category(
-                imageUrlMap.get(CALENDAR),
-                CALENDAR,
-                ""
-        ));
-        popularTools.add(new Category(
-                imageUrlMap.get(REMINDER),
-                REMINDER,
-                ""
-        ));
+        popTests.add(SENSOR_PROXIMITY);
+        popTests.add(MULTI_TOUCH);
+        popTests.add(SENSOR_ACCELEROMETER);
+        popTests.add(SCREEN);
+        popTests.add(SOUND);
+        popTests.add(LABEL_GENERATOR);
+        popTests.add(VIRTUAL_REALITY);
+        popTests.add(FINGERPRINT);
+        popTests.add(BATTERY);
+        popTests.add(COMPASS);
 
         //required
         sensorManagerInts.put(SENSOR_ACCELEROMETER, Sensor.TYPE_ACCELEROMETER);
