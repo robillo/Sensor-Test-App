@@ -31,6 +31,15 @@
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00000000</color>
 
+    <!--draw colors -->
+    <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#00e6ff</color>
+    <color name="pink">#d21eff</color>
+    <color name="brown">#a44400</color>
+
     <color name="green_shade_one">#1E4000</color>
     <color name="green_shade_two">#3C7F00</color>
     <color name="green_shade_three">#5ABF00</color>

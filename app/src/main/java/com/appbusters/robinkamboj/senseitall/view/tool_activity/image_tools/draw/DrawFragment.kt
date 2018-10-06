@@ -3,11 +3,13 @@ package com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.dra
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.appbusters.robinkamboj.senseitall.R
+import kotlinx.android.synthetic.main.fragment_draw.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -26,6 +28,31 @@ class DrawFragment : Fragment(), DrawInterface {
     }
 
     override fun setup() {
+        setClickListeners()
+    }
+
+    override fun setClickListeners() {
+
+        v.draw_view.setStrokeWidth(2f)
+
+        v.small_two.setOnClickListener { v.draw_view.setStrokeWidth(2f) }
+        v.small_one.setOnClickListener { v.draw_view.setStrokeWidth(6f) }
+        v.mid_size.setOnClickListener { v.draw_view.setStrokeWidth(10f) }
+        v.large_one.setOnClickListener { v.draw_view.setStrokeWidth(14f) }
+        v.large_two.setOnClickListener { v.draw_view.setStrokeWidth(18f) }
+        v.black.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.black)) }
+        v.red.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.red)) }
+        v.yellow.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.yellow)) }
+        v.green.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.green)) }
+        v.blue.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.blue)) }
+        v.pink.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.pink)) }
+        v.brown.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.brown)) }
+        v.save_to_gallery.setOnClickListener {
+
+        }
+        v.undo.setOnClickListener { v.draw_view.undo() }
+        v.redo.setOnClickListener { v.draw_view.redo() }
+        v.clear_canvas.setOnClickListener { v.draw_view.clearCanvas() }
     }
 
 }
