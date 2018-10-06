@@ -3,6 +3,7 @@ package com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.cro
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -19,7 +20,9 @@ import android.widget.TextView
 
 import com.appbusters.robinkamboj.senseitall.R
 import com.isseiaoki.simplecropview.CropImageView
+import com.isseiaoki.simplecropview.callback.CropCallback
 import com.isseiaoki.simplecropview.callback.LoadCallback
+import com.isseiaoki.simplecropview.callback.SaveCallback
 import kotlinx.android.synthetic.main.fragment_crop.view.*
 import java.io.File
 import java.io.FileNotFoundException
@@ -33,6 +36,8 @@ import java.util.*
  */
 class CropFragment : Fragment(), CropInterface {
 
+    lateinit var sourceUri: Uri
+    var savedUri: Uri? = null
     var isSomeImageSelected = false
     val REQUEST_CODE_CAPTURE_IMAGE = 102
     val CHOOSER_INTENT_TITLE = "Select Image"
@@ -100,6 +105,39 @@ class CropFragment : Fragment(), CropInterface {
                 showCoordinator("please select an image first")
                 return@setOnClickListener
             }
+            showCoordinatorPositive("saving image")
+            v.crop_view.crop(sourceUri).execute(object: CropCallback {
+                override fun onSuccess(cropped: Bitmap?) {
+
+                    val direct = File(Environment.getExternalStorageDirectory().toString() + "/Sense It All")
+
+                    if (!direct.exists()) {
+                        val wallpaperDirectory = File(Environment.getExternalStorageDirectory().path + "/Sense It All/")
+                        wallpaperDirectory.mkdirs()
+                    }
+
+                    v.crop_view.save(cropped).execute(
+                            Uri.fromFile(
+                                    File(
+                                            Environment.getExternalStorageDirectory().path + "/Sense It All/",
+                                            "img_crop_" + System.currentTimeMillis().toString() + ".jpg"
+                                    )
+                            ),
+                            object : SaveCallback {
+                                override fun onSuccess(uri: Uri?) {
+                                    savedUri = uri
+                                    showCoordinatorSaved("IMAGE SUCCESSFULLY SAVED", savedUri)
+                                }
+                                override fun onError(e: Throwable?) {
+                                    showCoordinator("some error occurred")
+                                }
+                            }
+                    )
+                }
+                override fun onError(e: Throwable?) {
+                    showCoordinator("some error occurred")
+                }
+            })
         }
         v.one_one.setOnClickListener {
             if(!isSomeImageSelected) {
@@ -170,8 +208,11 @@ class CropFragment : Fragment(), CropInterface {
                 return
             }
 
-            val photoURI = FileProvider.getUriForFile(activity!!,
-                    "com.appbusters.robinkamboj.senseitall.GenericFileProvider", pictureFile)
+            val photoURI = FileProvider.getUriForFile(
+                    activity!!,
+                    "com.appbusters.robinkamboj.senseitall.GenericFileProvider",
+                    pictureFile
+            )
             cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
             startActivityForResult(cameraIntent, REQUEST_CODE_CAPTURE_IMAGE)
         }
@@ -208,20 +249,46 @@ class CropFragment : Fragment(), CropInterface {
         s.show()
     }
 
+    fun showCoordinatorSaved(coordinatorText: String, uri: Uri?) {
+        if(uri == null) {
+            val s = Snackbar.make(v.coordinator, coordinatorText, Snackbar.LENGTH_SHORT)
+            val v = s.view
+            v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.colorBlackShade))
+            val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+            t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
+            t.textAlignment = View.TEXT_ALIGNMENT_CENTER
+            s.show()
+        }
+        else {
+            val s = Snackbar.make(v.coordinator, coordinatorText, Snackbar.LENGTH_LONG)
+            val v = s.view
+            v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.colorBlackShade))
+            val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+            t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
+            t.textAlignment = View.TEXT_ALIGNMENT_CENTER
+//            s.setAction("VIEW") {
+//                val intent = Intent(Intent.ACTION_VIEW, uri)
+//                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+//                startActivity(intent)
+//            }
+            s.show()
+        }
+    }
+
     override fun hidePlaceholderViews() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == FragmentActivity.RESULT_OK) {
             if (data != null) {
-                val selectedImage = data.data ?: return
+                sourceUri = data.data ?: return
 
                 try {
                     //get bitmap from selected uri
                     //set bitmap to image to work on
                     //hide placeholders
 
-                    v.crop_view.load(selectedImage).execute(object: LoadCallback {
+                    v.crop_view.load(sourceUri).execute(object: LoadCallback {
                         override fun onSuccess() {
                             v.crop_view.setInitialFrameScale(0.5f)
                             isSomeImageSelected = true
@@ -249,7 +316,9 @@ class CropFragment : Fragment(), CropInterface {
             //set bitmap to image to work on
             //hide placeholder views
 
-            v.crop_view.load(Uri.fromFile(File(mCurrentPhotoPath))).execute(object: LoadCallback {
+            sourceUri = Uri.fromFile(File(mCurrentPhotoPath))
+
+            v.crop_view.load(sourceUri).execute(object: LoadCallback {
                 override fun onSuccess() {
                     v.crop_view.setInitialFrameScale(0.5f)
                     isSomeImageSelected = true
