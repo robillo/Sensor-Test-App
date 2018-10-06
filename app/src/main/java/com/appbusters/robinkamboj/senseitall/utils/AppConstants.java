@@ -364,16 +364,17 @@ public class AppConstants {
 //        popTools.add(SET_ALARM);
 //        popTools.add(WEATHER);
 //        popTools.add(REMINDER);
-        popTools.add(CROP_IMAGE);
         popTools.add(VOLUME_CONTROL);
-        popTools.add(TAKE_NOTE);
+        popTools.add(CROP_IMAGE);
+        popTools.add(IMAGE_FILTERS);
         popTools.add(CALENDAR);
         popTools.add(SOUND_LEVEL);
+        popTools.add(TAKE_NOTE);
 
         imageTools.add(CROP_IMAGE);
         imageTools.add(IMAGE_FILTERS);
-        imageTools.add(SQUARE_IMAGE);
-        imageTools.add(EDIT_IMAGE);
+//        imageTools.add(SQUARE_IMAGE);
+//        imageTools.add(EDIT_IMAGE);
 
 //        everydayTools.add(SET_ALARM);
 //        everydayTools.add(RECORD_AUDIO);

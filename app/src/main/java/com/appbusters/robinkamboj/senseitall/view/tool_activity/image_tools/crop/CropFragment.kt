@@ -71,8 +71,8 @@ class CropFragment : Fragment(), CropInterface {
     override fun setup() {
         v.crop_view.setHandleShowMode(CropImageView.ShowMode.SHOW_ALWAYS)
         v.crop_view.setGuideShowMode(CropImageView.ShowMode.SHOW_ON_TOUCH)
-        v.crop_view.setFrameStrokeWeightInDp(3)
-        v.crop_view.setHandleSizeInDp(5)
+        v.crop_view.setFrameStrokeWeightInDp(5)
+        v.crop_view.setHandleSizeInDp(8)
 
         setEnabledTint()
         setClickListeners()
