@@ -304,11 +304,11 @@ public class AppConstants {
         quickSettings.add(new TinyInfo(BLUETOOTH_QUICK, onMapImage.get(BLUETOOTH_QUICK), offMapImage.get(BLUETOOTH_QUICK)));
 //        quickSettings.add(new TinyInfo(BRIGHTNESS_QUICK, onMapImage.get(BRIGHTNESS_QUICK), offMapImage.get(BRIGHTNESS_QUICK)));
 //        quickSettings.add(new TinyInfo(VOLUME_QUICK, onMapImage.get(VOLUME_QUICK), offMapImage.get(VOLUME_QUICK)));
-        quickSettings.add(new TinyInfo(HOTSPOT_QUICK, onMapImage.get(HOTSPOT_QUICK), offMapImage.get(HOTSPOT_QUICK)));
 //        quickSettings.add(new TinyInfo(FLASHLIGHT_QUICK, onMapImage.get(FLASHLIGHT_QUICK), offMapImage.get(FLASHLIGHT_QUICK)));
 //        quickSettings.add(new TinyInfo(LOCATION_QUICK, onMapImage.get(LOCATION_QUICK), offMapImage.get(LOCATION_QUICK)));
         quickSettings.add(new TinyInfo(AIRPLANE_QUICK, onMapImage.get(AIRPLANE_QUICK), offMapImage.get(AIRPLANE_QUICK)));
         quickSettings.add(new TinyInfo(AUTOROTATE_QUICK, onMapImage.get(AUTOROTATE_QUICK), offMapImage.get(AUTOROTATE_QUICK)));
+        quickSettings.add(new TinyInfo(HOTSPOT_QUICK, onMapImage.get(HOTSPOT_QUICK), offMapImage.get(HOTSPOT_QUICK)));
 
         dangerousPermissions.add(Manifest.permission.CAMERA);
         dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);

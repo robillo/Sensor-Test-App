@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.database.ContentObserver
 import android.net.NetworkInfo
+import android.net.wifi.WifiConfiguration
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.os.Handler
@@ -32,6 +33,7 @@ import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragm
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings.QuickSettingsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings.QuickSettingsListener
 import kotlinx.android.synthetic.main.fragment_tools.view.*
+import java.lang.reflect.Method
 
 
 /**
@@ -354,7 +356,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun flipHotspotSetting(turnOn: Boolean) {
-
+        showCoordinatorNegative("this setting cannot be changed from here")
     }
 
     override fun flipAutorotateSetting(turnOn: Boolean) {
@@ -367,8 +369,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
             quickAdapter.updateItemState(AUTOROTATE_QUICK, turnOn)
         }
         catch (e: Exception) {
-            showCoordinatorSettings("allow \"modify system settings\" under Advanced settings for this app " +
-                    "to use this feature")
+            showCoordinatorSettings("allow \"modify system settings\" for this app under \"advanced\" section")
         }
     }
 
