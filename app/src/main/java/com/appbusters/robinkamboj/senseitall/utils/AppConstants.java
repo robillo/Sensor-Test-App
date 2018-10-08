@@ -369,6 +369,7 @@ public class AppConstants {
         popTools.add(VOLUME_CONTROL);
         popTools.add(CROP_IMAGE);
         popTools.add(IMAGE_FILTERS);
+        popTools.add(DRAW_NOTE);
         popTools.add(CALENDAR);
         popTools.add(SOUND_LEVEL);
         popTools.add(TAKE_NOTE);
