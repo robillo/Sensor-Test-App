@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -30,6 +31,7 @@ import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_filter.view.*
 import java.io.File
 import java.io.FileNotFoundException
+import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -132,6 +134,29 @@ class FilterFragment : Fragment(), FilterInterface {
             if(!isSomeImageSelected) {
                 showCoordinator("please select an image first")
                 return@setOnClickListener
+            }
+            val direct = File(Environment.getExternalStorageDirectory().toString() + "/Sense It All")
+            if (!direct.exists()) {
+                val wallpaperDirectory = File(Environment.getExternalStorageDirectory().path + "/Sense It All/")
+                wallpaperDirectory.mkdirs()
+            }
+
+            val bitmap = (v.filter_image_view.drawable as BitmapDrawable).bitmap
+
+            val file = File(
+                    Environment.getExternalStorageDirectory().path + "/Sense It All/",
+                    "img_draw_" + System.currentTimeMillis().toString() + ".jpg"
+            )
+            if (file.exists())
+                file.delete()
+            try {
+                val out = FileOutputStream(file)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
+                out.flush()
+                out.close()
+                showCoordinatorPositive("IMAGE SAVED SUCCESSFULLY")
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
         v.select_image_from_gallery.setOnClickListener { openGalleryForImageSelect() }

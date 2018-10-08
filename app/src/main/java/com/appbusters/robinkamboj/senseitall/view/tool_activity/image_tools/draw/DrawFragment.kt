@@ -55,16 +55,17 @@ class DrawFragment : Fragment(), DrawInterface {
         v.pink.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.pink)) }
         v.brown.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.brown)) }
         v.save_to_gallery.setOnClickListener {
-            val bitmap = v.draw_view.getBitmap()
-            val root = Environment.getExternalStorageDirectory().toString()
-            val myDir = File(root + "/req_images")
-            myDir.mkdirs()
+            val direct = File(Environment.getExternalStorageDirectory().toString() + "/Sense It All")
+            if (!direct.exists()) {
+                val wallpaperDirectory = File(Environment.getExternalStorageDirectory().path + "/Sense It All/")
+                wallpaperDirectory.mkdirs()
+            }
 
+            val bitmap = v.draw_view.getBitmap()
             val file = File(
                     Environment.getExternalStorageDirectory().path + "/Sense It All/",
                     "img_draw_" + System.currentTimeMillis().toString() + ".jpg"
             )
-
             if (file.exists())
                 file.delete()
             try {
@@ -76,7 +77,6 @@ class DrawFragment : Fragment(), DrawInterface {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-
         }
         v.undo.setOnClickListener { v.draw_view.undo() }
         v.redo.setOnClickListener { v.draw_view.redo() }

@@ -18,7 +18,8 @@
             android:layout_height="0sp"
             android:layout_weight="1"
             android:background="@color/colorBlack"
-            android:id="@+id/filter_image_view">
+            android:id="@+id/filter_image_view"
+            tools:ignore="ContentDescription">
 
         </ImageView>
 
