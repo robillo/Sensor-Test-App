@@ -14,8 +14,11 @@ import com.appbusters.robinkamboj.senseitall.R
 import kotlinx.android.synthetic.main.fragment_draw.view.*
 import android.support.design.widget.Snackbar
 import android.widget.TextView
-import java.io.File
-import java.io.FileOutputStream
+import android.graphics.Bitmap.CompressFormat
+import android.util.Log
+import java.io.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -55,19 +58,23 @@ class DrawFragment : Fragment(), DrawInterface {
         v.pink.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.pink)) }
         v.brown.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.brown)) }
         v.save_to_gallery.setOnClickListener {
-            val direct = File(Environment.getExternalStorageDirectory().toString() + "/Sense It All")
+            val direct = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                    "Sense It All"
+            )
+
             if (!direct.exists()) {
-                val wallpaperDirectory = File(Environment.getExternalStorageDirectory().path + "/Sense It All/")
-                wallpaperDirectory.mkdirs()
+                direct.mkdirs()
             }
 
             val bitmap = v.draw_view.getBitmap()
+
             val file = File(
-                    Environment.getExternalStorageDirectory().path + "/Sense It All/",
+                    direct,
                     "img_draw_" + System.currentTimeMillis().toString() + ".jpg"
             )
-            if (file.exists())
-                file.delete()
+
+            if (file.exists()) file.delete()
+
             try {
                 val out = FileOutputStream(file)
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
@@ -75,6 +82,7 @@ class DrawFragment : Fragment(), DrawInterface {
                 out.close()
                 showCoordinatorPositive("IMAGE SAVED SUCCESSFULLY")
             } catch (e: Exception) {
+                showCoordinatorPositive("SOME ERROR OCCURRED")
                 e.printStackTrace()
             }
         }
@@ -87,6 +95,16 @@ class DrawFragment : Fragment(), DrawInterface {
         val s = Snackbar.make(v.coordinator, coordinatorText, Snackbar.LENGTH_SHORT)
         val v = s.view
         v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.primary_new))
+        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
+        t.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        s.show()
+    }
+
+    fun showCoordinatorNegative(coordinatorText: String) {
+        val s = Snackbar.make(v.coordinator, coordinatorText, Snackbar.LENGTH_SHORT)
+        val v = s.view
+        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.red_shade_two))
         val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
         t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
         t.textAlignment = View.TEXT_ALIGNMENT_CENTER

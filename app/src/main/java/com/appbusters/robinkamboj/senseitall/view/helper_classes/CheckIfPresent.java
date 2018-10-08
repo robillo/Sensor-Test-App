@@ -344,12 +344,17 @@ public class CheckIfPresent {
             case TEXT_SCAN:
             case LABEL_GENERATOR:
             case BACK_CAMERA:
-            case FRONT_CAMERA:
+            case FRONT_CAMERA: {
+                if (isPermissionNotGiven(Manifest.permission.CAMERA)) {
+                    isGiven = false;
+                }
+                break;
+            }
             case SQUARE_IMAGE:
             case CROP_IMAGE:
             case IMAGE_FILTERS:
             case EDIT_IMAGE: {
-                if (isPermissionNotGiven(Manifest.permission.CAMERA)) {
+                if (isPermissionNotGiven(Manifest.permission.CAMERA) && isPermissionNotGiven(Manifest.permission.READ_EXTERNAL_STORAGE) && isPermissionNotGiven(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     isGiven = false;
                 }
                 break;
