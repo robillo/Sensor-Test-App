@@ -30,6 +30,8 @@ public interface ToolsInterface {
 
     void registerAutorotateStateReceiver();
 
+    void registerAirplaneModeStateReceiver();
+
     void registerLocationAccessStateReceiver();
 
     //flips
@@ -42,5 +44,8 @@ public interface ToolsInterface {
 
     void flipAutorotateSetting(boolean turnOn);
 
+    void flipAirplaneModeSetting(boolean turnOn);
+
     void flipLocationAccessSetting(boolean turnOn);
+
 }

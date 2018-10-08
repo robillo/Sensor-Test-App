@@ -17,6 +17,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,6 +70,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         registerWifiStateReceiver()
         registerBluetoothStateReceiver()
         registerAutorotateStateReceiver()
+        registerAirplaneModeStateReceiver()
         registerLocationAccessStateReceiver()
     }
 
@@ -161,6 +163,32 @@ class ToolsFragment : Fragment(), ToolsInterface {
                 }
             }
         }, wifiFilter)
+    }
+
+    override fun registerAirplaneModeStateReceiver() {
+        val airplaneFilter = IntentFilter()
+        airplaneFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        activity!!.registerReceiver(object: BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                try {
+                    if(context != null && intent != null && intent.action != null) {
+                        val action = intent.action
+                        if (Intent.ACTION_AIRPLANE_MODE_CHANGED == action) {
+                            if(Settings.Global.getInt(context.contentResolver,
+                                            Settings.Global.AIRPLANE_MODE_ON, 0) != 0) {
+                                quickAdapter.updateItemState(AIRPLANE_QUICK, true)
+                            }
+                            else {
+                                quickAdapter.updateItemState(AIRPLANE_QUICK, false)
+                            }
+                        }
+                    }
+                }
+                catch (e: Exception) {
+
+                }
+            }
+        }, airplaneFilter)
     }
 
     override fun registerAutorotateStateReceiver() {
@@ -277,10 +305,13 @@ class ToolsFragment : Fragment(), ToolsInterface {
                 else quickAdapter.updateItemState(LOCATION_QUICK, false)
             }
             AIRPLANE_QUICK -> {
-//                if(Settings.System.getInt(context?.getContentResolver(),
-//                                AIRPLANE_MODE_ON, 0) != 0) {
-//                    quickAdapter.updateItemState(info, true)
-//                }
+                if(Settings.Global.getInt(context?.contentResolver,
+                                Settings.Global.AIRPLANE_MODE_ON, 0) != 0) {
+                    quickAdapter.updateItemState(info, true)
+                }
+                else {
+                    quickAdapter.updateItemState(info, false)
+                }
             }
             AUTOROTATE_QUICK -> {
                 if(android.provider.Settings.System.getInt(activity?.contentResolver,
@@ -316,7 +347,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                 flipLocationAccessSetting(!info.isOn)
             }
             AIRPLANE_QUICK -> {
-
+                flipAirplaneModeSetting(!info.isOn)
             }
             AUTOROTATE_QUICK -> {
                 flipAutorotateSetting(!info.isOn)
@@ -386,7 +417,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun flipAutorotateSetting(turnOn: Boolean) {
         try {
             Settings.System.putInt(
-                    context?.contentResolver,
+                    context!!.contentResolver,
                     Settings.System.ACCELEROMETER_ROTATION,
                     if (turnOn) 1 else 0
             )
@@ -395,6 +426,10 @@ class ToolsFragment : Fragment(), ToolsInterface {
         catch (e: Exception) {
             showCoordinatorSettings("allow \"modify system settings\" for this app under \"advanced\" section")
         }
+    }
+
+    override fun flipAirplaneModeSetting(turnOn: Boolean) {
+        showCoordinatorNegative("this setting cannot be changed from here")
     }
 
     override fun flipLocationAccessSetting(turnOn: Boolean) {
