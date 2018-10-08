@@ -335,9 +335,11 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     Settings.System.ACCELEROMETER_ROTATION,
                     if (turnOn) 1 else 0
             )
+            quickAdapter.updateItemState(AUTOROTATE_QUICK, turnOn)
         }
         catch (e: Exception) {
-            showCoordinatorNegative("this setting can't be changed from here")
+            showCoordinatorSettings("allow \"modify system settings\" for this app to use this feature " +
+                    "(under Advanced)")
         }
     }
 
@@ -348,6 +350,18 @@ class ToolsFragment : Fragment(), ToolsInterface {
         val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
         t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
         t.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        s.show()
+    }
+
+    fun showCoordinatorSettings(coordinatorText: String) {
+        val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_LONG)
+        val v = s.view
+        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.colorBlackShade))
+        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
+        s.setAction("SETTINGS") {
+            startActivityForResult(Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0)
+        }
         s.show()
     }
 
