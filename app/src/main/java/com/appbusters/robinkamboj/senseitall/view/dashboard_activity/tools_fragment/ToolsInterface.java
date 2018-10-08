@@ -8,6 +8,8 @@ public interface ToolsInterface {
 
     void setup(View v);
 
+    void registerReceivers();
+
     void setImageToolsAdapter();
 
     void setEverydayToolsAdapter();
@@ -15,6 +17,12 @@ public interface ToolsInterface {
     void setQuickSettingsRecycler();
 
     void checkQuickSettingsStatus();
+
+    void flipSetting(TinyInfo info);
+
+    void registerWifiStateReceiver();
+
+    void flipWifiSetting(boolean turnOn);
 
     void checkEachQuickSetting(String info);
 

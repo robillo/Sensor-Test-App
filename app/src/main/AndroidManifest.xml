@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.appbusters.robinkamboj.senseitall">
 
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        android:required="false"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:required="false" />

@@ -23,10 +23,12 @@ public class QuickSettingsAdapter extends RecyclerView.Adapter<QuickSettingsAdap
 
     private List<TinyInfo> list;
     private Context context;
+    private QuickSettingsListener settingsListener;
 
-    public QuickSettingsAdapter(List<TinyInfo> list, Context context) {
+    public QuickSettingsAdapter(List<TinyInfo> list, Context context, QuickSettingsListener settingsListener) {
         this.list = list;
         this.context = context;
+        this.settingsListener = settingsListener;
     }
 
     @NonNull
@@ -56,7 +58,8 @@ public class QuickSettingsAdapter extends RecyclerView.Adapter<QuickSettingsAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setOnOff(holder, list.get(pos), pos);
+//                setOnOff(holder, list.get(pos), pos);
+                settingsListener.setSelectedSetting(list.get(pos));
             }
         });
     }
