@@ -7,6 +7,7 @@ import android.support.v4.graphics.ColorUtils
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import java.lang.Exception
 import java.util.LinkedHashMap
 
 class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
@@ -37,12 +38,18 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         }
     }
 
+    @Suppress("UNCHECKED_CAST")
     fun undo() {
         if (mPaths.isEmpty() && mLastPaths.isNotEmpty()) {
-            mPaths = mLastPaths.clone() as LinkedHashMap<MyPath, PaintOptions>
-            mLastPaths.clear()
-            invalidate()
-            return
+            try {
+                mPaths = mLastPaths.clone() as LinkedHashMap<MyPath, PaintOptions>
+                mLastPaths.clear()
+                invalidate()
+                return
+            }
+            catch (e: Exception) {
+
+            }
         }
         if (mPaths.isEmpty()) {
             return
@@ -121,11 +128,17 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         mPaint.strokeWidth = paintOptions.strokeWidth
     }
 
+    @Suppress("UNCHECKED_CAST")
     fun clearCanvas() {
-        mLastPaths = mPaths.clone() as LinkedHashMap<MyPath, PaintOptions>
-        mPath.reset()
-        mPaths.clear()
-        invalidate()
+        try {
+            mLastPaths = mPaths.clone() as LinkedHashMap<MyPath, PaintOptions>
+            mPath.reset()
+            mPaths.clear()
+            invalidate()
+        }
+        catch (e: Exception) {
+
+        }
     }
 
     private fun actionDown(x: Float, y: Float) {
