@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:id="@+id/no_results"
+    tools:ignore="UseCompoundDrawables">
+
+    <ImageView
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:src="@drawable/baseline_sentiment_dissatisfied_black_48"
+        android:layout_gravity="center_horizontal"
+        android:tint="@color/colorTextOne"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:text="@string/no_results_to_show"
+        android:textColor="@color/colorTextTwo"/>
+
+</LinearLayout>

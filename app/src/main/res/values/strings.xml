@@ -2434,6 +2434,7 @@ In parallel France and Germany signed a joint development agreement in 1984 and 
     <string name="add_note">ADD NOTE</string>
     <string name="your_notes">YOUR NOTES</string>
     <string name="save_edited_note">SAVE EDITED NOTE</string>
+    <string name="no_results_to_show">NO RESULTS TO SHOW</string>
 
     <string-array name="calc_dialog_errors">
         <item>Division by zero</item>

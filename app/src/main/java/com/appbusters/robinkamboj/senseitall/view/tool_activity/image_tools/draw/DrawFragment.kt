@@ -1,7 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.draw
 
 
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Environment
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
@@ -10,6 +12,11 @@ import android.view.ViewGroup
 
 import com.appbusters.robinkamboj.senseitall.R
 import kotlinx.android.synthetic.main.fragment_draw.view.*
+import android.support.design.widget.Snackbar
+import android.widget.TextView
+import java.io.File
+import java.io.FileOutputStream
+
 
 /**
  * A simple [Fragment] subclass.
@@ -48,11 +55,42 @@ class DrawFragment : Fragment(), DrawInterface {
         v.pink.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.pink)) }
         v.brown.setOnClickListener { v.draw_view.setColor(ContextCompat.getColor(context!!, R.color.brown)) }
         v.save_to_gallery.setOnClickListener {
+            val bitmap = v.draw_view.getBitmap()
+            val root = Environment.getExternalStorageDirectory().toString()
+            val myDir = File(root + "/req_images")
+            myDir.mkdirs()
+
+            val file = File(
+                    Environment.getExternalStorageDirectory().path + "/Sense It All/",
+                    "img_draw_" + System.currentTimeMillis().toString() + ".jpg"
+            )
+
+            if (file.exists())
+                file.delete()
+            try {
+                val out = FileOutputStream(file)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
+                out.flush()
+                out.close()
+                showCoordinatorPositive("IMAGE SAVED SUCCESSFULLY")
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
 
         }
         v.undo.setOnClickListener { v.draw_view.undo() }
         v.redo.setOnClickListener { v.draw_view.redo() }
         v.clear_canvas.setOnClickListener { v.draw_view.clearCanvas() }
+    }
+
+    fun showCoordinatorPositive(coordinatorText: String) {
+        val s = Snackbar.make(v.coordinator, coordinatorText, Snackbar.LENGTH_SHORT)
+        val v = s.view
+        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.primary_new))
+        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
+        t.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        s.show()
     }
 
 }

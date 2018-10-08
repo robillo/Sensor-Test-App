@@ -18,6 +18,7 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.t
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NoteDatabase
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.take_note.db.NotePresenter
 import kotlinx.android.synthetic.main.fragment_note.view.*
+import kotlinx.android.synthetic.main.layout_no_results.view.*
 import java.util.*
 
 /**
@@ -89,7 +90,15 @@ class NoteFragment : Fragment(), NoteInterface {
         noteData = notePresenter.allNotes
 
         noteData.observe(this, Observer {
-            v.recycler.adapter = NoteAdapter(it, activity)
+            if (it != null && it.isNotEmpty()) {
+                v.no_results.visibility = View.GONE
+                v.recycler.visibility = View.VISIBLE
+                v.recycler.adapter = NoteAdapter(it, activity)
+            }
+            else {
+                v.no_results.visibility = View.VISIBLE
+                v.recycler.visibility = View.GONE
+            }
         })
     }
 
