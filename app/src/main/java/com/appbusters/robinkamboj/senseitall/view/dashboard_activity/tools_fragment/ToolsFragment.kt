@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.database.ContentObserver
+import android.location.LocationManager
 import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import android.os.Bundle
@@ -31,7 +32,6 @@ import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragm
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings.QuickSettingsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings.QuickSettingsListener
 import kotlinx.android.synthetic.main.fragment_tools.view.*
-import java.lang.reflect.Method
 
 
 /**
@@ -69,6 +69,30 @@ class ToolsFragment : Fragment(), ToolsInterface {
         registerWifiStateReceiver()
         registerBluetoothStateReceiver()
         registerAutorotateStateReceiver()
+        registerLocationAccessStateReceiver()
+    }
+
+    override fun registerLocationAccessStateReceiver() {
+        val locationFilter = IntentFilter()
+        locationFilter.addAction(LocationManager.MODE_CHANGED_ACTION)
+        activity!!.registerReceiver(object: BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                try {
+                    if(context != null && intent != null && intent.action != null) {
+                        val action = intent.action
+                        if (LocationManager.MODE_CHANGED_ACTION == action) {
+                            val locationManager
+                                    = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                            if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
+                            else quickAdapter.updateItemState(LOCATION_QUICK, false)
+                        }
+                    }
+                }
+                catch (e: Exception) {
+
+                }
+            }
+        }, locationFilter)
     }
 
     @Suppress("DEPRECATION")
@@ -248,7 +272,9 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
             }
             LOCATION_QUICK -> {
-
+                val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
+                else quickAdapter.updateItemState(LOCATION_QUICK, false)
             }
             AIRPLANE_QUICK -> {
 //                if(Settings.System.getInt(context?.getContentResolver(),
@@ -287,7 +313,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
             }
             LOCATION_QUICK -> {
-
+                flipLocationAccessSetting(!info.isOn)
             }
             AIRPLANE_QUICK -> {
 
@@ -369,6 +395,10 @@ class ToolsFragment : Fragment(), ToolsInterface {
         catch (e: Exception) {
             showCoordinatorSettings("allow \"modify system settings\" for this app under \"advanced\" section")
         }
+    }
+
+    override fun flipLocationAccessSetting(turnOn: Boolean) {
+        showCoordinatorNegative("this setting cannot be changed from here")
     }
 
     fun showCoordinatorNegative(coordinatorText: String) {

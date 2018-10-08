@@ -30,6 +30,8 @@ public interface ToolsInterface {
 
     void registerAutorotateStateReceiver();
 
+    void registerLocationAccessStateReceiver();
+
     //flips
 
     void flipWifiSetting(boolean turnOn);
@@ -39,4 +41,6 @@ public interface ToolsInterface {
     void flipBluetoothSetting(boolean turnOn);
 
     void flipAutorotateSetting(boolean turnOn);
+
+    void flipLocationAccessSetting(boolean turnOn);
 }
