@@ -2436,6 +2436,7 @@ In parallel France and Germany signed a joint development agreement in 1984 and 
     <string name="save_edited_note">SAVE EDITED NOTE</string>
     <string name="no_results_to_show">NO RESULTS TO SHOW</string>
     <string name="no_image_selected">NO IMAGE SELECTED</string>
+    <string name="wifi_ap_state_change_action">android.net.wifi.WIFI_AP_STATE_CHANGED</string>
 
     <string-array name="calc_dialog_errors">
         <item>Division by zero</item>

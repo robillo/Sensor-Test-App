@@ -75,6 +75,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun registerWifiStateReceiver() {
         val wifiFilter = IntentFilter()
         wifiFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION)
+        wifiFilter.addAction(getString(R.string.wifi_ap_state_change_action))
         activity!!.registerReceiver(object: BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
                 try {
@@ -90,7 +91,16 @@ class ToolsFragment : Fragment(), ToolsInterface {
                                     networkInfo.state == NetworkInfo.State.CONNECTING) {
                                 quickAdapter.updateItemState(WIFI_QUICK, true)
                             }
+                        }
+                        else if(action == getString(R.string.wifi_ap_state_change_action)) {
+                            val state = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0)
 
+                            if (WifiManager.WIFI_STATE_ENABLED == state % 10) {
+                                quickAdapter.updateItemState(HOTSPOT_QUICK, true)
+                            }
+                            else {
+                                quickAdapter.updateItemState(HOTSPOT_QUICK, false)
+                            }
                         }
                     }
                 }
@@ -217,7 +227,22 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
             }
             HOTSPOT_QUICK -> {
+                try {
+                    val wifiManager =
+                            activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
+                    val method = wifiManager.javaClass.getDeclaredMethod("getWifiApState")
+                    method.setAccessible(true)
+                    val actualState = method.invoke(wifiManager, null) as Int
+                    if(wifiManager.wifiState%10 == WifiManager.WIFI_STATE_ENABLED) {
+                        quickAdapter.updateItemState(info, true)
+                    }
+                    else {
+                        quickAdapter.updateItemState(info, false)
+                    }
+                }
+                catch (e: java.lang.Exception) {
 
+                }
             }
             FLASHLIGHT_QUICK -> {
 
@@ -256,7 +281,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
             }
             HOTSPOT_QUICK -> {
-
+                flipHotspotSetting(!info.isOn)
             }
             FLASHLIGHT_QUICK -> {
 
@@ -328,6 +353,10 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
+    override fun flipHotspotSetting(turnOn: Boolean) {
+
+    }
+
     override fun flipAutorotateSetting(turnOn: Boolean) {
         try {
             Settings.System.putInt(
@@ -338,8 +367,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
             quickAdapter.updateItemState(AUTOROTATE_QUICK, turnOn)
         }
         catch (e: Exception) {
-            showCoordinatorSettings("allow \"modify system settings\" for this app to use this feature " +
-                    "(under Advanced)")
+            showCoordinatorSettings("allow \"modify system settings\" under Advanced settings for this app " +
+                    "to use this feature")
         }
     }
 

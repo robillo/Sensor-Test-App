@@ -34,6 +34,8 @@ public interface ToolsInterface {
 
     void flipWifiSetting(boolean turnOn);
 
+    void flipHotspotSetting(boolean turnOn);
+
     void flipBluetoothSetting(boolean turnOn);
 
     void flipAutorotateSetting(boolean turnOn);

@@ -13,9 +13,6 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:required="false" />
     <uses-permission
-        android:name="android.permission.CHANGE_WIFI_STATE"
-        android:required="false" />
-    <uses-permission
         android:name="android.permission.BLUETOOTH"
         android:required="false" />
     <uses-permission
