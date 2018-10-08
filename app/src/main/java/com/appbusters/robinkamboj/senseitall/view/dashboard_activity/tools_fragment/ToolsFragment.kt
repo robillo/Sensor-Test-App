@@ -8,7 +8,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.database.ContentObserver
 import android.net.NetworkInfo
-import android.net.wifi.WifiConfiguration
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.os.Handler
@@ -17,7 +16,6 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -235,7 +233,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     val method = wifiManager.javaClass.getDeclaredMethod("getWifiApState")
                     method.setAccessible(true)
                     val actualState = method.invoke(wifiManager, null) as Int
-                    if(wifiManager.wifiState%10 == WifiManager.WIFI_STATE_ENABLED) {
+                    if(actualState%10 == WifiManager.WIFI_STATE_ENABLED) {
                         quickAdapter.updateItemState(info, true)
                     }
                     else {
