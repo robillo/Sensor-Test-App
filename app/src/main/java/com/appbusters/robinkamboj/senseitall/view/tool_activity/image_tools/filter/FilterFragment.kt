@@ -61,12 +61,10 @@ class FilterFragment : Fragment(), FilterInterface {
     }
     override fun setEnabledTint() {
         val color: Int
-        if(isSomeImageSelected) {
-            color = ContextCompat.getColor(context!!, R.color.primary_new)
-        }
-        else {
-            color = ContextCompat.getColor(context!!, R.color.colorTextThree)
-        }
+
+        if(isSomeImageSelected) color = ContextCompat.getColor(context!!, R.color.primary_new)
+        else color = ContextCompat.getColor(context!!, R.color.colorTextThree)
+
         v.rotate_left.setColorFilter(color)
         v.rotate_right.setColorFilter(color)
         v.save_to_gallery.setColorFilter(color)
@@ -273,7 +271,7 @@ class FilterFragment : Fragment(), FilterInterface {
     }
 
     override fun hidePlaceholderViews() {
-
+        v.no_selected_image.visibility = View.GONE
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -294,6 +292,7 @@ class FilterFragment : Fragment(), FilterInterface {
                     isSomeImageSelected = true
                     setEnabledTint()
                     setFilterAdapter()
+                    hidePlaceholderViews()
 
                 } catch (e: FileNotFoundException) {
                     e.printStackTrace()
@@ -309,6 +308,7 @@ class FilterFragment : Fragment(), FilterInterface {
             isSomeImageSelected = true
             setEnabledTint()
             setFilterAdapter()
+            hidePlaceholderViews()
 
 //            val imageFile = File(mCurrentPhotoPath!!)
 //            if (imageFile.exists()) {

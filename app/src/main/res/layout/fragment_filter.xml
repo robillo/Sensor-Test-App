@@ -13,15 +13,47 @@
         android:orientation="vertical"
         tools:context=".view.tool_activity.image_tools.crop.CropFragment">
 
-        <ImageView
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0sp"
-            android:layout_weight="1"
-            android:background="@color/colorBlack"
-            android:id="@+id/filter_image_view"
-            tools:ignore="ContentDescription">
+            android:layout_weight="1">
 
-        </ImageView>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBlack"
+                android:id="@+id/filter_image_view"
+                tools:ignore="ContentDescription">
+
+            </ImageView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                tools:ignore="UseCompoundDrawables"
+                android:id="@+id/no_selected_image">
+
+                <ImageView
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
+                    android:src="@drawable/baseline_sentiment_dissatisfied_black_48"
+                    android:layout_gravity="center_horizontal"
+                    android:tint="@color/white"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10sp"
+                    android:textSize="18sp"
+                    android:text="@string/no_image_selected"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"

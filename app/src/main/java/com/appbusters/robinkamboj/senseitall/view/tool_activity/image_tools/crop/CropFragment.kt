@@ -271,6 +271,7 @@ class CropFragment : Fragment(), CropInterface {
     }
 
     override fun hidePlaceholderViews() {
+        v.no_selected_image.visibility = View.GONE
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -288,6 +289,7 @@ class CropFragment : Fragment(), CropInterface {
                             v.crop_view.setInitialFrameScale(0.5f)
                             isSomeImageSelected = true
                             setEnabledTint()
+                            hidePlaceholderViews()
                         }
                         override fun onError(e: Throwable?) {
 
@@ -318,6 +320,7 @@ class CropFragment : Fragment(), CropInterface {
                     v.crop_view.setInitialFrameScale(0.5f)
                     isSomeImageSelected = true
                     setEnabledTint()
+                    hidePlaceholderViews()
                 }
                 override fun onError(e: Throwable?) {
 
