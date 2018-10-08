@@ -71,9 +71,9 @@ class ToolsFragment : Fragment(), ToolsInterface {
         registerReceivers()
     }
 
-    @Suppress("DEPRECATION")
     override fun registerReceivers() {
         registerWifiStateReceiver()
+        registerBluetoothStateReceiver()
     }
 
     override fun registerWifiStateReceiver() {
@@ -83,8 +83,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
             override fun onReceive(context: Context?, intent: Intent?) {
                 try {
                     if(context != null && intent != null && intent.action != null) {
-                        @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-                        if(intent.action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
+                        val action = intent.action
+                        if(action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
                             val networkInfo: NetworkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
                             if(networkInfo.state == NetworkInfo.State.DISCONNECTED ||
                                     networkInfo.state == NetworkInfo.State.DISCONNECTING) {
@@ -95,6 +95,34 @@ class ToolsFragment : Fragment(), ToolsInterface {
                                 quickAdapter.updateItemState(WIFI_QUICK, true)
                             }
 
+                        }
+                    }
+                }
+                catch (e: Exception) {
+
+                }
+            }
+        }, wifiFilter)
+    }
+
+    override fun registerBluetoothStateReceiver() {
+        val wifiFilter = IntentFilter()
+        wifiFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED)
+        activity!!.registerReceiver(object: BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                try {
+                    if(context != null && intent != null && intent.action != null) {
+                        val action = intent.action
+                        if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+                            val state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1)
+                            if (state == BluetoothAdapter.STATE_ON || state == BluetoothAdapter.STATE_CONNECTING
+                            || state == BluetoothAdapter.STATE_TURNING_ON) {
+                                quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
+                            }
+                            if (state == BluetoothAdapter.STATE_OFF || state == BluetoothAdapter.STATE_DISCONNECTING
+                                   || state == BluetoothAdapter.STATE_TURNING_OFF) {
+                                quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
+                            }
                         }
                     }
                 }
@@ -206,7 +234,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
                 else flipWifiSetting(true)
             }
             BLUETOOTH_QUICK -> {
-
+                if(info.isOn) flipBluetoothSetting(false)
+                else flipBluetoothSetting(true)
             }
             BRIGHTNESS_QUICK -> {
 
@@ -229,6 +258,31 @@ class ToolsFragment : Fragment(), ToolsInterface {
             AUTOROTATE_QUICK -> {
 
             }
+        }
+    }
+
+    override fun flipBluetoothSetting(turnOn: Boolean) {
+
+        if(BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
+            quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
+            return
+        }
+
+        if(!BluetoothAdapter.getDefaultAdapter().isEnabled && !turnOn) {
+            quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
+            return
+        }
+
+        if(!BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
+            BluetoothAdapter.getDefaultAdapter().enable()
+            quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
+            return
+        }
+
+        if(BluetoothAdapter.getDefaultAdapter().isEnabled && !turnOn) {
+            BluetoothAdapter.getDefaultAdapter().disable()
+            quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
+            return
         }
     }
 

@@ -20,10 +20,17 @@ public interface ToolsInterface {
 
     void flipSetting(TinyInfo info);
 
+    void checkEachQuickSetting(String info);
+
+    //receivers
+
     void registerWifiStateReceiver();
+
+    void registerBluetoothStateReceiver();
+
+    //flips
 
     void flipWifiSetting(boolean turnOn);
 
-    void checkEachQuickSetting(String info);
-
+    void flipBluetoothSetting(boolean turnOn);
 }
