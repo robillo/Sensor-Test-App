@@ -28,9 +28,13 @@ public interface ToolsInterface {
 
     void registerBluetoothStateReceiver();
 
+    void registerAutorotateStateReceiver();
+
     //flips
 
     void flipWifiSetting(boolean turnOn);
 
     void flipBluetoothSetting(boolean turnOn);
+
+    void flipAutorotateSetting(boolean turnOn);
 }

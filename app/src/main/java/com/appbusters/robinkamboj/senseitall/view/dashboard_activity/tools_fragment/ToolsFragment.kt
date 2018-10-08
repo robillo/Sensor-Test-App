@@ -6,15 +6,12 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.hardware.camera2.CameraAccessException
-import android.hardware.camera2.CameraManager
-import android.media.Image
+import android.database.ContentObserver
 import android.net.NetworkInfo
 import android.net.wifi.WifiManager
-import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.provider.Settings
-import android.provider.Settings.Global.AIRPLANE_MODE_ON
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
@@ -34,9 +31,6 @@ import com.appbusters.robinkamboj.senseitall.utils.StartSnapHelper
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.image_tools.ImageToolsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings.QuickSettingsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings.QuickSettingsListener
-import kotlinx.android.synthetic.main.fragment_crop.view.*
-import kotlinx.android.synthetic.main.fragment_discover.view.*
-import kotlinx.android.synthetic.main.fragment_tools.*
 import kotlinx.android.synthetic.main.fragment_tools.view.*
 
 
@@ -74,8 +68,10 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun registerReceivers() {
         registerWifiStateReceiver()
         registerBluetoothStateReceiver()
+        registerAutorotateStateReceiver()
     }
 
+    @Suppress("DEPRECATION")
     override fun registerWifiStateReceiver() {
         val wifiFilter = IntentFilter()
         wifiFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION)
@@ -85,7 +81,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     if(context != null && intent != null && intent.action != null) {
                         val action = intent.action
                         if(action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
-                            val networkInfo: NetworkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+                            val networkInfo: NetworkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO)
                             if(networkInfo.state == NetworkInfo.State.DISCONNECTED ||
                                     networkInfo.state == NetworkInfo.State.DISCONNECTING) {
                                 quickAdapter.updateItemState(WIFI_QUICK, false)
@@ -113,7 +109,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                 try {
                     if(context != null && intent != null && intent.action != null) {
                         val action = intent.action
-                        if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+                        if (BluetoothAdapter.ACTION_STATE_CHANGED == action) {
                             val state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1)
                             if (state == BluetoothAdapter.STATE_ON || state == BluetoothAdapter.STATE_CONNECTING
                             || state == BluetoothAdapter.STATE_TURNING_ON) {
@@ -133,10 +129,27 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }, wifiFilter)
     }
 
+    override fun registerAutorotateStateReceiver() {
+        val contentObserver = object: ContentObserver(Handler()) {
+            override fun onChange(selfChange: Boolean) {
+                //notifies false if my app is not changing autorotate
+                if(android.provider.Settings.System.getInt(activity?.contentResolver,
+                                Settings.System.ACCELEROMETER_ROTATION, 0) == 1){
+                    quickAdapter.updateItemState(AUTOROTATE_QUICK, true)
+                }
+            }
+        }
+        activity?.contentResolver?.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION),
+                true,
+                contentObserver
+        )
+    }
+
     override fun setImageToolsAdapter() {
         val list : List<String> = AppConstants.imageTools
         list.forEach {
-            image_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap.get(it)))
+            image_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap[it]))
         }
         imageToolsAdapter = ImageToolsAdapter(image_tools_list, activity)
         lv.image_tools_rv.layoutManager = LinearLayoutManager(
@@ -152,7 +165,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun setEverydayToolsAdapter() {
         val list : List<String> = AppConstants.everydayTools
         list.forEach {
-            everyday_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap.get(it)))
+            everyday_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap[it]))
         }
         everydayToolsAdapter = ImageToolsAdapter(everyday_tools_list, activity)
         lv.everyday_tools_rv.layoutManager = LinearLayoutManager(
@@ -223,6 +236,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                                 Settings.System.ACCELEROMETER_ROTATION, 0) == 1){
                     quickAdapter.updateItemState(info, true)
                 }
+                else quickAdapter.updateItemState(info, false)
             }
         }
     }
@@ -230,12 +244,10 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun flipSetting(info: TinyInfo) {
         when(info.name) {
             WIFI_QUICK -> {
-                if(info.isOn) flipWifiSetting(false)
-                else flipWifiSetting(true)
+                flipWifiSetting(!info.isOn)
             }
             BLUETOOTH_QUICK -> {
-                if(info.isOn) flipBluetoothSetting(false)
-                else flipBluetoothSetting(true)
+                flipBluetoothSetting(!info.isOn)
             }
             BRIGHTNESS_QUICK -> {
 
@@ -256,7 +268,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
             }
             AUTOROTATE_QUICK -> {
-
+                flipAutorotateSetting(!info.isOn)
             }
         }
     }
@@ -316,8 +328,21 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
+    override fun flipAutorotateSetting(turnOn: Boolean) {
+        try {
+            Settings.System.putInt(
+                    context?.contentResolver,
+                    Settings.System.ACCELEROMETER_ROTATION,
+                    if (turnOn) 1 else 0
+            )
+        }
+        catch (e: Exception) {
+            showCoordinatorNegative("this setting can't be changed from here")
+        }
+    }
+
     fun showCoordinatorNegative(coordinatorText: String) {
-        val s = Snackbar.make(coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
+        val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
         val v = s.view
         v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.red_shade_three_less_vibrant))
         val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
@@ -327,7 +352,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     fun showCoordinatorPositive(coordinatorText: String) {
-        val s = Snackbar.make(coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
+        val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
         val v = s.view
         v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.primary_new))
         val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
