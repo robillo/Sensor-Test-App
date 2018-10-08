@@ -260,16 +260,6 @@ class FilterFragment : Fragment(), FilterInterface {
         s.show()
     }
 
-    fun showCoordinatorSaved(coordinatorText: String, uri: Uri?) {
-        val s = Snackbar.make(v.coordinator, coordinatorText, Snackbar.LENGTH_SHORT)
-        val v = s.view
-        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.colorBlackShade))
-        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
-        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
-        t.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        s.show()
-    }
-
     override fun hidePlaceholderViews() {
         v.no_selected_image.visibility = View.GONE
     }

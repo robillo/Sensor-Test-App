@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:background="@color/white">
 
-        <com.divyanshu.draw.widget.DrawView
+        <com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.draw.draw_files.DrawView
             android:id="@+id/draw_view"
             android:layout_width="match_parent"
             android:layout_height="0sp"

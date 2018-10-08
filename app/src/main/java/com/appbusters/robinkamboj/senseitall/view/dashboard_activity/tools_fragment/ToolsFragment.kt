@@ -1,6 +1,5 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment
 
-
 import android.bluetooth.BluetoothAdapter
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -17,7 +16,6 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -264,13 +262,23 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun checkEachQuickSetting(info: String) {
         when (info) {
             WIFI_QUICK -> {
-                val wifiManager =
-                        activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
-                if(wifiManager.isWifiEnabled) quickAdapter.updateItemState(info, true)
+                try {
+
+                }
+                catch(e: Exception) {
+                    val wifiManager =
+                            activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
+                    if(wifiManager.isWifiEnabled) quickAdapter.updateItemState(info, true)
+                }
 
             }
             BLUETOOTH_QUICK -> {
-                if(BluetoothAdapter.getDefaultAdapter().isEnabled) quickAdapter.updateItemState(info, true)
+                try {
+                    if(BluetoothAdapter.getDefaultAdapter().isEnabled) quickAdapter.updateItemState(info, true)
+                }
+                catch(e: Exception) {
+
+                }
             }
             BRIGHTNESS_QUICK -> {
 
@@ -283,7 +291,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     val wifiManager =
                             activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
                     val method = wifiManager.javaClass.getDeclaredMethod("getWifiApState")
-                    method.setAccessible(true)
+                    method.isAccessible = true
                     val actualState = method.invoke(wifiManager, null) as Int
                     if(actualState%10 == WifiManager.WIFI_STATE_ENABLED) {
                         quickAdapter.updateItemState(info, true)
@@ -300,25 +308,40 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
             }
             LOCATION_QUICK -> {
-                val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
-                else quickAdapter.updateItemState(LOCATION_QUICK, false)
+                try {
+                    val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                    if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
+                    else quickAdapter.updateItemState(LOCATION_QUICK, false)
+                }
+                catch(e: Exception) {
+
+                }
             }
             AIRPLANE_QUICK -> {
-                if(Settings.Global.getInt(context?.contentResolver,
-                                Settings.Global.AIRPLANE_MODE_ON, 0) != 0) {
-                    quickAdapter.updateItemState(info, true)
+                try {
+                    if(Settings.Global.getInt(context?.contentResolver,
+                                    Settings.Global.AIRPLANE_MODE_ON, 0) != 0) {
+                        quickAdapter.updateItemState(info, true)
+                    }
+                    else {
+                        quickAdapter.updateItemState(info, false)
+                    }
                 }
-                else {
-                    quickAdapter.updateItemState(info, false)
+                catch(e: Exception) {
+
                 }
             }
             AUTOROTATE_QUICK -> {
-                if(android.provider.Settings.System.getInt(activity?.contentResolver,
-                                Settings.System.ACCELEROMETER_ROTATION, 0) == 1){
-                    quickAdapter.updateItemState(info, true)
+                try {
+                    if(android.provider.Settings.System.getInt(activity?.contentResolver,
+                                    Settings.System.ACCELEROMETER_ROTATION, 0) == 1){
+                        quickAdapter.updateItemState(info, true)
+                    }
+                    else quickAdapter.updateItemState(info, false)
                 }
-                else quickAdapter.updateItemState(info, false)
+                catch(e: Exception) {
+
+                }
             }
         }
     }
@@ -436,7 +459,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         showCoordinatorNegative("this setting cannot be changed from here")
     }
 
-    fun showCoordinatorNegative(coordinatorText: String) {
+    private fun showCoordinatorNegative(coordinatorText: String) {
         val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
         val v = s.view
         v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.red_shade_three_less_vibrant))
@@ -446,7 +469,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         s.show()
     }
 
-    fun showCoordinatorSettings(coordinatorText: String) {
+    private fun showCoordinatorSettings(coordinatorText: String) {
         val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_LONG)
         val v = s.view
         v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.colorBlackShade))
@@ -455,16 +478,6 @@ class ToolsFragment : Fragment(), ToolsInterface {
         s.setAction("SETTINGS") {
             startActivityForResult(Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0)
         }
-        s.show()
-    }
-
-    fun showCoordinatorPositive(coordinatorText: String) {
-        val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
-        val v = s.view
-        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.primary_new))
-        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
-        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
-        t.textAlignment = View.TEXT_ALIGNMENT_CENTER
         s.show()
     }
 }
