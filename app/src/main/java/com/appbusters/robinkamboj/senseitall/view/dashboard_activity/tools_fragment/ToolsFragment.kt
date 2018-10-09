@@ -7,7 +7,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.database.ContentObserver
 import android.location.LocationManager
-import android.net.NetworkInfo
+import android.net.*
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.os.Handler
@@ -46,6 +46,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
     lateinit var everydayToolsAdapter: ImageToolsAdapter
     lateinit var lv : View
 
+    var networkCallback: ConnectivityManager.NetworkCallback? = null
+    var connectivityManager: ConnectivityManager? = null
     var locationReceiver: BroadcastReceiver? = null
     var wifiAndHotspotReceiver: BroadcastReceiver? = null
     var bluetoothReceiver: BroadcastReceiver? = null
@@ -108,7 +110,6 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    @Suppress("DEPRECATION")
     override fun registerWifiStateReceiver() {
         if(wifiAndHotspotReceiver == null) {
             wifiAndHotspotReceiver = object: BroadcastReceiver() {
@@ -118,14 +119,18 @@ class ToolsFragment : Fragment(), ToolsInterface {
                             val action = intent.action
                             if(action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
                                 val networkInfo: NetworkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO)
-
                                 checkStateAndShow(
                                         WIFI_QUICK,
-                                        networkInfo.state == NetworkInfo.State.CONNECTED ||
-                                                networkInfo.state == NetworkInfo.State.CONNECTING
+                                        networkInfo.detailedState == NetworkInfo.DetailedState.IDLE ||
+                                                networkInfo.detailedState == NetworkInfo.DetailedState.SCANNING ||
+                                                networkInfo.detailedState == NetworkInfo.DetailedState.CONNECTING ||
+                                                networkInfo.detailedState == NetworkInfo.DetailedState.CONNECTED ||
+                                                networkInfo.detailedState == NetworkInfo.DetailedState.AUTHENTICATING ||
+                                                networkInfo.detailedState == NetworkInfo.DetailedState.OBTAINING_IPADDR ||
+                                                networkInfo.detailedState == NetworkInfo.DetailedState.SUSPENDED
                                 )
                             }
-                            else if(action == getString(R.string.wifi_ap_state_change_action)) {
+                            if(action == getString(R.string.wifi_ap_state_change_action)) {
                                 val state = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0)
 
                                 checkStateAndShow(
@@ -558,6 +563,10 @@ class ToolsFragment : Fragment(), ToolsInterface {
         try { activity?.unregisterReceiver(wifiAndHotspotReceiver)} catch (e: java.lang.Exception) {}
         try { activity?.unregisterReceiver(bluetoothReceiver)} catch (e: java.lang.Exception) {}
         try { activity?.unregisterReceiver(airplaneReceiver)} catch (e: java.lang.Exception) {}
+        try {
+            connectivityManager?.unregisterNetworkCallback(networkCallback)
+        }
+        catch (e: java.lang.Exception) {}
 
         if(autorotateObserver != null)
             try {
