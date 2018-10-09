@@ -89,6 +89,15 @@ public class QuickSettingsAdapter extends RecyclerView.Adapter<QuickSettingsAdap
         }
     }
 
+    public boolean getItemState(String item) {
+        for(int i=0; i<list.size(); i++) {
+            if(list.get(i).getName().equals(item)) {
+                return list.get(i).isOn();
+            }
+        }
+        return false;
+    }
+
     @Override
     public int getItemCount() {
         return list == null ? 0 : list.size();

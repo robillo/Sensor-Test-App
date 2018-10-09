@@ -83,8 +83,11 @@ class ToolsFragment : Fragment(), ToolsInterface {
                         if (LocationManager.MODE_CHANGED_ACTION == action) {
                             val locationManager
                                     = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                            if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
-                            else quickAdapter.updateItemState(LOCATION_QUICK, false)
+
+                            checkStateAndShow(
+                                    LOCATION_QUICK,
+                                    locationManager.isLocationEnabled
+                            )
                         }
                     }
                 }
@@ -107,24 +110,20 @@ class ToolsFragment : Fragment(), ToolsInterface {
                         val action = intent.action
                         if(action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
                             val networkInfo: NetworkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO)
-                            if(networkInfo.state == NetworkInfo.State.DISCONNECTED ||
-                                    networkInfo.state == NetworkInfo.State.DISCONNECTING) {
-                                quickAdapter.updateItemState(WIFI_QUICK, false)
-                            }
-                            else if(networkInfo.state == NetworkInfo.State.CONNECTED ||
-                                    networkInfo.state == NetworkInfo.State.CONNECTING) {
-                                quickAdapter.updateItemState(WIFI_QUICK, true)
-                            }
+
+                            checkStateAndShow(
+                                    WIFI_QUICK,
+                                    networkInfo.state == NetworkInfo.State.CONNECTED ||
+                                            networkInfo.state == NetworkInfo.State.CONNECTING
+                            )
                         }
                         else if(action == getString(R.string.wifi_ap_state_change_action)) {
                             val state = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0)
 
-                            if (WifiManager.WIFI_STATE_ENABLED == state % 10) {
-                                quickAdapter.updateItemState(HOTSPOT_QUICK, true)
-                            }
-                            else {
-                                quickAdapter.updateItemState(HOTSPOT_QUICK, false)
-                            }
+                            checkStateAndShow(
+                                    HOTSPOT_QUICK,
+                                    WifiManager.WIFI_STATE_ENABLED == state % 10
+                            )
                         }
                     }
                 }
@@ -145,14 +144,12 @@ class ToolsFragment : Fragment(), ToolsInterface {
                         val action = intent.action
                         if (BluetoothAdapter.ACTION_STATE_CHANGED == action) {
                             val state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1)
-                            if (state == BluetoothAdapter.STATE_ON || state == BluetoothAdapter.STATE_CONNECTING
-                            || state == BluetoothAdapter.STATE_TURNING_ON) {
-                                quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
-                            }
-                            if (state == BluetoothAdapter.STATE_OFF || state == BluetoothAdapter.STATE_DISCONNECTING
-                                   || state == BluetoothAdapter.STATE_TURNING_OFF) {
-                                quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
-                            }
+
+                            checkStateAndShow(
+                                    BLUETOOTH_QUICK,
+                                    state == BluetoothAdapter.STATE_ON || state == BluetoothAdapter.STATE_CONNECTING
+                                            || state == BluetoothAdapter.STATE_TURNING_ON
+                            )
                         }
                     }
                 }
@@ -172,13 +169,11 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     if(context != null && intent != null && intent.action != null) {
                         val action = intent.action
                         if (Intent.ACTION_AIRPLANE_MODE_CHANGED == action) {
-                            if(Settings.Global.getInt(context.contentResolver,
-                                            Settings.Global.AIRPLANE_MODE_ON, 0) != 0) {
-                                quickAdapter.updateItemState(AIRPLANE_QUICK, true)
-                            }
-                            else {
-                                quickAdapter.updateItemState(AIRPLANE_QUICK, false)
-                            }
+                            checkStateAndShow(
+                                    AIRPLANE_QUICK,
+                                    Settings.Global.getInt(context.contentResolver,
+                                            Settings.Global.AIRPLANE_MODE_ON, 0) != 0
+                            )
                         }
                     }
                 }
@@ -192,11 +187,11 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun registerAutorotateStateReceiver() {
         val contentObserver = object: ContentObserver(Handler()) {
             override fun onChange(selfChange: Boolean) {
-                //notifies false if my app is not changing autorotate
-                if(android.provider.Settings.System.getInt(activity?.contentResolver,
-                                Settings.System.ACCELEROMETER_ROTATION, 0) == 1){
-                    quickAdapter.updateItemState(AUTOROTATE_QUICK, true)
-                }
+                checkStateAndShow(
+                        AUTOROTATE_QUICK,
+                        android.provider.Settings.System.getInt(activity?.contentResolver,
+                                Settings.System.ACCELEROMETER_ROTATION, 0) == 1
+                )
             }
         }
         activity?.contentResolver?.registerContentObserver(
@@ -204,6 +199,21 @@ class ToolsFragment : Fragment(), ToolsInterface {
                 true,
                 contentObserver
         )
+    }
+
+    fun checkStateAndShow(item: String, isPositive: Boolean) {
+        if(isPositive) {
+            if(!quickAdapter.getItemState(item)) {
+                quickAdapter.updateItemState(item, true)
+                showCoordinatorPositive("$item Enabled")
+            }
+        }
+        else {
+            if(quickAdapter.getItemState(item)) {
+                quickAdapter.updateItemState(item, false)
+                showCoordinatorPositive("$item Disabled")
+            }
+        }
     }
 
     override fun setImageToolsAdapter() {
@@ -381,23 +391,27 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun flipBluetoothSetting(turnOn: Boolean) {
 
         if(BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
+            checkStateAndShow(BLUETOOTH_QUICK, turnOn)
             quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
             return
         }
 
         if(!BluetoothAdapter.getDefaultAdapter().isEnabled && !turnOn) {
+            checkStateAndShow(BLUETOOTH_QUICK, turnOn)
             quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
             return
         }
 
         if(!BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
             BluetoothAdapter.getDefaultAdapter().enable()
+            checkStateAndShow(BLUETOOTH_QUICK, turnOn)
             quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
             return
         }
 
         if(BluetoothAdapter.getDefaultAdapter().isEnabled && !turnOn) {
             BluetoothAdapter.getDefaultAdapter().disable()
+            checkStateAndShow(BLUETOOTH_QUICK, turnOn)
             quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
             return
         }
@@ -409,12 +423,14 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
         //request is to turn on and it is already enabled
         if(wifiManager.isWifiEnabled && turnOn) {
+            checkStateAndShow(WIFI_QUICK, turnOn)
             quickAdapter.updateItemState(WIFI_QUICK, true)
             return
         }
 
         //request is to turn off and it is already disabled
         if(!wifiManager.isWifiEnabled && !turnOn) {
+            checkStateAndShow(WIFI_QUICK, turnOn)
             quickAdapter.updateItemState(WIFI_QUICK, false)
             return
         }
@@ -422,12 +438,14 @@ class ToolsFragment : Fragment(), ToolsInterface {
         //it is turned on but request is to turn off
         if(wifiManager.isWifiEnabled && !turnOn) {
             wifiManager.isWifiEnabled = false
+            checkStateAndShow(WIFI_QUICK, turnOn)
             quickAdapter.updateItemState(WIFI_QUICK, false)
             return
         }
 
         if(!wifiManager.isWifiEnabled && turnOn) {
             wifiManager.isWifiEnabled = true
+            checkStateAndShow(WIFI_QUICK, turnOn)
             quickAdapter.updateItemState(WIFI_QUICK, true)
             return
         }
@@ -444,6 +462,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     Settings.System.ACCELEROMETER_ROTATION,
                     if (turnOn) 1 else 0
             )
+            checkStateAndShow(AUTOROTATE_QUICK, turnOn)
             quickAdapter.updateItemState(AUTOROTATE_QUICK, turnOn)
         }
         catch (e: Exception) {
@@ -463,6 +482,16 @@ class ToolsFragment : Fragment(), ToolsInterface {
         val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
         val v = s.view
         v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.red_shade_three_less_vibrant))
+        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
+        t.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        s.show()
+    }
+
+    private fun showCoordinatorPositive(coordinatorText: String) {
+        val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
+        val v = s.view
+        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.primary_new))
         val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
         t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
         t.textAlignment = View.TEXT_ALIGNMENT_CENTER
