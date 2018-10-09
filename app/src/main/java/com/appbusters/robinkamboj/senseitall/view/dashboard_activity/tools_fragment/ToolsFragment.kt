@@ -183,7 +183,6 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun registerAirplaneModeStateReceiver() {
-
         if(airplaneReceiver == null) {
             airplaneReceiver = object: BroadcastReceiver() {
                 override fun onReceive(context: Context?, intent: Intent?) {
@@ -563,6 +562,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         if(autorotateObserver != null)
             try {
                 activity?.contentResolver?.unregisterContentObserver(autorotateObserver!!)
-            } catch (e: java.lang.Exception) {}
+            }
+            catch (e: java.lang.Exception) {}
     }
 }
