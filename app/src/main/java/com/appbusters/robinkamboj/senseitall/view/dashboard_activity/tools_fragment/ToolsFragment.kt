@@ -32,7 +32,6 @@ import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragm
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings.QuickSettingsListener
 import kotlinx.android.synthetic.main.fragment_tools.view.*
 
-
 /**
  * A simple [Fragment] subclass.
  *
@@ -46,6 +45,12 @@ class ToolsFragment : Fragment(), ToolsInterface {
     lateinit var imageToolsAdapter: ImageToolsAdapter
     lateinit var everydayToolsAdapter: ImageToolsAdapter
     lateinit var lv : View
+
+    var locationReceiver: BroadcastReceiver? = null
+    var wifiAndHotspotReceiver: BroadcastReceiver? = null
+    var bluetoothReceiver: BroadcastReceiver? = null
+    var airplaneReceiver: BroadcastReceiver? = null
+    var autorotateObserver: ContentObserver? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -61,7 +66,6 @@ class ToolsFragment : Fragment(), ToolsInterface {
         setEverydayToolsAdapter()
         setQuickSettingsRecycler()
         checkQuickSettingsStatus()
-        registerReceivers()
     }
 
     override fun registerReceivers() {
@@ -73,132 +77,162 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun registerLocationAccessStateReceiver() {
-        val locationFilter = IntentFilter()
-        locationFilter.addAction(LocationManager.MODE_CHANGED_ACTION)
-        activity!!.registerReceiver(object: BroadcastReceiver() {
-            override fun onReceive(context: Context?, intent: Intent?) {
-                try {
-                    if(context != null && intent != null && intent.action != null) {
-                        val action = intent.action
-                        if (LocationManager.MODE_CHANGED_ACTION == action) {
-                            val locationManager
-                                    = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        if(locationReceiver == null) {
+            locationReceiver = object: BroadcastReceiver() {
+                override fun onReceive(context: Context?, intent: Intent?) {
+                    try {
+                        if(context != null && intent != null && intent.action != null) {
+                            val action = intent.action
+                            if (LocationManager.MODE_CHANGED_ACTION == action) {
+                                val locationManager
+                                        = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-                            checkStateAndShow(
-                                    LOCATION_QUICK,
-                                    locationManager.isLocationEnabled
-                            )
+                                checkStateAndShow(
+                                        LOCATION_QUICK,
+                                        locationManager.isLocationEnabled
+                                )
+                            }
                         }
                     }
-                }
-                catch (e: Exception) {
+                    catch (e: Exception) {
 
+                    }
                 }
             }
-        }, locationFilter)
+        }
+
+        if(activity != null) {
+            val locationFilter = IntentFilter()
+            locationFilter.addAction(LocationManager.MODE_CHANGED_ACTION)
+            activity!!.registerReceiver(locationReceiver, locationFilter)
+        }
     }
 
     @Suppress("DEPRECATION")
     override fun registerWifiStateReceiver() {
-        val wifiFilter = IntentFilter()
-        wifiFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION)
-        wifiFilter.addAction(getString(R.string.wifi_ap_state_change_action))
-        activity!!.registerReceiver(object: BroadcastReceiver() {
-            override fun onReceive(context: Context?, intent: Intent?) {
-                try {
-                    if(context != null && intent != null && intent.action != null) {
-                        val action = intent.action
-                        if(action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
-                            val networkInfo: NetworkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO)
+        if(wifiAndHotspotReceiver == null) {
+            wifiAndHotspotReceiver = object: BroadcastReceiver() {
+                override fun onReceive(context: Context?, intent: Intent?) {
+                    try {
+                        if(context != null && intent != null && intent.action != null) {
+                            val action = intent.action
+                            if(action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
+                                val networkInfo: NetworkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO)
 
-                            checkStateAndShow(
-                                    WIFI_QUICK,
-                                    networkInfo.state == NetworkInfo.State.CONNECTED ||
-                                            networkInfo.state == NetworkInfo.State.CONNECTING
-                            )
-                        }
-                        else if(action == getString(R.string.wifi_ap_state_change_action)) {
-                            val state = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0)
+                                checkStateAndShow(
+                                        WIFI_QUICK,
+                                        networkInfo.state == NetworkInfo.State.CONNECTED ||
+                                                networkInfo.state == NetworkInfo.State.CONNECTING
+                                )
+                            }
+                            else if(action == getString(R.string.wifi_ap_state_change_action)) {
+                                val state = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0)
 
-                            checkStateAndShow(
-                                    HOTSPOT_QUICK,
-                                    WifiManager.WIFI_STATE_ENABLED == state % 10
-                            )
+                                checkStateAndShow(
+                                        HOTSPOT_QUICK,
+                                        WifiManager.WIFI_STATE_ENABLED == state % 10
+                                )
+                            }
                         }
                     }
-                }
-                catch (e: Exception) {
+                    catch (e: Exception) {
 
+                    }
                 }
             }
-        }, wifiFilter)
+        }
+
+        if(activity != null) {
+            val wifiFilter = IntentFilter()
+            wifiFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION)
+            wifiFilter.addAction(getString(R.string.wifi_ap_state_change_action))
+            activity?.registerReceiver(wifiAndHotspotReceiver, wifiFilter)
+        }
     }
 
     override fun registerBluetoothStateReceiver() {
-        val wifiFilter = IntentFilter()
-        wifiFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED)
-        activity!!.registerReceiver(object: BroadcastReceiver() {
-            override fun onReceive(context: Context?, intent: Intent?) {
-                try {
-                    if(context != null && intent != null && intent.action != null) {
-                        val action = intent.action
-                        if (BluetoothAdapter.ACTION_STATE_CHANGED == action) {
-                            val state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1)
+        if(bluetoothReceiver == null) {
+            bluetoothReceiver = object: BroadcastReceiver() {
+                override fun onReceive(context: Context?, intent: Intent?) {
+                    try {
+                        if(context != null && intent != null && intent.action != null) {
+                            val action = intent.action
+                            if (BluetoothAdapter.ACTION_STATE_CHANGED == action) {
+                                val state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1)
 
-                            checkStateAndShow(
-                                    BLUETOOTH_QUICK,
-                                    state == BluetoothAdapter.STATE_ON || state == BluetoothAdapter.STATE_CONNECTING
-                                            || state == BluetoothAdapter.STATE_TURNING_ON
-                            )
+                                checkStateAndShow(
+                                        BLUETOOTH_QUICK,
+                                        state == BluetoothAdapter.STATE_ON || state == BluetoothAdapter.STATE_CONNECTING
+                                                || state == BluetoothAdapter.STATE_TURNING_ON
+                                )
+                            }
                         }
                     }
-                }
-                catch (e: Exception) {
+                    catch (e: Exception) {
 
+                    }
                 }
             }
-        }, wifiFilter)
+        }
+
+        if(activity != null) {
+            val bluetoothFilter = IntentFilter()
+            bluetoothFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED)
+            activity?.registerReceiver(bluetoothReceiver, bluetoothFilter)
+        }
     }
 
     override fun registerAirplaneModeStateReceiver() {
-        val airplaneFilter = IntentFilter()
-        airplaneFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
-        activity!!.registerReceiver(object: BroadcastReceiver() {
-            override fun onReceive(context: Context?, intent: Intent?) {
-                try {
-                    if(context != null && intent != null && intent.action != null) {
-                        val action = intent.action
-                        if (Intent.ACTION_AIRPLANE_MODE_CHANGED == action) {
-                            checkStateAndShow(
-                                    AIRPLANE_QUICK,
-                                    Settings.Global.getInt(context.contentResolver,
-                                            Settings.Global.AIRPLANE_MODE_ON, 0) != 0
-                            )
+
+        if(airplaneReceiver == null) {
+            airplaneReceiver = object: BroadcastReceiver() {
+                override fun onReceive(context: Context?, intent: Intent?) {
+                    try {
+                        if(context != null && intent != null && intent.action != null) {
+                            val action = intent.action
+                            if (Intent.ACTION_AIRPLANE_MODE_CHANGED == action) {
+                                checkStateAndShow(
+                                        AIRPLANE_QUICK,
+                                        Settings.Global.getInt(context.contentResolver,
+                                                Settings.Global.AIRPLANE_MODE_ON, 0) != 0
+                                )
+                            }
                         }
                     }
-                }
-                catch (e: Exception) {
+                    catch (e: Exception) {
 
+                    }
                 }
             }
-        }, airplaneFilter)
+        }
+
+        if(activity != null) {
+            val airplaneFilter = IntentFilter()
+            airplaneFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+            activity?.registerReceiver(airplaneReceiver, airplaneFilter)
+        }
     }
 
     override fun registerAutorotateStateReceiver() {
-        val contentObserver = object: ContentObserver(Handler()) {
-            override fun onChange(selfChange: Boolean) {
-                checkStateAndShow(
-                        AUTOROTATE_QUICK,
-                        android.provider.Settings.System.getInt(activity?.contentResolver,
-                                Settings.System.ACCELEROMETER_ROTATION, 0) == 1
-                )
+        if(autorotateObserver == null) {
+            autorotateObserver = object: ContentObserver(Handler()) {
+                override fun onChange(selfChange: Boolean) {
+                    checkStateAndShow(
+                            AUTOROTATE_QUICK,
+                            android.provider.Settings.System.getInt(activity?.contentResolver,
+                                    Settings.System.ACCELEROMETER_ROTATION, 0) == 1
+                    )
+                }
             }
         }
-        activity?.contentResolver?.registerContentObserver(
-                Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION),
-                true,
-                contentObserver
-        )
+
+        if(autorotateObserver != null) {
+            activity?.contentResolver?.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION),
+                    true,
+                    autorotateObserver!!
+            )
+        }
     }
 
     fun checkStateAndShow(item: String, isPositive: Boolean) {
@@ -508,5 +542,27 @@ class ToolsFragment : Fragment(), ToolsInterface {
             startActivityForResult(Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0)
         }
         s.show()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        registerReceivers()
+    }
+
+    override fun onStop() {
+        unregisterReceivers()
+        super.onStop()
+    }
+
+    override fun unregisterReceivers() {
+        try { activity?.unregisterReceiver(locationReceiver)} catch (e: java.lang.Exception) {}
+        try { activity?.unregisterReceiver(wifiAndHotspotReceiver)} catch (e: java.lang.Exception) {}
+        try { activity?.unregisterReceiver(bluetoothReceiver)} catch (e: java.lang.Exception) {}
+        try { activity?.unregisterReceiver(airplaneReceiver)} catch (e: java.lang.Exception) {}
+
+        if(autorotateObserver != null)
+            try {
+                activity?.contentResolver?.unregisterContentObserver(autorotateObserver!!)
+            } catch (e: java.lang.Exception) {}
     }
 }

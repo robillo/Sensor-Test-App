@@ -10,6 +10,8 @@ public interface ToolsInterface {
 
     void registerReceivers();
 
+    void unregisterReceivers();
+
     void setImageToolsAdapter();
 
     void setEverydayToolsAdapter();
