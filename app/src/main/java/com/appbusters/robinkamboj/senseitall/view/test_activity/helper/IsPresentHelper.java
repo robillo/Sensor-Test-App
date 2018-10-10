@@ -55,7 +55,7 @@ public class IsPresentHelper {
                 case SOUND:
                     return true;
                 case RADIO:
-                    return Build.getRadioVersion() != null || Build.getRadioVersion().equals(AppConstants.UNKNOWN);
+                    return Build.getRadioVersion() != null && Build.getRadioVersion().equals(AppConstants.UNKNOWN);
                 case VIBRATOR:
                     return vibrator != null && vibrator.hasVibrator();
                 default: {

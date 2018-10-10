@@ -388,11 +388,11 @@ public class AppConstants {
 //        everydayTools.add(INTERNET_SPEED);
 //        everydayTools.add(CHECKLIST);
         everydayTools.add(CALCULATOR);
-        everydayTools.add(CALENDAR);
         everydayTools.add(VOLUME_CONTROL);
         everydayTools.add(SOUND_LEVEL);
-        everydayTools.add(TIMER);
         everydayTools.add(TAKE_NOTE);
+        everydayTools.add(TIMER);
+        everydayTools.add(CALENDAR);
 
         informationNames.add(GSM_UMTS);
         informationNames.add(ANDROID_OS);

@@ -38,21 +38,21 @@ import kotlinx.android.synthetic.main.fragment_tools.view.*
  */
 class ToolsFragment : Fragment(), ToolsInterface {
 
-    var everyday_tools_list: MutableList<ToolsItem> = ArrayList()
-    var image_tools_list: MutableList<ToolsItem> = ArrayList()
+    private var everydayToolsList: MutableList<ToolsItem> = ArrayList()
+    private var imageToolsList: MutableList<ToolsItem> = ArrayList()
     lateinit var list: MutableList<TinyInfo>
-    lateinit var quickAdapter: QuickSettingsAdapter
-    lateinit var imageToolsAdapter: ImageToolsAdapter
-    lateinit var everydayToolsAdapter: ImageToolsAdapter
+    private lateinit var quickAdapter: QuickSettingsAdapter
+    private lateinit var imageToolsAdapter: ImageToolsAdapter
+    private lateinit var everydayToolsAdapter: ImageToolsAdapter
     lateinit var lv : View
 
-    var networkCallback: ConnectivityManager.NetworkCallback? = null
-    var connectivityManager: ConnectivityManager? = null
-    var locationReceiver: BroadcastReceiver? = null
-    var wifiAndHotspotReceiver: BroadcastReceiver? = null
-    var bluetoothReceiver: BroadcastReceiver? = null
-    var airplaneReceiver: BroadcastReceiver? = null
-    var autorotateObserver: ContentObserver? = null
+    private var networkCallback: ConnectivityManager.NetworkCallback? = null
+    private var connectivityManager: ConnectivityManager? = null
+    private var locationReceiver: BroadcastReceiver? = null
+    private var wifiAndHotspotReceiver: BroadcastReceiver? = null
+    private var bluetoothReceiver: BroadcastReceiver? = null
+    private var airplaneReceiver: BroadcastReceiver? = null
+    private var autorotateObserver: ContentObserver? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -257,9 +257,9 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun setImageToolsAdapter() {
         val list : List<String> = AppConstants.imageTools
         list.forEach {
-            image_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap[it]))
+            imageToolsList.add(ToolsItem(it, AppConstants.imageUrlMap[it]))
         }
-        imageToolsAdapter = ImageToolsAdapter(image_tools_list, activity)
+        imageToolsAdapter = ImageToolsAdapter(imageToolsList, activity)
         lv.image_tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.HORIZONTAL,
@@ -273,9 +273,9 @@ class ToolsFragment : Fragment(), ToolsInterface {
     override fun setEverydayToolsAdapter() {
         val list : List<String> = AppConstants.everydayTools
         list.forEach {
-            everyday_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap[it]))
+            everydayToolsList.add(ToolsItem(it, AppConstants.imageUrlMap[it]))
         }
-        everydayToolsAdapter = ImageToolsAdapter(everyday_tools_list, activity)
+        everydayToolsAdapter = ImageToolsAdapter(everydayToolsList, activity)
         lv.everyday_tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.HORIZONTAL,

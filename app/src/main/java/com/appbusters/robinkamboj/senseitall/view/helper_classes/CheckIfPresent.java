@@ -104,6 +104,7 @@ public class CheckIfPresent {
         this.context = context;
     }
 
+    @SuppressWarnings("deprecation")
     public boolean returnPresence(String item) {
         switch (item) {
             //_____________________________TOOLS________________________________//
@@ -186,23 +187,28 @@ public class CheckIfPresent {
                 return true;
             }
             case FINGERPRINT: {
-                boolean isFingerprintSupported = false;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    isFingerprintSupported = ActivityCompat
-                            .checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) ==
-                            PackageManager.PERMISSION_GRANTED &&
-                            Objects.requireNonNull(context.getSystemService(FingerprintManager.class))
-                                    .isHardwareDetected();
-                } else {
-                    isFingerprintSupported = FingerprintManagerCompat.from(context).isHardwareDetected();
+                boolean isFingerprintSupported;
+                try {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        isFingerprintSupported = ActivityCompat
+                                .checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) ==
+                                PackageManager.PERMISSION_GRANTED &&
+                                Objects.requireNonNull(context.getSystemService(FingerprintManager.class))
+                                        .isHardwareDetected();
+                    } else {
+                        isFingerprintSupported = FingerprintManagerCompat.from(context).isHardwareDetected();
+                    }
+                    if(!isFingerprintSupported) {
+                        showSnackBar("item not supported");
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
                 }
-                if(!isFingerprintSupported) {
-                    showSnackBar("item not supported");
-                    return false;
-                }
-                else {
-                    return true;
-                }
+                catch (Exception ignored) {}
+
+                return false;
             }
             case GSM_UMTS:
             case COMPASS:
@@ -276,6 +282,7 @@ public class CheckIfPresent {
                         context.startActivity(fallbackIntent);
                     }
                 }
+                break;
             }
             case VIRTUAL_REALITY: {
                 String vr_package_name = "com.robillo.virtualrealitysample_senseitall";
@@ -297,6 +304,7 @@ public class CheckIfPresent {
                         context.startActivity(fallbackIntent);
                     }
                 }
+                break;
             }
             //___________________________DEVICE DETAILS______________________________//
             case STORAGE:
@@ -336,6 +344,7 @@ public class CheckIfPresent {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
     }
 
+    @SuppressWarnings("deprecation")
     private boolean isPermissionGranted(String item) {
         boolean isGiven = true;
         switch (item) {
@@ -393,25 +402,29 @@ public class CheckIfPresent {
                 break;
             }
             case FINGERPRINT: {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if(isPermissionNotGiven(Manifest.permission.USE_FINGERPRINT)) {
-                        isGiven = false;
+
+                try {
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if(isPermissionNotGiven(Manifest.permission.USE_FINGERPRINT)) {
+                            isGiven = false;
+                        }
+                        else {
+                            FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+                            if(fingerprintManager == null) {
+                                isGiven = false;
+                            }
+                            else if (!fingerprintManager.isHardwareDetected()) {
+                                isGiven = false;
+                            } else if (!fingerprintManager.hasEnrolledFingerprints()) {
+                                isGiven = false;
+                            }
+                        }
                     }
                     else {
-                        FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-                        if(fingerprintManager == null) {
-                            isGiven = false;
-                        }
-                        else if (!fingerprintManager.isHardwareDetected()) {
-                            isGiven = false;
-                        } else if (!fingerprintManager.hasEnrolledFingerprints()) {
-                            isGiven = false;
-                        }
+                        isGiven = false;
                     }
                 }
-                else {
-                    isGiven = false;
-                }
+                catch (Exception ignored) {}
                 break;
             }
         }
