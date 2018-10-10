@@ -240,18 +240,21 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     fun checkStateAndShow(item: String, isPositive: Boolean) {
-        if(isPositive) {
-            if(!quickAdapter.getItemState(item)) {
-                quickAdapter.updateItemState(item, true)
-                showCoordinatorPositive("$item Enabled")
+        try {
+            if(isPositive) {
+                if(!quickAdapter.getItemState(item)) {
+                    quickAdapter.updateItemState(item, true)
+                    showCoordinatorPositive("$item Enabled")
+                }
+            }
+            else {
+                if(quickAdapter.getItemState(item)) {
+                    quickAdapter.updateItemState(item, false)
+                    showCoordinatorPositive("$item Disabled")
+                }
             }
         }
-        else {
-            if(quickAdapter.getItemState(item)) {
-                quickAdapter.updateItemState(item, false)
-                showCoordinatorPositive("$item Disabled")
-            }
-        }
+        catch (e: Exception) {}
     }
 
     override fun setImageToolsAdapter() {
@@ -303,7 +306,12 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
     override fun checkQuickSettingsStatus() {
         for(info in list) {
-            checkEachQuickSetting(info.name)
+            try {
+                checkEachQuickSetting(info.name)
+            }
+            catch (e: Exception) {
+                showCoordinatorNegative("some error occurred")
+            }
         }
     }
 
@@ -311,12 +319,12 @@ class ToolsFragment : Fragment(), ToolsInterface {
         when (info) {
             WIFI_QUICK -> {
                 try {
-
-                }
-                catch(e: Exception) {
                     val wifiManager =
                             activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
                     if(wifiManager.isWifiEnabled) quickAdapter.updateItemState(info, true)
+                }
+                catch(e: Exception) {
+                    showCoordinatorNegative("some error occurred: wifi")
                 }
 
             }
@@ -325,7 +333,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     if(BluetoothAdapter.getDefaultAdapter().isEnabled) quickAdapter.updateItemState(info, true)
                 }
                 catch(e: Exception) {
-
+                    showCoordinatorNegative("some error occurred: bluetooth")
                 }
             }
             BRIGHTNESS_QUICK -> {
@@ -348,8 +356,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
                         quickAdapter.updateItemState(info, false)
                     }
                 }
-                catch (e: java.lang.Exception) {
-
+                catch (e: Exception) {
+                    showCoordinatorNegative("some error occurred: hotspot")
                 }
             }
             FLASHLIGHT_QUICK -> {
@@ -362,7 +370,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     else quickAdapter.updateItemState(LOCATION_QUICK, false)
                 }
                 catch(e: Exception) {
-
+                    showCoordinatorNegative("some error occurred: location")
                 }
             }
             AIRPLANE_QUICK -> {
@@ -376,7 +384,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     }
                 }
                 catch(e: Exception) {
-
+                    showCoordinatorNegative("some error occurred: airplane")
                 }
             }
             AUTOROTATE_QUICK -> {
@@ -388,7 +396,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     else quickAdapter.updateItemState(info, false)
                 }
                 catch(e: Exception) {
-
+                    showCoordinatorNegative("some error occurred: autorotate")
                 }
             }
         }
@@ -559,19 +567,19 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun unregisterReceivers() {
-        try { activity?.unregisterReceiver(locationReceiver)} catch (e: java.lang.Exception) {}
-        try { activity?.unregisterReceiver(wifiAndHotspotReceiver)} catch (e: java.lang.Exception) {}
-        try { activity?.unregisterReceiver(bluetoothReceiver)} catch (e: java.lang.Exception) {}
-        try { activity?.unregisterReceiver(airplaneReceiver)} catch (e: java.lang.Exception) {}
+        try { activity?.unregisterReceiver(locationReceiver)} catch (e: Exception) {}
+        try { activity?.unregisterReceiver(wifiAndHotspotReceiver)} catch (e: Exception) {}
+        try { activity?.unregisterReceiver(bluetoothReceiver)} catch (e: Exception) {}
+        try { activity?.unregisterReceiver(airplaneReceiver)} catch (e: Exception) {}
         try {
             connectivityManager?.unregisterNetworkCallback(networkCallback)
         }
-        catch (e: java.lang.Exception) {}
+        catch (e: Exception) {}
 
         if(autorotateObserver != null)
             try {
                 activity?.contentResolver?.unregisterContentObserver(autorotateObserver!!)
             }
-            catch (e: java.lang.Exception) {}
+            catch (e: Exception) {}
     }
 }

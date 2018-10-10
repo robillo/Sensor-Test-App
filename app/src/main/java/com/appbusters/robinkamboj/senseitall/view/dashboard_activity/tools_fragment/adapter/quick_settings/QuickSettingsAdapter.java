@@ -80,21 +80,27 @@ public class QuickSettingsAdapter extends RecyclerView.Adapter<QuickSettingsAdap
     }
 
     public void updateItemState(String item, boolean isOn) {
-        for(int i=0; i<list.size(); i++) {
-            if(list.get(i).getName().equals(item)) {
-                list.get(i).setOn(isOn);
-                notifyDataSetChanged();
-                break;
+        try {
+            for(int i=0; i<list.size(); i++) {
+                if(list.get(i).getName().equals(item)) {
+                    list.get(i).setOn(isOn);
+                    notifyDataSetChanged();
+                    break;
+                }
             }
         }
+        catch (Exception ignored) {}
     }
 
     public boolean getItemState(String item) {
-        for(int i=0; i<list.size(); i++) {
-            if(list.get(i).getName().equals(item)) {
-                return list.get(i).isOn();
+        try {
+            for(int i=0; i<list.size(); i++) {
+                if(list.get(i).getName().equals(item)) {
+                    return list.get(i).isOn();
+                }
             }
         }
+        catch (Exception ignored) {}
         return false;
     }
 
