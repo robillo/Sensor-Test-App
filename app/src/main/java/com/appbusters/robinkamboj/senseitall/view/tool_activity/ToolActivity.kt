@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
@@ -18,7 +17,6 @@ import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.a
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcDialog.newInstance
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.ChecklistFragment
-import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.checklist.db.Check
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.internet_speed.InternetSpeedFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.reminder.ReminderFragment
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.sound_level.SoundLevelFragment
@@ -202,6 +200,9 @@ class ToolActivity : AppCompatActivity(), ToolsInterface {
                                 getString(R.string.tag_timer_fragment)
                         )
                         .commit()
+            }
+            RECORD_AUDIO -> {
+
             }
 //            WEATHER -> {
 //

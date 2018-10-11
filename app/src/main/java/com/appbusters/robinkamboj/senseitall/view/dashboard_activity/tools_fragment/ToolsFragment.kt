@@ -27,7 +27,6 @@ import android.widget.TextView
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo
 import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.utils.StartSnapHelper
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.image_tools.ImageToolsAdapter
@@ -49,6 +48,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
     private lateinit var everydayToolsAdapter: ImageToolsAdapter
     lateinit var lv : View
 
+    private var quickSettingsList: MutableList<TinyInfo> = ArrayList()
     private var networkCallback: ConnectivityManager.NetworkCallback? = null
     private var connectivityManager: ConnectivityManager? = null
     private var locationReceiver: BroadcastReceiver? = null
@@ -67,10 +67,24 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
     override fun setup(v: View) {
         lv = v
+
+        initialize()
         setImageToolsAdapter()
         setEverydayToolsAdapter()
         setQuickSettingsRecycler()
         checkQuickSettingsStatus()
+    }
+
+    override fun initialize() {
+        quickSettingsList.add(TinyInfo(WIFI_QUICK, onMapImage[WIFI_QUICK]!!, offMapImage[WIFI_QUICK]!!))
+        quickSettingsList.add(TinyInfo(BLUETOOTH_QUICK, onMapImage[BLUETOOTH_QUICK]!!, offMapImage[BLUETOOTH_QUICK]!!))
+        quickSettingsList.add(TinyInfo(AUTOROTATE_QUICK, onMapImage[AUTOROTATE_QUICK]!!, offMapImage[AUTOROTATE_QUICK]!!))
+        quickSettingsList.add(TinyInfo(AIRPLANE_QUICK, onMapImage[AIRPLANE_QUICK]!!, offMapImage[AIRPLANE_QUICK]!!))
+//        quickSettingsList.add(new TinyInfo(BRIGHTNESS_QUICK, onMapImage.get(BRIGHTNESS_QUICK), offMapImage.get(BRIGHTNESS_QUICK)));
+//        quickSettingsList.add(new TinyInfo(VOLUME_QUICK, onMapImage.get(VOLUME_QUICK), offMapImage.get(VOLUME_QUICK)));
+//        quickSettingsList.add(new TinyInfo(FLASHLIGHT_QUICK, onMapImage.get(FLASHLIGHT_QUICK), offMapImage.get(FLASHLIGHT_QUICK)));
+        quickSettingsList.add(TinyInfo(LOCATION_QUICK, onMapImage[LOCATION_QUICK]!!, offMapImage[LOCATION_QUICK]!!))
+        quickSettingsList.add(TinyInfo(HOTSPOT_QUICK, onMapImage[HOTSPOT_QUICK]!!, offMapImage[HOTSPOT_QUICK]!!))
     }
 
     override fun registerReceivers() {
@@ -268,9 +282,9 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun setImageToolsAdapter() {
-        val list : List<String> = AppConstants.imageTools
+        val list : List<String> = imageTools
         list.forEach {
-            imageToolsList.add(ToolsItem(it, AppConstants.imageUrlMap[it]))
+            imageToolsList.add(ToolsItem(it, imageUrlMap[it]))
         }
         imageToolsAdapter = ImageToolsAdapter(imageToolsList, activity)
         lv.image_tools_rv.layoutManager = LinearLayoutManager(
@@ -284,9 +298,9 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun setEverydayToolsAdapter() {
-        val list : List<String> = AppConstants.everydayTools
+        val list : List<String> = everydayTools
         list.forEach {
-            everydayToolsList.add(ToolsItem(it, AppConstants.imageUrlMap[it]))
+            everydayToolsList.add(ToolsItem(it, imageUrlMap[it]))
         }
         everydayToolsAdapter = ImageToolsAdapter(everydayToolsList, activity)
         lv.everyday_tools_rv.layoutManager = LinearLayoutManager(
@@ -300,7 +314,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun setQuickSettingsRecycler() {
-        list = AppConstants.quickSettings
+        list = quickSettingsList
         quickAdapter = QuickSettingsAdapter(list, activity, QuickSettingsListener {
             flipSetting(it)
         })
@@ -391,7 +405,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                         if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
                         else quickAdapter.updateItemState(LOCATION_QUICK, false)
                     }
-                    catch(e: Exception) {
+                    catch(e: java.lang.Exception) {
                         showCoordinatorNegative("some error occurred: location")
                     }
                 }
@@ -548,13 +562,18 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     private fun showCoordinatorNegative(coordinatorText: String) {
-        val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
-        val v = s.view
-        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.red_shade_three_less_vibrant))
-        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
-        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
-        t.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        s.show()
+        if(activity != null) {
+            try {
+                val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
+                val v = s.view
+                v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.red_shade_three_less_vibrant))
+                val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+                t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
+                t.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                s.show()
+            }
+            catch (ignored: java.lang.Exception) {}
+        }
     }
 
     private fun showCoordinatorPositive(coordinatorText: String) {

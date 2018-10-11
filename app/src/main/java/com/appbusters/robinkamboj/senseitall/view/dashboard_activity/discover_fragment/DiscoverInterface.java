@@ -4,6 +4,8 @@ import android.view.View;
 
 public interface DiscoverInterface {
 
+    void initialize();
+
     void setup(View v);
 
     void setCategoriesAdapter();

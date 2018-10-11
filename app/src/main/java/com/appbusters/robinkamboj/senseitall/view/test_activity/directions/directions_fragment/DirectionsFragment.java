@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.other_files.MapDirections;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 
 import butterknife.BindView;
@@ -59,8 +59,8 @@ public class DirectionsFragment extends Fragment implements DirectionsInterface 
 
     @Override
     public void setDataForSensor() {
-        testDirections.setText(AppConstants.sensorMapDirections.get(intentData.getName()).toLowerCase());
-        testHint.setText(AppConstants.sensorMapHints.get(intentData.getName()).toLowerCase());
+        testDirections.setText(MapDirections.sensorMapDirections.get(intentData.getName()).toLowerCase());
+        testHint.setText(MapDirections.sensorMapHints.get(intentData.getName()).toLowerCase());
     }
 
     @OnClick(R.id.start_test)

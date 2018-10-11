@@ -6,17 +6,12 @@ import android.hardware.Sensor;
 import android.os.Build;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo;
-import com.appbusters.robinkamboj.senseitall.model.recycler.Category;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class AppConstants {
-
-    public final String vr_package_name = "com.robillo.virtualrealitysample_senseitall";
-    public final String vr_intent_filter = "com.robillo.virtualrealitysample_senseitall.VR_TESTS";
 
     public static final String ml_package_name = "com.assistiveapps.machinelearningtests";
     public static final String face_detect_intent_filter = "com.assistiveapps.machinelearningtests.tests.face_detect";
@@ -34,11 +29,7 @@ public class AppConstants {
     public static final String FROM_ARG_IN_REQUEST = "FROM_ARG_IN_REQUEST";
 
     public static final int REQUEST_CODE = 100;
-    public static final int REQUEST_CODE_PICK_IMAGE = 101;
-    public static final int REQUEST_CODE_CAPTURE_IMAGE = 102;
     public static final int REQUEST_CHECK_SETTINGS = 103;
-    public static final String CHOOSER_INTENT_TITLE = "Select Image";
-    public static final String IMAGE_CONTENT_TYPE = "image/*";
     public static final String CATEGORY = "CATEGORY";
     public static final int INFO_RECYCLER_COUNT = 4;
     public static final int FLING_VELOCITY = 3000;
@@ -116,6 +107,7 @@ public class AppConstants {
     public static final String SENSOR_MAGNETIC_FIELD = "Magnetic Field";
     public static final String SENSOR_HEART_RATE = "Heart Rate Sensor";
 
+    private static final String QUICK_SETTINGS = "Quick Settings";
     public static final String CALENDAR = "Calendar";                           //tool names
     public static final String WEATHER = "Weather"; //-
     public static final String REMINDER = "Set Reminder"; //-
@@ -123,7 +115,6 @@ public class AppConstants {
     public static final String INTERNET_SPEED = "Internet Speed"; //-
     public static final String VOLUME_CONTROL = "Volume Control"; //-
     public static final String TAKE_NOTE = "Take Note"; //-
-    public static final String QUICK_SETTINGS = "Quick Settings";
     public static final String CHECKLIST = "Checklist";
     public static final String RECORD_AUDIO = "Record Audio";
     public static final String CALCULATOR = "Calculator";
@@ -242,14 +233,11 @@ public class AppConstants {
 
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
 
-    public static List<Category> categories = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
     public static List<String> informationNames = new ArrayList<>();
     public static List<String> softwareNames = new ArrayList<>();
     public static List<String> androidNames = new ArrayList<>();
-    public static List<String> toolsNames = new ArrayList<>();
-    public static List<String> quickSettingNames = new ArrayList<>();
     public static List<String> imageTools = new ArrayList<>();
     public static List<String> popTools = new ArrayList<>();
     public static List<String> popTests = new ArrayList<>();
@@ -260,25 +248,10 @@ public class AppConstants {
     public static HashMap<String, String> packageManagerPaths = new HashMap<>();
     public static HashMap<String, Integer> sensorManagerInts = new HashMap<>();
     public static List<String> dangerousPermissions = new ArrayList<>();
-    public static HashMap<String, String> sensorMapDirections = new HashMap<>();
-    public static HashMap<String, String> sensorMapHints = new HashMap<>();
-    public static HashMap<String, Integer> mapAbout = new HashMap<>();
     public static HashMap<String, Integer> onMapImage = new HashMap<>();
     public static HashMap<String, Integer> offMapImage = new HashMap<>();
-    public static List<TinyInfo> quickSettings = new ArrayList<>();
-//    public static HashMap<String, String> versionMapUri = new HashMap<>();
 
     static {
-
-        quickSettingNames.add(WIFI_QUICK);
-        quickSettingNames.add(BLUETOOTH_QUICK);
-        quickSettingNames.add(AUTOROTATE_QUICK);
-        quickSettingNames.add(AIRPLANE_QUICK);
-//        quickSettingNames.add(BRIGHTNESS_QUICK);
-//        quickSettingNames.add(VOLUME_QUICK);
-//        quickSettingNames.add(FLASHLIGHT_QUICK);
-        quickSettingNames.add(LOCATION_QUICK);
-        quickSettingNames.add(HOTSPOT_QUICK);
 
         offMapImage.put(WIFI_QUICK, R.drawable.baseline_wifi_off_black_48);
         offMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_disabled_black_48);
@@ -299,16 +272,6 @@ public class AppConstants {
         onMapImage.put(LOCATION_QUICK, R.drawable.baseline_location_on_black_48);
         onMapImage.put(AIRPLANE_QUICK, R.drawable.baseline_airplanemode_active_black_48);
         onMapImage.put(AUTOROTATE_QUICK, R.drawable.baseline_screen_rotation_black_48);
-
-        quickSettings.add(new TinyInfo(WIFI_QUICK, onMapImage.get(WIFI_QUICK), offMapImage.get(WIFI_QUICK)));
-        quickSettings.add(new TinyInfo(BLUETOOTH_QUICK, onMapImage.get(BLUETOOTH_QUICK), offMapImage.get(BLUETOOTH_QUICK)));
-        quickSettings.add(new TinyInfo(AUTOROTATE_QUICK, onMapImage.get(AUTOROTATE_QUICK), offMapImage.get(AUTOROTATE_QUICK)));
-        quickSettings.add(new TinyInfo(AIRPLANE_QUICK, onMapImage.get(AIRPLANE_QUICK), offMapImage.get(AIRPLANE_QUICK)));
-//        quickSettings.add(new TinyInfo(BRIGHTNESS_QUICK, onMapImage.get(BRIGHTNESS_QUICK), offMapImage.get(BRIGHTNESS_QUICK)));
-//        quickSettings.add(new TinyInfo(VOLUME_QUICK, onMapImage.get(VOLUME_QUICK), offMapImage.get(VOLUME_QUICK)));
-//        quickSettings.add(new TinyInfo(FLASHLIGHT_QUICK, onMapImage.get(FLASHLIGHT_QUICK), offMapImage.get(FLASHLIGHT_QUICK)));
-        quickSettings.add(new TinyInfo(LOCATION_QUICK, onMapImage.get(LOCATION_QUICK), offMapImage.get(LOCATION_QUICK)));
-        quickSettings.add(new TinyInfo(HOTSPOT_QUICK, onMapImage.get(HOTSPOT_QUICK), offMapImage.get(HOTSPOT_QUICK)));
 
         dangerousPermissions.add(Manifest.permission.CAMERA);
         dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
@@ -342,26 +305,6 @@ public class AppConstants {
         featureNames.add(HEART_RATE_ECG);
         featureNames.add(FAKE_TOUCH);
         featureNames.add(MIDI);
-
-        toolsNames.add(SET_ALARM);
-        toolsNames.add(INTERNET_SPEED);
-        toolsNames.add(TAKE_NOTE);
-        toolsNames.add(VOLUME_CONTROL);
-        toolsNames.add(WEATHER);
-        toolsNames.add(CALENDAR);
-        toolsNames.add(REMINDER);
-        toolsNames.add(QUICK_SETTINGS);
-        toolsNames.add(CROP_IMAGE);
-        toolsNames.add(IMAGE_FILTERS);
-        toolsNames.add(DRAW_NOTE);
-        toolsNames.add(SQUARE_IMAGE);
-        toolsNames.add(EDIT_IMAGE);
-        toolsNames.add(CHECKLIST);
-        toolsNames.add(RECORD_AUDIO);
-        toolsNames.add(CALCULATOR);
-        toolsNames.add(SOUND_LEVEL);
-        toolsNames.add(STOP_WATCH);
-        toolsNames.add(TIMER);
 
 //        popTools.add(SET_ALARM);
 //        popTools.add(WEATHER);
@@ -565,13 +508,6 @@ public class AppConstants {
         imageUrlMap.put(TIMER, R.drawable.baseline_watch_later_black_48);
         imageUrlMap.put(DRAW_NOTE, R.drawable.baseline_edit_black_48);
 
-//        versionMapUri.put(PIE, "https://developer.android.com/about/versions/pie");
-//        versionMapUri.put(OREO, "https://developer.android.com/about/versions/oreo");
-//        versionMapUri.put(NOUGAT, "https://developer.android.com/about/versions/nougat");
-//        versionMapUri.put(MARSHMALLOW, "https://developer.android.com/about/versions/marshmallow");
-//        versionMapUri.put(LOLLIPOP, "https://developer.android.com/about/versions/lollipop");
-//        versionMapUri.put(KITKAT, "https://developer.android.com/about/versions/kitkat");
-
         packageManagerPaths.put(BACK_CAMERA, PackageManager.FEATURE_CAMERA);
         packageManagerPaths.put(FRONT_CAMERA, PackageManager.FEATURE_CAMERA_FRONT);
         packageManagerPaths.put(GPS_LOCATION, PackageManager.FEATURE_LOCATION_GPS);
@@ -595,530 +531,7 @@ public class AppConstants {
             packageManagerPaths.put(FINGERPRINT, PackageManager.FEATURE_FINGERPRINT);
             packageManagerPaths.put(MIDI, PackageManager.FEATURE_MIDI);
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            packageManagerPaths.put(VR_MODE, PackageManager.FEATURE_VR_MODE);
         //RADIO, BATTERY, CPU, SOUND, VIBRATOR, INFRARED, ANDROID OS
-
-        sensorMapDirections.put(
-                SENSOR_PROXIMITY,
-                "Place Your Hand Above Proximity Sensor To Increment Counter."
-        );
-        sensorMapDirections.put(
-                SENSOR_ACCELEROMETER,
-                "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
-        );
-        sensorMapDirections.put(
-                SENSOR_LIGHT,
-                "Point Your Light Sensor Towards Light To Observe Bar Color Change."
-        );
-        sensorMapDirections.put(
-                BACK_CAMERA,
-                "You Should See Back Camera Preview In The Test."
-        );
-        sensorMapDirections.put(
-                FRONT_CAMERA,
-                "You Should See Front Camera Preview In The Test."
-        );
-        sensorMapDirections.put(
-                GPS_LOCATION,
-                "You Should See Your Location In The Test."
-        );
-        sensorMapDirections.put(
-                WIFI,
-                "You Should See Your Current Connection As Well As All Available WiFi Connections In The Test."
-        );
-        sensorMapDirections.put(
-                BLUETOOTH,
-                "You Should See Your Current Connection As Well As All Available Bluetooth Connections In The Test."
-        );
-        sensorMapDirections.put(
-                SCREEN,
-                "Draw By Using Touch Anywhere On The Screen In The Test."
-        );
-        sensorMapDirections.put(
-                BATTERY,
-                "See Your Current Battery Level As Well As Whether It Is Plugged In For Charging Or Not."
-        );
-        sensorMapDirections.put(
-                SOUND,
-                "Play A Sound Track And Adjust It's Volume To See If The Speaker And Volume UP/DOWN Buttons Are Working."
-        );
-        sensorMapDirections.put(
-                VIBRATOR,
-                "Click Anywhere On The Next Screen To Vibrate Your Screen Once Per Click."
-        );
-        sensorMapDirections.put(
-                AV_OUTPUTS,
-                "Plug In/Out To Verify If Headphone Jack Is Functioning Properly Or Not."
-        );
-        sensorMapDirections.put(
-                FLASH,
-                "Click Anywhere On The Next Screen To Activate/Deactivate Flash On Your Device."
-        );
-        sensorMapDirections.put(
-                MULTI_TOUCH,
-                "Click On The Next Screen Multiple Times Simultaneously To Create Circles On It."
-        );
-        sensorMapDirections.put(
-                FINGERPRINT,
-                "Place Your Enrolled Fingerprints On The Fingerprint Sensor To Authenticate The Screen."
-        );
-        sensorMapDirections.put(
-                COMPASS,
-                "Rotate Your Phone In The Horizontal Plane (Parallel To The Floor) To Verify If The North Pole Of The Compass Still Points Towards The Same Direction."
-        );
-        sensorMapDirections.put(
-                SENSOR_GYROSCOPE,
-                "Rotate The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
-        );
-        sensorMapDirections.put(
-                SENSOR_GRAVITY,
-                "Accelerate The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
-        );
-        sensorMapDirections.put(
-                SENSOR_LINEAR_ACCELERATION,
-                "Accelerate The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
-        );
-        sensorMapDirections.put(
-                SENSOR_ROTATION_VECTOR,
-                "Rotate The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
-        );
-        sensorMapDirections.put(
-                SENSOR_MAGNETIC_FIELD,
-                "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
-        );
-        sensorMapDirections.put(
-                SENSOR_PRESSURE,
-                "Move The Device Forward And Backwards/Left And Right/Up And Down To Observe Drastic Changes."
-        );
-        sensorMapDirections.put(
-                VIRTUAL_REALITY,
-                "Move the screen to observe the virtual world."
-        );
-        sensorMapDirections.put(
-                LABEL_GENERATOR,
-                "Capture / Upload an image to generate labels."
-        );
-        sensorMapDirections.put(
-                FACE_DETECT,
-                "Capture / Upload an image to detect faces."
-        );
-        sensorMapDirections.put(
-                BARCODE_READER,
-                "Capture / Upload an image to detect barcodes."
-        );
-        sensorMapDirections.put(
-                TEXT_SCAN,
-                "Capture / Upload an image to detect text."
-        );
-        sensorMapDirections.put(
-                SENSOR_STEP_COUNTER,
-                "Start walking to track your progress as number of steps you take."
-        );
-        sensorMapDirections.put(
-                SENSOR_STEP_DETECTOR,
-                "Start walking to validate if your device detects a step or not."
-        );
-        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
-        sensorMapDirections.put(
-                MOTION_DETECT,
-                ""
-        );
-        sensorMapDirections.put(
-                FACE_EMOJI,
-                ""
-        );
-        sensorMapDirections.put(
-                AUGMENTED_REALITY,
-                ""
-        );
-
-        sensorMapHints.put(
-                SENSOR_PROXIMITY,
-                "A proximity sensor is usually located at the top of a mobile screen."
-        );
-        sensorMapHints.put(
-                SENSOR_ACCELEROMETER,
-                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
-        );
-        sensorMapHints.put(
-                SENSOR_LIGHT,
-                "A light sensor is usually located at the top of a mobile screen."
-        );
-        sensorMapHints.put(
-                BACK_CAMERA,
-                "In Phones With Auto-focus Feature, The Focus Should Eventually Shift To The Object You Will Point Towards."
-        );
-        sensorMapHints.put(
-                FRONT_CAMERA,
-                "In Phones With Auto-focus Feature, The Focus Should Eventually Shift To The Object You Will Point Towards."
-        );
-        sensorMapHints.put(
-                GPS_LOCATION,
-                "Tap the marker for location coordinates (Longitude And Latitude)."
-        );
-        sensorMapHints.put(
-                WIFI,
-                "This Might Not Work If Current WiFi State Is Disabled."
-        );
-        sensorMapHints.put(
-                BLUETOOTH,
-                "This Might Not Work If Current Bluetooth State Is Disabled."
-        );
-        sensorMapHints.put(
-                SCREEN,
-                "You Can Try Drawing Over Places On Screen That You Are Suspicious Of Not Working."
-        );
-        sensorMapHints.put(
-                BATTERY,
-                "You Will Also Observe Changes As Your Battery Level Decreases Or Increases."
-        );
-        sensorMapHints.put(
-                SOUND,
-                "Alternatively You Can Increase/Decrease Volume By Dragging The Slider."
-        );
-        sensorMapHints.put(
-                VIBRATOR,
-                "Avoid Using Vibrations On Call Reception To Avoid Damage To The Vibrator Motor."
-        );
-        sensorMapHints.put(
-                AV_OUTPUTS,
-                "On Plugging In The Port, Sometimes It May Momentarily Set State To Plugged And Then Unplugged. This Is Normal."
-        );
-        sensorMapHints.put(
-                FLASH,
-                "It Is Recommended To Avoid Turning On Flash For Prolonged Period Of Time To Avoid Device Overheating."
-        );
-        sensorMapHints.put(
-                MULTI_TOUCH,
-                "Try To Get Maximum Number Of Circles On The Screen."
-        );
-        sensorMapHints.put(
-                FINGERPRINT,
-                "For Fingers Not Enrolled On The Device, Authentication Will Fail. You Can Reset The Screen To Re-test."
-        );
-        sensorMapHints.put(
-                COMPASS,
-                "If You Are Not Getting Expected Results, Try Re-calibrating The Device In Settings."
-        );
-        sensorMapHints.put(
-                SENSOR_GYROSCOPE,
-                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
-        );
-        sensorMapHints.put(
-                SENSOR_GRAVITY,
-                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
-        );
-        sensorMapHints.put(
-                SENSOR_LINEAR_ACCELERATION,
-                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
-        );
-        sensorMapHints.put(
-                SENSOR_ROTATION_VECTOR,
-                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
-        );
-        sensorMapHints.put(
-                SENSOR_MAGNETIC_FIELD,
-                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
-        );
-        sensorMapHints.put(
-                SENSOR_PRESSURE,
-                "Moving The Device In One Orientation Results In Hike In One Of The Three Lines: x (Red), y (Green), z (Blue)."
-        );
-        sensorMapHints.put(
-                FACE_DETECT,
-                "MAKE SURE to set the orientation of the selected image correctly."
-        );
-        sensorMapHints.put(
-                BARCODE_READER,
-                "MAKE SURE to set the orientation of the selected image correctly."
-        );
-        sensorMapHints.put(
-                TEXT_SCAN,
-                "MAKE SURE to set the orientation of the selected image correctly."
-        );
-        sensorMapHints.put(
-                VIRTUAL_REALITY,
-                "Increase the screen brightness to max for a more pleasant experience."
-        );
-        sensorMapHints.put(
-                LABEL_GENERATOR,
-                "MAKE SURE to set the orientation of the selected image correctly."
-        );
-        sensorMapHints.put(
-                SENSOR_STEP_DETECTOR,
-                "It is recommended to keep the phone at the waist level or in a pocket as you walk."
-        );
-        sensorMapHints.put(
-                SENSOR_STEP_COUNTER,
-                "It is recommended to keep the phone at the waist level or in a pocket as you walk."
-        );
-        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
-        sensorMapHints.put(
-                MOTION_DETECT,
-                ""
-        );
-        sensorMapHints.put(
-                FACE_EMOJI,
-                ""
-        );
-        sensorMapHints.put(
-                AUGMENTED_REALITY,
-                ""
-        );
-
-
-        mapAbout.put(
-                SENSOR_PROXIMITY,
-                R.array.proximity_descriptions
-        );
-        mapAbout.put(
-                SENSOR_ACCELEROMETER,
-                R.array.accelerometer_descriptions
-        );
-        mapAbout.put(
-                SENSOR_LIGHT,
-                R.array.light_descriptions
-        );
-        mapAbout.put(
-                BACK_CAMERA,
-                R.array.camera_descriptions
-        );
-        mapAbout.put(
-                FRONT_CAMERA,
-                R.array.camera_descriptions
-        );
-        mapAbout.put(
-                GPS_LOCATION,
-                R.array.gps_descriptions
-        );
-        mapAbout.put(
-                WIFI,
-                R.array.wifi_descriptions
-        );
-        mapAbout.put(
-                BLUETOOTH,
-                R.array.bluetooth_descriptions
-        );
-        mapAbout.put(
-                SCREEN,
-                R.array.screen_descriptions
-        );
-        mapAbout.put(
-                BATTERY,
-                R.array.battery_descriptions
-        );
-        mapAbout.put(
-                SOUND,
-                R.array.sound_descriptions
-        );
-        mapAbout.put(
-                VIBRATOR,
-                R.array.vibrator_descriptions
-        );
-        mapAbout.put(
-                AV_OUTPUTS,
-                R.array.av_descriptions
-        );
-        mapAbout.put(
-                FLASH,
-                R.array.flash_descriptions
-        );
-        mapAbout.put(
-                MULTI_TOUCH,
-                R.array.multi_touch_descriptions
-        );
-        mapAbout.put(
-                FINGERPRINT,
-                R.array.fingerprint_descriptions
-        );
-        mapAbout.put(
-                COMPASS,
-                R.array.compass_descriptions
-        );
-        mapAbout.put(
-                SENSOR_TEMPERATURE,
-                R.array.ambient_temperature_descriptions
-        );
-        mapAbout.put(
-                SENSOR_PRESSURE,
-                R.array.pressure_descriptions
-        );
-        mapAbout.put(
-                SENSOR_RELATIVE_HUMIDITY,
-                R.array.relative_humidity_descriptions
-        );
-        mapAbout.put(
-                SENSOR_GYROSCOPE,
-                R.array.gyroscope_descriptions
-        );
-        mapAbout.put(
-                SENSOR_GRAVITY,
-                R.array.gravity_descriptions
-        );
-        mapAbout.put(
-                SENSOR_LINEAR_ACCELERATION,
-                R.array.linear_acceleration_descriptions
-        );
-        mapAbout.put(
-                SENSOR_ROTATION_VECTOR,
-                R.array.rotation_vector_descriptions
-        );
-        mapAbout.put(
-                SENSOR_MAGNETIC_FIELD,
-                R.array.magnetic_field_descriptions
-        );
-        mapAbout.put(
-                SENSOR_HEART_RATE,
-                R.array.heart_rate_ecg_descriptions
-        );
-        mapAbout.put(
-                SENSOR_STEP_DETECTOR,
-                R.array.step_detector_descriptions
-        );
-        mapAbout.put(
-                SENSOR_STEP_COUNTER,
-                R.array.step_counter_descriptions
-        );
-        mapAbout.put(
-                SENSOR_MOTION_DETECTOR,
-                R.array.motion_detector_descriptions
-        );
-        mapAbout.put(
-                SENSOR_STATIONARY_DETECTOR,
-                R.array.stationary_detector_descriptions
-        );
-        mapAbout.put(
-                GSM_UMTS,
-                R.array.gsm_umts_descriptions
-        );
-        mapAbout.put(
-                RADIO,
-                R.array.radio_descriptions
-        );
-        mapAbout.put(
-                CPU,
-                R.array.cpu_descriptions
-        );
-        mapAbout.put(
-                ANDROID_OS,
-                R.array.android_os_descriptions
-        );
-        mapAbout.put(
-                INFRARED,
-                R.array.infrared_descriptions
-        );
-        mapAbout.put(
-                NFC,
-                R.array.nfc_descriptions
-        );
-        mapAbout.put(
-                MICROPHONE,
-                R.array.microphone_descriptions
-        );
-        mapAbout.put(
-                USB_ACCESSORY,
-                R.array.usb_accessory_descriptions
-        );
-        mapAbout.put(
-                BAROMETER,
-                R.array.barometer_descriptions
-        );
-        mapAbout.put(
-                WIFI_DIRECT,
-                R.array.wifi_direct_descriptions
-        );
-        mapAbout.put(
-                HEART_RATE_ECG,
-                R.array.heart_rate_ecg_descriptions
-        );
-        mapAbout.put(
-                WEB_VIEW,
-                R.array.web_view_descriptions
-        );
-        mapAbout.put(
-                MIDI,
-                R.array.midi_descriptions
-        );
-        mapAbout.put(
-                VR_MODE,
-                R.array.vr_descriptions
-        );
-        mapAbout.put(
-                FAKE_TOUCH,
-                R.array.fake_touch_descriptions
-        );
-        mapAbout.put(
-                RAM,
-                R.array.ram_descriptions
-        );
-        mapAbout.put(
-                STORAGE,
-                R.array.storage_descriptions
-        );
-        mapAbout.put(
-                FACE_DETECT,
-                R.array.face_detect_descriptions
-        );
-        mapAbout.put(
-                BARCODE_READER,
-                R.array.barcode_reader_descriptions
-        );
-        mapAbout.put(
-                VIRTUAL_REALITY,
-                R.array.vr_descriptions
-        );
-        mapAbout.put(
-                LABEL_GENERATOR,
-                R.array.label_generator_descriptions
-        );
-        mapAbout.put(
-                TEXT_SCAN,
-                R.array.text_scan_descriptions
-        );
-        //TODO : ATTACH ACTUAL DATA HERE AND NOT UN_ORIGINAL
-        mapAbout.put(
-                MOTION_DETECT,
-                R.array.storage_descriptions
-        );
-        mapAbout.put(
-                FACE_EMOJI,
-                R.array.storage_descriptions
-        );
-        mapAbout.put(
-                AUGMENTED_REALITY,
-                R.array.storage_descriptions
-        );
-
-        categories.add(new Category(
-                R.drawable.baseline_mobile_friendly_black_48,
-                SENSOR,
-                sensorNames.size() + " ITEMS")
-        );
-
-        categories.add(new Category(
-                R.drawable.baseline_battery_charging_full_black_48,
-                FEATURE,
-                featureNames.size() + " ITEMS")
-        );
-
-        categories.add(new Category(
-                R.drawable.baseline_system_update_black_48,
-                SOFTWARE,
-                "0" + softwareNames.size() + " ITEMS")
-        );
-
-        categories.add(new Category(
-                R.drawable.baseline_info_black_48,
-                INFORMATION,
-                "0" + informationNames.size() + " ITEMS")
-        );
-
-        categories.add(new Category(
-                R.drawable.baseline_android_black_48,
-                ANDROID,
-                "0" + androidNames.size() + " ITEMS")
-        );
 
         popTests.add(SENSOR_PROXIMITY);
         popTests.add(MULTI_TOUCH);

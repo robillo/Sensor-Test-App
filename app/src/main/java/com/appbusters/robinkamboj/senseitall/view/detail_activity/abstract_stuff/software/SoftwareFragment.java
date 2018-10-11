@@ -10,6 +10,7 @@ import com.appbusters.robinkamboj.senseitall.R;
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData;
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity;
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.other_files.MapAbout;
 import com.appbusters.robinkamboj.senseitall.view.learn_more_activity.LearnMoreActivity;
 import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity;
 
@@ -53,7 +54,7 @@ abstract public class SoftwareFragment extends Fragment implements SoftwareInter
     public void setupAbout() {
         if (getActivity() != null) {
             String[] temp = getActivity().getResources().getStringArray(
-                    AppConstants.mapAbout.get(((DetailActivity) getActivity()).intentData.getName())
+                    MapAbout.mapAbout.get(((DetailActivity) getActivity()).intentData.getName())
             );
             about.setText(temp[0]);
         }

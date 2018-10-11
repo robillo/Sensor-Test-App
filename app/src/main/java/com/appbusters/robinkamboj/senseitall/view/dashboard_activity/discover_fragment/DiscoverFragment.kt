@@ -23,10 +23,8 @@ import android.widget.CompoundButton
 import com.appbusters.robinkamboj.senseitall.model.recycler.Category
 import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
-import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.adapter.popular_tools.PopToolsAdapter
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.discover_fragment.temp.CustPagerTransformer
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.image_tools.ImageToolsAdapter
-import kotlinx.android.synthetic.main.fragment_tools.view.*
 
 
 /**
@@ -40,6 +38,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
     lateinit var mFragmentCardAdapter: CardFragmentPagerAdapter
     lateinit var mFragmentCardShadowTransformer: ShadowTransformer
 
+    var categoriesList: MutableList<Category> = ArrayList()
     var pop_tools_list: MutableList<ToolsItem> = ArrayList()
     var pop_tests_list: MutableList<Category> = ArrayList()
 
@@ -56,11 +55,43 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
     override fun setup(v: View) {
         lv = v
 
+        initialize()
         setToolsAdapter()
         setCategoriesAdapter()
         setViewPagerNewlyAdded()
     }
 
+    override fun initialize() {
+        categoriesList.add(Category(
+                R.drawable.baseline_mobile_friendly_black_48,
+                SENSOR,
+                "".plus(sensorNames.size).plus(" ITEMS"))
+        )
+
+        categoriesList.add(Category(
+                R.drawable.baseline_battery_charging_full_black_48,
+                FEATURE,
+                "".plus(featureNames.size).plus(" ITEMS"))
+        )
+
+        categoriesList.add(Category(
+                R.drawable.baseline_system_update_black_48,
+                SOFTWARE,
+                "0" + softwareNames.size + " ITEMS")
+        )
+
+        categoriesList.add(Category(
+                R.drawable.baseline_info_black_48,
+                INFORMATION,
+                "0" + informationNames.size + " ITEMS")
+        )
+
+        categoriesList.add(Category(
+                R.drawable.baseline_android_black_48,
+                ANDROID,
+                "0" + androidNames.size + " ITEMS")
+        )
+    }
 
     override fun setToolsAdapter() {
         val list : List<String> = AppConstants.popTools
@@ -103,7 +134,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
     override fun setViewPagerNewlyAdded() {
         mCardAdapter = CardPagerAdapter()
 
-        mCardAdapter.addCardItems(AppConstants.categories)
+        mCardAdapter.addCardItems(categoriesList)
 
         mFragmentCardAdapter = CardFragmentPagerAdapter(activity!!.supportFragmentManager,
                 dpToPixels(2, activity!!.baseContext))

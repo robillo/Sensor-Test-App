@@ -6,6 +6,8 @@ import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo;
 
 public interface ToolsInterface {
 
+    void initialize();
+
     void setup(View v);
 
     void registerReceivers();
