@@ -1,10 +1,12 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment
 
+import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.database.ContentObserver
 import android.location.LocationManager
 import android.net.*
@@ -13,6 +15,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
 import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
@@ -86,13 +89,20 @@ class ToolsFragment : Fragment(), ToolsInterface {
                         if(context != null && intent != null && intent.action != null) {
                             val action = intent.action
                             if (LocationManager.MODE_CHANGED_ACTION == action) {
-                                val locationManager
-                                        = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-                                checkStateAndShow(
-                                        LOCATION_QUICK,
-                                        locationManager.isLocationEnabled
-                                )
+                                if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                                        && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                                    val locationManager
+                                            = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+                                    checkStateAndShow(
+                                            LOCATION_QUICK,
+                                            locationManager.isLocationEnabled
+                                    )
+                                }
+                                else {
+                                    showCoordinatorNegative("location permission is not given")
+                                }
                             }
                         }
                     }
@@ -344,19 +354,29 @@ class ToolsFragment : Fragment(), ToolsInterface {
             }
             HOTSPOT_QUICK -> {
                 try {
-                    val wifiManager =
-                            activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
-                    val method = wifiManager.javaClass.getDeclaredMethod("getWifiApState")
-                    method.isAccessible = true
-                    val actualState = method.invoke(wifiManager, null) as Int
-                    if(actualState%10 == WifiManager.WIFI_STATE_ENABLED) {
-                        quickAdapter.updateItemState(info, true)
+
+                    if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                            && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        val wifiManager =
+                                activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
+                        val method = wifiManager.javaClass.getDeclaredMethod("getWifiApState")
+                        method.isAccessible = true
+                        val actualState = method.invoke(wifiManager, null) as Int
+                        if(actualState%10 == WifiManager.WIFI_STATE_ENABLED) {
+                            quickAdapter.updateItemState(info, true)
+                        }
+                        else {
+                            quickAdapter.updateItemState(info, false)
+                        }
                     }
                     else {
-                        quickAdapter.updateItemState(info, false)
+                        showCoordinatorNegative("some permissions not given")
                     }
                 }
                 catch (e: Exception) {
+
+
+
                     showCoordinatorNegative("some error occurred: hotspot")
                 }
             }
@@ -364,13 +384,16 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
             }
             LOCATION_QUICK -> {
-                try {
-                    val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                    if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
-                    else quickAdapter.updateItemState(LOCATION_QUICK, false)
-                }
-                catch(e: Exception) {
-                    showCoordinatorNegative("some error occurred: location")
+                if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                        && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    try {
+                        val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                        if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
+                        else quickAdapter.updateItemState(LOCATION_QUICK, false)
+                    }
+                    catch(e: Exception) {
+                        showCoordinatorNegative("some error occurred: location")
+                    }
                 }
             }
             AIRPLANE_QUICK -> {
