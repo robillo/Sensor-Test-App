@@ -111,7 +111,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
                                     checkStateAndShow(
                                             LOCATION_QUICK,
-                                            locationManager.isLocationEnabled
+                                            locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                                     )
                                 }
                                 else {
@@ -120,7 +120,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                             }
                         }
                     }
-                    catch (e: Exception) {
+                    catch (ignored: Exception) {
 
                     }
                 }
@@ -164,7 +164,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                             }
                         }
                     }
-                    catch (e: Exception) {
+                    catch (ignored: Exception) {
 
                     }
                 }
@@ -197,7 +197,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                             }
                         }
                     }
-                    catch (e: Exception) {
+                    catch (ignored: Exception) {
 
                     }
                 }
@@ -227,7 +227,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
                             }
                         }
                     }
-                    catch (e: Exception) {
+                    catch (ignored: Exception) {
 
                     }
                 }
@@ -333,8 +333,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
             try {
                 checkEachQuickSetting(info.name)
             }
-            catch (e: Exception) {
-                showCoordinatorNegative("some error occurred")
+            catch (ignored: Exception) {
+
             }
         }
     }
@@ -347,8 +347,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
                             activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
                     if(wifiManager.isWifiEnabled) quickAdapter.updateItemState(info, true)
                 }
-                catch(e: Exception) {
-                    showCoordinatorNegative("some error occurred: wifi")
+                catch(ignored: Exception) {
+
                 }
 
             }
@@ -356,8 +356,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
                 try {
                     if(BluetoothAdapter.getDefaultAdapter().isEnabled) quickAdapter.updateItemState(info, true)
                 }
-                catch(e: Exception) {
-                    showCoordinatorNegative("some error occurred: bluetooth")
+                catch(ignored: Exception) {
+
                 }
             }
             BRIGHTNESS_QUICK -> {
@@ -387,26 +387,27 @@ class ToolsFragment : Fragment(), ToolsInterface {
                         showCoordinatorNegative("some permissions not given")
                     }
                 }
-                catch (e: Exception) {
+                catch (ignored: Exception) {
 
-
-
-                    showCoordinatorNegative("some error occurred: hotspot")
                 }
             }
             FLASHLIGHT_QUICK -> {
 
             }
             LOCATION_QUICK -> {
-                if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                        && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    try {
-                        val locationManager = context!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                        if(locationManager.isLocationEnabled) quickAdapter.updateItemState(LOCATION_QUICK, true)
-                        else quickAdapter.updateItemState(LOCATION_QUICK, false)
-                    }
-                    catch(e: java.lang.Exception) {
-                        showCoordinatorNegative("some error occurred: location")
+                if(activity != null) {
+                    if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                            && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        try {
+                            val locationManager: LocationManager? = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                            if(locationManager != null && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+                                quickAdapter.updateItemState(LOCATION_QUICK, true)
+                            else
+                                quickAdapter.updateItemState(LOCATION_QUICK, false)
+                        }
+                        catch(ignored: Exception) {
+
+                        }
                     }
                 }
             }
@@ -420,8 +421,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
                         quickAdapter.updateItemState(info, false)
                     }
                 }
-                catch(e: Exception) {
-                    showCoordinatorNegative("some error occurred: airplane")
+                catch(ignored: Exception) {
+
                 }
             }
             AUTOROTATE_QUICK -> {
@@ -432,8 +433,8 @@ class ToolsFragment : Fragment(), ToolsInterface {
                     }
                     else quickAdapter.updateItemState(info, false)
                 }
-                catch(e: Exception) {
-                    showCoordinatorNegative("some error occurred: autorotate")
+                catch(ignored: Exception) {
+
                 }
             }
         }

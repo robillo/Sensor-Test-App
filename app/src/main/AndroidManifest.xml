@@ -19,6 +19,9 @@
         android:name="android.permission.BLUETOOTH_ADMIN"
         android:required="false" />
     <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:required="false" />
+    <uses-permission
         android:name="android.permission.ACCESS_COARSE_LOCATION"
         android:required="false" />
     <uses-permission
@@ -70,9 +73,6 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission
         android:name="android.permission.NFC"
-        android:required="false" />
-    <uses-permission
-        android:name="android.permission.ACCESS_FINE_LOCATION"
         android:required="false" />
     <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <!-- <uses-permission android:name="android.permission.FLASHLIGHT" /> -->
