@@ -117,6 +117,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
         <provider
             android:name=".GenericFileProvider"
             android:authorities="com.appbusters.robinkamboj.senseitall.GenericFileProvider"

@@ -36,13 +36,13 @@ import java.util.*
  */
 class CropFragment : Fragment(), CropInterface {
 
-    lateinit var sourceUri: Uri
+    var sourceUri: Uri? = null
     var savedUri: Uri? = null
     var isSomeImageSelected = false
     val REQUEST_CODE_CAPTURE_IMAGE = 102
     val CHOOSER_INTENT_TITLE = "Select Image"
     val REQUEST_CODE_PICK_IMAGE = 101
-    val IMAGE_CONTENT_TYPE = "image/*"
+    private val IMAGE_CONTENT_TYPE = "image/*"
     private var mCurrentPhotoPath: String? = null
 
     lateinit var v: View
@@ -100,39 +100,44 @@ class CropFragment : Fragment(), CropInterface {
                 showCoordinator("please select an image first")
                 return@setOnClickListener
             }
-            showCoordinatorPositive("saving image")
-            v.crop_view.crop(sourceUri).execute(object: CropCallback {
-                override fun onSuccess(cropped: Bitmap?) {
+            if(sourceUri != null) {
+                showCoordinatorPositive("saving image")
+                v.crop_view.crop(sourceUri).execute(object: CropCallback {
+                    override fun onSuccess(cropped: Bitmap?) {
 
-                    val direct = File(Environment.getExternalStorageDirectory().toString() + "/Sense It All")
+                        val direct = File(Environment.getExternalStorageDirectory().toString() + "/Sense It All")
 
-                    if (!direct.exists()) {
-                        val wallpaperDirectory = File(Environment.getExternalStorageDirectory().path + "/Sense It All/")
-                        wallpaperDirectory.mkdirs()
+                        if (!direct.exists()) {
+                            val wallpaperDirectory = File(Environment.getExternalStorageDirectory().path + "/Sense It All/")
+                            wallpaperDirectory.mkdirs()
+                        }
+
+                        v.crop_view.save(cropped).execute(
+                                Uri.fromFile(
+                                        File(
+                                                Environment.getExternalStorageDirectory().path + "/Sense It All/",
+                                                "img_crop_" + System.currentTimeMillis().toString() + ".jpg"
+                                        )
+                                ),
+                                object : SaveCallback {
+                                    override fun onSuccess(uri: Uri?) {
+                                        savedUri = uri
+                                        showCoordinatorSaved("IMAGE SUCCESSFULLY SAVED", savedUri)
+                                    }
+                                    override fun onError(e: Throwable?) {
+                                        showCoordinator("some error occurred")
+                                    }
+                                }
+                        )
                     }
-
-                    v.crop_view.save(cropped).execute(
-                            Uri.fromFile(
-                                    File(
-                                            Environment.getExternalStorageDirectory().path + "/Sense It All/",
-                                            "img_crop_" + System.currentTimeMillis().toString() + ".jpg"
-                                    )
-                            ),
-                            object : SaveCallback {
-                                override fun onSuccess(uri: Uri?) {
-                                    savedUri = uri
-                                    showCoordinatorSaved("IMAGE SUCCESSFULLY SAVED", savedUri)
-                                }
-                                override fun onError(e: Throwable?) {
-                                    showCoordinator("some error occurred")
-                                }
-                            }
-                    )
-                }
-                override fun onError(e: Throwable?) {
-                    showCoordinator("some error occurred")
-                }
-            })
+                    override fun onError(e: Throwable?) {
+                        showCoordinator("some error occurred")
+                    }
+                })
+            }
+            else {
+                showCoordinator("null photo address")
+            }
         }
         v.one_one.setOnClickListener {
             if(!isSomeImageSelected) {
@@ -234,7 +239,7 @@ class CropFragment : Fragment(), CropInterface {
         s.show()
     }
 
-    fun showCoordinatorPositive(coordinatorText: String) {
+    private fun showCoordinatorPositive(coordinatorText: String) {
         val s = Snackbar.make(v.coordinator, coordinatorText, Snackbar.LENGTH_SHORT)
         val v = s.view
         v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.primary_new))
@@ -261,11 +266,6 @@ class CropFragment : Fragment(), CropInterface {
             val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
             t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
             t.textAlignment = View.TEXT_ALIGNMENT_CENTER
-//            s.setAction("VIEW") {
-//                val intent = Intent(Intent.ACTION_VIEW, uri)
-//                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-//                startActivity(intent)
-//            }
             s.show()
         }
     }
@@ -277,64 +277,52 @@ class CropFragment : Fragment(), CropInterface {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == FragmentActivity.RESULT_OK) {
             if (data != null) {
-                sourceUri = data.data ?: return
+                sourceUri = data.data
 
-                try {
-                    //get bitmap from selected uri
-                    //set bitmap to image to work on
-                    //hide placeholders
+                if(sourceUri != null) {
+                    try {
+                        v.crop_view.load(sourceUri).execute(object: LoadCallback {
+                            override fun onSuccess() {
+                                v.crop_view.setInitialFrameScale(0.5f)
+                                isSomeImageSelected = true
+                                setEnabledTint()
+                                hidePlaceholderViews()
+                            }
+                            override fun onError(e: Throwable?) {
 
-                    v.crop_view.load(sourceUri).execute(object: LoadCallback {
-                        override fun onSuccess() {
-                            v.crop_view.setInitialFrameScale(0.5f)
-                            isSomeImageSelected = true
-                            setEnabledTint()
-                            hidePlaceholderViews()
-                        }
-                        override fun onError(e: Throwable?) {
-
-                        }
-                    });
-
-//                    hidePlaceholderViews()
-//                    image_to_work_on!!.setImageBitmap(bitmap)
-//                    bitmap = BitmapFactory.decodeStream(
-//                            contentResolver.openInputStream(selectedImage)
-//                    )
-                } catch (e: FileNotFoundException) {
-                    e.printStackTrace()
+                            }
+                        })
+                    } catch (e: FileNotFoundException) {
+                        e.printStackTrace()
+                    }
+                }
+                else {
+                    showCoordinator("null image address")
                 }
 
             } else {
                 showCoordinator(getString(R.string.no_image_selected_oops))
             }
         } else if (requestCode == REQUEST_CODE_CAPTURE_IMAGE && resultCode == FragmentActivity.RESULT_OK) {
-            //get bitmap from uri
-            //set bitmap to image to work on
-            //hide placeholder views
 
             sourceUri = Uri.fromFile(File(mCurrentPhotoPath))
 
-            v.crop_view.load(sourceUri).execute(object: LoadCallback {
-                override fun onSuccess() {
-                    v.crop_view.setInitialFrameScale(0.5f)
-                    isSomeImageSelected = true
-                    setEnabledTint()
-                    hidePlaceholderViews()
-                }
-                override fun onError(e: Throwable?) {
+            if(sourceUri != null) {
+                v.crop_view.load(sourceUri).execute(object: LoadCallback {
+                    override fun onSuccess() {
+                        v.crop_view.setInitialFrameScale(0.5f)
+                        isSomeImageSelected = true
+                        setEnabledTint()
+                        hidePlaceholderViews()
+                    }
+                    override fun onError(e: Throwable?) {
 
-                }
-            });
-
-//            bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath)
-//            val imageFile = File(mCurrentPhotoPath!!)
-//            if (imageFile.exists()) {
-//                image_to_work_on!!.setImageURI(Uri.fromFile(imageFile))
-//                hidePlaceholderViews()
-//            } else {
-//                showCoordinator(getString(R.string.null_photo_error))
-//            }
+                    }
+                })
+            }
+            else {
+                showCoordinator("null image address")
+            }
         }
     }
 }
