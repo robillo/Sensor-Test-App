@@ -75,7 +75,12 @@ class VolumeControlFragment : Fragment(), VolumeInterface {
     }
 
     override fun setVolumeFromCroller(type: Int, progress: Int) {
-        audioManager.setStreamVolume(type, progress, 0)
+        try {
+            audioManager.setStreamVolume(type, progress, 0)
+        }
+        catch (ignored: SecurityException) {
+
+        }
     }
 
     override fun setInitialVolumes() {

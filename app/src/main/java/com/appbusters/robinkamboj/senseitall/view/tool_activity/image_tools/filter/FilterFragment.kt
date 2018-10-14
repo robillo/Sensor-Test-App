@@ -21,6 +21,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.view.tool_activity.image_tools.filter.filter_adapter.FilterAdapter
@@ -42,7 +43,7 @@ import java.util.*
  */
 class FilterFragment : Fragment(), FilterInterface {
 
-    lateinit var bitmap: Bitmap
+    var bitmap: Bitmap? = null
     lateinit var v: View
     lateinit var sourceUri: Uri
     var isSomeImageSelected = false
@@ -87,18 +88,20 @@ class FilterFragment : Fragment(), FilterInterface {
 
             val matrix = Matrix()
             matrix.postRotate(-90f)
-            val scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.width, bitmap.height, true)
-            bitmap = Bitmap.createBitmap(
-                    scaledBitmap,
-                    0,
-                    0,
-                    scaledBitmap.width,
-                    scaledBitmap.height,
-                    matrix,
-                    true
-            )
+            if(bitmap != null) {
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap!!, bitmap!!.width, bitmap!!.height, true)
+                bitmap = Bitmap.createBitmap(
+                        scaledBitmap,
+                        0,
+                        0,
+                        scaledBitmap.width,
+                        scaledBitmap.height,
+                        matrix,
+                        true
+                )
 
-            Glide.with(context!!).load(bitmap).into(v.filter_image_view)
+                Glide.with(context!!).load(bitmap).into(v.filter_image_view)
+            }
         }
         v.rotate_right.setOnClickListener {
             if(!isSomeImageSelected) {
@@ -115,18 +118,21 @@ class FilterFragment : Fragment(), FilterInterface {
 
             val matrix = Matrix()
             matrix.postRotate(90f)
-            val scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.width, bitmap.height, true)
-            bitmap = Bitmap.createBitmap(
-                    scaledBitmap,
-                    0,
-                    0,
-                    scaledBitmap.width,
-                    scaledBitmap.height,
-                    matrix,
-                    true
-            )
 
-            Glide.with(context!!).load(bitmap).into(v.filter_image_view)
+            if(bitmap != null) {
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap!!, bitmap!!.width, bitmap!!.height, true)
+                bitmap = Bitmap.createBitmap(
+                        scaledBitmap,
+                        0,
+                        0,
+                        scaledBitmap.width,
+                        scaledBitmap.height,
+                        matrix,
+                        true
+                )
+
+                Glide.with(context!!).load(bitmap).into(v.filter_image_view)
+            }
         }
         v.save_to_gallery.setOnClickListener {
             if(!isSomeImageSelected) {
@@ -278,11 +284,16 @@ class FilterFragment : Fragment(), FilterInterface {
                             activity!!.contentResolver.openInputStream(sourceUri)
                     )
 
-                    Glide.with(context!!).load(bitmap).into(v.filter_image_view)
-                    isSomeImageSelected = true
-                    setEnabledTint()
-                    setFilterAdapter()
-                    hidePlaceholderViews()
+                    if(bitmap != null) {
+                        Glide.with(context!!).load(bitmap).into(v.filter_image_view)
+                        isSomeImageSelected = true
+                        setEnabledTint()
+                        setFilterAdapter()
+                        hidePlaceholderViews()
+                    }
+                    else {
+                        Toast.makeText(context!!, "some error occurred", Toast.LENGTH_SHORT).show()
+                    }
 
                 } catch (e: FileNotFoundException) {
                     e.printStackTrace()
@@ -294,21 +305,17 @@ class FilterFragment : Fragment(), FilterInterface {
         } else if (requestCode == REQUEST_CODE_CAPTURE_IMAGE && resultCode == FragmentActivity.RESULT_OK) {
             sourceUri = Uri.fromFile(File(mCurrentPhotoPath))
             bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath)
-            Glide.with(context!!).load(bitmap).into(v.filter_image_view)
-            isSomeImageSelected = true
-            setEnabledTint()
-            setFilterAdapter()
-            hidePlaceholderViews()
 
-//            val imageFile = File(mCurrentPhotoPath!!)
-//            if (imageFile.exists()) {
-//                isSomeImageSelected = true
-//                setEnabledTint()
-//                Glide.with(context!!).load(Uri.fromFile(imageFile)).into(v.filter_image_view)
-//                setFilterAdapter()
-//            } else {
-//                showCoordinator(getString(R.string.null_photo_error))
-//            }
+            if(bitmap != null) {
+                Glide.with(context!!).load(bitmap).into(v.filter_image_view)
+                isSomeImageSelected = true
+                setEnabledTint()
+                setFilterAdapter()
+                hidePlaceholderViews()
+            }
+            else {
+                Toast.makeText(context!!, "some error occurred", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

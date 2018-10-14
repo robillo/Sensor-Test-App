@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.SensorManager;
-import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Vibrator;
@@ -15,8 +14,6 @@ import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
 import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.DashboardActivity;
-
-import java.util.Objects;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AIRPLANE_QUICK;
@@ -190,11 +187,8 @@ public class CheckIfPresent {
                 boolean isFingerprintSupported;
                 try {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        isFingerprintSupported = ActivityCompat
-                                .checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) ==
-                                PackageManager.PERMISSION_GRANTED &&
-                                Objects.requireNonNull(context.getSystemService(FingerprintManager.class))
-                                        .isHardwareDetected();
+                        PackageManager packageManager = context.getPackageManager();
+                        isFingerprintSupported = packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT);
                     } else {
                         isFingerprintSupported = FingerprintManagerCompat.from(context).isHardwareDetected();
                     }
@@ -344,7 +338,6 @@ public class CheckIfPresent {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
     }
 
-    @SuppressWarnings("deprecation")
     private boolean isPermissionGranted(String item) {
         boolean isGiven = true;
         switch (item) {
@@ -405,23 +398,16 @@ public class CheckIfPresent {
 
                 try {
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        if(isPermissionNotGiven(Manifest.permission.USE_FINGERPRINT)) {
+                        if(isPermissionNotGiven(Manifest.permission.USE_BIOMETRIC)) {
                             isGiven = false;
                         }
                         else {
-                            FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-                            if(fingerprintManager == null) {
-                                isGiven = false;
-                            }
-                            else if (!fingerprintManager.isHardwareDetected()) {
-                                isGiven = false;
-                            } else if (!fingerprintManager.hasEnrolledFingerprints()) {
-                                isGiven = false;
-                            }
+                            PackageManager packageManager = context.getPackageManager();
+                            isGiven = packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT);
                         }
                     }
                     else {
-                        isGiven = false;
+                        isGiven = FingerprintManagerCompat.from(context).isHardwareDetected();
                     }
                 }
                 catch (Exception ignored) {}

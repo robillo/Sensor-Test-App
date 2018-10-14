@@ -222,11 +222,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         cameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            isFingerprintSupported = ActivityCompat
-                    .checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) ==
-                    PackageManager.PERMISSION_GRANTED &&
-                    Objects.requireNonNull(context.getSystemService(FingerprintManager.class))
-                            .isHardwareDetected();
+            isFingerprintSupported = featureManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT);
         } else {
             isFingerprintSupported = FingerprintManagerCompat.from(context).isHardwareDetected();
         }
