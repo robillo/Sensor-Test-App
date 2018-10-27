@@ -53,6 +53,7 @@ dependencies {
     implementation "com.android.support:palette-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
 
+    
     implementation 'com.romandanylyk:pageindicatorview:1.0.2'
     implementation 'io.github.inflationx:calligraphy3:3.0.0'
     implementation 'io.github.inflationx:viewpump:1.0.0'

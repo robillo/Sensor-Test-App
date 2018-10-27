@@ -24,19 +24,25 @@
                 android:textSize="25sp"
                 android:gravity="center_vertical"
                 android:paddingLeft="20sp"
-                android:textColor="@color/colorTextOne"
-                tools:ignore="RtlHardcoded,RtlSymmetry" />
+                android:textColor="@color/colorBlackShade"
+                fontPath="fonts/Comfortaa-Bold.ttf"
+                tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry" />
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                android:scrollbarThumbHorizontal="@color/colorBlackShade"
                 android:orientation="horizontal"
-                android:id="@+id/recycler"
+                android:scrollbars="horizontal"
+                android:scrollbarSize="1sp"
+                android:scrollbarFadeDuration="200"
+                android:scrollbarDefaultDelayBeforeFade="200"
                 tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
                 tools:listitem="@layout/row_tab_header"
                 tools:orientation="horizontal"
-                tools:itemCount="5">
+                tools:itemCount="5"
+                android:id="@+id/header_recycler_view">
 
             </android.support.v7.widget.RecyclerView>
 
@@ -47,6 +53,7 @@
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorTextFive"
         android:id="@+id/view_pager">
 
     </android.support.v4.view.ViewPager>

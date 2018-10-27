@@ -158,16 +158,22 @@
         <activity
             android:name=".view.dashboard_activity.DashboardActivity"
             android:screenOrientation="portrait">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".view.tool_activity.ToolActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.tab_dashboard_activity.TabMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.tool_activity.ToolActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".view.tab_dashboard_activity.TabMainActivity"></activity>
     </application>
 
 </manifest>

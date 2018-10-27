@@ -13,6 +13,7 @@
         android:gravity="center_vertical"
         android:paddingLeft="20sp"
         android:paddingRight="20sp"
-        android:textColor="@color/colorTextOne"/>
+        android:textColor="@color/colorTextTwo"
+        android:id="@+id/header_text_view"/>
 
 </LinearLayout>

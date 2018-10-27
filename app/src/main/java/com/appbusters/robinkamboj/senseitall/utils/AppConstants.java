@@ -233,6 +233,7 @@ public class AppConstants {
 
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
 
+    public static List<String> categoryNames = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
     public static List<String> informationNames = new ArrayList<>();
@@ -251,7 +252,21 @@ public class AppConstants {
     public static HashMap<String, Integer> onMapImage = new HashMap<>();
     public static HashMap<String, Integer> offMapImage = new HashMap<>();
 
+    public static final String SENSOR_HEADER = "Sensors";
+    public static final String FEATURE_HEADER = "Features";
+    public static final String TRENDING_HEADER = "Trending";
+    public static final String TOOLS_HEADER = "Tools";
+    public static final String DEVICE_HEADER = "Device";
+    public static final String ANDROID_HEADER = "Android";
+
     static {
+
+        categoryNames.add(SENSOR_HEADER);
+        categoryNames.add(FEATURE_HEADER);
+        categoryNames.add(TOOLS_HEADER);
+        categoryNames.add(TRENDING_HEADER);
+        categoryNames.add(DEVICE_HEADER);
+        categoryNames.add(ANDROID_HEADER);
 
         offMapImage.put(WIFI_QUICK, R.drawable.baseline_wifi_off_black_48);
         offMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_disabled_black_48);
