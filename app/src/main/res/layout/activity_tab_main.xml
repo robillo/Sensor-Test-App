@@ -24,7 +24,7 @@
                 android:textSize="25sp"
                 android:gravity="center_vertical"
                 android:paddingLeft="20sp"
-                android:textColor="@color/colorBlackShade"
+                android:textColor="@color/colorBlackShade2"
                 fontPath="fonts/Comfortaa-Bold.ttf"
                 tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry" />
 
@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                android:scrollbarThumbHorizontal="@color/colorBlackShade"
+                android:scrollbarThumbHorizontal="@color/colorBlackShade2"
                 android:orientation="horizontal"
                 android:scrollbars="horizontal"
                 android:scrollbarSize="1sp"

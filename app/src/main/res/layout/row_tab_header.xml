@@ -6,14 +6,17 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         tools:text="Sensors"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:gravity="center_vertical"
-        android:paddingLeft="20sp"
-        android:paddingRight="20sp"
-        android:textColor="@color/colorTextTwo"
-        android:id="@+id/header_text_view"/>
+        android:paddingLeft="15sp"
+        android:paddingRight="15sp"
+        android:lines="1"
+        fontPath="fonts/Comfortaa-Bold.ttf"
+        android:textColor="@color/colorTextThree"
+        android:id="@+id/header_text_view"
+        tools:ignore="MissingPrefix" />
 
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.catego
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +20,14 @@ public class CategoryHeaderAdapter extends RecyclerView.Adapter<CategoryHeaderAd
 
     private List<String> headersList;
     private Context activityContext;
+    private int selectedIndex;
     private HeaderClickListener headerClickListener;
 
-    public CategoryHeaderAdapter(List<String> headers, Context context, HeaderClickListener headerClickListener) {
+    public CategoryHeaderAdapter(List<String> headers, int selectedIndex, Context context, HeaderClickListener headerClickListener) {
         this.headersList = headers;
         this.activityContext = context;
         this.headerClickListener = headerClickListener;
+        this.selectedIndex = selectedIndex;
     }
 
     @NonNull
@@ -41,6 +44,13 @@ public class CategoryHeaderAdapter extends RecyclerView.Adapter<CategoryHeaderAd
 
         final int fixedPosition = position;
 
+        if(position == selectedIndex) {
+            headerHolder.headerTextView.setTextColor(ContextCompat.getColor(activityContext, R.color.colorBlackShade2));
+        }
+        else {
+            headerHolder.headerTextView.setTextColor(ContextCompat.getColor(activityContext, R.color.colorTextThree));
+        }
+
         headerHolder.headerTextView.setText(headersList.get(position));
 
         headerHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +64,11 @@ public class CategoryHeaderAdapter extends RecyclerView.Adapter<CategoryHeaderAd
     @Override
     public int getItemCount() {
         return headersList == null ? 0 : headersList.size();
+    }
+
+    public void refreshForNewItemSelected(int selectedIndex) {
+        this.selectedIndex = selectedIndex;
+        notifyDataSetChanged();
     }
 
     class HeaderHolder extends RecyclerView.ViewHolder {
