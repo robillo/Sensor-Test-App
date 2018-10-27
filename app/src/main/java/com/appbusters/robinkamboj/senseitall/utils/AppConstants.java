@@ -235,6 +235,7 @@ public class AppConstants {
 
     public static List<String> categoryNames = new ArrayList<>();
     public static List<String> sensorNames = new ArrayList<>();
+    public static List<String> featuredSensors = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
     public static List<String> informationNames = new ArrayList<>();
     public static List<String> softwareNames = new ArrayList<>();
@@ -417,6 +418,12 @@ public class AppConstants {
         isTestMap.put(LABEL_GENERATOR, true);
         isTestMap.put(SENSOR_STEP_DETECTOR, true);
         isTestMap.put(SENSOR_STEP_COUNTER, true);
+
+        featuredSensors.add(SENSOR_LIGHT);
+        featuredSensors.add(SENSOR_PROXIMITY);
+        featuredSensors.add(SENSOR_ACCELEROMETER);
+        featuredSensors.add(SENSOR_GRAVITY);
+        featuredSensors.add(SENSOR_ROTATION_VECTOR);
 
         sensorNames.add(SENSOR_LIGHT);  //d
         sensorNames.add(SENSOR_ACCELEROMETER);  //d

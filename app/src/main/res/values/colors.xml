@@ -31,6 +31,13 @@
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00000000</color>
 
+    <color name="featured_color_green">#E65100</color>
+    <color name="featured_color_purple">#E65100</color>
+    <color name="featured_color_red">#e60045</color>
+    <color name="featured_color_blue">#E65100</color>
+    <color name="featured_color_yellow">#E65100</color>
+    <color name="featured_color_light_green">#E65100</color>
+    
     <!--draw colors -->
     <color name="black">#000000</color>
     <color name="red">#FF0000</color>

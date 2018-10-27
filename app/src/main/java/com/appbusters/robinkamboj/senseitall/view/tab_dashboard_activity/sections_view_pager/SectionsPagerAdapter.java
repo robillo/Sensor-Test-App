@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.generic_fragment.GenericFragment;
+import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.sensors_fragment.SensorsFragment;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (headersList.get(position)) {
             case SENSOR_HEADER: {
-                return new GenericFragment();
+                return new SensorsFragment();
             }
             case FEATURE_HEADER: {
                 return new GenericFragment();
