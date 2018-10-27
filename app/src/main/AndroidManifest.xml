@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.appbusters.robinkamboj.senseitall">
 
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
         android:required="false"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"
-        android:required="false"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_NOTIFICATION_POLICY"
+        android:required="false" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:required="false" />
@@ -116,8 +118,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <provider
             android:name=".GenericFileProvider"
@@ -136,7 +139,6 @@
         <meta-data
             android:name="com.sec.android.support.multiwindow"
             android:value="true" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -162,8 +164,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.tool_activity.ToolActivity"
+        <activity
+            android:name=".view.tool_activity.ToolActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".view.tab_dashboard_activity.TabMainActivity"></activity>
     </application>
 
 </manifest>
