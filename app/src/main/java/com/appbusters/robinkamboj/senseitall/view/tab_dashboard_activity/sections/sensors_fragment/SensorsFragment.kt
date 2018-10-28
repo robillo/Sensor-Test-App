@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.sensors_fragment
 
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -36,11 +37,11 @@ class SensorsFragment : Fragment() {
 
     private fun setFeaturedSensorsAdapter() {
         featuredSensorsList = AppConstants.featuredSensorNames
-        fragment.featured_items_recycler_view.adapter = FeaturedSensorsAdapter(featuredSensorsList, activity)
+        fragment.featured_items_recycler_view.adapter = FeaturedSensorsAdapter(featuredSensorsList, activity as Context)
     }
 
     private fun setAllSensorsAdapter() {
         allSensorsList = AppConstants.sensorNames
-        fragment.all_items_recycler_view.adapter = AllSensorsAdapter(allSensorsList, activity)
+        fragment.all_items_recycler_view.adapter = AllSensorsAdapter(allSensorsList, activity as Context)
     }
 }
