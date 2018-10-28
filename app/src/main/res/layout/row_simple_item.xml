@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginLeft="10sp"
-    android:layout_marginRight="10sp"
+    android:layout_marginLeft="5sp"
+    android:layout_marginRight="5sp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1sp"
-            android:background="@color/colorTextThree"
+            android:background="@color/colorTextFour"
             tools:ignore="ContentDescription,SmallSp" />
 
         <LinearLayout
@@ -24,11 +24,11 @@
             android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
-                android:layout_width="60sp"
-                android:layout_height="60sp"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
                 app:cardCornerRadius="35sp"
                 android:layout_margin="8sp"
-                app:cardBackgroundColor="@color/colorTextTwo">
+                app:cardBackgroundColor="@color/colorBlackShade2">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -36,7 +36,8 @@
                     tools:src="@drawable/baseline_bluetooth_black_48"
                     android:tint="@color/white"
                     tools:ignore="ContentDescription"
-                    android:padding="10sp"/>
+                    android:padding="10sp"
+                    android:id="@+id/sensor_image_view"/>
 
             </android.support.v7.widget.CardView>
 
@@ -45,10 +46,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:paddingLeft="20sp"
+                android:paddingRight="20sp"
                 android:layout_gravity="center_vertical"
                 tools:text="Light Sensor"
-                android:textSize="25sp"
-                android:textColor="@color/colorTextOne"/>
+                android:textSize="20sp"
+                android:textColor="@color/colorBlackShade2"
+                android:id="@+id/sensor_text_view"/>
 
         </LinearLayout>
 

@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".view.tab_dashboard_activity.sections.sensors_fragment.SensorsFragment">
 
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10sp"
-        android:layout_marginBottom="10sp"
-        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        android:id="@+id/featured_recycler_view"
-        tools:listitem="@layout/row_featured_item"
-        tools:itemCount="5">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="10sp"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_featured_item"
+            android:id="@+id/featured_items_recycler_view"
+            tools:itemCount="5">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_list_recycler_view"
-        tools:listitem="@layout/row_simple_item">
+        </android.support.v7.widget.RecyclerView>
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:orientation="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_simple_item"
+            android:id="@+id/all_items_recycler_view">
 
-</LinearLayout>
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
