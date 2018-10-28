@@ -244,6 +244,8 @@ public class AppConstants {
     public static List<String> popTools = new ArrayList<>();
     public static List<String> popTests = new ArrayList<>();
     public static List<String> everydayTools = new ArrayList<>();
+    public static List<Integer> featuredColors = new ArrayList<>();
+    public static List<Integer> simpleColors = new ArrayList<>();
 
     public static HashMap<String, Boolean> isTestMap = new HashMap<>();
 
@@ -261,6 +263,26 @@ public class AppConstants {
     public static final String ANDROID_HEADER = "Android";
 
     static {
+
+        featuredColors.add(R.color.featured_color_green);
+        featuredColors.add(R.color.featured_color_purple);
+        featuredColors.add(R.color.featured_color_red);
+        featuredColors.add(R.color.featured_color_blue);
+        featuredColors.add(R.color.featured_color_yellow);
+        featuredColors.add(R.color.featured_color_light_green);
+
+        simpleColors.add(R.color.simple_color_red);
+        simpleColors.add(R.color.simple_color_red_light);
+        simpleColors.add(R.color.simple_color_yellow);
+        simpleColors.add(R.color.simple_color_light_green);
+        simpleColors.add(R.color.simple_color_green);
+        simpleColors.add(R.color.simple_color_turquoise);
+        simpleColors.add(R.color.simple_color_light_blue);
+        simpleColors.add(R.color.simple_color_blue);
+        simpleColors.add(R.color.simple_color_violet);
+        simpleColors.add(R.color.simple_color_purple);
+        simpleColors.add(R.color.simple_color_pink);
+        simpleColors.add(R.color.simple_color_maroon);
 
         categoryNames.add(SENSOR_HEADER);
         categoryNames.add(FEATURE_HEADER);

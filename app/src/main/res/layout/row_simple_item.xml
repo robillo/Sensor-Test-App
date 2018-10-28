@@ -27,8 +27,13 @@
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 app:cardCornerRadius="35sp"
-                android:layout_margin="8sp"
-                app:cardBackgroundColor="@color/colorBlackShade2">
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="8sp"
+                android:layout_marginBottom="8sp"
+                android:id="@+id/simple_item_card_view"
+                tools:cardBackgroundColor="@color/colorBlackShade2"
+                tools:ignore="RtlHardcoded">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -49,7 +54,7 @@
                 android:paddingRight="20sp"
                 android:layout_gravity="center_vertical"
                 tools:text="Light Sensor"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/colorBlackShade2"
                 android:id="@+id/sensor_text_view"/>
 

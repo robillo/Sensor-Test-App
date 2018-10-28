@@ -31,13 +31,26 @@
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00000000</color>
 
-    <color name="featured_color_green">#E65100</color>
-    <color name="featured_color_purple">#E65100</color>
-    <color name="featured_color_red">#e60045</color>
-    <color name="featured_color_blue">#E65100</color>
-    <color name="featured_color_yellow">#E65100</color>
-    <color name="featured_color_light_green">#E65100</color>
-    
+    <color name="featured_color_green">#4f9cda</color>
+    <color name="featured_color_purple">#b270d9</color>
+    <color name="featured_color_red">#e63a6e</color>
+    <color name="featured_color_blue">#62c6ed</color>
+    <color name="featured_color_yellow">#efd036</color>
+    <color name="featured_color_light_green">#59ce82</color>
+
+    <color name="simple_color_red">#FF9999</color>
+    <color name="simple_color_red_light">#FFCC99</color>
+    <color name="simple_color_yellow">#e7e78e</color>
+    <color name="simple_color_light_green">#c5ec9f</color>
+    <color name="simple_color_green">#99ed99</color>
+    <color name="simple_color_turquoise">#9becc3</color>
+    <color name="simple_color_light_blue">#9ae7e7</color>
+    <color name="simple_color_blue">#99CCFF</color>
+    <color name="simple_color_violet">#9999FF</color>
+    <color name="simple_color_purple">#CC99FF</color>
+    <color name="simple_color_pink">#FF99FF</color>
+    <color name="simple_color_maroon">#FF99CC</color>
+
     <!--draw colors -->
     <color name="black">#000000</color>
     <color name="red">#FF0000</color>

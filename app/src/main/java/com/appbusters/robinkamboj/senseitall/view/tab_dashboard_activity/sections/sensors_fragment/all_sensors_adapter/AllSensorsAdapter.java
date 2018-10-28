@@ -2,6 +2,8 @@ package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sectio
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,10 +24,12 @@ public class AllSensorsAdapter extends RecyclerView.Adapter<AllSensorsAdapter.Al
 
     private List<String> sensorsList;
     private Context context;
+    private List<Integer> colorsList;
 
     public AllSensorsAdapter(List<String> sensorsList, Context context) {
         this.sensorsList = sensorsList;
         this.context = context;
+        this.colorsList = AppConstants.simpleColors;
     }
 
     @NonNull
@@ -39,6 +43,24 @@ public class AllSensorsAdapter extends RecyclerView.Adapter<AllSensorsAdapter.Al
 
     @Override
     public void onBindViewHolder(@NonNull AllSensorsHolder holder, int position) {
+
+        if(position >= colorsList.size()) {
+            holder.simpleItemCardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                            context,
+                            colorsList.get(position - colorsList.size())
+                    )
+            );
+        }
+        else {
+            holder.simpleItemCardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                            context,
+                            colorsList.get(position)
+                    )
+            );
+        }
+
         Glide.with(context)
                 .load(AppConstants.imageUrlMap.get(sensorsList.get(position)))
                 .into(holder.sensorImageView);
@@ -52,6 +74,9 @@ public class AllSensorsAdapter extends RecyclerView.Adapter<AllSensorsAdapter.Al
     }
 
     class AllSensorsHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.simple_item_card_view)
+        CardView simpleItemCardView;
 
         @BindView(R.id.sensor_image_view)
         ImageView sensorImageView;
