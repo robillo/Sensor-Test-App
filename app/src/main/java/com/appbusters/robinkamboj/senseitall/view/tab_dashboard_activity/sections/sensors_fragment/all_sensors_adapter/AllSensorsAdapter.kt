@@ -1,6 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.sensors_fragment.all_sensors_adapter
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
@@ -14,13 +17,26 @@ import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.bumptech.glide.Glide
 
-import butterknife.BindView
-import butterknife.ButterKnife
+import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData
+import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.TabMainActivity
+import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.helpers.CheckIfPresent
+import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.helpers.GetItemType
+import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity
+import com.appbusters.robinkamboj.senseitall.view.test_activity.helper.IsPresentHelper
 import kotlinx.android.synthetic.main.row_simple_item.view.*
 
 class AllSensorsAdapter(private val sensorsList: List<String>?, private val context: Context) : RecyclerView.Adapter<AllSensorsAdapter.AllSensorsHolder>() {
 
+    private final val maxLengthPrint: Int = 12
+
     private val colorsList: List<Int> = AppConstants.simpleColors
+    private var isPresentHelper: IsPresentHelper
+    private var checkIfPresent: CheckIfPresent
+
+    init {
+        isPresentHelper = IsPresentHelper(context)
+        checkIfPresent = CheckIfPresent(context)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, type: Int): AllSensorsHolder {
         return AllSensorsHolder(
@@ -52,6 +68,43 @@ class AllSensorsAdapter(private val sensorsList: List<String>?, private val cont
                 .into(holder.sensorImageView)
 
         holder.sensorTextView.text = sensorsList[position]
+
+        holder.itemView.setOnClickListener {
+            if (checkIfPresent.returnPresence(sensorsList.get(position)))
+                startTest(sensorsList.get(position), context)
+            else {
+                var item: String = sensorsList.get(position)
+                if(item.length > maxLengthPrint)
+                    item = item.substring(0, maxLengthPrint)
+                (context as TabMainActivity).showSnackBar(
+                        "$item... not present in your device"
+                )
+            }
+        }
+    }
+
+
+    private fun startTest(sensorName: String, context: Context) {
+        val intentData = GenericData(
+                sensorName,
+                AppConstants.imageUrlMap.get(sensorName)!!,
+                isPresentHelper.isPresent(sensorName),
+                GetItemType(sensorName).itemType
+        )
+
+        val args = Bundle()
+
+        args.putString(AppConstants.DATA_NAME, intentData.name)
+        args.putString(AppConstants.RECYCLER_NAME, intentData.name)
+        args.putInt(AppConstants.DRAWABLE_ID, intentData.drawableId)
+        args.putBoolean(AppConstants.IS_PRESENT, intentData.isPresent)
+        args.putInt(AppConstants.TYPE, intentData.type)
+
+        val intent = Intent(context, TestActivity::class.java)
+        intent.putExtras(args)
+
+        context.startActivity(intent)
+        (context as Activity).overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity)
     }
 
     override fun getItemCount(): Int {
