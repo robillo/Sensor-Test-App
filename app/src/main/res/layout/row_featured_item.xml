@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="60sp"
-    android:layout_height="60sp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="10sp"
-    app:cardElevation="5sp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:layout_marginTop="10sp"
     android:layout_marginBottom="10sp"
     android:layout_marginLeft="8sp"
     android:layout_marginRight="8sp"
-    tools:cardBackgroundColor="@color/featured_color_red"
-    android:id="@+id/featured_sensor_card">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="5sp"
+        tools:cardBackgroundColor="@color/featured_color_red"
+        android:id="@+id/featured_sensor_card">
 
         <ImageView
             android:layout_width="match_parent"
@@ -26,6 +28,18 @@
             android:tint="@color/white"
             android:padding="15sp"/>
 
-    </FrameLayout>
+    </android.support.v7.widget.CardView>
 
-</android.support.v7.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/colorTextTwo"
+        tools:text="Bluetooth"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:lines="1"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/featured_sensor_text"/>
+
+</LinearLayout>

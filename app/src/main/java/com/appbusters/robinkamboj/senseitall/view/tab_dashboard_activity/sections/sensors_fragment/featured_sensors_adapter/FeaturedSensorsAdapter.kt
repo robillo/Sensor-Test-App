@@ -8,23 +8,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.bumptech.glide.Glide
 
 import java.util.ArrayList
-import java.util.Random
 
-import butterknife.BindView
-import butterknife.ButterKnife
 import kotlinx.android.synthetic.main.row_featured_item.view.*
 
 class FeaturedSensorsAdapter(sensorsList: List<String>, private val context: Context) : RecyclerView.Adapter<FeaturedSensorsAdapter.FeaturedSensorsHolder>() {
 
     private val sensorsList = ArrayList<String?>()
     private val colorsList: List<Int>
-    private val random: Random = Random()
 
     init {
         colorsList = AppConstants.featuredColors
@@ -44,10 +41,13 @@ class FeaturedSensorsAdapter(sensorsList: List<String>, private val context: Con
             holder.itemView.visibility = View.GONE
         } else {
             holder.itemView.visibility = View.VISIBLE
+
+            holder.featuredSensorText.text = oneWordName(sensorsList.get(position)!!)
+
             holder.featuredSensorCard.setCardBackgroundColor(
                     ContextCompat.getColor(
                             context,
-                            colorsList[random.nextInt(colorsList.size)]
+                            colorsList[position]
                     )
             )
             Glide.with(context)
@@ -60,14 +60,25 @@ class FeaturedSensorsAdapter(sensorsList: List<String>, private val context: Con
         return sensorsList.size
     }
 
+    private fun oneWordName(text: String): String {
+
+        for(i in 1..(text.length-1))
+            if(text[i] == ' ')
+                return text.substring(0, i)
+
+        return text
+    }
+
     inner class FeaturedSensorsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var sensorImageView: ImageView
         var featuredSensorCard: CardView
+        var featuredSensorText: TextView
 
         init {
             sensorImageView = itemView.sensor_image_view
             featuredSensorCard = itemView.featured_sensor_card
+            featuredSensorText = itemView.featured_sensor_text
         }
     }
 }

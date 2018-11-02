@@ -443,7 +443,7 @@ public class AppConstants {
 
         featuredSensorNames.add(SENSOR_LIGHT);
         featuredSensorNames.add(SENSOR_PROXIMITY);
-        featuredSensorNames.add(SENSOR_ACCELEROMETER);
+        featuredSensorNames.add(SENSOR_GYROSCOPE);
         featuredSensorNames.add(SENSOR_GRAVITY);
         featuredSensorNames.add(SENSOR_ROTATION_VECTOR);
 
