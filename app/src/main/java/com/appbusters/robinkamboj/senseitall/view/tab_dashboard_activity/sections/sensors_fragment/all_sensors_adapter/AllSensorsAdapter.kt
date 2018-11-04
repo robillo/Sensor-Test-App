@@ -18,6 +18,7 @@ import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.bumptech.glide.Glide
 
 import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData
+import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.TabMainActivity
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.helpers.CheckIfPresent
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.helpers.GetItemType
@@ -71,7 +72,7 @@ class AllSensorsAdapter(private val sensorsList: List<String>?, private val cont
 
         holder.itemView.setOnClickListener {
             if (checkIfPresent.returnPresence(sensorsList.get(position)))
-                startTest(sensorsList.get(position), context)
+                startDetailActivityForItem(context, sensorsList.get(position))
             else {
                 var item: String = sensorsList.get(position)
                 if(item.length > maxLengthPrint)
@@ -83,24 +84,17 @@ class AllSensorsAdapter(private val sensorsList: List<String>?, private val cont
         }
     }
 
-
-    private fun startTest(sensorName: String, context: Context) {
-        val intentData = GenericData(
-                sensorName,
-                AppConstants.imageUrlMap.get(sensorName)!!,
-                isPresentHelper.isPresent(sensorName),
-                GetItemType(sensorName).itemType
-        )
+    private fun startDetailActivityForItem(context: Context, sensorName: String) {
+        val intent = Intent(context, DetailActivity::class.java)
 
         val args = Bundle()
 
-        args.putString(AppConstants.DATA_NAME, intentData.name)
-        args.putString(AppConstants.RECYCLER_NAME, intentData.name)
-        args.putInt(AppConstants.DRAWABLE_ID, intentData.drawableId)
-        args.putBoolean(AppConstants.IS_PRESENT, intentData.isPresent)
-        args.putInt(AppConstants.TYPE, intentData.type)
+        args.putString(AppConstants.DATA_NAME, sensorName)
+        args.putString(AppConstants.RECYCLER_NAME, sensorName)
+        args.putInt(AppConstants.DRAWABLE_ID, AppConstants.imageUrlMap.get(sensorName)!!)
+        args.putBoolean(AppConstants.IS_PRESENT, true)
+        args.putInt(AppConstants.TYPE, GetItemType(sensorName).itemType)
 
-        val intent = Intent(context, TestActivity::class.java)
         intent.putExtras(args)
 
         context.startActivity(intent)
