@@ -77,19 +77,19 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
         categoriesList.add(Category(
                 R.drawable.baseline_system_update_black_48,
                 SOFTWARE,
-                "0" + softwareNames.size + " ITEMS")
+                "0" + trendingNames.size + " ITEMS")
         )
 
         categoriesList.add(Category(
                 R.drawable.baseline_info_black_48,
                 INFORMATION,
-                "0" + informationNames.size + " ITEMS")
+                "0" + deviceDetailsNames.size + " ITEMS")
         )
 
         categoriesList.add(Category(
                 R.drawable.baseline_android_black_48,
                 ANDROID,
-                "0" + androidNames.size + " ITEMS")
+                "0" + androidVersionNames.size + " ITEMS")
         )
     }
 

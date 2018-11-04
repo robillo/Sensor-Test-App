@@ -143,7 +143,7 @@ public class AppConstants {
     public static final String GPS_LOCATION = "GPS Location";
     public static final String WIFI = "WiFi";
     public static final String BLUETOOTH = "BlueTooth";
-    public static final String GSM_UMTS = "GSM/UMTS";
+    public static final String GSM_UMTS = "GSM / UMTS";
     public static final String COMPASS = "Compass";
     public static final String RADIO = "Radio";
     public static final String SCREEN = "Screen";
@@ -155,7 +155,7 @@ public class AppConstants {
     public static final String ANDROID_OS = "Android OS";
     public static final String FLASH = "Flash";
     public static final String INFRARED = "Infrared";
-    public static final String MULTI_TOUCH = "Multi-Touch";
+    public static final String MULTI_TOUCH = "Multitouch";
     public static final String FINGERPRINT = "Fingerprint Sensor";
     public static final String NFC = "NFC";
     public static final String MICROPHONE = "Microphone Feature";
@@ -168,8 +168,8 @@ public class AppConstants {
     public static final String MIDI = "MIDI";
     public static final String VR_MODE = "VR Mode";
 
-    public static final String STORAGE = "STORAGE";     //specific information
-    public static final String RAM = "RAM";
+    public static final String STORAGE = "Storage";     //specific information
+    public static final String RAM = "Ram";
 
     @SuppressWarnings("WeakerAccess")
     public static final String PIE = "P - Pie (9)";     //android versions
@@ -235,13 +235,22 @@ public class AppConstants {
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
 
     public static List<String> categoryNames = new ArrayList<>();
+
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featuredSensorNames = new ArrayList<>();
+
     public static List<String> featureNames = new ArrayList<>();
     public static List<String> featuredFeatureNames = new ArrayList<>();
-    public static List<String> informationNames = new ArrayList<>();
-    public static List<String> softwareNames = new ArrayList<>();
-    public static List<String> androidNames = new ArrayList<>();
+
+    public static List<String> deviceDetailsNames = new ArrayList<>();
+    public static List<String> featuredDeviceDetailsNames = new ArrayList<>();
+
+    public static List<String> trendingNames = new ArrayList<>();
+    public static List<String> featuredTrendingNames = new ArrayList<>();
+
+    public static List<String> androidVersionNames = new ArrayList<>();
+    public static List<String> featuredAndroidVersionNames = new ArrayList<>();
+
     public static List<String> imageTools = new ArrayList<>();
     public static List<String> popTools = new ArrayList<>();
     public static List<String> popTests = new ArrayList<>();
@@ -390,20 +399,28 @@ public class AppConstants {
         everydayTools.add(TIMER);
         everydayTools.add(CALENDAR);
 
-        informationNames.add(GSM_UMTS);
-        informationNames.add(ANDROID_OS);
-        informationNames.add(CPU);
-        informationNames.add(STORAGE);
-        informationNames.add(RAM);
-        informationNames.add(RADIO);
-        informationNames.add(FAKE_TOUCH);
+        featuredDeviceDetailsNames.add(RAM);
+        featuredDeviceDetailsNames.add(STORAGE);
+        featuredDeviceDetailsNames.add(GSM_UMTS);
 
-        androidNames.add(PIE);
-        androidNames.add(OREO);
-        androidNames.add(NOUGAT);
-        androidNames.add(MARSHMALLOW);
-        androidNames.add(LOLLIPOP);
-        androidNames.add(KITKAT);
+        deviceDetailsNames.add(GSM_UMTS);
+        deviceDetailsNames.add(ANDROID_OS);
+        deviceDetailsNames.add(CPU);
+        deviceDetailsNames.add(STORAGE);
+        deviceDetailsNames.add(RAM);
+        deviceDetailsNames.add(RADIO);
+        deviceDetailsNames.add(FAKE_TOUCH);
+
+        featuredAndroidVersionNames.add(PIE);
+        featuredAndroidVersionNames.add(OREO);
+        featuredAndroidVersionNames.add(NOUGAT);
+
+        androidVersionNames.add(PIE);
+        androidVersionNames.add(OREO);
+        androidVersionNames.add(NOUGAT);
+        androidVersionNames.add(MARSHMALLOW);
+        androidVersionNames.add(LOLLIPOP);
+        androidVersionNames.add(KITKAT);
 
         isTestMap.put(BACK_CAMERA, true);
         isTestMap.put(FRONT_CAMERA, true);
@@ -478,14 +495,17 @@ public class AppConstants {
         sensorNames.add(SENSOR_RELATIVE_HUMIDITY);
         sensorNames.add(SENSOR_TEMPERATURE);
 
-//        softwareNames.add(MOTION_DETECT);
-        softwareNames.add(FACE_DETECT);
-        softwareNames.add(BARCODE_READER);
-        softwareNames.add(TEXT_SCAN);
-//        softwareNames.add(FACE_EMOJI);
-//        softwareNames.add(AUGMENTED_REALITY);
-        softwareNames.add(VIRTUAL_REALITY);
-        softwareNames.add(LABEL_GENERATOR);
+        featuredTrendingNames.add(LABEL_GENERATOR);
+        featuredTrendingNames.add(VIRTUAL_REALITY);
+
+//        trendingNames.add(MOTION_DETECT);
+        trendingNames.add(FACE_DETECT);
+        trendingNames.add(BARCODE_READER);
+        trendingNames.add(TEXT_SCAN);
+//        trendingNames.add(FACE_EMOJI);
+//        trendingNames.add(AUGMENTED_REALITY);
+        trendingNames.add(VIRTUAL_REALITY);
+        trendingNames.add(LABEL_GENERATOR);
 
         imageUrlMap.put(SENSOR_LIGHT, R.drawable.baseline_highlight_black_48);
         imageUrlMap.put(SENSOR_PROXIMITY, R.drawable.baseline_pan_tool_black_48);

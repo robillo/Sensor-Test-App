@@ -203,9 +203,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
     public void inflateData() {
         sensorNames = AppConstants.sensorNames;
         featureNames = AppConstants.featureNames;
-        informationNames = AppConstants.informationNames;
-        softwareNames = AppConstants.softwareNames;
-        androidNames = AppConstants.androidNames;
+        informationNames = AppConstants.deviceDetailsNames;
+        softwareNames = AppConstants.trendingNames;
+        androidNames = AppConstants.androidVersionNames;
 
         if(getActivity() == null) return;
 
@@ -545,9 +545,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 isFingerprintSupported,
                 AppConstants.sensorNames,
                 AppConstants.featureNames,
-                AppConstants.informationNames,
-                AppConstants.softwareNames,
-                AppConstants.androidNames);
+                AppConstants.deviceDetailsNames,
+                AppConstants.trendingNames,
+                AppConstants.androidVersionNames);
     }
 
     @Override

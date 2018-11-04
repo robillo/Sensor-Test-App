@@ -36,10 +36,12 @@
         android:textSize="12sp"
         android:textColor="@color/colorTextTwo"
         tools:text="Bluetooth"
+        fontPath="fonts/Comfortaa-Regular.ttf"
         android:paddingTop="5sp"
         android:paddingBottom="5sp"
         android:lines="1"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/featured_sensor_text"/>
+        android:id="@+id/featured_sensor_text"
+        tools:ignore="MissingPrefix" />
 
 </LinearLayout>

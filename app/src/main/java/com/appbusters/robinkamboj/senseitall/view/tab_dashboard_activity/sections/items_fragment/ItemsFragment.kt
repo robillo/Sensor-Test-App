@@ -46,32 +46,22 @@ class ItemsFragment : Fragment() {
             TYPE_TOOLS -> {
                 allItemsList = ArrayList()
                 featuredItemsList = ArrayList()
-//                allItemsList = AppConstants.sensorNames
-//                featuredItemsList = AppConstants.featuredSensorNames
             }
             TYPE_TRENDING -> {
-                allItemsList = ArrayList()
-                featuredItemsList = ArrayList()
-//                allItemsList = AppConstants.sensorNames
-//                featuredItemsList = AppConstants.featuredSensorNames
+                allItemsList = AppConstants.trendingNames
+                featuredItemsList = AppConstants.featuredTrendingNames
             }
             TYPE_DEVICE -> {
-                allItemsList = ArrayList()
-                featuredItemsList = ArrayList()
-//                allItemsList = AppConstants.sensorNames
-//                featuredItemsList = AppConstants.featuredSensorNames
+                allItemsList = AppConstants.deviceDetailsNames
+                featuredItemsList = AppConstants.featuredDeviceDetailsNames
             }
             TYPE_ANDROID -> {
-                allItemsList = ArrayList()
-                featuredItemsList = ArrayList()
-//                allItemsList = AppConstants.sensorNames
-//                featuredItemsList = AppConstants.featuredSensorNames
+                allItemsList = AppConstants.androidVersionNames
+                featuredItemsList = AppConstants.featuredAndroidVersionNames
             }
             else -> {
                 allItemsList = ArrayList()
                 featuredItemsList = ArrayList()
-//                allItemsList = AppConstants.sensorNames
-//                featuredItemsList = AppConstants.featuredSensorNames
             }
         }
         setFeaturedItemsAdapter()

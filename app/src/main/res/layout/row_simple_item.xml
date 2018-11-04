@@ -54,9 +54,11 @@
                 android:paddingRight="20sp"
                 android:layout_gravity="center_vertical"
                 tools:text="Light Sensor"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                fontPath="fonts/Comfortaa-Regular.ttf"
                 android:textColor="@color/colorBlackShade2"
-                android:id="@+id/sensor_text_view"/>
+                android:id="@+id/sensor_text_view"
+                tools:ignore="MissingPrefix" />
 
         </LinearLayout>
 
