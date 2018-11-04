@@ -1,19 +1,16 @@
 package com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.hardware.ConsumerIrManager;
 import android.hardware.SensorManager;
 import android.hardware.camera2.CameraManager;
-import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
@@ -46,7 +43,6 @@ import com.appbusters.robinkamboj.senseitall.view.helper_classes.IsPresentLoader
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,9 +68,9 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.SOFTWARE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_INFORMATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DEVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SOFTWARE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_TRENDING;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlMap;
 
 /**
@@ -290,10 +286,10 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 fillGenericDataForSelected(TYPE_FEATURES);
                 break;
             case SHOWING_INFORMATION_LIST:
-                fillGenericDataForSelected(TYPE_INFORMATION);
+                fillGenericDataForSelected(TYPE_DEVICE);
                 break;
             case SHOWING_SOFTWARE_LIST:
-                fillGenericDataForSelected(TYPE_SOFTWARE);
+                fillGenericDataForSelected(TYPE_TRENDING);
                 break;
             case SHOWING_ANDROID_FEATURE_LIST:
                 fillGenericDataForSelected(TYPE_ANDROID);
@@ -435,12 +431,12 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
                 dataPresent = featuresPresent;
                 break;
             }
-            case TYPE_INFORMATION: {
+            case TYPE_DEVICE: {
                 dataNames = informationNames;
                 dataPresent = informationsPresent;
                 break;
             }
-            case TYPE_SOFTWARE: {
+            case TYPE_TRENDING: {
                 dataNames = softwareNames;
                 dataPresent = softwaresPresent;
                 break;

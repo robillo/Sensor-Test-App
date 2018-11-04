@@ -1,19 +1,15 @@
 package com.appbusters.robinkamboj.senseitall.view.detail_activity;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -84,7 +80,6 @@ import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.motio
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.text_detect.TextScanFragment;
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.software.virtual_reality.VirtualRealityFragment;
 import com.bumptech.glide.Glide;
-import com.google.android.gms.location.LocationSettingsStates;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -159,9 +154,9 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_ANDROID;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DIAGNOSTICS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEATURES;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_INFORMATION;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DEVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SOFTWARE;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_TRENDING;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.USB_ACCESSORY;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIBRATOR;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.VIRTUAL_REALITY;
@@ -248,10 +243,10 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
             case TYPE_SENSORS:
                 dataType.setText(SENSOR.toUpperCase());
                 break;
-            case TYPE_INFORMATION:
+            case TYPE_DEVICE:
                 dataType.setText(INFORMATION.toUpperCase());
                 break;
-            case TYPE_SOFTWARE:
+            case TYPE_TRENDING:
                 dataType.setText(SOFTWARE.toUpperCase());
                 break;
             case TYPE_ANDROID:

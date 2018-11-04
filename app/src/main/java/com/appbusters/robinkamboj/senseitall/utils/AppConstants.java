@@ -58,9 +58,10 @@ public class AppConstants {
     public static final int TYPE_DIAGNOSTICS = 0;                               //data types
     public static final int TYPE_SENSORS = 1;
     public static final int TYPE_FEATURES = 2;
-    public static final int TYPE_INFORMATION = 3;
-    public static final int TYPE_SOFTWARE = 4;
+    public static final int TYPE_DEVICE = 3;
+    public static final int TYPE_TRENDING = 4;
     public static final int TYPE_ANDROID = 5;
+    public static final int TYPE_TOOLS = 6;
 //    public static final int TYPE_RATE = 6;
 
     public static final String DIAGNOSTIC = "Diagnostic";                       //data type names

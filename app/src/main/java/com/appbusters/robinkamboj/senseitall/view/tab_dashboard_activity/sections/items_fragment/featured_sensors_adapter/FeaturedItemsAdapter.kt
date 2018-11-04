@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.sensors_fragment.featured_sensors_adapter
+package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.items_fragment.featured_sensors_adapter
 
 import android.app.Activity
 import android.content.Context
@@ -27,7 +27,7 @@ import java.util.ArrayList
 
 import kotlinx.android.synthetic.main.row_featured_item.view.*
 
-class FeaturedSensorsAdapter(sensorsList: List<String>, private val context: Context) : RecyclerView.Adapter<FeaturedSensorsAdapter.FeaturedSensorsHolder>() {
+class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Context) : RecyclerView.Adapter<FeaturedItemsAdapter.FeaturedSensorsHolder>() {
 
     private val sensorsList = ArrayList<String?>()
     private val colorsList: List<Int> = AppConstants.featuredColors

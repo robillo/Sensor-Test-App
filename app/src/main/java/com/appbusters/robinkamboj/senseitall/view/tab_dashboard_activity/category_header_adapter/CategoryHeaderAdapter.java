@@ -42,6 +42,7 @@ public class CategoryHeaderAdapter extends RecyclerView.Adapter<CategoryHeaderAd
     @Override
     public void onBindViewHolder(@NonNull final HeaderHolder headerHolder, final int position) {
 
+        //noinspection UnnecessaryLocalVariable
         final int fixedPosition = position;
 
         if(position == selectedIndex) {

@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.sensors_fragment.all_sensors_adapter
+package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.items_fragment.all_items_adapter
 
 import android.app.Activity
 import android.content.Context
@@ -17,27 +17,18 @@ import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.bumptech.glide.Glide
 
-import com.appbusters.robinkamboj.senseitall.model.recycler.GenericData
 import com.appbusters.robinkamboj.senseitall.view.detail_activity.DetailActivity
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.TabMainActivity
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.helpers.CheckIfPresent
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.helpers.GetItemType
-import com.appbusters.robinkamboj.senseitall.view.test_activity.TestActivity
-import com.appbusters.robinkamboj.senseitall.view.test_activity.helper.IsPresentHelper
 import kotlinx.android.synthetic.main.row_simple_item.view.*
 
-class AllSensorsAdapter(private val sensorsList: List<String>?, private val context: Context) : RecyclerView.Adapter<AllSensorsAdapter.AllSensorsHolder>() {
+class AllItemsAdapter(private val sensorsList: List<String>?, private val context: Context) : RecyclerView.Adapter<AllItemsAdapter.AllSensorsHolder>() {
 
-    private final val maxLengthPrint: Int = 12
+    private val maxLengthPrint: Int = 12
 
     private val colorsList: List<Int> = AppConstants.simpleColors
-    private var isPresentHelper: IsPresentHelper
-    private var checkIfPresent: CheckIfPresent
-
-    init {
-        isPresentHelper = IsPresentHelper(context)
-        checkIfPresent = CheckIfPresent(context)
-    }
+    private var checkIfPresent: CheckIfPresent = CheckIfPresent(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, type: Int): AllSensorsHolder {
         return AllSensorsHolder(
@@ -71,8 +62,8 @@ class AllSensorsAdapter(private val sensorsList: List<String>?, private val cont
         holder.sensorTextView.text = sensorsList[position]
 
         holder.itemView.setOnClickListener {
-            if (checkIfPresent.returnPresence(sensorsList.get(position)))
-                startDetailActivityForItem(context, sensorsList.get(position))
+            if (checkIfPresent.returnPresence(sensorsList[position]))
+                startDetailActivityForItem(context, sensorsList[position])
             else {
                 var item: String = sensorsList.get(position)
                 if(item.length > maxLengthPrint)
@@ -91,7 +82,7 @@ class AllSensorsAdapter(private val sensorsList: List<String>?, private val cont
 
         args.putString(AppConstants.DATA_NAME, sensorName)
         args.putString(AppConstants.RECYCLER_NAME, sensorName)
-        args.putInt(AppConstants.DRAWABLE_ID, AppConstants.imageUrlMap.get(sensorName)!!)
+        args.putInt(AppConstants.DRAWABLE_ID, AppConstants.imageUrlMap[sensorName]!!)
         args.putBoolean(AppConstants.IS_PRESENT, true)
         args.putInt(AppConstants.TYPE, GetItemType(sensorName).itemType)
 
@@ -107,14 +98,9 @@ class AllSensorsAdapter(private val sensorsList: List<String>?, private val cont
 
     inner class AllSensorsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var simpleItemCardView: CardView
-        var sensorImageView: ImageView
-        var sensorTextView: TextView
+        var simpleItemCardView: CardView = itemView.simple_item_card_view
+        var sensorImageView: ImageView = itemView.sensor_image_view
+        var sensorTextView: TextView = itemView.sensor_text_view
 
-        init {
-            simpleItemCardView = itemView.simple_item_card_view
-            sensorImageView = itemView.sensor_image_view
-            sensorTextView = itemView.sensor_text_view
-        }
     }
 }
