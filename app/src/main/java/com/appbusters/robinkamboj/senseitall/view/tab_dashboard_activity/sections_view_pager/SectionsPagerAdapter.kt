@@ -12,10 +12,8 @@ import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.section
 
 class SectionsPagerAdapter(fm: FragmentManager, private val headersList: List<String>) : FragmentPagerAdapter(fm) {
 
-    val args = Bundle()
-    private val itemsFragment = ItemsFragment()
-
     override fun getItem(position: Int): Fragment {
+        val args = Bundle()
         when (headersList[position]) {
             SENSOR_HEADER -> args.putInt(TYPE, TYPE_SENSORS)
             FEATURE_HEADER -> args.putInt(TYPE, TYPE_FEATURES)
@@ -25,6 +23,7 @@ class SectionsPagerAdapter(fm: FragmentManager, private val headersList: List<St
             ANDROID_HEADER -> args.putInt(TYPE, TYPE_ANDROID)
             else -> args.putInt(TYPE, TYPE_SENSORS)
         }
+        val itemsFragment = ItemsFragment()
         itemsFragment.arguments = args
         return itemsFragment
     }

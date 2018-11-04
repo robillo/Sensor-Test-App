@@ -143,9 +143,14 @@ public class GpsFragment extends FeatureFragment
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMyLocationEnabled(true);
-        checkLocationAndAddToMap();
+        try {
+            mMap = googleMap;
+            mMap.setMyLocationEnabled(true);
+            checkLocationAndAddToMap();
+        }
+        catch (Exception ignored) {
+
+        }
     }
 
     @SuppressWarnings("FieldCanBeLocal")

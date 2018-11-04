@@ -238,6 +238,7 @@ public class AppConstants {
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featuredSensorNames = new ArrayList<>();
     public static List<String> featureNames = new ArrayList<>();
+    public static List<String> featuredFeatureNames = new ArrayList<>();
     public static List<String> informationNames = new ArrayList<>();
     public static List<String> softwareNames = new ArrayList<>();
     public static List<String> androidNames = new ArrayList<>();
@@ -265,12 +266,18 @@ public class AppConstants {
 
     static {
 
-        featuredColors.add(R.color.featured_color_green);
-        featuredColors.add(R.color.featured_color_purple);
-        featuredColors.add(R.color.featured_color_red);
-        featuredColors.add(R.color.featured_color_blue);
-        featuredColors.add(R.color.featured_color_yellow);
-        featuredColors.add(R.color.featured_color_light_green);
+        featuredColors.add(R.color.featured_color_one);
+        featuredColors.add(R.color.featured_color_two);
+        featuredColors.add(R.color.featured_color_three);
+        featuredColors.add(R.color.featured_color_four);
+        featuredColors.add(R.color.featured_color_five);
+        featuredColors.add(R.color.featured_color_six);
+        featuredColors.add(R.color.featured_color_seven);
+        featuredColors.add(R.color.featured_color_eight);
+        featuredColors.add(R.color.featured_color_nine);
+        featuredColors.add(R.color.featured_color_ten);
+        featuredColors.add(R.color.featured_color_eleven);
+        featuredColors.add(R.color.featured_color_twelve);
 
         simpleColors.add(R.color.simple_color_red);
         simpleColors.add(R.color.simple_color_red_light);
@@ -319,6 +326,13 @@ public class AppConstants {
         dangerousPermissions.add(Manifest.permission.RECORD_AUDIO);
         dangerousPermissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         dangerousPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        featuredFeatureNames.add(COMPASS);
+        featuredFeatureNames.add(MULTI_TOUCH);
+        featuredFeatureNames.add(SOUND);
+        featuredFeatureNames.add(BATTERY);
+        featuredFeatureNames.add(VIBRATOR);
+        featuredFeatureNames.add(FLASH);
 
         featureNames.add(BACK_CAMERA);  //d
         featureNames.add(FRONT_CAMERA);  //d
@@ -447,6 +461,7 @@ public class AppConstants {
         featuredSensorNames.add(SENSOR_GYROSCOPE);
         featuredSensorNames.add(SENSOR_GRAVITY);
         featuredSensorNames.add(SENSOR_ROTATION_VECTOR);
+        featuredSensorNames.add(SENSOR_STEP_COUNTER);
 
         sensorNames.add(SENSOR_LIGHT);  //d
         sensorNames.add(SENSOR_ACCELEROMETER);  //d

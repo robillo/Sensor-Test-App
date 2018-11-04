@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_items.view.*
 
 class ItemsFragment : Fragment() {
 
-    private lateinit var itemType: String
+    private var itemType: Int = 0
 
     private lateinit var fragment: View
     private lateinit var featuredItemsList: List<String>
@@ -30,38 +30,48 @@ class ItemsFragment : Fragment() {
     }
 
     private fun getItemType() {
-        itemType = arguments!!.getString(TYPE)!!
+        itemType = arguments!!.getInt(TYPE)
     }
 
     private fun performSetupOperations() {
         when(itemType) {
-            SENSOR_HEADER -> {
+            TYPE_SENSORS -> {
                 allItemsList = AppConstants.sensorNames
                 featuredItemsList = AppConstants.featuredSensorNames
             }
-            FEATURE_HEADER -> {
+            TYPE_FEATURES -> {
                 allItemsList = AppConstants.featureNames
-                featuredItemsList = AppConstants.featuredSensorNames
+                featuredItemsList = AppConstants.featuredFeatureNames
             }
-            TOOLS_HEADER -> {
-                allItemsList = AppConstants.sensorNames
-                featuredItemsList = AppConstants.featuredSensorNames
+            TYPE_TOOLS -> {
+                allItemsList = ArrayList()
+                featuredItemsList = ArrayList()
+//                allItemsList = AppConstants.sensorNames
+//                featuredItemsList = AppConstants.featuredSensorNames
             }
-            TRENDING_HEADER -> {
-                allItemsList = AppConstants.sensorNames
-                featuredItemsList = AppConstants.featuredSensorNames
+            TYPE_TRENDING -> {
+                allItemsList = ArrayList()
+                featuredItemsList = ArrayList()
+//                allItemsList = AppConstants.sensorNames
+//                featuredItemsList = AppConstants.featuredSensorNames
             }
-            DEVICE_HEADER -> {
-                allItemsList = AppConstants.sensorNames
-                featuredItemsList = AppConstants.featuredSensorNames
+            TYPE_DEVICE -> {
+                allItemsList = ArrayList()
+                featuredItemsList = ArrayList()
+//                allItemsList = AppConstants.sensorNames
+//                featuredItemsList = AppConstants.featuredSensorNames
             }
-            ANDROID_HEADER -> {
-                allItemsList = AppConstants.sensorNames
-                featuredItemsList = AppConstants.featuredSensorNames
+            TYPE_ANDROID -> {
+                allItemsList = ArrayList()
+                featuredItemsList = ArrayList()
+//                allItemsList = AppConstants.sensorNames
+//                featuredItemsList = AppConstants.featuredSensorNames
             }
             else -> {
-                allItemsList = AppConstants.sensorNames
-                featuredItemsList = AppConstants.featuredSensorNames
+                allItemsList = ArrayList()
+                featuredItemsList = ArrayList()
+//                allItemsList = AppConstants.sensorNames
+//                featuredItemsList = AppConstants.featuredSensorNames
             }
         }
         setFeaturedItemsAdapter()

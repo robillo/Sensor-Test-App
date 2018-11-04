@@ -204,7 +204,18 @@ public class CheckIfPresent {
 
                 return false;
             }
-            case GSM_UMTS:
+            case GSM_UMTS: {
+                if(isPermissionGranted(GSM_UMTS)) {
+                    return true;
+                }
+                else {
+                    showSnackBar("read phone state permission not given");
+                    context.startActivity(new Intent(context, PermissionRequestActivity.class));
+                    //show snackbar for camera permission
+                    //ask for camera permission
+                    return false;
+                }
+            }
             case COMPASS:
             case SCREEN:
             case AV_OUTPUTS:
@@ -331,7 +342,7 @@ public class CheckIfPresent {
     }
 
     private void showSnackBar(String text) {
-        Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
     }
 
     private void showToast(String text) {
