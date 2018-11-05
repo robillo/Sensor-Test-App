@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/colorMajorDark"
-        app:cardCornerRadius="15sp"
+        app:cardCornerRadius="18sp"
         android:layout_marginTop="20sp"
         android:layout_marginLeft="10sp"
         android:layout_marginBottom="10sp"
@@ -28,11 +28,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:text="@string/directions"
             android:textColor="@color/white"
-            android:paddingLeft="15sp"
-            android:paddingRight="15sp"
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp"
             android:paddingTop="5sp"
             android:paddingBottom="5sp"
             android:id="@+id/data_type"
@@ -43,11 +43,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textColor="@color/colorMajorDark"
         tools:text="@string/proximity_direction"
+        fontPath="fonts/Comfortaa-Bold.ttf"
         android:padding="13sp"
-        android:id="@+id/test_direction"/>
+        android:id="@+id/test_direction"
+        tools:ignore="MissingPrefix" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -65,7 +67,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textColor="@color/green_shade_three"
             tools:text="@string/proximity_hint"
             android:paddingLeft="10sp"
@@ -84,14 +86,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:id="@+id/start_test"
         android:text="@string/start_test"
-        android:padding="12sp"
+        android:padding="10sp"
+        fontPath="fonts/Comfortaa-Bold.ttf"
         android:gravity="center_horizontal"
         android:textColor="@color/white"
         android:background="@color/red_shade_three"
         android:layout_gravity="center"
-        tools:ignore="RtlHardcoded,RtlSymmetry"/>
+        tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>
 
 </LinearLayout>

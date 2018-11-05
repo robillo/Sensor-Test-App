@@ -402,6 +402,8 @@ public class AppConstants {
         featuredDeviceDetailsNames.add(RAM);
         featuredDeviceDetailsNames.add(STORAGE);
         featuredDeviceDetailsNames.add(GSM_UMTS);
+        featuredDeviceDetailsNames.add(CPU);
+        featuredDeviceDetailsNames.add(ANDROID_OS);
 
         deviceDetailsNames.add(GSM_UMTS);
         deviceDetailsNames.add(ANDROID_OS);
@@ -414,6 +416,8 @@ public class AppConstants {
         featuredAndroidVersionNames.add(PIE);
         featuredAndroidVersionNames.add(OREO);
         featuredAndroidVersionNames.add(NOUGAT);
+        featuredAndroidVersionNames.add(MARSHMALLOW);
+        featuredAndroidVersionNames.add(LOLLIPOP);
 
         androidVersionNames.add(PIE);
         androidVersionNames.add(OREO);
@@ -497,6 +501,9 @@ public class AppConstants {
 
         featuredTrendingNames.add(LABEL_GENERATOR);
         featuredTrendingNames.add(VIRTUAL_REALITY);
+        featuredTrendingNames.add(FACE_DETECT);
+        featuredTrendingNames.add(BARCODE_READER);
+        featuredTrendingNames.add(TEXT_SCAN);
 
 //        trendingNames.add(MOTION_DETECT);
         trendingNames.add(FACE_DETECT);

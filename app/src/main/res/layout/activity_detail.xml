@@ -52,6 +52,8 @@
                     app:cardCornerRadius="11sp"
                     app:cardElevation="0sp"
                     android:layout_marginLeft="10sp"
+                    android:layout_marginBottom="6sp"
+                    android:layout_marginTop="4sp"
                     tools:ignore="RtlHardcoded,RtlSymmetry">
 
                     <TextView
@@ -62,7 +64,6 @@
                         android:textColor="@color/white"
                         android:paddingLeft="10sp"
                         android:paddingRight="10sp"
-                        android:paddingTop="3sp"
                         android:paddingBottom="3sp"
                         android:id="@+id/data_type"
                         tools:ignore="MissingPrefix,RtlHardcoded,RtlSymmetry"/>

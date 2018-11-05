@@ -26,10 +26,12 @@
             android:textSize="18sp"
             android:paddingTop="6sp"
             android:paddingBottom="6sp"
+            fontPath="fonts/Comfortaa-Bold.ttf"
             tools:text="PROXIMITY SENSOR TEST"
             android:textColor="@color/colorTextTwo"
             android:gravity="center"
-            android:id="@+id/test_name"/>
+            android:id="@+id/test_name"
+            tools:ignore="MissingPrefix" />
 
         <ImageView
             android:layout_width="match_parent"
