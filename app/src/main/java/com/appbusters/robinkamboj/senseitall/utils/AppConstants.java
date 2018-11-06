@@ -301,9 +301,9 @@ public class AppConstants {
         simpleColors.add(R.color.simple_color_pink);
         simpleColors.add(R.color.simple_color_maroon);
 
+        categoryNames.add(TOOLS_HEADER);
         categoryNames.add(SENSOR_HEADER);
         categoryNames.add(FEATURE_HEADER);
-        categoryNames.add(TOOLS_HEADER);
         categoryNames.add(TRENDING_HEADER);
         categoryNames.add(DEVICE_HEADER);
         categoryNames.add(ANDROID_HEADER);

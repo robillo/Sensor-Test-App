@@ -1,61 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="5sp"
     android:layout_marginRight="5sp"
-    android:layout_marginTop="10sp"
-    android:layout_marginBottom="5sp"
-    app:cardElevation="3sp"
-    app:cardCornerRadius="10sp"
-    tools:ignore="RtlHardcoded"
-    android:id="@+id/card_view">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="5sp"
-        android:paddingTop="5sp"
-        android:paddingBottom="5sp"
-        android:paddingRight="20sp"
-        android:orientation="horizontal"
-        android:id="@+id/parent_card"
-        android:background="@drawable/card_dashboard_bg">
+        android:orientation="vertical">
 
         <ImageView
-            android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5sp"
-            android:layout_marginRight="5sp"
-            android:padding="10sp"
-            android:src="@drawable/baseline_rotate_right_black_48"
-            android:tint="@color/white"
-            tools:ignore="ContentDescription"
-            android:id="@+id/image"/>
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFour"
+            tools:ignore="ContentDescription,SmallSp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                app:cardCornerRadius="35sp"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="8sp"
+                android:layout_marginBottom="8sp"
+                android:id="@+id/simple_item_card_view"
+                app:cardBackgroundColor="@color/primary_new_light"
+                tools:ignore="RtlHardcoded">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:src="@drawable/baseline_bluetooth_black_48"
+                    android:tint="@color/white"
+                    tools:ignore="ContentDescription"
+                    android:padding="8sp"
+                    android:id="@+id/image"/>
+
+            </android.support.v7.widget.CardView>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:layout_marginBottom="3sp"
-                android:layout_marginLeft="5sp"
-                android:layout_marginRight="5sp"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                tools:text="Rotation Vector"
+                android:gravity="start"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:layout_gravity="center_vertical"
+                tools:text="Light Sensor"
+                android:textSize="14sp"
+                fontPath="fonts/Comfortaa-Regular.ttf"
+                android:textColor="@color/colorBlackShade2"
                 android:id="@+id/name"
-                tools:ignore="RtlHardcoded" />
+                tools:ignore="MissingPrefix" />
 
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorTextFour"
+            tools:ignore="ContentDescription,SmallSp" />
 
     </LinearLayout>
 

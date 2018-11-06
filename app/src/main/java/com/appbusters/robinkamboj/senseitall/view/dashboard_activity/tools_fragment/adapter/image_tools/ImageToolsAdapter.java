@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +68,7 @@ public class ImageToolsAdapter extends RecyclerView.Adapter<ImageToolsAdapter.Im
 
         final int pos = position;
 
-        holder.parentCard.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checkIfPresent.returnPresence(list.get(pos).getName())) {
@@ -94,9 +93,6 @@ public class ImageToolsAdapter extends RecyclerView.Adapter<ImageToolsAdapter.Im
     }
 
     class ImageToolsHolder extends RecyclerView.ViewHolder {
-
-        @BindView(R.id.parent_card)
-        LinearLayout parentCard;
 
         @BindView(R.id.image)
         ImageView drawableImage;

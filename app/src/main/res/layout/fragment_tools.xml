@@ -7,94 +7,104 @@
     android:layout_height="match_parent"
     android:id="@+id/coordinator_tools">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <ImageView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="1sp"
-            android:background="@color/colorTextFive"
-            tools:ignore="ContentDescription,SmallSp"/>
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:gravity="center_vertical"
-            android:paddingLeft="15sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/colorTextTwo"
-            tools:ignore="RtlHardcoded,RtlSymmetry"
-            android:text="@string/quick_toggle_settings"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription,SmallSp"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/quick_settings_rv">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/colorTextTwo"
+                tools:ignore="RtlHardcoded,RtlSymmetry"
+                android:text="@string/quick_toggle_settings"/>
 
-        </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/quick_settings_rv">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1sp"
-            android:background="@color/colorTextFive"
-            tools:ignore="ContentDescription,SmallSp"/>
+            </android.support.v7.widget.RecyclerView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:gravity="center_vertical"
-            android:paddingLeft="15sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/colorTextTwo"
-            tools:ignore="RtlHardcoded,RtlSymmetry"
-            android:text="@string/image_tools"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription,SmallSp"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/image_tools_rv"
-            android:layout_marginBottom="30sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/colorTextTwo"
+                tools:ignore="RtlHardcoded,RtlSymmetry"
+                android:text="@string/image_tools"/>
 
-        </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_tools_rv"
+                android:layout_marginBottom="30sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1sp"
-            android:background="@color/colorTextFive"
-            tools:ignore="ContentDescription,SmallSp"/>
+            </android.support.v7.widget.RecyclerView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:gravity="center_vertical"
-            android:paddingLeft="15sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/colorTextTwo"
-            tools:ignore="RtlHardcoded,RtlSymmetry"
-            android:text="@string/everyday_tools"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription,SmallSp"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/everyday_tools_rv"
-            android:layout_marginBottom="30sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/colorTextTwo"
+                tools:ignore="RtlHardcoded,RtlSymmetry"
+                android:text="@string/everyday_tools"/>
 
-        </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/everyday_tools_rv"
+                android:layout_marginBottom="30sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1sp"
-            android:background="@color/colorTextFive"
-            tools:ignore="ContentDescription,SmallSp"/>
+            </android.support.v7.widget.RecyclerView>
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@color/colorTextFive"
+                tools:ignore="ContentDescription,SmallSp"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

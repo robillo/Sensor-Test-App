@@ -40,15 +40,15 @@ import kotlinx.android.synthetic.main.fragment_tools.view.*
  */
 class ToolsFragment : Fragment(), ToolsInterface {
 
-    private var everydayToolsList: MutableList<ToolsItem> = ArrayList()
-    private var imageToolsList: MutableList<ToolsItem> = ArrayList()
+    private var everydayToolsList: MutableList<ToolsItem>? = null
+    private var imageToolsList: MutableList<ToolsItem>? = null
     lateinit var list: MutableList<TinyInfo>
     private lateinit var quickAdapter: QuickSettingsAdapter
     private lateinit var imageToolsAdapter: ImageToolsAdapter
     private lateinit var everydayToolsAdapter: ImageToolsAdapter
     lateinit var lv : View
 
-    private var quickSettingsList: MutableList<TinyInfo> = ArrayList()
+    private var quickSettingsList: MutableList<TinyInfo>? = null
     private var networkCallback: ConnectivityManager.NetworkCallback? = null
     private var connectivityManager: ConnectivityManager? = null
     private var locationReceiver: BroadcastReceiver? = null
@@ -76,15 +76,16 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun initialize() {
-        quickSettingsList.add(TinyInfo(WIFI_QUICK, onMapImage[WIFI_QUICK]!!, offMapImage[WIFI_QUICK]!!))
-        quickSettingsList.add(TinyInfo(BLUETOOTH_QUICK, onMapImage[BLUETOOTH_QUICK]!!, offMapImage[BLUETOOTH_QUICK]!!))
-        quickSettingsList.add(TinyInfo(AUTOROTATE_QUICK, onMapImage[AUTOROTATE_QUICK]!!, offMapImage[AUTOROTATE_QUICK]!!))
-        quickSettingsList.add(TinyInfo(AIRPLANE_QUICK, onMapImage[AIRPLANE_QUICK]!!, offMapImage[AIRPLANE_QUICK]!!))
+        quickSettingsList = ArrayList()
+        quickSettingsList?.add(TinyInfo(WIFI_QUICK, onMapImage[WIFI_QUICK]!!, offMapImage[WIFI_QUICK]!!))
+        quickSettingsList?.add(TinyInfo(BLUETOOTH_QUICK, onMapImage[BLUETOOTH_QUICK]!!, offMapImage[BLUETOOTH_QUICK]!!))
+        quickSettingsList?.add(TinyInfo(AUTOROTATE_QUICK, onMapImage[AUTOROTATE_QUICK]!!, offMapImage[AUTOROTATE_QUICK]!!))
+        quickSettingsList?.add(TinyInfo(AIRPLANE_QUICK, onMapImage[AIRPLANE_QUICK]!!, offMapImage[AIRPLANE_QUICK]!!))
 //        quickSettingsList.add(new TinyInfo(BRIGHTNESS_QUICK, onMapImage.get(BRIGHTNESS_QUICK), offMapImage.get(BRIGHTNESS_QUICK)));
 //        quickSettingsList.add(new TinyInfo(VOLUME_QUICK, onMapImage.get(VOLUME_QUICK), offMapImage.get(VOLUME_QUICK)));
 //        quickSettingsList.add(new TinyInfo(FLASHLIGHT_QUICK, onMapImage.get(FLASHLIGHT_QUICK), offMapImage.get(FLASHLIGHT_QUICK)));
-        quickSettingsList.add(TinyInfo(LOCATION_QUICK, onMapImage[LOCATION_QUICK]!!, offMapImage[LOCATION_QUICK]!!))
-        quickSettingsList.add(TinyInfo(HOTSPOT_QUICK, onMapImage[HOTSPOT_QUICK]!!, offMapImage[HOTSPOT_QUICK]!!))
+        quickSettingsList?.add(TinyInfo(LOCATION_QUICK, onMapImage[LOCATION_QUICK]!!, offMapImage[LOCATION_QUICK]!!))
+        quickSettingsList?.add(TinyInfo(HOTSPOT_QUICK, onMapImage[HOTSPOT_QUICK]!!, offMapImage[HOTSPOT_QUICK]!!))
     }
 
     override fun registerReceivers() {
@@ -283,13 +284,14 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
     override fun setImageToolsAdapter() {
         val list : List<String> = imageTools
+        imageToolsList = ArrayList()
         list.forEach {
-            imageToolsList.add(ToolsItem(it, imageUrlMap[it]))
+            imageToolsList?.add(ToolsItem(it, imageUrlMap[it]))
         }
         imageToolsAdapter = ImageToolsAdapter(imageToolsList, activity)
         lv.image_tools_rv.layoutManager = LinearLayoutManager(
                 activity,
-                LinearLayoutManager.HORIZONTAL,
+                LinearLayoutManager.VERTICAL,
                 false
         )
         lv.image_tools_rv.adapter = imageToolsAdapter
@@ -299,13 +301,14 @@ class ToolsFragment : Fragment(), ToolsInterface {
 
     override fun setEverydayToolsAdapter() {
         val list : List<String> = everydayTools
+        everydayToolsList = ArrayList()
         list.forEach {
-            everydayToolsList.add(ToolsItem(it, imageUrlMap[it]))
+            everydayToolsList?.add(ToolsItem(it, imageUrlMap[it]))
         }
         everydayToolsAdapter = ImageToolsAdapter(everydayToolsList, activity)
         lv.everyday_tools_rv.layoutManager = LinearLayoutManager(
                 activity,
-                LinearLayoutManager.HORIZONTAL,
+                LinearLayoutManager.VERTICAL,
                 false
         )
         lv.everyday_tools_rv.adapter = everydayToolsAdapter
@@ -314,7 +317,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
     }
 
     override fun setQuickSettingsRecycler() {
-        list = quickSettingsList
+        list = quickSettingsList!!
         quickAdapter = QuickSettingsAdapter(list, activity, QuickSettingsListener {
             flipSetting(it)
         })
