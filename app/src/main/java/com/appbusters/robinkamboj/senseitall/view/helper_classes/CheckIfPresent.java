@@ -13,7 +13,8 @@ import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants;
-import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.DashboardActivity;
+import com.appbusters.robinkamboj.senseitall.view.permission_request_activity.PermissionRequestActivity;
+import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.TabMainActivity;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.AIRPLANE_QUICK;
@@ -123,7 +124,7 @@ public class CheckIfPresent {
                 }
                 else {
                     showSnackBar("audio permission not given");
-                    ((DashboardActivity) context).setRequestFragment();
+                    context.startActivity(new Intent(context, PermissionRequestActivity.class));
                     //show snackbar for audio permission
                     //ask for audio permission
                     return false;
@@ -139,7 +140,7 @@ public class CheckIfPresent {
                 }
                 else {
                     showSnackBar("storage and camera permission not given");
-                    ((DashboardActivity) context).setRequestFragment();
+                    context.startActivity(new Intent(context, PermissionRequestActivity.class));
                     //show snackbar for storage and camera permission
                     //ask for storage and camera permission
                     return false;
@@ -242,7 +243,7 @@ public class CheckIfPresent {
                 }
                 else {
                     showSnackBar("camera permission not given");
-                    ((DashboardActivity) context).setRequestFragment();
+                    context.startActivity(new Intent(context, PermissionRequestActivity.class));
                     //show snackbar for camera permission
                     //ask for camera permission
                     return false;
@@ -331,7 +332,7 @@ public class CheckIfPresent {
     }
 
     private void showSnackBar(String text) {
-        ((DashboardActivity) context).showSnackBar(text);
+        ((TabMainActivity) context).showSnackBar(text);
     }
 
     private void showToast(String text) {
