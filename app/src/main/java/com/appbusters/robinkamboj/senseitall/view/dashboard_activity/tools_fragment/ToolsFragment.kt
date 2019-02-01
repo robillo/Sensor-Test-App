@@ -40,7 +40,7 @@ import kotlinx.android.synthetic.main.fragment_tools.view.*
  * A simple [Fragment] subclass.
  *
  */
-class ToolsFragment : Fragment(), ToolsInterface {
+class ToolsFragment : Fragment() {
 
     private var everydayToolsList: MutableList<ToolsItem>? = null
     private var imageToolsList: MutableList<ToolsItem>? = null
@@ -67,10 +67,20 @@ class ToolsFragment : Fragment(), ToolsInterface {
         return v
     }
 
-    override fun setup(v: View) {
+    private fun setup(v: View) {
         lv = v
 
         initialize()
+    }
+
+    fun initialize() {
+
+        val fragmentComponent = DaggerToolsFragmentComponent.builder()
+                .siaApplicationComponent((activity?.applicationContext as SensorApplication).getApplicationComponent())
+                .build()
+        fragmentComponent.injectToolsFragment(this)
+
+        inflateQuickSettingsList()
 
         setImageToolsAdapter()
 
@@ -81,17 +91,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         checkQuickSettingsStatus()
     }
 
-    override fun initialize() {
-
-        val fragmentComponent = DaggerToolsFragmentComponent.builder()
-                .siaApplicationComponent((activity?.applicationContext as SensorApplication).getApplicationComponent())
-                .build()
-        fragmentComponent.injectToolsFragment(this)
-
-        inflateQuickSettingsList()
-    }
-
-    override fun inflateQuickSettingsList() {
+    private fun inflateQuickSettingsList() {
         quickSettingsList = ArrayList()
         quickSettingsList?.add(TinyInfo(WIFI_QUICK, onMapImage[WIFI_QUICK]!!, offMapImage[WIFI_QUICK]!!))
         quickSettingsList?.add(TinyInfo(BLUETOOTH_QUICK, onMapImage[BLUETOOTH_QUICK]!!, offMapImage[BLUETOOTH_QUICK]!!))
@@ -104,7 +104,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         quickSettingsList?.add(TinyInfo(HOTSPOT_QUICK, onMapImage[HOTSPOT_QUICK]!!, offMapImage[HOTSPOT_QUICK]!!))
     }
 
-    override fun registerReceivers() {
+    private fun registerReceivers() {
         registerWifiStateReceiver()
         registerBluetoothStateReceiver()
         registerAutorotateStateReceiver()
@@ -112,7 +112,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         registerLocationAccessStateReceiver()
     }
 
-    override fun registerLocationAccessStateReceiver() {
+    private fun registerLocationAccessStateReceiver() {
         if(locationReceiver == null) {
             locationReceiver = object: BroadcastReceiver() {
                 override fun onReceive(context: Context?, intent: Intent?) {
@@ -151,7 +151,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun registerWifiStateReceiver() {
+    private fun registerWifiStateReceiver() {
         if(wifiAndHotspotReceiver == null) {
             wifiAndHotspotReceiver = object: BroadcastReceiver() {
                 override fun onReceive(context: Context?, intent: Intent?) {
@@ -196,8 +196,11 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun registerBluetoothStateReceiver() {
-        if(bluetoothReceiver == null) {
+    private fun registerBluetoothStateReceiver() {
+
+        bluetoothReceiver?.let {
+
+        }?:kotlin.run {
             bluetoothReceiver = object: BroadcastReceiver() {
                 override fun onReceive(context: Context?, intent: Intent?) {
                     try {
@@ -228,7 +231,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun registerAirplaneModeStateReceiver() {
+    private fun registerAirplaneModeStateReceiver() {
         if(airplaneReceiver == null) {
             airplaneReceiver = object: BroadcastReceiver() {
                 override fun onReceive(context: Context?, intent: Intent?) {
@@ -258,7 +261,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun registerAutorotateStateReceiver() {
+    private fun registerAutorotateStateReceiver() {
         if(autorotateObserver == null) {
             autorotateObserver = object: ContentObserver(Handler()) {
                 override fun onChange(selfChange: Boolean) {
@@ -280,7 +283,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    fun checkStateAndShow(item: String, isPositive: Boolean) {
+    private fun checkStateAndShow(item: String, isPositive: Boolean) {
         try {
             if(isPositive) {
                 if(!quickAdapter.getItemState(item)) {
@@ -298,7 +301,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         catch (e: Exception) {}
     }
 
-    override fun setImageToolsAdapter() {
+    private fun setImageToolsAdapter() {
         val list : List<String> = imageTools
         imageToolsList = ArrayList()
         list.forEach {
@@ -315,7 +318,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         StartSnapHelper().attachToRecyclerView(lv.image_tools_rv)
     }
 
-    override fun setEverydayToolsAdapter() {
+    private fun setEverydayToolsAdapter() {
         val list : List<String> = everydayTools
         everydayToolsList = ArrayList()
         list.forEach {
@@ -332,7 +335,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         StartSnapHelper().attachToRecyclerView(lv.everyday_tools_rv)
     }
 
-    override fun setQuickSettingsRecycler() {
+    private fun setQuickSettingsRecycler() {
         list = quickSettingsList!!
         quickAdapter = QuickSettingsAdapter(list, activity, QuickSettingsListener {
             flipSetting(it)
@@ -347,7 +350,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         StartSnapHelper().attachToRecyclerView(lv.quick_settings_rv)
     }
 
-    override fun checkQuickSettingsStatus() {
+    private fun checkQuickSettingsStatus() {
         for(info in list) {
             try {
                 checkEachQuickSetting(info.name)
@@ -358,7 +361,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun checkEachQuickSetting(info: String) {
+    fun checkEachQuickSetting(info: String) {
         when (info) {
             WIFI_QUICK -> {
                 try {
@@ -459,39 +462,19 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun flipSetting(info: TinyInfo) {
+    fun flipSetting(info: TinyInfo) {
         when(info.name) {
-            WIFI_QUICK -> {
-                flipWifiSetting(!info.isOn)
-            }
-            BLUETOOTH_QUICK -> {
-                flipBluetoothSetting(!info.isOn)
-            }
-            BRIGHTNESS_QUICK -> {
-
-            }
-            VOLUME_QUICK -> {
-
-            }
-            HOTSPOT_QUICK -> {
-                flipHotspotSetting(!info.isOn)
-            }
-            FLASHLIGHT_QUICK -> {
-
-            }
-            LOCATION_QUICK -> {
-                flipLocationAccessSetting(!info.isOn)
-            }
-            AIRPLANE_QUICK -> {
-                flipAirplaneModeSetting(!info.isOn)
-            }
-            AUTOROTATE_QUICK -> {
-                flipAutorotateSetting(!info.isOn)
-            }
+            WIFI_QUICK -> flipWifiSetting(!info.isOn)
+            BLUETOOTH_QUICK -> flipBluetoothSetting(!info.isOn)
+            BRIGHTNESS_QUICK, VOLUME_QUICK, FLASHLIGHT_QUICK -> { }
+            HOTSPOT_QUICK -> flipHotspotSetting(!info.isOn)
+            LOCATION_QUICK -> flipLocationAccessSetting(!info.isOn)
+            AIRPLANE_QUICK -> flipAirplaneModeSetting(!info.isOn)
+            AUTOROTATE_QUICK -> flipAutorotateSetting(!info.isOn)
         }
     }
 
-    override fun flipBluetoothSetting(turnOn: Boolean) {
+    fun flipBluetoothSetting(turnOn: Boolean) {
 
         if(BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
             checkStateAndShow(BLUETOOTH_QUICK, turnOn)
@@ -520,7 +503,7 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun flipWifiSetting(turnOn: Boolean) {
+    fun flipWifiSetting(turnOn: Boolean) {
         val wifiManager =
                 activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
@@ -554,11 +537,11 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun flipHotspotSetting(turnOn: Boolean) {
+    private fun flipHotspotSetting(turnOn: Boolean) {
         showCoordinatorNegative("this setting cannot be changed from here")
     }
 
-    override fun flipAutorotateSetting(turnOn: Boolean) {
+    private fun flipAutorotateSetting(turnOn: Boolean) {
         try {
             Settings.System.putInt(
                     context!!.contentResolver,
@@ -573,11 +556,11 @@ class ToolsFragment : Fragment(), ToolsInterface {
         }
     }
 
-    override fun flipAirplaneModeSetting(turnOn: Boolean) {
+    private fun flipAirplaneModeSetting(turnOn: Boolean) {
         showCoordinatorNegative("this setting cannot be changed from here")
     }
 
-    override fun flipLocationAccessSetting(turnOn: Boolean) {
+    private fun flipLocationAccessSetting(turnOn: Boolean) {
         showCoordinatorNegative("this setting cannot be changed from here")
     }
 
@@ -628,20 +611,15 @@ class ToolsFragment : Fragment(), ToolsInterface {
         super.onStop()
     }
 
-    override fun unregisterReceivers() {
+    private fun unregisterReceivers() {
         try { activity?.unregisterReceiver(locationReceiver)} catch (e: Exception) {}
         try { activity?.unregisterReceiver(wifiAndHotspotReceiver)} catch (e: Exception) {}
         try { activity?.unregisterReceiver(bluetoothReceiver)} catch (e: Exception) {}
         try { activity?.unregisterReceiver(airplaneReceiver)} catch (e: Exception) {}
-        try {
-            connectivityManager?.unregisterNetworkCallback(networkCallback)
-        }
-        catch (e: Exception) {}
-
-        if(autorotateObserver != null)
-            try {
-                activity?.contentResolver?.unregisterContentObserver(autorotateObserver!!)
-            }
+        try { connectivityManager?.unregisterNetworkCallback(networkCallback) } catch (e: Exception) {}
+        autorotateObserver?.let {
+            try { activity?.contentResolver?.unregisterContentObserver(it)}
             catch (e: Exception) {}
+        }
     }
 }
