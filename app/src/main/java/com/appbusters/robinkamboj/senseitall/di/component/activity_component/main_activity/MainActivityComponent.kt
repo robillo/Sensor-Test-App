@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.senseitall.di.component.activity_component
+package com.appbusters.robinkamboj.senseitall.di.component.activity_component.main_activity
 
 import com.appbusters.robinkamboj.senseitall.di.component.SiaApplicationComponent
 import com.appbusters.robinkamboj.senseitall.di.scope.PerFragmentScope

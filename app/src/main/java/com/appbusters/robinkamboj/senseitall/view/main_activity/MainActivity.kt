@@ -13,8 +13,8 @@ import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.appbusters.robinkamboj.senseitall.view.main_activity.list_fragment.ListFragment
 import com.appbusters.robinkamboj.senseitall.view.main_activity.request_permissons_fragment.RequestFragment
 
-import com.appbusters.robinkamboj.senseitall.di.component.activity_component.DaggerMainActivityComponent
-import com.appbusters.robinkamboj.senseitall.di.component.activity_component.MainActivityComponent
+import com.appbusters.robinkamboj.senseitall.di.component.activity_component.main_activity.DaggerMainActivityComponent
+import com.appbusters.robinkamboj.senseitall.di.component.activity_component.main_activity.MainActivityComponent
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_main.*
 

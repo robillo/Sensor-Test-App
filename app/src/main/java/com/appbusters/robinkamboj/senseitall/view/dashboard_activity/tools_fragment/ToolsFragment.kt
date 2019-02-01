@@ -25,6 +25,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import com.appbusters.robinkamboj.senseitall.R
+import com.appbusters.robinkamboj.senseitall.SensorApplication
+import com.appbusters.robinkamboj.senseitall.di.component.activity_component.main_activity.fragment_component.DaggerToolsFragmentComponent
 import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo
 import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
@@ -69,13 +71,27 @@ class ToolsFragment : Fragment(), ToolsInterface {
         lv = v
 
         initialize()
+
         setImageToolsAdapter()
+
         setEverydayToolsAdapter()
+
         setQuickSettingsRecycler()
+
         checkQuickSettingsStatus()
     }
 
     override fun initialize() {
+
+        val fragmentComponent = DaggerToolsFragmentComponent.builder()
+                .siaApplicationComponent((activity?.applicationContext as SensorApplication).getApplicationComponent())
+                .build()
+        fragmentComponent.injectToolsFragment(this)
+
+        inflateQuickSettingsList()
+    }
+
+    override fun inflateQuickSettingsList() {
         quickSettingsList = ArrayList()
         quickSettingsList?.add(TinyInfo(WIFI_QUICK, onMapImage[WIFI_QUICK]!!, offMapImage[WIFI_QUICK]!!))
         quickSettingsList?.add(TinyInfo(BLUETOOTH_QUICK, onMapImage[BLUETOOTH_QUICK]!!, offMapImage[BLUETOOTH_QUICK]!!))

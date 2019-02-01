@@ -26,6 +26,8 @@ public interface ToolsInterface {
 
     void checkEachQuickSetting(String info);
 
+    void inflateQuickSettingsList();
+
     //receivers
 
     void registerWifiStateReceiver();
