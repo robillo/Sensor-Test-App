@@ -130,6 +130,9 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         // Required empty public constructor
     }
 
+    public static ListFragment newInstance() {
+        return new ListFragment();
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

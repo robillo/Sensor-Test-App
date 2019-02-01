@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -58,6 +59,13 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
         // Required empty public constructor
     }
 
+    public static RequestFragment newInstance() {
+        Bundle args = new Bundle();
+        args.putInt(AppConstants.FROM_ARG_IN_REQUEST, FROM_MAIN);
+        RequestFragment fragment = new RequestFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

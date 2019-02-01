@@ -178,7 +178,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.permission_request_activity.PermissionRequestActivity"></activity>
+        <activity android:name=".view.permission_request_activity.PermissionRequestActivity"/>
     </application>
 
 </manifest>
