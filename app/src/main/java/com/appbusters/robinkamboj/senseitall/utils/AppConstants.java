@@ -234,8 +234,6 @@ public class AppConstants {
 
     public static HashMap<String, Integer> imageUrlMap = new HashMap<>();
 
-    public static List<String> categoryNames = new ArrayList<>();
-
     public static List<String> sensorNames = new ArrayList<>();
     public static List<String> featuredSensorNames = new ArrayList<>();
 
@@ -300,13 +298,6 @@ public class AppConstants {
         simpleColors.add(R.color.simple_color_purple);
         simpleColors.add(R.color.simple_color_pink);
         simpleColors.add(R.color.simple_color_maroon);
-
-        categoryNames.add(TOOLS_HEADER);
-        categoryNames.add(SENSOR_HEADER);
-        categoryNames.add(FEATURE_HEADER);
-        categoryNames.add(TRENDING_HEADER);
-        categoryNames.add(DEVICE_HEADER);
-        categoryNames.add(ANDROID_HEADER);
 
         offMapImage.put(WIFI_QUICK, R.drawable.baseline_wifi_off_black_48);
         offMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_disabled_black_48);

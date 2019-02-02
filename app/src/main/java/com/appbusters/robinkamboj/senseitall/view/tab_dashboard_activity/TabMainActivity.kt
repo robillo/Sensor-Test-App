@@ -10,73 +10,48 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import com.appbusters.robinkamboj.senseitall.R
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants
+import com.appbusters.robinkamboj.senseitall.di.component.activity_component.tab_main_activity.DaggerTabMainActivityComponent
+import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.category_header_adapter.CategoryHeaderAdapter
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.category_header_adapter.HeaderClickListener
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections_view_pager.SectionsPagerAdapter
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tab_main.*
 
-class TabMainActivity : AppCompatActivity() {
+class TabMainActivity : AppCompatActivity(), HeaderClickListener {
 
-    var selectedIndex = 0
-    lateinit var headersList: List<String>
-    lateinit var headerAdapter: CategoryHeaderAdapter
+    private var selectedTabIndex = 0
+    private lateinit var tabHeaderAdapter: CategoryHeaderAdapter
+
+    companion object {
+        val tabHeadersList = listOf(
+                SENSOR_HEADER,
+                FEATURE_HEADER,
+                TRENDING_HEADER,
+                TOOLS_HEADER,
+                DEVICE_HEADER,
+                ANDROID_HEADER
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab_main)
 
-        performSetupOperations()
+        performSetup()
     }
 
-    private fun performSetupOperations() {
+    private fun performSetup() {
+        initDagger()
         setStatusBarColor()
-        inflateRecyclerViewHeaders()
+        inflateRecyclerView()
         setViewPagerForHeadersList()
         setViewPagerChangeListener()
     }
 
-    private fun inflateRecyclerViewHeaders() {
-        getRecyclerViewHeaders()
-        headerAdapter = CategoryHeaderAdapter(headersList, selectedIndex, this, HeaderClickListener {
-            selectedIndex = headersList.indexOf(it)
-            setHeaderFragment()
-            refreshRecyclerForNewHeaderSelected(selectedIndex)
-        })
-        header_recycler_view.adapter = headerAdapter
-    }
-
-    private fun setViewPagerChangeListener() {
-        view_pager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {
-            }
-
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-            }
-
-            override fun onPageSelected(position: Int) {
-                selectedIndex = position
-                refreshRecyclerForNewHeaderSelected(selectedIndex)
-                header_recycler_view.smoothScrollToPosition(selectedIndex)
-            }
-        })
-    }
-
-    private fun refreshRecyclerForNewHeaderSelected(selectedIndex: Int) {
-        headerAdapter.refreshForNewItemSelected(selectedIndex)
-    }
-
-    private fun setHeaderFragment() {
-        view_pager.currentItem = selectedIndex
-    }
-
-    private fun setViewPagerForHeadersList() {
-        view_pager.adapter = SectionsPagerAdapter(supportFragmentManager, headersList)
-    }
-
-    private fun getRecyclerViewHeaders() {
-        headersList = AppConstants.categoryNames
+    private fun initDagger() {
+        val tabMainActivityComponent = DaggerTabMainActivityComponent.builder().build()
+        tabMainActivityComponent.injectTabMainActivity(this)
     }
 
     private fun setStatusBarColor() {
@@ -84,6 +59,43 @@ class TabMainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         setWindowFlags(flags)
+    }
+
+    private fun inflateRecyclerView() {
+        tabHeaderAdapter = CategoryHeaderAdapter(tabHeadersList, selectedTabIndex, this, this)
+        header_recycler_view.adapter = tabHeaderAdapter
+    }
+
+    override fun handleHeaderClicked(header: String) {
+        selectedTabIndex = tabHeadersList.indexOf(header)
+        setFragmentForSelectedTab()
+        refreshRecyclerForNewHeaderSelected(selectedTabIndex)
+    }
+
+    private fun setViewPagerChangeListener() {
+        view_pager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {}
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+
+            override fun onPageSelected(position: Int) {
+                selectedTabIndex = position
+                refreshRecyclerForNewHeaderSelected(selectedTabIndex)
+                header_recycler_view.smoothScrollToPosition(selectedTabIndex)
+            }
+        })
+    }
+
+    private fun refreshRecyclerForNewHeaderSelected(selectedIndex: Int) {
+        tabHeaderAdapter.refreshForNewItemSelected(selectedIndex)
+    }
+
+    private fun setFragmentForSelectedTab() {
+        view_pager.currentItem = selectedTabIndex
+    }
+
+    private fun setViewPagerForHeadersList() {
+        view_pager.adapter = SectionsPagerAdapter(supportFragmentManager, tabHeadersList)
     }
 
     private fun setWindowFlags(flags: Int) {
@@ -97,10 +109,10 @@ class TabMainActivity : AppCompatActivity() {
     }
 
     fun showSnackBar(text: String) {
-        val snackbar = Snackbar.make(coordinator, text, 2000)
-        val view = snackbar.view
+        val snackBar = Snackbar.make(coordinator, text, 2000)
+        val view = snackBar.view
         val textView = view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
         textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        snackbar.show()
+        snackBar.show()
     }
 }

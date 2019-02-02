@@ -166,9 +166,11 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+
         <activity
             android:name=".view.tool_activity.ToolActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".view.tab_dashboard_activity.TabMainActivity"
             android:screenOrientation="portrait">
@@ -178,7 +180,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".view.permission_request_activity.PermissionRequestActivity"/>
+
     </application>
 
 </manifest>
