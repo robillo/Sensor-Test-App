@@ -1,5 +1,7 @@
 package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity
 
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
@@ -10,6 +12,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import com.appbusters.robinkamboj.senseitall.R
+import com.appbusters.robinkamboj.senseitall.SensorApplication
 import com.appbusters.robinkamboj.senseitall.di.component.activity_component.tab_main_activity.DaggerTabMainActivityComponent
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.category_header_adapter.CategoryHeaderAdapter
@@ -17,11 +20,16 @@ import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.categor
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections_view_pager.SectionsPagerAdapter
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_tab_main.*
+import javax.inject.Inject
 
 class TabMainActivity : AppCompatActivity(), HeaderClickListener {
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
     private var selectedTabIndex = 0
     private lateinit var tabHeaderAdapter: CategoryHeaderAdapter
+    private lateinit var tabMainViewModel: TabMainViewModel
 
     companion object {
         val tabHeadersList = listOf(
@@ -43,6 +51,8 @@ class TabMainActivity : AppCompatActivity(), HeaderClickListener {
 
     private fun performSetup() {
         initDagger()
+        initViewModel()
+        observeData()
         setStatusBarColor()
         inflateRecyclerView()
         setViewPagerForHeadersList()
@@ -50,8 +60,18 @@ class TabMainActivity : AppCompatActivity(), HeaderClickListener {
     }
 
     private fun initDagger() {
-        val tabMainActivityComponent = DaggerTabMainActivityComponent.builder().build()
+        val tabMainActivityComponent = DaggerTabMainActivityComponent.builder()
+                .siaApplicationComponent((applicationContext as SensorApplication).getApplicationComponent())
+                .build()
         tabMainActivityComponent.injectTabMainActivity(this)
+    }
+
+    private fun initViewModel() {
+        tabMainViewModel = ViewModelProviders.of(this, viewModelFactory).get(TabMainViewModel::class.java)
+    }
+
+    private fun observeData() {
+
     }
 
     private fun setStatusBarColor() {
