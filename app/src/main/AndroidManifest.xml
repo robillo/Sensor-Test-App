@@ -172,8 +172,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.tab_dashboard_activity.TabMainActivity"
-            android:screenOrientation="portrait">
+            android:name=".view.tab_dashboard_activity.TabMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

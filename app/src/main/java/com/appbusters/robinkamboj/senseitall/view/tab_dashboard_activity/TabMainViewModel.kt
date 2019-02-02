@@ -7,12 +7,12 @@ import javax.inject.Inject
 
 class TabMainViewModel @Inject constructor(): ViewModel() {
 
-    private val _selectedTabLiveData: LiveData<Int> = MutableLiveData<Int>()
+    private val _selectedTabLiveData: MutableLiveData<Int> = MutableLiveData<Int>()
 
     val selectedTabLiveData: LiveData<Int>
         get() = _selectedTabLiveData
 
     fun setSelectedTabIndex(selectedTabIndex: Int) {
-
+        _selectedTabLiveData.postValue(selectedTabIndex)
     }
 }

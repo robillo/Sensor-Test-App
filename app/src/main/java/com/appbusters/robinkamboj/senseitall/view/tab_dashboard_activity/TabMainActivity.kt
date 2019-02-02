@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
@@ -33,10 +34,10 @@ class TabMainActivity : AppCompatActivity(), HeaderClickListener {
 
     companion object {
         val tabHeadersList = listOf(
+                TOOLS_HEADER,
                 SENSOR_HEADER,
                 FEATURE_HEADER,
                 TRENDING_HEADER,
-                TOOLS_HEADER,
                 DEVICE_HEADER,
                 ANDROID_HEADER
         )
@@ -55,7 +56,7 @@ class TabMainActivity : AppCompatActivity(), HeaderClickListener {
         observeData()
         setStatusBarColor()
         inflateRecyclerView()
-        setViewPagerForHeadersList()
+        setViewPagerAdapter()
         setViewPagerChangeListener()
     }
 
@@ -71,7 +72,11 @@ class TabMainActivity : AppCompatActivity(), HeaderClickListener {
     }
 
     private fun observeData() {
-
+        tabMainViewModel.selectedTabLiveData.observe(this, Observer {
+            it?.let {
+                setFragmentForTab(it)
+            }
+        })
     }
 
     private fun setStatusBarColor() {
@@ -87,9 +92,7 @@ class TabMainActivity : AppCompatActivity(), HeaderClickListener {
     }
 
     override fun handleHeaderClicked(header: String) {
-        selectedTabIndex = tabHeadersList.indexOf(header)
-        setFragmentForSelectedTab()
-        refreshRecyclerForNewHeaderSelected(selectedTabIndex)
+        tabMainViewModel.setSelectedTabIndex(tabHeadersList.indexOf(header))
     }
 
     private fun setViewPagerChangeListener() {
@@ -99,22 +102,18 @@ class TabMainActivity : AppCompatActivity(), HeaderClickListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
             override fun onPageSelected(position: Int) {
-                selectedTabIndex = position
-                refreshRecyclerForNewHeaderSelected(selectedTabIndex)
-                header_recycler_view.smoothScrollToPosition(selectedTabIndex)
+                tabMainViewModel.setSelectedTabIndex(position)
             }
         })
     }
 
-    private fun refreshRecyclerForNewHeaderSelected(selectedIndex: Int) {
-        tabHeaderAdapter.refreshForNewItemSelected(selectedIndex)
-    }
-
-    private fun setFragmentForSelectedTab() {
+    private fun setFragmentForTab(selectedTabIndex: Int) {
         view_pager.currentItem = selectedTabIndex
+        tabHeaderAdapter.refreshForNewItemSelected(selectedTabIndex)
+        header_recycler_view.smoothScrollToPosition(selectedTabIndex)
     }
 
-    private fun setViewPagerForHeadersList() {
+    private fun setViewPagerAdapter() {
         view_pager.adapter = SectionsPagerAdapter(supportFragmentManager, tabHeadersList)
     }
 
