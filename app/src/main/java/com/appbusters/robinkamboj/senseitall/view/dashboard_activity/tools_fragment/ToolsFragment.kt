@@ -75,20 +75,19 @@ class ToolsFragment : Fragment() {
 
     fun initialize() {
 
+        initDagger()
+        inflateQuickSettingsList()
+        setImageToolsAdapter()
+        setEverydayToolsAdapter()
+        setQuickSettingsRecycler()
+        checkQuickSettingsStatus()
+    }
+
+    private fun initDagger() {
         val fragmentComponent = DaggerToolsFragmentComponent.builder()
                 .siaApplicationComponent((activity?.applicationContext as SensorApplication).getApplicationComponent())
                 .build()
         fragmentComponent.injectToolsFragment(this)
-
-        inflateQuickSettingsList()
-
-        setImageToolsAdapter()
-
-        setEverydayToolsAdapter()
-
-        setQuickSettingsRecycler()
-
-        checkQuickSettingsStatus()
     }
 
     private fun inflateQuickSettingsList() {
@@ -97,9 +96,9 @@ class ToolsFragment : Fragment() {
         quickSettingsList?.add(TinyInfo(BLUETOOTH_QUICK, onMapImage[BLUETOOTH_QUICK]!!, offMapImage[BLUETOOTH_QUICK]!!))
         quickSettingsList?.add(TinyInfo(AUTOROTATE_QUICK, onMapImage[AUTOROTATE_QUICK]!!, offMapImage[AUTOROTATE_QUICK]!!))
         quickSettingsList?.add(TinyInfo(AIRPLANE_QUICK, onMapImage[AIRPLANE_QUICK]!!, offMapImage[AIRPLANE_QUICK]!!))
-//        quickSettingsList.add(new TinyInfo(BRIGHTNESS_QUICK, onMapImage.get(BRIGHTNESS_QUICK), offMapImage.get(BRIGHTNESS_QUICK)));
-//        quickSettingsList.add(new TinyInfo(VOLUME_QUICK, onMapImage.get(VOLUME_QUICK), offMapImage.get(VOLUME_QUICK)));
-//        quickSettingsList.add(new TinyInfo(FLASHLIGHT_QUICK, onMapImage.get(FLASHLIGHT_QUICK), offMapImage.get(FLASHLIGHT_QUICK)));
+        quickSettingsList?.add(TinyInfo(BRIGHTNESS_QUICK, onMapImage[BRIGHTNESS_QUICK]!!, offMapImage[BRIGHTNESS_QUICK]!!))
+        quickSettingsList?.add(TinyInfo(VOLUME_QUICK, onMapImage[VOLUME_QUICK]!!, offMapImage[VOLUME_QUICK]!!))
+        quickSettingsList?.add(TinyInfo(FLASHLIGHT_QUICK, onMapImage[FLASHLIGHT_QUICK]!!, offMapImage[FLASHLIGHT_QUICK]!!))
         quickSettingsList?.add(TinyInfo(LOCATION_QUICK, onMapImage[LOCATION_QUICK]!!, offMapImage[LOCATION_QUICK]!!))
         quickSettingsList?.add(TinyInfo(HOTSPOT_QUICK, onMapImage[HOTSPOT_QUICK]!!, offMapImage[HOTSPOT_QUICK]!!))
     }
@@ -109,46 +108,48 @@ class ToolsFragment : Fragment() {
         registerBluetoothStateReceiver()
         registerAutorotateStateReceiver()
         registerAirplaneModeStateReceiver()
-        registerLocationAccessStateReceiver()
+        createLocationReceiver()
+        registerLocationReceiver()
     }
 
-    private fun registerLocationAccessStateReceiver() {
-        if(locationReceiver == null) {
-            locationReceiver = object: BroadcastReceiver() {
+    private fun createLocationReceiver() {
+        locationReceiver?.let {
+            return
+        } ?: kotlin.run {
+            locationReceiver = object : BroadcastReceiver() {
                 override fun onReceive(context: Context?, intent: Intent?) {
-                    try {
-                        if(context != null && intent != null && intent.action != null) {
-                            val action = intent.action
-                            if (LocationManager.MODE_CHANGED_ACTION == action) {
-
-                                if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                                        && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                                    val locationManager
-                                            = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
-                                    checkStateAndShow(
-                                            LOCATION_QUICK,
-                                            locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                                    )
-                                }
-                                else {
-                                    showCoordinatorNegative("location permission is not given")
-                                }
-                            }
+                    intent?.action?.let {
+                        if(it == LocationManager.MODE_CHANGED_ACTION) {
+                            if (isLocationPermissionGranted())
+                                updateLocationItemForState()
+                            else
+                                showCoordinatorNegative(getString(R.string.location_permission_negative))
                         }
-                    }
-                    catch (ignored: Exception) {
-
                     }
                 }
             }
         }
+    }
 
-        if(activity != null) {
-            val locationFilter = IntentFilter()
-            locationFilter.addAction(LocationManager.MODE_CHANGED_ACTION)
-            activity!!.registerReceiver(locationReceiver, locationFilter)
+    private fun registerLocationReceiver() {
+        val locationFilter = IntentFilter()
+        locationFilter.addAction(LocationManager.MODE_CHANGED_ACTION)
+        activity?.registerReceiver(locationReceiver, locationFilter)
+    }
+
+    private fun isLocationPermissionGranted(): Boolean {
+        activity?.let {
+            return ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+        } ?: kotlin.run {
+            return false
         }
+    }
+
+    private fun updateLocationItemForState() {
+        val locationManager = context?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        checkItemStateThenUpdateAdapter(LOCATION_QUICK, locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
     }
 
     private fun registerWifiStateReceiver() {
@@ -160,7 +161,7 @@ class ToolsFragment : Fragment() {
                             val action = intent.action
                             if(action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
                                 val networkInfo: NetworkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO)
-                                checkStateAndShow(
+                                checkItemStateThenUpdateAdapter(
                                         WIFI_QUICK,
                                         networkInfo.detailedState == NetworkInfo.DetailedState.IDLE ||
                                                 networkInfo.detailedState == NetworkInfo.DetailedState.SCANNING ||
@@ -174,7 +175,7 @@ class ToolsFragment : Fragment() {
                             if(action == getString(R.string.wifi_ap_state_change_action)) {
                                 val state = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0)
 
-                                checkStateAndShow(
+                                checkItemStateThenUpdateAdapter(
                                         HOTSPOT_QUICK,
                                         WifiManager.WIFI_STATE_ENABLED == state % 10
                                 )
@@ -209,7 +210,7 @@ class ToolsFragment : Fragment() {
                             if (BluetoothAdapter.ACTION_STATE_CHANGED == action) {
                                 val state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1)
 
-                                checkStateAndShow(
+                                checkItemStateThenUpdateAdapter(
                                         BLUETOOTH_QUICK,
                                         state == BluetoothAdapter.STATE_ON || state == BluetoothAdapter.STATE_CONNECTING
                                                 || state == BluetoothAdapter.STATE_TURNING_ON
@@ -239,7 +240,7 @@ class ToolsFragment : Fragment() {
                         if(context != null && intent != null && intent.action != null) {
                             val action = intent.action
                             if (Intent.ACTION_AIRPLANE_MODE_CHANGED == action) {
-                                checkStateAndShow(
+                                checkItemStateThenUpdateAdapter(
                                         AIRPLANE_QUICK,
                                         Settings.Global.getInt(context.contentResolver,
                                                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0
@@ -265,7 +266,7 @@ class ToolsFragment : Fragment() {
         if(autorotateObserver == null) {
             autorotateObserver = object: ContentObserver(Handler()) {
                 override fun onChange(selfChange: Boolean) {
-                    checkStateAndShow(
+                    checkItemStateThenUpdateAdapter(
                             AUTOROTATE_QUICK,
                             android.provider.Settings.System.getInt(activity?.contentResolver,
                                     Settings.System.ACCELEROMETER_ROTATION, 0) == 1
@@ -283,7 +284,7 @@ class ToolsFragment : Fragment() {
         }
     }
 
-    private fun checkStateAndShow(item: String, isPositive: Boolean) {
+    private fun checkItemStateThenUpdateAdapter(item: String, isPositive: Boolean) {
         try {
             if(isPositive) {
                 if(!quickAdapter.getItemState(item)) {
@@ -361,7 +362,7 @@ class ToolsFragment : Fragment() {
         }
     }
 
-    fun checkEachQuickSetting(info: String) {
+    private fun checkEachQuickSetting(info: String) {
         when (info) {
             WIFI_QUICK -> {
                 try {
@@ -462,7 +463,7 @@ class ToolsFragment : Fragment() {
         }
     }
 
-    fun flipSetting(info: TinyInfo) {
+    private fun flipSetting(info: TinyInfo) {
         when(info.name) {
             WIFI_QUICK -> flipWifiSetting(!info.isOn)
             BLUETOOTH_QUICK -> flipBluetoothSetting(!info.isOn)
@@ -474,49 +475,49 @@ class ToolsFragment : Fragment() {
         }
     }
 
-    fun flipBluetoothSetting(turnOn: Boolean) {
+    private fun flipBluetoothSetting(turnOn: Boolean) {
 
         if(BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
-            checkStateAndShow(BLUETOOTH_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, turnOn)
             quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
             return
         }
 
         if(!BluetoothAdapter.getDefaultAdapter().isEnabled && !turnOn) {
-            checkStateAndShow(BLUETOOTH_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, turnOn)
             quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
             return
         }
 
         if(!BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
             BluetoothAdapter.getDefaultAdapter().enable()
-            checkStateAndShow(BLUETOOTH_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, turnOn)
             quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
             return
         }
 
         if(BluetoothAdapter.getDefaultAdapter().isEnabled && !turnOn) {
             BluetoothAdapter.getDefaultAdapter().disable()
-            checkStateAndShow(BLUETOOTH_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, turnOn)
             quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
             return
         }
     }
 
-    fun flipWifiSetting(turnOn: Boolean) {
+    private fun flipWifiSetting(turnOn: Boolean) {
         val wifiManager =
                 activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
         //request is to turn on and it is already enabled
         if(wifiManager.isWifiEnabled && turnOn) {
-            checkStateAndShow(WIFI_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(WIFI_QUICK, turnOn)
             quickAdapter.updateItemState(WIFI_QUICK, true)
             return
         }
 
         //request is to turn off and it is already disabled
         if(!wifiManager.isWifiEnabled && !turnOn) {
-            checkStateAndShow(WIFI_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(WIFI_QUICK, turnOn)
             quickAdapter.updateItemState(WIFI_QUICK, false)
             return
         }
@@ -524,14 +525,14 @@ class ToolsFragment : Fragment() {
         //it is turned on but request is to turn off
         if(wifiManager.isWifiEnabled && !turnOn) {
             wifiManager.isWifiEnabled = false
-            checkStateAndShow(WIFI_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(WIFI_QUICK, turnOn)
             quickAdapter.updateItemState(WIFI_QUICK, false)
             return
         }
 
         if(!wifiManager.isWifiEnabled && turnOn) {
             wifiManager.isWifiEnabled = true
-            checkStateAndShow(WIFI_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(WIFI_QUICK, turnOn)
             quickAdapter.updateItemState(WIFI_QUICK, true)
             return
         }
@@ -548,7 +549,7 @@ class ToolsFragment : Fragment() {
                     Settings.System.ACCELEROMETER_ROTATION,
                     if (turnOn) 1 else 0
             )
-            checkStateAndShow(AUTOROTATE_QUICK, turnOn)
+            checkItemStateThenUpdateAdapter(AUTOROTATE_QUICK, turnOn)
             quickAdapter.updateItemState(AUTOROTATE_QUICK, turnOn)
         }
         catch (e: Exception) {
@@ -565,7 +566,8 @@ class ToolsFragment : Fragment() {
     }
 
     private fun showCoordinatorNegative(coordinatorText: String) {
-        if(activity != null) {
+
+        activity?.let {
             try {
                 val s = Snackbar.make(lv.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
                 val v = s.view

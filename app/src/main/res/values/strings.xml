@@ -7,6 +7,8 @@
     <string name="permission_granted">Permission granted.</string>
     <string name="permission_denied">Permission denied.</string>
 
+    <string name="location_permission_negative">location permission is not given</string>
+
     <string-array name="lightPercentages">
         <item>0 to 10 %</item>
         <item>11 to 20 %</item>
