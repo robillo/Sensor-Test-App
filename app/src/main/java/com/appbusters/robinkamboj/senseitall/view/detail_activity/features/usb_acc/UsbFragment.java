@@ -32,7 +32,7 @@ public class UsbFragment extends FeatureFragment implements UsbInterface {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_usb, container, false);
         setup(v);
         return v;

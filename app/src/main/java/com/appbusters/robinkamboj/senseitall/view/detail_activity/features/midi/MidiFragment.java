@@ -35,7 +35,7 @@ public class MidiFragment extends FeatureFragment implements MidiInterface {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_midi, container, false);
         setup(v);
         return v;

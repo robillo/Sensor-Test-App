@@ -25,7 +25,7 @@ public class FaceDetectFragment extends SoftwareFragment implements FaceDetectIn
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_face_detect, container, false);
         setup(v);
         return v;

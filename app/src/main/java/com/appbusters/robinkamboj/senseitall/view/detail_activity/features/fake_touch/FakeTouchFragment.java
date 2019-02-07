@@ -29,7 +29,7 @@ public class FakeTouchFragment extends FeatureFragment implements FakeTouchInter
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_fake_touch, container, false);
         setup(v);
         return v;

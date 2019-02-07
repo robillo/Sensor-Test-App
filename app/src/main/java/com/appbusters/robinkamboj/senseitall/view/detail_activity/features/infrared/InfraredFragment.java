@@ -27,7 +27,7 @@ public class InfraredFragment extends FeatureFragment implements InfraredInterfa
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_infrared, container, false);
         setup(v);
         return v;

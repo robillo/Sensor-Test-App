@@ -39,7 +39,7 @@ public class DirectionsFragment extends Fragment implements DirectionsInterface 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_directions, container, false);
         setup(v);
         return v;

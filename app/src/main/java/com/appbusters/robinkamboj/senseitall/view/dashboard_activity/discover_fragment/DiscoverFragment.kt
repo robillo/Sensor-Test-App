@@ -46,7 +46,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         val v = inflater.inflate(R.layout.fragment_discover, container, false)
         setup(v)
         return v

@@ -60,7 +60,7 @@ public class FrontCamTestFragment extends Fragment implements FrontCamTestInterf
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_back_cam_test, container, false);
         setup(v);
         return v;

@@ -40,7 +40,7 @@ public class HumidityFragment extends SensorFragment implements HumidityInterfac
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_humidity, container, false);
         setup(v);
         return v;

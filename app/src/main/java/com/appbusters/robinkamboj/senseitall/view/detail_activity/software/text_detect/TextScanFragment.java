@@ -25,7 +25,7 @@ public class TextScanFragment extends SoftwareFragment implements TextScanInterf
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_text_scan, container, false);
         setup(v);
         return v;

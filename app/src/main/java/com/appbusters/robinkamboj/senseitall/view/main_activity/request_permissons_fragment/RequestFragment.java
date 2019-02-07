@@ -70,7 +70,7 @@ public class RequestFragment extends Fragment implements RequestFragmentInterfac
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_request_permissions, container, false);
         setup(v);
         return v;

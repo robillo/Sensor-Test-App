@@ -32,7 +32,7 @@ public class HeartRateEcgFragment extends FeatureFragment implements HeartRateIn
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_heart_rate_ecg, container, false);
         setup(v);
         return v;

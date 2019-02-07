@@ -261,8 +261,8 @@ public class AppConstants {
     public static HashMap<String, String> packageManagerPaths = new HashMap<>();
     public static HashMap<String, Integer> sensorManagerInts = new HashMap<>();
     public static List<String> dangerousPermissions = new ArrayList<>();
-    public static HashMap<String, Integer> onMapImage = new HashMap<>();
-    public static HashMap<String, Integer> offMapImage = new HashMap<>();
+    public static HashMap<String, Integer> settingOnMapImage = new HashMap<>();
+    public static HashMap<String, Integer> settingOffMapImage = new HashMap<>();
 
     public static final String SENSOR_HEADER = "Sensors";
     public static final String FEATURE_HEADER = "Features";
@@ -299,25 +299,25 @@ public class AppConstants {
         simpleColors.add(R.color.simple_color_pink);
         simpleColors.add(R.color.simple_color_maroon);
 
-        offMapImage.put(WIFI_QUICK, R.drawable.baseline_wifi_off_black_48);
-        offMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_disabled_black_48);
-        offMapImage.put(BRIGHTNESS_QUICK, R.drawable.baseline_brightness_low_black_48);
-        offMapImage.put(VOLUME_QUICK, R.drawable.baseline_volume_off_black_48);
-        offMapImage.put(HOTSPOT_QUICK, R.drawable.baseline_portable_wifi_off_black_48);
-        offMapImage.put(FLASHLIGHT_QUICK, R.drawable.baseline_flash_off_black_48);
-        offMapImage.put(LOCATION_QUICK, R.drawable.baseline_location_off_black_48);
-        offMapImage.put(AIRPLANE_QUICK, R.drawable.baseline_airplanemode_inactive_black_48);
-        offMapImage.put(AUTOROTATE_QUICK, R.drawable.baseline_screen_lock_rotation_black_48);
+        settingOffMapImage.put(WIFI_QUICK, R.drawable.baseline_wifi_off_black_48);
+        settingOffMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_disabled_black_48);
+        settingOffMapImage.put(BRIGHTNESS_QUICK, R.drawable.baseline_brightness_low_black_48);
+        settingOffMapImage.put(VOLUME_QUICK, R.drawable.baseline_volume_off_black_48);
+        settingOffMapImage.put(HOTSPOT_QUICK, R.drawable.baseline_portable_wifi_off_black_48);
+        settingOffMapImage.put(FLASHLIGHT_QUICK, R.drawable.baseline_flash_off_black_48);
+        settingOffMapImage.put(LOCATION_QUICK, R.drawable.baseline_location_off_black_48);
+        settingOffMapImage.put(AIRPLANE_QUICK, R.drawable.baseline_airplanemode_inactive_black_48);
+        settingOffMapImage.put(AUTOROTATE_QUICK, R.drawable.baseline_screen_lock_rotation_black_48);
 
-        onMapImage.put(WIFI_QUICK, R.drawable.baseline_network_wifi_black_48);
-        onMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_black_48);
-        onMapImage.put(BRIGHTNESS_QUICK, R.drawable.baseline_brightness_high_black_48);
-        onMapImage.put(VOLUME_QUICK, R.drawable.baseline_volume_up_black_48);
-        onMapImage.put(HOTSPOT_QUICK, R.drawable.baseline_wifi_tethering_black_48);
-        onMapImage.put(FLASHLIGHT_QUICK, R.drawable.baseline_flash_on_black_48);
-        onMapImage.put(LOCATION_QUICK, R.drawable.baseline_location_on_black_48);
-        onMapImage.put(AIRPLANE_QUICK, R.drawable.baseline_airplanemode_active_black_48);
-        onMapImage.put(AUTOROTATE_QUICK, R.drawable.baseline_screen_rotation_black_48);
+        settingOnMapImage.put(WIFI_QUICK, R.drawable.baseline_network_wifi_black_48);
+        settingOnMapImage.put(BLUETOOTH_QUICK, R.drawable.baseline_bluetooth_black_48);
+        settingOnMapImage.put(BRIGHTNESS_QUICK, R.drawable.baseline_brightness_high_black_48);
+        settingOnMapImage.put(VOLUME_QUICK, R.drawable.baseline_volume_up_black_48);
+        settingOnMapImage.put(HOTSPOT_QUICK, R.drawable.baseline_wifi_tethering_black_48);
+        settingOnMapImage.put(FLASHLIGHT_QUICK, R.drawable.baseline_flash_on_black_48);
+        settingOnMapImage.put(LOCATION_QUICK, R.drawable.baseline_location_on_black_48);
+        settingOnMapImage.put(AIRPLANE_QUICK, R.drawable.baseline_airplanemode_active_black_48);
+        settingOnMapImage.put(AUTOROTATE_QUICK, R.drawable.baseline_screen_rotation_black_48);
 
         dangerousPermissions.add(Manifest.permission.CAMERA);
         dangerousPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);

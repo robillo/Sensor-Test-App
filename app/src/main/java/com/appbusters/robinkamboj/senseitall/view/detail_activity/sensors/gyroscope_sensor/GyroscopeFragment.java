@@ -41,7 +41,7 @@ public class GyroscopeFragment extends SensorFragment implements GyroscopeInterf
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_gyroscope, container, false);
         setup(v);
         return v;

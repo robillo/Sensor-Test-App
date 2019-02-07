@@ -49,7 +49,7 @@ public class WifiTestFragment extends Fragment implements WifiTestInterface {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_wifi_test, container, false);
         setup(v);
         return v;

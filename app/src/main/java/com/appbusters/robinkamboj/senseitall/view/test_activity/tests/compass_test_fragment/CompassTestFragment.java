@@ -35,7 +35,7 @@ public class CompassTestFragment extends Fragment implements CompassTestInterfac
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the lv for this fragment
+        // Inflate the parentView for this fragment
         View v = inflater.inflate(R.layout.fragment_compass_test, container, false);
         setup(v);
         return v;
