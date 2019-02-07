@@ -104,6 +104,20 @@ public class TestActivity extends AppCompatActivity implements TestInterface {
     @BindView(R.id.coordinator_layout)
     CoordinatorLayout coordinatorLayout;
 
+    public static Intent newIntent(Context context, String itemName, String recyclerName, int drawableId, boolean isPresent, int type) {
+        Bundle args = new Bundle();
+
+        args.putString(DATA_NAME, itemName);
+        args.putString(RECYCLER_NAME, recyclerName);
+        args.putInt(DRAWABLE_ID, drawableId);
+        args.putBoolean(IS_PRESENT, isPresent);
+        args.putInt(TYPE, type);
+
+        Intent intent = new Intent(context, TestActivity.class);
+        intent.putExtras(args);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

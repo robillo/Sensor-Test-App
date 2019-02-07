@@ -336,9 +336,10 @@ class ToolsFragment : Fragment() {
                     LinearLayoutManager.HORIZONTAL,
                     false
             )
-            parentView.quick_settings_rv.adapter = QuickSettingsAdapter(settingsList, activity, QuickSettingsListener {
+            quickAdapter = QuickSettingsAdapter(settingsList, activity, QuickSettingsListener {
                 flipSetting(it)
             })
+            parentView.quick_settings_rv.adapter = quickAdapter
             parentView.quick_settings_rv.onFlingListener = null
             attachSnapHelper(parentView.quick_settings_rv)
         }

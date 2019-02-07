@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.appbusters.robinkamboj.senseitall.R
-import com.appbusters.robinkamboj.senseitall.utils.AppConstants
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.items_fragment.all_items_adapter.AllItemsAdapter
 import com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sections.items_fragment.featured_sensors_adapter.FeaturedItemsAdapter
@@ -30,42 +29,32 @@ class ItemsFragment : Fragment() {
     }
 
     private fun getItemType() {
-        itemType = arguments!!.getInt(TYPE)
+        arguments?.let {
+            itemType = it.getInt(TYPE)
+        }
     }
 
     private fun performSetupOperations() {
-        when(itemType) {
-            TYPE_SENSORS -> {
-                allItemsList = AppConstants.sensorNames
-                featuredItemsList = AppConstants.featuredSensorNames
-            }
-            TYPE_FEATURES -> {
-                allItemsList = AppConstants.featureNames
-                featuredItemsList = AppConstants.featuredFeatureNames
-            }
-            TYPE_TOOLS -> {
-                allItemsList = ArrayList()
-                featuredItemsList = ArrayList()
-            }
-            TYPE_TRENDING -> {
-                allItemsList = AppConstants.trendingNames
-                featuredItemsList = AppConstants.featuredTrendingNames
-            }
-            TYPE_DEVICE -> {
-                allItemsList = AppConstants.deviceDetailsNames
-                featuredItemsList = AppConstants.featuredDeviceDetailsNames
-            }
-            TYPE_ANDROID -> {
-                allItemsList = AppConstants.androidVersionNames
-                featuredItemsList = AppConstants.featuredAndroidVersionNames
-            }
-            else -> {
-                allItemsList = ArrayList()
-                featuredItemsList = ArrayList()
-            }
-        }
+        inflateLists()
         setFeaturedItemsAdapter()
         setAllItemsAdapter()
+    }
+
+    private fun inflateLists() {
+        when(itemType) {
+            TYPE_SENSORS -> inflateItemsLists(sensorNames, featuredSensorNames)
+            TYPE_FEATURES -> inflateItemsLists(featureNames, featuredFeatureNames)
+            TYPE_TRENDING -> inflateItemsLists(trendingNames, featuredTrendingNames)
+            TYPE_DEVICE -> inflateItemsLists(deviceDetailsNames, featuredDeviceDetailsNames)
+            TYPE_ANDROID -> inflateItemsLists(androidVersionNames, featuredAndroidVersionNames)
+            TYPE_TOOLS -> inflateItemsLists(ArrayList(), ArrayList())
+            else -> inflateItemsLists(ArrayList(), ArrayList())
+        }
+    }
+
+    private fun inflateItemsLists(allItemsList: List<String>, featuredItemsList: List<String>) {
+        this.allItemsList = allItemsList
+        this.featuredItemsList = featuredItemsList
     }
 
     private fun setFeaturedItemsAdapter() {

@@ -73,8 +73,8 @@ class TabMainActivity : AppCompatActivity(), HeaderClickListener {
 
     private fun observeData() {
         tabMainViewModel.selectedTabLiveData.observe(this, Observer {
-            it?.let {
-                setFragmentForTab(it)
+            it?.let {tab_number ->
+                setFragmentForTab(tab_number)
             }
         })
     }

@@ -2,7 +2,6 @@ package com.appbusters.robinkamboj.senseitall.view.tab_dashboard_activity.sectio
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
@@ -34,6 +33,9 @@ class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Conte
     private var isPresentHelper: IsPresentHelper
     private var checkIfPresent: CheckIfPresent
 
+    private val START: Int = 1
+    private val SPACE: Char = ' '
+
     init {
         this.sensorsList.add(null)
         this.sensorsList.addAll(sensorsList)
@@ -49,9 +51,7 @@ class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Conte
     }
 
     override fun onBindViewHolder(holder: FeaturedSensorsHolder, position: Int) {
-        if (sensorsList[position] == null) {
-            holder.itemView.visibility = View.GONE
-        } else {
+        sensorsList[position]?.let {
             holder.itemView.visibility = View.VISIBLE
 
             holder.featuredSensorText.text = oneWordName(sensorsList.get(position)!!)
@@ -62,6 +62,7 @@ class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Conte
                             colorsList[position]
                     )
             )
+
             Glide.with(context)
                     .load(AppConstants.toolImageUrlMap[sensorsList[position]])
                     .into(holder.sensorImageView)
@@ -72,6 +73,10 @@ class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Conte
                 else
                     (context as TabMainActivity).showSnackBar("${sensorsList.get(position)} not present in your device")
             }
+        } ?:
+
+        kotlin.run {
+            holder.itemView.visibility = View.GONE
         }
     }
 
@@ -83,18 +88,14 @@ class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Conte
                 GetItemType(sensorName).itemType
         )
 
-        val args = Bundle()
+        context.startActivity(
+                TestActivity.newIntent(
+                        context, intentData.name, intentData.name,
+                        intentData.drawableId, intentData.isPresent,
+                        intentData.type
+                )
+        )
 
-        args.putString(AppConstants.DATA_NAME, intentData.name)
-        args.putString(AppConstants.RECYCLER_NAME, intentData.name)
-        args.putInt(AppConstants.DRAWABLE_ID, intentData.drawableId)
-        args.putBoolean(AppConstants.IS_PRESENT, intentData.isPresent)
-        args.putInt(AppConstants.TYPE, intentData.type)
-
-        val intent = Intent(context, TestActivity::class.java)
-        intent.putExtras(args)
-
-        context.startActivity(intent)
         (context as Activity).overridePendingTransition(R.anim.slide_in_right_activity, R.anim.slide_out_left_activity)
     }
 
@@ -104,23 +105,21 @@ class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Conte
 
     private fun oneWordName(text: String): String {
 
-        for(i in 1..(text.length-1))
-            if(text[i] == ' ')
-                return text.substring(0, i)
+        for(index in START..(text.length - 1))
+            if(text[index] == SPACE) return stringBeforeIndex(text, 0, index)
 
         return text
     }
 
+    private fun stringBeforeIndex(text: String, start: Int, end: Int): String {
+        return text.substring(start, end)
+    }
+
     inner class FeaturedSensorsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var sensorImageView: ImageView
-        var featuredSensorCard: CardView
-        var featuredSensorText: TextView
+        var sensorImageView: ImageView = itemView.sensor_image_view
+        var featuredSensorCard: CardView = itemView.featured_sensor_card
+        var featuredSensorText: TextView = itemView.featured_sensor_text
 
-        init {
-            sensorImageView = itemView.sensor_image_view
-            featuredSensorCard = itemView.featured_sensor_card
-            featuredSensorText = itemView.featured_sensor_text
-        }
     }
 }
