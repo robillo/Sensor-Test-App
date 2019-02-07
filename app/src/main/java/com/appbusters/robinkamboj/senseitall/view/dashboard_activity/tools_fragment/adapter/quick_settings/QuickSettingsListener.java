@@ -1,9 +1,9 @@
 package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.adapter.quick_settings;
 
-import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo;
+import com.appbusters.robinkamboj.senseitall.model.recycler.SettingInfo;
 
 public interface QuickSettingsListener {
 
-    public void setSelectedSetting(TinyInfo tinyInfo);
+    public void setSelectedSetting(SettingInfo settingInfo);
 
 }

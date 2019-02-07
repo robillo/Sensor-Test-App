@@ -2,7 +2,7 @@ package com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_frag
 
 import android.view.View;
 
-import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo;
+import com.appbusters.robinkamboj.senseitall.model.recycler.SettingInfo;
 
 public interface ToolsInterface {
 
@@ -22,7 +22,7 @@ public interface ToolsInterface {
 
     void checkQuickSettingsStatus();
 
-    void flipSetting(TinyInfo info);
+    void flipSetting(SettingInfo info);
 
     void checkEachQuickSetting(String info);
 

@@ -27,7 +27,7 @@ import android.widget.TextView
 import com.appbusters.robinkamboj.senseitall.R
 import com.appbusters.robinkamboj.senseitall.SensorApplication
 import com.appbusters.robinkamboj.senseitall.di.component.activity_component.main_activity.fragment_component.DaggerToolsFragmentComponent
-import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo
+import com.appbusters.robinkamboj.senseitall.model.recycler.SettingInfo
 import com.appbusters.robinkamboj.senseitall.model.recycler.ToolsItem
 import com.appbusters.robinkamboj.senseitall.utils.AppConstants.*
 import com.appbusters.robinkamboj.senseitall.utils.StartSnapHelper
@@ -44,13 +44,13 @@ class ToolsFragment : Fragment() {
 
     private var everydayToolsList: MutableList<ToolsItem>? = null
     private var imageToolsList: MutableList<ToolsItem>? = null
-    lateinit var list: MutableList<TinyInfo>
+    lateinit var list: MutableList<SettingInfo>
     private lateinit var quickAdapter: QuickSettingsAdapter
     private lateinit var imageToolsAdapter: ImageToolsAdapter
     private lateinit var everydayToolsAdapter: ImageToolsAdapter
     lateinit var parentView : View
 
-    private var quickSettingsList: MutableList<TinyInfo>? = null
+    private var quickSettingsList: MutableList<SettingInfo>? = null
     private var networkCallback: ConnectivityManager.NetworkCallback? = null
     private var connectivityManager: ConnectivityManager? = null
     private var locationReceiver: BroadcastReceiver? = null
@@ -103,8 +103,8 @@ class ToolsFragment : Fragment() {
         }
     }
 
-    private fun getTinyInfo(setting: String): TinyInfo {
-        return TinyInfo(setting, settingOnMapImage[setting]!!, settingOffMapImage[setting]!!)
+    private fun getTinyInfo(setting: String): SettingInfo {
+        return SettingInfo(setting, settingOnMapImage[setting]!!, settingOffMapImage[setting]!!)
     }
 
     override fun onStart() {
@@ -350,118 +350,64 @@ class ToolsFragment : Fragment() {
     }
 
     private fun checkQuickSettingsStatus() {
-        for(info in list) {
+        for(setting in list) {
             try {
-                checkEachQuickSetting(info.name)
+                checkEachQuickSetting(setting.name)
             }
-            catch (ignored: Exception) {
-
-            }
+            catch (ignored: Exception) {}
         }
     }
 
-    private fun checkEachQuickSetting(info: String) {
-        when (info) {
-            WIFI_QUICK -> {
-                try {
-                    val wifiManager =
-                            activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
-                    if(wifiManager.isWifiEnabled) quickAdapter.updateItemState(info, true)
-                }
-                catch(ignored: Exception) {
-
-                }
-
-            }
-            BLUETOOTH_QUICK -> {
-                try {
-                    if(BluetoothAdapter.getDefaultAdapter().isEnabled) quickAdapter.updateItemState(info, true)
-                }
-                catch(ignored: Exception) {
-
-                }
-            }
-            BRIGHTNESS_QUICK -> {
-
-            }
-            VOLUME_QUICK -> {
-
+    private fun checkEachQuickSetting(setting: String) {
+        when (setting) {
+            BLUETOOTH_QUICK -> updateSettingsAdapterForState(setting, BluetoothAdapter.getDefaultAdapter().isEnabled)
+            LOCATION_QUICK -> updateSettingsAdapterForState(setting, isLocationPermissionGranted())
+            AIRPLANE_QUICK -> updateSettingsAdapterForState(setting, checkAirplaneModeSettingState())
+            AUTOROTATE_QUICK -> updateSettingsAdapterForState(setting, checkAutoRotateSettingState())
+            WIFI_QUICK -> updateSettingsAdapterForState(setting, checkWifiSettingState())
+            BRIGHTNESS_QUICK, VOLUME_QUICK, FLASHLIGHT_QUICK -> {
             }
             HOTSPOT_QUICK -> {
-                try {
-
-                    if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                            && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                        val wifiManager =
-                                activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
-                        val method = wifiManager.javaClass.getDeclaredMethod("getWifiApState")
-                        method.isAccessible = true
-                        val actualState = method.invoke(wifiManager, null) as Int
-                        if(actualState%10 == WifiManager.WIFI_STATE_ENABLED) {
-                            quickAdapter.updateItemState(info, true)
-                        }
-                        else {
-                            quickAdapter.updateItemState(info, false)
-                        }
-                    }
-                    else {
-                        showCoordinatorNegative("some permissions not given")
-                    }
-                }
-                catch (ignored: Exception) {
-
-                }
-            }
-            FLASHLIGHT_QUICK -> {
-
-            }
-            LOCATION_QUICK -> {
-                if(activity != null) {
-                    if (ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                            && ActivityCompat.checkSelfPermission(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                        try {
-                            val locationManager: LocationManager? = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                            if(locationManager != null && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-                                quickAdapter.updateItemState(LOCATION_QUICK, true)
-                            else
-                                quickAdapter.updateItemState(LOCATION_QUICK, false)
-                        }
-                        catch(ignored: Exception) {
-
-                        }
-                    }
-                }
-            }
-            AIRPLANE_QUICK -> {
-                try {
-                    if(Settings.Global.getInt(context?.contentResolver,
-                                    Settings.Global.AIRPLANE_MODE_ON, 0) != 0) {
-                        quickAdapter.updateItemState(info, true)
-                    }
-                    else {
-                        quickAdapter.updateItemState(info, false)
-                    }
-                }
-                catch(ignored: Exception) {
-
-                }
-            }
-            AUTOROTATE_QUICK -> {
-                try {
-                    if(android.provider.Settings.System.getInt(activity?.contentResolver,
-                                    Settings.System.ACCELEROMETER_ROTATION, 0) == 1){
-                        quickAdapter.updateItemState(info, true)
-                    }
-                    else quickAdapter.updateItemState(info, false)
-                }
-                catch(ignored: Exception) {
-
-                }
+                if (isLocationPermissionGranted())
+                    updateSettingsAdapterForState(setting, checkHotspotSettingState())
+                else
+                    showCoordinatorNegative(getString(R.string.permissions_not_given))
             }
         }
     }
 
-    private fun flipSetting(info: TinyInfo) {
+    private fun updateSettingsAdapterForState(setting: String, isOn: Boolean) {
+        quickAdapter.updateItemState(setting, isOn)
+    }
+
+    private fun checkHotspotSettingState(): Boolean {
+        val wifiManager = activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager?
+        val method = wifiManager?.javaClass?.getDeclaredMethod("getWifiApState")
+        method?.isAccessible = true
+        val actualState = method?.invoke(wifiManager, null) as Int
+        return actualState%10 == WifiManager.WIFI_STATE_ENABLED
+    }
+
+    private fun checkWifiSettingState(): Boolean {
+        val wifiManager =
+                activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager?
+        return wifiManager?.isWifiEnabled ?: false
+    }
+
+    private fun checkLocationSettingState(): Boolean {
+        val locationManager: LocationManager? = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager?
+        return locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER) ?: false
+    }
+
+    private fun checkAirplaneModeSettingState(): Boolean {
+        return Settings.Global.getInt(context?.contentResolver, Settings.Global.AIRPLANE_MODE_ON, 0) != 0
+    }
+
+    private fun checkAutoRotateSettingState(): Boolean {
+        return android.provider.Settings.System.getInt(activity?.contentResolver, Settings.System.ACCELEROMETER_ROTATION, 0) == 1
+    }
+
+    private fun flipSetting(info: SettingInfo) {
         when(info.name) {
             WIFI_QUICK -> flipWifiSetting(!info.isOn)
             BLUETOOTH_QUICK -> flipBluetoothSetting(!info.isOn)

@@ -9,10 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.appbusters.robinkamboj.senseitall.R;
-import com.appbusters.robinkamboj.senseitall.model.recycler.TinyInfo;
+import com.appbusters.robinkamboj.senseitall.model.recycler.SettingInfo;
 
 import java.util.List;
 
@@ -21,11 +20,11 @@ import butterknife.ButterKnife;
 
 public class QuickSettingsAdapter extends RecyclerView.Adapter<QuickSettingsAdapter.QuickHolder> {
 
-    private List<TinyInfo> list;
+    private List<SettingInfo> list;
     private Context context;
     private QuickSettingsListener settingsListener;
 
-    public QuickSettingsAdapter(List<TinyInfo> list, Context context, QuickSettingsListener settingsListener) {
+    public QuickSettingsAdapter(List<SettingInfo> list, Context context, QuickSettingsListener settingsListener) {
         this.list = list;
         this.context = context;
         this.settingsListener = settingsListener;
@@ -64,7 +63,7 @@ public class QuickSettingsAdapter extends RecyclerView.Adapter<QuickSettingsAdap
         });
     }
 
-    private void setOnOff(QuickHolder holder, TinyInfo info, int pos) {
+    private void setOnOff(QuickHolder holder, SettingInfo info, int pos) {
         if(info.isOn()) {
             list.get(pos).setOn(false);
             holder.drawable.setImageResource(info.getdrawableOff());

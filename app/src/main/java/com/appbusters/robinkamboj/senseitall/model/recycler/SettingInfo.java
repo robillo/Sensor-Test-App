@@ -1,13 +1,13 @@
 package com.appbusters.robinkamboj.senseitall.model.recycler;
 
-public class TinyInfo {
+public class SettingInfo {
 
     private String name;
     private int drawableOn;
     private int drawableOff;
     private boolean isOn;
 
-    public TinyInfo(String name, int drawableOn, int drawableOff) {
+    public SettingInfo(String name, int drawableOn, int drawableOff) {
         this.name = name;
         this.drawableOn = drawableOn;
         this.drawableOff = drawableOff;
