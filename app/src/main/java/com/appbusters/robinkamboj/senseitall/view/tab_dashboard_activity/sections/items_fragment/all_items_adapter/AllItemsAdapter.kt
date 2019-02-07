@@ -56,7 +56,7 @@ class AllItemsAdapter(private val sensorsList: List<String>?, private val contex
         }
 
         Glide.with(context)
-                .load(AppConstants.imageUrlMap[sensorsList!![position]])
+                .load(AppConstants.toolImageUrlMap[sensorsList!![position]])
                 .into(holder.sensorImageView)
 
         holder.sensorTextView.text = sensorsList[position]
@@ -82,7 +82,7 @@ class AllItemsAdapter(private val sensorsList: List<String>?, private val contex
 
         args.putString(AppConstants.DATA_NAME, sensorName)
         args.putString(AppConstants.RECYCLER_NAME, sensorName)
-        args.putInt(AppConstants.DRAWABLE_ID, AppConstants.imageUrlMap[sensorName]!!)
+        args.putInt(AppConstants.DRAWABLE_ID, AppConstants.toolImageUrlMap[sensorName]!!)
         args.putBoolean(AppConstants.IS_PRESENT, true)
         args.putInt(AppConstants.TYPE, GetItemType(sensorName).itemType)
 

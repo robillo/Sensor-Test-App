@@ -8,6 +8,11 @@
     <string name="permission_denied">Permission denied.</string>
 
     <string name="location_permission_negative">location permission is not given</string>
+    <string name="permissions_not_given">Some permissions are not given.</string>
+    <string name="setting_cannot_change">this setting cannot be changed from here</string>
+   <string name="modify_system_settings">allow \"modify system settings\" for this app under \"advanced\" section</string>
+    <string name="navigate_to_settings">SETTINGS</string>
+
     <string name="enabled">Enabled</string>
     <string name="disabled">Disabled</string>
 

@@ -19,6 +19,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,8 +43,8 @@ import kotlinx.android.synthetic.main.fragment_tools.view.*
  */
 class ToolsFragment : Fragment() {
 
-    private var everydayToolsList: MutableList<ToolsItem>? = null
-    private var imageToolsList: MutableList<ToolsItem>? = null
+    private var everydayToolsList: MutableList<ToolsItem> = ArrayList()
+    private var imageToolsList: MutableList<ToolsItem> = ArrayList()
     lateinit var list: MutableList<SettingInfo>
     private lateinit var quickAdapter: QuickSettingsAdapter
     private lateinit var imageToolsAdapter: ImageToolsAdapter
@@ -301,77 +302,78 @@ class ToolsFragment : Fragment() {
     }
 
     private fun setImageToolsAdapter() {
-        val list : List<String> = imageTools
-        imageToolsList = ArrayList()
-        list.forEach {
-            imageToolsList?.add(ToolsItem(it, imageUrlMap[it]))
+        imageTools.forEach { tool ->
+            imageToolsList.add(ToolsItem(tool, toolImageUrlMap[tool]))
         }
-        imageToolsAdapter = ImageToolsAdapter(imageToolsList, activity)
         parentView.image_tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.VERTICAL,
                 false
         )
-        parentView.image_tools_rv.adapter = imageToolsAdapter
+        parentView.image_tools_rv.adapter = ImageToolsAdapter(imageToolsList, activity)
         parentView.image_tools_rv.onFlingListener = null
-        StartSnapHelper().attachToRecyclerView(parentView.image_tools_rv)
+        attachSnapHelper(parentView.image_tools_rv)
     }
 
     private fun setEverydayToolsAdapter() {
-        val list : List<String> = everydayTools
-        everydayToolsList = ArrayList()
-        list.forEach {
-            everydayToolsList?.add(ToolsItem(it, imageUrlMap[it]))
+        everydayTools.forEach { tool ->
+            everydayToolsList.add(ToolsItem(tool, toolImageUrlMap[tool]))
         }
-        everydayToolsAdapter = ImageToolsAdapter(everydayToolsList, activity)
         parentView.everyday_tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.VERTICAL,
                 false
         )
-        parentView.everyday_tools_rv.adapter = everydayToolsAdapter
+        parentView.everyday_tools_rv.adapter = ImageToolsAdapter(everydayToolsList, activity)
         parentView.everyday_tools_rv.onFlingListener = null
-        StartSnapHelper().attachToRecyclerView(parentView.everyday_tools_rv)
+        attachSnapHelper(parentView.everyday_tools_rv)
     }
 
     private fun setQuickSettingsRecycler() {
-        list = quickSettingsList!!
-        quickAdapter = QuickSettingsAdapter(list, activity, QuickSettingsListener {
-            flipSetting(it)
-        })
-        parentView.quick_settings_rv.layoutManager = LinearLayoutManager(
-                activity,
-                LinearLayoutManager.HORIZONTAL,
-                false
-        )
-        parentView.quick_settings_rv.adapter = quickAdapter
-        parentView.quick_settings_rv.onFlingListener = null
-        StartSnapHelper().attachToRecyclerView(parentView.quick_settings_rv)
+        quickSettingsList?.let { settingsList ->
+            parentView.quick_settings_rv.layoutManager = LinearLayoutManager(
+                    activity,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+            )
+            parentView.quick_settings_rv.adapter = QuickSettingsAdapter(settingsList, activity, QuickSettingsListener {
+                flipSetting(it)
+            })
+            parentView.quick_settings_rv.onFlingListener = null
+            attachSnapHelper(parentView.quick_settings_rv)
+        }
+    }
+
+    private fun attachSnapHelper(recycler: RecyclerView) {
+        StartSnapHelper().attachToRecyclerView(recycler)
     }
 
     private fun checkQuickSettingsStatus() {
-        for(setting in list) {
-            try {
-                checkEachQuickSetting(setting.name)
-            }
-            catch (ignored: Exception) {}
+        quickSettingsList?.let {
+            for(setting in it)
+                    checkEachQuickSetting(setting.name)
         }
     }
 
     private fun checkEachQuickSetting(setting: String) {
         when (setting) {
             BLUETOOTH_QUICK -> updateSettingsAdapterForState(setting, BluetoothAdapter.getDefaultAdapter().isEnabled)
-            LOCATION_QUICK -> updateSettingsAdapterForState(setting, isLocationPermissionGranted())
             AIRPLANE_QUICK -> updateSettingsAdapterForState(setting, checkAirplaneModeSettingState())
             AUTOROTATE_QUICK -> updateSettingsAdapterForState(setting, checkAutoRotateSettingState())
             WIFI_QUICK -> updateSettingsAdapterForState(setting, checkWifiSettingState())
-            BRIGHTNESS_QUICK, VOLUME_QUICK, FLASHLIGHT_QUICK -> {
-            }
             HOTSPOT_QUICK -> {
                 if (isLocationPermissionGranted())
                     updateSettingsAdapterForState(setting, checkHotspotSettingState())
                 else
                     showCoordinatorNegative(getString(R.string.permissions_not_given))
+            }
+            LOCATION_QUICK -> {
+                if(isLocationPermissionGranted())
+                    updateSettingsAdapterForState(setting, checkLocationSettingState())
+                else
+                    showCoordinatorNegative(getString(R.string.permissions_not_given))
+            }
+            BRIGHTNESS_QUICK, VOLUME_QUICK, FLASHLIGHT_QUICK -> {
             }
         }
     }
@@ -421,69 +423,51 @@ class ToolsFragment : Fragment() {
 
     private fun flipBluetoothSetting(turnOn: Boolean) {
 
-        if(BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
-            checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, turnOn)
-            quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
-            return
-        }
+        val isEnabled = BluetoothAdapter.getDefaultAdapter().isEnabled
 
-        if(!BluetoothAdapter.getDefaultAdapter().isEnabled && !turnOn) {
-            checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, turnOn)
-            quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
-            return
-        }
+        if(isEnabled && turnOn) setBluetoothState(true)
 
-        if(!BluetoothAdapter.getDefaultAdapter().isEnabled && turnOn) {
+        else if(!isEnabled && !turnOn) setBluetoothState(false)
+
+        else if(!isEnabled && turnOn) {
             BluetoothAdapter.getDefaultAdapter().enable()
-            checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, turnOn)
-            quickAdapter.updateItemState(BLUETOOTH_QUICK, true)
-            return
+            setBluetoothState(true)
         }
 
-        if(BluetoothAdapter.getDefaultAdapter().isEnabled && !turnOn) {
+        else if(isEnabled && !turnOn) {
             BluetoothAdapter.getDefaultAdapter().disable()
-            checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, turnOn)
-            quickAdapter.updateItemState(BLUETOOTH_QUICK, false)
-            return
+            setBluetoothState(false)
         }
+    }
+
+    private fun setBluetoothState(isOnOff: Boolean) {
+        checkItemStateThenUpdateAdapter(BLUETOOTH_QUICK, isOnOff)
+        quickAdapter.updateItemState(BLUETOOTH_QUICK, isOnOff)
     }
 
     private fun flipWifiSetting(turnOn: Boolean) {
-        val wifiManager =
-                activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val wifiManager = activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
-        //request is to turn on and it is already enabled
-        if(wifiManager.isWifiEnabled && turnOn) {
-            checkItemStateThenUpdateAdapter(WIFI_QUICK, turnOn)
-            quickAdapter.updateItemState(WIFI_QUICK, true)
-            return
-        }
+        val isWifiEnabled = wifiManager.isWifiEnabled
 
-        //request is to turn off and it is already disabled
-        if(!wifiManager.isWifiEnabled && !turnOn) {
-            checkItemStateThenUpdateAdapter(WIFI_QUICK, turnOn)
-            quickAdapter.updateItemState(WIFI_QUICK, false)
-            return
-        }
+        if(isWifiEnabled && turnOn) setWifiState(true)
 
-        //it is turned on but request is to turn off
-        if(wifiManager.isWifiEnabled && !turnOn) {
+        else if(!isWifiEnabled && !turnOn) setWifiState(false)
+
+        else if(isWifiEnabled && !turnOn) {
             wifiManager.isWifiEnabled = false
-            checkItemStateThenUpdateAdapter(WIFI_QUICK, turnOn)
-            quickAdapter.updateItemState(WIFI_QUICK, false)
-            return
+            setWifiState(false)
         }
 
-        if(!wifiManager.isWifiEnabled && turnOn) {
+        else if(!isWifiEnabled && turnOn) {
             wifiManager.isWifiEnabled = true
-            checkItemStateThenUpdateAdapter(WIFI_QUICK, turnOn)
-            quickAdapter.updateItemState(WIFI_QUICK, true)
-            return
+            setWifiState(true)
         }
     }
 
-    private fun flipHotspotSetting(turnOn: Boolean) {
-        showCoordinatorNegative("this setting cannot be changed from here")
+    private fun setWifiState(isOnOff: Boolean) {
+        checkItemStateThenUpdateAdapter(WIFI_QUICK, isOnOff)
+        quickAdapter.updateItemState(WIFI_QUICK, isOnOff)
     }
 
     private fun flipAutorotateSetting(turnOn: Boolean) {
@@ -497,20 +481,23 @@ class ToolsFragment : Fragment() {
             quickAdapter.updateItemState(AUTOROTATE_QUICK, turnOn)
         }
         catch (e: Exception) {
-            showCoordinatorSettings("allow \"modify system settings\" for this app under \"advanced\" section")
+            showCoordinatorSettings(getString(R.string.modify_system_settings))
         }
     }
 
+    private fun flipHotspotSetting(turnOn: Boolean) {
+        showCoordinatorNegative(getString(R.string.setting_cannot_change))
+    }
+
     private fun flipAirplaneModeSetting(turnOn: Boolean) {
-        showCoordinatorNegative("this setting cannot be changed from here")
+        showCoordinatorNegative(getString(R.string.setting_cannot_change))
     }
 
     private fun flipLocationAccessSetting(turnOn: Boolean) {
-        showCoordinatorNegative("this setting cannot be changed from here")
+        showCoordinatorNegative(getString(R.string.setting_cannot_change))
     }
 
     private fun showCoordinatorNegative(coordinatorText: String) {
-
         activity?.let {
             try {
                 val s = Snackbar.make(parentView.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
@@ -526,25 +513,31 @@ class ToolsFragment : Fragment() {
     }
 
     private fun showCoordinatorPositive(coordinatorText: String) {
-        val s = Snackbar.make(parentView.coordinator_tools, coordinatorText, Snackbar.LENGTH_SHORT)
-        val v = s.view
-        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.primary_new))
-        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
-        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
-        t.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        s.show()
+        activity?.let {
+            getSnackBar(
+                    it, coordinatorText, R.color.primary_new, R.color.white, View.TEXT_ALIGNMENT_CENTER
+            ).show()
+        }
     }
 
     private fun showCoordinatorSettings(coordinatorText: String) {
-        val s = Snackbar.make(parentView.coordinator_tools, coordinatorText, Snackbar.LENGTH_LONG)
-        val v = s.view
-        v.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.colorBlackShade))
-        val t = v.findViewById<TextView>(android.support.design.R.id.snackbar_text)
-        t.setTextColor(ContextCompat.getColor(activity!!, R.color.white))
-        s.setAction("SETTINGS") {
-            startActivityForResult(Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0)
+        activity?.let {
+            getSnackBar(
+                    it, coordinatorText, R.color.colorBlackShade, R.color.white, View.TEXT_ALIGNMENT_VIEW_START
+            ).setAction(getString(R.string.navigate_to_settings)) {
+                startActivityForResult(Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0)
+            }.show()
         }
-        s.show()
+    }
+
+    private fun getSnackBar(context: Context, text: String, backColor: Int, textColor: Int, textAlignment: Int): Snackbar {
+        val snackBar = Snackbar.make(parentView.coordinator_tools, text, Snackbar.LENGTH_LONG)
+        val view = snackBar.view
+        view.setBackgroundColor(ContextCompat.getColor(context, backColor))
+        val textView = view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        textView.setTextColor(ContextCompat.getColor(context, textColor))
+        textView.textAlignment = textAlignment
+        return snackBar
     }
 
     override fun onStop() {

@@ -71,7 +71,7 @@ import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_FEAT
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_DEVICE;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_SENSORS;
 import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.TYPE_TRENDING;
-import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.imageUrlMap;
+import static com.appbusters.robinkamboj.senseitall.utils.AppConstants.toolImageUrlMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -454,7 +454,7 @@ public class ListFragment extends Fragment implements ListFragmentInterface,
         for(int i=0; i<dataNames.size(); i++) {
             list.add(new GenericData(
                     dataNames.get(i),
-                    imageUrlMap.get(dataNames.get(i)),
+                    toolImageUrlMap.get(dataNames.get(i)),
                     dataPresent[i],
                     type));
         }

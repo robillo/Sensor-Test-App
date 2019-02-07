@@ -96,7 +96,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
     override fun setToolsAdapter() {
         val list : List<String> = AppConstants.popTools
         list.forEach {
-            pop_tools_list.add(ToolsItem(it, AppConstants.imageUrlMap.get(it)))
+            pop_tools_list.add(ToolsItem(it, AppConstants.toolImageUrlMap.get(it)))
         }
         popToolsAdapter = ImageToolsAdapter(pop_tools_list, activity, 1)
         lv.tools_rv.layoutManager = LinearLayoutManager(
@@ -118,7 +118,7 @@ class DiscoverFragment : Fragment(), DiscoverInterface, CompoundButton.OnChecked
                 MULTI_TOUCH, SCREEN, SOUND, FINGERPRINT, BATTERY, COMPASS -> type = 2
                 LABEL_GENERATOR, VIRTUAL_REALITY -> type = 4
             }
-            pop_tests_list.add(Category(AppConstants.imageUrlMap.get(it)!!, it, "", type))
+            pop_tests_list.add(Category(AppConstants.toolImageUrlMap.get(it)!!, it, "", type))
         }
         val adapter = PopTestsAdapter(pop_tests_list, activity)
         lv.categories_rv.layoutManager = LinearLayoutManager(

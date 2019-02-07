@@ -63,7 +63,7 @@ class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Conte
                     )
             )
             Glide.with(context)
-                    .load(AppConstants.imageUrlMap[sensorsList[position]])
+                    .load(AppConstants.toolImageUrlMap[sensorsList[position]])
                     .into(holder.sensorImageView)
 
             holder.itemView.setOnClickListener {
@@ -78,7 +78,7 @@ class FeaturedItemsAdapter(sensorsList: List<String>, private val context: Conte
     private fun startTest(sensorName: String, context: Context) {
         val intentData = GenericData(
                 sensorName,
-                AppConstants.imageUrlMap.get(sensorName)!!,
+                AppConstants.toolImageUrlMap.get(sensorName)!!,
                 isPresentHelper.isPresent(sensorName),
                 GetItemType(sensorName).itemType
         )
