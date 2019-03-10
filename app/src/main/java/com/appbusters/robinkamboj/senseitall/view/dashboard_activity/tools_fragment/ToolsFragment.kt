@@ -47,9 +47,10 @@ class ToolsFragment : Fragment() {
     private var imageToolsList: MutableList<ToolsItem> = ArrayList()
     lateinit var list: MutableList<SettingInfo>
     private lateinit var quickAdapter: QuickSettingsAdapter
-    private lateinit var imageToolsAdapter: ImageToolsAdapter
-    private lateinit var everydayToolsAdapter: ImageToolsAdapter
     lateinit var parentView : View
+
+    private val imageToolsCount = imageTools.size
+    private val everydayToolsCount = everydayTools.size
 
     private var quickSettingsList: MutableList<SettingInfo>? = null
     private var networkCallback: ConnectivityManager.NetworkCallback? = null
@@ -302,9 +303,13 @@ class ToolsFragment : Fragment() {
     }
 
     private fun setImageToolsAdapter() {
-        imageTools.forEach { tool ->
-            imageToolsList.add(ToolsItem(tool, toolImageUrlMap[tool]))
+
+        if(imageToolsList.size < imageToolsCount) {
+            imageTools.forEach {
+                tool -> imageToolsList.add(ToolsItem(tool, toolImageUrlMap[tool]))
+            }
         }
+
         parentView.image_tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.VERTICAL,
@@ -316,9 +321,17 @@ class ToolsFragment : Fragment() {
     }
 
     private fun setEverydayToolsAdapter() {
-        everydayTools.forEach { tool ->
-            everydayToolsList.add(ToolsItem(tool, toolImageUrlMap[tool]))
+
+        if(everydayToolsList.size < everydayToolsCount) {
+            everydayTools.forEach {
+                tool -> everydayToolsList.add(ToolsItem(tool, toolImageUrlMap[tool]))
+            }
         }
+
+        parentView.everyday_tools_rv.adapter?.let {
+            return
+        }
+
         parentView.everyday_tools_rv.layoutManager = LinearLayoutManager(
                 activity,
                 LinearLayoutManager.VERTICAL,
@@ -387,8 +400,12 @@ class ToolsFragment : Fragment() {
         val wifiManager = activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager?
         val method = wifiManager?.javaClass?.getDeclaredMethod("getWifiApState")
         method?.isAccessible = true
-        val actualState = method?.invoke(wifiManager, null) as Int
-        return actualState%10 == WifiManager.WIFI_STATE_ENABLED
+        return try {
+            val actualState = method?.invoke(wifiManager, null) as Int
+            actualState % 10 == WifiManager.WIFI_STATE_ENABLED
+        } catch (e: java.lang.Exception) {
+            false
+        }
     }
 
     private fun checkWifiSettingState(): Boolean {

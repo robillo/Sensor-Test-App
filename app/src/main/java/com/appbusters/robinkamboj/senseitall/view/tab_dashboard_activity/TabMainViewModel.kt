@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class TabMainViewModel @Inject constructor(): ViewModel() {
 
-    private val _selectedTabLiveData: MutableLiveData<Int> = MutableLiveData<Int>()
+    private val _selectedTabLiveData: MutableLiveData<Int> = MutableLiveData()
 
     val selectedTabLiveData: LiveData<Int>
         get() = _selectedTabLiveData
