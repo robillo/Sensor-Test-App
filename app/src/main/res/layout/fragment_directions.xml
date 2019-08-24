@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.test_activity.directions.directions_fragment.DirectionsFragment"
+    tools:context=".ui.test_activity.directions.directions_fragment.DirectionsFragment"
     android:background="@color/white"
     android:orientation="vertical">
 

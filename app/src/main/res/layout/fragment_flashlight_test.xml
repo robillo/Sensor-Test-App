@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".view.test_activity.tests.flashlight_test_fragment.FlashlightTestFragment">
+    tools:context=".ui.test_activity.tests.flashlight_test_fragment.FlashlightTestFragment">
 
     <FrameLayout
         android:layout_width="match_parent"

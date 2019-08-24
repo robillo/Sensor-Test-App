@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
-import com.appbusters.robinkamboj.senseitall.view.test_activity.tests.fingerprint_test_fragment.FingerprintTestFragment;
+import com.appbusters.robinkamboj.senseitall.ui.test_activity.tests.fingerprint_test_fragment.FingerprintTestFragment;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {

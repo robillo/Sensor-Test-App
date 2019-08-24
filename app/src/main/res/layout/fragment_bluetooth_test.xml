@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.test_activity.tests.bluetooth_test_fragment.BluetoothTestFragment">
+    tools:context=".ui.test_activity.tests.bluetooth_test_fragment.BluetoothTestFragment">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

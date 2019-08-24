@@ -144,19 +144,19 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".view.main_activity.MainActivity"
+            android:name=".ui.main_activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.detail_activity.DetailActivity"
+            android:name=".ui.detail_activity.DetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.test_activity.TestActivity"
+            android:name=".ui.test_activity.TestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.learn_more_activity.LearnMoreActivity"
+            android:name=".ui.learn_more_activity.LearnMoreActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.dashboard_activity.DashboardActivity"
+            android:name=".ui.dashboard_activity.DashboardActivity"
             android:screenOrientation="portrait">
 
             <!-- <intent-filter> -->
@@ -168,11 +168,11 @@
         </activity>
 
         <activity
-            android:name=".view.tool_activity.ToolActivity"
+            android:name=".ui.tool_activity.ToolActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.tab_dashboard_activity.TabMainActivity">
+            android:name=".ui.tab_dashboard_activity.TabMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -180,7 +180,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.permission_request_activity.PermissionRequestActivity"/>
+        <activity android:name=".ui.permission_request_activity.PermissionRequestActivity"/>
 
     </application>
 

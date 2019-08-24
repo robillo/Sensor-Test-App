@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.dashboard_activity.profile_fragment.ProfileFragment">
+    tools:context=".ui.dashboard_activity.profile_fragment.ProfileFragment">
 
     <!-- TODO: Update blank fragment parentView -->
     <TextView

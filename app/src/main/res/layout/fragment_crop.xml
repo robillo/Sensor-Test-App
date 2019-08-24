@@ -5,14 +5,14 @@
     android:id="@+id/coordinator"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.tool_activity.image_tools.crop.CropFragment">
+    tools:context=".ui.tool_activity.image_tools.crop.CropFragment">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".view.tool_activity.image_tools.crop.CropFragment">
+        tools:context=".ui.tool_activity.image_tools.crop.CropFragment">
 
         <FrameLayout
             android:layout_width="match_parent"

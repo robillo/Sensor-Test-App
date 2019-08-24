@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".view.tool_activity.everyday_tools.sound_level.SoundLevelFragment">
+    tools:context=".ui.tool_activity.everyday_tools.sound_level.SoundLevelFragment">
 
     <com.github.anastr.speedviewlib.PointerSpeedometer
         android:id="@+id/pointer_speedometer"

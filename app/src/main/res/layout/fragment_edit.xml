@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.tool_activity.image_tools.edit.EditFragment">
+    tools:context=".ui.tool_activity.image_tools.edit.EditFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

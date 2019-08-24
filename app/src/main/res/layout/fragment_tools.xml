@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
-    tools:context=".view.dashboard_activity.tools_fragment.ToolsFragment"
+    tools:context=".ui.dashboard_activity.tools_fragment.ToolsFragment"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"

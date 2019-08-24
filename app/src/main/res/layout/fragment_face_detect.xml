@@ -5,7 +5,7 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".view.detail_activity.software.face_detect.FaceDetectFragment">
+    tools:context=".ui.detail_activity.software.face_detect.FaceDetectFragment">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

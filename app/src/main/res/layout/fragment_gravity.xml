@@ -5,7 +5,7 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".view.detail_activity.sensors.gravity_sensor.GravityFragment">
+    tools:context=".ui.detail_activity.sensors.gravity_sensor.GravityFragment">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

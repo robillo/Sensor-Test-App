@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.test_activity.tests.barometer_test_fragment.BarometerTestFragment">
+    tools:context=".ui.test_activity.tests.barometer_test_fragment.BarometerTestFragment">
 
     <!-- TODO: Update blank fragment parentView -->
     <TextView

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/coordinatorLayout"
     android:background="@color/colorIntensity8"
-    tools:context=".view.detail_activity.DetailActivity">
+    tools:context=".ui.detail_activity.DetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

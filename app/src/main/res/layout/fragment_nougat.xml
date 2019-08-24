@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.detail_activity.android.version_nougat.NougatFragment">
+    tools:context=".ui.detail_activity.android.version_nougat.NougatFragment">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLightLight"
-    tools:context=".view.test_activity.tests.compass_test_fragment.CompassTestFragment">
+    tools:context=".ui.test_activity.tests.compass_test_fragment.CompassTestFragment">
 
     <ImageView
         android:id="@+id/compass_dial"

@@ -8,10 +8,6 @@ import com.appbusters.robinkamboj.senseitall.di.module.ContextModule
 import io.github.inflationx.viewpump.ViewPump
 import javax.inject.Inject
 
-/**
- * Created by robinkamboj on 25/01/18.
- */
-
 class SensorApplication : Application() {
 
     lateinit var viewPump: ViewPump

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".view.test_activity.tests.headphone_jack_test_fragment.JackTestFragment">
+    tools:context=".ui.test_activity.tests.headphone_jack_test_fragment.JackTestFragment">
 
     <FrameLayout
         android:layout_width="match_parent"

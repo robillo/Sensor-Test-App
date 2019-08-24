@@ -2,7 +2,7 @@ package com.appbusters.robinkamboj.senseitall.di.component.activity_component.ma
 
 import com.appbusters.robinkamboj.senseitall.di.component.SiaApplicationComponent
 import com.appbusters.robinkamboj.senseitall.di.scope.PerFragmentScope
-import com.appbusters.robinkamboj.senseitall.view.main_activity.MainActivity
+import com.appbusters.robinkamboj.senseitall.ui.main_activity.MainActivity
 import dagger.Component
 
 @PerFragmentScope

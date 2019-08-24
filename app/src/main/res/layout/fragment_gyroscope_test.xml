@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.test_activity.tests.gyroscope_test.GyroscopeTestFragment">
+    tools:context=".ui.test_activity.tests.gyroscope_test.GyroscopeTestFragment">
 
     <include layout="@layout/graph_test_common_layout"/>
 

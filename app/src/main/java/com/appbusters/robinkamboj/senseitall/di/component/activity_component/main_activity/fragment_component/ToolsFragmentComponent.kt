@@ -4,7 +4,7 @@ import com.appbusters.robinkamboj.senseitall.di.component.SiaApplicationComponen
 import com.appbusters.robinkamboj.senseitall.di.module.ContextModule
 import com.appbusters.robinkamboj.senseitall.di.module.SharedPreferencesModule
 import com.appbusters.robinkamboj.senseitall.di.scope.PerFragmentScope
-import com.appbusters.robinkamboj.senseitall.view.dashboard_activity.tools_fragment.ToolsFragment
+import com.appbusters.robinkamboj.senseitall.ui.dashboard_activity.tools_fragment.ToolsFragment
 import dagger.Component
 
 @PerFragmentScope

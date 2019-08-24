@@ -47,7 +47,7 @@
             tools:text="-1,211.52"
             />
 
-        <com.appbusters.robinkamboj.senseitall.view.tool_activity.everyday_tools.calculator.calc.CustomCalcEraseButton
+        <com.appbusters.robinkamboj.senseitall.ui.tool_activity.everyday_tools.calculator.calc.CustomCalcEraseButton
             android:id="@+id/calc_btn_erase"
             style="?attr/calcEraseBtnStyle"
             android:layout_width="wrap_content"

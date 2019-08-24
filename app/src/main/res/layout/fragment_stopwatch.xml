@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.tool_activity.everyday_tools.stop_watch.StopwatchFragment">
+    tools:context=".ui.tool_activity.everyday_tools.stop_watch.StopwatchFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
